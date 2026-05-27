@@ -44,6 +44,7 @@ Skills are Claude Code prompts stored as `SKILL.md` files. Load one into a sessi
 | `email-campaign` | Email campaign copy (welcome, reactivation, nurture sequences) |
 | `mosic-blog-post` | Blog post writer for MOSIC (osteopathy clinic, Melbourne) |
 | `mosic-gmb-post` | Google Business Profile post writer for MOSIC |
+| `frontend-design` | Builds distinctive, production-grade frontend UI — avoids generic AI aesthetics, forces bold typography/colour/layout choices |
 
 The `_skills/SKILL.md` file covers how to create and iterate on new skills.
 
