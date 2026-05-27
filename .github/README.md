@@ -64,9 +64,43 @@ Data sources: GA4, Cliniko, Google Ads (pending dev token).
 
 ---
 
-## Client folders
+## Clients
 
-Each client has:
+### MOSIC
+Osteopathy clinic. Three locations: Melbourne CBD (Bourke St), Essendon, Telehealth. 8 practitioners, ~870 appointments/month, ~12k patient base.
+
+| Channel | Status |
+|---|---|
+| Google Ads | Active |
+| SEO | Active |
+| Email | Via Cliniko + Cliniqapps |
+
+Data sources: Cliniko (bookings/patients), GA4, Google Ads. Monthly report pipeline is live — see `_skills/monthly-report/`.
+
+---
+
+### Brighten Home Loans
+Non-bank mortgage lender. National (HQ Sydney). ~200 staff, ~$200M monthly settlements. Products: refinancing, construction loans, bridging loans. Target: creditworthy borrowers who don't fit Big 4 criteria.
+
+| Channel | Status |
+|---|---|
+| Google Ads | Active — taking over |
+| SEO | Active — taking over |
+| Meta Ads | Setting up |
+| Webinars | Active — repurposing for content |
+
+Compliance: ASIC NCCP Act, ACL required on all ads, comparison rate disclosures mandatory. See `clients/BrightenHomeLoans/CLAUDE.md` for full compliance rules.
+
+---
+
+### Gloss Hair Studio
+Early stage. Content only so far.
+
+---
+
+## Client folder structure
+
+Each client follows the same layout:
 
 ```
 clients/<name>/
