@@ -1,0 +1,26 @@
+# Secrets & credentials
+.env
+.env.*
+.env-secrets/
+!.env.example
+
+# Claude local settings (may contain API keys)
+settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Office temp files
+~$*
+
+# Google Docs shortcuts (local references only, not content)
+*.gdoc
+*.gsheet
+*.gslides

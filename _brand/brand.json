@@ -1,0 +1,36 @@
+{
+  "name": "Locate Digital",
+  "domain": "locatedigital.io",
+  "tagline": "We don't just market — we locate growth.",
+  "colours": {
+    "primary":   "#007ae8",
+    "secondary": "#75dfee",
+    "accent":    "#ff5900",
+    "ink":       "#0d0d0d",
+    "muted":     "#63666b",
+    "line":      "#e6e6e6",
+    "bg":        "#ffffff",
+    "bg_soft":   "#fbfcff",
+    "row_alt":   "#f4f8fd"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Plus Jakarta Sans",
+      "weights": [600, 700, 800],
+      "google_url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap",
+      "fallback": "system-ui, -apple-system, Segoe UI, sans-serif"
+    },
+    "body": {
+      "family": "Poppins",
+      "weights": [400, 500, 600],
+      "google_url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap",
+      "fallback": "system-ui, -apple-system, Segoe UI, sans-serif"
+    }
+  },
+  "logo": {
+    "body":         "Logo flat white/Transparent Logo.png",
+    "inverse":      "Logo flat blue/Transparent Logo.png",
+    "stacked_svg":  "Logo stacked white/Transparent Logo.svg"
+  },
+  "footer": "Locate Digital · locatedigital.io · sam@locatedigital.io"
+}

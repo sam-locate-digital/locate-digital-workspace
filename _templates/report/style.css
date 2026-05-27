@@ -1,0 +1,393 @@
+/* Locate Digital — branded report stylesheet.
+   {{tokens}} are substituted by generate.py at render time. */
+
+:root {
+  --primary:   {{primary}};
+  --primary-2: #0084ff;
+  --secondary: {{secondary}};
+  --accent:    {{accent}};
+  --ink:       {{ink}};
+  --muted:     {{muted}};
+  --line:      {{line}};
+  --bg:        {{bg}};
+  --bg-soft:   {{bg_soft}};
+  --row-alt:   {{row_alt}};
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "{{body_font}}", {{body_fallback}};
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- COVER BAND ---------- */
+.cover-band {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  padding: 44px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cover-band::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 480px;
+  height: 480px;
+  background: var(--secondary);
+  opacity: 0.18;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+.cover-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.cover-band .logo {
+  height: 64px;
+  width: auto;
+  display: block;
+  background: #fff;
+  padding: 14px 22px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.cover-band .meta {
+  text-align: right;
+  font-family: "{{heading_font}}", {{heading_fallback}};
+  color: #fff;
+}
+.cover-band .meta .kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.cover-band .meta .client {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.cover-band .meta .period {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-top: 2px;
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 44px 56px 56px;
+}
+
+/* ---------- HEADINGS ---------- */
+h1 { display: none; }
+h2, h3, h4 {
+  font-family: "{{heading_font}}", {{heading_fallback}};
+  color: var(--ink);
+  margin: 0;
+}
+h2 {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--primary);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+h2:first-of-type { margin-top: 0; }
+h3 {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin: 22px 0 12px;
+}
+p { margin: 0 0 12px; }
+hr { display: none; }
+
+/* ---------- KPI CARDS ---------- */
+ul.kpi {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+ul.kpi li {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+}
+ul.kpi li::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  bottom: -24px;
+  width: 90px;
+  height: 90px;
+  background: var(--secondary);
+  opacity: 0.22;
+  border-radius: 50%;
+  filter: blur(8px);
+}
+ul.kpi li strong {
+  display: block;
+  color: #fff;
+  font-family: "{{heading_font}}", {{heading_fallback}};
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+ul.kpi li {
+  font-size: 14px;
+  color: rgba(255,255,255,0.92);
+  font-weight: 500;
+}
+ul.kpi li .up { color: var(--secondary); font-weight: 700; }
+ul.kpi li .down { color: rgba(255,255,255,0.78); font-weight: 600; }
+
+/* Plain (non-KPI) bullet lists */
+ul:not(.kpi) {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+ul:not(.kpi) li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+ul:not(.kpi) li:last-child { border-bottom: none; }
+ul:not(.kpi) li strong { color: var(--primary); font-weight: 600; }
+
+/* ---------- TABLES ---------- */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line);
+}
+thead th {
+  background: var(--primary);
+  color: #fff;
+  font-family: "{{heading_font}}", {{heading_fallback}};
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 12px 14px;
+  border: none;
+  text-align: left;
+}
+thead th:not(:first-child) { text-align: right; }
+tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+tbody td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+tbody tr:nth-child(even) td { background: var(--row-alt); }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- BAR CHART (replaces 2-col tables) ---------- */
+.chart {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.chart .row {
+  display: grid;
+  grid-template-columns: 240px 1fr 80px;
+  gap: 14px;
+  align-items: center;
+  font-size: 14px;
+}
+.chart .row .label {
+  color: var(--ink);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chart .row .label code {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 12px;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+}
+.chart .row .bar {
+  height: 22px;
+  background: var(--row-alt);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.chart .row .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 120%);
+  border-radius: 5px;
+  min-width: 2px;
+}
+.chart .row .value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: "{{heading_font}}", {{heading_fallback}};
+}
+
+/* ---------- AUTOMATION GRID (2-column compact tables) ---------- */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 22px;
+  margin: 0 0 18px;
+}
+.auto-grid .auto-card { min-width: 0; }
+.auto-grid .auto-card h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+}
+.auto-grid table { font-size: 13px; margin-bottom: 0; }
+.auto-grid thead th { padding: 9px 10px; font-size: 10px; }
+.auto-grid tbody td { padding: 8px 10px; }
+.auto-grid .auto-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+}
+
+/* ---------- STACKED BAR (booking outcomes) ---------- */
+.stacked-bar { margin: 0 0 22px; }
+.stacked-bar .track {
+  display: flex;
+  height: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--row-alt);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.stacked-bar .seg { height: 100%; }
+.stacked-bar .legend {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 10px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.stacked-bar .leg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.stacked-bar .leg-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.stacked-bar .leg-item strong {
+  color: var(--ink);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* ---------- INLINE ---------- */
+code {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 12.5px;
+  background: var(--row-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--muted);
+}
+em { color: var(--muted); font-style: normal; font-size: 13px; }
+strong { font-weight: 600; }
+
+/* Deltas (used in metric tables and KPI cards) */
+.up   { color: var(--primary); font-weight: 700; }
+.down { color: var(--muted);   font-weight: 500; }
+.flat { color: var(--muted);   font-weight: 500; }
+
+/* ---------- FOOTER ---------- */
+.page-footer {
+  background: var(--row-alt);
+  border-top: 3px solid var(--primary);
+  padding: 18px 0;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 32px;
+}
+.page-footer .inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-mark { color: var(--primary); font-weight: 700; }
+
+/* ---------- PRINT ---------- */
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { font-size: 11pt; }
+  .cover-band { padding: 28px 0; }
+  .cover-inner, .page-footer .inner { padding: 0 14mm; }
+  .cover-band .logo { height: 64px; }
+  .cover-band .meta .client { font-size: 24px; }
+  .page { max-width: none; padding: 24px 14mm 24px; }
+  h2 { page-break-after: avoid; }
+  table, ul.kpi, .chart, .stacked-bar { page-break-inside: avoid; }
+  .cover-band, .page-footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  thead th, ul.kpi li, .stacked-bar .seg, .chart .fill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOSIC — March + April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --primary:   #007ae8;
+  --primary-2: #0084ff;
+  --secondary: #75dfee;
+  --accent:    #ff5900;
+  --ink:       #0d0d0d;
+  --muted:     #63666b;
+  --line:      #e6e6e6;
+  --bg:        #ffffff;
+  --bg-soft:   #fbfcff;
+  --row-alt:   #f4f8fd;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- COVER ---------- */
+.cover-band {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  padding: 44px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cover-band::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 480px; height: 480px;
+  background: var(--secondary);
+  opacity: 0.18;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+.cover-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.cover-brand {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.cover-meta { text-align: right; font-family: "Plus Jakarta Sans", sans-serif; }
+.cover-meta .kicker {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.6px;
+  text-transform: uppercase; color: rgba(255,255,255,0.75);
+}
+.cover-meta .client {
+  font-size: 28px; font-weight: 800; letter-spacing: -0.5px;
+  line-height: 1.1; color: #fff; margin-top: 4px;
+}
+.cover-meta .period {
+  font-size: 16px; font-weight: 600;
+  color: var(--secondary); margin-top: 4px;
+}
+
+/* ---------- PAGE ---------- */
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 56px 64px;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1.6px;
+  color: var(--primary);
+  margin: 48px 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary);
+}
+h2:first-of-type { margin-top: 0; }
+h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  color: var(--muted);
+  margin: 24px 0 10px;
+}
+p { margin: 0 0 12px; color: var(--ink); }
+
+/* ---------- KPI CARDS ---------- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.kpi-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::after {
+  content: "";
+  position: absolute;
+  right: -24px; bottom: -24px;
+  width: 90px; height: 90px;
+  background: var(--secondary);
+  opacity: 0.22;
+  border-radius: 50%;
+  filter: blur(8px);
+}
+.kpi-card .num {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 36px; font-weight: 800; letter-spacing: -1px;
+  line-height: 1; margin-bottom: 6px;
+}
+.kpi-card .label {
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.88);
+}
+.kpi-card .delta {
+  display: block; margin-top: 5px;
+  font-size: 12px; font-weight: 600;
+}
+.kpi-card .delta.up   { color: var(--secondary); }
+.kpi-card .delta.down { color: rgba(255,255,255,0.65); }
+.kpi-card .delta.neutral { color: rgba(255,255,255,0.65); }
+
+/* ---------- HERO STAT ---------- */
+.hero-stat {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  border-radius: 12px;
+  padding: 32px 36px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+  max-width: 480px;
+}
+.hero-stat::before {
+  content: "";
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 140px; height: 140px;
+  background: var(--secondary);
+  opacity: 0.25; border-radius: 50%;
+}
+.hero-stat::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; left: 40px;
+  width: 80px; height: 80px;
+  background: var(--accent);
+  opacity: 0.18; border-radius: 50%;
+}
+.hero-stat .eyebrow {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.6px;
+  color: var(--secondary); margin-bottom: 4px;
+  position: relative; z-index: 1;
+}
+.hero-stat .big-num {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 72px; font-weight: 800; letter-spacing: -3px;
+  line-height: 1; color: #fff;
+  position: relative; z-index: 1;
+}
+.hero-stat .caption {
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.82);
+  margin-top: 8px;
+  position: relative; z-index: 1;
+  line-height: 1.4;
+}
+
+/* ---------- MANUAL FLAG ---------- */
+.manual-flag {
+  background: #fff8f3;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px; font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.manual-flag span {
+  font-weight: 400; color: var(--muted); margin-left: 8px;
+}
+
+/* ---------- TABLES ---------- */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--line);
+}
+thead th {
+  background: var(--primary);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  padding: 12px 14px;
+  text-align: left;
+}
+thead th:not(:first-child) { text-align: right; }
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+tbody td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+tbody tr:nth-child(even) td { background: var(--row-alt); }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- HORIZONTAL BAR CHART ---------- */
+.hbar { display: grid; gap: 7px; margin: 0 0 18px; }
+.hbar .row {
+  display: grid;
+  grid-template-columns: 220px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}
+.hbar .row .lbl {
+  color: var(--ink); font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hbar .row .lbl code {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 11.5px; background: transparent; color: var(--muted);
+}
+.hbar .row .bar {
+  height: 20px;
+  background: var(--row-alt);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.hbar .row .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 130%);
+  border-radius: 5px;
+  min-width: 2px;
+}
+.hbar .row .val {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---------- CANVAS CHARTS ---------- */
+.chart-wrap {
+  position: relative;
+  margin: 0 0 18px;
+}
+.chart-wrap canvas { width: 100% !important; }
+
+/* ---------- TWO-COL LAYOUT ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ---------- OVERVIEW LIST ---------- */
+.overview-bullets {
+  list-style: none;
+  padding: 0; margin: 0 0 12px;
+}
+.overview-bullets li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 14px;
+}
+.overview-bullets li:last-child { border-bottom: none; }
+.up   { color: var(--primary); font-weight: 700; }
+.down { color: var(--muted);   font-weight: 600; }
+
+/* ---------- EXEC SUMMARY NARRATIVE ---------- */
+.narrative {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 14px; line-height: 1.6;
+}
+
+/* ---------- FOOTER ---------- */
+.page-footer {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+  margin-top: 48px;
+}
+.page-footer .inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+}
+.brand-mark {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  color: var(--primary);
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover-band">
+  <div class="cover-inner">
+    <div class="cover-brand">Locate Digital</div>
+    <div class="cover-meta">
+      <div class="kicker">Monthly Performance Report</div>
+      <div class="client">Melbourne Osteopathy<br>Sports Injury Centre</div>
+      <div class="period">March + April 2026</div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+<!-- 01 OVERVIEW -->
+<h2>01 Overview — Executive Summary</h2>
+<div class="narrative">
+  Appointments held across March and April totalled 1,598 — down 5.4% on the same two months last year (1,689). The dip is largely explained by the soft January–February leading into this period; April alone recovered strongly to 871, one of the highest months on record. New patients grew year-on-year to 95 (vs 89 last year, +6.7%), a positive signal on acquisition. Website traffic was essentially flat at 2,579 AUS visitors (vs 2,574 prior year), with organic search holding steady at an average of 776 sessions per month across the window.
+</div>
+<ul class="overview-bullets">
+  <li>Bookings: 1,598 across Mar + Apr &nbsp;<span class="down">▼ 5.4% YoY</span> &nbsp;vs 1,689 prior year</li>
+  <li>New patients: 95 &nbsp;<span class="up">▲ 6.7% YoY</span> &nbsp;vs 89 prior year</li>
+  <li>Website visitors (AUS): 2,579 &nbsp;<span class="up">▲ 0.2% YoY</span> &nbsp;vs 2,574 prior year</li>
+  <li>Action this period: <span style="color:var(--muted);font-style:italic">⚠ Enter manually before sending</span></li>
+</ul>
+
+<!-- 02 SNAPSHOT -->
+<h2>02 Snapshot — Period Summary</h2>
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <span class="num">2,579</span>
+    <span class="label">Website visitors (AUS)</span>
+    <span class="delta up">▲ 0.2% YoY &nbsp;·&nbsp; vs 2,574 prior year</span>
+  </div>
+  <div class="kpi-card">
+    <span class="num">1,598</span>
+    <span class="label">Appointments held</span>
+    <span class="delta down">▼ 5.4% YoY &nbsp;·&nbsp; vs 1,689 prior year</span>
+  </div>
+  <div class="kpi-card">
+    <span class="num">95</span>
+    <span class="label">Total new patients</span>
+    <span class="delta up">▲ 6.7% YoY &nbsp;·&nbsp; vs 89 prior year</span>
+  </div>
+  <div class="kpi-card">
+    <span class="num">4</span>
+    <span class="label">New patients — Google (Paid Search)</span>
+    <span class="delta neutral">GA4 appointment_bookings · Paid Search · Mar + Apr combined</span>
+  </div>
+</div>
+
+<!-- 03 CLINIKO — APPOINTMENTS HELD -->
+<h2>03 Cliniko — Appointments Held</h2>
+<h3>12-month trailing · current period highlighted</h3>
+<div class="chart-wrap">
+  <canvas id="chart-appts" height="200"></canvas>
+</div>
+
+<!-- 03b CLINIKO — BOOKING PAGE -->
+<h2>03b Cliniko — Entered the Cliniko Booking Page</h2>
+<div class="hero-stat">
+  <div class="eyebrow">Cliniko Booking Page Entries</div>
+  <div class="big-num">742</div>
+  <div class="caption">people entered the Cliniko booking page<br>Mar + Apr 2026 &nbsp;·&nbsp; AUS only &nbsp;·&nbsp; Source: GA4 Key Events</div>
+</div>
+
+<!-- 04 GOOGLE ADS — PHONE CALLS -->
+<h2>04 Google Ads — Phone Calls</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Pull from Google Ads UI — phone call conversions are not queryable at this account level via the API (no call_view segment). Log in to Google Ads → Campaigns → call conversion column.</span></div>
+
+<!-- 05 WEBSITE TRAFFIC -->
+<h2>05 Website — Traffic (AUS Only)</h2>
+<h3>Total visitors (AUS) · 12-month trailing</h3>
+<div class="chart-wrap">
+  <canvas id="chart-traffic" height="200"></canvas>
+</div>
+<h3>Organic search sessions · 12-month trailing</h3>
+<div class="chart-wrap">
+  <canvas id="chart-organic" height="160"></canvas>
+</div>
+
+<!-- 06 CONTENT — TOP 20 PAGES -->
+<h2>06 Content — Most Viewed Pages</h2>
+<h3>Top 20 pages by total views · Mar + Apr 2026 · AUS only · Source: GA4</h3>
+<div class="hbar" id="top-pages-chart"></div>
+
+<!-- 07 NEW BOOKINGS — NEW PATIENTS -->
+<h2>07 New Bookings — Total New Patients</h2>
+<h3>12-month trailing · current period highlighted</h3>
+<div class="chart-wrap">
+  <canvas id="chart-new-patients" height="200"></canvas>
+</div>
+
+<!-- 07b LOCATIONS -->
+<h2>07b Locations — Appointments by Location</h2>
+<div class="two-col">
+  <div>
+    <h3>MOSIC – Bourke St</h3>
+    <div class="chart-wrap">
+      <canvas id="chart-bourke" height="220"></canvas>
+    </div>
+  </div>
+  <div>
+    <h3>MOSIC – Essendon</h3>
+    <div class="chart-wrap">
+      <canvas id="chart-essendon" height="220"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- 07c ATTRIBUTION -->
+<h2>07c Attribution — Bookings by Digital Source</h2>
+<h3>GA4 key event: appointment_bookings · by sessionDefaultChannelGroup · 12-month trailing</h3>
+<div class="chart-wrap">
+  <canvas id="chart-attribution" height="220"></canvas>
+</div>
+<p style="font-size:12px;color:var(--muted);margin-top:-8px;">Note: Direct channel (~96%) likely reflects missing UTM tagging on Google Ads campaigns. When UTMs are applied, Paid Search numbers should grow. Direct = untagged or returning-visitor sessions.</p>
+
+<!-- 08 AUTOMATIONS -->
+<h2>08 Automations — Cliniqapps Email Automations</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Cliniqapps has no public API. Pull 4-month rolling table from the Cliniqapps dashboard: DNA Rebooker, Cancellation Rebooker, Reactivation 3–6mo, 6–12mo, 12mo+.</span></div>
+
+<!-- 09 BROADCAST -->
+<h2>09 Broadcast — Cliniqapps Newsletter Stats</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Pull from Cliniqapps dashboard: 12-month trailing sends / open rate / click rate, split by "with appointment" vs "without appointment".</span></div>
+
+<!-- 10 ACTIONED ITEMS -->
+<h2>10 Actioned — Items This Period</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Enter website development work and other items completed this period.</span></div>
+
+<!-- 10 NEXT PERIOD TASKS -->
+<h2>10 Actioned — Tasks for Next Two Months</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Enter planned website development and other tasks for May + June 2026.</span></div>
+
+<!-- 11 APPENDIX — HOTDOC -->
+<h2>11 Appendix — HotDoc Bookings</h2>
+<div class="manual-flag">⚠&nbsp; MANUAL UPDATE REQUIRED<span>Pull from HotDoc dashboard — monthly booking totals are not available via API.</span></div>
+
+</main>
+
+<footer class="page-footer">
+  <div class="inner">
+    <div><span class="brand-mark">Locate Digital</span> · locatedigital.io · sam@locatedigital.io</div>
+    <div>Generated 18 May 2026</div>
+  </div>
+</footer>
+
+<script>
+// ── shared config ──────────────────────────────────────────────
+const MONTHS = ['May 25','Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26'];
+const HIGHLIGHT = ['Mar 26','Apr 26'];
+const BLUE   = '#007ae8';
+const ORANGE = '#ff5900';
+const CYAN   = '#75dfee';
+const MUTED  = '#63666b';
+const LGREY  = '#adb0b5';
+
+// colour array: orange for current period, blue otherwise
+function barColours(months) {
+  return months.map(m => HIGHLIGHT.includes(m) ? ORANGE : BLUE);
+}
+
+const baseOpts = {
+  responsive: true,
+  plugins: {
+    legend: { display: false },
+    tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.y.toLocaleString() } }
+  },
+  scales: {
+    x: { grid: { display: false }, ticks: { font: { family: 'Poppins', size: 11 }, color: '#63666b' } },
+    y: { grid: { color: '#f0f0f0' }, ticks: { font: { family: 'Poppins', size: 11 }, color: '#63666b' } }
+  }
+};
+
+// ── 03 Appointments held ──────────────────────────────────────
+new Chart(document.getElementById('chart-appts'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      data: [837,819,894,772,854,875,732,754,608,651,727,871],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 05 Website traffic (total visitors AUS) ───────────────────
+new Chart(document.getElementById('chart-traffic'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      label: 'Total visitors (AUS)',
+      data: [1264,1144,1345,1307,1275,1287,1215,1183,1411,1202,1372,1207],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 05 Organic search ─────────────────────────────────────────
+new Chart(document.getElementById('chart-organic'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      label: 'Organic search sessions',
+      data: [821,789,823,805,834,795,713,600,744,713,793,760],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 06 Top 20 pages horizontal bar chart ─────────────────────
+const pages = [
+  ["/",1131,712],["/bookings",669,369],["/book-an-appointment-melb-osteo/",581,454],
+  ["/book-an-appointment-pain-relief/",272,239],["/team/",195,152],["/bookings/confirmation",179,107],
+  ["/blog/osteopathy/osteopath_vs_chiropractor/",164,143],["/essendon-osteopathy/",134,101],
+  ["/our-services-osteopathy/",121,101],["/about-us/",113,94],
+  ["/team/dr-brendan-oloughlin/",101,76],["/contact-us/",94,77],
+  ["/team/dr-david-sokoloff/",83,63],["/team/dr-shane-buntman/",78,53],
+  ["/blog/training/what-is-the-posterior-chain/",69,65],
+  ["/blog/health-well-being/why-does-my-back-hurt-while-washing-the-dishes/",63,58],
+  ["/blog/osteopathy/is-sitting-cross-legged-causing-you-pain/",56,31],
+  ["/team/dr-jessica-fetterplace/",51,40],["/services/podiatry/",49,29],
+  ["/about-us/who-we-are/",46,46]
+];
+const maxViews = pages[0][1];
+const container = document.getElementById('top-pages-chart');
+pages.forEach(([url, views]) => {
+  const pct = (views / maxViews * 100).toFixed(1);
+  container.innerHTML += `
+    <div class="row">
+      <div class="lbl"><code>${url}</code></div>
+      <div class="bar"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="val">${views.toLocaleString()}</div>
+    </div>`;
+});
+
+// ── 07 New patients ───────────────────────────────────────────
+new Chart(document.getElementById('chart-new-patients'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      data: [57,33,48,53,52,46,35,34,48,48,47,48],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 07b Bourke St ─────────────────────────────────────────────
+new Chart(document.getElementById('chart-bourke'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      data: [679,660,705,648,697,717,605,594,487,517,562,698],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 07b Essendon ──────────────────────────────────────────────
+new Chart(document.getElementById('chart-essendon'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: [{
+      data: [176,169,201,138,168,170,152,171,146,147,183,185],
+      backgroundColor: barColours(MONTHS),
+      borderRadius: 4,
+      borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts }
+});
+
+// ── 07c Attribution stacked bar ───────────────────────────────
+const channels = {
+  'Direct':         { data: [95,88,86,81,52,80,61,97,78,62,61,103], colour: BLUE },
+  'Organic Search': { data: [0,0,1,3,0,0,1,0,1,2,0,0],             colour: CYAN },
+  'Paid Search':    { data: [0,0,0,0,3,5,1,1,6,2,2,2],             colour: ORANGE },
+  'Referral':       { data: [0,0,0,0,0,0,0,0,1,0,0,0],             colour: LGREY },
+  'Unassigned':     { data: [1,0,0,2,1,0,0,0,2,0,1,1],             colour: MUTED }
+};
+
+new Chart(document.getElementById('chart-attribution'), {
+  type: 'bar',
+  data: {
+    labels: MONTHS,
+    datasets: Object.entries(channels).map(([name, cfg]) => ({
+      label: name,
+      data: cfg.data,
+      backgroundColor: cfg.colour,
+      borderRadius: 2,
+      borderSkipped: false
+    }))
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: { font: { family: 'Poppins', size: 11 }, color: '#63666b', padding: 16, boxWidth: 12, boxHeight: 12 }
+      },
+      tooltip: {
+        callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}` }
+      }
+    },
+    scales: {
+      x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Poppins', size: 11 }, color: '#63666b' } },
+      y: { stacked: true, grid: { color: '#f0f0f0' }, ticks: { font: { family: 'Poppins', size: 11 }, color: '#63666b' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

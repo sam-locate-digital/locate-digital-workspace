@@ -1,0 +1,763 @@
+{
+  "period_label": "March + April 2026",
+  "period_short": "Mar + Apr 2026",
+  "highlight": [
+    "Mar 26",
+    "Apr 26"
+  ],
+  "months_chrono": [
+    "May 25",
+    "Jun 25",
+    "Jul 25",
+    "Aug 25",
+    "Sep 25",
+    "Oct 25",
+    "Nov 25",
+    "Dec 25",
+    "Jan 26",
+    "Feb 26",
+    "Mar 26",
+    "Apr 26"
+  ],
+  "errors": [],
+  "missing": [
+    {
+      "metric": "google_ads_phone_calls",
+      "reason": "Google Ads phone_calls metric not queryable at customer level; needs call_view (requires call tracking) or campaign-level segment."
+    },
+    {
+      "metric": "entered_booking_page",
+      "reason": "Source unknown \u2014 was likely Cliniko booking-page analytics from an embed/property different from main site GA4. Need confirmation."
+    },
+    {
+      "metric": "new_patients_from_google",
+      "reason": "Requires Google Ads conversion attribution mapped to Cliniko patient creation \u2014 no current automated source."
+    },
+    {
+      "metric": "cliniqapps_automations",
+      "reason": "Cliniqapps has no public API. Manual export from dashboard."
+    },
+    {
+      "metric": "cliniqapps_broadcast",
+      "reason": "Cliniqapps has no public API. Manual export from dashboard."
+    },
+    {
+      "metric": "hotdoc_bookings",
+      "reason": "HotDoc does not expose monthly booking totals via public API."
+    },
+    {
+      "metric": "actioned_items",
+      "reason": "Internal log \u2014 must be entered manually each period."
+    },
+    {
+      "metric": "executive_summary",
+      "reason": "Requires human judgement on what the period meant \u2014 draft generated from raw deltas; review before sending."
+    }
+  ],
+  "website_visitors_aus": [
+    [
+      "May 25",
+      1264
+    ],
+    [
+      "Jun 25",
+      1144
+    ],
+    [
+      "Jul 25",
+      1345
+    ],
+    [
+      "Aug 25",
+      1307
+    ],
+    [
+      "Sep 25",
+      1275
+    ],
+    [
+      "Oct 25",
+      1287
+    ],
+    [
+      "Nov 25",
+      1215
+    ],
+    [
+      "Dec 25",
+      1183
+    ],
+    [
+      "Jan 26",
+      1411
+    ],
+    [
+      "Feb 26",
+      1202
+    ],
+    [
+      "Mar 26",
+      1372
+    ],
+    [
+      "Apr 26",
+      1207
+    ]
+  ],
+  "organic_search": [
+    [
+      "May 25",
+      821
+    ],
+    [
+      "Jun 25",
+      789
+    ],
+    [
+      "Jul 25",
+      823
+    ],
+    [
+      "Aug 25",
+      805
+    ],
+    [
+      "Sep 25",
+      834
+    ],
+    [
+      "Oct 25",
+      795
+    ],
+    [
+      "Nov 25",
+      713
+    ],
+    [
+      "Dec 25",
+      600
+    ],
+    [
+      "Jan 26",
+      744
+    ],
+    [
+      "Feb 26",
+      713
+    ],
+    [
+      "Mar 26",
+      793
+    ],
+    [
+      "Apr 26",
+      760
+    ]
+  ],
+  "top_pages": [
+    [
+      "/",
+      1131,
+      712
+    ],
+    [
+      "/bookings",
+      669,
+      369
+    ],
+    [
+      "/book-an-appointment-melb-osteo/",
+      581,
+      454
+    ],
+    [
+      "/book-an-appointment-pain-relief/",
+      272,
+      239
+    ],
+    [
+      "/team/",
+      195,
+      152
+    ],
+    [
+      "/bookings/confirmation",
+      179,
+      107
+    ],
+    [
+      "/blog/osteopathy/osteopath_vs_chiropractor/",
+      164,
+      143
+    ],
+    [
+      "/essendon-osteopathy/",
+      134,
+      101
+    ],
+    [
+      "/our-services-osteopathy/",
+      121,
+      101
+    ],
+    [
+      "/about-us/",
+      113,
+      94
+    ],
+    [
+      "/team/dr-brendan-oloughlin/",
+      101,
+      76
+    ],
+    [
+      "/contact-us/",
+      94,
+      77
+    ],
+    [
+      "/team/dr-david-sokoloff/",
+      83,
+      63
+    ],
+    [
+      "/team/dr-shane-buntman/",
+      78,
+      53
+    ],
+    [
+      "/blog/training/what-is-the-posterior-chain/",
+      69,
+      65
+    ],
+    [
+      "/blog/health-well-being/why-does-my-back-hurt-while-washing-the-dishes/",
+      63,
+      58
+    ],
+    [
+      "/blog/osteopathy/is-sitting-cross-legged-causing-you-pain/",
+      56,
+      31
+    ],
+    [
+      "/team/dr-jessica-fetterplace/",
+      51,
+      40
+    ],
+    [
+      "/services/podiatry/",
+      49,
+      29
+    ],
+    [
+      "/about-us/who-we-are/",
+      46,
+      46
+    ]
+  ],
+  "yoy_visitors_aus": 2574,
+  "cliniko_by_month": {
+    "May 25": {
+      "appointments_held": 837,
+      "appointments_cancelled": 108,
+      "no_show": 18,
+      "new_patients": 57,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 679,
+        "MOSIC \u2013 Essendon": 176
+      },
+      "new_patients_by_business": {}
+    },
+    "Jun 25": {
+      "appointments_held": 819,
+      "appointments_cancelled": 106,
+      "no_show": 10,
+      "new_patients": 33,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 660,
+        "MOSIC \u2013 Essendon": 169
+      },
+      "new_patients_by_business": {}
+    },
+    "Jul 25": {
+      "appointments_held": 894,
+      "appointments_cancelled": 101,
+      "no_show": 12,
+      "new_patients": 48,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 705,
+        "MOSIC \u2013 Essendon": 201
+      },
+      "new_patients_by_business": {}
+    },
+    "Aug 25": {
+      "appointments_held": 772,
+      "appointments_cancelled": 116,
+      "no_show": 14,
+      "new_patients": 53,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 648,
+        "MOSIC \u2013 Essendon": 138
+      },
+      "new_patients_by_business": {}
+    },
+    "Sep 25": {
+      "appointments_held": 854,
+      "appointments_cancelled": 103,
+      "no_show": 11,
+      "new_patients": 52,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 697,
+        "MOSIC \u2013 Essendon": 168
+      },
+      "new_patients_by_business": {}
+    },
+    "Oct 25": {
+      "appointments_held": 875,
+      "appointments_cancelled": 108,
+      "no_show": 12,
+      "new_patients": 46,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 717,
+        "MOSIC \u2013 Essendon": 170
+      },
+      "new_patients_by_business": {}
+    },
+    "Nov 25": {
+      "appointments_held": 732,
+      "appointments_cancelled": 80,
+      "no_show": 25,
+      "new_patients": 35,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 605,
+        "MOSIC \u2013 Essendon": 152
+      },
+      "new_patients_by_business": {}
+    },
+    "Dec 25": {
+      "appointments_held": 754,
+      "appointments_cancelled": 100,
+      "no_show": 11,
+      "new_patients": 34,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 594,
+        "MOSIC \u2013 Essendon": 171
+      },
+      "new_patients_by_business": {}
+    },
+    "Jan 26": {
+      "appointments_held": 608,
+      "appointments_cancelled": 91,
+      "no_show": 25,
+      "new_patients": 48,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 487,
+        "MOSIC \u2013 Essendon": 146
+      },
+      "new_patients_by_business": {}
+    },
+    "Feb 26": {
+      "appointments_held": 651,
+      "appointments_cancelled": 75,
+      "no_show": 13,
+      "new_patients": 48,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 517,
+        "MOSIC \u2013 Essendon": 147
+      },
+      "new_patients_by_business": {}
+    },
+    "Mar 26": {
+      "appointments_held": 727,
+      "appointments_cancelled": 96,
+      "no_show": 18,
+      "new_patients": 47,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 562,
+        "MOSIC \u2013 Essendon": 183
+      },
+      "new_patients_by_business": {}
+    },
+    "Apr 26": {
+      "appointments_held": 871,
+      "appointments_cancelled": 83,
+      "no_show": 12,
+      "new_patients": 48,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 698,
+        "MOSIC \u2013 Essendon": 185
+      },
+      "new_patients_by_business": {}
+    },
+    "Mar 25": {
+      "appointments_held": 848,
+      "appointments_cancelled": 133,
+      "no_show": 15,
+      "new_patients": 40,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 713,
+        "MOSIC \u2013 Essendon": 150
+      },
+      "new_patients_by_business": {}
+    },
+    "Apr 25": {
+      "appointments_held": 841,
+      "appointments_cancelled": 96,
+      "no_show": 12,
+      "new_patients": 49,
+      "by_business": {
+        "MOSIC \u2013 Bourke St": 689,
+        "MOSIC \u2013 Essendon": 164
+      },
+      "new_patients_by_business": {}
+    }
+  },
+  "yoy_confirmed_bookings": 1689,
+  "yoy_new_patients": 89,
+  "confirmed_bookings": [
+    [
+      "May 25",
+      837
+    ],
+    [
+      "Jun 25",
+      819
+    ],
+    [
+      "Jul 25",
+      894
+    ],
+    [
+      "Aug 25",
+      772
+    ],
+    [
+      "Sep 25",
+      854
+    ],
+    [
+      "Oct 25",
+      875
+    ],
+    [
+      "Nov 25",
+      732
+    ],
+    [
+      "Dec 25",
+      754
+    ],
+    [
+      "Jan 26",
+      608
+    ],
+    [
+      "Feb 26",
+      651
+    ],
+    [
+      "Mar 26",
+      727
+    ],
+    [
+      "Apr 26",
+      871
+    ]
+  ],
+  "total_new_patients": [
+    [
+      "May 25",
+      57
+    ],
+    [
+      "Jun 25",
+      33
+    ],
+    [
+      "Jul 25",
+      48
+    ],
+    [
+      "Aug 25",
+      53
+    ],
+    [
+      "Sep 25",
+      52
+    ],
+    [
+      "Oct 25",
+      46
+    ],
+    [
+      "Nov 25",
+      35
+    ],
+    [
+      "Dec 25",
+      34
+    ],
+    [
+      "Jan 26",
+      48
+    ],
+    [
+      "Feb 26",
+      48
+    ],
+    [
+      "Mar 26",
+      47
+    ],
+    [
+      "Apr 26",
+      48
+    ]
+  ],
+  "bourke_label": "MOSIC \u2013 Bourke St",
+  "essendon_label": "MOSIC \u2013 Essendon",
+  "appointments_bourke": [
+    [
+      "May 25",
+      679
+    ],
+    [
+      "Jun 25",
+      660
+    ],
+    [
+      "Jul 25",
+      705
+    ],
+    [
+      "Aug 25",
+      648
+    ],
+    [
+      "Sep 25",
+      697
+    ],
+    [
+      "Oct 25",
+      717
+    ],
+    [
+      "Nov 25",
+      605
+    ],
+    [
+      "Dec 25",
+      594
+    ],
+    [
+      "Jan 26",
+      487
+    ],
+    [
+      "Feb 26",
+      517
+    ],
+    [
+      "Mar 26",
+      562
+    ],
+    [
+      "Apr 26",
+      698
+    ]
+  ],
+  "appointments_essendon": [
+    [
+      "May 25",
+      176
+    ],
+    [
+      "Jun 25",
+      169
+    ],
+    [
+      "Jul 25",
+      201
+    ],
+    [
+      "Aug 25",
+      138
+    ],
+    [
+      "Sep 25",
+      168
+    ],
+    [
+      "Oct 25",
+      170
+    ],
+    [
+      "Nov 25",
+      152
+    ],
+    [
+      "Dec 25",
+      171
+    ],
+    [
+      "Jan 26",
+      146
+    ],
+    [
+      "Feb 26",
+      147
+    ],
+    [
+      "Mar 26",
+      183
+    ],
+    [
+      "Apr 26",
+      185
+    ]
+  ],
+  "google_ads_phone_calls": null,
+  "top_pages_country_filter": "Australia",
+  "cliniko_booking_page_entries": {
+    "value": 742,
+    "period": "Mar + Apr 2026",
+    "source": "GA4 Key Events (AUS only)",
+    "note": "Manually confirmed by Sam 2026-05-17. Wire up to GA4 Key Event name when known."
+  },
+  "paid_search_bookings_monthly": [
+    [
+      "May 25",
+      0
+    ],
+    [
+      "Jun 25",
+      0
+    ],
+    [
+      "Jul 25",
+      0
+    ],
+    [
+      "Aug 25",
+      0
+    ],
+    [
+      "Sep 25",
+      3
+    ],
+    [
+      "Oct 25",
+      5
+    ],
+    [
+      "Nov 25",
+      1
+    ],
+    [
+      "Dec 25",
+      1
+    ],
+    [
+      "Jan 26",
+      6
+    ],
+    [
+      "Feb 26",
+      2
+    ],
+    [
+      "Mar 26",
+      2
+    ],
+    [
+      "Apr 26",
+      2
+    ]
+  ],
+  "paid_search_event": "appointment_bookings",
+  "paid_search_methodology": "GA4 key event 'appointment_bookings' filtered to sessionDefaultChannelGroup='Paid Search'. Counts each event attributed to a paid Google Ads session.",
+  "bookings_by_channel_monthly": {
+    "months": [
+      "May 25",
+      "Jun 25",
+      "Jul 25",
+      "Aug 25",
+      "Sep 25",
+      "Oct 25",
+      "Nov 25",
+      "Dec 25",
+      "Jan 26",
+      "Feb 26",
+      "Mar 26",
+      "Apr 26"
+    ],
+    "channels": [
+      "Direct",
+      "Organic Search",
+      "Paid Search",
+      "Referral",
+      "Unassigned"
+    ],
+    "data": {
+      "May 25": {
+        "Direct": 95,
+        "Unassigned": 1
+      },
+      "Jun 25": {
+        "Direct": 88
+      },
+      "Jul 25": {
+        "Direct": 86,
+        "Organic Search": 1
+      },
+      "Aug 25": {
+        "Direct": 81,
+        "Organic Search": 3,
+        "Unassigned": 2
+      },
+      "Sep 25": {
+        "Direct": 52,
+        "Paid Search": 3,
+        "Unassigned": 1
+      },
+      "Oct 25": {
+        "Direct": 80,
+        "Paid Search": 5
+      },
+      "Nov 25": {
+        "Direct": 61,
+        "Organic Search": 1,
+        "Paid Search": 1
+      },
+      "Dec 25": {
+        "Direct": 97,
+        "Paid Search": 1
+      },
+      "Jan 26": {
+        "Direct": 78,
+        "Paid Search": 6,
+        "Unassigned": 2,
+        "Organic Search": 1,
+        "Referral": 1
+      },
+      "Feb 26": {
+        "Direct": 62,
+        "Organic Search": 2,
+        "Paid Search": 2
+      },
+      "Mar 26": {
+        "Direct": 61,
+        "Paid Search": 2,
+        "Unassigned": 1
+      },
+      "Apr 26": {
+        "Direct": 103,
+        "Paid Search": 2,
+        "Unassigned": 1
+      }
+    },
+    "event": "appointment_bookings",
+    "methodology": "GA4 key event 'appointment_bookings' grouped by sessionDefaultChannelGroup. Each booking attributed to its acquisition channel."
+  }
+}
