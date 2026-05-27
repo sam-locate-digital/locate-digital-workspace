@@ -4,6 +4,36 @@
 .env-secrets/
 !.env.example
 
+# Explicit secret files
+*password*
+*passwords*
+*credentials*
+*credential*
+*secret*
+*secrets*
+!*secret*.example
+!*secrets*.example
+
+# Private keys & certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+
+# Google / OAuth token files
+client_secret*.json
+service_account*.json
+token.json
+token*.json
+oauth_token*
+
+# API key exports
+*api_key*
+*api-key*
+*apikey*
+
 # Claude local settings (may contain API keys)
 settings.local.json
 
