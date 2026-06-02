@@ -60,7 +60,7 @@ Explain the condition or issue in depth. Why does it happen? What causes it for 
 What does osteopathic treatment actually do for this? What can the patient expect from a session at MOSIC? Ground this in MOSIC's approach — holistic, root cause focused, not just symptom management. Avoid vague claims; be specific about what practitioners assess and address.
 
 **[Mid-post CTA — single line]**
-Insert after Section 2: "If this sounds familiar, book online at melbourneosteopathycentre.com.au or call our Bourke Street or Essendon clinic on 03 9663 6202."
+Insert after Section 2: "If this sounds familiar, book online at melbourneosteopathycentre.com.au or call 03 9663 6202."
 
 **H2: [Section 3 — What you can do] — 200–250 words**
 Practical self-management tips the reader can act on today. Real value here builds trust and keeps time-on-page high. Can include specific exercises, posture adjustments, movement breaks, or lifestyle changes. Don't be generic — tailor to the topic and the Melbourne professional lifestyle.
