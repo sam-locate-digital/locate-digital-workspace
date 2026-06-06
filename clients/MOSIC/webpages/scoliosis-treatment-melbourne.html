@@ -41,7 +41,6 @@ Replace PLACEHOLDER_* image src values with your media URLs.
 -->
 
 <!-- ▼ START -->
-
 <style>
 /* ================================================================
    AlignSpine Scoliosis Centre — page styles
@@ -162,7 +161,9 @@ Replace PLACEHOLDER_* image src values with your media URLs.
   display: block;
   border: 1px solid #e1e1e1;
   width: 100%;
-  height: auto;
+  height: 320px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 /* Bullet list with bold lead */
@@ -234,11 +235,18 @@ Replace PLACEHOLDER_* image src values with your media URLs.
   font-size: 0.85em;
 }
 
-/* CTA band — matches vc_custom_1638536597483 */
+/* CTA band — FIXED for edge-to-edge */
 .alignspine-wrap .as-cta-band {
   background: #8b68b3;
   padding: 60px 20px;
   text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
 }
 
 .alignspine-wrap .as-cta-band p {
@@ -361,20 +369,26 @@ Replace PLACEHOLDER_* image src values with your media URLs.
       <h2 class="as-section-title">What is scoliosis?</h2>
       <div class="as-col-wrap">
         <div class="as-col-8">
-          <p>Scoliosis is an abnormal lateral curvature of the spine. For most people it develops gradually — sometimes during adolescent growth spurts, sometimes over many years of adult life. The cause varies: genetic factors, neuromuscular conditions, and long-term movement patterns can all contribute, and in many cases no single cause is identified.</p>
-          <p>What matters most is how it affects <em>you</em> — your movement, your comfort, and your ability to get through the day without pain or fatigue.</p>
-          <p><strong>How scoliosis affects daily life:</strong></p>
+          <p>Scoliosis is a condition where the spine develops a sideways curve and rotation, which can affect posture, movement, muscle balance, and overall comfort.</p>
+          <p>For some people, scoliosis develops during adolescence and growth spurts. Others may not realise they have it until adulthood, when they begin experiencing ongoing back pain, stiffness, uneven posture, fatigue, or reduced mobility.</p>
+          <p>Every scoliosis presentation is different. Some people experience very little discomfort, while others notice persistent tension, movement restrictions, difficulty exercising, or discomfort sitting at a desk, sleeping, or staying active.</p>
+          <p>At AlignSpine Scoliosis Centre, we focus on more than just the shape of the spine — we focus on how scoliosis is affecting your everyday life, movement, confidence, and long-term health.</p>
+          <p><strong>Common symptoms associated with scoliosis can include:</strong></p>
           <ul>
-            <li>Movement &amp; flexibility</li>
-            <li>Exercise capacity</li>
-            <li>Sitting &amp; desk work</li>
-            <li>Sleep quality</li>
-            <li>Energy levels</li>
-            <li>Confidence &amp; wellbeing</li>
+            <li>Persistent back, neck, or hip pain</li>
+            <li>Muscle tightness and stiffness</li>
+            <li>Uneven shoulders or hips</li>
+            <li>Reduced flexibility or mobility</li>
+            <li>Fatigue from prolonged sitting or standing</li>
+            <li>Difficulty exercising comfortably</li>
+            <li>Postural changes or body asymmetry</li>
+            <li>Reduced confidence in movement or appearance</li>
           </ul>
+          <p>Our goal is to help you better understand your body, reduce strain and discomfort, improve movement and strength, and support you with a personalised long-term management plan.</p>
+          <p>Many people with scoliosis can continue to live active, healthy lives with the right guidance, movement strategies, and support.</p>
         </div>
         <div class="as-col-4">
-          <img class="as-img-bordered" width="384" height="480" src="https://images.pexels.com/photos/20860606/pexels-photo-20860606.jpeg?auto=compress&cs=tinysrgb&w=384&h=480&fit=crop" alt="Physiotherapist providing treatment to patient at clinic — AlignSpine Scoliosis Centre Melbourne">
+          <img class="as-img-bordered" width="384" height="480" src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2026/06/Picture1.png" alt="Physiotherapist providing treatment to patient at clinic — AlignSpine Scoliosis Centre Melbourne">
         </div>
       </div>
     </div>
@@ -404,15 +418,15 @@ Replace PLACEHOLDER_* image src values with your media URLs.
         <p>Our treatment focuses on four core pillars: understanding your movement, reducing strain and discomfort, building strength and resilience, and supporting long-term management beyond the clinic.</p>
       </div>
       <div class="as-col-4">
-        <img class="as-img-bordered" width="384" height="480" src="https://images.pexels.com/photos/20669197/pexels-photo-20669197.jpeg?auto=compress&cs=tinysrgb&w=384&h=480&fit=crop" alt="Osteopathic manual therapy and rehabilitation for scoliosis — AlignSpine Centre MOSIC Melbourne">
+        <img class="as-img-bordered" width="384" height="480" src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2026/06/Picture2.png" alt="Osteopathic manual therapy and rehabilitation for scoliosis — AlignSpine Centre MOSIC Melbourne">
       </div>
     </div>
   </div>
 
   <!-- ============================================================
-       CTA BAND — matches MOSIC purple #8b68b3
+       CTA BAND — edge-to-edge fix applied
        ============================================================ -->
-  <div class="as-row-full as-cta-band">
+  <div class="as-cta-band">
     <p>Book an appointment with our AlignSpine Scoliosis Centre today</p>
     <a href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings" target="_blank" class="as-btn">Make a booking</a>
   </div>
@@ -432,9 +446,4 @@ Replace PLACEHOLDER_* image src values with your media URLs.
     </ul>
   </div>
 
-</div><!-- /.alignspine-wrap -->
-
-<!-- ▲ END -->
-
-</body>
-</html>
+[vc_row][vc_column][vc_raw_html css="" el_id="David booking"]JTNDaWZyYW1lJTIwaWQlM0QlMjdjbGluaWtvLTgyNzMyOTYxJTI3JTIwc3JjJTNEJTI3aHR0cHMlM0ElMkYlMkZtZWxib3VybmUtb3N0ZW9wYXRoeS1zcG9ydHMtaW5qdXJ5LWNlbnRyZS5hdTEuY2xpbmlrby5jb20lMkZib29raW5ncyUzRnByYWN0aXRpb25lcl9pZCUzRDY4MzA0JTI2ZW1iZWRkZWQlM0R0cnVlJTI3JTIwZnJhbWVib3JkZXIlM0QlMjcwJTI3JTIwc2Nyb2xsaW5nJTNEJTI3YXV0byUyNyUyMHdpZHRoJTNEJTI3MTAwJTI1JTI3JTIwaGVpZ2h0JTNEJTI3MTAwMCUyNyUyMHN0eWxlJTNEJTI3cG9pbnRlci1ldmVudHMlM0ElMjBhdXRvJTNCJTI3JTNFJTNDJTJGaWZyYW1lJTNFJTIwJTNDc2NyaXB0JTIwdHlwZSUzRCUyN3RleHQlMkZqYXZhc2NyaXB0JTI3JTNFJTIwd2luZG93LmFkZEV2ZW50TGlzdGVuZXIlMjglMjdtZXNzYWdlJTI3JTJDJTIwZnVuY3Rpb24lMjBoYW5kbGVJRnJhbWVNZXNzYWdlJTIwJTI4ZSUyOSUyMCU3QiUyMHZhciUyMGNsaW5pa29Cb29raW5ncyUyMCUzRCUyMGRvY3VtZW50LmdldEVsZW1lbnRCeUlkJTI4JTI3Y2xpbmlrby04MjczMjk2MSUyNyUyOSUzQiUyMGlmJTIwJTI4dHlwZW9mJTIwZS5kYXRhJTIwJTIxJTNEJTNEJTIwJTI3c3RyaW5nJTI3JTI5JTIwcmV0dXJuJTNCJTIwaWYlMjAlMjhlLmRhdGEuc2VhcmNoJTI4JTI3Y2xpbmlrby1ib29raW5ncy1yZXNpemUlMjclMjklMjAlM0UlMjAtMSUyOSUyMCU3QiUyMHZhciUyMGhlaWdodCUyMCUzRCUyME51bWJlciUyOGUuZGF0YS5zcGxpdCUyOCUyNyUzQSUyNyUyOSU1QjElNUQlMjklM0IlMjBjbGluaWtvQm9va2luZ3Muc3R5bGUuaGVpZ2h0JTIwJTNEJTIwaGVpZ2h0JTIwJTJCJTIwJTI3cHglMjclM0IlMjAlN0QlMjBlLmRhdGEuc2VhcmNoJTI4JTI3Y2xpbmlrby1ib29raW5ncy1wYWdlJTI3JTI5JTIwJTNFJTIwLTElMjAlMjYlMjYlMjBjbGluaWtvQm9va2luZ3Muc2Nyb2xsSW50b1ZpZXclMjglMjklM0IlMjAlN0QlMjklM0IlMjAlM0MlMkZzY3JpcHQlM0U=[/vc_raw_html][/vc_column][/vc_row]

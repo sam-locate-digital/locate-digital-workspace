@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locate Digital — Website Preview</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Animation libraries — matching existing locatedigital.io -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #007ae8;
+      --teal:    #75dfee;
+      --orange:  #ff5900;
+      --ink:     #0d0d0d;
+      --muted:   #63666b;
+      --line:    #e6e6e6;
+      --bg:      #ffffff;
+      --bg-soft: #fbfcff;
+      --row-alt: #f4f8fd;
+      --h: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --b: 'Poppins', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--b);
+      font-size: 16px;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--h); line-height: 1.2; color: var(--ink); }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
+
+    /* ── HERO ENTRANCE ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .hero-eyebrow { animation: fadeUp 0.55s ease both; }
+    .hero h1      { animation: fadeUp 0.6s  ease 0.1s both; }
+    .hero-sub     { animation: fadeUp 0.6s  ease 0.22s both; }
+    .hero-btns    { animation: fadeUp 0.6s  ease 0.36s both; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid transparent;
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .nav.scrolled {
+      border-color: var(--line);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .nav-logo-text {
+      font-family: var(--h);
+      font-size: 1.22rem; font-weight: 800;
+      color: var(--blue); letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); text-decoration: none; }
+    .nav-cta {
+      background: var(--blue); color: #fff !important;
+      padding: 9px 20px; border-radius: 6px; font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: #005ec0 !important; transform: translateY(-1px); text-decoration: none !important; }
+
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .section { padding: 88px 0; }
+    .section-alt  { background: var(--row-alt); }
+    .section-soft { background: var(--bg-soft); }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 12px;
+    }
+    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .img-placeholder {
+      background: var(--row-alt); border-radius: 12px;
+      height: 360px; border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 0.82rem;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block; padding: 13px 26px;
+      border-radius: 6px; font-family: var(--b);
+      font-size: 0.92rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-primary { background: var(--blue); color: #fff; border: 2px solid var(--blue); }
+    .btn-primary:hover { background: #005ec0; border-color: #005ec0; color: #fff; transform: translateY(-1px); text-decoration: none; }
+    .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue); color: #fff; transform: translateY(-1px); text-decoration: none; }
+    .btn-white { background: #fff; color: var(--blue); border: 2px solid #fff; }
+    .btn-white:hover { background: transparent; color: #fff; text-decoration: none; }
+    .btn-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* ── HERO ── */
+    .hero { padding: 96px 0 80px; }
+    .hero-eyebrow {
+      display: inline-block; background: #e8f3fd;
+      color: var(--blue); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 800;
+      letter-spacing: -0.035em; max-width: 700px;
+      margin-bottom: 24px; line-height: 1.1;
+    }
+    .hero h1 span { color: var(--blue); }
+    .hero-sub { font-size: 1.08rem; color: var(--muted); max-width: 560px; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 28px 0; animation: fadeIn 0.8s ease 0.6s both;
+    }
+    .trust-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .trust-item { font-size: 0.86rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+    .trust-item strong { color: var(--ink); font-weight: 700; }
+
+    /* ── SERVICE CARDS ── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 22px; margin-top: 48px;
+    }
+    .service-card {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 10px; padding: 30px 26px;
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover {
+      box-shadow: 0 6px 28px rgba(0,122,232,0.1);
+      border-color: var(--blue); transform: translateY(-3px);
+    }
+    .service-icon {
+      width: 44px; height: 44px; background: #e8f3fd;
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.25rem; margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── PROCESS ── */
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 32px; margin-top: 48px;
+    }
+    .process-item { position: relative; }
+    .process-num {
+      font-family: var(--h); font-size: 2.8rem; font-weight: 800;
+      color: var(--blue); opacity: 0.12; line-height: 1; margin-bottom: 10px;
+    }
+    .process-item h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
+    .process-item p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── WHY ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 48px; }
+    .why-item { }
+    .why-icon {
+      width: 48px; height: 48px; background: var(--blue);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.3rem; margin-bottom: 18px;
+    }
+    .why-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .why-item p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── CTA BAND ── */
+    .cta-band { background: var(--blue); padding: 80px 0; text-align: center; }
+    .cta-band h2 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .cta-band p { font-size: 0.97rem; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+
+    /* ── PAGE HERO (inner pages) ── */
+    .page-hero { background: var(--row-alt); padding: 72px 0 60px; border-bottom: 1px solid var(--line); }
+    .page-hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; animation: fadeUp 0.55s ease both; }
+    .page-hero p { font-size: 1rem; color: var(--muted); max-width: 540px; line-height: 1.75; animation: fadeUp 0.6s ease 0.12s both; }
+
+    /* ── ABOUT ── */
+    .body-copy p { font-size: 0.97rem; color: #3a3a3a; line-height: 1.8; margin-bottom: 18px; }
+    .body-copy p:last-child { margin-bottom: 0; }
+    .stat-row { display: flex; gap: 48px; margin-top: 36px; flex-wrap: wrap; }
+    .stat-item { }
+    .stat-num { font-family: var(--h); font-size: 2.4rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+
+    .belief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+    .belief-item { border-left: 3px solid var(--blue); padding-left: 18px; }
+    .belief-item h3 { font-size: 0.93rem; font-weight: 700; margin-bottom: 8px; }
+    .belief-item p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SERVICE PAGE ── */
+    .service-block { padding: 52px 0; border-bottom: 1px solid var(--line); }
+    .service-block:last-child { border-bottom: none; }
+    .service-block h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .service-block p { font-size: 0.95rem; color: #444; line-height: 1.78; max-width: 680px; margin-bottom: 14px; }
+    .includes-list { margin-top: 22px; list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; }
+    .includes-list li { font-size: 0.86rem; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; }
+    .includes-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 40px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      text-align: left; padding: 22px 0;
+      font-family: var(--b); font-size: 0.95rem; font-weight: 600;
+      color: var(--ink); cursor: pointer; display: flex;
+      align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; color: var(--blue); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; padding-bottom: 20px; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: start; }
+    .contact-info h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 18px; }
+    .contact-info p { font-size: 0.95rem; color: #444; line-height: 1.78; margin-bottom: 14px; }
+    .contact-detail { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 500; }
+    .form-wrap { background: var(--row-alt); border: 1px solid var(--line); border-radius: 12px; padding: 36px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.02em; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 11px 14px; border: 1px solid var(--line);
+      border-radius: 6px; font-family: var(--b); font-size: 0.9rem;
+      color: var(--ink); background: #fff; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+    .form-group textarea { height: 116px; resize: vertical; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 48px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo-text { font-family: var(--h); font-size: 1.1rem; font-weight: 800; color: #fff; }
+    .footer-tagline { font-size: 0.79rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.84rem; font-weight: 500; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; text-decoration: none; }
+    .footer-copy { color: rgba(255,255,255,0.28); font-size: 0.76rem; }
+
+    /* ── TYPED CURSOR ── */
+    .typed-cursor { opacity: 1; color: var(--blue); }
+    .typed-cursor.typed-cursor--blink { animation: typedjsBlink 0.7s infinite; }
+    @keyframes typedjsBlink { 50% { opacity: 0; } }
+
+    /* ── FLOATING ICONS ── */
+    .hero-icons {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .float-icon {
+      width: 56px; height: 56px; background: #fff;
+      border: 1px solid var(--line); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,122,232,0.1);
+      will-change: transform;
+    }
+    .float-icon:nth-child(1) { animation: float 3.2s ease-in-out infinite; }
+    .float-icon:nth-child(2) { animation: float 3.8s ease-in-out 0.4s infinite; }
+    .float-icon:nth-child(3) { animation: float 3.5s ease-in-out 0.8s infinite; }
+    .float-icon:nth-child(4) { animation: float 4s ease-in-out 1.2s infinite; }
+
+    /* ── PREVIEW BANNER ── */
+    .preview-banner {
+      background: var(--orange); color: #fff; text-align: center;
+      padding: 9px 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .two-col, .services-grid, .process-grid, .why-grid,
+      .contact-grid, .belief-grid { grid-template-columns: 1fr; }
+      .includes-list { grid-template-columns: 1fr; }
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .container { padding: 0 20px; }
+      .section { padding: 56px 0; }
+      .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+      .trust-inner { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="preview-banner">PREVIEW FILE — for Webflow reference only.</div>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav">
+  <span class="nav-logo-text" onclick="showPage('home')" style="cursor:pointer;">Locate Digital</span>
+  <ul class="nav-links">
+    <li><a href="#" onclick="return showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="return showPage('about')" id="nav-about">About us</a></li>
+    <li><a href="#" onclick="return showPage('services')" id="nav-services">Services</a></li>
+    <li><a href="#" onclick="return showPage('contact')" id="nav-contact" class="nav-cta">Get started</a></li>
+  </ul>
+</nav>
+
+
+<!-- ═══════════════════
+     HOME
+════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <span class="hero-eyebrow">Digital marketing for service businesses</span>
+      <h1>We Drive Your <span id="typed-element" style="color:var(--blue);"></span></h1>
+      <p class="hero-sub">We help service businesses get found online, generate more leads, and make sense of where their marketing money is actually going.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-primary" onclick="return showPage('contact')">Let's talk</a>
+        <a href="#" class="btn btn-outline" onclick="return showPage('services')">See our services</a>
+      </div>
+    </div>
+    <div class="hero-icons">
+      <div class="float-icon">💡</div>
+      <div class="float-icon">📈</div>
+      <div class="float-icon">🕯️</div>
+      <div class="float-icon">🔍</div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item"><strong>11 years</strong> in-house experience</div>
+        <div class="trust-item"><strong>5 services</strong> under one roof</div>
+        <div class="trust-item"><strong>Service businesses</strong> across Australia</div>
+        <div class="trust-item"><strong>No lock-in</strong> contracts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About snippet -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="section-label reveal">About us</p>
+          <h2 class="section-title reveal reveal-d1">Built for Businesses That Dare to Grow</h2>
+          <p class="reveal reveal-d2" style="color:#3a3a3a; line-height:1.8; margin-bottom:18px;">Locate Digital was built for service businesses. The kind where the owner is doing the actual work and doesn't have time to become a marketing expert on top of everything else.</p>
+          <p class="reveal reveal-d2" style="color:#3a3a3a; line-height:1.8; margin-bottom:28px;">We bring 11 years of in-house marketing experience across FMCG and financial services. Running campaigns, managing agencies, and being the person accountable for results. That background changes how we work.</p>
+          <a href="#" class="btn btn-outline reveal reveal-d3" onclick="return showPage('about')">More about us</a>
+        </div>
+        <div class="img-placeholder reveal reveal-d2">[Photo of Sam — add in Webflow]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label reveal">What we do</p>
+      <h2 class="section-title reveal reveal-d1">Digital Services That Drive Results</h2>
+      <p class="section-sub reveal reveal-d2">Five channels. One team. We handle everything your service business needs to grow online.</p>
+
+      <div class="services-grid">
+        <div class="service-card reveal reveal-d1">
+          <div class="service-icon">📣</div>
+          <h3>Paid media</h3>
+          <p>Google Ads and Meta Ads built around your goals, not click counts. Every dollar tracked against real leads.</p>
+        </div>
+        <div class="service-card reveal reveal-d2">
+          <div class="service-icon">🔍</div>
+          <h3>SEO</h3>
+          <p>Get found when people search for what you do in your area. Technical work, local signals, content. Done properly.</p>
+        </div>
+        <div class="service-card reveal reveal-d3">
+          <div class="service-icon">📱</div>
+          <h3>Social media management</h3>
+          <p>Consistent content across Instagram, Facebook, and TikTok. We handle strategy, creation, and posting so it's off your plate.</p>
+        </div>
+        <div class="service-card reveal reveal-d4">
+          <div class="service-icon">✉️</div>
+          <h3>Email marketing</h3>
+          <p>Automated sequences and campaigns that stay in front of your clients. Set up once, runs on its own.</p>
+        </div>
+        <div class="service-card reveal reveal-d5">
+          <div class="service-icon">🗺️</div>
+          <h3>Digital strategy</h3>
+          <p>A plan that ties your channels together. Useful when you're spending on marketing but can't tell what's actually working.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;" class="reveal">
+        <a href="#" class="btn btn-primary" onclick="return showPage('services')">See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">How we work</p>
+      <h2 class="section-title reveal reveal-d1">Creative and Unique Solutions</h2>
+      <p class="section-sub reveal reveal-d2">A four-step process built around your business. Not a template we run everyone through.</p>
+
+      <div class="process-grid">
+        <div class="process-item reveal reveal-d1">
+          <div class="process-num">01</div>
+          <h3>Discovery phase</h3>
+          <p>We start by understanding your business, your customers, and where you're at with your marketing. No assumptions.</p>
+        </div>
+        <div class="process-item reveal reveal-d2">
+          <div class="process-num">02</div>
+          <h3>Strategy development</h3>
+          <p>A plan built specifically for your business. Which channels to focus on, what the budget should look like, and what success actually means.</p>
+        </div>
+        <div class="process-item reveal reveal-d3">
+          <div class="process-num">03</div>
+          <h3>Realisation</h3>
+          <p>We build and launch your campaigns, set up your tracking, and get everything running. You stay in the loop without being buried in it.</p>
+        </div>
+        <div class="process-item reveal reveal-d4">
+          <div class="process-num">04</div>
+          <h3>Reporting and analysis</h3>
+          <p>Regular reports in plain language. You'll always know what's running, what it costs, and what it's returning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label reveal">Why us</p>
+      <h2 class="section-title reveal reveal-d1">Why Companies Trust Locate Digital</h2>
+
+      <div class="why-grid">
+        <div class="why-item reveal reveal-d1">
+          <div class="why-icon">🎯</div>
+          <h3>Proven expertise</h3>
+          <p>Over 10 years of in-house marketing experience across FMCG, investment, real estate, and lending. We've been the one holding the budget and the one accountable for results.</p>
+        </div>
+        <div class="why-item reveal reveal-d2">
+          <div class="why-icon">🤝</div>
+          <h3>Personalised service</h3>
+          <p>No junior account managers. You work directly with someone who understands your business and gives you straight answers, not corporate-speak.</p>
+        </div>
+        <div class="why-item reveal reveal-d3">
+          <div class="why-icon">📈</div>
+          <h3>Results-driven approach</h3>
+          <p>We track what matters: leads, cost per acquisition, revenue. Not impressions, reach, or any other number that sounds good but doesn't pay the bills.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:48px; text-align:center;" class="reveal">
+        <a href="#" class="btn btn-primary" onclick="return showPage('contact')">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">FAQ</p>
+      <h2 class="section-title reveal reveal-d1">Common questions</h2>
+
+      <div class="faq-list reveal reveal-d2">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Do I really need digital marketing? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><p>If your customers are finding competitors online and not finding you, yes. Most service businesses now get the majority of their new clients through Google search, social media, or referrals that get Googled before they call. Not being visible online means losing those people before the conversation even starts.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What does paid media actually do for my business? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><p>Paid media puts your business in front of people actively searching for what you offer. Done well, it's the fastest way to get leads moving. You can have a campaign live and getting calls within days. The key is the right audience, the right message, and a clear path to take action.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is email marketing still worth it? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><p>For service businesses, yes. Most clients don't book the first time they hear about you. Email keeps you front of mind until they're ready. It's also one of the best ways to get repeat bookings and referrals from existing clients, the people who already know and trust you.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What kinds of businesses do you work with? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><p>Service businesses across Australia. Healthcare, professional services, financial services, trades, fitness. If you have clients rather than customers and deliver a service rather than sell a product, we're probably a good fit.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I get started? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><p>Book a free 30-minute call. We'll look at what you're currently doing, where the gaps are, and whether we're the right fit. No pitch deck, no pressure. Just a straight conversation about your business.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <div class="cta-band">
+    <div class="container">
+      <h2 class="reveal">Ready to Take Your Business to the Next Level?</h2>
+      <p class="reveal reveal-d1">Let's turn your ideas into action. No fluff, just a clear plan and the work to back it up.</p>
+      <a href="#" class="btn btn-white reveal reveal-d2" onclick="return showPage('contact')">Let's talk</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo-text">Locate Digital</div>
+          <div class="footer-tagline">We Don't Just Market — We Locate Growth.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="return showPage('home')">Home</a></li>
+          <li><a href="#" onclick="return showPage('about')">About us</a></li>
+          <li><a href="#" onclick="return showPage('services')">Services</a></li>
+          <li><a href="#" onclick="return showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Locate Digital</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════
+     ABOUT
+════════════════════ -->
+<div id="page-about" class="page">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>About Locate Digital</h1>
+      <p>Built by someone who's worked on your side. Managing budgets, holding agencies accountable, and being the one responsible for the numbers.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="img-placeholder reveal">[Photo of Sam]</div>
+        <div>
+          <p class="section-label reveal">A bit of background</p>
+          <h2 class="section-title reveal reveal-d1">11 years in-house before going out on my own</h2>
+          <div class="body-copy" style="margin-top:20px;">
+            <p class="reveal reveal-d2">I spent 11 years doing digital marketing inside businesses. Five years in FMCG. Competitive markets, tight budgets, always justifying spend. Then six years in financial services across investment, real estate, wealth management, and lending.</p>
+            <p class="reveal reveal-d2">In those roles I ran campaigns myself, managed external agencies, and built strategy from scratch. I know how agencies work because I used to be the client managing them. I know the difference between an agency that's delivering and one that's just keeping the account warm.</p>
+            <p class="reveal reveal-d2">Locate Digital came from a simple observation: small businesses need good digital marketing just as much as big ones. Most just can't access it at a price that makes sense, or find an agency that actually gets what running a service business involves.</p>
+          </div>
+          <div class="stat-row">
+            <div class="stat-item reveal reveal-d3">
+              <div class="stat-num">11</div>
+              <div class="stat-label">years in-house experience</div>
+            </div>
+            <div class="stat-item reveal reveal-d4">
+              <div class="stat-num">5</div>
+              <div class="stat-label">services under one roof</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label reveal">How we think</p>
+      <h2 class="section-title reveal reveal-d1">Simplicity at the core. Results at the focus.</h2>
+      <p class="section-sub reveal reveal-d2">Good marketing isn't complicated. It's being in front of the right people with a message that makes them take action. Everything else is execution.</p>
+
+      <div class="belief-grid" style="margin-top:40px;">
+        <div class="belief-item reveal reveal-d1">
+          <h3>No lock-in contracts</h3>
+          <p>If we're doing good work, you'll stay. We don't need a contract to keep you. We need to keep delivering.</p>
+        </div>
+        <div class="belief-item reveal reveal-d2">
+          <h3>Honest reporting</h3>
+          <p>You'll always know what's running, what it costs, and what it's returning. No creative accounting.</p>
+        </div>
+        <div class="belief-item reveal reveal-d3">
+          <h3>No upselling</h3>
+          <p>We don't pitch services you don't need. If something isn't right for where you're at, we'll say so.</p>
+        </div>
+        <div class="belief-item reveal reveal-d4">
+          <h3>Maximum impact, minimal waste</h3>
+          <p>We focus your budget on the channels that actually move the needle, not the ones that look good in a report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="section-label reveal">Who we work with</p>
+          <h2 class="section-title reveal reveal-d1">Solutions for service-based businesses</h2>
+          <div class="body-copy" style="margin-top:20px;">
+            <p class="reveal reveal-d2">We work with service businesses. Healthcare, professional services, financial services, fitness, trades. Usually businesses where the owner is close to the work and doesn't have a marketing team sitting in-house.</p>
+            <p class="reveal reveal-d2">Usually a good fit if you're already spending something on marketing but not sure it's working as hard as it should. Or if you've outgrown DIY and want someone to take it off your plate properly.</p>
+          </div>
+          <div style="margin-top:28px;" class="reveal reveal-d3">
+            <a href="#" class="btn btn-primary" onclick="return showPage('contact')">Book a free call</a>
+          </div>
+        </div>
+        <div class="img-placeholder reveal reveal-d2">[Image]</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <h2 class="reveal">Want to see if we're the right fit?</h2>
+      <p class="reveal reveal-d1">A 30-minute call is usually enough to figure out whether we can help and how. No pitch deck, no pressure.</p>
+      <a href="#" class="btn btn-white reveal reveal-d2" onclick="return showPage('contact')">Book a call</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo-text">Locate Digital</div>
+          <div class="footer-tagline">We Don't Just Market — We Locate Growth.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="return showPage('home')">Home</a></li>
+          <li><a href="#" onclick="return showPage('about')">About us</a></li>
+          <li><a href="#" onclick="return showPage('services')">Services</a></li>
+          <li><a href="#" onclick="return showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Locate Digital</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════
+     SERVICES
+════════════════════ -->
+<div id="page-services" class="page">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Services</h1>
+      <p>We focus on what actually generates leads for service businesses. And we're straight about what's right for your situation and what isn't.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="service-block reveal">
+        <p class="section-label">Paid media</p>
+        <h2>Dominate your market with paid ads</h2>
+        <p>Google Ads and Meta Ads, built to convert. If you're spending on paid ads and not sure what you're getting back, something's off. Ads should have clear inputs and measurable outputs.</p>
+        <p>We build campaigns around your actual business goals. Cost per lead, not cost per click. We report on what matters, not what fills a slide deck.</p>
+        <ul class="includes-list">
+          <li>Google Ads: Search, Display, Performance Max</li>
+          <li>Meta Ads: Facebook and Instagram</li>
+          <li>Campaign setup and ongoing optimisation</li>
+          <li>Conversion tracking setup</li>
+          <li>Monthly reporting in plain English</li>
+        </ul>
+      </div>
+
+      <div class="service-block reveal">
+        <p class="section-label">SEO</p>
+        <h2>Search engine optimisation</h2>
+        <p>Most service businesses depend on Google Search more than they realise. If your site doesn't show up when someone searches for what you do in your area, you're giving those leads to whoever does rank.</p>
+        <p>SEO takes longer than paid ads, but it compounds. We handle the technical work, local signals, and content. The things that actually shift rankings for service businesses.</p>
+        <ul class="includes-list">
+          <li>Technical SEO audit and fixes</li>
+          <li>Google Business Profile optimisation</li>
+          <li>Local SEO: suburb and city targeting</li>
+          <li>On-page content optimisation</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+      </div>
+
+      <div class="service-block reveal">
+        <p class="section-label">Social media management</p>
+        <h2>Instagram, Facebook and TikTok</h2>
+        <p>Inconsistent posting does more damage than no posting. It signals to potential clients that the business isn't active, isn't paying attention, or isn't worth following.</p>
+        <p>We handle the whole thing. Strategy, content creation, scheduling, community management, and paid social where it makes sense. You approve the content calendar and we handle the rest.</p>
+        <ul class="includes-list">
+          <li>Platform strategy</li>
+          <li>Content creation: captions, graphics, short-form video</li>
+          <li>Scheduling and posting</li>
+          <li>Comments and DM management</li>
+          <li>Meta Ads integration where relevant</li>
+          <li>Monthly content calendar for approval</li>
+        </ul>
+      </div>
+
+      <div class="service-block reveal">
+        <p class="section-label">Email marketing</p>
+        <h2>Stay front of mind. Automatically.</h2>
+        <p>Email is still one of the highest-return channels for service businesses. Most leads don't convert first time. Email keeps you in front of them until they're ready. And for existing clients, it's the best way to drive repeat bookings and referrals.</p>
+        <p>We set up the automations that run without you, and manage campaigns when you need them.</p>
+        <ul class="includes-list">
+          <li>Email platform setup or audit</li>
+          <li>Automated sequence copywriting and setup</li>
+          <li>Campaign emails: newsletters, promotions, follow-ups</li>
+          <li>List segmentation</li>
+          <li>Reporting on opens, clicks, and conversions</li>
+        </ul>
+      </div>
+
+      <div class="service-block reveal">
+        <p class="section-label">Digital strategy</p>
+        <h2>Success online requires a clear strategy</h2>
+        <p>If you're running a few different marketing activities and can't tell what's working, the problem is usually the absence of a plan that ties it together. You end up spending across channels without a clear picture of which ones are pulling their weight.</p>
+        <p>A strategy engagement starts with an honest audit of where you are. Then we build a plan: which channels to focus on, what the budget should look like, and what to expect at 90 days and 12 months.</p>
+        <ul class="includes-list">
+          <li>Audit of existing marketing activity</li>
+          <li>Competitor and market review</li>
+          <li>Channel prioritisation and budget recommendation</li>
+          <li>90-day action plan</li>
+          <li>Ongoing advisory check-ins</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <h2 class="reveal">Not sure which service you need?</h2>
+      <p class="reveal reveal-d1">Most businesses aren't, and that's fine. Book a call, tell us where you're at, and we'll tell you what makes sense.</p>
+      <a href="#" class="btn btn-white reveal reveal-d2" onclick="return showPage('contact')">Book a free call</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo-text">Locate Digital</div>
+          <div class="footer-tagline">We Don't Just Market — We Locate Growth.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="return showPage('home')">Home</a></li>
+          <li><a href="#" onclick="return showPage('about')">About us</a></li>
+          <li><a href="#" onclick="return showPage('services')">Services</a></li>
+          <li><a href="#" onclick="return showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Locate Digital</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════
+     CONTACT
+════════════════════ -->
+<div id="page-contact" class="page">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Let's Build Something Great Together</h1>
+      <p>Share your vision with us, and let's work together to help customers locate you.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <h2>Get in touch</h2>
+          <p>Most conversations start with a quick call. About 30 minutes to understand where you're at, what's working, and what you want from marketing over the next 12 months.</p>
+          <p>We'll tell you honestly whether we're the right fit and what we'd focus on first.</p>
+          <div style="margin-top:28px;">
+            <div class="contact-detail">✉ sam@locatedigital.io</div>
+            <div class="contact-detail">🌐 locatedigital.io</div>
+          </div>
+        </div>
+
+        <div class="form-wrap reveal reveal-d2">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="04xx xxx xxx">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me a bit about your business and what you're looking to achieve..."></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;">Send message</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo-text">Locate Digital</div>
+          <div class="footer-tagline">We Don't Just Market — We Locate Growth.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="return showPage('home')">Home</a></li>
+          <li><a href="#" onclick="return showPage('about')">About us</a></li>
+          <li><a href="#" onclick="return showPage('services')">Services</a></li>
+          <li><a href="#" onclick="return showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Locate Digital</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<script>
+  // ── LENIS SMOOTH SCROLL ──
+  const lenis = new Lenis();
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  // ── GSAP SCROLL REVEALS ──
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initScrollAnimations() {
+    // Kill existing triggers on page switch
+    ScrollTrigger.getAll().forEach(t => t.kill());
+
+    // Stagger delays from CSS classes
+    const delays = { 'reveal-d1': 0.08, 'reveal-d2': 0.16, 'reveal-d3': 0.24, 'reveal-d4': 0.32, 'reveal-d5': 0.40 };
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      let delay = 0;
+      Object.entries(delays).forEach(([cls, d]) => { if (el.classList.contains(cls)) delay = d; });
+
+      gsap.fromTo(el,
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1, y: 0, duration: 0.65, delay,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+  }
+
+  // ── TYPED.JS HERO ──
+  let typedInstance = null;
+
+  function initTyped() {
+    if (typedInstance) { typedInstance.destroy(); }
+    const el = document.getElementById('typed-element');
+    if (!el) return;
+    typedInstance = new Typed('#typed-element', {
+      strings: [' ', 'Digital Growth'],
+      typeSpeed: 150,
+      showCursor: true,
+    });
+  }
+
+  // ── PAGE SWITCHING ──
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.getElementById('nav-' + name).classList.add('active');
+    lenis.scrollTo(0, { immediate: true });
+    setTimeout(() => {
+      initScrollAnimations();
+      if (name === 'home') initTyped();
+    }, 30);
+    return false;
+  }
+
+  // ── NAV SHADOW ──
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // ── FAQ ACCORDION ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── INIT ──
+  window.addEventListener('load', () => {
+    initScrollAnimations();
+    initTyped();
+  });
+</script>
+
+</body>
+</html>

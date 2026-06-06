@@ -7,6 +7,10 @@ description: Write or audit a landing page for a service business client. Use wh
 
 Write or audit landing page copy for service business clients. Goal: phone calls, form submissions, or online bookings. Not product purchases or sign-ups.
 
+## MOSIC reference template
+
+For MOSIC pages, use `_skills/landing-page/mosic-template.html` as the base. It matches the WPBakery site exactly — colors, fonts, button styles, responsive layout. Copy and adapt sections; don't rebuild from scratch.
+
 ## Client context (read first)
 
 Read the client's `CLAUDE.md` from `clients/<name>/CLAUDE.md`. Pull:
