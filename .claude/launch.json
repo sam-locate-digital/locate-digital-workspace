@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mosic-scoliosis",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "clients/MOSIC/webpages"],
+      "port": 3456
+    },
+    {
+      "name": "checklists",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4400", "--directory", "."],
+      "port": 4400
+    }
+  ]
+}

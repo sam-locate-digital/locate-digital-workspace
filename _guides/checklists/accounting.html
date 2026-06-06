@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Presence Checklist — Accounting & Bookkeeping | Locate Digital</title>
+  <meta name="description" content="Most accounting firms are invisible online at the exact moment a client is searching for them. This checklist shows you where the gaps are and what to fix first.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #007ae8;
+      --blue-dk: #0062c7;
+      --teal:    #75dfee;
+      --orange:  #ff5900;
+      --ink:     #0d0d0d;
+      --muted:   #63666b;
+      --subtle:  #8e9196;
+      --line:    #e6e6e6;
+      --line-lt: #f0f2f5;
+      --bg:      #ffffff;
+      --soft:    #f7f9fc;
+      --h: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --b: 'Poppins', system-ui, sans-serif;
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--b); font-size: 16px; color: var(--ink); background: var(--bg); line-height: 1.7; overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: var(--h); line-height: 1.25; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 48px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 30px; width: auto; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-score-badge {
+      font-family: var(--h); font-size: 0.82rem; font-weight: 700;
+      color: var(--muted); white-space: nowrap;
+    }
+    .nav-score-badge span { color: var(--blue); font-size: 1rem; }
+    .nav-cta {
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.82rem; font-weight: 600;
+      padding: 9px 22px; border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #d94c00; transform: translateY(-1px); text-decoration: none; }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(150deg, #050f20 0%, #0b2a5e 55%, #0060c0 100%);
+      padding: 80px 48px 72px;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(117,223,238,0.4); color: var(--teal);
+      font-family: var(--b); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-weight: 800; color: #fff; margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.75; margin-bottom: 32px; max-width: 640px;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ---- WHAT YOU GET STRIP ---- */
+    .hero-points {
+      display: flex; gap: 0; flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); overflow: hidden; margin-bottom: 32px;
+    }
+    .hero-point {
+      flex: 1; min-width: 160px;
+      padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-point:last-child { border-right: none; }
+    .hero-point-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 4px; }
+    .hero-point-value { font-family: var(--h); font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.88); line-height: 1.3; }
+
+    /* ---- SCORE PILL ---- */
+    .score-pill-wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .score-pill {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 40px; padding: 11px 24px;
+      color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 500;
+    }
+    .score-pill strong { font-family: var(--h); font-size: 1.6rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.88rem; font-weight: 600;
+      padding: 12px 28px; border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: #d94c00; transform: translateY(-1px); text-decoration: none; }
+
+    /* ---- MAIN ---- */
+    .main { max-width: 760px; margin: 0 auto; padding: 52px 24px 96px; }
+
+    /* ---- INTRO ---- */
+    .intro {
+      background: var(--soft); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px;
+    }
+    .intro p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; }
+    .intro p + p { margin-top: 10px; }
+
+    /* ---- SECTION ---- */
+    .section { margin-bottom: 28px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .section-head {
+      background: var(--soft); padding: 18px 24px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .section-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-family: var(--h); font-size: 0.72rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-head h2 { font-size: 0.95rem; font-weight: 700; color: var(--ink); flex: 1; }
+    .section-progress { font-family: var(--h); font-size: 0.78rem; font-weight: 700; color: var(--subtle); }
+    .section-progress.done { color: var(--blue); }
+    .section-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; padding-left: 36px; }
+
+    /* ---- ITEMS ---- */
+    .item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 15px 24px; border-bottom: 1px solid var(--line-lt);
+      cursor: pointer; transition: background 0.12s;
+      min-height: 52px;
+    }
+    .item:last-child { border-bottom: none; }
+    .item:hover { background: #f5f8fd; }
+    .item.checked { background: #f0f7ff; }
+    .item-check {
+      flex-shrink: 0; margin-top: 1px;
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid #d0d5dd; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .item.checked .item-check { background: var(--blue); border-color: var(--blue); }
+    .item-check svg { display: none; }
+    .item.checked .item-check svg { display: block; }
+    .item-body { flex: 1; padding-top: 1px; }
+    .item-label { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
+    .item.checked .item-label { color: var(--subtle); text-decoration: line-through; text-decoration-color: #bbb; }
+    .item-note { font-size: 0.77rem; color: var(--subtle); margin-top: 3px; line-height: 1.5; }
+
+    /* ---- PROGRESS BAR ---- */
+    .progress-wrap { margin: 36px 0 0; }
+    .progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .progress-label span { color: var(--blue); font-family: var(--h); }
+    .progress-track { background: var(--line); border-radius: 99px; height: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--teal)); border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+
+    /* ---- SCORE CARD ---- */
+    .score-card {
+      background: linear-gradient(150deg, #050f20, #0b2a5e);
+      border-radius: 14px; padding: 44px 40px; text-align: center; margin: 44px 0 0;
+    }
+    .score-card-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+    .score-display { font-family: var(--h); font-size: 4.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
+    .score-display span { color: var(--teal); }
+    .score-pct { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+    .score-verdict { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.65; max-width: 440px; margin: 0 auto 32px; }
+    .score-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 28px 0; }
+    .score-cta-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.95rem; font-weight: 600;
+      padding: 15px 36px; border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #d94c00; transform: translateY(-2px); text-decoration: none; }
+
+    /* ---- TIP ---- */
+    .tip {
+      border-left: 3px solid var(--orange);
+      background: #fff8f0; padding: 16px 20px; border-radius: 0 8px 8px 0;
+      margin: 28px 0 0;
+    }
+    .tip p { font-size: 0.84rem; color: #5c2e00; line-height: 1.7; }
+    .tip strong { color: var(--orange); font-weight: 600; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center; padding: 32px 24px;
+      border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--subtle);
+    }
+    footer a { color: var(--blue); }
+
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; }
+      .nav-score-badge { display: none; }
+      .hero { padding: 52px 20px 48px; }
+      .hero-points { display: none; }
+      .main { padding: 32px 16px 64px; }
+      .item { padding: 14px 16px; }
+      .section-head { padding: 14px 16px 12px; }
+      .section-desc { padding-left: 0; }
+      .score-card { padding: 32px 20px; }
+      .score-display { font-size: 3.5rem; }
+      .intro { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://www.locatedigital.io" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" height="44" width="49" style="display:block;flex-shrink:0" viewBox="32.6450225830078 58.405 509.7099914550781 458.1899935913086"> <g transform="rotate(0 287.5001292916269 245.79739501953125)"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" x="209.62" y="128.405" viewBox="213.33714294433594 196.89039611816406 72.58418273925781 109.40959167480469" xml:space="preserve" height="234.7847900390625" width="155.7602585832537" preserveAspectRatio="xMinYMin" enable-background="new 0 0 500 500" style="overflow: visible;"><path class="st0" d="M285.3,205.3L263.8,248l-7.4-11.2c-1.9-2.8-5-4.5-8.4-4.5c-3.8,0-7.3,2.1-9,5.6l-9.8,19.4l-9.5-14.4  c-1.8-2.7-1-6.3,1.6-8l55.7-37C281.8,194.6,287.9,200,285.3,205.3z" style="fill: #007ae8; fill-opacity: 1;"></path><path class="st1" d="M268.7,273.7L221,305.4c-0.9,0.6-1.8,0.9-2.7,0.9c-3.4,0-6.2-3.6-4.4-7.2l18.5-36.8l11.1-22  c0.9-1.8,2.7-2.7,4.4-2.7c1.6,0,3.1,0.7,4.1,2.2l9,13.6l9,13.6C271.6,269.1,271,272.2,268.7,273.7z" style="fill: #75DFEE; fill-opacity: 1;"></path></svg></g> <g transform="rotate(0 287.50001831054686 419.8899955749512)"><svg xmlns="http://www.w3.org/2000/svg" y="393.18499755859375" viewBox="4.099999904632568 15.789999961853027 369.7099914550781 53.409996032714844" x="102.6450225830078" height="53.409996032714844" width="369.7099914550781" style="overflow: visible;"><g fill="#007ae8" fill-opacity="1" style=""><path d="M11.86 57L4.10 57L4.10 16.93L11.86 16.93L11.86 57ZM30.21 57L9.80 57L9.80 50.10L30.21 50.10L30.21 57ZM47.25 57.57L47.25 57.57Q43.09 57.57 39.76 55.66Q36.42 53.75 34.46 50.47Q32.49 47.20 32.49 43.15L32.49 43.15Q32.49 39.10 34.43 35.88Q36.37 32.66 39.73 30.75Q43.09 28.84 47.20 28.84L47.20 28.84Q51.41 28.84 54.75 30.75Q58.08 32.66 60.02 35.88Q61.96 39.10 61.96 43.15L61.96 43.15Q61.96 47.20 60.02 50.47Q58.08 53.75 54.75 55.66Q51.41 57.57 47.25 57.57ZM47.20 50.62L47.20 50.62Q49.30 50.62 50.93 49.68Q52.55 48.73 53.44 47.05Q54.32 45.37 54.32 43.21L54.32 43.21Q54.32 41.04 53.41 39.39Q52.50 37.73 50.90 36.79Q49.30 35.85 47.20 35.85L47.20 35.85Q45.14 35.85 43.55 36.79Q41.95 37.73 41.04 39.39Q40.13 41.04 40.13 43.21L40.13 43.21Q40.13 45.37 41.04 47.05Q41.95 48.73 43.55 49.68Q45.14 50.62 47.20 50.62ZM79.74 57.57L79.74 57.57Q75.53 57.57 72.16 55.69Q68.80 53.81 66.86 50.56Q64.92 47.31 64.92 43.26L64.92 43.26Q64.92 39.16 66.86 35.91Q68.80 32.66 72.19 30.75Q75.58 28.84 79.74 28.84L79.74 28.84Q82.99 28.84 85.73 30.04Q88.46 31.24 90.46 33.46L90.46 33.46L85.67 38.30Q84.59 37.11 83.08 36.48Q81.57 35.85 79.74 35.85L79.74 35.85Q77.69 35.85 76.07 36.79Q74.44 37.73 73.50 39.36Q72.56 40.98 72.56 43.21L72.56 43.21Q72.56 45.37 73.50 47.05Q74.44 48.73 76.07 49.68Q77.69 50.62 79.74 50.62L79.74 50.62Q81.62 50.62 83.13 49.96Q84.65 49.30 85.73 48.05L85.73 48.05L90.57 52.90Q88.46 55.18 85.73 56.37Q82.99 57.57 79.74 57.57ZM105.68 57.57L105.68 57.57Q101.92 57.57 98.90 55.69Q95.87 53.81 94.16 50.56Q92.45 47.31 92.45 43.26L92.45 43.26Q92.45 39.16 94.16 35.91Q95.87 32.66 98.90 30.78Q101.92 28.90 105.68 28.90L105.68 28.90Q108.64 28.90 110.98 30.10Q113.32 31.29 114.71 33.43Q116.11 35.57 116.22 38.25L116.22 38.25L116.22 48.16Q116.11 50.90 114.71 53.01Q113.32 55.12 110.98 56.34Q108.64 57.57 105.68 57.57ZM107.05 50.67L107.05 50.67Q110.18 50.67 112.12 48.59Q114.06 46.51 114.06 43.21L114.06 43.21Q114.06 41.04 113.17 39.36Q112.29 37.68 110.72 36.74Q109.16 35.80 107.05 35.80L107.05 35.80Q104.99 35.80 103.43 36.74Q101.86 37.68 100.98 39.36Q100.09 41.04 100.09 43.21L100.09 43.21Q100.09 45.43 100.98 47.11Q101.86 48.79 103.43 49.73Q104.99 50.67 107.05 50.67ZM121.07 57L113.66 57L113.66 49.59L114.86 42.86L113.66 36.25L113.66 29.47L121.07 29.47L121.07 57ZM139.19 57L131.73 57L131.73 18.01L139.19 18.01L139.19 57ZM145.63 36.02L125.29 36.02L125.29 29.47L145.63 29.47L145.63 36.02ZM162.34 57.57L162.34 57.57Q158.00 57.57 154.64 55.72Q151.28 53.87 149.31 50.62Q147.34 47.37 147.34 43.21L147.34 43.21Q147.34 39.10 149.25 35.88Q151.16 32.66 154.47 30.75Q157.78 28.84 161.82 28.84L161.82 28.84Q165.81 28.84 168.86 30.64Q171.91 32.43 173.65 35.54Q175.39 38.65 175.39 42.58L175.39 42.58Q175.39 43.32 175.30 44.09Q175.22 44.86 174.99 45.83L174.99 45.83L151.85 45.88L151.85 40.30L171.51 40.24L168.49 42.58Q168.38 40.13 167.61 38.47Q166.84 36.82 165.39 35.94Q163.93 35.05 161.82 35.05L161.82 35.05Q159.60 35.05 157.95 36.05Q156.29 37.05 155.41 38.85Q154.53 40.64 154.53 43.09L154.53 43.09Q154.53 45.60 155.47 47.45Q156.41 49.30 158.18 50.30Q159.94 51.30 162.28 51.30L162.28 51.30Q164.39 51.30 166.10 50.59Q167.81 49.88 169.06 48.45L169.06 48.45L173.45 52.84Q171.46 55.18 168.58 56.37Q165.70 57.57 162.34 57.57ZM207.65 57L197.22 57L197.22 50.10L207.42 50.10Q211.30 50.10 214.21 48.48Q217.11 46.85 218.74 43.89Q220.36 40.93 220.36 36.88L220.36 36.88Q220.36 32.95 218.71 30.01Q217.06 27.07 214.15 25.45Q211.24 23.83 207.42 23.83L207.42 23.83L197.05 23.83L197.05 16.93L207.54 16.93Q211.98 16.93 215.77 18.41Q219.56 19.89 222.39 22.60Q225.21 25.31 226.77 28.96Q228.34 32.60 228.34 36.94L228.34 36.94Q228.34 41.27 226.77 44.94Q225.21 48.62 222.41 51.33Q219.62 54.04 215.83 55.52Q212.04 57 207.65 57L207.65 57ZM199.67 57L191.92 57L191.92 16.93L199.67 16.93L199.67 57ZM241.22 57L233.70 57L233.70 29.47L241.22 29.47L241.22 57ZM237.46 25.02L237.46 25.02Q235.64 25.02 234.44 23.80Q233.24 22.57 233.24 20.75L233.24 20.75Q233.24 18.98 234.44 17.73Q235.64 16.47 237.46 16.47L237.46 16.47Q239.34 16.47 240.51 17.73Q241.68 18.98 241.68 20.75L241.68 20.75Q241.68 22.57 240.51 23.80Q239.34 25.02 237.46 25.02ZM259.35 69.20L259.35 69.20Q254.96 69.20 251.60 67.63Q248.24 66.06 246.24 63.21L246.24 63.21L250.97 58.48Q252.57 60.36 254.53 61.36Q256.50 62.36 259.29 62.36L259.29 62.36Q262.77 62.36 264.79 60.59Q266.82 58.82 266.82 55.69L266.82 55.69L266.82 48.79L268.07 42.75L266.87 36.71L266.87 29.47L274.28 29.47L274.28 55.58Q274.28 59.68 272.37 62.73Q270.47 65.78 267.10 67.49Q263.74 69.20 259.35 69.20ZM259.01 56.26L259.01 56.26Q255.30 56.26 252.34 54.46Q249.38 52.67 247.69 49.53Q246.01 46.40 246.01 42.52L246.01 42.52Q246.01 38.65 247.69 35.57Q249.38 32.49 252.34 30.69Q255.30 28.90 259.01 28.90L259.01 28.90Q262.09 28.90 264.45 30.10Q266.82 31.29 268.19 33.37Q269.55 35.45 269.67 38.25L269.67 38.25L269.67 46.91Q269.55 49.65 268.16 51.78Q266.76 53.92 264.39 55.09Q262.03 56.26 259.01 56.26ZM260.49 49.48L260.49 49.48Q262.54 49.48 264.05 48.59Q265.56 47.71 266.42 46.14Q267.27 44.57 267.27 42.58L267.27 42.58Q267.27 40.53 266.42 38.99Q265.56 37.45 264.05 36.57Q262.54 35.68 260.49 35.68L260.49 35.68Q258.44 35.68 256.90 36.57Q255.36 37.45 254.50 39.02Q253.65 40.58 253.65 42.58L253.65 42.58Q253.65 44.52 254.50 46.08Q255.36 47.65 256.90 48.56Q258.44 49.48 260.49 49.48ZM288.36 57L280.84 57L280.84 29.47L288.36 29.47L288.36 57ZM284.60 25.02L284.60 25.02Q282.78 25.02 281.58 23.80Q280.38 22.57 280.38 20.75L280.38 20.75Q280.38 18.98 281.58 17.73Q282.78 16.47 284.60 16.47L284.60 16.47Q286.48 16.47 287.65 17.73Q288.82 18.98 288.82 20.75L288.82 20.75Q288.82 22.57 287.65 23.80Q286.48 25.02 284.60 25.02ZM306.49 57L299.02 57L299.02 18.01L306.49 18.01L306.49 57ZM312.93 36.02L292.58 36.02L292.58 29.47L312.93 29.47L312.93 36.02ZM327.98 57.57L327.98 57.57Q324.22 57.57 321.19 55.69Q318.17 53.81 316.46 50.56Q314.75 47.31 314.75 43.26L314.75 43.26Q314.75 39.16 316.46 35.91Q318.17 32.66 321.19 30.78Q324.22 28.90 327.98 28.90L327.98 28.90Q330.94 28.90 333.28 30.10Q335.62 31.29 337.01 33.43Q338.41 35.57 338.52 38.25L338.52 38.25L338.52 48.16Q338.41 50.90 337.01 53.01Q335.62 55.12 333.28 56.34Q330.94 57.57 327.98 57.57ZM329.35 50.67L329.35 50.67Q332.48 50.67 334.42 48.59Q336.36 46.51 336.36 43.21L336.36 43.21Q336.36 41.04 335.47 39.36Q334.59 37.68 333.02 36.74Q331.46 35.80 329.35 35.80L329.35 35.80Q327.29 35.80 325.73 36.74Q324.16 37.68 323.28 39.36Q322.39 41.04 322.39 43.21L322.39 43.21Q322.39 45.43 323.28 47.11Q324.16 48.79 325.73 49.73Q327.29 50.67 329.35 50.67ZM343.37 57L335.96 57L335.96 49.59L337.16 42.86L335.96 36.25L335.96 29.47L343.37 29.47L343.37 57ZM357.45 57L349.98 57L349.98 15.79L357.45 15.79L357.45 57ZM369.19 57.57L369.19 57.57Q367.14 57.57 365.83 56.20Q364.52 54.83 364.52 52.84L364.52 52.84Q364.52 50.84 365.83 49.48Q367.14 48.11 369.19 48.11L369.19 48.11Q371.18 48.11 372.50 49.48Q373.81 50.84 373.81 52.84L373.81 52.84Q373.81 54.83 372.50 56.20Q371.18 57.57 369.19 57.57Z" transform="translate(0, 0)"></path></g></svg></g></svg>
+  </a>
+  <div class="nav-right">
+    <div class="nav-score-badge">Score: <span id="nav-score">0</span> / <span id="nav-total">0</span></div>
+    <a class="nav-cta" href="https://www.locatedigital.io" target="_blank">Book a free call</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Digital presence checklist</div>
+    <h1>Accounting &amp; bookkeeping</h1>
+    <p class="hero-sub">
+      Most accounting firms are invisible online at the exact moment a client is searching for them. They have a website. They might be on Google. But they're missing the things that actually turn a search into a call.<br><br>
+      This checklist covers <strong>23 items across five areas</strong>, website credibility, local SEO, content, client retention, and paid advertising. Work through it honestly. The gaps you find are where your competitors are winning business you should be getting.
+    </p>
+
+    <div class="hero-points">
+      <div class="hero-point">
+        <div class="hero-point-label">Areas covered</div>
+        <div class="hero-point-value">5 categories</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-label">Items to check</div>
+        <div class="hero-point-value">23 specific actions</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-label">Time to complete</div>
+        <div class="hero-point-value">About 10 minutes</div>
+      </div>
+      <div class="hero-point">
+        <div class="hero-point-label">Market</div>
+        <div class="hero-point-value">Melbourne, Victoria</div>
+      </div>
+    </div>
+
+    <div class="score-pill-wrap">
+      <div class="score-pill">
+        Your score so far: <strong id="hero-score">0</strong>&nbsp;/ <span id="hero-total">0</span>
+      </div>
+      <a class="hero-cta" href="https://www.locatedigital.io" target="_blank">Talk to us about the gaps</a>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="intro">
+    <p>Tick every item that genuinely applies to your firm, not what you intend to do, but what is actually live and working right now. That honest number is the one worth talking about.</p>
+    <p>Score 19 or above and you're ahead of most local firms. Below 12 and there are quick wins here that are probably costing you clients every week.</p>
+  </div>
+
+  <section class="section" id="s1">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">1</div>
+        <h2>Website &amp; credibility</h2>
+        <span class="section-progress" id="prog-s1">0 / 5</span>
+      </div>
+      <p class="section-desc">Before a client picks up the phone, they check your website. It is often the only thing standing between a search and an enquiry. A site that looks dated, loads slowly, or says nothing specific about who you serve will send that person straight to a competitor.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Professional website with clear service pages</div>
+        <div class="item-note">A website where each core service has its own dedicated page, covering what you offer, who it is for, and how to get started.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Industry niche pages (e.g. tradie accounting, SMSF)</div>
+        <div class="item-note">Dedicated pages targeting a specific client type or service area, separate from your main services listing.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Team page with photos and qualifications</div>
+        <div class="item-note">A page showing each team member with a photo, their name, role, and professional qualifications or memberships.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Client testimonials and case studies on the site</div>
+        <div class="item-note">Written or video reviews from existing clients, and case studies showing the type of work done and the outcome achieved.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Secure client portal prominently promoted</div>
+        <div class="item-note">A dedicated login area where clients can securely submit documents, view records, and communicate with the firm.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">2</div>
+        <h2>Local SEO &amp; Google presence</h2>
+        <span class="section-progress" id="prog-s2">0 / 5</span>
+      </div>
+      <p class="section-desc">When someone searches for an accountant in your suburb, Google decides whose firm appears at the top. That decision is based on signals most firms have never set up properly. Local SEO is not complicated, but it does require consistent attention.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Google Business Profile fully completed and verified</div>
+        <div class="item-note">Your Google Business listing, including business hours, photos, services, address, and verification status with Google.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">'Accountant in [suburb]' page on your website</div>
+        <div class="item-note">A page on your website written specifically for your suburb or service area, with location-relevant language and search terms.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">50+ Google reviews with a response on each</div>
+        <div class="item-note">The total number of reviews on your Google Business Profile, and whether your firm has replied to each one.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Listed on business directories (TrueLocal, Yellow Pages, Yelp)</div>
+        <div class="item-note">Your firm's name, address, and phone number listed consistently across general business directories.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Google Posts published at least monthly</div>
+        <div class="item-note">Short updates published directly to your Google Business Profile, visible to people who find your listing in search.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">3</div>
+        <h2>Content &amp; thought leadership</h2>
+        <span class="section-progress" id="prog-s3">0 / 5</span>
+      </div>
+      <p class="section-desc">Publishing useful content consistently keeps you ranking when someone is researching accountants and builds trust with people who are not quite ready to call yet. The firms that publish well own the searches. The ones that do not are invisible between lodgement periods.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Blog covering tax tips, ATO updates and deductions</div>
+        <div class="item-note">Regular articles published on your website covering topics relevant to your clients, such as tax changes, deductions, and ATO updates.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Annual tax deadline content calendar in place</div>
+        <div class="item-note">A planned schedule of content mapped to key dates in the financial year, such as BAS deadlines, EOFY, and lodgement periods.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">LinkedIn company page active with regular posts</div>
+        <div class="item-note">A company page on LinkedIn with regular posts, used to share content and stay visible to business owners and professional networks.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Industry-specific guide as a lead magnet</div>
+        <div class="item-note">A free downloadable resource, such as a tax guide or EOFY checklist, offered in exchange for a visitor's contact details.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Video content: team introductions or explainers</div>
+        <div class="item-note">Short videos introducing the team or walking through common client questions, published on the website or social channels.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">4</div>
+        <h2>Lead nurture &amp; client retention</h2>
+        <span class="section-progress" id="prog-s4">0 / 4</span>
+      </div>
+      <p class="section-desc">Getting the enquiry is only part of the job. Firms that retain clients long-term have systems running in the background, keeping people engaged between lodgement periods and making referrals feel natural rather than forced.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Email newsletter covering ATO updates and tax tips</div>
+        <div class="item-note">A regular email sent to your client list covering relevant tax updates, reminders, and firm news.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Automated email campaign running at tax time</div>
+        <div class="item-note">An email sequence that sends automatically at set times, triggered by key dates such as EOFY or the start of lodgement season.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Referral partner strategy with lawyers and mortgage brokers</div>
+        <div class="item-note">A structured approach to building relationships with complementary professionals who can refer clients to your firm.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">New client onboarding email sequence</div>
+        <div class="item-note">A series of automated emails sent to new clients in their first weeks, covering what to expect and how the firm works.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">5</div>
+        <h2>Paid advertising</h2>
+        <span class="section-progress" id="prog-s5">0 / 4</span>
+      </div>
+      <p class="section-desc">Organic reach has a ceiling. Paid channels let you put your firm in front of the right businesses at the right moment, and with proper tracking you know exactly what each new client costs to acquire.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Google Ads running at tax time (July to October)</div>
+        <div class="item-note">Paid search ads that appear at the top of Google results when someone searches for an accountant in your area.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Meta Ads targeting local business owners</div>
+        <div class="item-note">Paid ads running on Facebook and Instagram, targeted by location, interests, and business type.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">LinkedIn Ads targeting business owners and directors</div>
+        <div class="item-note">Paid ads on LinkedIn targeted by job title, company size, and industry.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Remarketing active to previous website visitors</div>
+        <div class="item-note">Ads that show specifically to people who have already visited your website but did not make an enquiry.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Overall progress</span><span id="pct-label">0%</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div class="tip">
+    <p><strong>Where to start if you scored under 12:</strong> not every item on this list carries the same weight. The fundamentals, a complete Google presence, consistent local listings, and an active review profile, tend to move the needle faster than paid advertising for most firms. If your score is under 12, start there before spending on ads.</p>
+  </div>
+
+  <div class="score-card">
+    <div class="score-card-eyebrow">Your result</div>
+    <div class="score-display"><span id="final-score">0</span> / <span id="final-total">23</span></div>
+    <div class="score-pct" id="score-pct">0% of items complete</div>
+    <p class="score-verdict" id="score-verdict">Work through the checklist above to see your result.</p>
+    <hr class="score-divider">
+    <div class="score-cta-label">Want to know what to fix first?</div>
+    <a class="btn-primary" href="https://www.locatedigital.io" target="_blank">Book a free strategy call</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 <a href="https://www.locatedigital.io" target="_blank">Locate Digital</a> — Digital marketing for service businesses.</p>
+</footer>
+
+<script>
+  const sections = [
+    { id: 's1', count: 5 },
+    { id: 's2', count: 5 },
+    { id: 's3', count: 5 },
+    { id: 's4', count: 4 },
+    { id: 's5', count: 4 },
+  ];
+  const total = sections.reduce((a, s) => a + s.count, 0);
+  ['hero-total', 'nav-total', 'final-total'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = total;
+  });
+
+  const verdicts = [
+    [0,  3,  "Work through the checklist above to see your result."],
+    [4,  8,  "There is a lot of ground to cover. The good news is most of these gaps are fixable within a few months."],
+    [9,  12, "Solid foundations in place. The gaps that remain are likely costing you leads you do not know you are losing."],
+    [13, 17, "Good shape overall. A handful of items here could shift your results meaningfully."],
+    [18, 21, "Strong presence. You are ahead of most local firms. The remaining items are worth a conversation."],
+    [22, 23, "Very strong. Let us talk about where you want to take it from here."],
+  ];
+
+  function getVerdict(score) {
+    for (const [min, max, msg] of verdicts) {
+      if (score >= min && score <= max) return msg;
+    }
+    return "";
+  }
+
+  function updateScores() {
+    let grand = 0;
+    sections.forEach(s => {
+      const sec = document.getElementById(s.id);
+      const checked = sec.querySelectorAll('.item.checked').length;
+      const progEl = document.getElementById('prog-' + s.id);
+      progEl.textContent = checked + ' / ' + s.count;
+      progEl.className = 'section-progress' + (checked === s.count ? ' done' : '');
+      grand += checked;
+    });
+
+    const pct = Math.round((grand / total) * 100);
+    document.getElementById('hero-score').textContent = grand;
+    document.getElementById('nav-score').textContent = grand;
+    document.getElementById('final-score').textContent = grand;
+    document.getElementById('score-pct').textContent = pct + '% of items complete';
+    document.getElementById('pct-label').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('score-verdict').textContent = getVerdict(grand);
+  }
+
+  function toggle(el) {
+    el.classList.toggle('checked');
+    updateScores();
+  }
+
+  updateScores();
+</script>
+</body>
+</html>

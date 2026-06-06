@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Presence Checklist — Osteopaths &amp; Allied Health | Locate Digital</title>
+  <meta name="description" content="Build trust, grow patient enquiries, and fill your appointment book. This checklist shows where your practice stands and what to fix first.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #007ae8;
+      --blue-dk: #0062c7;
+      --teal:    #75dfee;
+      --orange:  #ff5900;
+      --ink:     #0d0d0d;
+      --muted:   #63666b;
+      --subtle:  #8e9196;
+      --line:    #e6e6e6;
+      --line-lt: #f0f2f5;
+      --bg:      #ffffff;
+      --soft:    #f7f9fc;
+      --h: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --b: 'Poppins', system-ui, sans-serif;
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--b); font-size: 16px; color: var(--ink); background: var(--bg); line-height: 1.7; overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: var(--h); line-height: 1.25; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 48px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 30px; width: auto; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-score-badge {
+      font-family: var(--h); font-size: 0.82rem; font-weight: 700;
+      color: var(--muted); white-space: nowrap;
+    }
+    .nav-score-badge span { color: var(--blue); font-size: 1rem; }
+    .nav-cta {
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.82rem; font-weight: 600;
+      padding: 9px 22px; border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #d94c00; transform: translateY(-1px); text-decoration: none; }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: linear-gradient(150deg, #050f20 0%, #0b2a5e 55%, #0060c0 100%);
+      padding: 80px 48px 72px;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(117,223,238,0.4); color: var(--teal);
+      font-family: var(--b); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-weight: 800; color: #fff; margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.75; margin-bottom: 32px; max-width: 640px;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ---- WHAT YOU GET STRIP ---- */
+    .hero-points {
+      display: flex; gap: 0; flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); overflow: hidden; margin-bottom: 32px;
+    }
+    .hero-point {
+      flex: 1; min-width: 160px;
+      padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-point:last-child { border-right: none; }
+    .hero-point-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 4px; }
+    .hero-point-value { font-family: var(--h); font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.88); line-height: 1.3; }
+
+    /* ---- SCORE PILL ---- */
+    .score-pill-wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .score-pill {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 40px; padding: 11px 24px;
+      color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 500;
+    }
+    .score-pill strong { font-family: var(--h); font-size: 1.6rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.88rem; font-weight: 600;
+      padding: 12px 28px; border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: #d94c00; transform: translateY(-1px); text-decoration: none; }
+
+    /* ---- MAIN ---- */
+    .main { max-width: 760px; margin: 0 auto; padding: 52px 24px 96px; }
+
+    /* ---- INTRO ---- */
+    .intro {
+      background: var(--soft); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px;
+    }
+    .intro p { font-size: 0.92rem; color: var(--muted); line-height: 1.8; }
+    .intro p + p { margin-top: 10px; }
+
+    /* ---- SECTION ---- */
+    .section { margin-bottom: 28px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .section-head {
+      background: var(--soft); padding: 18px 24px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .section-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-family: var(--h); font-size: 0.72rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-head h2 { font-size: 0.95rem; font-weight: 700; color: var(--ink); flex: 1; }
+    .section-progress { font-family: var(--h); font-size: 0.78rem; font-weight: 700; color: var(--subtle); }
+    .section-progress.done { color: var(--blue); }
+    .section-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; padding-left: 36px; }
+
+    /* ---- ITEMS ---- */
+    .item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 15px 24px; border-bottom: 1px solid var(--line-lt);
+      cursor: pointer; transition: background 0.12s;
+      min-height: 52px;
+    }
+    .item:last-child { border-bottom: none; }
+    .item:hover { background: #f5f8fd; }
+    .item.checked { background: #f0f7ff; }
+    .item-check {
+      flex-shrink: 0; margin-top: 1px;
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid #d0d5dd; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .item.checked .item-check { background: var(--blue); border-color: var(--blue); }
+    .item-check svg { display: none; }
+    .item.checked .item-check svg { display: block; }
+    .item-body { flex: 1; padding-top: 1px; }
+    .item-label { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
+    .item.checked .item-label { color: var(--subtle); text-decoration: line-through; text-decoration-color: #bbb; }
+    .item-note { font-size: 0.77rem; color: var(--subtle); margin-top: 3px; line-height: 1.5; }
+
+    /* ---- PROGRESS BAR ---- */
+    .progress-wrap { margin: 36px 0 0; }
+    .progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .progress-label span { color: var(--blue); font-family: var(--h); }
+    .progress-track { background: var(--line); border-radius: 99px; height: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--teal)); border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+
+    /* ---- SCORE CARD ---- */
+    .score-card {
+      background: linear-gradient(150deg, #050f20, #0b2a5e);
+      border-radius: 14px; padding: 44px 40px; text-align: center; margin: 44px 0 0;
+    }
+    .score-card-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+    .score-display { font-family: var(--h); font-size: 4.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
+    .score-display span { color: var(--teal); }
+    .score-pct { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+    .score-verdict { font-size: 1rem; color: rgba(255,255,255,0.82); line-height: 1.65; max-width: 440px; margin: 0 auto 32px; }
+    .score-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 28px 0; }
+    .score-cta-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.95rem; font-weight: 600;
+      padding: 15px 36px; border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #d94c00; transform: translateY(-2px); text-decoration: none; }
+
+    /* ---- TIP ---- */
+    .tip {
+      border-left: 3px solid var(--orange);
+      background: #fff8f0; padding: 16px 20px; border-radius: 0 8px 8px 0;
+      margin: 28px 0 0;
+    }
+    .tip p { font-size: 0.84rem; color: #5c2e00; line-height: 1.7; }
+    .tip strong { color: var(--orange); font-weight: 600; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center; padding: 32px 24px;
+      border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--subtle);
+    }
+    footer a { color: var(--blue); }
+
+    @media (max-width: 640px) {
+      .nav { padding: 0 20px; }
+      .nav-score-badge { display: none; }
+      .hero { padding: 52px 20px 48px; }
+      .hero-points { display: none; }
+      .main { padding: 32px 16px 64px; }
+      .item { padding: 14px 16px; }
+      .section-head { padding: 14px 16px 12px; }
+      .section-desc { padding-left: 0; }
+      .score-card { padding: 32px 20px; }
+      .score-display { font-size: 3.5rem; }
+      .intro { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="https://www.locatedigital.io" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="44" width="49" style="display:block;flex-shrink:0" viewBox="32.6450225830078 58.405 509.7099914550781 458.1899935913086"> <g transform="rotate(0 287.5001292916269 245.79739501953125)"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" x="209.62" y="128.405" viewBox="213.33714294433594 196.89039611816406 72.58418273925781 109.40959167480469" xml:space="preserve" height="234.7847900390625" width="155.7602585832537" preserveAspectRatio="xMinYMin" enable-background="new 0 0 500 500" style="overflow: visible;"><path class="st0" d="M285.3,205.3L263.8,248l-7.4-11.2c-1.9-2.8-5-4.5-8.4-4.5c-3.8,0-7.3,2.1-9,5.6l-9.8,19.4l-9.5-14.4  c-1.8-2.7-1-6.3,1.6-8l55.7-37C281.8,194.6,287.9,200,285.3,205.3z" style="fill: #007ae8; fill-opacity: 1;"></path><path class="st1" d="M268.7,273.7L221,305.4c-0.9,0.6-1.8,0.9-2.7,0.9c-3.4,0-6.2-3.6-4.4-7.2l18.5-36.8l11.1-22  c0.9-1.8,2.7-2.7,4.4-2.7c1.6,0,3.1,0.7,4.1,2.2l9,13.6l9,13.6C271.6,269.1,271,272.2,268.7,273.7z" style="fill: #75DFEE; fill-opacity: 1;"></path></svg></a>
+  <div class="nav-right">
+    <div class="nav-score-badge">Score: <span id="nav-score">0</span> / <span id="nav-total">0</span></div>
+    <a class="nav-cta" href="https://www.locatedigital.io" target="_blank">Book a free call</a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Digital presence checklist</div>
+    <h1>Osteopaths &amp; allied health</h1>
+    <p class="hero-sub">Most patients research a health practitioner online before booking. They check your website, read your reviews, and look at your practitioners before picking up the phone. The practices that consistently attract new patients have their digital presence working across every step of that process.<br><br>This checklist covers <strong>23 items across five areas</strong>, your website, local SEO, educational content, social media, and patient retention. Work through it honestly. The gaps you find are where patients are choosing another practice.</p>
+    <div class="hero-points">
+      <div class="hero-point"><div class="hero-point-label">Areas covered</div><div class="hero-point-value">5 categories</div></div>
+      <div class="hero-point"><div class="hero-point-label">Items to check</div><div class="hero-point-value">23 specific actions</div></div>
+      <div class="hero-point"><div class="hero-point-label">Time to complete</div><div class="hero-point-value">About 10 minutes</div></div>
+      <div class="hero-point"><div class="hero-point-label">Market</div><div class="hero-point-value">Melbourne, Victoria</div></div>
+    </div>
+    <div class="score-pill-wrap">
+      <div class="score-pill">Your score so far: <strong id="hero-score">0</strong>&nbsp;/ <span id="hero-total">0</span></div>
+      <a class="hero-cta" href="https://www.locatedigital.io" target="_blank">Talk to us about the gaps</a>
+    </div>
+  </div>
+</header>
+<main class="main">
+  <div class="intro">
+    <p>Tick every item that genuinely applies to your business, not what you intend to do, but what is actually live and working right now. That honest number is the one worth talking about.</p>
+    <p>Score 19 or above and you are ahead of most local competitors. Below 12 and there are quick wins here that are probably costing you clients every week.</p>
+  </div>
+  <section class="section" id="s1">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">1</div>
+        <h2>Website &amp; patient experience</h2>
+        <span class="section-progress" id="prog-s1">0 / 5</span>
+      </div>
+      <p class="section-desc">Most patients research a health practitioner online before booking. Your website is where that research happens. A site that is hard to navigate, missing online booking, or lacking information about conditions you treat will push patients toward a practice that has those things in place.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Professional, mobile-optimised website</div>
+        <div class="item-note">A website that presents the practice clearly on all devices, with easy access to booking, contact details, and practitioner information.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Online appointment booking or request form</div>
+        <div class="item-note">A tool on the website that allows patients to book or request an appointment without needing to call.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Conditions treated page with relevant keywords</div>
+        <div class="item-note">A page or section listing the conditions the practice treats, written with the search terms patients actually use.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Practitioner bios with credentials and a photo</div>
+        <div class="item-note">Individual profile pages for each practitioner including their qualifications, areas of focus, and a professional photo.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">AHPRA compliant content throughout the site</div>
+        <div class="item-note">All health claims and testimonials on the website reviewed to ensure they meet AHPRA advertising guidelines.</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="s2">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">2</div>
+        <h2>Local SEO &amp; Google presence</h2>
+        <span class="section-progress" id="prog-s2">0 / 5</span>
+      </div>
+      <p class="section-desc">Health searches are highly local. When someone searches for an osteopath or physio, they are usually looking for someone nearby. A well-optimised local search presence is one of the most direct ways to fill appointment slots from new patients.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Google Business Profile verified and complete</div>
+        <div class="item-note">A fully completed and verified Google listing including photos, services, opening hours, and a booking link.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Review strategy actively managed</div>
+        <div class="item-note">A consistent process for requesting and responding to Google reviews from patients.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Location-specific service pages</div>
+        <div class="item-note">Website pages written for the suburbs your practice serves, targeting location-based searches.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Schema markup using health and medical types</div>
+        <div class="item-note">Structured data added to the website that helps Google categorise and feature your practice in health-related searches.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Listed on Healthengine, HotDoc, and relevant directories</div>
+        <div class="item-note">Your practice listed on health-specific booking platforms and directories with complete and consistent information.</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="s3">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">3</div>
+        <h2>Authority &amp; trust content</h2>
+        <span class="section-progress" id="prog-s3">0 / 4</span>
+      </div>
+      <p class="section-desc">Patients choose practitioners they trust. Educational content builds that trust before a patient has ever set foot in the clinic. It also keeps the practice ranking for the condition and treatment searches that bring in new appointments.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Blog or educational content published monthly</div>
+        <div class="item-note">Regular articles on the website covering conditions, treatments, exercises, and health topics relevant to your patient base.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">FAQ page answering common patient questions</div>
+        <div class="item-note">A page of questions and answers covering what patients typically ask before their first appointment.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Video content including exercises and condition explanations</div>
+        <div class="item-note">Short videos demonstrating exercises or explaining common conditions, published on the website or social channels.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Patient success stories with appropriate consent</div>
+        <div class="item-note">Written or video accounts from patients describing their experience and outcomes, published with their permission.</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="s4">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">4</div>
+        <h2>Social media</h2>
+        <span class="section-progress" id="prog-s4">0 / 4</span>
+      </div>
+      <p class="section-desc">Social media for health practices is less about selling and more about staying visible and building familiarity. Consistent, educational content across the right platforms keeps your practice top of mind for existing patients and discoverable to new ones.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">LinkedIn profile for professional referrals</div>
+        <div class="item-note">A complete LinkedIn profile for the practice and lead practitioners, used to maintain visibility with GPs and specialists.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Facebook page with educational posts</div>
+        <div class="item-note">An active Facebook page publishing health education content relevant to the conditions you treat.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Instagram for behind-the-scenes and health tips</div>
+        <div class="item-note">An Instagram account used to share practitioner content, clinic updates, and short health tips.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Consistent posting and community responses</div>
+        <div class="item-note">A regular posting schedule maintained across platforms, with replies to comments and messages.</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="s5">
+    <div class="section-head">
+      <div class="section-head-top">
+        <div class="section-num">5</div>
+        <h2>Patient retention &amp; referrals</h2>
+        <span class="section-progress" id="prog-s5">0 / 5</span>
+      </div>
+      <p class="section-desc">Acquiring a new patient costs more than keeping an existing one. Practices that retain patients long-term and generate referrals from their existing base have systems in place that make both happen consistently, not just when someone remembers to ask.</p>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Automated appointment reminder system</div>
+        <div class="item-note">Automated messages sent to patients before their scheduled appointment via SMS or email.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Post-treatment follow-up email or SMS</div>
+        <div class="item-note">An automated message sent after an appointment checking in with the patient and prompting re-booking.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Meta Ads targeting local residents</div>
+        <div class="item-note">Paid ads on Facebook and Instagram targeted by suburb and health-related interests, used to attract new patients.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">GP and specialist referral strategy with an online presence</div>
+        <div class="item-note">A referral page on the website and a LinkedIn presence designed to support relationships with referring practitioners.</div>
+      </div>
+    </div>
+    <div class="item" onclick="toggle(this)">
+      <div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-body">
+        <div class="item-label">Email newsletter with health tips and clinic updates</div>
+        <div class="item-note">A regular email sent to your patient list covering health content relevant to the conditions you treat.</div>
+      </div>
+    </div>
+  </section>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Overall progress</span><span id="pct-label">0%</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+  <div class="tip">
+    <p><strong>Where to start if you scored under 12:</strong> the fundamentals matter most here. A complete Google Business Profile, a consistent review strategy, and online booking will drive more new patient enquiries than almost anything else. Get those in place before investing in paid advertising or more advanced content.</p>
+  </div>
+  <div class="score-card">
+    <div class="score-card-eyebrow">Your result</div>
+    <div class="score-display"><span id="final-score">0</span> / <span id="final-total">23</span></div>
+    <div class="score-pct" id="score-pct">0% of items complete</div>
+    <p class="score-verdict" id="score-verdict">Work through the checklist above to see your result.</p>
+    <hr class="score-divider">
+    <div class="score-cta-label">Want to know what to fix first?</div>
+    <a class="btn-primary" href="https://www.locatedigital.io" target="_blank">Book a free strategy call</a>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2026 <a href="https://www.locatedigital.io" target="_blank">Locate Digital</a> — Digital marketing for service businesses.</p>
+</footer>
+<script>
+  const sections = [{ id: "s1", count: 5 }, { id: "s2", count: 5 }, { id: "s3", count: 4 }, { id: "s4", count: 4 }, { id: "s5", count: 5 }];
+  const total = sections.reduce((a, s) => a + s.count, 0);
+  ['hero-total','nav-total','final-total'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = total; });
+  const verdicts = [
+    [0, 3, "Work through the checklist above to see your result."],
+    [4, 8, "There is a lot of ground to cover. Most of these gaps are fixable within a few months."],
+    [9, 12, "Solid foundations in place. The remaining gaps are likely costing you new patient enquiries."],
+    [13, 17, "Good shape overall. A handful of items here could shift your appointment volume meaningfully."],
+    [18, 21, "Strong presence. You are ahead of most local practices. The remaining items are worth a conversation."],
+    [22, 23, "Very strong. Let us talk about where you want to take it from here."],
+  ];
+  function getVerdict(score) { for (const [min, max, msg] of verdicts) { if (score >= min && score <= max) return msg; } return ""; }
+  function updateScores() {
+    let grand = 0;
+    sections.forEach(s => {
+      const sec = document.getElementById(s.id);
+      const checked = sec.querySelectorAll('.item.checked').length;
+      const progEl = document.getElementById('prog-' + s.id);
+      progEl.textContent = checked + ' / ' + s.count;
+      progEl.className = 'section-progress' + (checked === s.count ? ' done' : '');
+      grand += checked;
+    });
+    const pct = Math.round((grand / total) * 100);
+    document.getElementById('hero-score').textContent = grand;
+    document.getElementById('nav-score').textContent = grand;
+    document.getElementById('final-score').textContent = grand;
+    document.getElementById('score-pct').textContent = pct + '% of items complete';
+    document.getElementById('pct-label').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('score-verdict').textContent = getVerdict(grand);
+  }
+  function toggle(el) { el.classList.toggle('checked'); updateScores(); }
+  updateScores();
+</script>
+</body>
+</html>
