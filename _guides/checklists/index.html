@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Presence Checklists | Locate Digital</title>
+  <meta name="description" content="Free digital presence checklists for service businesses. See exactly where your online presence stands and what to fix first.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #007ae8; --teal: #75dfee; --orange: #ff5900;
+      --ink: #0d0d0d; --muted: #63666b; --subtle: #8e9196;
+      --line: #e6e6e6; --soft: #f7f9fc;
+      --h: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --b: 'Poppins', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--b); font-size: 16px; color: var(--ink); background: var(--soft); line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    .nav {
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 48px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; }
+    .nav-logo-text { font-family: var(--h); font-size: 1.05rem; font-weight: 800; color: var(--blue); letter-spacing: -0.02em; }
+    .nav-cta {
+      background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.82rem; font-weight: 600;
+      padding: 9px 22px; border-radius: 6px; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #d94c00; }
+    .hero {
+      background: linear-gradient(150deg, #050f20 0%, #0b2a5e 55%, #0060c0 100%);
+      padding: 72px 48px 64px; text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(117,223,238,0.4); color: var(--teal);
+      font-family: var(--b); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--h); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; color: #fff; margin-bottom: 16px; letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      max-width: 520px; margin: 0 auto 32px; line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-block; background: var(--orange); color: #fff;
+      font-family: var(--b); font-size: 0.9rem; font-weight: 600;
+      padding: 13px 30px; border-radius: 7px; transition: background 0.2s;
+    }
+    .hero-cta:hover { background: #d94c00; }
+    .main { max-width: 900px; margin: 0 auto; padding: 52px 24px 80px; }
+    .section-label {
+      font-family: var(--h); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--subtle);
+      margin-bottom: 20px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: 10px;
+      padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,122,232,0.1); }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .card-title { font-family: var(--h); font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .card-count {
+      flex-shrink: 0; background: var(--soft); border: 1px solid var(--line);
+      border-radius: 20px; padding: 2px 10px;
+      font-family: var(--h); font-size: 0.72rem; font-weight: 700; color: var(--subtle); white-space: nowrap;
+    }
+    .card-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .card-link { font-size: 0.8rem; font-weight: 600; color: var(--blue); }
+    .card.featured { background: linear-gradient(135deg, #f0f7ff, #e8f3ff); border-color: #b8d8f8; }
+    .card.featured .card-count { background: rgba(0,122,232,0.08); border-color: rgba(0,122,232,0.2); color: var(--blue); }
+    footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--subtle); }
+    footer a { color: var(--blue); }
+    @media (max-width: 600px) { .nav { padding: 0 20px; } .hero { padding: 52px 20px 48px; } .main { padding: 32px 16px 60px; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://www.locatedigital.io" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="213.33 196.89 72.58 109.41" style="display:block;flex-shrink:0">
+  <path d="M285.3,205.3L263.8,248l-7.4-11.2c-1.9-2.8-5-4.5-8.4-4.5c-3.8,0-7.3,2.1-9,5.6l-9.8,19.4l-9.5-14.4c-1.8-2.7-1-6.3,1.6-8l55.7-37C281.8,194.6,287.9,200,285.3,205.3z" fill="#007ae8"/>
+  <path d="M268.7,273.7L221,305.4c-0.9,0.6-1.8,0.9-2.7,0.9c-3.4,0-6.2-3.6-4.4-7.2l18.5-36.8l11.1-22c0.9-1.8,2.7-2.7,4.4-2.7c1.6,0,3.1,0.7,4.1,2.2l9,13.6l9,13.6C271.6,269.1,271,272.2,268.7,273.7z" fill="#75DFEE"/>
+</svg>
+    <span class="nav-logo-text">Locate Digital.</span>
+  </a>
+  <a class="nav-cta" href="https://www.locatedigital.io" target="_blank">Book a free call</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Free resources</div>
+  <h1>Digital presence checklists</h1>
+  <p class="hero-sub">See exactly where your online presence stands. Pick your industry, work through the checklist, and find out what to fix first.</p>
+  <a class="hero-cta" href="https://www.locatedigital.io" target="_blank">Talk to us about the gaps</a>
+</header>
+
+<main class="main">
+  <div class="section-label">Choose your industry</div>
+  <div class="grid">
+    <a class="card featured" href="service-businesses.html">
+      <div class="card-top"><div class="card-title">Service businesses</div><div class="card-count">26 items</div></div>
+      <p class="card-desc">The complete checklist covering every channel. Good starting point for any service business not listed below.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="accounting.html">
+      <div class="card-top"><div class="card-title">Accounting &amp; bookkeeping</div><div class="card-count">23 items</div></div>
+      <p class="card-desc">Website, local SEO, content, client retention, and paid advertising for accounting firms.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="beauty-salons.html">
+      <div class="card-top"><div class="card-title">Beauty salons</div><div class="card-count">22 items</div></div>
+      <p class="card-desc">Bookings, social media, loyalty, and local SEO for hair, beauty, and wellness businesses.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="interior-designers.html">
+      <div class="card-top"><div class="card-title">Interior designers</div><div class="card-count">23 items</div></div>
+      <p class="card-desc">Portfolio, Houzz, Pinterest, social content, and referral strategy for design studios.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="legal.html">
+      <div class="card-top"><div class="card-title">Legal services</div><div class="card-count">23 items</div></div>
+      <p class="card-desc">Practice area pages, local SEO, authority content, and lead conversion for law firms.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="osteopaths.html">
+      <div class="card-top"><div class="card-title">Osteopaths &amp; allied health</div><div class="card-count">23 items</div></div>
+      <p class="card-desc">AHPRA compliance, HotDoc, Healthengine, and patient retention for health practices.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+    <a class="card" href="recruitment.html">
+      <div class="card-top"><div class="card-title">Recruitment agencies</div><div class="card-count">22 items</div></div>
+      <p class="card-desc">Dual-audience website, LinkedIn strategy, CRM marketing, and paid ads for recruiters.</p>
+      <div class="card-link">Start checklist &rarr;</div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 <a href="https://www.locatedigital.io" target="_blank">Locate Digital</a> &mdash; Digital marketing for service businesses.</p>
+</footer>
+
+</body>
+</html>

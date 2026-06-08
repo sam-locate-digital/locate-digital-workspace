@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/service-business-checklist", "destination": "/service-businesses.html" },
+    { "source": "/accounting-checklist", "destination": "/accounting.html" },
+    { "source": "/beauty-salon-checklist", "destination": "/beauty-salons.html" },
+    { "source": "/interior-design-checklist", "destination": "/interior-designers.html" },
+    { "source": "/legal-checklist", "destination": "/legal.html" },
+    { "source": "/osteopath-checklist", "destination": "/osteopaths.html" },
+    { "source": "/recruitment-checklist", "destination": "/recruitment.html" }
+  ]
+}
