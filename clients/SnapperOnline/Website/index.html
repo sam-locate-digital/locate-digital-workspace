@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snapper Online — Sydney wedding photography by Andre Kong</title>
+  <meta name="description" content="Calm, candid wedding photography across Sydney, the Blue Mountains, Hunter Valley and Southern Highlands. Documentary-style coverage by Andre Kong." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP BAR — appears on every page, edit wordmark/links once
+       ============================================================ -->
+  <header class="topbar">
+    <button class="menu-toggle" aria-controls="navpanel" aria-expanded="false">
+      <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+      Menu
+    </button>
+    <a href="index.html" class="wordmark" aria-label="Snapper Online — home">
+      SNAPPER ONLINE<span class="dot">.</span>
+    </a>
+    <span style="width: 60px"></span><!-- spacer to balance toggle -->
+  </header>
+
+  <!-- ============================================================
+       SIDE NAV PANEL — slide-out from the left
+       ============================================================ -->
+  <div class="nav-backdrop" aria-hidden="true"></div>
+  <aside class="nav-panel" id="navpanel" aria-hidden="true" aria-label="Site navigation">
+    <div class="nav-panel__head">
+      <button class="nav-close" aria-label="Close navigation">Close</button>
+      <a href="index.html" class="wordmark">SNAPPER ONLINE<span class="dot">.</span></a>
+    </div>
+
+    <div class="nav-panel__body">
+      <span class="nav-panel__rail">Explore</span>
+      <span class="nav-eyebrow">Explore</span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="nav-panel__foot">
+      <p>Andre Kong &middot; based in Surry Hills, photographing across NSW.</p>
+      <div class="nav-socials">
+        <a href="https://instagram.com/snapperonline" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:andre@snapperonline.com.au">Email</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- ============================================================
+         HERO — scattered photo mosaic
+         Add/remove <img> elements freely; CSS positions the first 10.
+         ============================================================ -->
+    <section class="hero" aria-label="Recent work">
+      <div class="hero__scatter" aria-hidden="true">
+        <img src="images/IMG_0160.jpg" alt="" loading="eager" />
+        <img src="images/IMG_1462.jpg" alt="" loading="eager" />
+        <img src="images/IMG_1722.jpg" alt="" loading="eager" />
+        <img src="images/IMG_2252.jpg" alt="" loading="eager" />
+        <img src="images/IMG_2277.jpg" alt="" loading="lazy" />
+        <img src="images/IMG_2426.jpg" alt="" loading="lazy" />
+        <img src="images/IMG_2536.jpg" alt="" loading="lazy" />
+        <img src="images/IMG_9252.jpg" alt="" loading="lazy" />
+        <img src="images/IMG_9804.jpg" alt="" loading="lazy" />
+        <img src="images/IMG_9960.jpg" alt="" loading="lazy" />
+      </div>
+
+      <div class="hero__tagline">
+        <span>Calm, candid wedding pictures.<br/>Made quietly across Sydney.</span>
+        <p class="lede">Andre Kong &nbsp;·&nbsp; Photographing weddings since 2010</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTRO — short studio paragraph
+         ============================================================ -->
+    <section class="wrap">
+      <div class="intro reveal">
+        <span class="intro__label">A note from Andre</span>
+        <div class="intro__body">
+          <p>I'm a Sydney wedding photographer. I've been at this for fifteen years and a few hundred weddings, and the best ones still feel the same: nobody's posing, everyone's a bit tired, the light is doing something soft to a face I haven't met before today.</p>
+          <p>I work quietly. I don't move people around. I don't ask for the moment again. I just turn up, pay attention, and bring back a set of pictures that look exactly like the day you remember, even the parts you didn't notice were happening.</p>
+
+          <div class="findout">
+            <a href="about.html">About me</a>
+            <a href="services.html">What I offer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         KIND WORDS — 5 testimonials, alternating L/R
+         To edit: change image, quote, names. Layout flips with .testimonial--right.
+         ============================================================ -->
+    <section class="kindwords">
+      <div class="wrap">
+        <header class="kindwords__head reveal">
+          <span class="eyebrow">Five Hundred Weddings In</span>
+          <h2>Kind words</h2>
+        </header>
+
+        <article class="testimonial reveal">
+          <figure class="testimonial__photo">
+            <img src="images/IMG_9252.jpg" alt="Kate and Nick on their wedding day." />
+            <figcaption>Kate &amp; Nick · Centennial Park</figcaption>
+          </figure>
+          <div class="testimonial__text">
+            <span class="eyebrow">A Centennial Park afternoon</span>
+            <p class="testimonial__quote">"Andre was the calmest person at our wedding. We hardly noticed him working, and then a few weeks later we got these photos back that felt like someone had sat quietly inside the day and remembered every good bit of it. We've shown them to everyone."</p>
+            <span class="testimonial__name">Kate &amp; Nick</span>
+          </div>
+        </article>
+
+        <article class="testimonial testimonial--right reveal">
+          <figure class="testimonial__photo">
+            <img src="images/IMG_1722.jpg" alt="Hannah and Tom photographed at their Blue Mountains wedding." />
+            <figcaption>Hannah &amp; Tom · Blue Mountains</figcaption>
+          </figure>
+          <div class="testimonial__text">
+            <span class="eyebrow">A Blue Mountains weekend</span>
+            <p class="testimonial__quote">"We'd been to a lot of weddings before our own and we were a bit worried about the photography part — getting pulled around for portraits, the awkward set-ups. Andre didn't do any of that. He just kind of disappeared into the day. The pictures feel like us, which is the whole thing, really."</p>
+            <span class="testimonial__name">Hannah &amp; Tom</span>
+          </div>
+        </article>
+
+        <article class="testimonial reveal">
+          <figure class="testimonial__photo">
+            <img src="images/IMG_2426.jpg" alt="Mei and Jonathan during their tea ceremony." />
+            <figcaption>Mei &amp; Jonathan · Ashfield + Watson's Bay</figcaption>
+          </figure>
+          <div class="testimonial__text">
+            <span class="eyebrow">A morning tea ceremony</span>
+            <p class="testimonial__quote">"Having Andre photograph the tea ceremony meant my grandmother could speak to him in Cantonese and feel completely at ease. He understood what mattered in those small family moments without us having to explain. The reportage of the day is something we'll look at forever."</p>
+            <span class="testimonial__name">Mei &amp; Jonathan</span>
+          </div>
+        </article>
+
+        <article class="testimonial testimonial--right reveal">
+          <figure class="testimonial__photo">
+            <img src="images/IMG_2536.jpg" alt="Sophie and Liam on their wedding day in the Southern Highlands." />
+            <figcaption>Sophie &amp; Liam · Southern Highlands</figcaption>
+          </figure>
+          <div class="testimonial__text">
+            <span class="eyebrow">An autumn Bowral afternoon</span>
+            <p class="testimonial__quote">"I cried looking through the gallery. Not because of one big photo, but because of all the small ones — Mum laughing at something nobody else heard, Dad's hand on the back of my chair. Andre just sees that stuff. Best money we spent on the wedding."</p>
+            <span class="testimonial__name">Sophie &amp; Liam</span>
+          </div>
+        </article>
+
+        <article class="testimonial reveal">
+          <figure class="testimonial__photo">
+            <img src="images/IMG_9960.jpg" alt="Bea and Sam on the day of their elopement." />
+            <figcaption>Bea &amp; Sam · Tomaree National Park</figcaption>
+          </figure>
+          <div class="testimonial__text">
+            <span class="eyebrow">A two-person elopement</span>
+            <p class="testimonial__quote">"We eloped with just the two of us and a celebrant. We were nervous about having a photographer there for something that personal, but Andre made it feel completely normal. The photos are warm and quiet and ours."</p>
+            <span class="testimonial__name">Bea &amp; Sam</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (shared across pages)
+       ============================================================ -->
+  <footer class="site-foot">
+    <div class="site-foot__row">
+      <div>
+        <h4>Snapper Online</h4>
+        <p>Andre Kong — Sydney wedding photographer covering Greater Sydney, the Blue Mountains, Hunter Valley and Southern Highlands. Available worldwide on request.</p>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Get in touch</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <ul>
+          <li><a href="mailto:andre@snapperonline.com.au">andre@snapperonline.com.au</a></li>
+          <li>0412 384 756</li>
+          <li>14 Crown St, Surry Hills NSW</li>
+          <li><a href="https://instagram.com/snapperonline" target="_blank" rel="noopener">@snapperonline</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot__bottom">
+      <span>© 2026 Snapper Online</span>
+      <span>Site by Locate Digital</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
