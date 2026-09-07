@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locate Digital — Marketing for finance, legal &amp; accounting firms</title>
+<meta name="description" content="A boutique Melbourne agency pairing senior strategy with AI and automation to win more high-value clients for finance, legal and accounting firms. Book a free audit.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Locate palette retained */
+  --primary:#007ae8;
+  --primary-deep:#0056b8;
+  --cyan:#75dfee;
+  --accent:#ff5900;
+  --accent-deep:#e34f00;
+
+  --ink:#0a0c11;        /* near-black for dark sections */
+  --ink-2:#12151d;      /* raised cards on dark */
+  --ink-3:#1b202b;      /* borders on dark */
+  --paper:#ffffff;
+  --paper-2:#f4f7fb;    /* light section tint */
+  --line:#e6ebf2;
+
+  --on-dark:#eef2f8;
+  --on-dark-mute:#98a2b3;
+  --on-light:#0f1420;
+  --on-light-mute:#5a6472;
+
+  --display:'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --maxw:1200px;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--on-light);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-0.03em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.muted{color:var(--on-light-mute)}
+
+.eyebrow{font-family:var(--body);font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:22px;display:inline-flex;align-items:center;gap:11px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.dark .eyebrow{color:var(--cyan)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--body);font-weight:600;font-size:1rem;padding:15px 26px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .16s ease,background .16s,color .16s,border-color .16s}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px rgba(255,89,0,.28)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-ghost-d{background:transparent;color:var(--on-dark);border-color:rgba(238,242,248,.28)}
+.btn-ghost-d:hover{background:rgba(238,242,248,.08);border-color:rgba(238,242,248,.5)}
+.btn-ghost-l{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost-l:hover{border-color:var(--primary);color:var(--primary-deep)}
+
+/* ===== NAV ===== */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(10,12,17,.82);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand img{height:26px;width:auto}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:.93rem;font-weight:500;color:var(--on-dark-mute)}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:10px 20px;font-size:.9rem}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--ink);color:var(--on-dark);overflow:hidden;padding:70px 0 84px}
+.hero::before{content:"";position:absolute;width:760px;height:760px;top:-320px;right:-160px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,232,.42),transparent 62%);filter:blur(20px);pointer-events:none}
+.hero::after{content:"";position:absolute;width:560px;height:560px;bottom:-320px;left:-140px;border-radius:50%;background:radial-gradient(circle,rgba(117,223,238,.16),transparent 65%);pointer-events:none}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.3rem);font-weight:700;letter-spacing:-.035em}
+.hero h1 .l2{color:var(--on-dark)}
+.hero h1 .l3{color:var(--cyan)}
+.hero .lead{font-size:1.16rem;color:var(--on-dark-mute);max-width:52ch;margin:26px 0 32px;line-height:1.55}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-trust{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:26px;border-top:1px solid rgba(255,255,255,.09)}
+.hero-trust .t{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--on-dark-mute)}
+.hero-trust svg{color:var(--cyan);flex:none}
+
+/* dashboard mock */
+.dash{background:linear-gradient(180deg,#141824,#0f1219);border:1px solid var(--ink-3);border-radius:18px;padding:20px;box-shadow:0 40px 90px rgba(0,0,0,.55);position:relative}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.dash-top .tt{font-family:var(--display);font-weight:600;font-size:.92rem;color:#fff}
+.dash-top .live{display:flex;align-items:center;gap:7px;font-size:.72rem;color:var(--cyan);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.dash-top .live .p{width:7px;height:7px;border-radius:50%;background:#2bd67b;box-shadow:0 0 0 0 rgba(43,214,123,.5);animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 7px rgba(43,214,123,0)}100%{box-shadow:0 0 0 0 rgba(43,214,123,0)}}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px}
+.kpi{background:#0c0f16;border:1px solid var(--ink-3);border-radius:11px;padding:13px 15px}
+.kpi .lb{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--on-dark-mute);font-weight:600}
+.kpi .vv{font-family:var(--display);font-weight:700;font-size:1.7rem;color:#fff;margin-top:3px;letter-spacing:-.02em}
+.kpi .vv .up{font-size:.72rem;color:#2bd67b;margin-left:6px;font-weight:700}
+.kpi .vv .dn{font-size:.72rem;color:var(--cyan);margin-left:6px;font-weight:700}
+.chart{display:flex;align-items:flex-end;gap:8px;height:92px;padding:8px 4px 0}
+.chart .bar{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--cyan),var(--primary));animation:gw 1s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes gw{from{height:3px;opacity:0}}
+.ai-read{margin-top:14px;background:rgba(0,122,232,.1);border:1px solid rgba(117,223,238,.28);border-radius:11px;padding:13px 15px;display:flex;gap:11px}
+.ai-read .ic{flex:none;width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--primary),var(--cyan));display:grid;place-items:center;color:#04121f;font-weight:800;font-family:var(--display);font-size:.8rem}
+.ai-read .tx{font-size:.82rem;color:#d5deea;line-height:1.5}
+.ai-read .tx b{color:#fff}
+
+/* tools strip under hero */
+.tools{background:var(--ink);border-top:1px solid rgba(255,255,255,.07);padding:22px 0}
+.tools .inner{display:flex;align-items:center;gap:14px 34px;flex-wrap:wrap;justify-content:center}
+.tools .lab{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mute);font-weight:600}
+.tools .t{font-family:var(--display);font-weight:600;color:#6f7889;font-size:1.02rem;letter-spacing:-.01em}
+
+/* ===== STATS BAND ===== */
+.stats{background:var(--accent);color:#fff}
+.stats .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:52px 0}
+.stat .n{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,4.6vw,3.4rem);letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:.96rem;margin-top:8px;color:rgba(255,255,255,.9);max-width:22ch}
+.stats .row .stat:not(:last-child){border-right:1px solid rgba(255,255,255,.22)}
+.ph{color:var(--accent-deep);background:#fff;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;vertical-align:middle;margin-left:8px;font-family:var(--body)}
+.dark .ph{background:rgba(255,255,255,.12);color:var(--cyan)}
+
+/* ===== LOGO STRIP ===== */
+.logos{padding:44px 0;background:var(--paper)}
+.logos .lab{text-align:center;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-light-mute);font-weight:600;margin-bottom:24px}
+.logos .row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 44px}
+.logos .row span{font-family:var(--display);font-weight:700;color:#c2cad6;font-size:1.3rem;letter-spacing:-.02em}
+.ph-line{text-align:center;font-size:.78rem;color:var(--accent-deep);margin-top:18px;font-weight:500}
+
+/* ===== SECTION SHELL ===== */
+section.band{padding:104px 0}
+.dark{background:var(--ink);color:var(--on-dark)}
+.dark h2,.dark h3{color:#fff}
+.tint{background:var(--paper-2)}
+.sec-head{max-width:760px;margin-bottom:56px}
+.sec-head.center{margin:0 auto 56px;text-align:center}
+.sec-head h2{font-size:clamp(2.1rem,4.4vw,3.2rem);margin-bottom:18px}
+.sec-head p{font-size:1.14rem;color:var(--on-light-mute);max-width:58ch}
+.dark .sec-head p{color:var(--on-dark-mute)}
+.sec-head.center p{margin-left:auto;margin-right:auto}
+
+/* ===== PROBLEM ===== */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.prob h2{font-size:clamp(2.2rem,4.6vw,3.3rem);line-height:1.02}
+.prob h2 .hl{color:var(--primary-deep)}
+.prob p{color:var(--on-light-mute);font-size:1.1rem;margin-top:22px}
+.prob p b{color:var(--on-light)}
+.prob-cards{display:grid;gap:16px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 1px 2px rgba(15,20,32,.04)}
+.pcard .x{flex:none;width:38px;height:38px;border-radius:10px;background:#fff1ea;color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.pcard h3{font-size:1.16rem;margin-bottom:5px}
+.pcard p{margin:0;font-size:.98rem}
+
+/* ===== SERVICES ===== */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.svc{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--r);padding:32px;transition:transform .2s ease,border-color .2s,background .2s;position:relative}
+.svc:hover{transform:translateY(-4px);border-color:rgba(117,223,238,.4);background:#161b26}
+.svc .no{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--accent)}
+.svc h3{font-size:1.5rem;margin:14px 0 9px}
+.svc p{color:var(--on-dark-mute);font-size:1rem}
+.svc .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
+.svc .tags span{font-size:.76rem;color:var(--cyan);border:1px solid rgba(117,223,238,.28);border-radius:999px;padding:4px 11px}
+
+/* ===== AI EDGE ===== */
+.edge-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.edge h2{font-size:clamp(2.1rem,4.4vw,3.1rem);margin-bottom:20px}
+.edge h2 .hl{color:var(--primary-deep)}
+.edge .lead{font-size:1.12rem;color:var(--on-light-mute);margin-bottom:24px}
+.edge ul{list-style:none;display:grid;gap:16px}
+.edge li{display:flex;gap:13px;font-size:1.04rem;color:var(--on-light-mute)}
+.edge li svg{flex:none;color:var(--primary);margin-top:4px}
+.edge li b{color:var(--on-light)}
+.flow{background:var(--ink);border-radius:18px;padding:30px;color:var(--on-dark);box-shadow:0 30px 70px rgba(10,12,17,.18)}
+.flow .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:20px}
+.frow{display:flex;align-items:center;gap:14px;padding:15px 16px;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:11px;margin-bottom:11px}
+.frow .n{flex:none;width:30px;height:30px;border-radius:8px;background:rgba(0,122,232,.16);color:var(--cyan);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:.86rem}
+.frow .t{font-size:.96rem;color:#dbe3ee}
+.frow.on{border-color:rgba(117,223,238,.45);background:#141b28}
+.fconn{width:2px;height:12px;background:var(--ink-3);margin:0 auto 11px 30px}
+
+/* ===== APPROACH ===== */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 30px}
+.step .num{font-family:var(--display);font-weight:700;font-size:2.4rem;color:var(--accent);line-height:1;margin-bottom:18px}
+.step h3{font-size:1.36rem;margin-bottom:9px}
+.step p{color:var(--on-light-mute);font-size:1rem}
+
+/* ===== RESULTS ===== */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:20px}
+.rcard{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--r);padding:30px}
+.rcard .big{font-family:var(--display);font-weight:700;font-size:3rem;letter-spacing:-.03em;background:linear-gradient(120deg,var(--cyan),var(--primary));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.rcard .lb{color:var(--on-dark-mute);margin-top:10px;font-size:.98rem}
+.res-note{color:var(--on-dark-mute);font-size:.88rem}
+
+/* ===== TESTIMONIALS ===== */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:18px;box-shadow:0 1px 2px rgba(15,20,32,.04)}
+.tcard .stars{color:var(--accent);letter-spacing:2px;font-size:.95rem}
+.tcard .q{font-size:1.04rem;color:var(--on-light);line-height:1.55;flex:1}
+.tcard .who{display:flex;flex-direction:column;gap:1px;border-top:1px solid var(--line);padding-top:16px}
+.tcard .who b{font-family:var(--display);font-weight:600}
+.tcard .who span{font-size:.88rem;color:var(--on-light-mute)}
+
+/* ===== WHY ===== */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--ink-3);border:1px solid var(--ink-3);border-radius:var(--r);overflow:hidden}
+.why-item{background:var(--ink);padding:34px}
+.why-item .k{font-family:var(--display);font-weight:700;color:var(--accent);font-size:.9rem}
+.why-item h3{font-size:1.32rem;margin:12px 0 9px}
+.why-item p{color:var(--on-dark-mute);font-size:1rem}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:840px;margin:0 auto;border-top:1px solid var(--line)}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:26px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;font-family:var(--display);font-weight:600;font-size:1.2rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{flex:none;width:26px;height:26px;position:relative;transition:transform .25s}
+.faq .pm::before,.faq .pm::after{content:"";position:absolute;background:var(--accent);top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq .pm::before{width:15px;height:2px}.faq .pm::after{width:2px;height:15px}
+.faq[open] .pm{transform:rotate(45deg)}
+.faq .ans{padding:0 0 26px;color:var(--on-light-mute);max-width:72ch;font-size:1.02rem}
+
+/* ===== BOOK ===== */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.book h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:16px}
+.book .lead{font-size:1.1rem;color:var(--on-light-mute);margin-bottom:24px}
+.book ul{list-style:none;display:grid;gap:13px}
+.book ul li{display:flex;gap:12px;color:var(--on-light-mute)}
+.book ul li svg{flex:none;color:var(--primary);margin-top:4px}
+form.lead-form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:0 20px 50px rgba(15,20,32,.08)}
+form.lead-form .field{margin-bottom:16px}
+form.lead-form label{display:block;font-size:.84rem;font-weight:600;margin-bottom:7px}
+form.lead-form input,form.lead-form select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:1rem;background:#fff;color:var(--on-light)}
+form.lead-form input:focus,form.lead-form select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,122,232,.12)}
+form.lead-form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+form.lead-form .fine{font-size:.78rem;color:var(--on-light-mute);text-align:center;margin-top:14px}
+
+/* ===== FINAL ===== */
+.final{position:relative;overflow:hidden;text-align:center}
+.final::before{content:"";position:absolute;width:680px;height:680px;top:-360px;left:50%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(0,122,232,.4),transparent 62%);pointer-events:none}
+.final h2{position:relative;font-size:clamp(2.4rem,5.2vw,4rem);max-width:18ch;margin:0 auto 20px;color:#fff}
+.final h2 .hl{color:var(--cyan)}
+.final p{position:relative;font-size:1.16rem;color:var(--on-dark-mute);max-width:52ch;margin:0 auto 32px}
+.final .sub{position:relative;margin-top:20px;font-size:.92rem;color:var(--on-dark-mute)}
+
+/* ===== FOOTER ===== */
+footer.site{background:var(--ink);color:var(--on-dark-mute);padding:0 0 40px;border-top:1px solid var(--ink-3)}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:48px 0 34px;border-bottom:1px solid var(--ink-3)}
+.foot-brand img{height:30px;margin-bottom:16px}
+.foot-brand p{max-width:32ch;font-size:.95rem}
+.foot-cols{display:flex;gap:70px;flex-wrap:wrap}
+.foot-col h4{color:#fff;font-family:var(--body);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:15px;font-weight:600}
+.foot-col a{display:block;color:var(--on-dark-mute);font-size:.95rem;margin-bottom:9px}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:22px;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* reveal */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fade.in{opacity:1;transform:none}
+
+@media(max-width:920px){
+  .nav-links{display:none}
+  .hero-grid,.prob-grid,.edge-grid,.book-grid{grid-template-columns:1fr;gap:40px}
+  .stats .row{grid-template-columns:1fr 1fr;gap:34px 24px}
+  .stats .row .stat:nth-child(2){border-right:none}
+  .svc-grid,.steps,.res-grid,.tgrid,.why-grid{grid-template-columns:1fr}
+  section.band{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Locate Digital home"><img src="assets/logo-white.png" alt="Locate Digital"></a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#edge">The AI edge</a>
+      <a href="#results">Results</a>
+      <a href="#approach">Approach</a>
+      <a href="#book">Contact</a>
+    </nav>
+    <a href="#book" class="btn btn-primary nav-cta">Book a free audit</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<section class="hero dark">
+  <div class="grid-lines"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow fade">Digital marketing for finance, legal &amp; accounting firms</div>
+      <h1 class="fade">More high-value clients.<br><span class="l2">Predictable growth.</span><br><span class="l3">An unfair AI edge.</span></h1>
+      <p class="lead fade">A boutique Melbourne agency that pairs senior strategy with AI and automation, so professional firms win more of the clients worth having. Measured properly. Reported plainly. No lock-in.</p>
+      <div class="hero-actions fade">
+        <a href="#book" class="btn btn-primary">Book a free audit <span class="arr">&rarr;</span></a>
+        <a href="#results" class="btn btn-ghost-d">See the results</a>
+      </div>
+      <div class="hero-trust fade">
+        <span class="t"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> A senior partner on every account</span>
+        <span class="t"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 10+ years running ads</span>
+        <span class="t"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No lock-in contracts</span>
+      </div>
+    </div>
+
+    <div class="fade">
+      <div class="dash">
+        <div class="dash-top">
+          <span class="tt">Client dashboard</span>
+          <span class="live"><span class="p"></span> Live</span>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="lb">Qualified enquiries</div><div class="vv">42<span class="up">&uarr; 61%</span></div></div>
+          <div class="kpi"><div class="lb">Cost per client</div><div class="vv">$340<span class="dn">&darr; 28%</span></div></div>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <span class="bar" style="height:34%;animation-delay:.05s"></span>
+          <span class="bar" style="height:44%;animation-delay:.12s"></span>
+          <span class="bar" style="height:40%;animation-delay:.19s"></span>
+          <span class="bar" style="height:58%;animation-delay:.26s"></span>
+          <span class="bar" style="height:66%;animation-delay:.33s"></span>
+          <span class="bar" style="height:82%;animation-delay:.4s"></span>
+          <span class="bar" style="height:96%;animation-delay:.47s"></span>
+        </div>
+        <div class="ai-read">
+          <span class="ic">AI</span>
+          <span class="tx"><b>This month's read:</b> LinkedIn is your strongest channel for partner-level enquiries. Shifting 15% of budget there is projected to add 6 qualified leads next month.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOOLS STRIP ===== -->
+<div class="tools">
+  <div class="wrap inner fade">
+    <span class="lab">Built on</span>
+    <span class="t">Google Ads</span><span class="t">Meta</span><span class="t">LinkedIn</span><span class="t">GA4</span><span class="t">GTM</span><span class="t">HubSpot</span>
+  </div>
+</div>
+
+<!-- ===== STATS BAND ===== -->
+<section class="stats">
+  <div class="wrap row">
+    <div class="stat fade"><div class="n">10+</div><div class="l">Years running paid campaigns</div></div>
+    <div class="stat fade"><div class="n">61%<span class="ph">demo</span></div><div class="l">More qualified enquiries, first 6 months</div></div>
+    <div class="stat fade"><div class="n">-28%<span class="ph">demo</span></div><div class="l">Lower cost per acquired client</div></div>
+    <div class="stat fade"><div class="n">1</div><div class="l">Senior partner on every account, always</div></div>
+  </div>
+</section>
+
+<!-- ===== LOGO STRIP ===== -->
+<div class="logos">
+  <p class="lab fade">Trusted by firms and practices across Melbourne</p>
+  <div class="row fade">
+    <span>MOSIC</span><span>Client Two</span><span>Client Three</span><span>Client Four</span><span>Client Five</span>
+  </div>
+  <p class="ph-line fade">Placeholder logos — real client names/logos to be added before launch.</p>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section class="band prob">
+  <div class="wrap prob-grid">
+    <div class="fade">
+      <div class="eyebrow">The gap</div>
+      <h2>Your reputation is decades deep. Your marketing is a <span class="hl">decade behind.</span></h2>
+      <p>Referrals built the firm. But they cap how fast you grow and leave the pipeline thin in the quarters you need it most. <b>The tools have moved on, and most agencies haven't.</b> That's the gap we close.</p>
+    </div>
+    <div class="prob-cards fade">
+      <div class="pcard"><span class="x">1</span><div><h3>Referrals only</h3><p>Reliable until it isn't. You can't forecast it, scale it, or turn it on when a quarter runs quiet.</p></div></div>
+      <div class="pcard"><span class="x">2</span><div><h3>A generalist agency</h3><p>Learning your world on your budget, reporting on clicks and reach, with no line back to actual clients won.</p></div></div>
+      <div class="pcard"><span class="x">3</span><div><h3>Doing it in-house</h3><p>One stretched marketing hire covering strategy, content, ads and reporting. Something always slips.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="band dark" id="services">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <div class="eyebrow">What we do</div>
+      <h2>Four disciplines, run as one system.</h2>
+      <p>We don't sell channels in isolation. Strategy sets the direction, AI and automation do the work at scale, and paid and organic bring the right clients to your door.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc fade"><div class="no">01</div><h3>Digital strategy</h3><p>The plan before the spend. Who your best clients are, where they look, and the exact path from stranger to signed engagement.</p><div class="tags"><span>Positioning</span><span>Client journey</span><span>Channel mix</span></div></div>
+      <div class="svc fade"><div class="no">02</div><h3>AI &amp; automation</h3><p>The edge. AI-assisted content, automated nurture and follow-up, and systems that qualify and route enquiries so nothing slips.</p><div class="tags"><span>AI content</span><span>Lead nurture</span><span>Workflow automation</span></div></div>
+      <div class="svc fade"><div class="no">03</div><h3>Paid media</h3><p>Google, Meta and LinkedIn campaigns built for considered, high-value services. Every dollar tied to real enquiries.</p><div class="tags"><span>Google Ads</span><span>Meta &amp; LinkedIn</span><span>Conversion tracking</span></div></div>
+      <div class="svc fade"><div class="no">04</div><h3>SEO &amp; content</h3><p>Authority that compounds. Search visibility and thought-leadership content that makes your firm the obvious choice.</p><div class="tags"><span>Technical SEO</span><span>Local search</span><span>Thought leadership</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI EDGE ===== -->
+<section class="band" id="edge">
+  <div class="wrap edge-grid">
+    <div class="fade">
+      <div class="eyebrow">The AI edge</div>
+      <h2>Most firms' agencies are still doing this <span class="hl">by hand.</span></h2>
+      <p class="lead">We build AI and automation into the account from day one. Not as a gimmick, as the reason a boutique can out-deliver a floor full of account managers.</p>
+      <ul>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Content at pace.</b> AI-assisted drafting, always human-edited, so your firm publishes weekly instead of once a quarter.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Nothing slips.</b> Automated follow-up means every enquiry gets a timely, professional response, even at 9pm.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Faster to signal.</b> Automation surfaces what's working in days, not months, so budget moves to what brings clients.</span></li>
+      </ul>
+    </div>
+    <div class="flow fade">
+      <div class="tag">Your automated enquiry engine</div>
+      <div class="frow on"><span class="n">1</span><span class="t">New enquiry lands from an ad or search</span></div>
+      <div class="fconn"></div>
+      <div class="frow on"><span class="n">2</span><span class="t">AI qualifies and scores it in seconds</span></div>
+      <div class="fconn"></div>
+      <div class="frow on"><span class="n">3</span><span class="t">Instant, on-brand reply and booking link</span></div>
+      <div class="fconn"></div>
+      <div class="frow"><span class="n">4</span><span class="t">Nurture sequence runs until they're ready</span></div>
+      <div class="fconn"></div>
+      <div class="frow"><span class="n">5</span><span class="t">You get a warm, qualified conversation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="band tint" id="approach">
+  <div class="wrap">
+    <div class="sec-head center fade">
+      <div class="eyebrow" style="justify-content:center">How it works</div>
+      <h2>Three steps to a fuller pipeline.</h2>
+    </div>
+    <div class="steps">
+      <div class="step fade"><div class="num">01</div><h3>Free audit</h3><p>We review your current marketing, positioning and enquiry flow, and show you exactly where clients are being lost. No pitch, you keep the findings.</p></div>
+      <div class="step fade"><div class="num">02</div><h3>Build</h3><p>We set the strategy, wire up tracking and automation, and launch campaigns matched to your best services and the clients you want.</p></div>
+      <div class="step fade"><div class="num">03</div><h3>Grow</h3><p>We run and refine every month and report in plain English: enquiries, cost per client, and what's next. You always know what your spend returned.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="band dark" id="results">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <div class="eyebrow">The numbers</div>
+      <h2>We report on clients won, not clicks.</h2>
+      <p>Every engagement is measured against the only thing that matters: real, high-value clients through the door.</p>
+    </div>
+    <div class="res-grid">
+      <div class="rcard fade"><div class="big">61%<span class="ph">demo</span></div><div class="lb">More qualified enquiries in the first six months</div></div>
+      <div class="rcard fade"><div class="big">-28%<span class="ph">demo</span></div><div class="lb">Lower cost per acquired client</div></div>
+      <div class="rcard fade"><div class="big">3.4x<span class="ph">demo</span></div><div class="lb">Return on marketing spend, tracked to revenue</div></div>
+    </div>
+    <p class="res-note fade">Figures shown are illustrative placeholders. Real client results and a named case study to be added before launch.</p>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head center fade">
+      <div class="eyebrow" style="justify-content:center">In their words</div>
+      <h2>Firms don't stay for the contract. They stay for the results.</h2>
+    </div>
+    <div class="tgrid">
+      <div class="tcard fade"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">Placeholder testimonial. A real client quote goes here, about the result and what it was like to work with you.</p><div class="who"><b>Client name</b><span>Role · Firm name</span></div></div>
+      <div class="tcard fade"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">Placeholder testimonial. Ideally one that mentions a specific outcome, a number, or the responsiveness of a senior partner.</p><div class="who"><b>Client name</b><span>Role · Firm name</span></div></div>
+      <div class="tcard fade"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="q">Placeholder testimonial. Three strong, named quotes here will do more for a professional buyer than any claim we make ourselves.</p><div class="who"><b>Client name</b><span>Role · Firm name</span></div></div>
+    </div>
+    <p class="ph-line fade" style="margin-top:22px">Real testimonials to be supplied before launch.</p>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section class="band dark" id="why">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <div class="eyebrow">Why Locate</div>
+      <h2>Boutique by design, not by accident.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item fade"><span class="k">/ 01</span><h3>A senior partner on every account</h3><p>You deal with the person doing the thinking, not an account manager relaying it. We stay small so the work stays sharp.</p></div>
+      <div class="why-item fade"><span class="k">/ 02</span><h3>Built for high-value clients</h3><p>Set up for considered, high-ticket services, not volume lead farms. The strategy suits how firms actually win work.</p></div>
+      <div class="why-item fade"><span class="k">/ 03</span><h3>You see the real numbers</h3><p>Enquiries and cost per client, not impressions and reach. If something isn't working, you'll hear it from us first.</p></div>
+      <div class="why-item fade"><span class="k">/ 04</span><h3>No lock-in</h3><p>We ask for the first 90 days so the work has time to land, then it's month to month. We keep you by results.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="band tint">
+  <div class="wrap">
+    <div class="sec-head center fade">
+      <div class="eyebrow" style="justify-content:center">Before you ask</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq fade" open><summary>What does it cost? <span class="pm"></span></summary><div class="ans">Engagements are bespoke and scoped to your firm, so there's no off-the-shelf price. On the free audit we'll give you a clear recommendation and an honest number. No hard sell.</div></details>
+      <details class="faq fade"><summary>Am I locked into a contract? <span class="pm"></span></summary><div class="ans">No. We ask for the first 90 days so the work has time to land, then it's month to month. You stay because it's working, not because you signed something.</div></details>
+      <details class="faq fade"><summary>Do you understand our compliance obligations? <span class="pm"></span></summary><div class="ans">Yes. Marketing for finance and legal firms sits under real rules. We work within your compliance and sign-off process, and everything AI-assisted is human-reviewed before it goes out.</div></details>
+      <details class="faq fade"><summary>Do you work with my type of firm? <span class="pm"></span></summary><div class="ans">If you're a finance, legal or accounting firm in Melbourne selling considered, high-value services, most likely yes. The free audit is the quickest way to find out.</div></details>
+      <details class="faq fade"><summary>What exactly is the free audit? <span class="pm"></span></summary><div class="ans">A short call where we review your current marketing, positioning and enquiry flow and show you what's leaking clients and what we'd do differently. You keep the findings, whether you hire us or not.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOK ===== -->
+<section class="band" id="book">
+  <div class="wrap book-grid">
+    <div class="fade">
+      <div class="eyebrow">Free, no obligation</div>
+      <h2>Book your free marketing audit.</h2>
+      <p class="lead">A short call where we look at your current marketing and enquiry flow and show you what's leaking clients, and what we'd do differently. You keep the findings either way.</p>
+      <ul>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> A real review of your current marketing and positioning</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> The specific gaps costing you high-value enquiries</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> What we'd do, whether you hire us or not</li>
+      </ul>
+    </div>
+    <form class="lead-form fade" action="#" method="post" novalidate>
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="firm">Firm</label><input id="firm" name="firm" type="text" autocomplete="organization" required></div>
+      <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="sector">Type of firm</label>
+        <select id="sector" name="sector"><option value="">Select one</option><option>Funds / investment management</option><option>Lending / finance broking</option><option>Legal</option><option>Accounting</option><option>Other professional services</option></select>
+      </div>
+      <button type="submit" class="btn btn-primary">Book my free audit <span class="arr">&rarr;</span></button>
+      <p class="fine">We'll only use your details to get in touch about your audit.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="band dark final">
+  <div class="wrap">
+    <h2 class="fade">Marketing that matches your <span class="hl">reputation.</span></h2>
+    <p class="fade">See exactly where your firm is leaving clients on the table, in a single call.</p>
+    <a href="#book" class="btn btn-primary fade">Book a free audit <span class="arr">&rarr;</span></a>
+    <p class="sub fade">No lock-in. No pitch. A clear picture of where you stand.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo-white.png" alt="Locate Digital">
+        <p>A boutique marketing partner for finance, legal and accounting firms. Melbourne, Australia.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h4>Explore</h4><a href="#services">Services</a><a href="#edge">The AI edge</a><a href="#results">Results</a><a href="#approach">Approach</a></div>
+        <div class="foot-col"><h4>Get in touch</h4><a href="#book">Book an audit</a><a href="mailto:sam@locatedigital.io">sam@locatedigital.io</a><a href="https://locatedigital.io">locatedigital.io</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Locate Digital. All rights reserved.</span><span>Melbourne, Australia</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.fade');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+document.querySelectorAll('.faq').forEach(function(d){d.addEventListener('toggle',function(){if(d.open){document.querySelectorAll('.faq').forEach(function(o){if(o!==d)o.open=false;});}});});
+</script>
+</body>
+</html>
