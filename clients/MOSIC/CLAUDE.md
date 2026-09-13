@@ -28,7 +28,7 @@ Onboarded: 2026-05-09
 - TBD (osteopathy clinic — likely warm, professional, patient-trust focused)
 
 ## Landing pages
-- Reference template: `_skills/landing-page/mosic-template.html`
+- Reference template: `mosic-template.html` in the `landing-page` skill's folder (`~/.claude/skills/landing-page/`)
 - Built for WPBakery — paste Custom HTML block into WordPress
 - CTA band uses `div.as-cta-band` directly (no row wrapper) for edge-to-edge width
 - Colors: navy `#1c2674`, purple `#8b68b3`, fonts: Ubuntu (headings) + Roboto (body)
