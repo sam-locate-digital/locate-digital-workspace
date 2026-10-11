@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/effects.css">
+  <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
+</helmet>
+<header data-glass="" style="position: sticky; top: 0; z-index: 50; background: rgba(251,252,255,.78); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); box-shadow: {{ navShadow }}; transition: box-shadow 240ms ease;">
+  <div style="max-width: 1260px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    <a href="/" aria-label="Locate Digital home" style="display: flex; align-items: center; flex: none; padding: 6px 0;">
+      <img src="/assets/lockup-blue.png" alt="Locate Digital" width="82" height="28" style="height: 28px; width: auto; display: block;">
+    </a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display: flex; align-items: center; gap: 2px; font-family: var(--font-display); font-weight: 600; font-size: 14px;">
+        <sc-for list="{{ items }}" as="n" hint-placeholder-count="6">
+          <sc-if value="{{ n.plain }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ n.href }}" aria-current="{{ n.current }}" style="height: 36px; display: flex; align-items: center; padding: 0 14px; border-radius: 999px; color: #0d0d0d; white-space: nowrap; background: {{ n.bg }}; transition: background 160ms ease;" style-hover="background: rgba(0,122,232,.08); color: #0d0d0d;">{{ n.label }}</a>
+          </sc-if>
+          <sc-if value="{{ n.menu }}" hint-placeholder-val="{{ false }}">
+            <div onMouseEnter="{{ n.open }}" onMouseLeave="{{ closeSvc }}" onKeyDown="{{ svcKey }}" style="position: relative;">
+              <button onClick="{{ n.toggle }}" aria-expanded="{{ n.isOpen }}" aria-haspopup="true" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px 0 14px; border: 0; border-radius: 999px; font: inherit; color: #0d0d0d; white-space: nowrap; cursor: pointer; background: {{ n.btnBg }}; transition: background 160ms ease;" style-hover="background: rgba(0,122,232,.08);">{{ n.label }}<span aria-hidden="true" style="display: inline-block; font-size: 10px; color: #3d4045; transform: {{ n.chev }}; transition: transform 200ms ease;">▾</span></button>
+              <sc-if value="{{ n.isOpen }}" hint-placeholder-val="{{ false }}">
+                <div data-svc-menu="" style="position: absolute; left: 50%; top: 100%; transform: translateX(-36%); padding-top: 12px; z-index: 60;">
+                  <div role="menu" style="width: {{ n.menuW }}; padding: 10px; border-radius: 18px; background: rgba(255,255,255,.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #e6e6e6; box-shadow: 0 24px 48px -16px rgba(0,40,90,.22), 0 4px 12px rgba(0,40,90,.06); display: grid; grid-template-columns: {{ n.cols }}; gap: 2px;">
+                    <sc-for list="{{ n.links }}" as="s" hint-placeholder-count="5">
+                      <a role="menuitem" href="{{ s.href }}" onClick="{{ closeSvcNow }}" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 12px; color: #0d0d0d; transition: background 140ms ease;" style-hover="background: #f4f8fd; color: #0d0d0d;">
+                        <span style="font-family: var(--font-display); font-weight: 700; font-size: 14.5px; letter-spacing: -0.01em;">{{ s.label }}</span>
+                        <span style="font-family: var(--font-body); font-weight: 400; font-size: 12.5px; line-height: 1.4; color: #3d4045;">{{ s.sub }}</span>
+                      </a>
+                    </sc-for>
+                    <a href="{{ n.href }}" onClick="{{ closeSvcNow }}" style="grid-column: 1 / -1; margin-top: 4px; padding: 12px 14px; border-top: 1px solid #eef1f5; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: #0058c4;">{{ n.allLabel }}<span>→</span></a>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+        </sc-for>
+      </nav>
+      <span style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
+        <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" dc-props="{{ ctaProps }}" hint-size="190px,40px">Request a consultation</x-import>
+      </span>
+    </sc-if>
+    <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="site-menu" style="height: 44px; min-width: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #e6e6e6; background: rgba(255,255,255,.7); color: #0d0d0d; font-family: var(--font-display); font-weight: 700; font-size: 14px; cursor: pointer;">{{ menuLabel }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <div id="site-menu" style="max-height: calc(100vh - 68px); overflow-y: auto; background: #fff; border-top: 1px solid #e6e6e6; padding: 4px 20px 24px; display: flex; flex-direction: column; box-shadow: var(--shadow-lg);">
+      <sc-for list="{{ items }}" as="n" hint-placeholder-count="6">
+        <sc-if value="{{ n.plain }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ n.href }}" aria-current="{{ n.current }}" style="min-height: 52px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e6e6e6; color: {{ n.color }}; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">{{ n.label }}<span style="color: #63666b; font-weight: 400;">→</span></a>
+        </sc-if>
+        <sc-if value="{{ n.menu }}" hint-placeholder-val="{{ false }}">
+          <div style="border-bottom: 1px solid #e6e6e6;">
+            <button onClick="{{ n.toggleM }}" aria-expanded="{{ n.isOpenM }}" style="width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: space-between; border: 0; background: none; padding: 0; cursor: pointer; color: {{ n.color }}; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">{{ n.label }}<span aria-hidden="true" style="color: #63666b; font-weight: 400; transform: {{ n.chevM }}; transition: transform 200ms ease;">▾</span></button>
+            <sc-if value="{{ n.isOpenM }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; padding: 0 0 10px 12px;">
+                <sc-for list="{{ n.links }}" as="s" hint-placeholder-count="5">
+                  <a href="{{ s.href }}" style="min-height: 44px; display: flex; align-items: center; color: #0d0d0d; font-family: var(--font-display); font-weight: 600; font-size: 16px;">{{ s.label }}</a>
+                </sc-for>
+                <a href="{{ n.href }}" style="min-height: 44px; display: flex; align-items: center; color: #0058c4; font-family: var(--font-display); font-weight: 700; font-size: 15px;">{{ n.allLabel }} →</a>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+      </sc-for>
+      <div style="margin-top: 20px; display: flex; flex-direction: column;">
+        <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="secondary" href="/consultation" style="justify-content: center;" hint-size="100%,52px">Request a consultation →</x-import>
+      </div>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;68px&quot;}, &quot;active&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;&quot;, &quot;Who we work with&quot;, &quot;Marketing&quot;, &quot;AI&quot;, &quot;Approach&quot;, &quot;About&quot;, &quot;Insights&quot;], &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;ctaPrimary&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { mobile: false, scrolled: false, menuOpen: false, open: null, openM: null };
+  componentDidMount() {
+    this.onR = () => this.setState({ mobile: window.innerWidth < 1080 });
+    this.onS = () => { const s = window.scrollY > 8; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    this.onR(); this.onS();
+    window.addEventListener('resize', this.onR); window.addEventListener('scroll', this.onS, { passive: true });
+  }
+  componentDidUpdate(_, prev) {
+    if (this.state.open && prev && prev.open !== this.state.open) {
+      const el = document.querySelector('[data-svc-menu]');
+      if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) el.animate([{ opacity: 0, transform: 'translateX(-36%) translateY(-6px) scale(.98)' }, { opacity: 1, transform: 'translateX(-36%)' }], { duration: 220, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    }
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); clearTimeout(this.closeT); }
+  renderVals() {
+    const S = this.state, active = this.props.active ?? '';
+    const L = (label, sub, href) => ({ label, sub, href });
+    const menus = {
+      Marketing: { href: '/marketing', allLabel: 'All marketing services', cols: '1fr', menuW: '340px', links: [
+        L('Paid Ads', 'Google, Meta and LinkedIn campaigns', '/paid-ads'),
+        L('CRO', 'Landing pages and forms that convert more visitors', '/cro'),
+        L('Email Marketing', 'Nurture, newsletters and lifecycle automation', '/email-marketing')] },
+      AI: { href: '/ai', allLabel: 'AI overview', cols: '1fr', menuW: '340px', links: [
+        L('AI Integrations and Training', 'Connect AI to your systems and train your team', '/ai-integrations-and-training'),
+        L('AI Readiness Assessment', 'Ten questions, a score and where to start', '/ai#assessment')] }
+    };
+    const pages = [['Who we work with', '/who-we-work-with'], ['Marketing'], ['AI'], ['Approach', '/approach'], ['About', '/about']];
+    const primary = (this.props.ctaPrimary ?? true) && S.scrolled;
+    return {
+      desktop: !S.mobile, mobile: S.mobile,
+      navShadow: S.scrolled ? '0 1px 0 rgba(13,13,13,.06), 0 8px 24px -12px rgba(13,13,13,.12)' : '0 1px 0 rgba(13,13,13,0)',
+      items: pages.map(([label, href]) => {
+        const on = label === active, m = menus[label], isOpen = S.open === label, isOpenM = S.openM === label;
+        return { label, href: m ? m.href : href, menu: !!m, plain: !m, current: on ? 'page' : undefined, bg: on ? 'rgba(0,122,232,.08)' : 'transparent', color: on ? '#0058c4' : '#0d0d0d',
+          ...(m ? { links: m.links, allLabel: m.allLabel, cols: m.cols, menuW: m.menuW, isOpen, isOpenM,
+            btnBg: isOpen || on ? 'rgba(0,122,232,.08)' : 'transparent', chev: isOpen ? 'rotate(180deg)' : 'none', chevM: isOpenM ? 'rotate(180deg)' : 'none',
+            open: () => { clearTimeout(this.closeT); if (this.state.open !== label) this.setState({ open: label }); },
+            toggle: () => this.setState(s => ({ open: s.open === label ? null : label })),
+            toggleM: () => this.setState(s => ({ openM: s.openM === label ? null : label })) } : {}) };
+      }),
+      closeSvc: () => { clearTimeout(this.closeT); this.closeT = setTimeout(() => this.setState({ open: null }), 140); },
+      closeSvcNow: () => this.setState({ open: null }),
+      svcKey: (e) => { if (e.key === 'Escape') this.setState({ open: null }); },
+      ctaProps: { variant: primary ? 'primary' : 'secondary', size: 'sm', href: '/consultation', style: { whiteSpace: 'nowrap' } },
+      menuOpen: S.menuOpen, menuVisible: S.mobile && S.menuOpen, menuLabel: S.menuOpen ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen }))
+    };
+  }
+}
+</script>
+</body>
+</html>

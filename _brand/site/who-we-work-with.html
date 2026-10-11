@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/assets/logo-symbol.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Who we work with — Locate Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/effects.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/styles.css">
+  <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+    body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #0058c4; text-decoration: none; }
+    a:hover { color: #00449a; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #007ae8; outline-offset: 3px; border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; } }
+  </style>
+</helmet>
+
+<div style="min-width: 320px; overflow-x: clip;">
+  <dc-import name="Site Nav" active="Who we work with" cta-primary="{{ false }}" style="position: sticky; top: 0; z-index: 50;" hint-size="100%,68px"></dc-import>
+
+  <section data-screen-label="01 Page hero" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(60% 80% at 90% 0%, #dfeafa 0%, rgba(223,234,250,0) 70%), #fbfcff; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px) clamp(40px, 5vw, 64px);">
+    <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; right: -10%; top: -30%; width: 55%; height: 150%; opacity: .75; pointer-events: none;" hint-size="55%,100%"></dc-import>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;"><span>WHO WE WORK WITH</span></div>
+      <h1 style="margin: 18px 0 0; max-width: 820px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(40px, 6vw, 80px); color: #0d0d0d; text-wrap: balance;">Built for <span style="color: #0058c4;">financial service</span> providers.</h1>
+      <p style="margin: 22px 0 0; max-width: 620px; font-size: clamp(16px, 1.3vw, 18px); color: #2b2e33; text-wrap: pretty;">We work with Australian firms trusted with their clients’ money and financial decisions. They share the same challenges: long decision cycles, competitive markets and clients who need to trust you before they make contact.</p>
+    </div>
+  </section>
+
+  <div ref="{{ bodyRef }}">
+    <section data-screen-label="02 Segment intro" style="position: relative; overflow: hidden; isolation: isolate; background: #fff; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+      <dc-import name="Ambient" mode="bubbles" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 42%; height: 120%; opacity: .45; pointer-events: none;" hint-size="42%,100%"></dc-import>
+      <div style="max-width: 1180px; margin: 0 auto;">
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">{{ s.tag }}</div>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">{{ s.headline }}</h2>
+        <div style="margin-top: clamp(28px, 3.5vw, 44px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 32px clamp(32px, 5vw, 72px); align-items: start;">
+          <div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #2b2e33; text-wrap: pretty;">{{ s.lead }}</p>
+            <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px;">
+              <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="lg" href="/consultation" hint-size="270px,60px">Request a consultation →</x-import>
+            </div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">The work you want more of</div>
+            <ul style="margin: 14px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); column-gap: 28px; border-top: 1px solid #e6e6e6;">
+              <sc-for list="{{ s.terms }}" as="w" hint-placeholder-count="6">
+                <li style="display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px solid #e6e6e6; font-family: var(--font-display); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; line-height: 1.4; color: #0d0d0d;"><span aria-hidden="true" style="color: #007ae8;">→</span>{{ w }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+        <div data-journey="" style="position: relative; overflow: hidden; isolation: isolate; margin-top: clamp(32px, 4vw, 48px); padding: clamp(22px, 3vw, 32px) clamp(22px, 3.2vw, 36px); border-radius: 16px; background: #f4f8fd; border: 1px solid #e3ebf5;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 16px clamp(32px, 5vw, 72px); align-items: end;">
+            <div>
+              <div style="font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">How your clients decide</div>
+              <p style="margin: 10px 0 0; font-size: 16.5px; line-height: 1.65; color: #0d0d0d; text-wrap: pretty;">{{ s.decide }}</p>
+            </div>
+          </div>
+          <div style="position: relative; margin-top: 24px;">
+            <div aria-hidden="true" style="position: absolute; left: 7px; right: 7px; top: 6px; height: 2px; background: rgba(0,88,196,.15); border-radius: 2px;"><div data-journey-fill="" style="height: 100%; width: 0; border-radius: 2px; background: linear-gradient(90deg, #007ae8, #75dfee); transition: width 1600ms cubic-bezier(.2,.7,.2,1);"></div></div>
+            <ol style="position: relative; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 20px;">
+              <li data-journey-step="" style="opacity: .35; transition: opacity 500ms ease 300ms;">
+                <span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: #ffffff; border: 2px solid #007ae8;"></span>
+                <div style="margin-top: 12px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0d0d0d;">01 · Research</div>
+              </li>
+              <li data-journey-step="" style="opacity: .35; transition: opacity 500ms ease 600ms;">
+                <span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: #ffffff; border: 2px solid #007ae8;"></span>
+                <div style="margin-top: 12px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0d0d0d;">02 · Compare</div>
+              </li>
+              <li data-journey-step="" style="opacity: .35; transition: opacity 500ms ease 900ms;">
+                <span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: #ffffff; border: 2px solid #007ae8;"></span>
+                <div style="margin-top: 12px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0d0d0d;">03 · Trigger</div>
+              </li>
+              <li data-journey-step="" style="opacity: .35; transition: opacity 500ms ease 1200ms;">
+                <span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; border: 2px solid #007ae8;"></span>
+                <div style="margin-top: 12px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0d0d0d;">04 · Decide</div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="03 Pain points" style="background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+      <div style="max-width: 1180px; margin: 0 auto;">
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WHAT GETS IN THE WAY</div>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">{{ s.painHead }}</h2>
+        <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px;">
+          <sc-for list="{{ s.pains }}" as="p" hint-placeholder-count="3">
+            <div style="padding-top: 20px; border-top: 2px solid #0d0d0d;">
+              <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: #0058c4;">{{ p.n }}</div>
+              <h3 style="margin: 10px 0 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 21px; line-height: 1.25; color: #0d0d0d;">{{ p.t }}</h3>
+              <p style="margin: 10px 0 0; font-size: 15px; color: #3d4045; text-wrap: pretty;">{{ p.d }}</p>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="margin-top: clamp(56px, 6vw, 80px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 40px;">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">BY THE NUMBERS</div>
+            <h3 style="margin: 12px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; font-size: clamp(24px, 2.6vw, 32px); color: #0d0d0d; text-wrap: balance;">AI is changing how firms market and operate. Most are not keeping up.</h3>
+          </div>
+        </div>
+        <div data-stats="" style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); border-radius: 20px; overflow: hidden; background: #ffffff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm);">
+          <div data-stat="" style="position: relative; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 36px); background: #f4f8fd; border-left: 0; opacity: 0; transform: translateY(12px); transition: opacity 700ms cubic-bezier(.2,.7,.2,1) 0ms, transform 700ms cubic-bezier(.2,.7,.2,1) 0ms;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;"><span>01 · The gap</span><span style="padding: 3px 8px; border-radius: 999px; background: #007ae8; color: #ffffff; letter-spacing: .1em;">Key figure</span></div>
+            <div style="margin-top: 18px; display: flex; align-items: baseline; gap: 2px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: 1; font-size: clamp(56px, 5.6vw, 76px); color: #007ae8;"><span data-count="12">12</span><span style="font-size: .45em; letter-spacing: -0.02em;">%</span></div>
+            <div aria-hidden="true" style="margin-top: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 64px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: #3d4045;">AUSTRALIA</span><span style="flex: 1; height: 6px; border-radius: 999px; background: #e3ebf5; overflow: hidden;"><span data-bar="12" style="display: block; height: 100%; width: 0; border-radius: 999px; background: #007ae8; transition: width 1200ms cubic-bezier(.2,.7,.2,1) 200ms;"></span></span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 64px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: #3d4045;">GLOBAL</span><span style="flex: 1; height: 6px; border-radius: 999px; background: #e3ebf5; overflow: hidden;"><span data-bar="25" style="display: block; height: 100%; width: 0; border-radius: 999px; background: #75dfee; transition: width 1200ms cubic-bezier(.2,.7,.2,1) 300ms;"></span></span></div>
+            </div>
+            <p style="margin: 18px 0 0; font-size: 15.5px; line-height: 1.6; color: #2b2e33; text-wrap: pretty;">of Australian leaders say generative AI is already transforming their business. Globally it is 25%.</p>
+            <p style="margin: auto 0 0; padding-top: 18px;"><span style="display: block; padding-top: 14px; border-top: 1px solid #d9e6f4; font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.4; color: #0d0d0d; text-wrap: pretty;">Most firms have the tools, but are barely using them.</span></p>
+          </div>
+          <div data-stat="" style="position: relative; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 36px);  border-left: 1px solid #e6e6e6; opacity: 0; transform: translateY(12px); transition: opacity 700ms cubic-bezier(.2,.7,.2,1) 100ms, transform 700ms cubic-bezier(.2,.7,.2,1) 100ms;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;"><span>02 · Stalled pilots</span></div>
+            <div style="margin-top: 18px; display: flex; align-items: baseline; gap: 2px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: 1; font-size: clamp(56px, 5.6vw, 76px); color: #007ae8;"><span data-count="28">28</span><span style="font-size: .45em; letter-spacing: -0.02em;">%</span></div>
+            <div aria-hidden="true" style="margin-top: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 64px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: #3d4045;">AUSTRALIA</span><span style="flex: 1; height: 6px; border-radius: 999px; background: #e3ebf5; overflow: hidden;"><span data-bar="28" style="display: block; height: 100%; width: 0; border-radius: 999px; background: #007ae8; transition: width 1200ms cubic-bezier(.2,.7,.2,1) 300ms;"></span></span></div>
+              
+            </div>
+            <p style="margin: 18px 0 0; font-size: 15.5px; line-height: 1.6; color: #2b2e33; text-wrap: pretty;">of Australian organisations have moved at least 40% of their AI pilots into everyday use.</p>
+            <p style="margin: auto 0 0; padding-top: 18px;"><span style="display: block; padding-top: 14px; border-top: 1px solid #eef1f5; font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.4; color: #0d0d0d; text-wrap: pretty;">Most AI projects never make it past the trial stage.</span></p>
+          </div>
+          <div data-stat="" style="position: relative; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 36px);  border-left: 1px solid #e6e6e6; opacity: 0; transform: translateY(12px); transition: opacity 700ms cubic-bezier(.2,.7,.2,1) 200ms, transform 700ms cubic-bezier(.2,.7,.2,1) 200ms;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;"><span>03 · Investment</span></div>
+            <div style="margin-top: 18px; display: flex; align-items: baseline; gap: 2px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: 1; font-size: clamp(56px, 5.6vw, 76px); color: #007ae8;"><span data-count="65">65</span><span style="font-size: .45em; letter-spacing: -0.02em;">%</span></div>
+            <div aria-hidden="true" style="margin-top: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 64px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: #3d4045;">AUSTRALIA</span><span style="flex: 1; height: 6px; border-radius: 999px; background: #e3ebf5; overflow: hidden;"><span data-bar="65" style="display: block; height: 100%; width: 0; border-radius: 999px; background: #007ae8; transition: width 1200ms cubic-bezier(.2,.7,.2,1) 400ms;"></span></span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 64px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: #3d4045;">GLOBAL</span><span style="flex: 1; height: 6px; border-radius: 999px; background: #e3ebf5; overflow: hidden;"><span data-bar="84" style="display: block; height: 100%; width: 0; border-radius: 999px; background: #75dfee; transition: width 1200ms cubic-bezier(.2,.7,.2,1) 500ms;"></span></span></div>
+            </div>
+            <p style="margin: 18px 0 0; font-size: 15.5px; line-height: 1.6; color: #2b2e33; text-wrap: pretty;">of Australian organisations plan to increase AI investment next year, compared with 84% globally.</p>
+            <p style="margin: auto 0 0; padding-top: 18px;"><span style="display: block; padding-top: 14px; border-top: 1px solid #eef1f5; font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 1.4; color: #0d0d0d; text-wrap: pretty;">The gap with global peers is set to widen.</span></p>
+          </div>
+        </div>
+        <div style="position: relative; overflow: hidden; isolation: isolate; margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 40px; padding: clamp(24px, 3vw, 36px) clamp(22px, 3.4vw, 44px); border-radius: 20px; background: #0058c4; color: #ffffff; box-shadow: 0 30px 60px -30px rgba(0,88,196,.6);">
+          <span aria-hidden="true" style="position: absolute; z-index: -1; right: -80px; top: -120px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(117,223,238,.5), rgba(117,223,238,0) 70%);"></span>
+          <span aria-hidden="true" style="position: absolute; z-index: -1; left: 30%; bottom: -160px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(0,122,232,.7), rgba(0,122,232,0) 70%);"></span>
+          <div style="flex: 1 1 380px; min-width: 0;">
+            <div style="font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #ffffff;">AI Readiness Assessment · 5 minutes</div>
+            <div style="margin-top: 10px; font-family: var(--font-display); font-weight: 800; font-size: clamp(24px, 2.6vw, 32px); letter-spacing: -0.03em; line-height: 1.15; color: #ffffff;">See where your firm stands.</div>
+            <div style="margin-top: 8px; font-size: 16px; line-height: 1.6; color: #ffffff;">A short questionnaire that scores your firm’s AI readiness.</div>
+          </div>
+          <a href="/ai#assessment" style="flex: none; display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; border-radius: 999px; background: #ffffff; color: #0d0d0d; font-family: var(--font-display); font-weight: 700; font-size: 16px; box-shadow: 0 10px 24px -10px rgba(0,0,0,.35); transition: transform 180ms ease, box-shadow 180ms ease;" style-hover="transform: translateY(-2px); box-shadow: 0 16px 32px -12px rgba(0,0,0,.4); color: #0d0d0d;">Take the AI Readiness Assessment →</a>
+        </div>
+        <p style="margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: #3d4045;">Source: <a href="https://www.deloitte.com/au/en/issues/generative-ai/state-of-ai-in-enterprise.html" target="_blank" rel="noopener" style="color: #0058c4; text-decoration: underline; text-underline-offset: 2px;">Deloitte, State of AI in the Enterprise 2026</a> (Australian results).</p>
+      </div>
+    </section>
+
+
+    <section data-screen-label="05 What we do" style="background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+      <div style="max-width: 1180px; margin: 0 auto;">
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WHAT WE WOULD DO</div>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">Marketing and AI, set up for {{ s.short }}.</h2>
+        <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px;">
+          <sc-for list="{{ s.focus }}" as="f" hint-placeholder-count="3">
+            <a href="{{ f.href }}" style="display: flex; flex-direction: column; gap: 12px; padding: 26px; border-radius: 16px; background: #fff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm); color: #0d0d0d; transition: box-shadow 180ms ease, transform 180ms ease;" style-hover="box-shadow: var(--shadow-md); transform: translateY(-2px); color: #0d0d0d;">
+              <span style="align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: #dfeafa; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: #0058c4;">{{ f.kind }}</span>
+              <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 20px; line-height: 1.25;">{{ f.t }}</h3>
+              <p style="margin: 0; font-size: 15px; color: #3d4045; text-wrap: pretty;">{{ f.d }}</p>
+              <span style="margin-top: auto; padding-top: 8px; font-family: var(--font-display); font-weight: 700; font-size: 14px; color: #0058c4;">{{ f.link }} →</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" data-screen-label="06 Why Locate" style="background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: stretch;">
+      <div data-dash-wrap="" style="position: relative; min-width: 0;">
+        <div data-dash="" style="position: sticky; top: 96px; border-radius: 22px; background: rgba(255,255,255,.92); border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); overflow: hidden;">
+          <div style="height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #f4f8fd; border-bottom: 1px solid #e6e6e6;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span>
+            <span style="margin-left: 10px; flex: 1; min-width: 0; height: 24px; border-radius: 999px; background: #fff; border: 1px solid #e6e6e6; display: flex; align-items: center; padding: 0 12px; font-family: var(--font-mono); font-size: 11px; color: #3d4045; white-space: nowrap; overflow: hidden;">reports.locatedigital.io/your-firm</span>
+          </div>
+          <div style="padding: clamp(16px, 2.4vw, 24px); display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">Growth report</div>
+              <div data-dash-month="" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #0058c4;">MONTH 1 OF 6</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">QUALIFIED ENQUIRIES</div><div data-kpi="" data-to="64" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">MEETINGS BOOKED</div><div data-kpi="" data-to="23" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">HOURS SAVED / WK</div><div data-kpi="" data-to="11" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em; color: #0058c4;">0</div></div>
+            </div>
+            <div style="position: relative; height: clamp(120px, 14vw, 160px); border-radius: 14px; background: #fff; border: 1px solid #eef1f5; padding: 10px 12px 6px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;"><span>ENQUIRIES BY MONTH</span><span style="display: flex; gap: 12px;"><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #007ae8;"></span>QUALIFIED</span><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #75dfee;"></span>BOOKED</span></span></div>
+              <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 12px; right: 12px; bottom: 8px; top: 30px; width: calc(100% - 24px); height: calc(100% - 38px); overflow: visible;">
+                <line x1="0" y1="25" x2="300" y2="25" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="55" x2="300" y2="55" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="85" x2="300" y2="85" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+                <path data-dash-area="" d="M0,88 C30,86 50,80 60,78 C90,74 100,66 120,64 C150,60 160,48 180,46 C210,42 220,34 240,30 C265,26 280,20 300,14 L300,100 L0,100 Z" fill="rgba(0,122,232,.08)" style="clip-path: inset(0 100% 0 0);"></path>
+                <path data-dash-line="" pathLength="1" d="M0,88 C30,86 50,80 60,78 C90,74 100,66 120,64 C150,60 160,48 180,46 C210,42 220,34 240,30 C265,26 280,20 300,14" fill="none" stroke="#007ae8" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+                <path data-dash-line="" pathLength="1" d="M0,95 C30,94 50,92 60,91 C90,89 100,85 120,84 C150,82 160,76 180,75 C210,72 220,68 240,66 C265,63 280,60 300,56" fill="none" stroke="#75dfee" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+              </svg>
+              <div data-dash-dot="" aria-hidden="true" style="position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #007ae8; box-shadow: 0 0 0 5px rgba(0,122,232,.18); left: 12px; top: 90%; opacity: 0;"></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px;">
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">FUNNEL</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 7px;">
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Enquiries</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w="1" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Qualified</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".68" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Meetings</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".38" style="display: block; height: 100%; width: 0; background: #0058c4; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Clients</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".2" style="display: block; height: 100%; width: 0; background: #0d0d0d; border-radius: 999px;"></span></span></div>
+                </div>
+              </div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">ACTIVITY LOG</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.35;">
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>New campaign launched</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>Enquiry summarised, team notified</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #0d0d0d; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>File note drafted for review</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>Follow-up email sent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="min-width: 0; display: flex; flex-direction: column;">
+        <div>
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" tone="brand" style="color: #0058c4;" hint-size="160px,18px">Why Locate</x-import>
+          <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Built to be trusted with a finance firm’s name.</h2>
+        </div>
+        <div style="margin-top: 28px; display: flex; flex-direction: column; border-top: 1px solid #e6e6e6;">
+            <div style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">01</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">Finance specialists</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">We only work with financial service providers, so we already understand your clients and how they decide.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">02</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">Marketing and AI under one roof</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">Campaigns and automation planned together, so new enquiries are followed up quickly and nothing falls through the gaps.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">03</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">Clear plans, no guesswork</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">Every engagement starts with a written plan showing what we will do, in what order and how success is measured.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">04</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">You own your accounts and data</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">Ad accounts, analytics, automations and AI workspaces sit in your firm’s name. If we part ways, everything stays with you.</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">05</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">Measured on results</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">We report on enquiries, meetings and clients won, in plain English, every month.</p>
+              </div>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <dc-import name="Closing CTA" eyebrow="WHO WE WORK WITH" title-a="Talk to a strategist who already knows" title-b="financial services" title-c="." hint-size="100%,520px"></dc-import>
+  <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  $(s) { return document.querySelector(s); }
+  componentDidMount() { this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches; setTimeout(() => { this.setupDash(); this.setupStats(); this.setupJourney(); }, 60); }
+  setupJourney() {
+    const j = document.querySelector('[data-journey]'); if (!j) return;
+    const go = () => { const f = j.querySelector('[data-journey-fill]'); if (f) f.style.width = '100%'; j.querySelectorAll('[data-journey-step]').forEach(s => { s.style.opacity = 1; }); };
+    if (this.reduced) { j.querySelectorAll('[data-journey-fill],[data-journey-step]').forEach(el => { el.style.transition = 'none'; }); go(); return; }
+    this.jIO = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { this.jIO.disconnect(); go(); } }, { threshold: 0.4 });
+    this.jIO.observe(j);
+  }
+  setupStats() {
+    const wrap = document.querySelector('[data-stats]'); if (!wrap) return;
+    const cards = [...wrap.querySelectorAll('[data-stat]')], nums = [...wrap.querySelectorAll('[data-count]')];
+    const show = () => { cards.forEach(c => { c.style.opacity = 1; c.style.transform = 'none'; }); wrap.querySelectorAll('[data-bar]').forEach(b => { b.style.width = b.dataset.bar + '%'; }); if (this.reduced) return;
+      nums.forEach((el, i) => { const to = +el.dataset.count, dec = (el.dataset.count.split('.')[1] || '').length, t0 = performance.now() + i * 90, dur = 1400;
+        const tick = now => { const p = Math.max(0, Math.min(1, (now - t0) / dur)), e = 1 - Math.pow(1 - p, 3); el.textContent = (to * e).toFixed(dec); if (p < 1) requestAnimationFrame(tick); }; el.textContent = (0).toFixed(dec); requestAnimationFrame(tick); }); };
+    if (this.reduced) { show(); return; }
+    this.statIO = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { this.statIO.disconnect(); show(); } }, { threshold: 0.25 });
+    this.statIO.observe(wrap);
+  }
+  componentWillUnmount() { this.jIO && this.jIO.disconnect(); this.statIO && this.statIO.disconnect(); if (this.onDash) { removeEventListener('scroll', this.onDash); removeEventListener('resize', this.onDash); } }
+  setupDash() {
+    const wrap = this.$('[data-dash-wrap]'); if (!wrap) return;
+    const q = s => [...wrap.querySelectorAll(s)];
+    const kpis = q('[data-kpi]'), lines = q('[data-dash-line]'), area = this.$('[data-dash-area]'), dot = this.$('[data-dash-dot]'), bars = q('[data-bar]'), feed = q('[data-feed]'), month = this.$('[data-dash-month]');
+    const sec = wrap.closest('section');
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const seg = (p, a, b) => Math.max(0, Math.min(1, (p - a) / (b - a)));
+    const draw = (p) => {
+      const lp = ease(seg(p, 0.05, 0.75));
+      lines.forEach((l, i) => l.setAttribute('stroke-dashoffset', String(1 - ease(seg(p, 0.05 + i * .06, 0.75 + i * .06)))));
+      if (area) area.style.clipPath = 'inset(0 ' + ((1 - lp) * 100).toFixed(1) + '% 0 0)';
+      if (dot && lines[0]) { const L = lines[0], tl = L.getTotalLength(), pt = L.getPointAtLength(tl * lp), bb = L.ownerSVGElement.getBoundingClientRect(), vb = L.ownerSVGElement.viewBox.baseVal, host = dot.parentElement.getBoundingClientRect(); dot.style.left = (bb.left - host.left + pt.x / vb.width * bb.width) + 'px'; dot.style.top = (bb.top - host.top + pt.y / vb.height * bb.height) + 'px'; dot.style.opacity = lp > .01 ? 1 : 0; }
+      kpis.forEach((k, i) => { k.textContent = Math.round(+k.dataset.to * ease(seg(p, 0.1 + i * .08, 0.7 + i * .06))); });
+      bars.forEach((b, i) => { b.style.width = (+b.dataset.w * 100 * ease(seg(p, 0.25 + i * .07, 0.65 + i * .07))).toFixed(1) + '%'; });
+      feed.forEach((f, i) => { const t = ease(seg(p, 0.3 + i * .12, 0.42 + i * .12)); f.style.opacity = t; f.style.transform = 'translateY(' + ((1 - t) * 6).toFixed(1) + 'px)'; });
+      if (month) month.textContent = 'MONTH ' + Math.max(1, Math.min(6, 1 + Math.floor(lp * 6))) + ' OF 6';
+    };
+    if (this.reduced) { draw(1); return; }
+    this.onDash = () => { const r = sec.getBoundingClientRect(), vh = window.innerHeight; const p = Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (r.height * 0.75))); if (Math.abs(p - (this._dp ?? -1)) > 0.002) { this._dp = p; draw(p); } };
+    window.addEventListener('scroll', this.onDash, { passive: true }); window.addEventListener('resize', this.onDash);
+    this.onDash();
+  }
+
+
+  bodyRef = React.createRef();
+  renderVals() {
+    const SVC = { paid: '/marketing#paid', social: '/marketing#social', email: '/marketing#email', ai: '/ai' };
+    const d = { short: 'financial services', tag: 'FINANCIAL SERVICE PROVIDERS',
+      headline: 'Steady growth that does not depend on referrals alone.',
+      lead: 'Most financial firms are built on referrals and reputation. That works until a referral source goes quiet or the market turns. We build a second source of qualified enquiries you control, and use AI to give your team back time for client work.',
+      terms: ['Advice and planning', 'Lending and credit', 'Tax and business services', 'Insurance', 'Investment and super', 'Client reviews'],
+      decide: 'Clients research for weeks or months, compare options and usually act after a change in their circumstances. The firm that is visible, credible and quick to respond at that moment usually gets the conversation.',
+      painHead: 'Where growth stalls for financial firms, and how the market is shifting.',
+      pains: [['Enquiries depend on referrals', 'When a referral partner goes quiet, so does the pipeline. Without a marketing channel you control, there is nothing to fall back on.'], ['Competitors are getting faster', 'Larger firms and fintechs are using AI to run sharper campaigns and respond to enquiries in minutes. Clients notice the difference.'], ['Skilled people stuck on admin', 'Notes, proposals, reporting and follow-ups take hours from the people clients want to speak to. AI can take most of it off their desk.']],
+      rules: [],
+      focus: [['PAID MEDIA', 'High-intent search and social', 'Campaigns for people looking for the services you offer, in the places you serve, with clean call and form tracking.', SVC.paid, 'Paid media'], ['EMAIL', 'Nurture over a long decision', 'Sequences that keep your firm in the conversation until the client is ready, sent automatically.', SVC.email, 'Email and automation'], ['AI', 'Repeat admin, automated', 'Notes, document intake and follow-ups drafted by AI and checked by your team.', SVC.ai, 'AI for Finance']],
+      measures: ['Qualified enquiries', 'Cost per qualified enquiry', 'Meetings booked and clients won', 'Staff hours saved each month'] };
+    return {
+      bodyRef: this.bodyRef,
+      s: { ...d, pains: d.pains.map(([t, x], j) => ({ t, d: x, n: '0' + (j + 1) })), rules: d.rules.map(([k, v]) => ({ k, v })), focus: d.focus.map(([kind, t, x, href, link]) => ({ kind, t, d: x, href, link })), measures: d.measures.map((t, j) => ({ t, n: '0' + (j + 1) })) }
+    };
+  }
+}
+</script>
+</body>
+</html>

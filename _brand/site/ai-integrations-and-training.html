@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/assets/logo-symbol.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>AI Integrations and Training — Locate Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/effects.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/styles.css">
+  <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #0058c4; text-decoration: none; }
+    a:hover { color: #00449a; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #007ae8; outline-offset: 3px; border-radius: 8px; }
+  </style>
+</helmet>
+
+<div style="min-width: 320px;">
+  <dc-import name="Site Nav" active="AI" cta-primary="{{ false }}" style="position: sticky; top: 0; z-index: 50;" hint-size="100%,68px"></dc-import>
+  <dc-import name="Service Detail" service="ai-integrations" bg-style="{{ bgStyle }}" hint-size="100%,2400px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="AI INTEGRATIONS AND TRAINING" title-a="Talk to a strategist about" title-b="AI for your firm" title-c="." primary="{{ false }}" hint-size="100%,520px"></dc-import>
+  <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"bgStyle":{"editor":"enum","options":["lines","aurora","grid","dots"],"default":"lines","tsType":"string","section":"Background"}}'>
+class Component extends DCLogic {
+  renderVals() { return { bgStyle: this.props.bgStyle ?? 'lines' }; }
+}
+</script>
+</body>
+</html>

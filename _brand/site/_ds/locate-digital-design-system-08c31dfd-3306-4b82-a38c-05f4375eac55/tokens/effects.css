@@ -1,0 +1,23 @@
+:root {
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 1px rgba(13,13,13,.04), 0 2px 5px rgba(13,13,13,.05), 0 8px 20px -6px rgba(13,13,13,.08);
+  --shadow-md: 0 2px 6px rgba(13,13,13,.05), 0 16px 36px -10px rgba(13,13,13,.14);
+  --shadow-lg: 0 8px 16px rgba(13,13,13,.06), 0 30px 64px -18px rgba(0,60,120,.22);
+
+  /* the one decorative motif: a single soft glow, low opacity, off to one side */
+  --wash-impact:
+    radial-gradient(1240px 860px at 86% 2%, rgba(0,122,232,.22), transparent 64%),
+    radial-gradient(1020px 780px at 0% 100%, rgba(117,223,238,.30), transparent 70%),
+    linear-gradient(158deg, #e3eefc 0%, #eff5fe 56%, #f8fbff 100%); /* @kind color */
+  --wash-card:
+    radial-gradient(520px 420px at 92% 4%, rgba(0,122,232,.10), transparent 68%),
+    linear-gradient(158deg, #e7f0fc 0%, #dfeafa 100%); /* @kind color */
+
+  --rule-accent: 2px solid var(--accent);
+  --rule-strong: 2px solid var(--ld-ink);
+  --rule-hair: 1px solid var(--border-default);
+  --transition: 180ms ease; /* @kind other */
+}

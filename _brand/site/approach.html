@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/assets/logo-symbol.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Approach — Locate Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/effects.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/styles.css">
+  <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #0058c4; text-decoration: none; }
+    a:hover { color: #00449a; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #007ae8; outline-offset: 3px; border-radius: 8px; }
+  </style>
+</helmet>
+
+<div style="min-width: 320px; overflow-x: clip;">
+  <dc-import name="Site Nav" active="Approach" cta-primary="{{ false }}" style="position: sticky; top: 0; z-index: 50;" hint-size="100%,68px"></dc-import>
+
+  <section data-screen-label="01 Hero" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(60% 80% at 90% 0%, #dfeafa 0%, rgba(223,234,250,0) 70%), #fbfcff; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px) clamp(48px, 6vw, 80px);">
+    <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; right: -10%; top: -26%; width: 54%; height: 150%; opacity: .75; pointer-events: none;" hint-size="54%,100%"></dc-import>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">THE LOCATE METHOD</div>
+      <h1 style="margin: 18px 0 0; max-width: 840px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(40px, 6vw, 80px); color: #0d0d0d; text-wrap: balance;">A clear path from first call to <span style="color: #0058c4;">measurable</span> growth.</h1>
+      <p style="margin: 22px 0 0; max-width: 620px; font-size: clamp(16px, 1.3vw, 18px); color: #2b2e33; text-wrap: pretty;">Four stages, in the same order for every firm. Each one ends with something you can see and approve before we move on.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="02 Stages" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px);" data-stage-grid="">
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <div style="position: sticky; top: 108px; align-self: start;">
+          <div style="position: relative; padding-left: 28px;">
+            <div aria-hidden="true" style="position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: #eef1f5; border-radius: 2px;"><div style="width: 100%; height: {{ railFill }}; background: #007ae8; border-radius: 2px; transition: height 500ms cubic-bezier(.2,.8,.2,1);"></div></div>
+            <img src="/assets/pin-blue.png" alt="" aria-hidden="true" width="18" height="27" style="position: absolute; left: 0; top: {{ pinTop }}; width: 18px; height: auto; transition: top 500ms cubic-bezier(.2,.8,.2,1); filter: drop-shadow(0 4px 6px rgba(0,60,120,.25));">
+            <sc-for list="{{ rail }}" as="r" hint-placeholder-count="4">
+              <a href="{{ r.href }}" style="display: block; height: 64px; padding-top: 4px; color: {{ r.color }}; transition: color 200ms ease;">
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;">{{ r.n }}</div>
+                <div style="font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">{{ r.t }}</div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <div style="display: flex; flex-direction: column; gap: clamp(48px, 6vw, 88px); grid-column: {{ contentCol }};">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="4">
+          <article id="{{ s.id }}" data-stage="{{ s.i }}" style="scroll-margin-top: 100px;">
+            <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">STAGE {{ s.n }} · {{ s.when }}</div>
+            <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d;">{{ s.t }}</h2>
+            <p style="margin: 16px 0 0; max-width: 620px; font-size: 17px; color: #2b2e33; text-wrap: pretty;">{{ s.d }}</p>
+            <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px;">
+              <div style="padding: 22px; border-radius: 16px; background: #fbfcff; border: 1px solid #e6e6e6;">
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT HAPPENS</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column;">
+                  <sc-for list="{{ s.acts }}" as="a" hint-placeholder-count="4">
+                    <div style="display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid #eef1f5; font-size: 14.5px;"><span style="color: #0058c4;">→</span>{{ a }}</div>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="padding: 22px; border-radius: 16px; background: #fff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm);">
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT YOU RECEIVE</div>
+                <div style="margin-top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; line-height: 1.3;">{{ s.out }}</div>
+                <div style="margin-top: 8px; font-size: 14.5px; color: #3d4045; text-wrap: pretty;">{{ s.outD }}</div>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03 Working together" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+    <dc-import name="Ambient" mode="bubbles" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 40%; height: 120%; opacity: .42; pointer-events: none;" hint-size="40%,100%"></dc-import>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WORKING TOGETHER</div>
+      <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">What every engagement includes.</h2>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px 24px;">
+        <sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
+          <div style="padding-top: 18px; border-top: 2px solid #0d0d0d;">
+            <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 19px;">{{ t.t }}</h3>
+            <p style="margin: 8px 0 0; font-size: 15px; color: #3d4045; text-wrap: pretty;">{{ t.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Closing CTA" eyebrow="STAGE 01 STARTS HERE" title-a="Begin with a" title-b="diagnosis" title-c=" of where you are today." hint-size="100%,520px"></dc-import>
+  <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0, wide: true };
+  componentDidMount() {
+    this.onR = () => this.setState({ wide: window.innerWidth >= 900 }); this.onR(); window.addEventListener('resize', this.onR);
+    this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) this.setState({ active: +e.target.dataset.stage }); }), { rootMargin: '-40% 0px -55% 0px' });
+    setTimeout(() => document.querySelectorAll('[data-stage]').forEach(el => this.io.observe(el)), 100);
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const A = this.state.active, wide = this.state.wide;
+    const D = [
+      ['diagnose', 'Diagnose', 'WEEKS 1–2', 'We look at where your clients come from today, what your team spends time on, and the rules that apply to your firm. We talk to the principal and the people doing the work.', ['Review of ad accounts, website and reporting', 'Interviews with principals and key staff', 'Competitor and market review', 'Current AI use and opportunities'], 'A written diagnosis', 'What is working, what is not, and the three changes most likely to matter.'],
+      ['map', 'Map', 'WEEKS 2–3', 'We turn the diagnosis into a plan: which channels, which audiences, which workflows, in what order, and how each will be measured.', ['Channel and audience plan', 'Measurement plan tied to booked meetings', 'AI workflow shortlist ranked by time saved', 'Check-in points agreed with your team'], 'A 90-day plan', 'Priorities, milestones and the numbers we will report against.'],
+      ['build', 'Build', 'WEEKS 3–8', 'We set up campaigns, tracking, email and the first AI workflow in your firm’s accounts. You see everything before it goes live.', ['Accounts set up in your firm’s name', 'Campaigns, landing pages and email sequences', 'Conversion and call tracking', 'First AI workflow built and tested with your team'], 'Live campaigns and a working workflow', 'Everything documented, with access you control.'],
+      ['train', 'Train & optimise', 'ONGOING', 'We train your people, then improve every month based on what becomes a client. AI workflows extend once the first one is proven.', ['Role-based AI training sessions', 'Weekly optimisation, monthly reporting', 'Quarterly strategy review with principals', 'New workflows added as the team is ready'], 'Monthly reporting and a quarterly review', 'Plain-English results in the numbers your principals already use.']
+    ];
+    return {
+      wide, contentCol: wide ? '2' : '1 / -1',
+      railFill: ((A + 1) / 4 * 100) + '%', pinTop: (A * 64 + 4) + 'px',
+      rail: D.map((d, i) => ({ t: d[1], n: '0' + (i + 1), href: '#' + d[0], color: i === A ? '#0d0d0d' : '#8d9096' })),
+      stages: D.map(([id, t, when, d, acts, out, outD], i) => ({ id, t, when, d, acts, out, outD, i, n: '0' + (i + 1) })),
+      terms: [
+        { t: 'Marketing and AI under one roof', d: 'Campaigns and automation planned together, so new enquiries are followed up quickly and nothing falls through the gaps.' },
+        { t: 'Your accounts, your data', d: 'Ad accounts, analytics, email platforms and automations sit in your firm’s name.' },
+        { t: 'Clear priorities', d: 'A written 90-day plan, so you always know what is happening next.' },
+        { t: 'One clear report', d: 'Monthly, in plain English, measured to enquiries, meetings and clients.' },
+        { t: 'Finance specialists', d: 'We only work with financial service providers, so we already understand your clients and how they decide.' },
+        { t: 'Direct access', d: 'A named strategist you can call, not a ticket queue.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

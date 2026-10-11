@@ -1,0 +1,27 @@
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+  --space-8: 64px;
+  --space-9: 88px;
+  --space-10: 120px;
+
+  --gutter-card: 24px;       /* 16–24px, generous end of the range */
+  --maxw-content: 1180px;
+  --maxw-lede: 680px;
+  --section-pad-y: 88px;     /* 88–120px vertical */
+
+  /* slide frame — authored at 1920x1080 */
+  --slide-w: 1920px;
+  --slide-h: 1080px;
+  --slide-pad-x: 110px;
+  --slide-pad-top: 96px;
+  --slide-pad-bottom: 76px;
+  --slide-gap-title: 28px;
+  --slide-gap-block: 46px;
+  --slide-gap-grid: 24px;
+}

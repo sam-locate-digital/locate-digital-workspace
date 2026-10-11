@@ -1,637 +1,1222 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Locate Digital — More booked jobs for your service business</title>
-<meta name="description" content="We run Google and Meta ads for Melbourne service businesses, so you get more enquiries and a clear report on every dollar. Book a free ad audit.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --primary:#007ae8;
-  --secondary:#75dfee;
-  --accent:#ff5900;
-  --accent-dark:#e34f00;
-  --ink:#0d0d0d;
-  --muted:#63666b;
-  --line:#e6e6e6;
-  --bg:#ffffff;
-  --bg-soft:#fbfcff;
-  --row-alt:#f4f8fd;
-  --heading:'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --body:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --shadow-sm:0 1px 2px rgba(13,13,13,.06), 0 4px 12px rgba(13,13,13,.05);
-  --shadow-md:0 12px 30px rgba(0,122,232,.10), 0 4px 10px rgba(13,13,13,.05);
-  --shadow-lg:0 30px 70px rgba(0,60,120,.16);
-  --radius:18px;
-  --maxw:1160px;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--body);
-  color:var(--ink);
-  background:var(--bg);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-h1,h2,h3{font-family:var(--heading);line-height:1.1;letter-spacing:-0.02em;font-weight:800}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-.eyebrow{
-  font-family:var(--heading);font-weight:700;font-size:.78rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--primary);margin-bottom:18px;
-}
-.muted{color:var(--muted)}
-
-/* ---------- Buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;gap:.55em;
-  font-family:var(--heading);font-weight:700;font-size:1.02rem;
-  padding:16px 28px;border-radius:999px;cursor:pointer;border:none;
-  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-  will-change:transform;
-}
-.btn-primary{
-  background:var(--accent);color:#fff;
-  box-shadow:0 10px 24px rgba(255,89,0,.32);
-}
-.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 16px 32px rgba(255,89,0,.38)}
-.btn-primary .arr{transition:transform .2s ease}
-.btn-primary:hover .arr{transform:translateX(4px)}
-.btn-ghost{
-  background:transparent;color:var(--ink);border:1.5px solid var(--line);
-}
-.btn-ghost:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
-
-/* ---------- Nav ---------- */
-header.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.78);
-  backdrop-filter:saturate(180%) blur(14px);
-  -webkit-backdrop-filter:saturate(180%) blur(14px);
-  border-bottom:1px solid rgba(230,230,230,.7);
-}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand .logo-img{height:30px;width:auto;display:block}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:.95rem;font-weight:500;color:var(--muted);transition:color .15s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{padding:11px 20px;font-size:.92rem}
-.nav-toggle{display:none}
-
-/* ---------- Hero ---------- */
-.hero{position:relative;padding:84px 0 90px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:-2;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
-.blob.b1{width:560px;height:560px;background:radial-gradient(circle,#75dfee,transparent 70%);top:-200px;right:-120px}
-.blob.b2{width:480px;height:480px;background:radial-gradient(circle,#007ae8,transparent 70%);top:60px;right:120px;opacity:.22}
-.blob.b3{width:420px;height:420px;background:radial-gradient(circle,#ff5900,transparent 70%);bottom:-220px;left:-140px;opacity:.10}
-.grain{position:absolute;inset:0;z-index:-1;opacity:.4;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(2.5rem,5.4vw,4rem);margin-bottom:22px}
-.hero h1 .hl{position:relative;white-space:nowrap}
-.hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.04em;height:.34em;z-index:-1;
-  background:linear-gradient(90deg,var(--secondary),rgba(117,223,238,.35));border-radius:4px}
-.hero p.lead{font-size:1.22rem;color:var(--muted);max-width:560px;margin-bottom:34px}
-.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px}
-.hero-actions .note{font-size:.88rem;color:var(--muted)}
-.proof-bar{display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:26px;border-top:1px solid var(--line)}
-.proof-bar .item{display:flex;align-items:center;gap:9px;font-size:.92rem;font-weight:500;color:var(--ink)}
-.proof-bar .item svg{flex:none;color:var(--primary)}
-.stars{color:var(--accent);letter-spacing:2px;font-size:.95rem}
-
-/* hero card / report mock */
-.report{
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:var(--shadow-lg);padding:24px;position:relative;
-}
-.report::before{content:"";position:absolute;inset:0;border-radius:var(--radius);
-  padding:1px;background:linear-gradient(140deg,rgba(117,223,238,.9),rgba(0,122,232,.2),transparent 60%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.report-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.report-head .tag{font-family:var(--heading);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.report-head .live{display:flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--primary)}
-.report-head .live .pulse{width:8px;height:8px;border-radius:50%;background:#2bb673;box-shadow:0 0 0 0 rgba(43,182,115,.5);animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(43,182,115,.5)}70%{box-shadow:0 0 0 8px rgba(43,182,115,0)}100%{box-shadow:0 0 0 0 rgba(43,182,115,0)}}
-.report h3{font-size:1.15rem;margin:10px 0 18px}
-.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-.kpi{background:var(--row-alt);border-radius:12px;padding:14px 16px}
-.kpi .label{font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.kpi .val{font-family:var(--heading);font-weight:800;font-size:1.7rem;margin-top:4px}
-.kpi .val .up{font-size:.85rem;color:#2bb673;font-weight:700;margin-left:6px}
-.chart{display:flex;align-items:flex-end;gap:9px;height:96px;padding:0 2px}
-.chart .bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--primary),var(--secondary));opacity:.92;animation:grow 1s cubic-bezier(.2,.8,.2,1) backwards}
-@keyframes grow{from{height:4px;opacity:0}}
-.chart-cap{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-top:8px}
-.report-foot{font-size:.74rem;color:var(--muted);margin-top:14px;text-align:center}
-
-/* ---------- reveal animation ---------- */
-.fade-up{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
-.fade-up.in{opacity:1;transform:none}
-[data-stagger]{transition-delay:var(--d,0ms)}
-
-/* ---------- Logo strip ---------- */
-.logos{padding:30px 0 6px;text-align:center}
-.logos p{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
-.logos .row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}
-.logos .row span{font-family:var(--heading);font-weight:700;color:#aab1bb;font-size:1.02rem}
-
-/* ---------- Sections ---------- */
-section{padding:88px 0}
-.section-head{max-width:680px;margin-bottom:48px}
-.section-head h2{font-size:clamp(2rem,4vw,2.85rem);margin-bottom:16px}
-.section-head p{font-size:1.12rem;color:var(--muted)}
-.center{margin-left:auto;margin-right:auto;text-align:center}
-
-/* problem */
-.problem{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
-.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
-.pcard h3{font-size:1.25rem;margin-bottom:10px}
-.pcard p{color:var(--muted)}
-.pcard .x{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#fff1ea;color:var(--accent);margin-bottom:16px;font-weight:800}
-.problem .kick{font-size:1.3rem;font-weight:600;max-width:760px;margin-top:36px}
-.problem .kick b{color:var(--primary)}
-
-/* services */
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.svc{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:transform .2s ease, box-shadow .2s ease, border-color .2s}
-.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(0,122,232,.3)}
-.svc .ic{display:inline-grid;place-items:center;width:50px;height:50px;border-radius:13px;
-  background:linear-gradient(135deg,rgba(0,122,232,.12),rgba(117,223,238,.22));color:var(--primary);margin-bottom:18px}
-.svc h3{font-size:1.3rem;margin-bottom:9px}
-.svc p{color:var(--muted);font-size:.98rem}
-
-/* proof / case study */
-.proof{background:var(--ink);color:#fff}
-.proof .section-head h2{color:#fff}
-.proof .section-head p{color:#aeb4bd}
-.proof .eyebrow{color:var(--secondary)}
-.case{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.case .quote{font-family:var(--heading);font-weight:700;font-size:1.6rem;line-height:1.3;letter-spacing:-.01em}
-.case .who{margin-top:22px;color:#aeb4bd;font-size:.96rem}
-.case ul{list-style:none;margin-top:26px;display:grid;gap:13px}
-.case li{display:flex;gap:12px;color:#d4d9e0;font-size:1rem}
-.case li svg{flex:none;color:var(--secondary);margin-top:4px}
-.case-stats{background:#161616;border:1px solid #262626;border-radius:var(--radius);padding:32px}
-.case-stats .big{font-family:var(--heading);font-weight:800;font-size:3.1rem;line-height:1;background:linear-gradient(120deg,#75dfee,#007ae8);-webkit-background-clip:text;background-clip:text;color:transparent}
-.case-stats .big-sub{color:#aeb4bd;margin:6px 0 24px;font-size:.96rem}
-.case-stats .stat{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid #262626}
-.case-stats .stat .n{font-family:var(--heading);font-weight:800;font-size:1.5rem}
-.case-stats .stat .l{color:#aeb4bd;font-size:.9rem}
-
-/* how it works */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
-.step{position:relative;padding:34px 28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
-.step .num{font-family:var(--heading);font-weight:800;font-size:1rem;color:#fff;background:var(--primary);width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:18px}
-.step:nth-child(2) .num{background:var(--secondary);color:var(--ink)}
-.step:nth-child(3) .num{background:var(--accent)}
-.step h3{font-size:1.25rem;margin-bottom:9px}
-.step p{color:var(--muted);font-size:.97rem}
-.step-line{position:absolute;top:53px;right:-12px;color:var(--line);display:none}
-
-/* why */
-.why{background:var(--row-alt)}
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 40px}
-.why-item{display:flex;gap:16px;padding:18px 0}
-.why-item .tick{flex:none;width:44px;height:44px;border-radius:12px;background:#fff;box-shadow:var(--shadow-sm);display:grid;place-items:center;color:var(--primary)}
-.why-item h3{font-size:1.12rem;margin-bottom:5px}
-.why-item p{color:var(--muted);font-size:.96rem}
-
-/* faq */
-.faq-list{max-width:780px;margin:0 auto}
-.faq{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
-  font-family:var(--heading);font-weight:700;font-size:1.15rem}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary .pm{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:.2s;color:var(--primary)}
-.faq[open] summary .pm{transform:rotate(45deg);background:var(--primary);color:#fff;border-color:var(--primary)}
-.faq .ans{padding:0 0 24px;color:var(--muted);max-width:660px}
-
-/* final cta */
-.final{position:relative;overflow:hidden;background:linear-gradient(135deg,#0058c4,#007ae8 55%,#0aa0c8);color:#fff;text-align:center}
-.final .blob{filter:blur(80px)}
-.final .blob.f1{width:500px;height:500px;background:radial-gradient(circle,#75dfee,transparent 70%);opacity:.4;top:-200px;left:-100px}
-.final .blob.f2{width:420px;height:420px;background:radial-gradient(circle,#ff5900,transparent 70%);opacity:.25;bottom:-200px;right:-80px}
-.final h2{font-size:clamp(2.1rem,4.5vw,3.2rem);max-width:760px;margin:0 auto 18px;color:#fff;position:relative}
-.final p{font-size:1.18rem;color:rgba(255,255,255,.9);max-width:560px;margin:0 auto 32px;position:relative}
-.final .btn-primary{position:relative;box-shadow:0 14px 34px rgba(255,89,0,.45)}
-.final .sub{margin-top:18px;font-size:.95rem;color:rgba(255,255,255,.85);position:relative}
-
-/* form */
-.book{background:#fff}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.book ul.bul{list-style:none;display:grid;gap:14px;margin-top:24px}
-.book ul.bul li{display:flex;gap:12px;color:var(--ink)}
-.book ul.bul li svg{flex:none;color:var(--primary);margin-top:3px}
-form.lead-form{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-md)}
-form.lead-form .field{margin-bottom:16px}
-form.lead-form label{display:block;font-size:.86rem;font-weight:600;margin-bottom:7px}
-form.lead-form input,form.lead-form select{
-  width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;font-family:var(--body);font-size:1rem;background:#fff;transition:border-color .15s, box-shadow .15s}
-form.lead-form input:focus,form.lead-form select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,122,232,.12)}
-form.lead-form .btn-primary{width:100%;justify-content:center;margin-top:6px}
-form.lead-form .fineprint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:14px}
-
-/* footer */
-footer.site{background:var(--ink);color:#aeb4bd;padding:56px 0 30px}
-.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid #232323}
-.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--heading);font-weight:800;font-size:1.18rem}
-.foot-brand .dot{color:var(--accent)}
-.foot-col h4{color:#fff;font-family:var(--heading);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
-.foot-col a{display:block;color:#aeb4bd;font-size:.95rem;margin-bottom:9px;transition:color .15s}
-.foot-col a:hover{color:#fff}
-.foot-cols{display:flex;gap:64px;flex-wrap:wrap}
-.foot-bottom{padding-top:24px;font-size:.86rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-
-/* ---------- responsive ---------- */
-@media(max-width:980px){
-  .step-line{display:none}
-}
-@media(max-width:880px){
-  .nav-links{display:none}
-  .hero-grid{grid-template-columns:1fr;gap:48px}
-  .hero .report-wrap{max-width:460px}
-  .problem-grid,.svc-grid,.why-grid{grid-template-columns:1fr}
-  .case,.book-grid{grid-template-columns:1fr;gap:34px}
-  .steps{grid-template-columns:1fr}
-  section{padding:64px 0}
-  .hero{padding:56px 0 70px}
-}
-</style>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/assets/logo-symbol.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <title>Locate Digital — Marketing and AI for Australian financial services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Performance-driven marketing and practical AI for Australian financial service providers.">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/tokens/effects.css">
+  <link rel="stylesheet" href="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/styles.css">
+  <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    a { color: #0058c4; text-decoration: none; }
+    a:hover { color: #00449a; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #007ae8; outline-offset: 3px; border-radius: 8px; }
+    ::selection { background: #dfeafa; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 1ms !important; } }
+    @media (prefers-reduced-transparency: reduce) { [data-glass] { background: #fff !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; } }
+  </style>
+</helmet>
 
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top" aria-label="Locate Digital home">
-      <img src="assets/logo-blue.png" alt="Locate Digital" class="logo-img">
-    </a>
-    <nav class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#proof">Results</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a href="#book" class="btn btn-primary nav-cta">Book a free audit</a>
-  </div>
-</header>
+<div ref="{{ rootRef }}" style="min-width: 320px; overflow-x: clip;">
 
-<main id="top">
+  <dc-import name="Site Nav" cta-primary="{{ navCtaOk }}" style="position: sticky; top: 0; z-index: 50;" hint-size="100%,68px"></dc-import>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
-  <div class="grain"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow fade-up">Google &amp; Meta ads for service businesses</div>
-      <h1 class="fade-up" data-stagger style="--d:80ms">More booked jobs for your business. <span class="hl">Without the wasted ad spend.</span></h1>
-      <p class="lead fade-up" data-stagger style="--d:160ms">We run Google and Meta ads for Melbourne service businesses, so you get more enquiries and a clear report on every dollar, while you stay focused on the work.</p>
-      <div class="hero-actions fade-up" data-stagger style="--d:240ms">
-        <a href="#book" class="btn btn-primary">Book a free audit <span class="arr">&rarr;</span></a>
-        <a href="#how" class="btn btn-ghost">See how it works</a>
-      </div>
-      <div class="proof-bar fade-up" data-stagger style="--d:320ms">
-        <span class="item"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Trusted by Melbourne clinics</span>
-        <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> 10+ years running ads</span>
-        <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> No lock-in contracts</span>
+  <!-- 01 HERO · fluted glass light field -->
+  <section id="top" data-hero="" ref="{{ heroRef }}" data-screen-label="01 Hero" style="position: relative; margin-top: -68px; min-height: max(720px, 100vh); display: flex; align-items: center; justify-content: center; padding: calc(68px + 48px) clamp(20px, 4vw, 40px) 120px; overflow: hidden; isolation: isolate; background: #fbfcff; text-align: center;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -3; background: radial-gradient(60% 50% at 16% 88%, #007ae8 0%, rgba(0,122,232,0) 70%), radial-gradient(50% 45% at 86% 78%, #75dfee 0%, rgba(117,223,238,0) 70%), radial-gradient(70% 40% at 50% 112%, #0058c4 0%, rgba(0,88,196,0) 70%), #fbfcff;"></div>
+    <canvas data-glass-canvas="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; display: block;"></canvas>
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(56% 46% at 50% 46%, rgba(251,252,255,.9) 0%, rgba(251,252,255,.72) 45%, rgba(251,252,255,0) 100%);"></div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: -1; background: linear-gradient(180deg, rgba(255,255,255,0), #ffffff); pointer-events: none;"></div>
+
+    <div style="position: relative; width: 100%; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
+      <h1 data-fade="" style="margin: 0; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.7); backdrop-filter: blur(14px) saturate(180%); -webkit-backdrop-filter: blur(14px) saturate(180%); border: 1px solid rgba(255,255,255,.95); box-shadow: var(--shadow-sm); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: #0d0d0d;">
+        <span>Digital marketing and AI agency</span>
+      </h1>
+      <p style="margin: 30px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: .94; font-size: clamp(46px, 8vw, 128px); color: #0d0d0d; text-wrap: balance; text-shadow: 0 0 40px rgba(255,255,255,.7);">
+        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">Your competitors are</span></span>
+        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">marketing with AI.</span></span>
+        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">Stay a step <span style="color: #0058c4;">ahead</span>.</span></span>
+      </p>
+      <p data-fade="" style="margin: 30px 0 0; max-width: 600px; font-size: clamp(16px, 1.4vw, 19px); font-weight: 500; line-height: 1.6; color: #0d0d0d; text-wrap: pretty; text-shadow: 0 0 18px rgba(255,255,255,.9), 0 0 2px rgba(255,255,255,.8);">Locate helps financial service providers grow with performance-driven marketing and practical AI your team will actually use.</p>
+      <div data-fade="" style="margin-top: 34px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <span style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="lg" href="#consult" hint-size="270px,60px">Request a consultation →</x-import>
+        </span>
+        <span style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" dc-props="{{ ghostGlassLg }}" href="/ai" hint-size="240px,60px">Explore AI services</x-import>
+        </span>
       </div>
     </div>
 
-    <div class="report-wrap fade-up" data-stagger style="--d:300ms">
-      <div class="report">
-        <div class="report-head">
-          <span class="tag">Monthly report · example</span>
-          <span class="live"><span class="pulse"></span>Live tracking</span>
-        </div>
-        <h3>New enquiries from your ads</h3>
-        <div class="kpis">
-          <div class="kpi"><div class="label">Enquiries booked</div><div class="val">37<span class="up">&uarr; growing</span></div></div>
-          <div class="kpi"><div class="label">Cost per enquiry</div><div class="val">$24</div></div>
-        </div>
-        <div class="chart" aria-hidden="true">
-          <span class="bar" style="height:38%;animation-delay:.1s"></span>
-          <span class="bar" style="height:52%;animation-delay:.18s"></span>
-          <span class="bar" style="height:46%;animation-delay:.26s"></span>
-          <span class="bar" style="height:68%;animation-delay:.34s"></span>
-          <span class="bar" style="height:74%;animation-delay:.42s"></span>
-          <span class="bar" style="height:90%;animation-delay:.5s"></span>
-        </div>
-        <div class="chart-cap"><span>Month 1</span><span>Month 6</span></div>
-        <div class="report-foot">Every dollar tied to a real booking, in plain English.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <button onClick="{{ toggleLoops }}" aria-label="{{ loopBtnAria }}" style="position: absolute; right: clamp(16px, 3vw, 32px); bottom: clamp(16px, 3vw, 28px); width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.9); background: rgba(255,255,255,.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #0d0d0d; font-family: var(--font-mono); font-size: 11px; cursor: pointer; transition: transform 120ms ease-out;" style-active="transform: scale(.92);">{{ loopBtnGlyph }}</button>
+  </section>
 
-<!-- ============ LOGO / TRUST STRIP ============ -->
-<div class="logos wrap">
-  <p class="fade-up">Helping Melbourne service businesses grow</p>
-  <div class="row fade-up">
-    <span>Physio &amp; Osteo</span><span>Dental</span><span>Allied Health</span><span>Legal</span><span>Trades &amp; Home Services</span>
-  </div>
-</div>
+  <!-- 02 SEGMENT EXPLORER · white -->
+  <section id="segments" data-screen-label="02 Segment explorer" style="position: relative; overflow: hidden; isolation: isolate; background: #fff; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);" data-comment-anchor="77e6f4b212-section">
+    <canvas data-scene="bubbles" aria-hidden="true" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 50%; height: 120%; opacity: .55; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div data-fade="">
+        <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">Who we work with</x-import>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Built for <span style="color: #007ae8;">financial service</span> providers.</h2>
+        <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;">Firms that hold a licence, handle client money or give advice share the same challenges: long decision cycles, competitive markets and clients who need to trust you first.</p>
+      </div>
+      <div style="margin-top: clamp(40px, 5vw, 56px); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .12em; color: #3d4045;">
+        <span>THE CHALLENGE · WHERE WE START</span><span style="color: #0058c4;">{{ pairCounter }}</span>
+      </div>
+      <div onMouseLeave="{{ pairResume }}" style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{ pairs }}" as="c" hint-placeholder-count="3">
+          <button onClick="{{ c.pick }}" onMouseEnter="{{ c.hover }}" onFocus="{{ c.pick }}" aria-expanded="{{ c.on }}" style="position: relative; overflow: hidden; isolation: isolate; text-align: left; font: inherit; cursor: pointer; display: flex; flex-direction: column; min-height: clamp(320px, 30vw, 380px); padding: clamp(24px, 2.4vw, 32px); border-radius: 24px; border: 1px solid {{ c.border }}; background: {{ c.bg }}; color: {{ c.fg }}; box-shadow: {{ c.shadow }}; transform: {{ c.lift }}; transition: background 600ms cubic-bezier(.2,.7,.2,1), color 600ms ease, box-shadow 400ms ease, transform 400ms cubic-bezier(.2,.7,.2,1), border-color 400ms ease;">
+            <span aria-hidden="true" style="position: absolute; z-index: -1; right: -60px; top: -60px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(117,223,238,.55), rgba(117,223,238,0) 70%); opacity: {{ c.glow }}; transition: opacity 700ms ease;"></span>
+            <span style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+              <span style="font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 4.6vw, 64px); letter-spacing: -0.04em; line-height: 1; color: {{ c.num }}; transition: color 600ms ease;">{{ c.n }}</span>
+              <span style="font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .12em; color: {{ c.label }}; transition: color 600ms ease;">{{ c.tag }}</span>
+            </span>
+            <span style="margin-top: 22px; font-family: var(--font-display); font-weight: 700; font-size: clamp(19px, 1.7vw, 22px); letter-spacing: -0.02em; line-height: 1.3; text-wrap: pretty;">{{ c.pain }}</span>
+            <span style="margin-top: auto; display: grid; grid-template-rows: {{ c.rows }}; transition: grid-template-rows 600ms cubic-bezier(.2,.7,.2,1);">
+              <span style="min-height: 0; overflow: hidden;">
+                <span style="display: block; padding-top: 22px; margin-top: 22px; border-top: 1px solid rgba(255,255,255,.35); opacity: {{ c.solOpacity }}; transform: {{ c.solShift }}; transition: opacity 500ms ease 120ms, transform 600ms cubic-bezier(.2,.7,.2,1) 80ms;">
+                  <span style="display: block; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .12em; color: #ffffff;">WHERE WE START</span>
+                  <span style="display: block; margin-top: 8px; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.015em; color: #ffffff;">{{ c.title }}</span>
+                  <span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.55; color: #ffffff; text-wrap: pretty;">{{ c.desc }}</span>
+                </span>
+              </span>
+            </span>
+            <span style="display: {{ c.hintDisplay }}; margin-top: 20px; font-family: var(--font-display); font-weight: 600; font-size: 14px; color: #0058c4;">See where we start →</span>
+            <span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; height: 3px; width: {{ c.prog }}; background: #75dfee; transition: width {{ c.progDur }} linear;"></span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
 
-<!-- ============ PROBLEM ============ -->
-<section class="problem" id="problem">
-  <div class="wrap">
-    <div class="section-head fade-up">
-      <div class="eyebrow">Sound familiar?</div>
-      <h2>You're good at the work. Marketing is a different job.</h2>
-      <p>Most service businesses handle growth one of two ways, and both leave money on the table.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="pcard fade-up" data-stagger style="--d:0ms">
-        <span class="x">1</span>
-        <h3>Word of mouth only</h3>
-        <p>Steady, but it caps how fast you can grow and leaves quiet weeks with gaps in the diary you can't predict or fill.</p>
-      </div>
-      <div class="pcard fade-up" data-stagger style="--d:120ms">
-        <span class="x">2</span>
-        <h3>DIY or a generalist agency</h3>
-        <p>Budget burning on clicks from the wrong side of the city, no tracking tied to real bookings, and no clear answer on what's actually working.</p>
-      </div>
-    </div>
-    <p class="kick fade-up">Either way, you've got capacity you're not filling. <b>We fix that.</b></p>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section id="services">
-  <div class="wrap">
-    <div class="section-head fade-up">
-      <div class="eyebrow">What we do</div>
-      <h2>New-customer campaigns, built and run for you</h2>
-      <p>We set up your ads and tracking, then run and optimise them every month. You get more booked jobs and a report that makes sense.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc fade-up" data-stagger style="--d:0ms">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
-        <h3>Google Ads</h3>
-        <p>Catch the people already searching for what you do, near them, at the moment they're ready to book.</p>
-      </div>
-      <div class="svc fade-up" data-stagger style="--d:100ms">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
-        <h3>Meta Ads</h3>
-        <p>Reach locals on Facebook and Instagram who need you but haven't gone looking yet. Stay top of mind in your catchment.</p>
-      </div>
-      <div class="svc fade-up" data-stagger style="--d:200ms">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-4 4 3 5-7"/></svg></span>
-        <h3>Proper tracking</h3>
-        <p>GA4 and conversion tracking wired to your actual bookings, so every dollar of spend is accountable. No guessing.</p>
-      </div>
-      <div class="svc fade-up" data-stagger style="--d:300ms">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg></span>
-        <h3>Plain-English reporting</h3>
-        <p>New customers booked, cost per booking, what we're doing next. The numbers that matter, none of the jargon.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROOF / CASE STUDY ============ -->
-<!-- TODO (Sam): results numbers are placeholders pending real Cliniko + Google Ads data and MOSIC name permission.
-     Current copy uses ONLY real baseline facts (8 osteos, ~12,000 patients, 2 locations) and is anonymised. -->
-<section class="proof" id="proof">
-  <div class="wrap">
-    <div class="section-head fade-up">
-      <div class="eyebrow">Real work, real numbers</div>
-      <h2>An 8-practitioner Melbourne osteo clinic</h2>
-      <p>Established clinic, strong reputation, two locations. Plenty of capacity, but no accountable channel feeding the diary.</p>
-    </div>
-    <div class="case">
-      <div class="fade-up">
-        <p class="quote">"We had eight practitioners and spare capacity. What we didn't have was a reliable way to turn ad spend into actual bookings."</p>
-        <p class="who">What we built for them:</p>
-        <ul>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Rebuilt Google Ads around high-intent local searches across both catchments, cutting spend wasted outside their service area.</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Conversion tracking tying every ad click through to a real booking in their system.</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Service-specific landing pages matched to what people were actually searching for.</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> One monthly report, ad spend and bookings in the same place, in plain English.</li>
-        </ul>
-      </div>
-      <div class="case-stats fade-up" data-stagger style="--d:120ms">
-        <!-- TODO: replace 48 baseline / placeholder once real result data is pulled -->
-        <div class="big">48 &rarr; ___</div>
-        <div class="big-sub">New patients a month (baseline 48, April 2026). Real result to be added.</div>
-        <div class="stat"><span class="l">Practitioners</span><span class="n">8</span></div>
-        <div class="stat"><span class="l">Existing patient base</span><span class="n">~12,000</span></div>
-        <div class="stat"><span class="l">Locations covered</span><span class="n">2 + telehealth</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HOW IT WORKS ============ -->
-<section id="how">
-  <div class="wrap">
-    <div class="section-head center fade-up">
-      <div class="eyebrow">Simple to start</div>
-      <h2>How it works</h2>
-      <p>Three steps from first call to a fuller diary.</p>
-    </div>
-    <div class="steps">
-      <div class="step fade-up" data-stagger style="--d:0ms">
-        <div class="num">1</div>
-        <h3>Free audit</h3>
-        <p>We review your current ads and listing and show you exactly what's costing you enquiries. No pitch, no obligation.</p>
-      </div>
-      <div class="step fade-up" data-stagger style="--d:120ms">
-        <div class="num">2</div>
-        <h3>Build</h3>
-        <p>We set up your tracking and campaigns in the first month, targeted to your actual catchment and your best services.</p>
-      </div>
-      <div class="step fade-up" data-stagger style="--d:240ms">
-        <div class="num">3</div>
-        <h3>Grow</h3>
-        <p>We run and optimise every month, and report on real bookings, so you always know what your spend returned.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY US ============ -->
-<section class="why" id="why">
-  <div class="wrap">
-    <div class="section-head fade-up">
-      <div class="eyebrow">Why businesses choose us</div>
-      <h2>Results you can see, no contracts you can't leave</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-item fade-up" data-stagger style="--d:0ms">
-        <span class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <div><h3>We specialise in service businesses</h3><p>We're not a generalist agency learning your world on your budget. We know how local catchments and booking journeys work.</p></div>
-      </div>
-      <div class="why-item fade-up" data-stagger style="--d:80ms">
-        <span class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <div><h3>No lock-in</h3><p>Month to month after the first 90 days. We keep you by getting results, not by tying you to a contract.</p></div>
-      </div>
-      <div class="why-item fade-up" data-stagger style="--d:160ms">
-        <span class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <div><h3>You see the real numbers</h3><p>Actual bookings and cost per booking, not impressions and reach. If it's not working, you'll know first.</p></div>
-      </div>
-      <div class="why-item fade-up" data-stagger style="--d:240ms">
-        <span class="tick"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <div><h3>Local focus</h3><p>We target your actual catchment, so you're not paying for clicks from the other side of the city.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="section-head center fade-up">
-      <div class="eyebrow">Before you ask</div>
-      <h2>Questions, answered</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq fade-up" open>
-        <summary>What does it cost? <span class="pm">+</span></summary>
-        <div class="ans">Plans start at $1,800 a month plus your ad spend. Most businesses start on our Growth plan. On the free audit we'll recommend what fits your goals and budget, no hard sell.</div>
-      </details>
-      <details class="faq fade-up">
-        <summary>Am I locked into a contract? <span class="pm">+</span></summary>
-        <div class="ans">No. We ask for the first 90 days so the campaigns have time to work, then it's month to month. You stay because it's working, not because you signed something.</div>
-      </details>
-      <details class="faq fade-up">
-        <summary>How soon will I see results? <span class="pm">+</span></summary>
-        <div class="ans">Campaigns are usually live within the first two weeks. Google Ads can bring enquiries quickly. Meta and the optimisation work build over the first one to two months as the data comes in.</div>
-      </details>
-      <details class="faq fade-up">
-        <summary>Do you work with my type of business? <span class="pm">+</span></summary>
-        <div class="ans">If you're a Melbourne service business that takes bookings or enquiries, physio, osteo, dental, allied health, legal, trades, most likely yes. The free audit is the quickest way to find out.</div>
-      </details>
-      <details class="faq fade-up">
-        <summary>What's the free audit, exactly? <span class="pm">+</span></summary>
-        <div class="ans">A short call where we look at your current ads and Google listing and point out what's leaking enquiries and what we'd do differently. You keep the notes either way. No obligation to work with us.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BOOK / FORM ============ -->
-<section class="book" id="book">
-  <div class="wrap book-grid">
-    <div class="fade-up">
-      <div class="eyebrow">Free, no obligation</div>
-      <h2 class="section-head" style="margin-bottom:14px">Book your free ad audit</h2>
-      <p class="muted" style="font-size:1.12rem">Got quiet weeks in the diary? Let's fill them. We'll show you what's working, what's not, and what we'd do. No pitch.</p>
-      <ul class="bul">
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> A real review of your current ads and listing</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> The specific gaps costing you enquiries</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> What we'd do, whether you hire us or not</li>
-      </ul>
-    </div>
-    <!-- TODO (Sam): wire form action to your form handler / Calendly, and confirm phone number before publishing. -->
-    <form class="lead-form fade-up" data-stagger style="--d:120ms" action="#" method="post" novalidate>
-      <div class="field">
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-      </div>
-      <div class="field">
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-      </div>
-      <div class="field">
-        <label for="biz">Type of business</label>
-        <select id="biz" name="business">
-          <option value="">Select one</option>
-          <option>Physio / Osteo</option>
-          <option>Dental</option>
-          <option>Other allied health</option>
-          <option>Legal</option>
-          <option>Trades / home services</option>
-          <option>Other service business</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Book my free audit <span class="arr">&rarr;</span></button>
-      <p class="fineprint">We'll only use your details to get in touch about your audit.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ FINAL CTA ============ -->
-<section class="final">
-  <span class="blob f1"></span><span class="blob f2"></span>
-  <div class="wrap">
-    <h2 class="fade-up">Stop leaving capacity on the table</h2>
-    <p class="fade-up">A fuller diary starts with a 3-minute look at what your ads are doing now.</p>
-    <a href="#book" class="btn btn-primary fade-up">Book a free audit <span class="arr">&rarr;</span></a>
-    <p class="sub fade-up">No lock-in. No pitch. Just a clear picture of where you stand.</p>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site">
-  <div class="wrap">
-    <div class="foot-grid">
+  <!-- 03 FOCUS · soft bg -->
+  <section data-screen-label="03 Our focus" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);">
+    <canvas data-scene="bubbles" aria-hidden="true" style="position: absolute; z-index: -1; left: -8%; bottom: -10%; width: 44%; height: 120%; opacity: .45; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <div style="max-width: 1180px; margin: 0 auto;">
       <div>
-        <div class="foot-brand">
-          <img src="assets/logo-white.png" alt="Locate Digital" style="height:34px;width:auto;display:block">
-        </div>
-        <p style="margin-top:14px;max-width:300px;font-size:.95rem">We don't just market, we locate growth. Google and Meta ads for Melbourne service businesses.</p>
-      </div>
-      <div class="foot-cols">
-        <div class="foot-col">
-          <h4>Explore</h4>
-          <a href="#services">Services</a>
-          <a href="#proof">Results</a>
-          <a href="#how">How it works</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div class="foot-col">
-          <h4>Get in touch</h4>
-          <a href="#book">Book an audit</a>
-          <a href="mailto:sam@locatedigital.io">sam@locatedigital.io</a>
-          <a href="https://locatedigital.io">locatedigital.io</a>
+        <div data-fade="">
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">Our focus</x-import>
+          <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">We only work with <span style="color: #007ae8;">financial service</span> providers.</h2>
+          <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;" data-comment-anchor="18bae4cc2d-p">One industry, understood in depth. We know how your clients make decisions, the rules your marketing has to follow, and the systems your team works in every day.</p>
         </div>
       </div>
+      <div style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 28px 24px;">
+        <sc-for list="{{ focusPoints }}" as="p" hint-placeholder-count="4">
+          <div style="padding-top: 20px; border-top: 2px solid #0d0d0d;">
+            <span style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: #0058c4;">{{ p.n }}</span>
+            <h3 style="margin: 10px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; line-height: 1.25;">{{ p.title }}</h3>
+            <p style="margin: 8px 0 0; color: #3d4045; font-size: 15px; line-height: 1.6; text-wrap: pretty;">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 Locate Digital. All rights reserved.</span>
-      <span>Melbourne, Australia</span>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-// Scroll reveal
-(function(){
-  var els = document.querySelectorAll('.fade-up');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+  <!-- 04 № 01 AI FOR FINANCE · white with tinted stage -->
+  <section id="ai" data-watch="ai" ref="{{ aiRef }}" data-screen-label="04 AI for Finance" style="background: #fff; padding: clamp(64px, 7.5vw, 96px) clamp(16px, 3vw, 40px);">
+    <div data-zoom="" style="position: relative; max-width: 1260px; margin: 0 auto; border-radius: clamp(20px, 3vw, 32px); background: var(--wash-impact); border: 1px solid #d9e6f4; overflow: hidden; isolation: isolate; padding: clamp(28px, 5vw, 64px) clamp(20px, 5vw, 64px);" data-comment-anchor="2cc6f16c47-div">
+      <canvas data-scene="glass" aria-hidden="true" style="position: absolute; z-index: -1; right: -14%; top: -20%; width: 64%; height: 100%; opacity: .9; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+      <svg aria-hidden="true" viewBox="0 0 800 800" style="position: absolute; right: -300px; top: -340px; width: 860px; height: 860px; opacity: .6; pointer-events: none;">
+        <sc-for list="{{ aiContours }}" as="c" hint-placeholder-count="0">
+          <path d="{{ c.d }}" fill="none" stroke="#007ae8" stroke-width="{{ c.w }}" stroke-opacity="{{ c.o }}" pathLength="1" data-draw="ai"></path>
+        </sc-for>
+      </svg>
+      <div data-fade="" style="position: relative;">
+        <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">AI integration</x-import>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Practical AI, put to work <span style="color: #007ae8;">inside</span> your firm.</h2>
+        <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;">We connect AI to the systems you already use, automate repeat admin and train your team to use it well.</p>
+      </div>
+      <div style="position: relative; margin-top: clamp(36px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: center;">
+        <div data-fade="" style="min-width: 0;">
+          <div style="display: flex; flex-direction: column; border-top: 1px solid #c9d9ec;">
+            <sc-for list="{{ aiPillars }}" as="a" hint-placeholder-count="3">
+              <button onClick="{{ a.pick }}" aria-pressed="{{ a.on }}" style="text-align: left; font: inherit; color: inherit; cursor: pointer; background: transparent; border: none; border-bottom: 1px solid #c9d9ec; display: grid; grid-template-columns: 32px minmax(0, 1fr) 24px; gap: 14px; align-items: baseline; padding: 20px 0;">
+                <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: {{ a.chipFg }};">{{ a.n }}</span>
+                <span style="display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: {{ a.titleColor }}; transition: color 200ms ease;">{{ a.title }}</span>
+                  <span style="color: #3d4045; font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ a.body }}</span>
+                </span>
+                <span aria-hidden="true" style="font-size: 18px; color: #007ae8; opacity: {{ a.arrow }}; transition: opacity 200ms ease;">→</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px;">
+            <span style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
+              <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="secondary" href="/ai#assessment" hint-size="290px,52px">Take the AI Readiness Assessment →</x-import>
+            </span>
+          </div>
+        </div>
+
+        <div data-fade="" style="min-width: 0;">
+          <div style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid #e6e6e6;">
+            <div style="height: 42px; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: #f4f8fd; border-bottom: 1px solid #e6e6e6;">
+              <div style="display: flex; gap: 6px;"><i style="width: 10px; height: 10px; border-radius: 50%; background: #d4d6da;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #d4d6da;"></i><i style="width: 10px; height: 10px; border-radius: 50%; background: #d4d6da;"></i></div>
+              <div style="flex: 1; min-width: 0; height: 26px; border-radius: 999px; background: #fff; border: 1px solid #e6e6e6; display: flex; align-items: center; padding: 0 12px; font-family: var(--font-mono); font-size: 11px; color: #63666b; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">workflows / {{ wf.slug }}</div>
+            </div>
+            <div style="padding: 20px 22px 14px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="min-width: 0;">
+                <div style="font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">{{ wf.title }}</div>
+                <div style="font-size: 13px; color: #63666b;">{{ wf.sub }}</div>
+              </div>
+              <div style="display: flex; gap: 6px; flex: none;">
+                <button onClick="{{ wfToggle }}" aria-label="{{ wfToggleAria }}" style="height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: #0d0d0d; cursor: pointer; transition: transform 120ms ease-out;" style-active="transform: scale(.95);">{{ wfToggleLabel }}</button>
+              </div>
+            </div>
+            <div aria-hidden="true" style="height: 2px; background: #eef1f5;"><div style="height: 100%; width: {{ wfProgress }}; background: #007ae8; transition: width 700ms cubic-bezier(.2,.7,.2,1);"></div></div>
+            <div aria-live="polite" style="padding: 4px 0;">
+              <sc-for list="{{ wfRows }}" as="w" hint-placeholder-count="5">
+                <button onClick="{{ w.jump }}" style="width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; border: none; display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 12px; padding: 13px 22px; background: {{ w.bg }}; border-top: 1px solid #f0f2f5; transition: background 300ms ease;">
+                  <span style="width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid {{ w.ring }}; background: {{ w.fill }}; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; color: {{ w.numColor }}; transition: background 300ms ease, border-color 300ms ease; box-shadow: {{ w.glow }};">{{ w.glyph }}</span>
+                  <span style="min-width: 0; display: flex; flex-direction: column;">
+                    <span style="font-family: var(--font-display); font-weight: 700; font-size: 14.5px; letter-spacing: -0.01em; color: {{ w.titleColor }}; transition: color 300ms ease;">{{ w.title }}</span>
+                    <span style="font-size: 12.5px; color: #63666b; line-height: 1.45;">{{ w.meta }}</span>
+                  </span>
+                  <span style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: {{ w.statusColor }}; white-space: nowrap;">{{ w.status }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 MARKETING · soft bg -->
+  <section id="services" data-screen-label="05 Services" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);" data-comment-anchor="2585a69e36-section">
+    <canvas data-scene="bubbles" aria-hidden="true" data-flip="" style="position: absolute; z-index: -1; left: -6%; bottom: -10%; width: 46%; height: 120%; opacity: .45; transform: scaleX(-1); pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px 56px; align-items: end;">
+        <div data-fade="">
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">Marketing</x-import>
+          <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Growth channels, measured by the clients they bring in.</h2>
+        <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;">Each channel is run by a senior specialist, inside accounts your firm owns, and reported on in plain English every month.</p>
+        </div>
+      </div>
+      <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px;">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+          <a href="{{ s.href }}" data-fade="" onPointerMove="{{ spot }}" style="--mx: 50%; --my: 0%; position: relative; display: flex; flex-direction: column; padding: 24px; border-radius: 20px; background: radial-gradient(420px circle at var(--mx) var(--my), rgba(0,122,232,.09), transparent 60%), #fff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm); color: #0d0d0d; transition: box-shadow 200ms ease, transform 200ms cubic-bezier(.2,.7,.2,1), border-color 200ms ease;" style-hover="box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: #d9e6f4; color: #0d0d0d;" style-active="transform: translateY(-2px) scale(.99);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <span style="font-family: var(--font-display); font-weight: 800; font-size: 34px; letter-spacing: -0.03em; color: #007ae8; line-height: 1;">{{ s.n }}</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #63666b;">{{ s.chan }}</span>
+            </div>
+            <h3 style="margin: 28px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 23px; letter-spacing: -0.02em; line-height: 1.2;">{{ s.title }}</h3>
+            <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ s.body }}</p>
+            <div style="margin-top: 20px; padding: 16px 18px; border-radius: 14px; background: #f4f8fd; border: 1px solid #e3ecf7;">
+              <div style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: #0058c4;">THE OUTCOME</div>
+              <p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #0d0d0d; text-wrap: pretty;">{{ s.outcome }}</p>
+                <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.55; color: #3d4045; text-wrap: pretty;">{{ s.outcomeMore }}</p>
+            </div>
+            <span style="margin-top: auto; padding-top: 22px; font-family: var(--font-display); font-weight: 700; font-size: 14.5px; color: #0058c4;">{{ s.cta }} →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 THE LOCATE METHOD · white -->
+  <section id="method" data-watch="method" ref="{{ methodRef }}" data-screen-label="06 Method" style="position: relative; overflow: clip; isolation: isolate; background: #fff;">
+   <div data-method-track="" style="position: relative; height: {{ methodTrackH }};">
+   <div style="position: {{ methodStickyPos }}; top: {{ methodStickyTop }}; min-height: {{ methodStickyH }}; display: flex; flex-direction: column; justify-content: center; overflow: clip; isolation: isolate; padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px);">
+    <canvas data-scene="bubbles" aria-hidden="true" style="position: absolute; z-index: -1; right: -8%; top: -10%; width: 40%; height: 120%; opacity: .38; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div data-fade="">
+            <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">The Locate method</x-import>
+            <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">A clear path, one step at a time.</h2>
+            <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;">Every engagement follows the same four steps, so you always know where we are and what comes next.</p>
+          </div>
+
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <div data-method-stage="" style="position: relative; margin-top: 48px; height: 180px;">
+          <svg aria-hidden="true" viewBox="0 0 1000 180" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;">
+            <path d="M 0 132 C 70 132, 90 132, 125 132 C 205 132, 300 52, 375 52 C 455 52, 548 124, 625 124 C 705 124, 800 60, 875 60 C 930 60, 960 60, 1000 60" fill="none" stroke="#75dfee" stroke-width="1" stroke-opacity=".8" vector-effect="non-scaling-stroke" pathLength="1" data-draw="method"></path>
+            <path d="M 0 120 C 60 120, 80 120, 125 120 C 200 120, 300 40, 375 40 C 450 40, 550 112, 625 112 C 700 112, 800 48, 875 48 C 930 48, 960 48, 1000 48" fill="none" stroke="#e6e6e6" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+            <path data-method-path="" d="M 0 120 C 60 120, 80 120, 125 120 C 200 120, 300 40, 375 40 C 450 40, 550 112, 625 112 C 700 112, 800 48, 875 48 C 930 48, 960 48, 1000 48" fill="none" stroke="#007ae8" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+          </svg>
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+            <button onClick="{{ st.select }}" aria-label="{{ st.aria }}" style="position: absolute; left: {{ st.x }}; top: {{ st.y }}; transform: translate(-50%, -50%); width: 44px; height: 44px; padding: 0; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+              <span style="width: 16px; height: 16px; border-radius: 50%; background: {{ st.dotFill }}; border: 2px solid #007ae8; display: block; transition: background 240ms ease, transform 160ms ease;" style-hover="transform: scale(1.2);"></span>
+            </button>
+          </sc-for>
+          <img data-method-pin="" src="/assets/pin-blue.png" alt="" width="30" height="45" style="position: absolute; left: 0; top: 0; width: 30px; height: auto; pointer-events: none; will-change: transform; filter: drop-shadow(0 6px 10px rgba(0,60,120,.22));">
+        </div>
+        <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+            <button onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="position: relative; text-align: left; background: {{ st.cardBg }}; border: 1px solid {{ st.cardBorder }}; border-radius: 16px; padding: 22px 22px 24px; cursor: pointer; font: inherit; color: inherit; overflow: hidden; transition: background 240ms ease, border-color 240ms ease, transform 120ms ease-out;" style-active="transform: scale(.985);">
+              <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 3px; background: #eef1f5;"><span data-mstep-bar="{{ st.i }}" style="display: block; height: 100%; width: 0; background: #007ae8; transform-origin: 0 50%;"></span></span>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: {{ st.numColor }};">STEP {{ st.n }}</div>
+              <div style="margin-top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 21px; letter-spacing: -0.02em; color: #0d0d0d;">{{ st.title }}</div>
+              <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ st.body }}</p>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <div data-mlist="" style="position: relative; margin-top: 36px; padding-left: 52px;">
+          <span aria-hidden="true" style="position: absolute; left: 21px; top: 18px; bottom: 18px; width: 2px; background: #e6e6e6;"></span>
+          <span data-mrail="" aria-hidden="true" style="position: absolute; left: 21px; top: 18px; width: 2px; height: 0; background: #007ae8;"></span>
+          <img data-method-pin-m="" src="/assets/pin-blue.png" alt="" width="24" height="36" style="position: absolute; left: 10px; top: 0; width: 24px; height: auto; will-change: transform; filter: drop-shadow(0 4px 8px rgba(0,60,120,.2));">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+            <button data-mrow="{{ st.i }}" onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; display: block; margin-bottom: 12px; padding: 18px 18px 20px; border-radius: 16px; background: {{ st.cardBg }}; border: 1px solid {{ st.cardBorder }}; transition: background 240ms ease, border-color 240ms ease;">
+              <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: {{ st.numColor }};">STEP {{ st.n }}</div>
+              <div style="margin-top: 6px; font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">{{ st.title }}</div>
+              <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045;">{{ st.body }}</p>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
+        <a href="/approach" style="font-weight: 600; font-size: 15px;">Read about our approach →</a>
+        
+      </div>
+    </div>
+   </div>
+   </div>
+  </section>
+
+  <!-- 07 WHY LOCATE · soft bg + loop 02 -->
+  <section id="why" data-screen-label="07 Why Locate" style="background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: stretch;">
+      <div data-dash-wrap="" style="position: relative; min-width: 0;">
+        <div data-dash="" style="position: sticky; top: 96px; border-radius: 22px; background: rgba(255,255,255,.92); border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); overflow: hidden;">
+          <div style="height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #f4f8fd; border-bottom: 1px solid #e6e6e6;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span>
+            <span style="margin-left: 10px; flex: 1; min-width: 0; height: 24px; border-radius: 999px; background: #fff; border: 1px solid #e6e6e6; display: flex; align-items: center; padding: 0 12px; font-family: var(--font-mono); font-size: 11px; color: #3d4045; white-space: nowrap; overflow: hidden;">reports.locatedigital.io/your-firm</span>
+          </div>
+          <div style="padding: clamp(16px, 2.4vw, 24px); display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">Growth report</div>
+              <div data-dash-month="" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #0058c4;">MONTH 1 OF 6</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">QUALIFIED ENQUIRIES</div><div data-kpi="" data-to="64" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">MEETINGS BOOKED</div><div data-kpi="" data-to="23" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">HOURS SAVED / WK</div><div data-kpi="" data-to="11" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em; color: #0058c4;">0</div></div>
+            </div>
+            <div style="position: relative; height: clamp(120px, 14vw, 160px); border-radius: 14px; background: #fff; border: 1px solid #eef1f5; padding: 10px 12px 6px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;"><span>ENQUIRIES BY MONTH</span><span style="display: flex; gap: 12px;"><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #007ae8;"></span>QUALIFIED</span><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #75dfee;"></span>BOOKED</span></span></div>
+              <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 12px; right: 12px; bottom: 8px; top: 30px; width: calc(100% - 24px); height: calc(100% - 38px); overflow: visible;">
+                <line x1="0" y1="25" x2="300" y2="25" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="55" x2="300" y2="55" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="85" x2="300" y2="85" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+                <path data-dash-area="" d="M0,88 C30,86 50,80 60,78 C90,74 100,66 120,64 C150,60 160,48 180,46 C210,42 220,34 240,30 C265,26 280,20 300,14 L300,100 L0,100 Z" fill="rgba(0,122,232,.08)" style="clip-path: inset(0 100% 0 0);"></path>
+                <path data-dash-line="" pathLength="1" d="M0,88 C30,86 50,80 60,78 C90,74 100,66 120,64 C150,60 160,48 180,46 C210,42 220,34 240,30 C265,26 280,20 300,14" fill="none" stroke="#007ae8" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+                <path data-dash-line="" pathLength="1" d="M0,95 C30,94 50,92 60,91 C90,89 100,85 120,84 C150,82 160,76 180,75 C210,72 220,68 240,66 C265,63 280,60 300,56" fill="none" stroke="#75dfee" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"></path>
+              </svg>
+              <div data-dash-dot="" aria-hidden="true" style="position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #007ae8; box-shadow: 0 0 0 5px rgba(0,122,232,.18); left: 12px; top: 90%; opacity: 0;"></div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px;">
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">FUNNEL</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 7px;">
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Enquiries</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w="1" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Qualified</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".68" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Meetings</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".38" style="display: block; height: 100%; width: 0; background: #0058c4; border-radius: 999px;"></span></span></div>
+                  <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Clients</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".2" style="display: block; height: 100%; width: 0; background: #0d0d0d; border-radius: 999px;"></span></span></div>
+                </div>
+              </div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">ACTIVITY LOG</div>
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.35;">
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>New campaign launched</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>Enquiry summarised, team notified</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #0d0d0d; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>File note drafted for review</div>
+                  <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>Follow-up email sent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="min-width: 0; display: flex; flex-direction: column;">
+        <div data-fade="">
+          <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="160px,18px">Why Locate</x-import>
+          <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Built to be trusted with a finance firm’s name.</h2>
+        </div>
+        <div style="margin-top: 28px; display: flex; flex-direction: column; border-top: 1px solid #e6e6e6;">
+          <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="5">
+            <div data-fade="" style="display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #e6e6e6;">
+              <span style="font-family: var(--font-mono); font-size: 11.5px; color: #0058c4; padding-top: 4px;">{{ r.n }}</span>
+              <div>
+                <h3 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 17.5px; letter-spacing: -0.02em; line-height: 1.35;">{{ r.title }}</h3>
+                <p style="margin: 4px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ r.body }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 INSIGHTS · draggable rail -->
+
+  <!-- 09 FINAL CTA · impact wash + enquiry form -->
+  <section id="consult" data-watch="final" ref="{{ finalRef }}" data-screen-label="09 Consultation" style="position: relative; overflow: hidden; isolation: isolate; background: var(--wash-impact); padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px); overflow: hidden;">
+    <canvas data-scene="glass" aria-hidden="true" style="position: absolute; z-index: -1; left: -16%; bottom: -26%; width: 58%; height: 95%; opacity: .75; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <svg aria-hidden="true" viewBox="0 0 800 800" style="position: absolute; left: -340px; top: -300px; width: 860px; height: 860px; opacity: .5; pointer-events: none;">
+      <sc-for list="{{ ctaContours }}" as="c" hint-placeholder-count="0">
+        <path d="{{ c.d }}" fill="none" stroke="#007ae8" stroke-width="{{ c.w }}" stroke-opacity="{{ c.o }}" pathLength="1" data-draw="cta"></path>
+      </sc-for>
+    </svg>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
+      <div data-fade="" style="min-width: 0;">
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">NEXT STEP</div>
+        <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Start with a <span style="color: #007ae8;">conversation</span>.</h2>
+        <p style="margin: 20px 0 0; color: #3d4045; font-size: 17px; max-width: 480px; text-wrap: pretty;">Tell us a little about your firm and what you would like help with. A senior strategist will reply and tell you plainly whether we can help.</p>
+        
+      </div>
+
+      <div data-fade="" data-zoom="" style="min-width: 0; background: #fff; border-radius: 24px; border: 1px solid #e6e6e6; box-shadow: var(--shadow-lg); padding: clamp(22px, 3vw, 36px);">
+        <sc-if value="{{ cfOpen }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ cfSubmit }}" novalidate="" data-cf="" style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #3d4045;">SEND AN ENQUIRY</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px;">
+              <sc-for list="{{ cfFields }}" as="f" hint-placeholder-count="4">
+                <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
+                  <span>{{ f.label }}</span>
+                  <input type="{{ f.type }}" name="{{ f.key }}" value="{{ f.value }}" onChange="{{ f.change }}" autocomplete="{{ f.ac }}" style="height: 50px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ f.border }}; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #0d0d0d; outline: none; transition: border-color 160ms ease, background 160ms ease;" style-focus="border-color: #007ae8; background: #fff;">
+                  <span style="font-family: var(--font-body); font-weight: 400; font-size: 12.5px; color: #b42318;">{{ f.err }}</span>
+                </label>
+              </sc-for>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
+              <span>How can we help?</span>
+              <textarea name="message" rows="5" value="{{ cfMessage }}" onChange="{{ cfMessageChange }}" style="padding: 14px 16px; border-radius: 12px; border: 1.5px solid #e6e6e6; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.5; color: #0d0d0d; outline: none; resize: vertical; transition: border-color 160ms ease, background 160ms ease;" style-focus="border-color: #007ae8; background: #fff;"></textarea>
+            </label>
+            <div style="margin-top: 6px; padding-top: 18px; border-top: 1px solid #e6e6e6; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+              <span style="font-size: 13px; color: #3d4045; max-width: 280px;">We reply within one business day.</span>
+              <span onClick="{{ cfSubmit }}" style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
+                <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="md" type="button" hint-size="200px,52px">Send enquiry →</x-import>
+              </span>
+            </div>
+          </form>
+        </sc-if>
+        <sc-if value="{{ cfSent }}" hint-placeholder-val="{{ false }}">
+          <div role="status" data-cf="" style="min-height: 360px; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+            <img src="/assets/pin-blue.png" alt="" aria-hidden="true" width="28" height="42" style="width: 28px; height: auto;">
+            <h3 style="margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.03em; line-height: 1.1;">{{ cfThanks }}</h3>
+            <p style="margin: 0; font-size: 16px; color: #3d4045; max-width: 420px;">A senior strategist will be in touch within one business day to arrange a time.</p>
+            <button onClick="{{ cfReset }}" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #0058c4; cursor: pointer;">Send another enquiry</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER · ink -->
+  <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVideo&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Media&quot;}, &quot;heroPoster&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Media&quot;}, &quot;whyImage&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Media&quot;}, &quot;autoplayDemos&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Review&quot;}}">
+class Component extends DCLogic {
+  state = {
+    mobile: false, scrolled: false, finalInView: false, menuOpen: false,
+    seg: 0, pair: 0, pairHold: false, pairTick: 0, cmp: 1, pillar: 0, wfStep: 0, wfPlaying: true,
+    step: 0, methodAuto: false, methodTick: 0,
+    loopsPaused: false, railX: 0, railMin: 0,
+    form: { stage: 0, firm: null, team: null, prio: [], budget: null, day: null, time: null, name: '', email: '', company: '', touched: false },
+    done: false,
+    cf: { name: '', email: '', phone: '', company: '' }, cfMessage: '', cfTried: false, cfSent: false
+  };
+  CITY = { Melbourne: [144.96, -37.81], Parramatta: [151.0, -33.82], Geelong: [144.36, -38.15], Brisbane: [153.03, -27.47], Perth: [115.86, -31.95], Adelaide: [138.6, -34.93], 'Gold Coast': [153.4, -28.0], Hobart: [147.33, -42.88], Canberra: [149.13, -35.28], Newcastle: [151.78, -32.93], Townsville: [146.82, -19.26], Darwin: [130.84, -12.46] };
+  SIG = [
+    { city: 'Parramatta', st: 'NSW', kind: 'NEW ENQUIRY', title: 'Refinance, owner-occupier', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 10:00' },
+    { city: 'Geelong', st: 'VIC', kind: 'NEW ENQUIRY', title: 'Retirement advice', firm: 'Financial services · LinkedIn', done: 'Sent to team for review' },
+    { city: 'Brisbane', st: 'QLD', kind: 'NEW ENQUIRY', title: 'Business advisory', firm: 'Financial services · Email nurture', done: 'Meeting booked · Tue 2:00' },
+    { city: 'Perth', st: 'WA', kind: 'APPLICATION RESUMED', title: 'Home loan application', firm: 'Financial services · Lifecycle email', done: 'Onboarding completed' },
+    { city: 'Adelaide', st: 'SA', kind: 'NEW ENQUIRY', title: 'Super set-up', firm: 'Financial services · Google Search', done: 'Meeting booked · Mon 11:30' },
+    { city: 'Gold Coast', st: 'QLD', kind: 'NEW ENQUIRY', title: 'First home buyer', firm: 'Financial services · Meta', done: 'Meeting booked · Wed 4:00' },
+    { city: 'Hobart', st: 'TAS', kind: 'NEW ENQUIRY', title: 'Insurance review', firm: 'Financial services · Webinar', done: 'Sent to team for review' },
+    { city: 'Canberra', st: 'ACT', kind: 'NEW ENQUIRY', title: 'Super consolidation', firm: 'Financial services · Google Search', done: 'Meeting booked · Fri 9:30' },
+    { city: 'Newcastle', st: 'NSW', kind: 'NEW ENQUIRY', title: 'Investment loan', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 1:00' },
+    { city: 'Townsville', st: 'QLD', kind: 'NEW ENQUIRY', title: 'Tax and BAS', firm: 'Financial services · Meta', done: 'Meeting booked · Mon 3:30' },
+    { city: 'Darwin', st: 'NT', kind: 'NEW ENQUIRY', title: 'Business loan', firm: 'Financial services · LinkedIn', done: 'Application started' }
+  ];
+  rootRef = React.createRef(); heroRef = React.createRef(); finalRef = React.createRef();
+  aiRef = React.createRef(); methodRef = React.createRef();
+  springs = {};
+
+  root() { return this.rootRef.current || document; }
+  $(sel) { return this.root().querySelector(sel); }
+
+  // Critically damped, interruptible spring. Retargeting keeps current position + velocity.
+  spring(key, target, apply, opts = {}) {
+    const response = opts.response ?? 0.4, damping = opts.damping ?? 1;
+    const s = this.springs[key] || (this.springs[key] = { x: opts.from ?? target, v: 0 });
+    s.target = target; s.apply = apply;
+    s.k = Math.pow(2 * Math.PI / response, 2); s.c = 4 * Math.PI * damping / response;
+    if (opts.velocity != null) s.v = opts.velocity;
+    if (this.reduced || opts.instant) { s.x = target; s.v = 0; apply(target); return; }
+    if (s.raf) return;
+    let last = performance.now();
+    const tick = (now) => {
+      const dt = Math.min(0.032, (now - last) / 1000); last = now;
+      const f = -s.k * (s.x - s.target) - s.c * s.v;
+      s.v += f * dt; s.x += s.v * dt; s.apply(s.x);
+      if (Math.abs(s.v) < 0.5 && Math.abs(s.x - s.target) < 0.3) { s.x = s.target; s.v = 0; s.apply(s.x); s.raf = null; return; }
+      s.raf = requestAnimationFrame(tick);
+    };
+    s.raf = requestAnimationFrame(tick);
+  }
+
+  topo(n, base, gap, seed) {
+    const out = [];
+    for (let k = 0; k < n; k++) {
+      const r = base + k * gap, pts = [];
+      for (let i = 0; i <= 120; i++) {
+        const t = (i / 120) * Math.PI * 2;
+        const m = 1 + 0.11 * Math.sin(2 * t + seed) + 0.06 * Math.sin(3 * t + seed * 1.7 + k * 0.18) + 0.03 * Math.sin(5 * t + k * 0.4);
+        pts.push(`${(400 + Math.cos(t) * r * m).toFixed(1)} ${(400 + Math.sin(t) * r * m * 0.86).toFixed(1)}`);
+      }
+      out.push({ d: 'M' + pts.join(' L') + 'Z', w: k % 4 === 0 ? 1.2 : 0.7, o: k % 4 === 0 ? 0.55 : 0.3 });
+    }
+    return out;
+  }
+
+  componentDidMount() {
+    this.pairT = setInterval(() => { if (this.state.pairHold || this.reduced || this.state.loopsPaused) return; const el = document.getElementById('segments'); if (!el) return; const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; this.setState(s => ({ pair: (s.pair + 1) % 3 })); }, 6000);
+    try { this.mount(); } catch (err) { console.error('[v2 mount] ' + (err && err.message) + ' | ' + String(err && err.stack).split('\n').slice(0, 4).join(' | ')); }
+  }
+  mount() {
+    this._prev = { ...this.state };
+    this.scenesT = setTimeout(() => { try { if (!(this.scenes && this.scenes.length)) { this.scenes = null; this.startLoops(); } } catch (err) { console.error('[v2 scenes] ' + (err && err.message)); } }, 200);
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.heroContours = this.topo(16, 40, 22, 0.6);
+    this.aiContours = this.topo(14, 50, 24, 2.1);
+    this.ctaContours = this.topo(13, 46, 24, 4.2);
+    this.onResize = () => {
+      const mobile = window.innerWidth < 1080;
+      if (mobile !== this.state.mobile) { this.setState({ mobile }); setTimeout(() => this.layoutAll(true), 60); }
+      else this.layoutAll(true);
+    };
+    this.onScroll = () => {
+      const h = this.$('[data-hero]');
+      const scrolled = h ? h.getBoundingClientRect().bottom < 120 : false;
+      if (scrolled !== this.state.scrolled) this.setState({ scrolled });
+    };
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.vis = {};
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      const k = e.target.dataset.watch; this.vis[k] = e.isIntersecting;
+      if (k === 'final') this.setState({ finalInView: e.isIntersecting });
+    }), { threshold: 0.2 });
+    this.root().querySelectorAll('[data-watch]').forEach(el => this.io.observe(el));
+    this.setState({ mobile: window.innerWidth < 1080 });
+    setTimeout(() => {
+      this.onScroll();
+      (() => {
+        [['motion', () => this.setupMotion()], ['layout', () => this.layoutAll(true)], ['hero', () => this.setupHeroVideo()], ['videos', () => this.setupVideos()]]
+          .forEach(([n, fn]) => { try { fn(); } catch (err) { console.error('[v2 ' + n + '] ' + (err && err.message)); } });
+      })();
+    }, 80);
+    this.timers();
+    if (document.fonts) document.fonts.ready.then(() => this.layoutAll(true));
+  }
+
+  componentDidUpdate() {
+    const s = this.state, prev = this._prev || s;
+    this._prev = { ...s };
+    if (prev === s) return;
+    if (prev.seg !== s.seg) { this.layoutSeg(); this.swapIn('[data-seg-panel]', s.seg > prev.seg ? 1 : -1); }
+    if (prev.cmp !== s.cmp) { this.layoutCmp(); this.swapIn('[data-cmp-panel]', 0); }
+    if (prev.step !== s.step || prev.mobile !== s.mobile) this.layoutMethod(prev.mobile !== s.mobile);
+    if (prev.form.stage !== s.form.stage || prev.done !== s.done) this.swapIn('[data-form-stage]', s.form.stage >= prev.form.stage ? 1 : -1);
+    if (prev.pillar !== s.pillar) this.swapIn('[data-wf]', 0);
+    if (prev.menuOpen !== s.menuOpen && s.menuOpen) {
+      const m = this.$('[data-menu]');
+      if (m && !this.reduced) m.animate([{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    }
+    if (prev.mobile !== s.mobile) { setTimeout(() => this.layoutAll(true), 60); }
+  }
+
+  swapIn(sel, dir) {
+    const el = this.$(sel); if (!el) return;
+    if (this.reduced) { el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 160 }); return; }
+    el.animate([{ opacity: 0, transform: `translateX(${dir * 14}px)` }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' });
+  }
+
+  layoutAll(instant) { this.layoutSeg(instant); this.layoutCmp(instant); this.layoutMethod(instant); this.layoutRail(); }
+
+  pill(barSel, btnSel, indSel, key, instant) {
+    const btn = this.$(btnSel), ind = this.$(indSel); if (!btn || !ind) return;
+    const x = btn.offsetLeft, w = btn.offsetWidth;
+    this.spring(key + 'x', x, v => { ind.style.transform = `translateX(${v}px)`; }, { response: 0.38, instant });
+    this.spring(key + 'w', w, v => { ind.style.width = v + 'px'; }, { response: 0.38, instant });
+  }
+  layoutSeg(instant) { if (!this.$('[data-segbar]')) return; this.pill('[data-segbar]', `[data-seg-btn="${this.state.seg}"]`, '[data-seg-ind]', 'seg', instant); }
+  layoutCmp(instant) { this.pill('[data-cmpbar]', `[data-cmp-btn="${this.state.cmp}"]`, '[data-cmp-ind]', 'cmp', instant); }
+
+  layoutMethod() { this.onMethodScroll && this.onMethodScroll(); }
+
+  methodGeom() {
+    const path = this.$('[data-method-path]'); if (!path) return null;
+    const total = path.getTotalLength();
+    if (!this.stepLens || this.stepLens.total !== total) {
+      const lens = [125, 375, 625, 875].map(tx => { let lo = 0, hi = total; for (let i = 0; i < 30; i++) { const mid = (lo + hi) / 2; path.getPointAtLength(mid).x < tx ? lo = mid : hi = mid; } return lo; });
+      this.stepLens = { total, lens };
+      path.style.strokeDasharray = String(total);
+    }
+    return { path, ...this.stepLens };
+  }
+
+  setupMethodScroll() {
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    this.onMethodScroll = () => {
+      const vh = window.innerHeight;
+      if (!this.state.mobile) {
+        const track = this.$('[data-method-track]'), stage = this.$('[data-method-stage]'), pin = this.$('[data-method-pin]'), g = this.methodGeom();
+        if (!track || !stage || !pin || !g) return;
+        const r = track.getBoundingClientRect(), span = Math.max(1, r.height - (vh - 68));
+        const p = this.reduced ? 1 : clamp((68 - r.top) / span, 0, 1);
+        const L0 = g.lens[0], L3 = g.lens[3], L = L0 + (L3 - L0) * p;
+        const sx = stage.clientWidth / 1000, sy = stage.clientHeight / 180, pt = g.path.getPointAtLength(L);
+        pin.style.transform = 'translate(' + (pt.x * sx - 15) + 'px,' + (pt.y * sy - 44) + 'px)';
+        g.path.style.strokeDashoffset = String(g.total - L);
+        let step = 0; g.lens.forEach((l, i) => { if (L >= l - 0.5) step = i; });
+        this.root().querySelectorAll('[data-mstep-bar]').forEach(el => { const i = +el.dataset.mstepBar; const f = i < 3 ? clamp((L - g.lens[i]) / (g.lens[i + 1] - g.lens[i]), 0, 1) : (p >= 0.999 ? 1 : 0); el.style.width = (i < step ? 100 : i === step ? (i === 3 ? 100 : f * 100) : 0).toFixed(1) + '%'; });
+        if (step !== this.state.step) this.setState({ step });
+      } else {
+        const list = this.$('[data-mlist]'), pin = this.$('[data-method-pin-m]'), rail = this.$('[data-mrail]'); if (!list || !pin) return;
+        const rows = [...list.querySelectorAll('[data-mrow]')]; if (!rows.length) return;
+        const lr = list.getBoundingClientRect(), maxY = rows[rows.length - 1].offsetTop + 14;
+        const y = this.reduced ? maxY : clamp(vh * 0.55 - lr.top, rows[0].offsetTop + 14, maxY);
+        pin.style.transform = 'translateY(' + y + 'px)'; if (rail) rail.style.height = Math.max(0, y - 4) + 'px';
+        let step = 0; rows.forEach((row, i) => { if (y >= row.offsetTop + 10) step = i; });
+        if (step !== this.state.step) this.setState({ step });
+      }
+    };
+    window.addEventListener('scroll', this.onMethodScroll, { passive: true });
+    window.addEventListener('resize', this.onMethodScroll);
+    this.onMethodScroll();
+  }
+
+  scrollToStep(i) {
+    const vh = window.innerHeight, smooth = this.reduced ? 'auto' : 'smooth';
+    if (!this.state.mobile) {
+      const track = this.$('[data-method-track]'), g = this.methodGeom(); if (!track || !g) return;
+      const top = track.getBoundingClientRect().top + window.scrollY - 68, span = Math.max(1, track.offsetHeight - (vh - 68));
+      const p = (g.lens[i] - g.lens[0]) / (g.lens[3] - g.lens[0]);
+      window.scrollTo({ top: top + span * p + (i === 3 ? 2 : 1), behavior: smooth });
+    } else {
+      const row = this.$('[data-mrow="' + i + '"]'); if (!row) return;
+      window.scrollTo({ top: row.getBoundingClientRect().top + window.scrollY - vh * 0.55 + 20, behavior: smooth });
+    }
+  }
+
+  layoutRail() {
+    const rail = this.$('[data-rail]'), track = this.$('[data-track]'); if (!rail || !track) return;
+    const min = Math.min(0, rail.clientWidth - track.scrollWidth);
+    this.railMin = min;
+    const x = Math.max(min, Math.min(0, this.springs.rail ? this.springs.rail.target : 0));
+    this.railTo(x, 0, true);
+  }
+  railApply = (x) => {
+    const track = this.$('[data-track]'), bar = this.$('[data-rail-bar]'); if (!track) return;
+    track.style.transform = `translate3d(${x}px,0,0)`;
+    if (bar) { const p = this.railMin ? Math.max(0, Math.min(1, x / this.railMin)) : 0; bar.style.transform = `translateX(${p * 233}%)`; }
+  };
+  railTo(x, velocity, instant) {
+    this.spring('rail', x, this.railApply, { response: 0.45, velocity, instant });
+    const atStart = x >= -1, atEnd = x <= this.railMin + 1;
+    if (atStart !== this.state.railAtStart || atEnd !== this.state.railAtEnd) this.setState({ railAtStart: atStart, railAtEnd: atEnd });
+  }
+  snapPoints() {
+    const cards = [...(this.root().querySelectorAll('[data-card]') || [])];
+    const pts = cards.map(c => Math.max(this.railMin, -c.offsetLeft));
+    return [...new Set(pts.concat([this.railMin]))].sort((a, b) => b - a);
+  }
+  rubber(over, dim) { const c = 0.55; return (over * dim * c) / (dim + c * Math.abs(over)); }
+
+  railDown = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    const s = this.springs.rail; if (s && s.raf) { cancelAnimationFrame(s.raf); s.raf = null; }
+    this.drag = { id: e.pointerId, startX: e.clientX, startY: e.clientY, base: s ? s.x : 0, hist: [{ x: e.clientX, t: performance.now() }], active: false, moved: 0 };
+  };
+  railMove = (e) => {
+    const d = this.drag; if (!d || d.id !== e.pointerId) return;
+    const dx = e.clientX - d.startX, dy = e.clientY - d.startY;
+    if (!d.active) {
+      if (Math.abs(dx) < 8) return;
+      if (Math.abs(dy) > Math.abs(dx)) { this.drag = null; return; }
+      d.active = true; e.currentTarget.setPointerCapture(e.pointerId);
+      this.$('[data-rail]').style.cursor = 'grabbing';
+    }
+    d.moved = Math.max(d.moved, Math.abs(dx));
+    let x = d.base + dx; const w = this.$('[data-rail]').clientWidth;
+    if (x > 0) x = this.rubber(x, w); else if (x < this.railMin) x = this.railMin + this.rubber(x - this.railMin, w);
+    const s = this.springs.rail || (this.springs.rail = { x: 0, v: 0 }); s.x = x; s.v = 0; this.railApply(x);
+    d.hist.push({ x: e.clientX, t: performance.now() }); if (d.hist.length > 6) d.hist.shift();
+  };
+  railUp = (e) => {
+    const d = this.drag; this.drag = null; if (!d) return;
+    const rail = this.$('[data-rail]'); if (rail) rail.style.cursor = 'grab';
+    this.lastDragMoved = d.moved;
+    if (!d.active) return;
+    const h = d.hist, a = h[0], b = h[h.length - 1];
+    const v = (b.t - a.t) > 0 ? ((b.x - a.x) / (b.t - a.t)) * 1000 : 0;
+    const cur = this.springs.rail.x;
+    const projected = cur + (v / 1000) * 0.998 / (1 - 0.998);
+    const pts = this.snapPoints();
+    let target = pts.reduce((best, p) => Math.abs(p - projected) < Math.abs(best - projected) ? p : best, pts[0]);
+    target = Math.max(this.railMin, Math.min(0, target));
+    this.railTo(target, v);
+  };
+  railClickCapture = (e) => { if (this.lastDragMoved > 8) { e.preventDefault(); e.stopPropagation(); } this.lastDragMoved = 0; };
+  railStep(dir) {
+    const pts = this.snapPoints(), cur = this.springs.rail ? this.springs.rail.target : 0;
+    const i = pts.findIndex(p => Math.abs(p - cur) < 2);
+    let idx = i < 0 ? pts.findIndex(p => p < cur) : i + dir;
+    if (dir < 0 && i < 0) idx = Math.max(0, pts.findIndex(p => p < cur) - 1);
+    idx = Math.max(0, Math.min(pts.length - 1, idx));
+    this.railTo(pts[idx], 0);
+  }
+
+  timers() {
+    const wfTick = () => {
+      const d = this.state.wfStep === 2 ? 3400 : (this.state.wfStep >= 5 ? 3200 : 2200);
+      this.wfT = setTimeout(() => {
+        if (this.state.wfPlaying && this.vis.ai && (this.props.autoplayDemos ?? true)) this.setState(s => ({ wfStep: s.wfStep >= 5 ? 0 : s.wfStep + 1 }));
+        wfTick();
+      }, d);
+    };
+    wfTick();
+    this.mT = setInterval(() => {
+    }, 4200);
+  }
+
+  setupMotion() {
+    if (this.reduced) return;
+    const ease = 'cubic-bezier(.2,.8,.2,1)';
+    this.root().querySelectorAll('[data-line]').forEach((el, i) =>
+      el.animate([{ transform: 'translateY(108%)' }, { transform: 'none' }], { duration: 950, delay: 80 + i * 90, easing: ease, fill: 'backwards' }));
+    const fades = [...this.root().querySelectorAll('[data-fade]')];
+    const draws = [...this.root().querySelectorAll('[data-draw]')];
+    draws.forEach(p => { p.style.strokeDasharray = '1'; p.style.strokeDashoffset = '1'; });
+    const vh = window.innerHeight;
+    fades.forEach(el => { if (el.getBoundingClientRect().top > vh * 0.92) el.style.opacity = 0; });
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; io.unobserve(el);
+      if (el.hasAttribute('data-fade')) {
+        if (el.style.opacity === '0') { el.style.opacity = 1; el.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 700, easing: ease }); }
+      } else {
+        draws.filter(p => p.dataset.draw === el.dataset.draw).forEach((p, i) =>
+          p.animate([{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: 2400, delay: i * 50, easing: 'ease-in-out', fill: 'forwards' }));
+      }
+    }), { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    fades.forEach(el => io.observe(el));
+    // headings: masked wipe-up
+    const heads = [...this.root().querySelectorAll('section:not([data-hero]) h2')];
+    const pending = new Set(heads.filter(el => el.getBoundingClientRect().top > vh * 0.9));
+    pending.forEach(el => { el.style.opacity = 0; });
+    const hio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; const host = e.target; hio.unobserve(host); const el = host.__h2; if (!el) return;
+      if (pending.has(el)) { pending.delete(el); el.style.opacity = ''; el.animate([{ clipPath: 'inset(0 0 100% 0)', transform: 'translateY(28px)' }, { clipPath: 'inset(0 0 0% 0)', transform: 'none' }], { duration: 1000, easing: 'cubic-bezier(.2,.8,.1,1)', fill: 'backwards' }); }
+    }), { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    heads.forEach(el => { const host = el.parentElement; host.__h2 = el; hio.observe(host); }); this.headIO = hio;
+    // staggered rows and cards
+    const groups = [...this.root().querySelectorAll('sc-for, [data-stagger]')].map(g => g.parentElement).filter((v, i, a) => v && a.indexOf(v) === i);
+    const sio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; sio.unobserve(e.target);
+      [...e.target.children].filter(c => !c.hasAttribute('data-fade') && c.offsetHeight > 0 && c.tagName !== 'SPAN').slice(0, 8).forEach((c, k) => c.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 640, delay: 60 + k * 70, easing: ease, fill: 'backwards' }));
+    }), { threshold: 0.15 });
+    groups.filter(g => !g.closest('[data-hero]') && !g.closest('header') && !g.closest('[data-dash-wrap]') && g.getBoundingClientRect().top > vh * 0.9).forEach(g => sio.observe(g));
+    this.stagIO = sio;
+    // scroll-linked: panel zoom + progress bar
+    const zooms = [...this.root().querySelectorAll('[data-zoom]')];
+    let bar = document.querySelector('[data-scroll-progress]');
+    if (!bar) { bar = document.createElement('div'); bar.setAttribute('data-scroll-progress', ''); bar.setAttribute('aria-hidden', 'true'); Object.assign(bar.style, { position: 'fixed', left: 0, top: 0, height: '2px', width: '100%', background: '#007ae8', transformOrigin: '0 50%', transform: 'scaleX(0)', zIndex: 70, pointerEvents: 'none' }); document.body.appendChild(bar); }
+    this.progressBar = bar;
+    this.onZoom = () => {
+      const H = window.innerHeight, de = document.documentElement;
+      bar.style.transform = 'scaleX(' + (window.scrollY / Math.max(1, de.scrollHeight - H)).toFixed(4) + ')';
+      zooms.forEach(z => { const r = z.getBoundingClientRect(); const p = Math.max(0, Math.min(1, (H - r.top) / Math.min(H * 0.55, r.height * 0.6 + 120))); const e = 1 - Math.pow(1 - p, 3); z.style.transform = 'scale(' + (0.93 + 0.07 * e).toFixed(4) + ')'; z.style.opacity = (0.7 + 0.3 * e).toFixed(3); });
+    };
+    window.addEventListener('scroll', this.onZoom, { passive: true }); this.onZoom();
+    const seen = new Set();
+    draws.forEach(p => { if (!seen.has(p.dataset.draw)) { seen.add(p.dataset.draw); io.observe(p); } });
+    this.motionIO = io;
+  }
+
+  setupHeroVideo() {
+    const v = this.$('[data-hero-video]');
+    if (v) {
+      if (this.props.heroVideo) { v.src = this.props.heroVideo; v.load(); }
+      if (this.reduced) { v.removeAttribute('autoplay'); v.pause(); } else v.play().catch(() => {});
+    }
+    this.setupDash();
+    this.setupMethodScroll();
+    this.setupHeroMap();
+  }
+
+  setupDash() {
+    const wrap = this.$('[data-dash-wrap]'); if (!wrap) return;
+    const q = s => [...wrap.querySelectorAll(s)];
+    const kpis = q('[data-kpi]'), lines = q('[data-dash-line]'), area = this.$('[data-dash-area]'), dot = this.$('[data-dash-dot]'), bars = q('[data-bar]'), feed = q('[data-feed]'), month = this.$('[data-dash-month]');
+    const sec = wrap.closest('section');
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const seg = (p, a, b) => Math.max(0, Math.min(1, (p - a) / (b - a)));
+    const draw = (p) => {
+      const lp = ease(seg(p, 0.05, 0.75));
+      lines.forEach((l, i) => l.setAttribute('stroke-dashoffset', String(1 - ease(seg(p, 0.05 + i * .06, 0.75 + i * .06)))));
+      if (area) area.style.clipPath = 'inset(0 ' + ((1 - lp) * 100).toFixed(1) + '% 0 0)';
+      if (dot && lines[0]) { const L = lines[0], tl = L.getTotalLength(), pt = L.getPointAtLength(tl * lp), bb = L.ownerSVGElement.getBoundingClientRect(), vb = L.ownerSVGElement.viewBox.baseVal, host = dot.parentElement.getBoundingClientRect(); dot.style.left = (bb.left - host.left + pt.x / vb.width * bb.width) + 'px'; dot.style.top = (bb.top - host.top + pt.y / vb.height * bb.height) + 'px'; dot.style.opacity = lp > .01 ? 1 : 0; }
+      kpis.forEach((k, i) => { k.textContent = Math.round(+k.dataset.to * ease(seg(p, 0.1 + i * .08, 0.7 + i * .06))); });
+      bars.forEach((b, i) => { b.style.width = (+b.dataset.w * 100 * ease(seg(p, 0.25 + i * .07, 0.65 + i * .07))).toFixed(1) + '%'; });
+      feed.forEach((f, i) => { const t = ease(seg(p, 0.3 + i * .12, 0.42 + i * .12)); f.style.opacity = t; f.style.transform = 'translateY(' + ((1 - t) * 6).toFixed(1) + 'px)'; });
+      if (month) month.textContent = 'MONTH ' + Math.max(1, Math.min(6, 1 + Math.floor(lp * 6))) + ' OF 6';
+    };
+    if (this.reduced) { draw(1); return; }
+    this.onDash = () => { const r = sec.getBoundingClientRect(), vh = window.innerHeight; const p = Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (r.height * 0.75))); if (Math.abs(p - (this._dp ?? -1)) > 0.002) { this._dp = p; draw(p); } };
+    window.addEventListener('scroll', this.onDash, { passive: true }); window.addEventListener('resize', this.onDash);
+    this.onDash();
+  }
+
+  setupHeroMap() {
+    const cv = this.$('[data-glass-canvas]'), sec = this.$('[data-hero]'); if (!cv || !sec) return;
+    const gl = cv.getContext('webgl', { antialias: false, premultipliedAlpha: false, alpha: true });
+    if (!gl) { cv.style.display = 'none'; return; }
+    if (!cv.__lossBound) {
+      cv.__lossBound = true;
+      cv.addEventListener('webglcontextlost', e => { e.preventDefault(); if (this.map && this.map.raf) cancelAnimationFrame(this.map.raf); if (this.map) this.map.raf = null; });
+      cv.addEventListener('webglcontextrestored', () => { this.mapRO && this.mapRO.disconnect(); this.setupHeroMap(); });
+    }
+    if (gl.isContextLost()) return;
+    const vs = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+    const fs = `precision highp float;
+uniform vec2 r;uniform float t;uniform vec2 m;uniform float e;
+mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
+float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}
+vec2 M;
+float map(vec3 p){
+ p.y+=1.02;
+ p.xz*=rot(t*.08+M.x*.35);p.yz*=rot(.18+M.y*.18);
+ float d=length(p-vec3(sin(t*.31)*.55,cos(t*.27)*.12+.05,cos(t*.23)*.2))-.62;
+ d=smin(d,length(p-vec3(cos(t*.26)*1.05,sin(t*.37)*.16-.05,sin(t*.29)*.35))-.46,.42);
+ d=smin(d,length(p-vec3(sin(t*.21+2.)*-1.0,sin(t*.33+1.)*.14,cos(t*.36)*.3))-.5,.42);
+ d=smin(d,length(p-vec3(M.x*1.3,.35+M.y*.25,.25))-.26*e-.02,.5);
+ d+=sin(p.x*3.1+t*.6)*sin(p.y*3.7-t*.5)*sin(p.z*2.9+t*.4)*.035;
+ return d;}
+vec3 nor(vec3 p){vec2 k=vec2(.0015,0.);return normalize(vec3(map(p+k.xyy)-map(p-k.xyy),map(p+k.yxy)-map(p-k.yxy),map(p+k.yyx)-map(p-k.yyx)));}
+vec3 env(vec3 d){
+ vec3 c=mix(vec3(.90,.94,1.),vec3(1.),smoothstep(-.3,.7,d.y));
+ c=mix(c,vec3(0.,.478,.91),smoothstep(.42,0.,abs(d.x*1.1+sin(t*.23)*.7-d.y*.5))*.95);
+ c=mix(c,vec3(.459,.875,.933),smoothstep(.3,0.,abs(d.y+.3+.12*sin(t*.19)))*.85);
+ c=mix(c,vec3(0.,.25,.62),smoothstep(.25,0.,abs(d.x+.7+.15*cos(t*.17)))*.7);
+ c+=smoothstep(.05,0.,abs(d.x-.45+.25*sin(t*.21)))*.9;
+ c+=smoothstep(.06,0.,abs(d.y-.55))*.5;
+ return c;}
+float hs(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
+void main(){
+ M=m;
+ vec2 uv=(gl_FragCoord.xy-.5*r)/r.y;
+ vec3 ro=vec3(0.,0.,3.4),rd=normalize(vec3(uv,-1.55));
+ vec3 bg=vec3(.984,.988,1.);
+ bg=mix(bg,vec3(.80,.89,1.),exp(-dot(uv-vec2(0.,-.5),uv-vec2(0.,-.5))/.09)*.75);
+ bg=mix(bg,vec3(.86,.97,.99),exp(-dot(uv-vec2(.75,.38),uv-vec2(.75,.38))/.05)*.35);
+ float tt=0.;float d;bool hit=false;
+ for(int i=0;i<72;i++){vec3 p=ro+rd*tt;d=map(p);if(d<.0015){hit=true;break;}tt+=d*.9;if(tt>7.)break;}
+ vec3 col=bg;
+ if(hit){
+  vec3 p=ro+rd*tt,n=nor(p);
+  float f=pow(1.-max(dot(-rd,n),0.),2.6);
+  vec3 rr=refract(rd,n,1./1.48);
+  vec3 c1=vec3(env(rr+vec3(.02,0.,0.)).r,env(rr).g,env(rr-vec3(.02,0.,0.)).b);
+  vec3 c2=env(reflect(rd,n));
+  col=mix(c1*vec3(.9,.95,1.),c2,.12+f*.8);
+  col+=f*.32*(.5+.5*cos(6.283*(f*1.3+vec3(0.,.33,.67)+t*.04)));
+  col+=pow(max(dot(reflect(rd,n),normalize(vec3(.4,.9,.5))),0.),70.)*1.1;
+  col+=pow(max(dot(reflect(rd,n),normalize(vec3(-.6,.3,.7))),0.),30.)*.35;
+ }
+ col+=(hs(gl_FragCoord.xy+fract(t))-.5)*.018;
+ gl_FragColor=vec4(col,1.);}`;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const U = { r: gl.getUniformLocation(pr, 'r'), t: gl.getUniformLocation(pr, 't'), m: gl.getUniformLocation(pr, 'm'), e: gl.getUniformLocation(pr, 'e') };
+    const M = { raf: null, visible: true, mx: .5, my: .35, tx: .5, ty: .35, e: 0, te: 0, t0: performance.now(), off: 0 };
+    this.map = M;
+    const size = () => { const s = Math.min(1.25, window.devicePixelRatio || 1) * (cv.clientWidth > 1400 ? 0.55 : 0.7); cv.width = Math.round(cv.clientWidth * s); cv.height = Math.round(cv.clientHeight * s); gl.viewport(0, 0, cv.width, cv.height); };
+    const draw = (now) => {
+      M.mx += (M.tx - M.mx) * 0.06; M.my += (M.ty - M.my) * 0.06; M.e += (M.te - M.e) * 0.04;
+      gl.uniform2f(U.r, cv.width, cv.height); gl.uniform1f(U.t, M.off + (now - M.t0) / 1000); gl.uniform2f(U.m, (M.mx - .5) * 2., (M.my - .5) * 2.); gl.uniform1f(U.e, M.e);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
+    const loop = (now) => { draw(now); M.raf = (M.visible && !this.state.loopsPaused && !this.reduced) ? requestAnimationFrame(loop) : null; };
+    this.mapKick = () => { if (!M.raf && !this.reduced) M.raf = requestAnimationFrame(loop); };
+    sec.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); M.tx = (e.clientX - r.left) / r.width; M.ty = 1 - (e.clientY - r.top) / r.height; M.te = 1; });
+    sec.addEventListener('pointerleave', () => { M.te = 0; });
+    new IntersectionObserver(([en]) => { M.visible = en.isIntersecting; if (M.visible) this.mapKick(); }).observe(sec);
+    this.mapRO = new ResizeObserver(() => { size(); draw(performance.now()); }); this.mapRO.observe(cv);
+    size(); draw(performance.now()); this.mapKick();
+  }
+
+  setupVideos() {
+    const vids = [...(this.root().querySelectorAll('[data-lazy-video]') || [])];
+    if (!vids.length) return;
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; if (!this.reduced && !this.state.loopsPaused) v.play().catch(() => {}); }
+      else v.pause();
+    }), { rootMargin: '200px' });
+    vids.forEach(v => io.observe(v)); this.vidIO = io;
+  }
+
+  startLoops() {
+    if (this.scenes && this.scenes.length) return;
+    const cvs = [...this.root().querySelectorAll('[data-scene]')];
+    const MODES = { ribbon: 0, caustic: 1, glass: 2, leak: 3, bubbles: 4 };
+    const FS = "precision highp float;\nuniform vec2 r;uniform float t;uniform float md;uniform vec2 m;uniform float e;\nconst vec3 BL=vec3(0.,.478,.91);const vec3 CY=vec3(.459,.875,.933);const vec3 DB=vec3(0.,.345,.77);\nfloat hs(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}\nvec4 ribbon(vec2 q,float asp){\n float fx=fract(gl_FragCoord.x/(r.x/18.));q.x+=(fx-.5)*.025;\n vec3 c=vec3(0.);float a=0.;\n for(int i=0;i<3;i++){float fi=float(i);\n  float y=.52+.16*sin(q.x*2.4+t*.22+fi*1.9)+.07*sin(q.x*5.3-t*.17+fi*.7)+(m.y-.5)*.1*e;\n  float w=.075+.03*sin(t*.19+fi*2.);\n  float d=(q.y-y-(fi-1.)*.09)/w;float b=exp(-d*d*1.6);\n  vec3 col=BL;if(i==1)col=CY;if(i==2)col=DB;\n  float sp=exp(-pow((d+.55)*4.,2.))*(.5+.5*sin(q.x*9.-t*.6+fi));\n  c+=col*b*.8+vec3(1.)*sp*b*.9;a+=b*.75;}\n a=clamp(a,0.,1.);c+=vec3(1.)*smoothstep(.85,1.,fx)*.3*a;\n return vec4(c,a);}\nvec4 caustic(vec2 q,float asp){\n vec2 p=vec2(q.x*asp,q.y)*5.+vec2(17.,3.);vec2 i=p;float c=1.;\n for(int n=0;n<4;n++){float tt=t*.3*(1.-(3.5/float(n+1)));\n  i=p+vec2(cos(tt-i.x)+sin(tt+i.y),sin(tt-i.y)+cos(tt+i.x));\n  c+=1./length(vec2(p.x/(sin(i.x+tt)/.005),p.y/(cos(i.y+tt)/.005)));}\n c/=4.;c=1.17-pow(c,1.4);float v=clamp(pow(abs(c),8.),0.,1.);\n float a=clamp(v*.6+.1,0.,1.);\n vec3 col=mix(BL,CY,q.x)*a+vec3(1.)*v*.25;\n return vec4(col,a);}\nfloat F(vec2 p,float asp){float f=0.;\n for(int i=0;i<4;i++){float fi=float(i);\n  vec2 c=vec2((.5+.3*sin(t*.16+fi*2.1))*asp,.5+.24*cos(t*.13+fi*1.7));\n  float rr=.13+.03*sin(t*.3+fi);vec2 d=p-c;f+=rr*rr/dot(d,d);}\n vec2 d=p-vec2(m.x*asp,m.y);f+=.008*e/dot(d,d);return f;}\nvec4 glass(vec2 q,float asp){\n vec2 p=vec2(q.x*asp,q.y);float f=F(p,asp);vec2 k=vec2(.004,0.);\n vec2 g=vec2(F(p+k.xy,asp)-F(p-k.xy,asp),F(p+k.yx,asp)-F(p-k.yx,asp));vec2 n=-normalize(g+1e-5);\n float ins=smoothstep(.96,1.04,f);float depth=clamp((f-1.)/2.,0.,1.);\n vec3 base=mix(CY,BL,clamp(q.y*.8+n.y*.3+.2,0.,1.));base=mix(base,DB,depth*.5);\n vec3 refr=mix(vec3(1.),base,.35+.55*smoothstep(1.,2.5,f));\n float rim=ins*(1.-smoothstep(1.,1.5,f));\n float spec=pow(max(dot(n,normalize(vec2(-.5,.85))),0.),6.)*rim;\n vec3 irid=.5+.5*cos(6.283*(rim+vec3(0.,.33,.67)+t*.05));\n vec3 col=refr+irid*rim*.25+vec3(1.)*spec*.9;\n float fl=fract(gl_FragCoord.x/(r.x/22.));col+=vec3(1.)*smoothstep(.88,1.,fl)*.12*ins;\n float a=ins*.85;float glow=(1.-ins)*smoothstep(.35,.95,f)*.16;\n return vec4(col*a+BL*glow,a+glow);}\nvec4 leak(vec2 q,float asp){\n vec2 s=vec2(asp*.7,1.);vec2 c1=vec2(-.1+.15*sin(t*.12),.85+.1*cos(t*.1));\n float l1=exp(-dot((q-c1)*s,(q-c1)*s)/.18);\n vec2 c2=vec2(1.05,.15+.1*sin(t*.09));float l2=exp(-dot((q-c2)*s,(q-c2)*s)/.12);\n float st=exp(-pow((q.y-.62-.05*sin(t*.15))*28.,2.))*(.4+.6*(sin(q.x*2.+t*.3)*.5+.5));\n float sw=exp(-pow((q.x+q.y*.4-mod(t*.06,2.2)+.4)*6.,2.))*.35;\n vec3 col=BL*l1*.9+CY*l2*.8+vec3(.85,.93,1.)*(st*.35+sw);\n return vec4(col,max(max(col.r,col.g),col.b));}\nvec4 bubbles(vec2 q,float asp){\n vec2 p=vec2(q.x*asp,q.y);vec4 o=vec4(0.);\n for(int i=0;i<9;i++){float fi=float(i);\n  float s1=hs(vec2(fi,1.3)),s2=hs(vec2(fi,7.1)),s3=hs(vec2(fi,3.7));\n  float rad=(.05+.11*s2*s2)*mix(1.,.85,step(1.,asp));\n  float y=fract(t*(.012+.018*s3)+s1)*1.5-.25;\n  float x=(.1+.8*hs(vec2(fi,9.9)))*asp+.05*sin(t*.2+fi*2.)*asp;\n  vec2 c=vec2(x,y);vec2 dm=c-vec2(m.x*asp,m.y);c+=normalize(dm+1e-4)*.05*e*exp(-dot(dm,dm)/.06);\n  vec2 d=(p-c)/rad;float l=dot(d,d);\n  if(l<1.){vec3 n=vec3(d,sqrt(1.-l));\n   float f=pow(1.-n.z,2.4);\n   vec3 tint=mix(CY,BL,clamp(.5-n.y*.5+n.x*.2,0.,1.));tint=mix(tint,DB,f*.35);\n   vec3 irid=.5+.5*cos(6.283*(f*1.4+vec3(0.,.33,.67)+t*.04+fi*.1));\n   float sp=pow(max(dot(n,normalize(vec3(-.45,.6,.65))),0.),40.);\n   float sp2=pow(max(dot(n,normalize(vec3(.5,-.55,.6))),0.),14.)*.3;\n   vec3 col=mix(vec3(1.),tint,.25+.55*f)+irid*f*.22+vec3(1.)*(sp+sp2);\n   float a=clamp(.1+f*.7+sp,0.,1.)*smoothstep(1.,.9,l);\n   o.rgb=o.rgb*(1.-a)+col*a;o.a=o.a+a*(1.-o.a);}\n  else{float g=exp(-(sqrt(l)-1.)*5.)*.08;o.rgb+=BL*g*(1.-o.a);o.a+=g*(1.-o.a);}\n }\n return o;}\nvoid main(){vec2 q=gl_FragCoord.xy/r;float asp=r.x/r.y;vec4 o;\n if(md<.5)o=ribbon(q,asp);else if(md<1.5)o=caustic(q,asp);else if(md<2.5)o=glass(q,asp);else if(md<3.5)o=leak(q,asp);else o=bubbles(q,asp);\n o.rgb+=(hs(gl_FragCoord.xy+fract(t))-.5)*.03*o.a;gl_FragColor=o;}";
+    const VS = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+    const off = document.createElement('canvas');
+    const gl = off.getContext('webgl', { antialias: false, alpha: true, premultipliedAlpha: true, preserveDrawingBuffer: true });
+    if (!gl) { cvs.forEach(c => c.style.display = 'none'); this.scenes = []; return; }
+    const sh = (ty, src) => { const s = gl.createShader(ty); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); gl.useProgram(pr);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const U = {}; ['r', 't', 'md', 'm', 'e'].forEach(k => U[k] = gl.getUniformLocation(pr, k));
+    this.sceneGL = gl;
+    this.scenes = cvs.map(cv => {
+      try {
+        const c2 = cv.getContext('2d'); if (!c2) { cv.style.display = 'none'; return null; }
+        const flip = cv.hasAttribute('data-flip');
+        const sc = { cv, gl, U, flip, md: MODES[cv.dataset.scene] ?? 0, still: cv.hasAttribute('data-still'), host: cv.parentElement, vis: false, drawn: false, mx: .5, my: .5, tx: .5, ty: .5, e: 0, te: 0, seed: Math.random() * 30 };
+        sc.size = () => { const s = 0.5 * Math.min(1.5, window.devicePixelRatio || 1); cv.width = Math.max(2, Math.round(cv.clientWidth * s)); cv.height = Math.max(2, Math.round(cv.clientHeight * s)); sc.drawn = false; };
+        sc.draw = (T) => {
+          sc.mx += (sc.tx - sc.mx) * .05; sc.my += (sc.ty - sc.my) * .05; sc.e += (sc.te - sc.e) * .04;
+          if (gl.isContextLost()) return;
+          if (off.width !== cv.width || off.height !== cv.height) { off.width = cv.width; off.height = cv.height; }
+          gl.viewport(0, 0, cv.width, cv.height); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.uniform2f(U.r, cv.width, cv.height); gl.uniform1f(U.t, T + sc.seed); gl.uniform1f(U.md, sc.md); gl.uniform2f(U.m, sc.mx, sc.my); gl.uniform1f(U.e, sc.e);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          c2.clearRect(0, 0, cv.width, cv.height); c2.drawImage(off, 0, 0); sc.drawn = true;
+        };
+        const host = cv.closest('section') || sc.host;
+        host.addEventListener('pointermove', ev => { const r = cv.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width; sc.tx = flip ? 1 - x : x; sc.ty = 1 - (ev.clientY - r.top) / r.height; sc.te = 1; });
+        host.addEventListener('pointerleave', () => { sc.te = 0; });
+        sc.size();
+        return sc;
+      } catch (err) { console.warn('scene', err && err.message); cv.style.display = 'none'; return null; }
+    }).filter(Boolean);
+    this.sceneIO = new IntersectionObserver(es => es.forEach(en => { const s = this.scenes.find(x => x.cv === en.target); if (s) s.vis = en.isIntersecting; }), { rootMargin: '160px' });
+    this.sceneRO = new ResizeObserver(es => es.forEach(en => { const s = this.scenes.find(x => x.cv === en.target); if (s) s.size(); }));
+    this.scenes.forEach(s => { this.sceneIO.observe(s.cv); this.sceneRO.observe(s.cv); });
+    let T = 8, last = performance.now();
+    const frame = (now) => {
+      const dt = Math.min(.05, (now - last) / 1000); last = now;
+      const run = !this.state.loopsPaused && !this.reduced;
+      if (run) T += dt;
+      const vh = window.innerHeight;
+      for (const s of this.scenes) {
+        if (!s.vis) continue;
+        if (!this.reduced && !s.still) { const r = s.host.getBoundingClientRect(); const off = ((r.top + r.height / 2) - vh / 2) * -0.08; s.cv.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)' + (s.flip ? ' scaleX(-1)' : ''); }
+        if (run || !s.drawn) s.draw(T);
+      }
+      this.sceneRaf = requestAnimationFrame(frame);
+    };
+    this.sceneRaf = requestAnimationFrame(frame);
+    if (!this.grainEl) {
+      const n = document.createElement('canvas'); n.width = n.height = 160; const nc = n.getContext('2d'); const id = nc.createImageData(160, 160);
+      for (let i = 0; i < id.data.length; i += 4) { const v = Math.random() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 255; }
+      nc.putImageData(id, 0, 0);
+      const g = document.createElement('div'); g.setAttribute('aria-hidden', 'true');
+      Object.assign(g.style, { position: 'fixed', inset: '-50%', zIndex: '60', pointerEvents: 'none', backgroundImage: 'url(' + n.toDataURL() + ')', backgroundSize: '160px', opacity: '.035', mixBlendMode: 'multiply' });
+      const v = document.createElement('div'); v.setAttribute('aria-hidden', 'true');
+      Object.assign(v.style, { position: 'fixed', inset: '0', zIndex: '59', pointerEvents: 'none', background: 'radial-gradient(120% 100% at 50% 45%, transparent 62%, rgba(0,40,90,.07) 100%)' });
+      document.body.appendChild(v); document.body.appendChild(g); this.grainEl = g; this.vigEl = v;
+      if (!this.reduced) this.grainT = setInterval(() => { if (!this.state.loopsPaused) g.style.transform = 'translate(' + (Math.random() * 10 - 5).toFixed(1) + '%,' + (Math.random() * 10 - 5).toFixed(1) + '%)'; }, 90);
+    }
+    if (!this.reduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        if (!en.isIntersecting) return; io.unobserve(en.target);
+        en.target.animate([{ filter: 'blur(10px)', transform: 'scale(1.03)', opacity: .35 }, { filter: 'blur(0)', transform: 'none', opacity: 1 }], { duration: 1200, easing: 'cubic-bezier(.2,.7,.1,1)' });
+      }), { threshold: .35 });
+      this.focusIO = io;
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.pairT);
+    if (this.onMethodScroll) { window.removeEventListener('scroll', this.onMethodScroll); window.removeEventListener('resize', this.onMethodScroll); }
+    this.onZoom && window.removeEventListener('scroll', this.onZoom); this.headIO && this.headIO.disconnect(); this.stagIO && this.stagIO.disconnect(); this.progressBar && this.progressBar.remove();
+    if (this.onDash) { window.removeEventListener('scroll', this.onDash); window.removeEventListener('resize', this.onDash); }
+    clearTimeout(this.scenesT); cancelAnimationFrame(this.sceneRaf); clearInterval(this.grainT); this.grainEl && this.grainEl.remove(); this.vigEl && this.vigEl.remove(); this.sceneIO && this.sceneIO.disconnect(); this.sceneRO && this.sceneRO.disconnect(); this.focusIO && this.focusIO.disconnect();
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onScroll);
+    [this.io, this.motionIO, this.vidIO].forEach(o => o && o.disconnect());
+    this.mapRO && this.mapRO.disconnect(); clearTimeout(this.sigT); clearTimeout(this.stepT1); clearTimeout(this.stepT2); clearTimeout(this.stepT3); if (this.map && this.map.raf) cancelAnimationFrame(this.map.raf);
+    clearTimeout(this.wfT); clearInterval(this.mT);
+    Object.values(this.springs).forEach(s => s.raf && cancelAnimationFrame(s.raf));
+  }
+
+  setForm(patch) { this.setState(s => ({ form: { ...s.form, ...patch } })); }
+
+  renderVals() {
+    const S = this.state, f = S.form, mobile = S.mobile;
+    const ctaPrimary = S.scrolled && !S.finalInView;
+    const segData = [
+      { label: 'Financial service providers', tag: 'FINANCIAL SERVICE PROVIDERS', count: 'WHAT WE SEE MOST', headline: 'Growth that does not depend on referrals alone.', lang: 'Most firms are built on referrals and reputation. That works until a referral source goes quiet. We build a second source of qualified enquiries you control, and take repeat admin off your team.',
+        pains: ['Enquiry flow rises and falls with referral partners and market cycles.', 'Larger brands and comparison sites compete for the same clients online.', 'Skilled people lose hours each week to notes, data entry and follow-ups.'],
+        rules: [],
+        focus: [['High-intent search and social', 'Campaigns aimed at people looking for the services you offer, in the places you serve.'], ['Nurture over a long decision', 'Email that keeps your firm in the conversation until the client is ready.'], ['AI for repeat admin', 'Notes, document intake and follow-ups prepared by AI and checked by your team.']], cta: 'How we work with financial service providers' }
+    ];
+    const sd = segData[0];
+    const seg = { ...sd, pains: sd.pains.map((t, i) => ({ t, n: '0' + (i + 1) })), focus: sd.focus.map(([t, d], i) => ({ t, d, n: String.fromCharCode(65 + i) })) };
+
+    const prob = [
+      ['Industry knowledge', 'Learns how financial clients decide on your account, over months.', 'Already understands your clients, your competitors and how they choose a provider.'],
+      ['Trust', 'Borrows retail tactics: urgency, discounts and loud creative.', 'Calm, specific messaging that sounds like a firm people trust with their money.'],
+      ['Decision cycles', 'Optimises for this week’s clicks.', 'Nurtures a considered decision over weeks and months, measured to booked meetings.'],
+      ['AI', 'Talks about AI, or leaves it to your team to work out.', 'Puts AI to work on real tasks, with security, a written policy and training.'],
+      ['Ownership', 'Accounts and data sit in the agency’s name.', 'Every account, dataset and automation sits in your firm’s name.']
+    ];
+    const loc = S.cmp === 1;
+
+    const workflows = [
+      { slug: 'pitch-decks', title: 'Pitch decks and proposals', sub: 'Sales · new prospect', steps: [['Brief entered','Prospect, service and meeting date'],['Details pulled in','From past proposals and client details'],['Team review','Check figures and tone'],['Deck drafted','In your firm’s template'],['Ready to send','Saved to the client record']] },
+      { slug: 'marketing-content', title: 'Marketing content', sub: 'Monthly content plan', steps: [['Topic chosen','From your content calendar'],['Drafts written','LinkedIn, email and blog'],['Team review','Approve or edit each piece'],['Designed','In your brand templates'],['Scheduled','Across your channels']] },
+      { slug: 'monthly-reporting', title: 'Monthly reporting', sub: 'Management report · month end', steps: [['Data collected','From every system you use'],['Figures combined','One view, checked for gaps'],['Team review','Confirm the numbers'],['Commentary drafted','Plain-English summary'],['Report sent','To partners and managers']] },
+      { slug: 'admin-inbox', title: 'Inbox and admin', sub: 'Operations · every day', steps: [['Email received','Shared inbox or client portal'],['Sorted and tagged','By client and request type'],['Team review','Check anything unusual'],['Reply drafted','With the right documents attached'],['Task created','Assigned in your practice software']] }
+    ];
+    const wfd = workflows[S.pillar] || workflows[0];
+
+    const stepsData = [
+      ['Diagnose', 'We review your accounts, data and tools, and talk to the people doing the work.'],
+      ['Map', 'A written plan: where your next clients come from, where AI saves time, and what we will measure.'],
+      ['Build', 'Campaigns, automations and integrations, set up in accounts you own.'],
+      ['Train & optimise', 'Your team learns to run what we built. We review results with you monthly and refine.']
+    ];
+    const pos = [['12.5%', '66.7%'], ['37.5%', '22.2%'], ['62.5%', '62.2%'], ['87.5%', '26.7%']];
+
+    // form
+    const stageDefs = [
+      { name: 'FIRM', q: 'Which best describes your firm?', hint: 'Choose one.', key: 'firm', opts: ['Advice or planning', 'Lending or credit', 'Tax and business services', 'Other financial services'] },
+      { name: 'TEAM', q: 'How large is your team?', hint: 'Including principals and support staff.', key: 'team', opts: ['Just me', '2–5', '6–20', '21–50', 'More than 50'] },
+      { name: 'PRIORITIES', q: 'What matters most this year?', hint: 'Choose up to three.', key: 'prio', multi: true, opts: ['AI integration & training', 'More qualified enquiries', 'A stronger social presence', 'Email & client nurture', 'Compliance review of current marketing'] },
+      { name: 'BUDGET', q: 'Monthly marketing budget', hint: 'Including ad spend. A range is fine.', key: 'budget', opts: ['Under $10k', '$10k–$20k', '$20k–$50k', 'Over $50k', 'Not sure yet'] },
+      { name: 'TIME', q: 'Choose a time', hint: '45 minutes with a senior strategist.', key: 'cal' },
+      { name: 'DETAILS', q: 'Where should we send the invite?', hint: 'We use these details only to arrange the consultation.', key: 'details' }
+    ];
+    const sdx = stageDefs[f.stage];
+    const sel = (i) => sdx.multi ? f.prio.includes(i) : f[sdx.key] === i;
+    const formOpts = (sdx.opts || []).map((label, i) => {
+      const on = sel(i);
+      return { label, on, border: on ? '#007ae8' : '#e6e6e6', bg: on ? '#f4f8fd' : '#fff', dot: on ? '#007ae8' : '#fff', mark: on ? '✓' : '', radius: sdx.multi ? '6px' : '50%',
+        pick: () => {
+          if (sdx.multi) { const p = f.prio.includes(i) ? f.prio.filter(x => x !== i) : (f.prio.length < 3 ? [...f.prio, i] : f.prio); this.setForm({ prio: p }); }
+          else { this.setForm({ [sdx.key]: i }); if (!this.reduced) setTimeout(() => { if (this.state.form.stage === f.stage) this.setForm({ stage: f.stage + 1 }); }, 260); }
+        } };
     });
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e){io.observe(e);});
-})();
-// FAQ: keep one open at a time
-document.querySelectorAll('.faq').forEach(function(d){
-  d.addEventListener('toggle',function(){
-    if(d.open){document.querySelectorAll('.faq').forEach(function(o){if(o!==d)o.open=false;});}
-  });
-});
+    const days = []; const base = new Date(); let dd = new Date(base); dd.setDate(dd.getDate() + 1);
+    while (days.length < 6) { if (dd.getDay() !== 0 && dd.getDay() !== 6) days.push(new Date(dd)); dd.setDate(dd.getDate() + 1); }
+    const DOW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'], MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const timeSlots = ['9:30 am', '11:00 am', '2:00 pm', '3:30 pm'];
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email);
+    const fieldsDef = [
+      { k: 'name', label: 'Your name', type: 'text', ac: 'name', ph: 'First and last name', ok: f.name.trim().length > 1, msg: 'Please enter your name.' },
+      { k: 'email', label: 'Work email', type: 'email', ac: 'email', ph: 'name@firm.com.au', ok: emailOk, msg: 'Please enter a valid email address.' },
+      { k: 'company', label: 'Firm name', type: 'text', ac: 'organization', ph: 'Your firm', ok: f.company.trim().length > 1, msg: 'Please enter your firm name.' }
+    ];
+    const valid = [f.firm != null, f.team != null, f.prio.length > 0, f.budget != null, f.day != null && f.time != null, fieldsDef.every(x => x.ok)][f.stage];
+    const pickedDay = f.day != null ? days[f.day] : null;
+    const summaryBits = [];
+    if (f.firm != null) summaryBits.push(stageDefs[0].opts[f.firm]);
+    if (f.team != null) summaryBits.push(stageDefs[1].opts[f.team] + (f.team === 0 ? '' : ' people'));
+    if (f.prio.length) summaryBits.push(f.prio.length + ' priorit' + (f.prio.length > 1 ? 'ies' : 'y'));
+    const slotText = pickedDay && f.time != null ? `${DOW[pickedDay.getDay()].charAt(0) + DOW[pickedDay.getDay()].slice(1).toLowerCase()} ${pickedDay.getDate()} ${MON[pickedDay.getMonth()]}, ${timeSlots[f.time]}` : '';
+
+    return {
+      rootRef: this.rootRef, heroRef: this.heroRef, finalRef: this.finalRef, aiRef: this.aiRef, methodRef: this.methodRef,
+      desktop: !mobile, mobile,
+      navCtaOk: !S.finalInView,
+      methodTrackH: mobile || this.reduced ? 'auto' : '280vh', methodStickyPos: mobile || this.reduced ? 'relative' : 'sticky', methodStickyTop: mobile || this.reduced ? '0px' : '68px', methodStickyH: mobile || this.reduced ? '0' : 'calc(100vh - 68px)',
+      navShadow: S.scrolled ? '0 1px 0 rgba(13,13,13,.06), 0 8px 24px -12px rgba(13,13,13,.12)' : '0 1px 0 rgba(13,13,13,0)',
+      navCtaProps: { variant: ctaPrimary ? 'primary' : 'secondary', size: 'sm', href: '#consult', style: { whiteSpace: 'nowrap' } },
+      ghostGlassLg: { variant: 'ghost', size: 'lg', style: { background: 'rgba(255,255,255,.55)', borderColor: 'rgba(13,13,13,.14)', backdropFilter: 'blur(12px)' } },
+      eyebrowLight: { tone: 'brand', style: { color: '#0058c4' } },
+      menuOpen: S.menuOpen, menuVisible: mobile && S.menuOpen, menuLabel: S.menuOpen ? 'Close' : 'Menu',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      navItems: [['Who we work with', '/who-we-work-with'], ['AI for Finance', '/ai'], ['Services', '/marketing'], ['Approach', '/approach'], ['About', '/about']].map(([label, href], i) => ({
+        label, href, i,
+        enter: (e) => {
+          const ind = this.$('[data-nav-ind]'); const a = e.currentTarget; if (!ind) return;
+          const first = ind.style.opacity !== '1'; ind.style.opacity = '1';
+          this.spring('navx', a.offsetLeft, v => { ind.style.transform = `translateX(${v}px)`; }, { response: 0.32, instant: first });
+          this.spring('navw', a.offsetWidth, v => { ind.style.width = v + 'px'; }, { response: 0.32, instant: first });
+        }
+      })),
+      navLeave: () => { const ind = this.$('[data-nav-ind]'); if (ind) ind.style.opacity = '0'; },
+
+      heroContours: this.heroContours || [], aiContours: this.aiContours || [], ctaContours: this.ctaContours || [],
+      loopBtnGlyph: S.loopsPaused ? '▶' : 'II', loopBtnAria: S.loopsPaused ? 'Play hero animation' : 'Pause hero animation',
+      sig: (() => { const e = this.SIG[S.sig ?? 0]; return { ...e, place: (e.city + ' ' + e.st).toUpperCase() }; })(),
+      sigSteps: (() => { const e = this.SIG[S.sig ?? 0], st = S.sigStep ?? 0; return ['Compliant ad served', 'Enquiry captured', 'AI triage · team notified', e.done].map((label, i) => { const on = i <= st; return { label, mark: on ? '✓' : '', fill: on ? '#007ae8' : 'transparent', ring: on ? '#007ae8' : '#c9d0d8', color: on ? '#0d0d0d' : '#8d9096' }; }); })(),
+      heroPoster: this.props.heroPoster || 'https://images.pexels.com/videos/2406631/free-video-2406631.jpg?auto=compress&w=1920',
+      heroVideoHd: this.props.heroVideo || 'https://videos.pexels.com/video-files/2406631/2406631-hd_1920_1080_24fps.mp4',
+      heroVideoUhd: this.props.heroVideo || 'https://videos.pexels.com/video-files/2406631/2406631-uhd_2560_1440_24fps.mp4',
+      heroScrim: mobile ? 'linear-gradient(180deg, rgba(251,252,255,.80) 0%, rgba(251,252,255,.70) 45%, rgba(251,252,255,.92) 100%)' : 'linear-gradient(90deg, rgba(251,252,255,.94) 0%, rgba(251,252,255,.84) 34%, rgba(240,246,253,.45) 62%, rgba(223,234,250,.12) 100%)',
+      whyImage: this.props.whyImage || 'https://images.pexels.com/photos/34736064/pexels-photo-34736064.jpeg?auto=compress&cs=tinysrgb&w=1400',
+      toggleLoops: () => {
+        const paused = !S.loopsPaused;
+        this.state.loopsPaused = paused; this.setState({ loopsPaused: paused });
+        this.root().querySelectorAll('video').forEach(v => paused ? v.pause() : v.play().catch(() => {}));
+        if (this.map) { if (paused) this.map.off += (performance.now() - this.map.t0) / 1000; else this.map.t0 = performance.now(); } if (!paused && this.mapKick) this.mapKick();
+      },
+
+      segTabs: segData.map((d, i) => ({ label: d.label, i, on: S.seg === i, color: S.seg === i ? '#0d0d0d' : '#3d4045', pick: () => this.setState({ seg: i }) })),
+      seg,
+      cmpTabs: ['Generic agency', 'Locate'].map((label, i) => ({ label, i, on: S.cmp === i, color: S.cmp === i ? '#ffffff' : '#3d4045', pick: () => this.setState({ cmp: i }) })),
+      problems: prob.map(([title, g, l]) => ({ title, body: loc ? l : g, tag: loc ? 'LOCATE' : 'GENERIC AGENCY', tagColor: loc ? '#0058c4' : '#63666b', rule: loc ? '#007ae8' : '#0d0d0d' })),
+
+      aiPillars: [
+        ['01', 'Pitch decks and proposals', 'Tailored decks drafted from your template in minutes.'],
+        ['02', 'Marketing content', 'A month of posts, emails and articles drafted in your firm’s voice.'],
+        ['03', 'Monthly reporting', 'Numbers from every system combined into one clear report.'],
+        ['04', 'Inbox and admin', 'Requests sorted, replies drafted and tasks created automatically.']
+      ].map(([n, title, body], i) => {
+        const on = S.pillar === i;
+        return { n, title, body, on, titleColor: on ? '#0058c4' : '#0d0d0d', arrow: on ? 1 : 0, bg: on ? '#ffffff' : 'rgba(255,255,255,.45)', border: on ? '#d9e6f4' : 'rgba(255,255,255,.7)', shadow: on ? 'var(--shadow-md)' : 'none', chipBg: on ? '#007ae8' : '#dfeafa', chipFg: on ? '#007ae8' : '#63666b',
+          pick: () => this.setState({ pillar: i, wfStep: 0, wfPlaying: true }) };
+      }),
+      wf: wfd,
+      wfProgress: Math.min(100, (S.wfStep / 5) * 100) + '%',
+      wfToggle: () => this.setState(s => s.wfStep >= 5 ? { wfStep: 0, wfPlaying: true } : { wfPlaying: !s.wfPlaying }),
+      wfToggleLabel: S.wfStep >= 5 ? 'REPLAY' : (S.wfPlaying ? 'PAUSE' : 'PLAY'),
+      wfToggleAria: S.wfStep >= 5 ? 'Replay workflow' : (S.wfPlaying ? 'Pause workflow' : 'Play workflow'),
+      wfRows: wfd.steps.map(([title, meta], i) => {
+        const st = i < S.wfStep ? 'done' : (i === S.wfStep ? 'now' : 'next');
+        const human = i === 2;
+        return { title, meta,
+          glyph: st === 'done' ? '✓' : String(i + 1),
+          status: st === 'done' ? 'DONE' : st === 'now' ? (human ? 'AWAITING REVIEW' : 'RUNNING') : 'QUEUED',
+          bg: st === 'now' ? '#f4f8fd' : '#ffffff', ring: st === 'next' ? '#d4d6da' : '#007ae8', fill: st === 'done' ? '#007ae8' : '#ffffff',
+          numColor: st === 'done' ? '#ffffff' : (st === 'now' ? '#0058c4' : '#63666b'), statusColor: st === 'now' ? '#0058c4' : '#63666b',
+          titleColor: st === 'next' ? '#63666b' : '#0d0d0d', glow: st === 'now' ? '0 0 0 4px rgba(0,122,232,.14)' : 'none',
+          jump: () => this.setState({ wfStep: i, wfPlaying: false }) };
+      }),
+
+      services: [
+        { n: '01', chan: 'GOOGLE · META · LINKEDIN', title: 'Paid Ads', body: 'Search, social and LinkedIn campaigns planned together and measured on enquiries.', outcome: 'Qualified enquiries from people looking for what you offer.', outcomeMore: 'Every dollar is tracked to the enquiries and meetings it produces, so budget moves to what works.', cta: 'Paid Ads', href: '/paid-ads' },
+        { n: '02', chan: 'CONVERSION', title: 'CRO', body: 'Landing pages, forms and booking flows tested to convert more visitors.', outcome: 'More enquiries from the same spend.', outcomeMore: 'Clearer pages, shorter forms and tested changes turn more of your existing visitors into conversations, which lowers the cost of every new client.', cta: 'CRO', href: '/cro' },
+        { n: '03', chan: 'LIFECYCLE', title: 'Email Marketing', body: 'Nurture sequences, newsletters and review reminders that keep working between meetings.', outcome: 'More enquiries converted, more clients coming back.', outcomeMore: 'Your firm stays front of mind through long decisions, and existing clients return for reviews and referrals.', cta: 'Email Marketing', href: '/email-marketing' }
+      ],
+      spot: (e) => { const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); },
+
+      steps: stepsData.map(([title, body], i) => {
+        const active = S.step === i;
+        return { i, n: '0' + (i + 1), title, body, x: pos[i][0], y: pos[i][1], active,
+          aria: `Step ${i + 1}: ${title}`,
+          dotFill: i <= S.step ? '#007ae8' : '#ffffff',
+          cardBg: active ? '#f4f8fd' : '#ffffff', cardBorder: active ? '#d9e6f4' : '#e6e6e6',
+          numColor: active ? '#0058c4' : '#63666b',
+          select: () => this.scrollToStep(i) };
+      }),
+
+      reasons: [
+        ['Finance specialists', 'We only work with financial service providers, so we already understand your clients and how they decide.'],
+        ['Marketing and AI under one roof', 'Campaigns and automation planned together, so new enquiries are followed up quickly and nothing falls through the gaps.'],
+        ['Clear plans, no guesswork', 'Every engagement starts with a written plan showing what we will do, in what order and how success is measured.'],
+        ['You own your accounts and data', 'Ad accounts, analytics, automations and AI workspaces sit in your firm’s name. If we part ways, everything stays with you.'],
+        ['Measured on results', 'We report on enquiries, meetings and clients won, in plain English, every month.']
+      ].map(([title, body], i) => ({ title, body, n: '0' + (i + 1) })),
+
+      insights: [
+        { cat: 'PAID ADS', read: '7 MIN READ', title: 'Getting more from Google Ads as a financial firm', body: 'How to choose the right searches, locations and landing pages for qualified enquiries.', cta: 'Read article' },
+        { cat: 'AI', read: '6 MIN READ', title: 'Using AI for file notes: a practical guide for financial firms', body: 'How to set up a meeting-to-file-note workflow your team will actually use.', cta: 'Read article' },
+        { cat: 'SOCIAL', read: '5 MIN READ', title: 'What to post on LinkedIn as a financial professional', body: 'Simple content ideas that build credibility with the clients you want.', cta: 'Read article' },
+        { cat: 'ALL INSIGHTS', read: '', title: 'Browse every article on marketing and AI in finance', body: 'Filter by firm type or topic.', cta: 'All insights', bg: '#f4f8fd', border: '#d9e6f4' }
+      ].map(x => ({ bg: '#ffffff', border: '#e6e6e6', ...x })),
+      railDown: this.railDown, railMove: this.railMove, railUp: this.railUp, railClickCapture: this.railClickCapture,
+      railPrev: () => this.railStep(-1), railNext: () => this.railStep(1),
+      railAtStart: S.railAtStart ?? true, railAtEnd: S.railAtEnd ?? false,
+      railPrevOpacity: (S.railAtStart ?? true) ? 0.35 : 1, railNextOpacity: S.railAtEnd ? 0.35 : 1,
+
+      trustNotes: [].map(([n, t]) => ({ n, t })),
+      formActive: !S.done, formDone: S.done,
+      formStepNum: f.stage + 1,
+      formStepName: sdx.name,
+      formBars: [0, 1, 2, 3, 4, 5].map(i => ({ c: i <= f.stage ? '#007ae8' : '#e6e6e6' })),
+      canBack: f.stage > 0,
+      formBack: () => this.setForm({ stage: Math.max(0, f.stage - 1) }),
+      formQ: sdx.q, formHint: sdx.hint,
+      isChoiceStage: f.stage < 4, isCalendarStage: f.stage === 4, isDetailsStage: f.stage === 5,
+      formOpts,
+      days: days.map((d, i) => { const on = f.day === i; return { dow: DOW[d.getDay()], date: d.getDate(), mon: MON[d.getMonth()], on, bg: on ? '#0d0d0d' : '#fff', fg: on ? '#fff' : '#0d0d0d', border: on ? '#0d0d0d' : '#e6e6e6', pick: () => this.setForm({ day: i }) }; }),
+      times: timeSlots.map((label, i) => { const on = f.time === i; return { label, on, bg: on ? '#f4f8fd' : '#fff', fg: '#0d0d0d', border: on ? '#007ae8' : '#e6e6e6', pick: () => this.setForm({ time: i }) }; }),
+      fields: fieldsDef.map(x => ({ ...x, value: f[x.k], border: f.touched && !x.ok ? '#b42318' : '#e6e6e6', err: f.touched && !x.ok ? x.msg : '', change: (e) => this.setForm({ [x.k]: e.target.value }) })),
+      formSummary: f.stage === 5 ? slotText : (summaryBits.join(' · ') || 'About three minutes.'),
+      nextDisabled: f.stage === 5 ? false : !valid,
+      nextLabel: f.stage === 5 ? 'Request a consultation →' : 'Continue →',
+      formNext: () => {
+        if (f.stage === 5) { if (!valid) { this.setForm({ touched: true }); return; } this.setState({ done: true }); return; }
+        if (valid) this.setForm({ stage: f.stage + 1 });
+      },
+      doneText: `Thanks${f.name ? ', ' + f.name.split(' ')[0] : ''}. A calendar invite is on its way to ${f.email || 'your inbox'}. Your strategist will review your answers before the call.`,
+      doneSummary: [f.firm != null ? stageDefs[0].opts[f.firm].toUpperCase() : '', slotText.toUpperCase() + ' AEDT', (f.company || '').toUpperCase()].filter(Boolean).join('\n'),
+      formReset: () => this.setState({ done: false, form: { stage: 0, firm: null, team: null, prio: [], budget: null, day: null, time: null, name: '', email: '', company: '', touched: false } }),
+
+      segHref: '/who-we-work-with',
+      pairCounter: '0' + (S.pair + 1) + ' / 03',
+      pairResume: () => this.setState({ pairHold: false }),
+      pairs: [
+        ['Enquiries rise and fall with referral partners and market cycles.', 'High-intent search and social', 'Campaigns aimed at people looking for the services you offer, in the places you serve.'],
+        ['Clients take months to decide and often go quiet in between.', 'Nurture over a long decision', 'Email that keeps your firm in the conversation until the client is ready.'],
+        ['Skilled people lose hours each week to notes, data entry and follow-ups.', 'AI for repeat admin', 'Notes, document intake and follow-ups prepared by AI and checked by your team.']
+      ].map(([pain, title, desc], i) => { const on = S.pair === i; return { pain, title, desc, on, n: '0' + (i + 1), tag: on ? 'WHERE WE START' : 'THE CHALLENGE',
+        bg: on ? '#007ae8' : '#ffffff', fg: on ? '#ffffff' : '#0d0d0d', border: on ? '#007ae8' : '#e6e6e6', shadow: on ? '0 24px 60px -24px rgba(0,88,196,.55)' : 'var(--shadow-sm)', lift: on ? 'translateY(-6px)' : 'translateY(0)',
+        num: on ? '#ffffff' : '#007ae8', label: on ? '#ffffff' : '#63666b', glow: on ? 1 : 0, rows: on ? '1fr' : '0fr', solOpacity: on ? 1 : 0, solShift: on ? 'translateY(0)' : 'translateY(10px)', hintDisplay: on ? 'none' : 'block',
+        prog: on && !S.pairHold && !this.reduced ? '100%' : '0%', progDur: on && !S.pairHold && !this.reduced ? '6000ms' : '0ms',
+        pick: () => this.setState({ pair: i, pairHold: true }), hover: () => this.setState({ pair: i, pairHold: true }) }; }),
+      focusPoints: [
+        ['Your clients', 'Financial decisions take time and trust. We plan for long research periods and measure success in booked meetings, not clicks.'],
+        ['Your market', 'We know who you compete with online and how to stand out in a crowded, high-trust category.'],
+        ['Your systems', 'We know the tools and systems financial firms work with, so AI fits the way your team already works.'],
+        ['Your reputation', 'Calm, specific messaging that sounds like a firm people trust with their money.']
+      ].map(([title, body], i) => ({ title, body, n: '0' + (i + 1) })),
+      ...(() => {
+        const cf = S.cf, okEmail = /\S+@\S+\.\S+/.test(cf.email);
+        const errs = { name: cf.name.trim() ? '' : 'Please add your name.', email: okEmail ? '' : 'Please add a valid email.', phone: '', company: '' };
+        const defs = [['name', 'Name', 'text', 'name'], ['email', 'Work email', 'email', 'email'], ['phone', 'Phone (optional)', 'tel', 'tel'], ['company', 'Firm (optional)', 'text', 'organization']];
+        const swap = () => { const el = this.$('[data-cf]'); if (el && !this.reduced) el.animate([{ opacity: 0, transform: 'translateY(10px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' }); };
+        return {
+          cfOpen: !S.cfSent, cfSent: S.cfSent,
+          cfFields: defs.map(([key, label, type, ac]) => { const err = S.cfTried ? errs[key] : ''; return { key, label, type, ac, value: cf[key], err, border: err ? '#b42318' : '#e6e6e6', change: (e) => this.setState({ cf: { ...this.state.cf, [key]: e.target.value } }) }; }),
+          cfMessage: S.cfMessage, cfMessageChange: (e) => this.setState({ cfMessage: e.target.value }),
+          cfSubmit: (e) => { e.preventDefault(); if (errs.name || errs.email) { this.setState({ cfTried: true }); return; } this.setState({ cfSent: true }, () => setTimeout(swap, 0)); },
+          cfThanks: 'Thanks' + (cf.name ? ', ' + cf.name.trim().split(' ')[0] : '') + '. We have your enquiry.',
+          cfReset: () => this.setState({ cfSent: false, cfTried: false, cf: { name: '', email: '', phone: '', company: '' }, cfMessage: '' }, () => setTimeout(swap, 0))
+        };
+      })(),
+      footerCols: [
+                { head: 'AI FOR FINANCE', links: ['AI integration', 'Team training', 'AI Readiness Assessment'] },
+        { head: 'SERVICES', links: ['Paid media', 'Social media', 'Email & automation'] },
+        { head: 'FIRM', links: ['Approach', 'About', 'Privacy policy', 'Book a consultation'] }
+      ]
+    };
+  }
+}
 </script>
 </body>
 </html>

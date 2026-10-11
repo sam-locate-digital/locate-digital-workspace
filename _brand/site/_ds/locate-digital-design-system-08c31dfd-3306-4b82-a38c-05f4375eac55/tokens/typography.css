@@ -1,0 +1,45 @@
+:root {
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --weight-display: 800;   /* H1 / H2 only */
+  --weight-heading: 700;   /* H3 and below, eyebrows, buttons */
+  --weight-body: 400;
+  --weight-body-strong: 600;
+
+  --tracking-display: -0.025em;
+  --tracking-tight: -0.01em;
+  --tracking-eyebrow: 0.16em;
+  --tracking-mono: 0.06em;
+
+  --leading-display: 1.08;
+  --leading-body: 1.6;
+  --leading-slide-body: 1.5;
+
+  /* web / document scale (brand guidelines type scale) */
+  --type-eyebrow: 12px;
+  --type-h1: 42px;
+  --type-h2: 32px;
+  --type-h3: 21px;
+  --type-lead: 18px;
+  --type-body: 16px;
+  --type-small: 13.5px;
+
+  /* slide scale — authored at 1920x1080, never below 24px */
+  --slide-type-hero: 124px;
+  --slide-type-close: 110px;
+  --slide-type-quote: 92px;
+  --slide-type-title: 76px;
+  --slide-type-stat-hero: 228px;
+  --slide-type-stat: 150px;
+  --slide-type-stat-sm: 132px;
+  --slide-type-figure: 64px;
+  --slide-type-card-title: 42px;
+  --slide-type-item: 40px;
+  --slide-type-lead: 34px;
+  --slide-type-body: 30px;
+  --slide-type-small: 27px;
+  --slide-type-eyebrow: 24px;
+  --slide-type-mono: 24px;
+}

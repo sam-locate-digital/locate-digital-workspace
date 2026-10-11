@@ -1,0 +1,39 @@
+:root {
+  /* base palette — brand guidelines v1.0, unchanged */
+  --ld-blue: #007ae8;
+  --ld-blue-deep: #0058c4;
+  --ld-cyan: #75dfee;
+  --ld-orange: #ff5900;
+  --ld-orange-dark: #e34f00;
+  --ld-ink: #0d0d0d;
+  --ld-graphite: #1c1e22;
+  --ld-muted: #63666b;
+  --ld-line: #e6e6e6;
+  --ld-white: #ffffff;
+  --ld-bg-soft: #fbfcff;
+  --ld-row-alt: #f4f8fd;
+  --ld-tint: #dfeafa;
+  --ld-tint-line: #d9e6f4;
+
+  /* semantic aliases */
+  --text-body: var(--ld-ink);
+  --text-muted: var(--ld-muted);
+  --text-invert: var(--ld-white);
+  --text-brand: var(--ld-blue);
+  --text-accent: var(--ld-orange);
+
+  --surface-page: var(--ld-white);
+  --surface-soft: var(--ld-bg-soft);
+  --surface-card: var(--ld-white);
+  --surface-tint: var(--ld-tint);
+  --surface-row-alt: var(--ld-row-alt);
+
+  --border-default: var(--ld-line);
+  --border-strong: var(--ld-ink);
+  --border-tint: var(--ld-tint-line);
+
+  --brand: var(--ld-blue);
+  --brand-support: var(--ld-cyan);
+  --accent: var(--ld-orange);
+  --accent-on: var(--ld-white);
+}

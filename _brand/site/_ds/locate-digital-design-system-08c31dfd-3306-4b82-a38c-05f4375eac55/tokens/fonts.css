@@ -1,0 +1,3 @@
+/* Locate Digital webfonts. No binaries were supplied with the brand guidelines,
+   so both families are loaded from Google Fonts at the weights the guidelines specify. */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
