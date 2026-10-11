@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/enquiry.js"></script>
 </head>
 <body>
 <x-dc>
@@ -60,7 +61,8 @@
               <span>How can we help?</span>
               <textarea name="message" rows="6" value="{{ message }}" onChange="{{ setMessage }}" style="padding: 14px 16px; border-radius: 12px; border: 1.5px solid #e6e6e6; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.5; color: #0d0d0d; outline: none; resize: vertical;" style-focus="border-color: #007ae8; background: #fff;"></textarea>
             </label>
-                        <div style="margin-top: 4px; padding-top: 18px; border-top: 1px solid #e6e6e6; display: flex; justify-content: flex-end;">
+                        <div style="margin-top: 4px; padding-top: 18px; border-top: 1px solid #e6e6e6; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+              <span role="status" style="font-size: 13px; color: {{ noteInk }}; max-width: 300px;">{{ note }}</span>
               <span onClick="{{ submit }}" style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
                 <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="lg" type="button" hint-size="220px,56px">Send enquiry →</x-import>
               </span>
@@ -87,7 +89,7 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   cardRef = React.createRef();
-  state = { d: { name: '', email: '', phone: '', company: '' }, message: '', tried: false, sent: false };
+  state = { d: { name: '', email: '', phone: '', company: '' }, message: '', tried: false, sent: false, sending: false, error: false };
   renderVals() {
     const S = this.state, d = S.d, okEmail = /\S+@\S+\.\S+/.test(d.email);
     const errs = { name: d.name.trim() ? '' : 'Please add your name.', email: okEmail ? '' : 'Please add a valid email.', phone: '', company: '' };
@@ -98,7 +100,14 @@ class Component extends DCLogic {
       notes: [].map((t, i) => ({ t, n: '0' + (i + 1) })),
       fields: defs.map(([key, label, type, ac]) => { const err = S.tried ? errs[key] : ''; return { key, label, type, ac, value: d[key], err, border: err ? '#b42318' : '#e6e6e6', change: (e) => this.setState({ d: { ...this.state.d, [key]: e.target.value } }) }; }),
       message: S.message, setMessage: (e) => this.setState({ message: e.target.value }),
-      submit: (e) => { e && e.preventDefault && e.preventDefault(); if (errs.name || errs.email) { this.setState({ tried: true }); return; } this.setState({ sent: true }, () => setTimeout(swap, 0)); },
+      note: S.sending ? 'Sending…' : S.error ? 'Sorry, that did not send. Please try again or email sam@locatedigital.io.' : 'We reply within one business day.',
+      noteInk: S.error ? '#b42318' : '#3d4045',
+      submit: (e) => { e && e.preventDefault && e.preventDefault(); if (S.sending) return; if (errs.name || errs.email) { this.setState({ tried: true }); return; }
+        this.setState({ sending: true, error: false });
+        const from = new URLSearchParams(location.search).get('from');
+        window.sendEnquiry('Consultation page' + (from ? ' (from ' + from + ')' : ''), d, S.message)
+          .then(() => this.setState({ sending: false, sent: true }, () => setTimeout(swap, 0)))
+          .catch(() => this.setState({ sending: false, error: true })); },
       thanks: 'Thanks' + (d.name ? ', ' + d.name.trim().split(' ')[0] : '') + '. We have your enquiry.'
     };
   }

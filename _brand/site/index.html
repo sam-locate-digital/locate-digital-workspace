@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/enquiry.js"></script>
 </head>
 <body>
 <x-dc>
@@ -402,7 +403,7 @@
               <textarea name="message" rows="5" value="{{ cfMessage }}" onChange="{{ cfMessageChange }}" style="padding: 14px 16px; border-radius: 12px; border: 1.5px solid #e6e6e6; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.5; color: #0d0d0d; outline: none; resize: vertical; transition: border-color 160ms ease, background 160ms ease;" style-focus="border-color: #007ae8; background: #fff;"></textarea>
             </label>
             <div style="margin-top: 6px; padding-top: 18px; border-top: 1px solid #e6e6e6; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
-              <span style="font-size: 13px; color: #3d4045; max-width: 280px;">We reply within one business day.</span>
+              <span role="status" style="font-size: 13px; color: {{ cfNoteInk }}; max-width: 280px;">{{ cfNote }}</span>
               <span onClick="{{ cfSubmit }}" style="display: inline-flex; transition: transform 120ms ease-out;" style-active="transform: scale(.97);">
                 <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="md" type="button" hint-size="200px,52px">Send enquiry →</x-import>
               </span>
@@ -434,7 +435,7 @@ class Component extends DCLogic {
     loopsPaused: false, railX: 0, railMin: 0,
     form: { stage: 0, firm: null, team: null, prio: [], budget: null, day: null, time: null, name: '', email: '', company: '', touched: false },
     done: false,
-    cf: { name: '', email: '', phone: '', company: '' }, cfMessage: '', cfTried: false, cfSent: false
+    cf: { name: '', email: '', phone: '', company: '' }, cfMessage: '', cfTried: false, cfSent: false, cfSending: false, cfError: false
   };
   CITY = { Melbourne: [144.96, -37.81], Parramatta: [151.0, -33.82], Geelong: [144.36, -38.15], Brisbane: [153.03, -27.47], Perth: [115.86, -31.95], Adelaide: [138.6, -34.93], 'Gold Coast': [153.4, -28.0], Hobart: [147.33, -42.88], Canberra: [149.13, -35.28], Newcastle: [151.78, -32.93], Townsville: [146.82, -19.26], Darwin: [130.84, -12.46] };
   SIG = [
@@ -1204,7 +1205,13 @@ void main(){
           cfOpen: !S.cfSent, cfSent: S.cfSent,
           cfFields: defs.map(([key, label, type, ac]) => { const err = S.cfTried ? errs[key] : ''; return { key, label, type, ac, value: cf[key], err, border: err ? '#b42318' : '#e6e6e6', change: (e) => this.setState({ cf: { ...this.state.cf, [key]: e.target.value } }) }; }),
           cfMessage: S.cfMessage, cfMessageChange: (e) => this.setState({ cfMessage: e.target.value }),
-          cfSubmit: (e) => { e.preventDefault(); if (errs.name || errs.email) { this.setState({ cfTried: true }); return; } this.setState({ cfSent: true }, () => setTimeout(swap, 0)); },
+          cfNote: S.cfSending ? 'Sending…' : S.cfError ? 'Sorry, that did not send. Please try again or email sam@locatedigital.io.' : 'We reply within one business day.',
+          cfNoteInk: S.cfError ? '#b42318' : '#3d4045',
+          cfSubmit: (e) => { e.preventDefault(); if (S.cfSending) return; if (errs.name || errs.email) { this.setState({ cfTried: true }); return; }
+            this.setState({ cfSending: true, cfError: false });
+            window.sendEnquiry('Homepage', cf, S.cfMessage)
+              .then(() => this.setState({ cfSending: false, cfSent: true }, () => setTimeout(swap, 0)))
+              .catch(() => this.setState({ cfSending: false, cfError: true })); },
           cfThanks: 'Thanks' + (cf.name ? ', ' + cf.name.trim().split(' ')[0] : '') + '. We have your enquiry.',
           cfReset: () => this.setState({ cfSent: false, cfTried: false, cf: { name: '', email: '', phone: '', company: '' }, cfMessage: '' }, () => setTimeout(swap, 0))
         };
