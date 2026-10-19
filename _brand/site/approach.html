@@ -68,7 +68,7 @@
       <div style="display: flex; flex-direction: column; gap: clamp(48px, 6vw, 88px); grid-column: {{ contentCol }};">
         <sc-for list="{{ stages }}" as="s" hint-placeholder-count="4">
           <article id="{{ s.id }}" data-stage="{{ s.i }}" style="scroll-margin-top: 100px;">
-            <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">STAGE {{ s.n }} · {{ s.when }}</div>
+            <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Stage {{ s.n }} · {{ s.when }}</div>
             <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d;">{{ s.t }}</h2>
             <p style="margin: 16px 0 0; max-width: 620px; font-size: 17px; color: #2b2e33; text-wrap: pretty;">{{ s.d }}</p>
             <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px;">

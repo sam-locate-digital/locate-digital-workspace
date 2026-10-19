@@ -155,7 +155,7 @@
       <div ref="{{ qRef }}" style="margin-top: 32px; border-radius: 20px; background: rgba(255,255,255,.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); padding: clamp(22px, 4vw, 40px);">
         <sc-if value="{{ asking }}" hint-placeholder-val="{{ true }}">
           <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: #3d4045;">
-            <span>QUESTION {{ qNum }} OF {{ qTotal }}</span>
+            <span>Question {{ qNum }} of {{ qTotal }}</span>
           </div>
           <div style="margin-top: 12px; height: 4px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><div style="height: 100%; width: {{ progress }}; background: #007ae8; border-radius: 999px; transition: width 400ms cubic-bezier(.2,.8,.2,1);"></div></div>
           <h3 style="margin: 26px 0 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.25;">{{ q.q }}</h3>
