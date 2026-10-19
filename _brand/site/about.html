@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 </head>
 <body>
 <x-dc>
@@ -20,8 +21,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -53,7 +58,7 @@
   <section data-screen-label="03 Story" style="background: #fbfcff; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(28px, 5vw, 72px);">
       <div>
-        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WHY FINANCE</div>
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Why finance</div>
         <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">Why we chose to specialise.</h2>
       </div>
       <div style="display: flex; flex-direction: column; gap: 18px; font-size: 17px; color: #2b2e33;">
@@ -67,7 +72,7 @@
   <section data-screen-label="04 Principles" style="position: relative; overflow: hidden; isolation: isolate; background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <dc-import name="Ambient" mode="bubbles" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 40%; height: 120%; opacity: .42; pointer-events: none;" hint-size="40%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">OPERATING PRINCIPLES</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Operating principles</div>
       <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">How we work, written down.</h2>
       <div style="margin-top: 40px; display: flex; flex-direction: column;">
         <sc-for list="{{ principles }}" as="p" hint-placeholder-count="6">
@@ -83,7 +88,7 @@
 
 
 
-  <dc-import name="Closing CTA" eyebrow="MEET THE FIRM" title-a="See if we are the" title-b="right fit" title-c=" for your firm." hint-size="100%,520px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="Meet the firm" title-a="See if we are the" title-b="right fit" title-c=" for your firm." hint-size="100%,520px"></dc-import>
   <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>
@@ -109,12 +114,12 @@ class Component extends DCLogic {
         ['You own everything', 'Accounts, data, creative and automations are set up in your firm’s name from day one.'],
         ['A person stays in charge', 'AI prepares and drafts. Your licensed people make the decisions.'],
         ['Fewer clients, done properly', 'We keep our client list small enough to know each firm well.']
-      ].map(([t, d], i) => ({ t, d, n: '0' + (i + 1) })),
+      ].map(([t, d], i) => ({ t, d, n: String(i + 1) })),
       data: [],
       creds: [
         { k: 'ABN', v: '26 531 883 132', note: 'Check on the Australian Business Register.' },
-                { k: 'GOOGLE', v: '[Google Partner status]', note: 'Include only if currently held.' },
-        { k: 'META', v: '[Meta Business Partner status]', note: 'Include only if currently held.' }
+                { k: 'Google', v: '[Google Partner status]', note: 'Include only if currently held.' },
+        { k: 'Meta', v: '[Meta Business Partner status]', note: 'Include only if currently held.' }
       ]
     };
   }

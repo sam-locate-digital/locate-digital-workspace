@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 </head>
 <body>
 <x-dc>
@@ -20,8 +21,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 136px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -39,7 +44,7 @@
   <section data-screen-label="01 Hero" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(60% 80% at 90% 0%, #dfeafa 0%, rgba(223,234,250,0) 70%), #fbfcff; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px) clamp(48px, 6vw, 72px);">
     <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; right: -10%; top: -26%; width: 54%; height: 150%; opacity: .75; pointer-events: none;" hint-size="54%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;"><span>MARKETING</span><span style="color: #3d4045;">PAID ADS · CRO · EMAIL</span></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;"><span>Marketing</span><span style="color: #3d4045;">Paid ads · CRO · Email</span></div>
       <h1 style="margin: 18px 0 0; max-width: 840px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(40px, 6vw, 80px); color: #0d0d0d; text-wrap: balance;">Marketing measured in <span style="color: #0058c4;">booked</span> meetings.</h1>
       <p style="margin: 22px 0 0; max-width: 620px; font-size: clamp(16px, 1.3vw, 18px); color: #2b2e33; text-wrap: pretty;">Three services, each run by a senior specialist, inside accounts your firm owns, and reported on in plain English every month.</p>
     </div>
@@ -47,7 +52,7 @@
 
   <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
     <section id="{{ s.id }}" data-svc="{{ s.i }}" data-screen-label="{{ s.label }}" style="position: relative; overflow: hidden; isolation: isolate; background: {{ s.bg }}; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px);">
-      <dc-import name="Ambient" mode="bubbles" flip="{{ s.flip }}" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 40%; height: 120%; opacity: .42; pointer-events: none;" hint-size="40%,100%"></dc-import>
+      <dc-import name="Ambient" mode="{{ s.mode }}" flip="{{ s.flip }}" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 40%; height: 120%; opacity: .42; pointer-events: none;" hint-size="40%,100%"></dc-import>
       <div style="max-width: 1180px; margin: 0 auto;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(28px, 5vw, 72px); align-items: start;">
           <div>
@@ -57,7 +62,7 @@
             <div style="margin-top: 26px; display: flex;"><x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="ink" href="{{ s.page }}" hint-size="220px,52px">{{ s.btnLabel }}</x-import></div>
           </div>
           <div style="border-radius: 20px; background: rgba(255,255,255,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm); padding: clamp(22px, 3vw, 32px);">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT IS INCLUDED</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">What is included</div>
             <div style="margin-top: 8px; display: flex; flex-direction: column;">
               <sc-for list="{{ s.incl }}" as="x" hint-placeholder-count="5">
                 <div style="display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eef1f5;">
@@ -70,15 +75,15 @@
         </div>
         <div style="margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px;">
           <div style="padding-top: 18px; border-top: 2px solid #0d0d0d;">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHO IT SUITS</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">Who it suits</div>
             <p style="margin: 10px 0 0; font-size: 15px; color: #2b2e33; text-wrap: pretty;">{{ s.comp }}</p>
           </div>
           <div style="padding-top: 18px; border-top: 2px solid #0d0d0d;">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT WE REPORT</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">What we report</div>
             <p style="margin: 10px 0 0; font-size: 15px; color: #2b2e33; text-wrap: pretty;">{{ s.report }}</p>
           </div>
           <div style="padding-top: 18px; border-top: 2px solid #0d0d0d;">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WORKS WITH AI</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">Works with AI</div>
             <p style="margin: 10px 0 0; font-size: 15px; color: #2b2e33; text-wrap: pretty;">{{ s.ai }}</p>
           </div>
         </div>
@@ -111,7 +116,7 @@
     </div>
   </section>
 
-  <dc-import name="Closing CTA" eyebrow="MARKETING" title-a="Find out which service will" title-b="move first" title-c=" for your firm." hint-size="100%,520px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="Marketing" title-a="Find out which service will" title-b="move first" title-c=" for your firm." hint-size="100%,520px"></dc-import>
   <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>
@@ -127,35 +132,35 @@ class Component extends DCLogic {
     const A = this.state.active;
     const AIL = '/ai';
     const D = [
-      { id: 'paid', tag: 'PAID ADS', label: 'Paid Ads',
+      { id: 'paid', tag: 'Paid ads', label: 'Paid Ads',
         headline: 'Google, Meta and LinkedIn campaigns, run as one plan.',
         lead: 'Search captures people looking for what you offer, social builds familiarity, and LinkedIn reaches decision-makers.',
-        platforms: ['GOOGLE SEARCH', 'PERFORMANCE MAX', 'META', 'LINKEDIN'],
+        platforms: ['Google Search', 'Performance Max', 'Meta', 'LinkedIn'],
         incl: [['Google Ads', 'Search and Performance Max for high-intent enquiries.'], ['Meta Ads', 'Facebook and Instagram campaigns that build familiarity.'], ['LinkedIn Ads', 'Targeting by role, industry and seniority.'], ['One budget, one report', 'Spend moves to the platform bringing in the best enquiries.']],
         comp: 'Firms that want a steady flow of new enquiries beyond referrals, from people actively looking for their services.',
         report: 'Qualified enquiries, cost per enquiry and meetings booked, by platform and campaign.',
         ai: 'Enquiries from every platform can flow into an AI triage workflow so the right person replies quickly.' },
-      { id: 'cro', tag: 'CONVERSION RATE OPTIMISATION', label: 'CRO',
+      { id: 'cro', tag: 'Conversion rate optimisation', label: 'CRO',
         headline: 'Turn more of your visitors into enquiries.',
         lead: 'We find where people drop off between landing on your site and getting in touch, then fix it. Clearer pages, simpler forms and faster load times mean more enquiries from the same spend.',
-        platforms: ['LANDING PAGES', 'FORMS', 'A/B TESTING', 'ANALYTICS'],
+        platforms: ['Landing pages', 'Forms', 'A/B testing', 'Analytics'],
         incl: [['Conversion audit', 'Analytics, heatmaps and session recordings reviewed.'], ['Landing pages', 'Designed and written for each campaign and service.'], ['Form and booking flow', 'Fewer fields, clearer steps, faster responses.'], ['Testing program', 'One clear test at a time, measured properly.']],
         comp: 'Firms already getting website traffic that want more of it to turn into enquiries.',
         report: 'Conversion rate by page and source, and the change in enquiries from each test.',
         ai: 'AI chat or booking assistants can be added where they help, with clear limits on what they can say.' },
-      { id: 'email', tag: 'EMAIL MARKETING', label: 'Email Marketing',
+      { id: 'email', tag: 'Email marketing', label: 'Email Marketing',
         headline: 'Stay in touch until clients are ready.',
         lead: 'Financial decisions take time. Email keeps your firm in the conversation between first contact and signed engagement, and brings existing clients back for reviews and new services.',
-        platforms: ['MAILCHIMP', 'ACTIVECAMPAIGN', 'HUBSPOT'],
+        platforms: ['Mailchimp', 'ActiveCampaign', 'HubSpot'],
         incl: [['Platform set-up', 'Lists, consent and integration with the tools you use.'], ['Nurture sequences', 'For new enquiries, event registrants and unfinished applications.'], ['Client newsletters', 'Regular, useful updates that start review conversations.'], ['Trigger-based emails', 'Review dates, EOFY and other key moments.']],
         comp: 'Firms with long decision cycles or a client base they want to keep engaged between meetings.',
         report: 'Meetings booked from email, plus list growth and engagement by segment.',
         ai: 'AI personalises messages within templates and rules your team approves.' }
     ];
     return {
-      jump: D.map((d, i) => { const on = i === A; return { label: d.label, href: '#' + d.id, n: '0' + (i + 1), bg: on ? '#0d0d0d' : '#fff', color: on ? '#fff' : '#0d0d0d', border: on ? '#0d0d0d' : '#e6e6e6' }; }),
-      services: D.map((d, i) => ({ ...d, i, page: {"paid":"/paid-ads","cro":"/cro","email":"/email-marketing"}[d.id], n: '0' + (i + 1), bg: i % 2 ? '#fbfcff' : '#fff', flip: i % 2 === 1, label: '0' + (i + 1) + ' ' + d.label, name: d.label, btnLabel: 'Explore ' + d.label + ' →',
-        incl: d.incl.map(([t, x], j) => ({ t, d: x, n: '0' + (j + 1) })) }))
+      jump: D.map((d, i) => { const on = i === A; return { label: d.label, href: '#' + d.id, n: String(i + 1), bg: on ? '#0d0d0d' : '#fff', color: on ? '#fff' : '#0d0d0d', border: on ? '#0d0d0d' : '#e6e6e6' }; }),
+      services: D.map((d, i) => ({ ...d, i, page: {"paid":"/paid-ads","cro":"/cro","email":"/email-marketing"}[d.id], n: String(i + 1), bg: i % 2 ? '#fbfcff' : '#fff', flip: i % 2 === 1, mode: ['bubbles', 'glass', 'caustic'][i % 3], label: String(i + 1) + ' ' + d.label, name: d.label, btnLabel: 'Explore ' + d.label + ' →',
+        incl: d.incl.map(([t, x], j) => ({ t, d: x, n: String(j + 1) })) }))
     };
   }
 }

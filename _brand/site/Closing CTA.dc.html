@@ -25,7 +25,7 @@ class Component extends DCLogic {
   renderVals() {
     const P = this.props;
     return {
-      eyebrow: P.eyebrow ?? 'NEXT STEP',
+      eyebrow: P.eyebrow ?? 'Next step',
       titleA: P.titleA ?? 'Talk to a senior strategist about', titleB: P.titleB ?? 'your firm', titleC: P.titleC ?? '.',
       lead: P.lead ?? 'A short, private conversation about where your enquiries come from today, where AI could save your team time, and what we would do first.',
       btnProps: { variant: (P.primary ?? true) ? 'primary' : 'secondary', size: 'lg', href: '/consultation' }

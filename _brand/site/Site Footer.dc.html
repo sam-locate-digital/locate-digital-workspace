@@ -23,7 +23,7 @@
     </sc-for>
   </div>
   <div style="max-width: 1180px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid #2a2d31; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; color: #8d9096;">
-    <span>© 2026 LOCATE DIGITAL · ABN 26 531 883 132</span>
+    <span>© 2026 Locate Digital · ABN 26 531 883 132</span>
   </div>
 </footer>
 </x-dc>
@@ -32,10 +32,10 @@ class Component extends DCLogic {
   renderVals() {
     const L = (label, href) => ({ label, href });
     return { cols: [
-      { head: 'MARKETING', links: [L('Paid Ads', '/paid-ads'), L('CRO', '/cro'), L('Email Marketing', '/email-marketing')] },
+      { head: 'Marketing', links: [L('Paid Ads', '/paid-ads'), L('CRO', '/cro'), L('Email Marketing', '/email-marketing')] },
       { head: 'AI', links: [L('AI Integrations and Training', '/ai-integrations-and-training'), L('AI Readiness Assessment', '/ai#assessment'), L('AI overview', '/ai')] },
-      { head: 'FIRM', links: [L('Who we work with', '/who-we-work-with'), L('Approach', '/approach'), L('About', '/about'), L('Privacy policy', '/privacy')] },
-      { head: 'CONTACT', links: [L('Request a consultation', '/consultation')] }
+      { head: 'Firm', links: [L('Who we work with', '/who-we-work-with'), L('Approach', '/approach'), L('About', '/about'), L('Privacy policy', '/privacy')] },
+      { head: 'Contact', links: [L('Request a consultation', '/consultation')] }
     ] };
   }
 }

@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 </head>
 <body>
 <x-dc>
@@ -20,8 +21,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -35,7 +40,7 @@
 <div style="min-width: 320px;">
   <dc-import name="Site Nav" active="Marketing" cta-primary="{{ false }}" style="position: sticky; top: 0; z-index: 50;" hint-size="100%,68px"></dc-import>
   <dc-import name="Service Detail" service="paid" hint-size="100%,2400px"></dc-import>
-  <dc-import name="Closing CTA" eyebrow="PAID ADS" title-a="Talk to a strategist about" title-b="your next enquiries" title-c="." hint-size="100%,520px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="Paid ads" title-a="Talk to a strategist about" title-b="your next enquiries" title-c="." hint-size="100%,520px"></dc-import>
   <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>

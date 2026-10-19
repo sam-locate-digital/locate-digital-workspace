@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 </head>
 <body>
 <x-dc>
@@ -20,8 +21,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -31,6 +36,8 @@
     a:focus-visible, button:focus-visible { outline: 2px solid #007ae8; outline-offset: 3px; border-radius: 8px; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 1ms !important; } }
   </style>
+  <style>.ld-results { grid-template-columns: repeat(4, minmax(0, 1fr)); } @media (max-width: 1040px) { .ld-results { grid-template-columns: repeat(2, minmax(0, 1fr)); } } @media (max-width: 560px) { .ld-results { grid-template-columns: minmax(0, 1fr); } }</style>
+  <style>.ld-brush { clip-path: inset(-50% 100% -50% 0); animation: ld-brush .75s cubic-bezier(.7,0,.2,1) .9s forwards; } @keyframes ld-brush { to { clip-path: inset(-50% 0 -50% 0); } } @media (prefers-reduced-motion: reduce) { .ld-brush { animation: none; clip-path: none; } }</style>
 </helmet>
 
 <div style="min-width: 320px; overflow-x: clip;">
@@ -39,20 +46,19 @@
   <section data-screen-label="01 Hero" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(55% 75% at 92% 10%, #dfeafa 0%, rgba(223,234,250,0) 70%), radial-gradient(40% 50% at 0% 100%, rgba(117,223,238,.2) 0%, rgba(117,223,238,0) 70%), #fbfcff; padding: clamp(72px, 9vw, 128px) clamp(20px, 4vw, 40px) clamp(64px, 8vw, 104px);">
     <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; right: -8%; top: -18%; width: 58%; height: 136%; opacity: .85; pointer-events: none;" hint-size="58%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;"><span>AI INTEGRATION</span></div>
-      <h1 style="margin: 18px 0 0; max-width: 860px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(42px, 6.4vw, 88px); color: #0d0d0d; text-wrap: balance;">Practical AI your team will <span style="color: #0058c4;">actually</span> use.</h1>
-      <p style="margin: 24px 0 0; max-width: 620px; font-size: clamp(16px, 1.35vw, 18.5px); color: #2b2e33; text-wrap: pretty;">We set up your firm’s operating system on Claude, connected to the tools you already use and simple enough for anyone on your team to pick up.</p>
+      <h1 style="margin: 0; max-width: 860px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(42px, 6.4vw, 88px); color: #0d0d0d; text-wrap: balance;">Practical AI your team will <span style="position: relative; display: inline-block; white-space: nowrap; color: #0058c4;">actually<svg class="ld-brush" aria-hidden="true" viewBox="0 0 200 28" preserveAspectRatio="none" style="position: absolute; left: -5%; bottom: -0.26em; width: 110%; height: 0.44em; overflow: visible; pointer-events: none;"><path d="M3 19 C 28 11, 96 5, 190 2 C 196 1, 200 4, 197 8 C 186 10, 120 13, 60 17 C 38 19, 18 21, 9 25 C 3 27, 0 22, 3 19 Z" fill="#007ae8"></path></svg></span> use.</h1>
+      <p style="margin: 24px 0 0; max-width: 620px; font-size: clamp(16px, 1.35vw, 18.5px); color: #2b2e33; text-wrap: pretty;">No technical background needed. We set AI up inside the tools your team already uses, then train every person in plain English, so your firm gets hours back each week.</p>
       <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px;">
         <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="lg" href="#assessment" hint-size="320px,60px">Take the AI Readiness Assessment →</x-import>
         <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="ghost" size="lg" href="/consultation" style="background: rgba(255,255,255,.6);" hint-size="240px,60px">Request a consultation</x-import>
       </div>
-      <div style="margin-top: 22px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; color: #3d4045;">10 QUESTIONS · ABOUT 5 MINUTES · RESULTS ON SCREEN</div>
+      <div style="margin-top: 22px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; color: #3d4045;">10 questions · About 5 minutes · Results on screen</div>
     </div>
   </section>
 
   <section data-screen-label="02 Pillars" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WHAT WE DO</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">What we do</div>
       <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">Three ways we put AI to work in a finance firm.</h2>
       <div style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px;">
         <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
@@ -72,32 +78,33 @@
 
   <section data-screen-label="03 Workflows" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <dc-import name="Ambient" mode="bubbles" style="position: absolute; z-index: -1; left: -8%; top: -10%; width: 40%; height: 120%; opacity: .4; pointer-events: none;" hint-size="40%,100%"></dc-import>
-    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
+    <div ref="{{ wfBoxRef }}" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
       <div>
-        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">EXAMPLE WORKFLOWS</div>
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Example workflows</div>
         <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">Small, well-defined jobs. Reviewed by a person.</h2>
         <p style="margin: 16px 0 0; max-width: 460px; font-size: 16px; color: #3d4045; text-wrap: pretty;">We start with one workflow that saves real time each week, prove it with your team, then extend.</p>
         <div role="tablist" aria-label="Workflow" style="margin-top: 28px; display: flex; flex-direction: column; gap: 8px;">
           <sc-for list="{{ wfTabs }}" as="w" hint-placeholder-count="4">
-            <button role="tab" aria-selected="{{ w.on }}" onClick="{{ w.pick }}" style="text-align: left; min-height: 56px; padding: 12px 18px; border-radius: 14px; border: 1px solid {{ w.border }}; background: {{ w.bg }}; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 15.5px; letter-spacing: -0.01em; color: #0d0d0d; box-shadow: {{ w.shadow }}; transition: background 180ms ease, box-shadow 180ms ease;"><span>{{ w.t }}</span><span style="font-family: var(--font-mono); font-weight: 400; font-size: 11px; color: #3d4045;">{{ w.seg }}</span></button>
+            <button role="tab" aria-selected="{{ w.on }}" onClick="{{ w.pick }}" style="position: relative; overflow: hidden; text-align: left; min-height: 56px; padding: 12px 18px; border-radius: 14px; border: 1px solid {{ w.border }}; background: {{ w.bg }}; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 15.5px; letter-spacing: -0.01em; color: #0d0d0d; box-shadow: {{ w.shadow }}; transition: background 180ms ease, box-shadow 180ms ease;"><span>{{ w.t }}</span><span style="font-family: var(--font-mono); font-weight: 400; font-size: 11px; color: #3d4045;">{{ w.seg }}</span><span data-wf-bar aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #007ae8; transform-origin: left center; transform: scaleX(0); pointer-events: none;"></span></button>
           </sc-for>
         </div>
       </div>
       <div style="border-radius: 16px; background: #fff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); overflow: hidden;">
         <div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #f4f8fd; border-bottom: 1px solid #e6e6e6;">
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #e6e6e6;"></span>
-          <span style="margin-left: 10px; flex: 1; height: 24px; border-radius: 999px; background: #fff; border: 1px solid #e6e6e6; display: flex; align-items: center; padding: 0 12px; font-family: var(--font-mono); font-size: 11px; color: #3d4045; overflow: hidden; white-space: nowrap;">workflows.yourfirm.com.au/{{ wf.slug }}</span>
+          <span style="margin-left: 10px; flex: 1; height: 24px; border-radius: 999px; background: #fff; border: 1px solid #e6e6e6; display: flex; align-items: center; padding: 0 12px; font-family: var(--font-body); font-size: 11px; color: #3d4045; overflow: hidden; white-space: nowrap;">workflows.yourfirm.com.au/{{ wf.slug }}</span>
         </div>
         <div ref="{{ wfRef }}" style="padding: clamp(20px, 3vw, 28px);">
           <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline;">
-            <div style="font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em;">{{ wf.t }}</div>
+            <div data-wf-title style="font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em;">{{ wf.t }}</div>
           </div>
-          <div style="margin-top: 20px; display: flex; flex-direction: column;">
+          <div style="position: relative; margin-top: 20px; display: flex; flex-direction: column;">
+            <span aria-hidden="true" style="position: absolute; left: 13px; top: 34px; bottom: 34px; width: 2px; border-radius: 2px; background: #eef1f5;"><span data-wf-line style="position: absolute; inset: 0; border-radius: 2px; background: #007ae8; transform-origin: top center; transform: scaleY(0);"></span></span>
             <sc-for list="{{ wf.steps }}" as="st" hint-placeholder-count="5">
-              <div style="display: grid; grid-template-columns: 28px 1fr auto; gap: 14px; align-items: center; padding: 13px 0; border-top: 1px solid #eef1f5;">
-                <span style="width: 28px; height: 28px; border-radius: 50%; background: {{ st.dot }}; color: {{ st.dotInk }}; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px;">{{ st.n }}</span>
-                <div><div style="font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">{{ st.t }}</div><div style="font-size: 13.5px; color: #3d4045;">{{ st.d }}</div></div>
-                <span style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; color: {{ st.tagInk }};">{{ st.tag }}</span>
+              <div data-wf-row style="display: grid; grid-template-columns: 28px 1fr auto; gap: 14px; align-items: center; padding: 13px 0; border-top: 1px solid #eef1f5;">
+                <span data-wf-dot style="position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; background: #fff; color: {{ st.ink }}; display: flex; align-items: center; justify-content: center; font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: 18px;">{{ st.n }}</span>
+                <div data-wf-text><div style="font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">{{ st.t }}</div><div style="font-size: 13.5px; color: #3d4045;">{{ st.d }}</div></div>
+                <span data-wf-tag style="font-family: 'Newsreader', Georgia, serif; font-size: 16px; white-space: nowrap; color: {{ st.ink }};">{{ st.tag }}</span>
               </div>
             </sc-for>
           </div>
@@ -106,9 +113,26 @@
     </div>
   </section>
 
-  <section data-screen-label="04 Principles" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+  <section data-screen-label="04 Results" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">HOW WE WORK</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">What changes</div>
+      <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">What you get back.</h2>
+      <p style="margin: 16px 0 0; font-size: 16px; color: #3d4045; text-wrap: pretty;">You don’t need to understand how AI works to benefit from it. These are the changes firms notice first.</p>
+      <div class="ld-results" style="margin-top: 40px; display: grid; gap: 20px;">
+        <sc-for list="{{ results }}" as="r" hint-placeholder-count="4">
+          <div style="padding: 24px; border-radius: 16px; background: #fff; border: 1px solid #e6e6e6;">
+            <div style="font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; font-size: 34px; line-height: 1; color: #007ae8;">{{ r.fig }}</div>
+            <div style="margin-top: 6px; font-size: 13px; color: #3d4045;">{{ r.figNote }}</div>
+            <h3 style="margin: 20px 0 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 19px; line-height: 1.25;">{{ r.t }}</h3>
+            <p style="margin: 10px 0 0; font-size: 15px; color: #3d4045; text-wrap: pretty;">{{ r.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section data-screen-label="05 Principles" style="background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">How we work</div>
       <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">Practical, measured and built around your team.</h2>
       <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px 24px;">
         <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
@@ -124,7 +148,7 @@
   <section id="assessment" data-screen-label="05 Assessment" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(60% 80% at 100% 0%, #dfeafa 0%, rgba(223,234,250,0) 70%), #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <dc-import name="Ambient" mode="glass" flip="{{ true }}" style="position: absolute; z-index: -1; left: -14%; bottom: -26%; width: 50%; height: 110%; opacity: .6; pointer-events: none;" hint-size="50%,100%"></dc-import>
     <div style="max-width: 860px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">AI READINESS ASSESSMENT</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">AI readiness assessment</div>
       <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">How ready is your firm for AI?</h2>
       <p style="margin: 14px 0 0; max-width: 560px; font-size: 16px; color: #3d4045;">Ten questions about how your team works today. Your score and recommendations appear on screen. Nothing is sent until you choose to book.</p>
 
@@ -151,16 +175,16 @@
             <div style="display: flex; align-items: center; gap: 22px;">
               <div style="position: relative; width: 132px; height: 132px; flex: none;">
                 <svg viewBox="0 0 120 120" width="132" height="132" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#eef1f5" stroke-width="10"></circle><circle cx="60" cy="60" r="52" fill="none" stroke="#007ae8" stroke-width="10" stroke-linecap="round" stroke-dasharray="{{ ringDash }}" transform="rotate(-90 60 60)" style="transition: stroke-dasharray 900ms cubic-bezier(.2,.8,.2,1);"></circle></svg>
-                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;"><span style="font-family: var(--font-display); font-weight: 800; font-size: 38px; letter-spacing: -0.03em; line-height: 1;">{{ score }}</span><span style="font-family: var(--font-mono); font-size: 10.5px; color: #3d4045;">OUT OF 100</span></div>
+                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;"><span style="font-family: var(--font-display); font-weight: 800; font-size: 38px; letter-spacing: -0.03em; line-height: 1;">{{ score }}</span><span style="font-family: var(--font-mono); font-size: 10.5px; color: #3d4045;">Out of 100</span></div>
               </div>
               <div>
-                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #0058c4;">YOUR RESULT</div>
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #0058c4;">Your result</div>
                 <div style="margin-top: 6px; font-family: var(--font-display); font-weight: 800; font-size: 26px; letter-spacing: -0.02em; line-height: 1.15;">{{ band.t }}</div>
               </div>
             </div>
             <p style="margin: 0; font-size: 15.5px; color: #2b2e33; text-wrap: pretty;">{{ band.d }}</p>
           </div>
-          <div style="margin-top: 28px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHERE WE WOULD START</div>
+          <div style="margin-top: 28px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">Where we would start</div>
           <div style="margin-top: 10px; display: flex; flex-direction: column;">
             <sc-for list="{{ recs }}" as="r" hint-placeholder-count="3">
               <div style="display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 6px 20px; padding: 14px 0; border-top: 1px solid #eef1f5;">
@@ -178,9 +202,9 @@
     </div>
   </section>
 
-  <section data-screen-label="06 FAQ" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
+  <section data-screen-label="6 FAQ" style="background: #fff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <div style="max-width: 860px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">QUESTIONS PRINCIPALS ASK</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Questions principals ask</div>
       <h2 style="margin: 18px 0 28px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d;">Before you start.</h2>
       <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
         <div style="border-top: 1px solid #e6e6e6;">
@@ -193,40 +217,108 @@
     </div>
   </section>
 
-  <dc-import name="Closing CTA" eyebrow="AI FOR FINANCE" title-a="Start with one workflow that" title-b="saves time" title-c=" every week." primary="{{ false }}" hint-size="100%,520px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="AI for finance" title-a="Start with one workflow that" title-b="saves time" title-c=" every week." primary="{{ false }}" hint-size="100%,520px"></dc-import>
   <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  qRef = React.createRef(); wfRef = React.createRef();
+  qRef = React.createRef(); wfRef = React.createRef(); wfBoxRef = React.createRef();
   state = { step: 0, answers: [], wf: 0, faq: 0 };
   Q = [
-    { area: 'TOOLS', q: 'How does your team use AI tools today?', opts: ['We do not use them, or we are not sure', 'A few people use free tools on their own', 'Some business tools, used inconsistently', 'Business tools used daily across the team'] },
-    { area: 'WORKFLOW', q: 'How many repeat tasks could your team describe step by step?', opts: ['We have not thought about it', 'One or two', 'A handful', 'Many, already documented'] },
-    { area: 'SYSTEMS', q: 'How connected are the tools your team uses every day?', opts: ['Mostly separate, lots of re-keying', 'Some exports and imports between them', 'Partly integrated', 'Well integrated with clean data'] },
-    { area: 'ADMIN', q: 'How much of a client-facing staff member’s week goes on admin like notes, data entry and follow-ups?', opts: ['More than half', 'Around a third to a half', 'Around a quarter', 'Less than a fifth'] },
-    { area: 'GOALS', q: 'How clear are your goals for using AI?', opts: ['Not clear yet', 'A general sense', 'A few specific goals', 'Clear goals with owners'] },
-    { area: 'TEAM', q: 'How would you describe your team’s confidence with AI?', opts: ['Sceptical or worried about it', 'Curious but untrained', 'A few confident champions', 'Broadly confident and trained'] },
-    { area: 'LEADERSHIP', q: 'How involved are principals and directors in your firm’s AI plans?', opts: ['Not involved yet', 'Interested, but no time set aside', 'One leader is championing it', 'Leadership owns it with a clear plan'] },
-    { area: 'KNOWLEDGE', q: 'How easy is it to find your firm’s templates, past work and know-how?', opts: ['Scattered across inboxes and drives', 'Mostly in shared folders, hard to search', 'Organised, with some gaps', 'Well organised and kept up to date'] },
-    { area: 'POLICY', q: 'Does your firm have clear rules on how staff can use AI?', opts: ['No rules yet', 'Informal guidance only', 'A written policy, not widely known', 'A written policy everyone follows'] },
-    { area: 'MEASURE', q: 'How do you measure time spent on repeat work today?', opts: ['We do not measure it', 'Rough estimates only', 'Tracked for some roles', 'Tracked and reviewed regularly'] }
+    { area: 'Tools', q: 'How does your team use AI tools today?', opts: ['We do not use them, or we are not sure', 'A few people use free tools on their own', 'Some business tools, used inconsistently', 'Business tools used daily across the team'] },
+    { area: 'Workflow', q: 'How many repeat tasks could your team describe step by step?', opts: ['We have not thought about it', 'One or two', 'A handful', 'Many, already documented'] },
+    { area: 'Systems', q: 'How connected are the tools your team uses every day?', opts: ['Mostly separate, lots of re-keying', 'Some exports and imports between them', 'Partly integrated', 'Well integrated with clean data'] },
+    { area: 'Admin', q: 'How much of a client-facing staff member’s week goes on admin like notes, data entry and follow-ups?', opts: ['More than half', 'Around a third to a half', 'Around a quarter', 'Less than a fifth'] },
+    { area: 'Goals', q: 'How clear are your goals for using AI?', opts: ['Not clear yet', 'A general sense', 'A few specific goals', 'Clear goals with owners'] },
+    { area: 'Team', q: 'How would you describe your team’s confidence with AI?', opts: ['Sceptical or worried about it', 'Curious but untrained', 'A few confident champions', 'Broadly confident and trained'] },
+    { area: 'Leadership', q: 'How involved are principals and directors in your firm’s AI plans?', opts: ['Not involved yet', 'Interested, but no time set aside', 'One leader is championing it', 'Leadership owns it with a clear plan'] },
+    { area: 'Knowledge', q: 'How easy is it to find your firm’s templates, past work and know-how?', opts: ['Scattered across inboxes and drives', 'Mostly in shared folders, hard to search', 'Organised, with some gaps', 'Well organised and kept up to date'] },
+    { area: 'Policy', q: 'Does your firm have clear rules on how staff can use AI?', opts: ['No rules yet', 'Informal guidance only', 'A written policy, not widely known', 'A written policy everyone follows'] },
+    { area: 'Measure', q: 'How do you measure time spent on repeat work today?', opts: ['We do not measure it', 'Rough estimates only', 'Tracked for some roles', 'Tracked and reviewed regularly'] }
   ];
   REC = {
-    TOOLS: 'Choose one business AI tool and set it up properly for the firm, instead of individual free accounts.',
-    WORKFLOW: 'List the five tasks that take the most time each week, then pick one to automate first.',
-    SYSTEMS: 'Find where your team re-keys the same information, then automate the most common handover first.',
-    ADMIN: 'Automate one high-volume task such as file notes or follow-up emails, with the responsible staff member approving each draft.',
-    GOALS: 'Agree two or three measurable goals, such as hours saved or faster response times, and who owns each.',
-    TEAM: 'Run short, role-based training sessions with real examples from your own work.',
-    LEADERSHIP: 'Give one principal ownership of AI, with a short plan and a regular check-in on progress.',
-    KNOWLEDGE: 'Gather your best templates and past work into one place, so AI can draw on them for every task.',
-    POLICY: 'Write a one-page AI use policy covering approved tools, client information and when a person must review the output.',
-    MEASURE: 'Track the hours spent on your three most repetitive tasks for two weeks, so you have a baseline to measure savings against.'
+    Tools: 'Choose one business AI tool and set it up properly for the firm, instead of individual free accounts.',
+    Workflow: 'List the five tasks that take the most time each week, then pick one to automate first.',
+    Systems: 'Find where your team re-keys the same information, then automate the most common handover first.',
+    Admin: 'Automate one high-volume task such as file notes or follow-up emails, with the responsible staff member approving each draft.',
+    Goals: 'Agree two or three measurable goals, such as hours saved or faster response times, and who owns each.',
+    Team: 'Run short, role-based training sessions with real examples from your own work.',
+    Leadership: 'Give one principal ownership of AI, with a short plan and a regular check-in on progress.',
+    Knowledge: 'Gather your best templates and past work into one place, so AI can draw on them for every task.',
+    Policy: 'Write a one-page AI use policy covering approved tools, client information and when a person must review the output.',
+    Measure: 'Track the hours spent on your three most repetitive tasks for two weeks, so you have a baseline to measure savings against.'
   };
   scrollQ() { const el = this.qRef.current; if (!el) return; const r = el.getBoundingClientRect(); if (r.top < 70 || r.top > window.innerHeight * .5) window.scrollTo({ top: r.top + window.scrollY - 100, behavior: 'smooth' }); }
   fade(el) { if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) el.animate([{ opacity: 0, transform: 'translateY(8px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' }); }
+  // Example workflows play on a loop: the active tab's line fills while each step lights up in
+  // turn, then the next workflow fades in. Paused on hover, keyboard focus, off screen or in a
+  // background tab; off entirely with reduced motion. Clicking a tab jumps there and carries on.
+  wfDur = 7000;
+  componentDidMount() {
+    this.wfReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const box = this.wfBoxRef.current; if (!box || this.wfReduced) return;
+    const hold = (k, on) => { this.wfHold[k] = on; this.wfSync(); };
+    this.wfHold = { off: true };
+    box.addEventListener('pointerenter', () => hold('hover', true));
+    box.addEventListener('pointerleave', () => hold('hover', false));
+    box.addEventListener('focusin', () => hold('focus', true));
+    box.addEventListener('focusout', () => hold('focus', false));
+    this.wfIO = new IntersectionObserver(([e]) => hold('off', !e.isIntersecting), { threshold: .3 }); this.wfIO.observe(box);
+    this.wfVis = () => hold('hidden', document.hidden); document.addEventListener('visibilitychange', this.wfVis);
+    this.wfPlay();
+  }
+  componentWillUnmount() {
+    clearTimeout(this.wfT); (this.wfAnims || []).forEach(a => a.cancel());
+    this.wfIO && this.wfIO.disconnect(); this.wfVis && document.removeEventListener('visibilitychange', this.wfVis);
+  }
+  // Hover or keyboard focus means someone is reading: hold the timer but show every step in full.
+  wfSync() {
+    const h = this.wfHold || {}, stop = Object.values(h).some(Boolean), reading = h.hover || h.focus;
+    (this.wfAnims || []).forEach(a => { if (a.playState === 'finished') return; if (reading && a.wfReveal) { a.finish(); return; } stop ? a.pause() : a.play(); });
+  }
+  wfPlay() {
+    (this.wfAnims || []).forEach(a => a.cancel());
+    const box = this.wfBoxRef.current; if (!box || this.wfReduced) return;
+    const D = this.wfDur, anims = [];
+    const bar = box.querySelectorAll('[data-wf-bar]')[this.state.wf];
+    if (bar) { const a = bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: D, easing: 'linear', fill: 'forwards' }); a.onfinish = () => this.wfGo((this.state.wf + 1) % 4); anims.push(a); }
+    // A line runs down through the step numbers; each step starts faded and lights up as the
+    // line reaches it: text brightens, the number turns from grey to its colour, the tag appears.
+    const rows = [...box.querySelectorAll('[data-wf-row]')], start = 500, gap = (D - 2400) / rows.length;
+    const ease = 'cubic-bezier(.2,.8,.2,1)';
+    const line = box.querySelector('[data-wf-line]');
+    if (line) anims.push(line.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], { duration: gap * (rows.length - 1), delay: start, easing: 'linear', fill: 'both' }));
+    const firstReveal = anims.length;
+    rows.forEach((r, i) => {
+      const at = start + i * gap, dot = r.querySelector('[data-wf-dot]'), text = r.querySelector('[data-wf-text]'), tag = r.querySelector('[data-wf-tag]');
+      if (text) anims.push(text.animate([{ opacity: .35 }, { opacity: 1 }], { duration: 500, delay: at, easing: ease, fill: 'both' }));
+      if (dot) {
+        const ink = getComputedStyle(dot).color;
+        anims.push(dot.animate([{ color: '#b8bec7', scale: '1' }, { color: ink, scale: '1.25', offset: .45 }, { color: ink, scale: '1' }], { duration: 650, delay: at, easing: ease, fill: 'both' }));
+      }
+      if (tag) anims.push(tag.animate([{ opacity: 0, translate: '8px 0' }, { opacity: 1, translate: '0 0' }], { duration: 500, delay: at + 120, easing: ease, fill: 'both' }));
+    });
+    anims.slice(firstReveal - (line ? 1 : 0)).forEach(a => { a.wfReveal = true; });
+    this.wfAnims = anims; this.wfSync();
+  }
+  wfGo(i) {
+    const panel = this.wfRef.current;
+    // A second click mid-fade drops the first fade, so the panel can never stay hidden.
+    clearTimeout(this.wfOutT); clearTimeout(this.wfT); if (this.wfOut) { this.wfOut.cancel(); this.wfOut = null; }
+    const swap = () => { this.setState({ wf: i }); this.wfT = setTimeout(() => { if (this.wfOut) { this.wfOut.cancel(); this.wfOut = null; } this.wfIn(); this.wfPlay(); }, 30); };
+    if (!panel || this.wfReduced) { swap(); return; }
+    (this.wfAnims || []).forEach(a => a.cancel());
+    this.wfOut = panel.animate([{ opacity: 1, translate: '0 0' }, { opacity: 0, translate: '0 -6px' }], { duration: 220, easing: 'ease-in', fill: 'forwards' });
+    this.wfOutT = setTimeout(swap, 220);
+  }
+  wfIn() {
+    const panel = this.wfRef.current; if (!panel || this.wfReduced) return;
+    const ease = 'cubic-bezier(.2,.8,.2,1)';
+    const t = panel.querySelector('[data-wf-title]');
+    if (t) t.animate([{ opacity: 0, translate: '0 8px' }, { opacity: 1, translate: '0 0' }], { duration: 420, easing: ease, fill: 'backwards' });
+    panel.querySelectorAll('[data-wf-row]').forEach((r, i) => r.animate([{ opacity: 0, translate: '0 10px' }, { opacity: 1, translate: '0 0' }], { duration: 480, delay: 60 + i * 70, easing: ease, fill: 'backwards' }));
+  }
   answer(v) {
     const a = this.state.answers.slice(); a[this.state.step] = v;
     this.setState({ answers: a });
@@ -242,32 +334,40 @@ class Component extends DCLogic {
       : { t: 'Ready to scale', d: 'Your foundations are strong. The opportunity is extending automation across the team and measuring the time it saves.' };
     const weak = this.Q.map((x, i) => ({ area: x.area, v: S.answers[i] ?? 0 })).sort((a, b) => a.v - b.v).slice(0, 3);
     const pillars = [
-      ['01', 'Efficiency', 'Set AI up inside the tools your team already uses, so work moves faster without changing how people work.', ['Faster drafting and research', 'Less switching between systems', 'Information found in seconds', 'Consistent output every time']],
-      ['02', 'Admin automation', 'Automate the repetitive tasks that eat into your team’s week, so skilled people spend more time on clients and growth.', ['Pitch decks and proposals', 'Marketing content', 'Monthly reporting', 'Inbox and admin']],
-      ['03', 'Productivity training', 'Hands-on sessions that help every person on your team get more done each day with AI.', ['Practical guidance for everyday use', 'Sessions for principals, client-facing staff and admin', 'Prompt libraries for your work', 'Quarterly refreshers']]
+      ['1', 'Efficiency', 'Set AI up inside the tools your team already uses, so work moves faster without changing how people work.', ['Faster drafting and research', 'Less switching between systems', 'Information found in seconds', 'Consistent output every time']],
+      ['2', 'Admin automation', 'Automate the repetitive tasks that eat into your team’s week, so skilled people spend more time on clients and growth.', ['Pitch decks and proposals', 'Marketing content', 'Monthly reporting', 'Inbox and admin']],
+      ['3', 'Productivity training', 'Hands-on sessions in plain English that help every person on your team get more done each day with AI, whatever their technical skill.', ['Practical guidance for everyday use', 'Sessions for principals, client-facing staff and admin', 'Prompt libraries for your work', 'Quarterly refreshers']]
     ];
     const W = [
-      { t: 'Pitch decks and proposals', seg: 'SALES', slug: 'pitch-decks', steps: [['Brief entered', 'Prospect, service and meeting date', 'PERSON'], ['Details pulled in', 'From past proposals and client details', 'AUTO'], ['Deck drafted', 'In your firm’s template', 'AUTO'], ['Team review', 'Check figures and tone', 'PERSON'], ['Ready to send', 'Saved to the client record', 'AUTO']] },
-      { t: 'Marketing content', seg: 'MARKETING', slug: 'marketing-content', steps: [['Topic chosen', 'From your content calendar', 'PERSON'], ['Drafts written', 'LinkedIn, email and blog', 'AUTO'], ['Designed', 'In your brand templates', 'AUTO'], ['Team review', 'Approve or edit each piece', 'PERSON'], ['Scheduled', 'Across your channels', 'AUTO']] },
-      { t: 'Monthly reporting', seg: 'MANAGEMENT', slug: 'monthly-reporting', steps: [['Data collected', 'From every system you use', 'AUTO'], ['Figures combined', 'One view, checked for gaps', 'AUTO'], ['Commentary drafted', 'Plain-English summary', 'AUTO'], ['Team review', 'Confirm the numbers', 'PERSON'], ['Report sent', 'To partners and managers', 'AUTO']] },
-      { t: 'Inbox and admin', seg: 'OPERATIONS', slug: 'admin-inbox', steps: [['Email received', 'Shared inbox or client portal', 'AUTO'], ['Sorted and tagged', 'By client and request type', 'AUTO'], ['Reply drafted', 'With the right documents attached', 'AUTO'], ['Team review', 'Check anything unusual', 'PERSON'], ['Task created', 'Assigned to the right person', 'AUTO']] }
+      { t: 'Pitch decks and proposals', seg: 'Sales', slug: 'pitch-decks', steps: [['Adds the brief', 'Prospect, service and meeting date', 'Your team'], ['Gathers the details', 'From past proposals and the client record', 'Automated'], ['Drafts the deck', 'In your firm’s template', 'Automated'], ['Reviews and edits', 'Checks the figures and tone', 'Your team'], ['Files it, ready to send', 'Saved to the client record', 'Automated']] },
+      { t: 'Marketing content', seg: 'Marketing', slug: 'marketing-content', steps: [['Picks the topic', 'From your content calendar', 'Your team'], ['Writes the drafts', 'LinkedIn post, email and blog', 'Automated'], ['Lays them out', 'In your brand templates', 'Automated'], ['Approves each piece', 'Edits anything before it goes out', 'Your team'], ['Schedules them', 'Across your channels', 'Automated']] },
+      { t: 'Monthly reporting', seg: 'Management', slug: 'monthly-reporting', steps: [['Collects the data', 'From every system you use', 'Automated'], ['Combines the figures', 'One view, checked for gaps', 'Automated'], ['Drafts the commentary', 'A plain-English summary', 'Automated'], ['Confirms the numbers', 'Nothing goes out unchecked', 'Your team'], ['Sends the report', 'To partners and managers', 'Automated']] },
+      { t: 'Inbox and admin', seg: 'Operations', slug: 'admin-inbox', steps: [['Reads new emails', 'Shared inbox or client portal', 'Automated'], ['Sorts and tags them', 'By client and request type', 'Automated'], ['Drafts the reply', 'With the right documents attached', 'Automated'], ['Checks and sends', 'Anything unusual is flagged first', 'Your team'], ['Creates the task', 'Assigned to the right person', 'Automated']] }
     ];
     const wf = W[S.wf];
     const faqs = [
+      ['Does my team need to be technical?', 'No. If they can write an email, they can use what we set up. Training is in plain English, by role, using your firm’s own documents and tasks.'],
+      ['What results should we expect?', 'Time back on admin first: file notes, follow-ups, document checks and marketing drafts. We agree the tasks up front and report hours saved each month, so you can see what changed.'],
       ['Does AI make decisions about clients?', 'No. AI drafts, summarises and routes. Decisions about clients stay with your licensed people, and every workflow has a review step.'],
       ['Do we need new software?', 'Usually not. We start with the tools you already pay for, and only add something new if it clearly saves time.'],
       ['How do you train the team?', 'Short, hands-on sessions by role, using real examples from your firm. Staff leave with tools and prompts they can use the next day.'],
       ['Who owns what you build?', 'Your firm. Accounts, automations, prompts and documentation sit in your name and stay with you.']
     ];
     return {
-      qRef: this.qRef, wfRef: this.wfRef,
+      qRef: this.qRef, wfRef: this.wfRef, wfBoxRef: this.wfBoxRef,
       pillars: pillars.map(([n, t, d, items], i) => ({ n, t, d, items, href: ['/ai-integrations-and-training', '/ai-integrations-and-training', '/ai-integrations-and-training'][i], linkLabel: ['AI Integrations and Training', 'AI Automations', 'AI Integrations and Training'][i] })),
-      wfTabs: W.map((w, i) => { const on = i === S.wf; return { t: w.t, seg: w.seg, on, bg: on ? '#fff' : 'transparent', border: on ? '#007ae8' : '#e6e6e6', shadow: on ? 'var(--shadow-sm)' : 'none', pick: () => { this.setState({ wf: i }); this.fade(this.wfRef.current); } }; }),
-      wf: { ...wf, steps: wf.steps.map(([t, d, tag], i) => ({ t, d, tag, n: '0' + (i + 1), dot: tag === 'PERSON' ? '#0d0d0d' : '#dfeafa', dotInk: tag === 'PERSON' ? '#fff' : '#0058c4', tagInk: tag === 'PERSON' ? '#0d0d0d' : '#0058c4' })) },
+      wfTabs: W.map((w, i) => { const on = i === S.wf; return { t: w.t, seg: w.seg, on, bg: on ? '#fff' : 'transparent', border: on ? '#007ae8' : '#e6e6e6', shadow: on ? 'var(--shadow-sm)' : 'none', pick: () => { if (i !== S.wf) this.wfGo(i); } }; }),
+      wf: { ...wf, steps: wf.steps.map(([t, d, tag], i) => ({ t, d, tag, n: String(i + 1), ink: tag === 'Automated' ? '#0058c4' : '#0d0d0d' })) },
+      results: [
+        { fig: '3+ hrs', figNote: 'a day on file work for around 70% of finance professionals', t: 'Hours back every week', d: 'Notes, follow-ups and document checks that filled an afternoon take minutes, so that time goes back to clients.' },
+        { fig: 'Weekly', figNote: 'not whenever there is a spare hour', t: 'Marketing that goes out', d: 'Posts, newsletters and referral emails are drafted in your firm’s voice in minutes, so they still go out when the pipeline is busy.' },
+        { fig: 'Same day', figNote: 'replies to client questions', t: 'Faster answers for clients', d: 'Information is found in seconds instead of dug out of folders, so clients hear back while the conversation is still fresh.' },
+        { fig: 'More clients', figNote: 'with the same team', t: 'Grow without hiring', d: 'With admin off their plate, your people have room for more clients, so the next stage of growth doesn’t have to start with another hire.' }
+      ],
       principles: [
         { t: 'Start small', d: 'One workflow that saves real time, proven with your team before anything else.' },
         { t: 'A person decides', d: 'AI prepares the work. Your people make the decisions that matter.' },
-        { t: 'Fit how you work', d: 'Built around the way your team already works, so it is easy to adopt.' },
+        { t: 'No technical skills needed', d: 'If your team can write an email, they can use what we set up. Training is in plain English, on their own work.' },
         { t: 'Measure the gain', d: 'Hours saved and response times tracked every month.' }
       ],
       asking: !done, done, qNum: Math.min(S.step + 1, N), qTotal: N, progress: (S.step / N * 100) + '%',

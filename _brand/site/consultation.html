@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 <script src="/enquiry.js"></script>
 </head>
 <body>
@@ -21,8 +22,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     body { margin: 0; background: #fbfcff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
     * { box-sizing: border-box; }
@@ -39,7 +44,7 @@
     <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; left: -16%; bottom: -30%; width: 52%; height: 100%; opacity: .55; pointer-events: none;" hint-size="52%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
       <div style="max-width: 460px;">
-        <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">REQUEST A CONSULTATION</div>
+        <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">Request a consultation</div>
         <h1 style="margin: 16px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; font-size: clamp(36px, 4.6vw, 60px); color: #0d0d0d; text-wrap: balance;">Start with a <span style="color: #0058c4;">conversation</span>.</h1>
         <p style="margin: 18px 0 0; font-size: 16.5px; color: #2b2e33; text-wrap: pretty;">Tell us a little about your firm and what you would like help with. A senior strategist will reply within one business day to arrange a time.</p>
       </div>
@@ -47,7 +52,7 @@
       <div ref="{{ cardRef }}" style="border-radius: 22px; background: rgba(255,255,255,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); padding: clamp(22px, 4vw, 40px);">
         <sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
           <form onSubmit="{{ submit }}" novalidate="" style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #3d4045;">SEND AN ENQUIRY</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #3d4045;">Send an enquiry</div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px;">
               <sc-for list="{{ fields }}" as="f" hint-placeholder-count="4">
                 <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
@@ -97,7 +102,7 @@ class Component extends DCLogic {
     const swap = () => { const el = this.cardRef.current; if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) el.animate([{ opacity: .3, transform: 'translateY(8px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 420, easing: 'cubic-bezier(.2,.8,.2,1)' }); };
     return {
       cardRef: this.cardRef, open: !S.sent, sent: S.sent,
-      notes: [].map((t, i) => ({ t, n: '0' + (i + 1) })),
+      notes: [].map((t, i) => ({ t, n: String(i + 1) })),
       fields: defs.map(([key, label, type, ac]) => { const err = S.tried ? errs[key] : ''; return { key, label, type, ac, value: d[key], err, border: err ? '#b42318' : '#e6e6e6', change: (e) => this.setState({ d: { ...this.state.d, [key]: e.target.value } }) }; }),
       message: S.message, setMessage: (e) => this.setState({ message: e.target.value }),
       note: S.sending ? 'Sending…' : S.error ? 'Sorry, that did not send. Please try again or email sam@locatedigital.io.' : 'We reply within one business day.',

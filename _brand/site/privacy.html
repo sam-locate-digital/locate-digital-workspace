@@ -20,8 +20,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -50,22 +54,22 @@
         <nav aria-label="On this page" style="position: sticky; top: 96px;">
           <div style="font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">On this page</div>
           <div style="margin-top: 12px; display: flex; flex-direction: column; border-top: 1px solid #e6e6e6;">
-            <a href="#s1" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">01</span><span>Introduction</span></a>
-            <a href="#s2" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">02</span><span>Types of personal information we collect</span></a>
-            <a href="#s3" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">03</span><span>How we collect personal information</span></a>
-            <a href="#s4" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">04</span><span>Use of your personal information</span></a>
-            <a href="#s5" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">05</span><span>Security</span></a>
-            <a href="#s6" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">06</span><span>Links</span></a>
-            <a href="#s7" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">07</span><span>Requesting access or correcting your personal information</span></a>
-            <a href="#s8" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">08</span><span>Complaints</span></a>
-            <a href="#s9" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">09</span><span>Contact us</span></a>
+            <a href="#s1" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">1</span><span>Introduction</span></a>
+            <a href="#s2" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">2</span><span>Types of personal information we collect</span></a>
+            <a href="#s3" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">3</span><span>How we collect personal information</span></a>
+            <a href="#s4" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">4</span><span>Use of your personal information</span></a>
+            <a href="#s5" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">5</span><span>Security</span></a>
+            <a href="#s6" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">6</span><span>Links</span></a>
+            <a href="#s7" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">7</span><span>Requesting access or correcting your personal information</span></a>
+            <a href="#s8" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">8</span><span>Complaints</span></a>
+            <a href="#s9" style="display: grid; grid-template-columns: 26px minmax(0, 1fr); padding: 8px 0; font-size: 14px; line-height: 1.45; color: #3d4045;" style-hover="color: #0058c4;"><span style="font-family: var(--font-display); font-weight: 700; color: #007ae8;">9</span><span>Contact us</span></a>
           </div>
         </nav>
       </sc-if>
       <article style="max-width: 760px;">
         <section id="s1" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">01</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">1</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Introduction</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -78,7 +82,7 @@
         </section>
         <section id="s2" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">02</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">2</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Types of personal information we collect</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -100,7 +104,7 @@
         </section>
         <section id="s3" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">03</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">3</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">How we collect personal information</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -119,7 +123,7 @@
         </section>
         <section id="s4" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">04</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">4</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Use of your personal information</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -139,7 +143,7 @@
         </section>
         <section id="s5" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">05</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">5</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Security</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -149,7 +153,7 @@
         </section>
         <section id="s6" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">06</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">6</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Links</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -158,7 +162,7 @@
         </section>
         <section id="s7" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">07</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">7</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Requesting access or correcting your personal information</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -168,7 +172,7 @@
         </section>
         <section id="s8" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">08</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">8</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Complaints</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">
@@ -177,7 +181,7 @@
         </section>
         <section id="s9" style="scroll-margin-top: 96px; padding: clamp(28px, 3.5vw, 40px) 0; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 16px;">
           <div style="display: flex; align-items: baseline; gap: 14px;">
-            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">09</span>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #007ae8;">9</span>
             <h2 style="margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(21px, 2vw, 26px); letter-spacing: -0.02em; line-height: 1.25; color: #0d0d0d;">Contact us</h2>
           </div>
           <div style="display: flex; flex-direction: column; gap: 14px; padding-left: clamp(0px, 3vw, 34px);">

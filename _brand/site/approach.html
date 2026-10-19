@@ -5,6 +5,7 @@
 <link rel="icon" type="image/png" href="/assets/logo-symbol.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
+<script src="/motion.js"></script>
 </head>
 <body>
 <x-dc>
@@ -20,8 +21,12 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -38,7 +43,7 @@
   <section data-screen-label="01 Hero" style="position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(60% 80% at 90% 0%, #dfeafa 0%, rgba(223,234,250,0) 70%), #fbfcff; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 40px) clamp(48px, 6vw, 80px);">
     <dc-import name="Ambient" mode="glass" style="position: absolute; z-index: -1; right: -10%; top: -26%; width: 54%; height: 150%; opacity: .75; pointer-events: none;" hint-size="54%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">THE LOCATE METHOD</div>
+      <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; color: #0058c4;">The Locate method</div>
       <h1 style="margin: 18px 0 0; max-width: 840px; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-size: clamp(40px, 6vw, 80px); color: #0d0d0d; text-wrap: balance;">A clear path from first call to <span style="color: #0058c4;">measurable</span> growth.</h1>
       <p style="margin: 22px 0 0; max-width: 620px; font-size: clamp(16px, 1.3vw, 18px); color: #2b2e33; text-wrap: pretty;">Four stages, in the same order for every firm. Each one ends with something you can see and approve before we move on.</p>
     </div>
@@ -68,7 +73,7 @@
             <p style="margin: 16px 0 0; max-width: 620px; font-size: 17px; color: #2b2e33; text-wrap: pretty;">{{ s.d }}</p>
             <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px;">
               <div style="padding: 22px; border-radius: 16px; background: #fbfcff; border: 1px solid #e6e6e6;">
-                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT HAPPENS</div>
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">What happens</div>
                 <div style="margin-top: 8px; display: flex; flex-direction: column;">
                   <sc-for list="{{ s.acts }}" as="a" hint-placeholder-count="4">
                     <div style="display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid #eef1f5; font-size: 14.5px;"><span style="color: #0058c4;">→</span>{{ a }}</div>
@@ -76,7 +81,7 @@
                 </div>
               </div>
               <div style="padding: 22px; border-radius: 16px; background: #fff; border: 1px solid #e6e6e6; box-shadow: var(--shadow-sm);">
-                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">WHAT YOU RECEIVE</div>
+                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: #3d4045;">What you receive</div>
                 <div style="margin-top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; line-height: 1.3;">{{ s.out }}</div>
                 <div style="margin-top: 8px; font-size: 14.5px; color: #3d4045; text-wrap: pretty;">{{ s.outD }}</div>
               </div>
@@ -90,7 +95,7 @@
   <section data-screen-label="03 Working together" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);">
     <dc-import name="Ambient" mode="bubbles" style="position: absolute; z-index: -1; right: -6%; top: -10%; width: 40%; height: 120%; opacity: .42; pointer-events: none;" hint-size="40%,100%"></dc-import>
     <div style="max-width: 1180px; margin: 0 auto;">
-      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">WORKING TOGETHER</div>
+      <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Working together</div>
       <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); color: #0d0d0d; text-wrap: pretty;">What every engagement includes.</h2>
       <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 28px 24px;">
         <sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
@@ -103,7 +108,7 @@
     </div>
   </section>
 
-  <dc-import name="Closing CTA" eyebrow="STAGE 01 STARTS HERE" title-a="Begin with a" title-b="diagnosis" title-c=" of where you are today." hint-size="100%,520px"></dc-import>
+  <dc-import name="Closing CTA" eyebrow="Stage 1 starts here" title-a="Begin with a" title-b="diagnosis" title-c=" of where you are today." hint-size="100%,520px"></dc-import>
   <dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>
@@ -119,16 +124,16 @@ class Component extends DCLogic {
   renderVals() {
     const A = this.state.active, wide = this.state.wide;
     const D = [
-      ['diagnose', 'Diagnose', 'WEEKS 1–2', 'We look at where your clients come from today, what your team spends time on, and the rules that apply to your firm. We talk to the principal and the people doing the work.', ['Review of ad accounts, website and reporting', 'Interviews with principals and key staff', 'Competitor and market review', 'Current AI use and opportunities'], 'A written diagnosis', 'What is working, what is not, and the three changes most likely to matter.'],
-      ['map', 'Map', 'WEEKS 2–3', 'We turn the diagnosis into a plan: which channels, which audiences, which workflows, in what order, and how each will be measured.', ['Channel and audience plan', 'Measurement plan tied to booked meetings', 'AI workflow shortlist ranked by time saved', 'Check-in points agreed with your team'], 'A 90-day plan', 'Priorities, milestones and the numbers we will report against.'],
-      ['build', 'Build', 'WEEKS 3–8', 'We set up campaigns, tracking, email and the first AI workflow in your firm’s accounts. You see everything before it goes live.', ['Accounts set up in your firm’s name', 'Campaigns, landing pages and email sequences', 'Conversion and call tracking', 'First AI workflow built and tested with your team'], 'Live campaigns and a working workflow', 'Everything documented, with access you control.'],
-      ['train', 'Train & optimise', 'ONGOING', 'We train your people, then improve every month based on what becomes a client. AI workflows extend once the first one is proven.', ['Role-based AI training sessions', 'Weekly optimisation, monthly reporting', 'Quarterly strategy review with principals', 'New workflows added as the team is ready'], 'Monthly reporting and a quarterly review', 'Plain-English results in the numbers your principals already use.']
+      ['diagnose', 'Diagnose', 'Weeks 1–2', 'We look at where your clients come from today, what your team spends time on, and the rules that apply to your firm. We talk to the principal and the people doing the work.', ['Review of ad accounts, website and reporting', 'Interviews with principals and key staff', 'Competitor and market review', 'Current AI use and opportunities'], 'A written diagnosis', 'What is working, what is not, and the three changes most likely to matter.'],
+      ['map', 'Map', 'Weeks 2–3', 'We turn the diagnosis into a plan: which channels, which audiences, which workflows, in what order, and how each will be measured.', ['Channel and audience plan', 'Measurement plan tied to booked meetings', 'AI workflow shortlist ranked by time saved', 'Check-in points agreed with your team'], 'A 90-day plan', 'Priorities, milestones and the numbers we will report against.'],
+      ['build', 'Build', 'Weeks 3–8', 'We set up campaigns, tracking, email and the first AI workflow in your firm’s accounts. You see everything before it goes live.', ['Accounts set up in your firm’s name', 'Campaigns, landing pages and email sequences', 'Conversion and call tracking', 'First AI workflow built and tested with your team'], 'Live campaigns and a working workflow', 'Everything documented, with access you control.'],
+      ['train', 'Train & optimise', 'Ongoing', 'We train your people, then improve every month based on what becomes a client. AI workflows extend once the first one is proven.', ['Role-based AI training sessions', 'Weekly optimisation, monthly reporting', 'Quarterly strategy review with principals', 'New workflows added as the team is ready'], 'Monthly reporting and a quarterly review', 'Plain-English results in the numbers your principals already use.']
     ];
     return {
       wide, contentCol: wide ? '2' : '1 / -1',
       railFill: ((A + 1) / 4 * 100) + '%', pinTop: (A * 64 + 4) + 'px',
-      rail: D.map((d, i) => ({ t: d[1], n: '0' + (i + 1), href: '#' + d[0], color: i === A ? '#0d0d0d' : '#8d9096' })),
-      stages: D.map(([id, t, when, d, acts, out, outD], i) => ({ id, t, when, d, acts, out, outD, i, n: '0' + (i + 1) })),
+      rail: D.map((d, i) => ({ t: d[1], n: String(i + 1), href: '#' + d[0], color: i === A ? '#0d0d0d' : '#8d9096' })),
+      stages: D.map(([id, t, when, d, acts, out, outD], i) => ({ id, t, when, d, acts, out, outD, i, n: String(i + 1) })),
       terms: [
         { t: 'Marketing and AI under one roof', d: 'Campaigns and automation planned together, so new enquiries are followed up quickly and nothing falls through the gaps.' },
         { t: 'Your accounts, your data', d: 'Ad accounts, analytics, email platforms and automations sit in your firm’s name.' },

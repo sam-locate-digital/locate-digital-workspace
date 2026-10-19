@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/support.js"></script>
 <script src="/enquiry.js"></script>
+<script src="/motion.js" data-reveal="off"></script>
 </head>
 <body>
 <x-dc>
@@ -22,8 +23,14 @@
   <script src="/_ds/locate-digital-design-system-08c31dfd-3306-4b82-a38c-05f4375eac55/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap">
-  <style>:root { --font-display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; }</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@600&amp;display=swap">
+  <style>:root { --font-display: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-body: 'Public Sans', 'Helvetica Neue', Arial, sans-serif; --font-mono: 'Newsreader', Georgia, serif; --font-heading: 'Newsreader', Georgia, serif; }
+    /* Headings and display figures in Newsreader. Small labels in upright Newsreader, sentence case, never tracked capitals. */
+    h1, h2, h3, [style*="font-weight: 800"] { font-family: var(--font-heading) !important; font-weight: 600 !important; letter-spacing: -0.015em !important; }
+    [style*="var(--font-mono)"] { text-transform: none !important; letter-spacing: 0 !important; font-weight: 400 !important; font-size: 15px !important; }
+    [style*="text-transform: uppercase"] { text-transform: none !important; letter-spacing: 0 !important; }
+    /* The hero pill keeps its original look: IBM Plex Sans, small spaced capitals. */
+    h1[data-keep-font] { font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif !important; font-weight: 600 !important; font-size: 11.5px !important; letter-spacing: .08em !important; text-transform: uppercase !important; }</style>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body { margin: 0; background: #fff; color: #0d0d0d; font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -49,13 +56,13 @@
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: -1; background: linear-gradient(180deg, rgba(255,255,255,0), #ffffff); pointer-events: none;"></div>
 
     <div style="position: relative; width: 100%; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-      <h1 data-fade="" style="margin: 0; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.7); backdrop-filter: blur(14px) saturate(180%); -webkit-backdrop-filter: blur(14px) saturate(180%); border: 1px solid rgba(255,255,255,.95); box-shadow: var(--shadow-sm); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: #0d0d0d;">
+      <h1 data-fade="" data-keep-font="" style="margin: 0; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 12px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.7); backdrop-filter: blur(14px) saturate(180%); -webkit-backdrop-filter: blur(14px) saturate(180%); border: 1px solid rgba(255,255,255,.95); box-shadow: var(--shadow-sm); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: #0d0d0d;">
         <span>Digital marketing and AI agency</span>
       </h1>
-      <p style="margin: 30px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: .94; font-size: clamp(46px, 8vw, 128px); color: #0d0d0d; text-wrap: balance; text-shadow: 0 0 40px rgba(255,255,255,.7);">
-        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">Your competitors are</span></span>
-        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">marketing with AI.</span></span>
-        <span style="display: block; overflow: hidden; padding-bottom: .14em; margin-bottom: -.06em;"><span data-line="" style="display: block;">Stay a step <span style="color: #0058c4;">ahead</span>.</span></span>
+      <p style="margin: 30px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.05em; line-height: .94; font-size: clamp(40px, 6.4vw, 100px); color: #0d0d0d; text-wrap: balance; text-shadow: 0 0 40px rgba(255,255,255,.7);">
+        <span style="display: block; overflow: hidden; padding-bottom: .3em; margin-bottom: -.22em;"><span data-line="" style="display: block;">Your competitors are</span></span>
+        <span style="display: block; overflow: hidden; padding-bottom: .3em; margin-bottom: -.22em;"><span data-line="" style="display: block;">marketing with AI.</span></span>
+        <span style="display: block; overflow: hidden; padding-bottom: .3em; margin-bottom: -.22em;"><span data-line="" style="display: block;">Stay a step <span style="color: #0058c4;">ahead</span>.</span></span>
       </p>
       <p data-fade="" style="margin: 30px 0 0; max-width: 600px; font-size: clamp(16px, 1.4vw, 19px); font-weight: 500; line-height: 1.6; color: #0d0d0d; text-wrap: pretty; text-shadow: 0 0 18px rgba(255,255,255,.9), 0 0 2px rgba(255,255,255,.8);">Locate helps financial service providers grow with performance-driven marketing and practical AI your team will actually use.</p>
       <div data-fade="" style="margin-top: 34px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
@@ -81,7 +88,7 @@
         <p style="margin: 20px 0 0; color: #3d4045; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; text-wrap: pretty;">Firms that hold a licence, handle client money or give advice share the same challenges: long decision cycles, competitive markets and clients who need to trust you first.</p>
       </div>
       <div style="margin-top: clamp(40px, 5vw, 56px); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .12em; color: #3d4045;">
-        <span>THE CHALLENGE · WHERE WE START</span><span style="color: #0058c4;">{{ pairCounter }}</span>
+        <span>The challenge · Where we start</span><span style="color: #0058c4;">{{ pairCounter }}</span>
       </div>
       <div onMouseLeave="{{ pairResume }}" style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
         <sc-for list="{{ pairs }}" as="c" hint-placeholder-count="3">
@@ -95,7 +102,7 @@
             <span style="margin-top: auto; display: grid; grid-template-rows: {{ c.rows }}; transition: grid-template-rows 600ms cubic-bezier(.2,.7,.2,1);">
               <span style="min-height: 0; overflow: hidden;">
                 <span style="display: block; padding-top: 22px; margin-top: 22px; border-top: 1px solid rgba(255,255,255,.35); opacity: {{ c.solOpacity }}; transform: {{ c.solShift }}; transition: opacity 500ms ease 120ms, transform 600ms cubic-bezier(.2,.7,.2,1) 80ms;">
-                  <span style="display: block; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .12em; color: #ffffff;">WHERE WE START</span>
+                  <span style="display: block; font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: .12em; color: #ffffff;">Where we start</span>
                   <span style="display: block; margin-top: 8px; font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.015em; color: #ffffff;">{{ c.title }}</span>
                   <span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.55; color: #ffffff; text-wrap: pretty;">{{ c.desc }}</span>
                 </span>
@@ -111,7 +118,7 @@
 
   <!-- 03 FOCUS · soft bg -->
   <section data-screen-label="03 Our focus" style="position: relative; overflow: hidden; isolation: isolate; background: #fbfcff; border-top: 1px solid #eef1f5; padding: clamp(64px, 7.5vw, 96px) clamp(20px, 4vw, 40px);">
-    <canvas data-scene="bubbles" aria-hidden="true" style="position: absolute; z-index: -1; left: -8%; bottom: -10%; width: 44%; height: 120%; opacity: .45; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <canvas data-scene="ribbon" aria-hidden="true" style="position: absolute; z-index: -1; left: -8%; bottom: -10%; width: 44%; height: 120%; opacity: .45; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
     <div style="max-width: 1180px; margin: 0 auto;">
       <div>
         <div data-fade="">
@@ -222,7 +229,7 @@
             <h3 style="margin: 28px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 23px; letter-spacing: -0.02em; line-height: 1.2;">{{ s.title }}</h3>
             <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ s.body }}</p>
             <div style="margin-top: 20px; padding: 16px 18px; border-radius: 14px; background: #f4f8fd; border: 1px solid #e3ecf7;">
-              <div style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: #0058c4;">THE OUTCOME</div>
+              <div style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; color: #0058c4;">The outcome</div>
               <p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #0d0d0d; text-wrap: pretty;">{{ s.outcome }}</p>
                 <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.55; color: #3d4045; text-wrap: pretty;">{{ s.outcomeMore }}</p>
             </div>
@@ -237,7 +244,7 @@
   <section id="method" data-watch="method" ref="{{ methodRef }}" data-screen-label="06 Method" style="position: relative; overflow: clip; isolation: isolate; background: #fff;">
    <div data-method-track="" style="position: relative; height: {{ methodTrackH }};">
    <div style="position: {{ methodStickyPos }}; top: {{ methodStickyTop }}; min-height: {{ methodStickyH }}; display: flex; flex-direction: column; justify-content: center; overflow: clip; isolation: isolate; padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px);">
-    <canvas data-scene="bubbles" aria-hidden="true" style="position: absolute; z-index: -1; right: -8%; top: -10%; width: 40%; height: 120%; opacity: .38; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
+    <canvas data-scene="leak" aria-hidden="true" style="position: absolute; z-index: -1; right: -8%; top: -10%; width: 40%; height: 120%; opacity: .38; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%); mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);"></canvas>
     <div style="max-width: 1180px; margin: 0 auto;">
       <div data-fade="">
             <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.SectionLabel" dc-props="{{ eyebrowLight }}" hint-size="200px,18px">The Locate method</x-import>
@@ -259,13 +266,13 @@
           </sc-for>
           <img data-method-pin="" src="/assets/pin-blue.png" alt="" width="30" height="45" style="position: absolute; left: 0; top: 0; width: 30px; height: auto; pointer-events: none; will-change: transform; filter: drop-shadow(0 6px 10px rgba(0,60,120,.22));">
         </div>
-        <div style="margin-top: 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+        <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px;">
           <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
-            <button onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="position: relative; text-align: left; background: {{ st.cardBg }}; border: 1px solid {{ st.cardBorder }}; border-radius: 16px; padding: 22px 22px 24px; cursor: pointer; font: inherit; color: inherit; overflow: hidden; transition: background 240ms ease, border-color 240ms ease, transform 120ms ease-out;" style-active="transform: scale(.985);">
-              <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 3px; background: #eef1f5;"><span data-mstep-bar="{{ st.i }}" style="display: block; height: 100%; width: 0; background: #007ae8; transform-origin: 0 50%;"></span></span>
-              <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: {{ st.numColor }};">STEP {{ st.n }}</div>
-              <div style="margin-top: 10px; font-family: var(--font-display); font-weight: 700; font-size: 21px; letter-spacing: -0.02em; color: #0d0d0d;">{{ st.title }}</div>
-              <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ st.body }}</p>
+            <button onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="position: relative; text-align: left; background: transparent; border: none; padding: 0; cursor: pointer; font: inherit; color: inherit; transition: transform 160ms ease-out;" style-active="transform: translateY(1px);">
+              <div style="font-family: var(--font-heading); font-weight: 400; font-size: 76px; line-height: .9; letter-spacing: -0.03em; color: {{ st.bigNum }}; transition: color 300ms ease;">{{ st.n }}</div>
+              <span aria-hidden="true" style="position: relative; display: block; margin-top: 16px; height: 1px; background: #e6e6e6;"><span data-mstep-bar="{{ st.i }}" style="position: absolute; left: 0; top: -1px; display: block; height: 3px; width: 0; border-radius: 3px; background: #007ae8;"></span></span>
+              <div style="margin-top: 18px; font-family: var(--font-heading); font-weight: 600; font-size: 24px; line-height: 1.15; color: #0d0d0d;">{{ st.title }}</div>
+              <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045; text-wrap: pretty;">{{ st.body }}</p>
             </button>
           </sc-for>
         </div>
@@ -277,10 +284,12 @@
           <span data-mrail="" aria-hidden="true" style="position: absolute; left: 21px; top: 18px; width: 2px; height: 0; background: #007ae8;"></span>
           <img data-method-pin-m="" src="/assets/pin-blue.png" alt="" width="24" height="36" style="position: absolute; left: 10px; top: 0; width: 24px; height: auto; will-change: transform; filter: drop-shadow(0 4px 8px rgba(0,60,120,.2));">
           <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
-            <button data-mrow="{{ st.i }}" onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; display: block; margin-bottom: 12px; padding: 18px 18px 20px; border-radius: 16px; background: {{ st.cardBg }}; border: 1px solid {{ st.cardBorder }}; transition: background 240ms ease, border-color 240ms ease;">
-              <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; color: {{ st.numColor }};">STEP {{ st.n }}</div>
-              <div style="margin-top: 6px; font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">{{ st.title }}</div>
-              <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045;">{{ st.body }}</p>
+            <button data-mrow="{{ st.i }}" onClick="{{ st.select }}" aria-pressed="{{ st.active }}" style="width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; display: block; margin-bottom: 28px; padding: 0; border: none; background: transparent;">
+              <div style="display: flex; align-items: baseline; gap: 14px;">
+                <span style="font-family: var(--font-heading); font-weight: 400; font-size: 44px; line-height: 1; color: {{ st.bigNum }}; transition: color 300ms ease;">{{ st.n }}</span>
+                <span style="font-family: var(--font-heading); font-weight: 600; font-size: 22px; line-height: 1.2; color: #0d0d0d;">{{ st.title }}</span>
+              </div>
+              <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #3d4045;">{{ st.body }}</p>
             </button>
           </sc-for>
         </div>
@@ -306,15 +315,15 @@
           <div style="padding: clamp(16px, 2.4vw, 24px); display: flex; flex-direction: column; gap: 14px;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;">
               <div style="font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">Growth report</div>
-              <div data-dash-month="" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #0058c4;">MONTH 1 OF 6</div>
+              <div data-dash-month="" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #0058c4;">Month 1 of 6</div>
             </div>
             <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
-              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">QUALIFIED ENQUIRIES</div><div data-kpi="" data-to="64" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
-              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">MEETINGS BOOKED</div><div data-kpi="" data-to="23" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
-              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">HOURS SAVED / WK</div><div data-kpi="" data-to="11" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em; color: #0058c4;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">Qualified enquiries</div><div data-kpi="" data-to="64" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">Meetings booked</div><div data-kpi="" data-to="23" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em;">0</div></div>
+              <div style="padding: 12px 14px; border-radius: 14px; background: #fbfcff; border: 1px solid #eef1f5;"><div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">Hours saved / wk</div><div data-kpi="" data-to="11" style="margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.03em; color: #0058c4;">0</div></div>
             </div>
             <div style="position: relative; height: clamp(120px, 14vw, 160px); border-radius: 14px; background: #fff; border: 1px solid #eef1f5; padding: 10px 12px 6px;">
-              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;"><span>ENQUIRIES BY MONTH</span><span style="display: flex; gap: 12px;"><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #007ae8;"></span>QUALIFIED</span><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #75dfee;"></span>BOOKED</span></span></div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;"><span>Enquiries by month</span><span style="display: flex; gap: 12px;"><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #007ae8;"></span>Qualified</span><span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 2px; background: #75dfee;"></span>Booked</span></span></div>
               <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; left: 12px; right: 12px; bottom: 8px; top: 30px; width: calc(100% - 24px); height: calc(100% - 38px); overflow: visible;">
                 <line x1="0" y1="25" x2="300" y2="25" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="55" x2="300" y2="55" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line><line x1="0" y1="85" x2="300" y2="85" stroke="#eef1f5" stroke-width="1" vector-effect="non-scaling-stroke"></line>
                 <path data-dash-area="" d="M0,88 C30,86 50,80 60,78 C90,74 100,66 120,64 C150,60 160,48 180,46 C210,42 220,34 240,30 C265,26 280,20 300,14 L300,100 L0,100 Z" fill="rgba(0,122,232,.08)" style="clip-path: inset(0 100% 0 0);"></path>
@@ -325,7 +334,7 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px;">
               <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
-                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">FUNNEL</div>
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">Funnel</div>
                 <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 7px;">
                   <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Enquiries</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w="1" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
                   <div style="display: grid; grid-template-columns: 74px 1fr; gap: 8px; align-items: center; font-size: 12px;"><span>Qualified</span><span style="height: 8px; border-radius: 999px; background: #eef1f5; overflow: hidden;"><span data-bar="" data-w=".68" style="display: block; height: 100%; width: 0; background: #007ae8; border-radius: 999px;"></span></span></div>
@@ -334,7 +343,7 @@
                 </div>
               </div>
               <div style="padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #eef1f5;">
-                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">ACTIVITY LOG</div>
+                <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: #3d4045;">Activity log</div>
                 <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 1.35;">
                   <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>New campaign launched</div>
                   <div data-feed="" style="display: flex; gap: 8px; align-items: center; opacity: 0; transform: translateY(6px);"><span style="flex: none; width: 14px; height: 14px; border-radius: 50%; background: #007ae8; color: #fff; font-size: 8px; display: flex; align-items: center; justify-content: center;">✓</span>Enquiry summarised, team notified</div>
@@ -379,7 +388,7 @@
     </svg>
     <div style="position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
       <div data-fade="" style="min-width: 0;">
-        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">NEXT STEP</div>
+        <div style="font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #0058c4;">Next step</div>
         <h2 style="margin: 18px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(32px, 4vw, 54px); text-wrap: pretty;">Start with a <span style="color: #007ae8;">conversation</span>.</h2>
         <p style="margin: 20px 0 0; color: #3d4045; font-size: 17px; max-width: 480px; text-wrap: pretty;">Tell us a little about your firm and what you would like help with. A senior strategist will reply and tell you plainly whether we can help.</p>
         
@@ -388,7 +397,7 @@
       <div data-fade="" data-zoom="" style="min-width: 0; background: #fff; border-radius: 24px; border: 1px solid #e6e6e6; box-shadow: var(--shadow-lg); padding: clamp(22px, 3vw, 36px);">
         <sc-if value="{{ cfOpen }}" hint-placeholder-val="{{ true }}">
           <form onSubmit="{{ cfSubmit }}" novalidate="" data-cf="" style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #3d4045;">SEND AN ENQUIRY</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: #3d4045;">Send an enquiry</div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px;">
               <sc-for list="{{ cfFields }}" as="f" hint-placeholder-count="4">
                 <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
@@ -439,17 +448,17 @@ class Component extends DCLogic {
   };
   CITY = { Melbourne: [144.96, -37.81], Parramatta: [151.0, -33.82], Geelong: [144.36, -38.15], Brisbane: [153.03, -27.47], Perth: [115.86, -31.95], Adelaide: [138.6, -34.93], 'Gold Coast': [153.4, -28.0], Hobart: [147.33, -42.88], Canberra: [149.13, -35.28], Newcastle: [151.78, -32.93], Townsville: [146.82, -19.26], Darwin: [130.84, -12.46] };
   SIG = [
-    { city: 'Parramatta', st: 'NSW', kind: 'NEW ENQUIRY', title: 'Refinance, owner-occupier', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 10:00' },
-    { city: 'Geelong', st: 'VIC', kind: 'NEW ENQUIRY', title: 'Retirement advice', firm: 'Financial services · LinkedIn', done: 'Sent to team for review' },
-    { city: 'Brisbane', st: 'QLD', kind: 'NEW ENQUIRY', title: 'Business advisory', firm: 'Financial services · Email nurture', done: 'Meeting booked · Tue 2:00' },
-    { city: 'Perth', st: 'WA', kind: 'APPLICATION RESUMED', title: 'Home loan application', firm: 'Financial services · Lifecycle email', done: 'Onboarding completed' },
-    { city: 'Adelaide', st: 'SA', kind: 'NEW ENQUIRY', title: 'Super set-up', firm: 'Financial services · Google Search', done: 'Meeting booked · Mon 11:30' },
-    { city: 'Gold Coast', st: 'QLD', kind: 'NEW ENQUIRY', title: 'First home buyer', firm: 'Financial services · Meta', done: 'Meeting booked · Wed 4:00' },
-    { city: 'Hobart', st: 'TAS', kind: 'NEW ENQUIRY', title: 'Insurance review', firm: 'Financial services · Webinar', done: 'Sent to team for review' },
-    { city: 'Canberra', st: 'ACT', kind: 'NEW ENQUIRY', title: 'Super consolidation', firm: 'Financial services · Google Search', done: 'Meeting booked · Fri 9:30' },
-    { city: 'Newcastle', st: 'NSW', kind: 'NEW ENQUIRY', title: 'Investment loan', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 1:00' },
-    { city: 'Townsville', st: 'QLD', kind: 'NEW ENQUIRY', title: 'Tax and BAS', firm: 'Financial services · Meta', done: 'Meeting booked · Mon 3:30' },
-    { city: 'Darwin', st: 'NT', kind: 'NEW ENQUIRY', title: 'Business loan', firm: 'Financial services · LinkedIn', done: 'Application started' }
+    { city: 'Parramatta', st: 'NSW', kind: 'New enquiry', title: 'Refinance, owner-occupier', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 10:00' },
+    { city: 'Geelong', st: 'VIC', kind: 'New enquiry', title: 'Retirement advice', firm: 'Financial services · LinkedIn', done: 'Sent to team for review' },
+    { city: 'Brisbane', st: 'QLD', kind: 'New enquiry', title: 'Business advisory', firm: 'Financial services · Email nurture', done: 'Meeting booked · Tue 2:00' },
+    { city: 'Perth', st: 'WA', kind: 'Application resumed', title: 'Home loan application', firm: 'Financial services · Lifecycle email', done: 'Onboarding completed' },
+    { city: 'Adelaide', st: 'SA', kind: 'New enquiry', title: 'Super set-up', firm: 'Financial services · Google Search', done: 'Meeting booked · Mon 11:30' },
+    { city: 'Gold Coast', st: 'QLD', kind: 'New enquiry', title: 'First home buyer', firm: 'Financial services · Meta', done: 'Meeting booked · Wed 4:00' },
+    { city: 'Hobart', st: 'TAS', kind: 'New enquiry', title: 'Insurance review', firm: 'Financial services · Webinar', done: 'Sent to team for review' },
+    { city: 'Canberra', st: 'ACT', kind: 'New enquiry', title: 'Super consolidation', firm: 'Financial services · Google Search', done: 'Meeting booked · Fri 9:30' },
+    { city: 'Newcastle', st: 'NSW', kind: 'New enquiry', title: 'Investment loan', firm: 'Financial services · Google Search', done: 'Meeting booked · Thu 1:00' },
+    { city: 'Townsville', st: 'QLD', kind: 'New enquiry', title: 'Tax and BAS', firm: 'Financial services · Meta', done: 'Meeting booked · Mon 3:30' },
+    { city: 'Darwin', st: 'NT', kind: 'New enquiry', title: 'Business loan', firm: 'Financial services · LinkedIn', done: 'Application started' }
   ];
   rootRef = React.createRef(); heroRef = React.createRef(); finalRef = React.createRef();
   aiRef = React.createRef(); methodRef = React.createRef();
@@ -784,7 +793,7 @@ class Component extends DCLogic {
       kpis.forEach((k, i) => { k.textContent = Math.round(+k.dataset.to * ease(seg(p, 0.1 + i * .08, 0.7 + i * .06))); });
       bars.forEach((b, i) => { b.style.width = (+b.dataset.w * 100 * ease(seg(p, 0.25 + i * .07, 0.65 + i * .07))).toFixed(1) + '%'; });
       feed.forEach((f, i) => { const t = ease(seg(p, 0.3 + i * .12, 0.42 + i * .12)); f.style.opacity = t; f.style.transform = 'translateY(' + ((1 - t) * 6).toFixed(1) + 'px)'; });
-      if (month) month.textContent = 'MONTH ' + Math.max(1, Math.min(6, 1 + Math.floor(lp * 6))) + ' OF 6';
+      if (month) month.textContent = 'Month ' + Math.max(1, Math.min(6, 1 + Math.floor(lp * 6))) + ' of 6';
     };
     if (this.reduced) { draw(1); return; }
     this.onDash = () => { const r = sec.getBoundingClientRect(), vh = window.innerHeight; const p = Math.max(0, Math.min(1, (vh * 0.8 - r.top) / (r.height * 0.75))); if (Math.abs(p - (this._dp ?? -1)) > 0.002) { this._dp = p; draw(p); } };
@@ -977,13 +986,13 @@ void main(){
     const S = this.state, f = S.form, mobile = S.mobile;
     const ctaPrimary = S.scrolled && !S.finalInView;
     const segData = [
-      { label: 'Financial service providers', tag: 'FINANCIAL SERVICE PROVIDERS', count: 'WHAT WE SEE MOST', headline: 'Growth that does not depend on referrals alone.', lang: 'Most firms are built on referrals and reputation. That works until a referral source goes quiet. We build a second source of qualified enquiries you control, and take repeat admin off your team.',
+      { label: 'Financial service providers', tag: 'Financial service providers', count: 'What we see most', headline: 'Growth that does not depend on referrals alone.', lang: 'Most firms are built on referrals and reputation. That works until a referral source goes quiet. We build a second source of qualified enquiries you control, and take repeat admin off your team.',
         pains: ['Enquiry flow rises and falls with referral partners and market cycles.', 'Larger brands and comparison sites compete for the same clients online.', 'Skilled people lose hours each week to notes, data entry and follow-ups.'],
         rules: [],
         focus: [['High-intent search and social', 'Campaigns aimed at people looking for the services you offer, in the places you serve.'], ['Nurture over a long decision', 'Email that keeps your firm in the conversation until the client is ready.'], ['AI for repeat admin', 'Notes, document intake and follow-ups prepared by AI and checked by your team.']], cta: 'How we work with financial service providers' }
     ];
     const sd = segData[0];
-    const seg = { ...sd, pains: sd.pains.map((t, i) => ({ t, n: '0' + (i + 1) })), focus: sd.focus.map(([t, d], i) => ({ t, d, n: String.fromCharCode(65 + i) })) };
+    const seg = { ...sd, pains: sd.pains.map((t, i) => ({ t, n: String(i + 1) })), focus: sd.focus.map(([t, d], i) => ({ t, d, n: String.fromCharCode(65 + i) })) };
 
     const prob = [
       ['Industry knowledge', 'Learns how financial clients decide on your account, over months.', 'Already understands your clients, your competitors and how they choose a provider.'],
@@ -1012,12 +1021,12 @@ void main(){
 
     // form
     const stageDefs = [
-      { name: 'FIRM', q: 'Which best describes your firm?', hint: 'Choose one.', key: 'firm', opts: ['Advice or planning', 'Lending or credit', 'Tax and business services', 'Other financial services'] },
-      { name: 'TEAM', q: 'How large is your team?', hint: 'Including principals and support staff.', key: 'team', opts: ['Just me', '2–5', '6–20', '21–50', 'More than 50'] },
-      { name: 'PRIORITIES', q: 'What matters most this year?', hint: 'Choose up to three.', key: 'prio', multi: true, opts: ['AI integration & training', 'More qualified enquiries', 'A stronger social presence', 'Email & client nurture', 'Compliance review of current marketing'] },
-      { name: 'BUDGET', q: 'Monthly marketing budget', hint: 'Including ad spend. A range is fine.', key: 'budget', opts: ['Under $10k', '$10k–$20k', '$20k–$50k', 'Over $50k', 'Not sure yet'] },
-      { name: 'TIME', q: 'Choose a time', hint: '45 minutes with a senior strategist.', key: 'cal' },
-      { name: 'DETAILS', q: 'Where should we send the invite?', hint: 'We use these details only to arrange the consultation.', key: 'details' }
+      { name: 'Firm', q: 'Which best describes your firm?', hint: 'Choose one.', key: 'firm', opts: ['Advice or planning', 'Lending or credit', 'Tax and business services', 'Other financial services'] },
+      { name: 'Team', q: 'How large is your team?', hint: 'Including principals and support staff.', key: 'team', opts: ['Just me', '2–5', '6–20', '21–50', 'More than 50'] },
+      { name: 'Priorities', q: 'What matters most this year?', hint: 'Choose up to three.', key: 'prio', multi: true, opts: ['AI integration & training', 'More qualified enquiries', 'A stronger social presence', 'Email & client nurture', 'Compliance review of current marketing'] },
+      { name: 'Budget', q: 'Monthly marketing budget', hint: 'Including ad spend. A range is fine.', key: 'budget', opts: ['Under $10k', '$10k–$20k', '$20k–$50k', 'Over $50k', 'Not sure yet'] },
+      { name: 'Time', q: 'Choose a time', hint: '45 minutes with a senior strategist.', key: 'cal' },
+      { name: 'Details', q: 'Where should we send the invite?', hint: 'We use these details only to arrange the consultation.', key: 'details' }
     ];
     const sdx = stageDefs[f.stage];
     const sel = (i) => sdx.multi ? f.prio.includes(i) : f[sdx.key] === i;
@@ -1031,7 +1040,7 @@ void main(){
     });
     const days = []; const base = new Date(); let dd = new Date(base); dd.setDate(dd.getDate() + 1);
     while (days.length < 6) { if (dd.getDay() !== 0 && dd.getDay() !== 6) days.push(new Date(dd)); dd.setDate(dd.getDate() + 1); }
-    const DOW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'], MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const timeSlots = ['9:30 am', '11:00 am', '2:00 pm', '3:30 pm'];
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email);
     const fieldsDef = [
@@ -1089,13 +1098,13 @@ void main(){
       segTabs: segData.map((d, i) => ({ label: d.label, i, on: S.seg === i, color: S.seg === i ? '#0d0d0d' : '#3d4045', pick: () => this.setState({ seg: i }) })),
       seg,
       cmpTabs: ['Generic agency', 'Locate'].map((label, i) => ({ label, i, on: S.cmp === i, color: S.cmp === i ? '#ffffff' : '#3d4045', pick: () => this.setState({ cmp: i }) })),
-      problems: prob.map(([title, g, l]) => ({ title, body: loc ? l : g, tag: loc ? 'LOCATE' : 'GENERIC AGENCY', tagColor: loc ? '#0058c4' : '#63666b', rule: loc ? '#007ae8' : '#0d0d0d' })),
+      problems: prob.map(([title, g, l]) => ({ title, body: loc ? l : g, tag: loc ? 'Locate' : 'Generic agency', tagColor: loc ? '#0058c4' : '#63666b', rule: loc ? '#007ae8' : '#0d0d0d' })),
 
       aiPillars: [
-        ['01', 'Pitch decks and proposals', 'Tailored decks drafted from your template in minutes.'],
-        ['02', 'Marketing content', 'A month of posts, emails and articles drafted in your firm’s voice.'],
-        ['03', 'Monthly reporting', 'Numbers from every system combined into one clear report.'],
-        ['04', 'Inbox and admin', 'Requests sorted, replies drafted and tasks created automatically.']
+        ['1', 'Pitch decks and proposals', 'Tailored decks drafted from your template in minutes.'],
+        ['2', 'Marketing content', 'A month of posts, emails and articles drafted in your firm’s voice.'],
+        ['3', 'Monthly reporting', 'Numbers from every system combined into one clear report.'],
+        ['4', 'Inbox and admin', 'Requests sorted, replies drafted and tasks created automatically.']
       ].map(([n, title, body], i) => {
         const on = S.pillar === i;
         return { n, title, body, on, titleColor: on ? '#0058c4' : '#0d0d0d', arrow: on ? 1 : 0, bg: on ? '#ffffff' : 'rgba(255,255,255,.45)', border: on ? '#d9e6f4' : 'rgba(255,255,255,.7)', shadow: on ? 'var(--shadow-md)' : 'none', chipBg: on ? '#007ae8' : '#dfeafa', chipFg: on ? '#007ae8' : '#63666b',
@@ -1104,14 +1113,14 @@ void main(){
       wf: wfd,
       wfProgress: Math.min(100, (S.wfStep / 5) * 100) + '%',
       wfToggle: () => this.setState(s => s.wfStep >= 5 ? { wfStep: 0, wfPlaying: true } : { wfPlaying: !s.wfPlaying }),
-      wfToggleLabel: S.wfStep >= 5 ? 'REPLAY' : (S.wfPlaying ? 'PAUSE' : 'PLAY'),
+      wfToggleLabel: S.wfStep >= 5 ? 'Replay' : (S.wfPlaying ? 'Pause' : 'Play'),
       wfToggleAria: S.wfStep >= 5 ? 'Replay workflow' : (S.wfPlaying ? 'Pause workflow' : 'Play workflow'),
       wfRows: wfd.steps.map(([title, meta], i) => {
         const st = i < S.wfStep ? 'done' : (i === S.wfStep ? 'now' : 'next');
         const human = i === 2;
         return { title, meta,
           glyph: st === 'done' ? '✓' : String(i + 1),
-          status: st === 'done' ? 'DONE' : st === 'now' ? (human ? 'AWAITING REVIEW' : 'RUNNING') : 'QUEUED',
+          status: st === 'done' ? 'Done' : st === 'now' ? (human ? 'Awaiting review' : 'Running') : 'Queued',
           bg: st === 'now' ? '#f4f8fd' : '#ffffff', ring: st === 'next' ? '#d4d6da' : '#007ae8', fill: st === 'done' ? '#007ae8' : '#ffffff',
           numColor: st === 'done' ? '#ffffff' : (st === 'now' ? '#0058c4' : '#63666b'), statusColor: st === 'now' ? '#0058c4' : '#63666b',
           titleColor: st === 'next' ? '#63666b' : '#0d0d0d', glow: st === 'now' ? '0 0 0 4px rgba(0,122,232,.14)' : 'none',
@@ -1119,19 +1128,19 @@ void main(){
       }),
 
       services: [
-        { n: '01', chan: 'GOOGLE · META · LINKEDIN', title: 'Paid Ads', body: 'Search, social and LinkedIn campaigns planned together and measured on enquiries.', outcome: 'Qualified enquiries from people looking for what you offer.', outcomeMore: 'Every dollar is tracked to the enquiries and meetings it produces, so budget moves to what works.', cta: 'Paid Ads', href: '/paid-ads' },
-        { n: '02', chan: 'CONVERSION', title: 'CRO', body: 'Landing pages, forms and booking flows tested to convert more visitors.', outcome: 'More enquiries from the same spend.', outcomeMore: 'Clearer pages, shorter forms and tested changes turn more of your existing visitors into conversations, which lowers the cost of every new client.', cta: 'CRO', href: '/cro' },
-        { n: '03', chan: 'LIFECYCLE', title: 'Email Marketing', body: 'Nurture sequences, newsletters and review reminders that keep working between meetings.', outcome: 'More enquiries converted, more clients coming back.', outcomeMore: 'Your firm stays front of mind through long decisions, and existing clients return for reviews and referrals.', cta: 'Email Marketing', href: '/email-marketing' }
+        { n: '1', chan: 'Google · Meta · LinkedIn', title: 'Paid Ads', body: 'Search, social and LinkedIn campaigns planned together and measured on enquiries.', outcome: 'Qualified enquiries from people looking for what you offer.', outcomeMore: 'Every dollar is tracked to the enquiries and meetings it produces, so budget moves to what works.', cta: 'Paid Ads', href: '/paid-ads' },
+        { n: '2', chan: 'Conversion', title: 'CRO', body: 'Landing pages, forms and booking flows tested to convert more visitors.', outcome: 'More enquiries from the same spend.', outcomeMore: 'Clearer pages, shorter forms and tested changes turn more of your existing visitors into conversations, which lowers the cost of every new client.', cta: 'CRO', href: '/cro' },
+        { n: '3', chan: 'Lifecycle', title: 'Email Marketing', body: 'Nurture sequences, newsletters and review reminders that keep working between meetings.', outcome: 'More enquiries converted, more clients coming back.', outcomeMore: 'Your firm stays front of mind through long decisions, and existing clients return for reviews and referrals.', cta: 'Email Marketing', href: '/email-marketing' }
       ],
       spot: (e) => { const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); },
 
       steps: stepsData.map(([title, body], i) => {
         const active = S.step === i;
-        return { i, n: '0' + (i + 1), title, body, x: pos[i][0], y: pos[i][1], active,
+        return { i, n: String(i + 1), title, body, x: pos[i][0], y: pos[i][1], active,
           aria: `Step ${i + 1}: ${title}`,
           dotFill: i <= S.step ? '#007ae8' : '#ffffff',
           cardBg: active ? '#f4f8fd' : '#ffffff', cardBorder: active ? '#d9e6f4' : '#e6e6e6',
-          numColor: active ? '#0058c4' : '#63666b',
+          numColor: active ? '#0058c4' : '#63666b', bigNum: active ? '#007ae8' : '#cddbec',
           select: () => this.scrollToStep(i) };
       }),
 
@@ -1141,13 +1150,13 @@ void main(){
         ['Clear plans, no guesswork', 'Every engagement starts with a written plan showing what we will do, in what order and how success is measured.'],
         ['You own your accounts and data', 'Ad accounts, analytics, automations and AI workspaces sit in your firm’s name. If we part ways, everything stays with you.'],
         ['Measured on results', 'We report on enquiries, meetings and clients won, in plain English, every month.']
-      ].map(([title, body], i) => ({ title, body, n: '0' + (i + 1) })),
+      ].map(([title, body], i) => ({ title, body, n: String(i + 1) })),
 
       insights: [
-        { cat: 'PAID ADS', read: '7 MIN READ', title: 'Getting more from Google Ads as a financial firm', body: 'How to choose the right searches, locations and landing pages for qualified enquiries.', cta: 'Read article' },
-        { cat: 'AI', read: '6 MIN READ', title: 'Using AI for file notes: a practical guide for financial firms', body: 'How to set up a meeting-to-file-note workflow your team will actually use.', cta: 'Read article' },
-        { cat: 'SOCIAL', read: '5 MIN READ', title: 'What to post on LinkedIn as a financial professional', body: 'Simple content ideas that build credibility with the clients you want.', cta: 'Read article' },
-        { cat: 'ALL INSIGHTS', read: '', title: 'Browse every article on marketing and AI in finance', body: 'Filter by firm type or topic.', cta: 'All insights', bg: '#f4f8fd', border: '#d9e6f4' }
+        { cat: 'Paid ads', read: '7 min read', title: 'Getting more from Google Ads as a financial firm', body: 'How to choose the right searches, locations and landing pages for qualified enquiries.', cta: 'Read article' },
+        { cat: 'AI', read: '6 min read', title: 'Using AI for file notes: a practical guide for financial firms', body: 'How to set up a meeting-to-file-note workflow your team will actually use.', cta: 'Read article' },
+        { cat: 'Social', read: '5 min read', title: 'What to post on LinkedIn as a financial professional', body: 'Simple content ideas that build credibility with the clients you want.', cta: 'Read article' },
+        { cat: 'All insights', read: '', title: 'Browse every article on marketing and AI in finance', body: 'Filter by firm type or topic.', cta: 'All insights', bg: '#f4f8fd', border: '#d9e6f4' }
       ].map(x => ({ bg: '#ffffff', border: '#e6e6e6', ...x })),
       railDown: this.railDown, railMove: this.railMove, railUp: this.railUp, railClickCapture: this.railClickCapture,
       railPrev: () => this.railStep(-1), railNext: () => this.railStep(1),
@@ -1179,13 +1188,13 @@ void main(){
       formReset: () => this.setState({ done: false, form: { stage: 0, firm: null, team: null, prio: [], budget: null, day: null, time: null, name: '', email: '', company: '', touched: false } }),
 
       segHref: '/who-we-work-with',
-      pairCounter: '0' + (S.pair + 1) + ' / 03',
+      pairCounter: String(S.pair + 1) + ' / 3',
       pairResume: () => this.setState({ pairHold: false }),
       pairs: [
         ['Enquiries rise and fall with referral partners and market cycles.', 'High-intent search and social', 'Campaigns aimed at people looking for the services you offer, in the places you serve.'],
         ['Clients take months to decide and often go quiet in between.', 'Nurture over a long decision', 'Email that keeps your firm in the conversation until the client is ready.'],
         ['Skilled people lose hours each week to notes, data entry and follow-ups.', 'AI for repeat admin', 'Notes, document intake and follow-ups prepared by AI and checked by your team.']
-      ].map(([pain, title, desc], i) => { const on = S.pair === i; return { pain, title, desc, on, n: '0' + (i + 1), tag: on ? 'WHERE WE START' : 'THE CHALLENGE',
+      ].map(([pain, title, desc], i) => { const on = S.pair === i; return { pain, title, desc, on, n: String(i + 1), tag: on ? 'Where we start' : 'The challenge',
         bg: on ? '#007ae8' : '#ffffff', fg: on ? '#ffffff' : '#0d0d0d', border: on ? '#007ae8' : '#e6e6e6', shadow: on ? '0 24px 60px -24px rgba(0,88,196,.55)' : 'var(--shadow-sm)', lift: on ? 'translateY(-6px)' : 'translateY(0)',
         num: on ? '#ffffff' : '#007ae8', label: on ? '#ffffff' : '#63666b', glow: on ? 1 : 0, rows: on ? '1fr' : '0fr', solOpacity: on ? 1 : 0, solShift: on ? 'translateY(0)' : 'translateY(10px)', hintDisplay: on ? 'none' : 'block',
         prog: on && !S.pairHold && !this.reduced ? '100%' : '0%', progDur: on && !S.pairHold && !this.reduced ? '6000ms' : '0ms',
@@ -1195,7 +1204,7 @@ void main(){
         ['Your market', 'We know who you compete with online and how to stand out in a crowded, high-trust category.'],
         ['Your systems', 'We know the tools and systems financial firms work with, so AI fits the way your team already works.'],
         ['Your reputation', 'Calm, specific messaging that sounds like a firm people trust with their money.']
-      ].map(([title, body], i) => ({ title, body, n: '0' + (i + 1) })),
+      ].map(([title, body], i) => ({ title, body, n: String(i + 1) })),
       ...(() => {
         const cf = S.cf, okEmail = /\S+@\S+\.\S+/.test(cf.email);
         const errs = { name: cf.name.trim() ? '' : 'Please add your name.', email: okEmail ? '' : 'Please add a valid email.', phone: '', company: '' };
@@ -1217,9 +1226,9 @@ void main(){
         };
       })(),
       footerCols: [
-                { head: 'AI FOR FINANCE', links: ['AI integration', 'Team training', 'AI Readiness Assessment'] },
-        { head: 'SERVICES', links: ['Paid media', 'Social media', 'Email & automation'] },
-        { head: 'FIRM', links: ['Approach', 'About', 'Privacy policy', 'Book a consultation'] }
+                { head: 'AI for finance', links: ['AI integration', 'Team training', 'AI Readiness Assessment'] },
+        { head: 'Services', links: ['Paid media', 'Social media', 'Email & automation'] },
+        { head: 'Firm', links: ['Approach', 'About', 'Privacy policy', 'Book a consultation'] }
       ]
     };
   }
