@@ -121,7 +121,7 @@ So delivery is repeatable, not heroic. Heavily started already.
 - ✅ **Service delivery SOP** — `_ops/service-delivery-sop.md`.
 - ✅ **Client onboarding skill/flow** — `client-onboarding` skill.
 - ✅ **Tracking setup process** — `tracking-setup` skill.
-- ✅ **Monthly reporting** — `_skills/monthly-report/` Python pipeline + `monthly-report-narrative` skill + `_templates/report/`.
+- ✅ **Monthly reporting** — `_ops/tools/monthly-report/` Python pipeline + `monthly-report-narrative` skill + `_templates/report/`.
 - ✅ **Ad copy + content engines** — google-ads-copy, meta-ad-copy, reels-script, social-post, seo-audit, competitor-research skills.
 - ⬜ **Client welcome pack / kickoff doc** — what happens in week 1, what you need from them, timelines. Client-facing version of the onboarding skill.
 - ⬜ **Onboarding checklist per client** — access collected, pixels/conversions live, baseline metrics captured, campaign brief signed off.

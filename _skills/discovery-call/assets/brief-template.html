@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discovery call: [Name]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #007AE8; --ink: #0D0D0D; --muted: #63666B; --line: #E6E6E6;
+    --soft: #FBFCFF; --row: #F4F8FD; --accent: #FF5900;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink);
+    font: 16px/1.55 "Public Sans", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: 30px; margin: 4px 0 6px; }
+  h2 { font-size: 21px; margin: 0 0 10px; color: var(--ink); }
+  .label { font-family: "Newsreader", Georgia, serif; color: var(--muted); font-size: 15px; }
+  .meta { color: var(--muted); font-size: 15px; margin: 0; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; margin-top: 14px; }
+  .goal { border-left: 4px solid var(--blue); }
+  .goal p { margin: 0 0 6px; font-size: 17px; }
+  ul, ol { margin: 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--row); }
+  td.t { white-space: nowrap; color: var(--blue); font-weight: 600; width: 90px; }
+  .q { font-weight: 600; }
+  .probe { color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .listen { font-size: 14px; margin-top: 4px; color: var(--ink); }
+  .listen b { color: var(--blue); font-weight: 600; }
+  .say { background: var(--row); border-radius: 8px; padding: 10px 12px; margin: 8px 0;
+    font-style: italic; }
+  .careful { border-left: 4px solid var(--accent); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  .sources li { font-size: 15px; }
+  .sources .pub { font-weight: 600; }
+  @media print {
+    body { background: #fff; font-size: 12.5px; }
+    main { padding: 0; max-width: none; }
+    section { break-inside: avoid; padding: 10px 12px; margin-top: 8px; }
+  }
+  .num td { text-align: right; } .num td:first-child { text-align: left; }
+  .num th { text-align: right; font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 8px; }
+  .num th:first-child { text-align: left; }
+  .check li { list-style: none; margin-left: -20px; }
+  .g { color: #1a7f37; font-weight: 600; } .a { color: #9a6700; font-weight: 600; } .r { color: #cf222e; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="label">Discovery call</div>
+  <h1>[Name], [role], [firm]</h1>
+  <p class="meta">[Date] · [time] · [format] · [length] · <a href="[linkedin url]">LinkedIn</a></p>
+
+  <section class="goal">
+    <h2>Goal</h2>
+    <p>Qualify, and if they fit, book the proposal meeting.</p>
+    <p class="muted">Likely fit: [marketing retainer / AI training / both]</p>
+  </section>
+
+  <section>
+    <h2>The firm at a glance</h2>
+    <ul><li>[Point]</li></ul>
+  </section>
+
+  <section>
+    <h2>What I noticed</h2>
+    <ul><li>[Observation] <span class="muted">Ask: "[question]"</span></li></ul>
+  </section>
+
+  <section>
+    <h2>Run sheet</h2>
+    <table>
+      <tr><td class="t">[0–3]</td><td><b>Open and agenda.</b> [note]</td></tr>
+      <tr><td class="t">[3–10]</td><td><b>Their situation.</b> [note]</td></tr>
+      <tr><td class="t">[10–18]</td><td><b>The problem.</b> [note]</td></tr>
+      <tr><td class="t">[18–24]</td><td><b>Fit and practicalities.</b> [note]</td></tr>
+      <tr><td class="t">[24–30]</td><td><b>Recap and next step.</b> [note]</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Opening</h2>
+    <div class="say">[Line, word for word]</div>
+  </section>
+
+  <section>
+    <h2>Discovery questions</h2>
+    <ol>
+      <li>
+        <div class="q">[Question]</div>
+        <div class="probe">Probe: [follow-up]</div>
+        <div class="listen"><b>Listen for:</b> [what a useful answer contains]</div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Qualify</h2>
+    <ul class="check"><li>☐ <b>[Criterion]</b>: <span class="g">green</span> [signal] · <span class="a">amber</span> [signal] · <span class="r">red</span> [signal]</li></ul>
+    <p class="muted">Red flags (two or more, exit politely): [list]</p>
+  </section>
+
+  <section>
+    <h2>If they ask about price</h2>
+    <div class="say">[Line, word for word]</div>
+  </section>
+
+  <section>
+    <h2>The close</h2>
+    <div class="say">[Line, word for word]</div>
+  </section>
+
+  <section>
+    <h2>The polite exit</h2>
+    <div class="say">[Line, word for word]</div>
+  </section>
+
+  <section class="careful">
+    <h2>Handle carefully</h2>
+    <ul><li><b>[Topic]:</b> [why]. If it comes up: <i>"[holding line]"</i></li></ul>
+  </section>
+
+  <section>
+    <h2>After the call</h2>
+    <ul><li>[Same-day recap confirming the proposal meeting, or thank-you with the free tip]</li><li>Log in _brand/launch/prospect-tracker.csv</li><li>[Start the proposal from _brand/launch/proposal-template.html]</li></ul>
+  </section>
+
+  <section class="sources">
+    <h2>In the media and sources</h2>
+    <p class="muted">LinkedIn</p>
+    <ul><li><a href="[url]"><span class="pub">[Name]'s profile</span></a>. [Notes, or what couldn't be read.]</li></ul>
+    <p class="muted">[Name] in the media</p>
+    <ul><li><a href="[url]"><span class="pub">[Publication]</span>, [date]: [headline]</a>. [One line.]</li></ul>
+    <p class="muted">Firm and marketing</p>
+    <ul><li><a href="[url]"><span class="pub">[Source]</span></a>. [One line.] <i>[(search summary only, not read)]</i></li></ul>
+    <p class="muted">Market context</p>
+    <ul><li><a href="[url]"><span class="pub">[Publication]</span>, [date]: [headline]</a>. [What it says and who it's about.]</li></ul>
+  </section>
+</main>
+</body>
+</html>

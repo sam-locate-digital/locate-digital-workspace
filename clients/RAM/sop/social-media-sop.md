@@ -86,7 +86,7 @@ Across a month, every precinct should hit: spotlights, food, at least one offer,
 
 ## Monthly reporting (to RAM)
 
-Once a month, a simple report per precinct: posts published, reach/impressions, engagement rate, follower growth, top post. Use `_skills/monthly-report/` as the base. Keep it plain — what worked, what's next.
+Once a month, a simple report per precinct: posts published, reach/impressions, engagement rate, follower growth, top post. Use `_ops/tools/monthly-report/` as the base. Keep it plain — what worked, what's next.
 
 ---
 

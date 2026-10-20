@@ -54,3 +54,9 @@ build/
 *.gdoc
 *.gsheet
 *.gslides
+
+# Skills: the Claude app manages _skills/synced itself; never commit caches
+_skills/synced/
+__pycache__/
+*.pyc
+.coverage

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report call: [Client] [Month]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #007AE8; --ink: #0D0D0D; --muted: #63666B; --line: #E6E6E6;
+    --soft: #FBFCFF; --row: #F4F8FD; --accent: #FF5900;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink);
+    font: 16px/1.55 "Public Sans", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: 30px; margin: 4px 0 6px; }
+  h2 { font-size: 21px; margin: 0 0 10px; color: var(--ink); }
+  .label { font-family: "Newsreader", Georgia, serif; color: var(--muted); font-size: 15px; }
+  .meta { color: var(--muted); font-size: 15px; margin: 0; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; margin-top: 14px; }
+  .goal { border-left: 4px solid var(--blue); }
+  .goal p { margin: 0 0 6px; font-size: 17px; }
+  ul, ol { margin: 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--row); }
+  td.t { white-space: nowrap; color: var(--blue); font-weight: 600; width: 90px; }
+  .q { font-weight: 600; }
+  .probe { color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .listen { font-size: 14px; margin-top: 4px; color: var(--ink); }
+  .listen b { color: var(--blue); font-weight: 600; }
+  .say { background: var(--row); border-radius: 8px; padding: 10px 12px; margin: 8px 0;
+    font-style: italic; }
+  .careful { border-left: 4px solid var(--accent); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  .sources li { font-size: 15px; }
+  .sources .pub { font-weight: 600; }
+  @media print {
+    body { background: #fff; font-size: 12.5px; }
+    main { padding: 0; max-width: none; }
+    section { break-inside: avoid; padding: 10px 12px; margin-top: 8px; }
+  }
+  .num td { text-align: right; } .num td:first-child { text-align: left; }
+  .num th { text-align: right; font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 8px; }
+  .num th:first-child { text-align: left; }
+  .check li { list-style: none; margin-left: -20px; }
+  .g { color: #1a7f37; font-weight: 600; } .a { color: #9a6700; font-weight: 600; } .r { color: #cf222e; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="label">Report call</div>
+  <h1>[Client]: [month] results</h1>
+  <p class="meta">[Call date] · [time] · [length] · [attendees]</p>
+
+  <section class="goal">
+    <h2>Headline</h2>
+    <p>[One sentence: the result that matters, against baseline or goal]</p>
+    <p class="muted">Month: [good / flat / bad]</p>
+  </section>
+
+  <section>
+    <h2>Key numbers</h2>
+    <table class="num">
+      <tr><th>Metric</th><th>This month</th><th>Last month</th><th>Baseline</th><th>Goal</th></tr>
+      <tr><td>[Outcome metric]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+    </table>
+    <p class="muted">Source: [report path]. Missing data: [anything not in the report]</p>
+  </section>
+
+  <section>
+    <h2>Last month's promises</h2>
+    <ul><li>[Promise]: <b>[done / partly / not yet]</b>. [note]</li></ul>
+  </section>
+
+  <section>
+    <h2>Run sheet</h2>
+    <table>
+      <tr><td class="t">[0–2]</td><td><b>Open.</b> [note]</td></tr>
+      <tr><td class="t">[2–5]</td><td><b>Headline.</b> [note]</td></tr>
+      <tr><td class="t">[5–13]</td><td><b>What worked, what didn't.</b> [note]</td></tr>
+      <tr><td class="t">[13–21]</td><td><b>Next month.</b> [note]</td></tr>
+      <tr><td class="t">[21–26]</td><td><b>Decisions.</b> [note]</td></tr>
+      <tr><td class="t">[26–30]</td><td><b>Close.</b> [note]</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>What worked, what didn't</h2>
+    <p><b>Worked</b></p>
+    <ul><li>[Point]</li></ul>
+    <p><b>Didn't</b></p>
+    <ul><li>[Point]</li></ul>
+  </section>
+
+  <section class="careful">
+    <h2>If it's a bad month</h2>
+    <ul><li><b>Cause:</b> [plain words]</li><li><b>Fix:</b> [what, already done or planned]</li><li><b>When they'll see it:</b> [timing]</li></ul>
+    <div class="say">[Holding line for the hardest question]</div>
+  </section>
+
+  <section>
+    <h2>Next month</h2>
+    <ol><li><b>[Priority]</b>: [why, and what the client should see]</li></ol>
+  </section>
+
+  <section>
+    <h2>Decisions needed</h2>
+    <ol><li><div class="q">[Question the client can answer yes or no]</div><div class="probe">Recommend: [Sam's option and why]</div></li></ol>
+  </section>
+
+  <section>
+    <h2>Growth</h2>
+    <div class="say">[Lines to raise it]</div>
+    <p class="muted">[Or: not this month, because …]</p>
+  </section>
+
+  <section class="careful">
+    <h2>Handle carefully</h2>
+    <ul><li><b>[Topic]:</b> [why]. If it comes up: <i>"[holding line]"</i></li></ul>
+  </section>
+
+  <section>
+    <h2>After the call</h2>
+    <ul><li>Same-day recap of what was agreed</li><li>Log decisions in the client's memory/</li><li>Confirm the next call date</li></ul>
+  </section>
+</main>
+</body>
+</html>

@@ -46,13 +46,13 @@ Skills are Claude Code prompts stored as `SKILL.md` files. Load one into a sessi
 | `mosic-gmb-post` | Google Business Profile post writer for MOSIC |
 | `frontend-design` | Builds distinctive, production-grade frontend UI — avoids generic AI aesthetics, forces bold typography/colour/layout choices |
 
-The `_skills/SKILL.md` file covers how to create and iterate on new skills.
+Use the built-in `/skill-creator` skill to create and iterate on new skills. Skills live in `_skills/`, linked from `~/.claude/skills` so Claude Code loads them from any project.
 
 ---
 
 ## Monthly report
 
-The `_skills/monthly-report/` folder has a working Python pipeline:
+The `_ops/tools/monthly-report/` folder has a working Python pipeline:
 
 ```bash
 python generate.py "clients/MOSIC/.env"          # previous full month
@@ -76,7 +76,7 @@ Osteopathy clinic. Three locations: Melbourne CBD (Bourke St), Essendon, Telehea
 | SEO | Active |
 | Email | Via Cliniko + Cliniqapps |
 
-Data sources: Cliniko (bookings/patients), GA4, Google Ads. Monthly report pipeline is live — see `_skills/monthly-report/`.
+Data sources: Cliniko (bookings/patients), GA4, Google Ads. Monthly report pipeline is live — see `_ops/tools/monthly-report/`.
 
 ---
 

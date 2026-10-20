@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check-in: [Client] day [N]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #007AE8; --ink: #0D0D0D; --muted: #63666B; --line: #E6E6E6;
+    --soft: #FBFCFF; --row: #F4F8FD; --accent: #FF5900;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink);
+    font: 16px/1.55 "Public Sans", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: 30px; margin: 4px 0 6px; }
+  h2 { font-size: 21px; margin: 0 0 10px; color: var(--ink); }
+  .label { font-family: "Newsreader", Georgia, serif; color: var(--muted); font-size: 15px; }
+  .meta { color: var(--muted); font-size: 15px; margin: 0; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; margin-top: 14px; }
+  .goal { border-left: 4px solid var(--blue); }
+  .goal p { margin: 0 0 6px; font-size: 17px; }
+  ul, ol { margin: 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--row); }
+  td.t { white-space: nowrap; color: var(--blue); font-weight: 600; width: 90px; }
+  .q { font-weight: 600; }
+  .probe { color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .listen { font-size: 14px; margin-top: 4px; color: var(--ink); }
+  .listen b { color: var(--blue); font-weight: 600; }
+  .say { background: var(--row); border-radius: 8px; padding: 10px 12px; margin: 8px 0;
+    font-style: italic; }
+  .careful { border-left: 4px solid var(--accent); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  .sources li { font-size: 15px; }
+  .sources .pub { font-weight: 600; }
+  @media print {
+    body { background: #fff; font-size: 12.5px; }
+    main { padding: 0; max-width: none; }
+    section { break-inside: avoid; padding: 10px 12px; margin-top: 8px; }
+  }
+  .num td { text-align: right; } .num td:first-child { text-align: left; }
+  .num th { text-align: right; font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 8px; }
+  .num th:first-child { text-align: left; }
+  .check li { list-style: none; margin-left: -20px; }
+  .g { color: #1a7f37; font-weight: 600; } .a { color: #9a6700; font-weight: 600; } .r { color: #cf222e; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="label">[30 / 60 / 90]-day check-in</div>
+  <h1>[Client]: day [N] check-in</h1>
+  <p class="meta">[Delivered: what, when] · [call date] · [time] · [length] · [attendees]</p>
+
+  <section class="goal">
+    <h2>Goal</h2>
+    <p>[One line for this checkpoint]</p>
+    <p class="muted">Win if: [win condition]</p>
+  </section>
+
+  <section>
+    <h2>Where things stand</h2>
+    <ul><li>[Point]</li></ul>
+  </section>
+
+  <section>
+    <h2>Run sheet</h2>
+    <table>
+      <tr><td class="t">[0–3]</td><td><b>Open.</b> [note]</td></tr>
+      <tr><td class="t">[3–13]</td><td><b>Usage.</b> [note]</td></tr>
+      <tr><td class="t">[13–20]</td><td><b>Blockers.</b> [note]</td></tr>
+      <tr><td class="t">[20–26]</td><td><b>Results.</b> [note]</td></tr>
+      <tr><td class="t">[26–30]</td><td><b>Ask and close.</b> [note]</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Usage questions</h2>
+    <ol>
+      <li>
+        <div class="q">[Question]</div>
+        <div class="probe">Probe: [follow-up]</div>
+        <div class="listen"><b>Listen for:</b> [what a useful answer contains]</div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Likely blockers</h2>
+    <ul><li><b>[Blocker]</b>: offer [what Sam can do on the spot]</li></ul>
+  </section>
+
+  <section>
+    <h2>Results and proof</h2>
+    <ul><li class="q">[Question that draws out results in their words]</li></ul>
+    <div class="say">[Permission-to-quote line]</div>
+  </section>
+
+  <section>
+    <h2>The referral ask</h2>
+    <div class="say">[Line, word for word]</div>
+    <p class="muted">Fallback: [softer line]. [Or: skip this time, because …]</p>
+  </section>
+
+  <section>
+    <h2>Expansion signals to listen for</h2>
+    <ul><li>[Signal]. Note it, don't pitch.</li></ul>
+  </section>
+
+  <section class="careful">
+    <h2>Handle carefully</h2>
+    <ul><li><b>[Topic]:</b> [why]. If it comes up: <i>"[holding line]"</i></li></ul>
+  </section>
+
+  <section>
+    <h2>After the call</h2>
+    <ul><li>Same-day recap with any promised fix and its date</li><li>Send quotes to the client to approve before use</li><li>[Referral blurb if they said yes]</li><li>Log results and quotes; book the next check-in</li></ul>
+  </section>
+</main>
+</body>
+</html>
