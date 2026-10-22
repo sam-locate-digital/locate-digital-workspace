@@ -63,6 +63,29 @@ Use the provided context to:
 - Apply budget-appropriate recommendations (e.g. Smart Bidding requires 15+ conv/month)
 - Calibrate severity scoring (a $500/mo account has different priorities than $50k/mo)
 
+## Live Account Data (Adspirer)
+
+Adspirer is connected and can read Google, Meta, TikTok, LinkedIn, Microsoft
+and Amazon accounts directly. Prefer it over asking for exports when the
+account is linked (check with `get_connections_status`). Before pulling
+anything, read the **Live Account Rules** in `references/mcp-integration.md`:
+one named account at a time, complete days only, state timezone/currency/
+window/conversion definition, label findings Observed / Possible cause /
+Recommendation, and never change an account during analysis.
+
+### Quick checks (lighter than a full audit)
+
+When Sam wants a fast read rather than a scored audit, run one of these
+instead of the full checklist:
+
+| Ask | What to produce |
+|-----|-----------------|
+| "How's [client] going?" | Last 30 complete days: spend, conversions, cost per conversion, then the three most useful things to investigate |
+| "What changed?" | Last 7 complete days vs previous 7: biggest observed changes first, then possible causes with evidence |
+| "Where's the waste?" | Up to three opportunities ranked by evidence and spend affected. Recommendations only |
+| "Is creative fatigue the problem?" | Frequency, CTR and CPA trend per creative, the limits of that evidence, and one creative test to run |
+| "Check this before launch" | Offer, landing page, audience, creative, budget and measurement plan; what's missing; a launch checklist. Nothing created |
+
 ## 10-Principle Thinking Framework
 
 Every command in this skill operates under a shared thinking discipline:
@@ -132,6 +155,8 @@ Hard rules (never violate these):
 - Creative: never run silent video ads on TikTok (sound-on platform)
 - Attribution: default to 7-day click / 1-day view (Meta), data-driven (Google)
 - Andromeda creative diversity: Flag Meta accounts with <10 genuinely distinct creatives
+- Read-only by default: audits, kill lists and reallocations are recommendations. Never change a live account without Sam's explicit approval for that specific change; new campaigns are created paused (see Live Account Rules in `references/mcp-integration.md`)
+- No conversions ≠ waste: rule out tracking gaps and conversion lag before calling spend wasted, and report "spend affected", not "savings"
 - Privacy infrastructure gate: Always verify tracking stack (Consent Mode V2, CAPI, Events API, AdAttributionKit) before making optimization recommendations
 - PDF report quality gate: When generating reports via `/ads report`, always use `scripts/generate_report.py` with `--check` first. Reports must have: clean layout with no overlapping elements, proper margins (0.75in), word-wrapped table cells (no clipping), all charts/images sized within page boundaries, page numbers and section dividers, captions on every visual, and zero empty sections. Run `--check` before `--output` and fix any warnings before delivering the PDF
 

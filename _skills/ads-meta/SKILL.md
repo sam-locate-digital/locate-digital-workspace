@@ -100,7 +100,13 @@ default. Audit confirms:
 
 ## Process
 
-1. Collect Meta Ads data (Ads Manager export, Events Manager screenshot, EMQ scores)
+1. Collect Meta Ads data. If the account is linked in Adspirer, pull it with
+   `get_meta_campaign_performance` and the `meta_ads` router (look tools up
+   with `search_tools` / `get_tool_schema`, never guess), following the Live
+   Account Rules in `ads/references/mcp-integration.md`. Otherwise use an Ads
+   Manager export, Events Manager screenshot and EMQ scores. State the
+   attribution setting (e.g. 7-day click / 1-day view), currency and timezone
+   with the results
 2. Read `ads/references/meta-audit.md` for full 50-check audit
 3. Read `ads/references/benchmarks.md` for Meta-specific benchmarks
 4. Read `ads/references/scoring-system.md` for weighted scoring
@@ -125,7 +131,11 @@ default. Audit confirms:
 ### Creative (30% weight)
 - ≥3 creative formats active (image, video, carousel, collection)
 - ≥5 creatives per ad set (Meta recommendation)
-- Creative fatigue detection: CTR drop >20% over 14 days = FAIL
+- Creative fatigue detection: CTR drop >20% over 14 days = FAIL. Before
+  calling it fatigue, check the evidence fits: rising frequency alongside
+  falling CTR and rising CPA on the same creative. A CTR drop with flat
+  frequency points elsewhere (audience change, auction pressure, seasonality,
+  tracking). Say how strong the evidence is and propose one creative test
 - Video creative: 15s max for Stories/Reels, 30s max for Feed
 - UGC/testimonial creative tested
 - Dynamic Creative Optimization (DCO) tested

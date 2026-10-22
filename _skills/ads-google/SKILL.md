@@ -92,12 +92,26 @@ deduplication patterns, and filter scope best practices. Key rules:
 - Only analyze ENABLED campaigns and ad groups (exclude paused/removed)
 - Filter to keywords with impressions > 0 for theme coherence checks (G03)
 - Apply legacy BMM heuristic: BROAD + Manual CPC = legacy BMM, not intentional broad (G17)
-- Only flag wasted spend on terms with >$10 spend AND 0 conversions (G16)
+- Only flag wasted spend on terms with >$10 spend AND 0 conversions (G16), and
+  first rule out conversion lag (check the Conversion Tracking lag analysis) and
+  conversion actions changed during the window. Zero conversions can be a
+  tracking gap rather than waste
 - Count shared negative keyword lists alongside campaign-level negatives (G14/G15)
 
-## Google Ads MCP Integration (Optional)
+## Live Data via Adspirer (Preferred)
 
-For automated data collection, connect the [Google Ads MCP server](https://github.com/googleads/google-ads-mcp):
+Adspirer is connected. If the client's Google Ads account is linked
+(`get_connections_status`), pull performance with `get_campaign_performance`
+and everything else (search terms, keywords, conversion actions) through the
+`google_ads` router after looking the tool up with `search_tools` and
+`get_tool_schema`. Follow the Live Account Rules in
+`ads/references/mcp-integration.md`: one named account, last 30 complete days
+by default, and state timezone, currency and which conversion actions are
+primary. Read-only during the audit.
+
+## Google Ads MCP Integration (Alternative)
+
+Without Adspirer, connect the [Google Ads MCP server](https://github.com/googleads/google-ads-mcp):
 
 - **Tools available**: `search` (GAQL queries), `list_accessible_customers`
 - **Setup**: Configure in `.mcp.json` or Claude Code MCP settings
@@ -251,7 +265,8 @@ Settings:            XX/100  ██████████  (10%)
 
 ### Deliverables
 - `GOOGLE-ADS-REPORT.md`: Full 80-check findings with pass/warning/fail
-- Wasted spend estimate (monthly $ value)
+- Wasted spend estimate (monthly spend affected, in the account currency; not
+  presented as guaranteed savings)
 - Quick Wins sorted by impact
 - PMax-specific recommendations (if applicable)
 - Keyword health matrix with QS, CTR, CVR per keyword group

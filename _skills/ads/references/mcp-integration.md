@@ -62,21 +62,25 @@ claude-ads works with manually provided data by default (exports, screenshots, p
 - Creative quality assessment (subjective)
 - Consent Mode V2 verification (requires GTM/tag audit)
 
-### Meta Ads: Adspirer MCP
+### Multi-platform: Adspirer MCP (connected in Locate's Claude setup)
 
-**Docs:** https://www.adspirer.com/blog/connect-claude-meta-ads
-**Type:** Commercial MCP server
+**Docs:** https://www.adspirer.com/docs
+**Type:** Commercial MCP server, connected as a claude.ai connector
+**Platforms:** Google, Meta, TikTok, LinkedIn, Microsoft, Amazon, plus GA4, Search Console and GTM
 
-**Setup:**
-1. Sign up at adspirer.com
-2. Connect Meta Business Manager account
-3. Add MCP server config per their docs
+**Using it:**
+- `get_connections_status` to see which accounts are linked (reuse a recent result, don't re-check before every call)
+- `get_campaign_performance` (Google) and `get_meta_campaign_performance` (Meta) for performance pulls
+- Everything else sits behind platform routers (`google_ads`, `meta_ads`, `tiktok_ads`, `linkedin_ads`, `microsoft_ads`, `amazon_ads`). Find the right inner tool with `search_tools`, get its exact inputs with `get_tool_schema`, then call the router with `action: "execute"`, `tool_name` and `arguments`. Never guess a tool name, parameter or account ID
+- `get_usage_status` if calls start failing; on exhausted quota, say so and fall back to exports rather than retrying
+- Budget inputs are account-currency decimal amounts, not cents or micros. Confirm the live schema and account currency before preparing any write
 
 **What becomes automated:**
 - Campaign performance data for M11-M18 (structure)
 - Creative metrics for M25-M32 (fatigue detection)
 - Audience overlap for M19 (overlap check)
 - EMQ scores for M04 (requires Events Manager access)
+- Google campaign, search term and keyword data for the G-checks listed above
 
 **Alternative: Direct Meta API:**
 No bundled fetcher ships with claude-ads. For a free, self-hosted option, write
@@ -92,20 +96,20 @@ Both provide campaign data access for LinkedIn Ads analysis. Setup follows stand
 
 ### TikTok Ads
 
-No dedicated MCP server available as of April 2026. Use:
+Adspirer (above) covers this platform if the account is linked. Otherwise use:
 - TikTok Ads Manager exports (CSV)
 - TikTok Business API (custom integration via scripts)
 
 ### Microsoft Ads
 
-No dedicated MCP server available as of April 2026. Use:
+Adspirer (above) covers this platform if the account is linked. Otherwise use:
 - Microsoft Ads Editor exports
 - Google Ads import data (if mirrored)
 - Microsoft Advertising API (custom integration)
 
 ### Apple Ads
 
-No dedicated MCP server available as of April 2026. Use:
+No Adspirer or dedicated MCP server for Apple Ads as of October 2026. Use:
 - Apple Ads dashboard exports
 - Apple Ads API (custom integration)
 
@@ -120,6 +124,55 @@ The recommended approach combines MCP live data with claude-ads structured analy
 4. claude-ads merges all data into unified audit
 5. Health Score calculated across all platforms regardless of data source
 ```
+
+## Live Account Rules
+
+These apply whenever a skill reads a real ad account through an MCP server
+(Adspirer or any other). Sub-skills point here.
+
+### Scope every pull
+- One account at a time. Locate runs many client accounts: if the request
+  doesn't name the account, ask which one before pulling anything
+- Use **complete days only** (exclude today). Default windows: last 30
+  complete days for reviews, last 7 vs previous 7 for change checks
+- State the account's **timezone, currency, date window and conversion
+  definition** (which conversion actions count as primary) at the top of
+  every output
+- Never add up amounts in different currencies. Never treat Google, Meta and
+  LinkedIn "conversions" as the same thing: their windows and definitions differ
+
+### Separate what you saw from what you think
+Every finding is labelled one of:
+- **Observed**: a number pulled from the account
+- **Possible cause**: a hypothesis that would explain it, with the evidence for it
+- **Recommendation**: what to do, and how we'd know it worked
+
+Period-over-period comparisons list the biggest observed changes first, then
+possible causes. Don't present a cause as fact.
+
+### Don't overstate waste or wins
+- Zero conversions is not automatic proof of waste. Check for tracking gaps,
+  conversion lag (lead gen often reports days late) and recently changed
+  conversion actions before calling spend wasted
+- Report "spend affected", not "savings". Pausing a campaign doesn't save its
+  whole budget if some of its conversions were real
+- Platform-attributed revenue is not causal lift. Say "attributed" unless an
+  incrementality test backs it
+
+### Changing an account
+Audits and analysis are **read-only**. Kill lists, reallocations and fixes are
+recommendations for Sam to approve, never applied during the audit. For a
+later change Sam asks for:
+1. Read the current state first
+2. Show the account, the exact change, and any budget with its currency
+3. Get explicit approval for that change (approval for one change doesn't cover the next)
+4. Create new campaigns **paused**. Turning anything on, or raising spend, needs its own approval
+5. Read the change back from the account before reporting it done
+
+### When calls fail
+Say what failed and what that leaves unverified. Never fill gaps with
+estimated or benchmark numbers presented as account data, and don't repeat a
+failing call blindly.
 
 ## Security Notes
 

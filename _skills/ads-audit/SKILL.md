@@ -42,6 +42,19 @@ Ask the user for available data. Accept any combination:
 
 If no exports available, audit from screenshots or manual data entry.
 
+**Live data:** if the accounts are linked in Adspirer, pull from there instead
+of asking for exports, and follow the Live Account Rules in
+`ads/references/mcp-integration.md`. Confirm which client and which account IDs
+are in scope before pulling. The audit is read-only.
+
+**Cross-platform hygiene:**
+- Put each platform's timezone, currency, date window and primary conversion
+  actions in the Executive Summary
+- Never total spend or revenue across accounts in different currencies without
+  stating the conversion rate used
+- Don't add platform-reported conversions together as if they were the same
+  event. Compare each to the CRM or GA4 total where possible and note the overlap
+
 ## Scoring
 
 Read `ads/references/scoring-system.md` for full algorithm.
@@ -84,7 +97,9 @@ Each platform section includes:
 - Platform Health Score with grade
 - Category breakdown with pass/warning/fail per check
 - Platform-specific Quick Wins
-- Detailed findings with remediation steps
+- Detailed findings with remediation steps, each labelled **Observed**,
+  **Possible cause** or **Recommendation** so the client can see what is
+  measured and what is our read of it
 
 ### Cross-Platform Analysis
 - Budget allocation assessment (actual vs recommended)
@@ -96,7 +111,8 @@ Each platform section includes:
 - Platform prioritization based on business type
 - Budget reallocation recommendations
 - Scaling opportunities (platforms/campaigns ready to scale)
-- Kill list (campaigns/ad groups to pause immediately)
+- Kill list (campaigns/ad groups recommended for pause, with spend affected
+  and the data behind each; nothing is paused until Sam approves)
 
 ## Priority Definitions
 

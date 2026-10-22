@@ -12,15 +12,20 @@ tested_with: claude-code v2.x
 
 ## Process
 
-1. Collect budget and performance data across all active platforms
-2. Read `ads/references/budget-allocation.md` for allocation framework
-3. Read `ads/references/bidding-strategies.md` for strategy decision trees
-4. Read `ads/references/benchmarks.md` for CPC/CPA benchmarks
-5. Read `ads/references/scoring-system.md` for health score algorithm
-6. **Validate**: confirm spend data covers ≥14 days before evaluating kill/scale decisions
-7. Evaluate budget allocation, bidding strategy, and scaling readiness
-8. **Validate**: verify kill list candidates have sufficient data (≥20 clicks or ≥$100 spend) before recommending pause
-9. Generate recommendations with kill list and scale list
+1. Collect budget and performance data across all active platforms (via
+   Adspirer where linked; follow the Live Account Rules in
+   `ads/references/mcp-integration.md`)
+2. Confirm Sam's goal and target (CPA, ROAS or lead volume) and whether the
+   total budget is fixed. If it isn't stated, ask. Default to reallocating
+   **within the current total**
+3. Read `ads/references/budget-allocation.md` for allocation framework
+4. Read `ads/references/bidding-strategies.md` for strategy decision trees
+5. Read `ads/references/benchmarks.md` for CPC/CPA benchmarks
+6. Read `ads/references/scoring-system.md` for health score algorithm
+7. **Validate**: confirm spend data covers ≥14 days before evaluating kill/scale decisions
+8. Evaluate budget allocation, bidding strategy, and scaling readiness
+9. **Validate**: verify kill list candidates have sufficient data (≥20 clicks or ≥$100 spend) before recommending pause
+10. Generate recommendations with kill list and scale list
 
 ## Budget Allocation Framework
 
@@ -159,10 +164,15 @@ Never increase budget by more than 20% at a time:
 ### Kill Decision Framework
 | Scenario | Data Required | Action |
 |----------|---------------|--------|
-| CPA >3x target | ≥7 days data, ≥20 clicks | Pause immediately |
-| No conversions | ≥$100 spend or ≥50 clicks | Pause and diagnose |
+| CPA >3x target | ≥7 days data, ≥20 clicks | Recommend pause |
+| No conversions | ≥$100 spend or ≥50 clicks | Diagnose tracking and conversion lag first, then recommend pause |
 | CTR <50% of benchmark | ≥1,000 impressions | Kill creative, test new |
-| ROAS <50% of target | ≥14 days data | Reduce budget 50% or pause |
+| ROAS <50% of target | ≥14 days data | Recommend 50% budget cut or pause |
+
+Kill and scale lists are **recommendations**. Nothing is paused or changed
+until Sam approves that specific change (see Live Account Rules in
+`ads/references/mcp-integration.md`). Show spend affected per item, not
+"savings": some of a paused campaign's conversions may have been real.
 
 ## MER (Marketing Efficiency Ratio)
 
@@ -192,6 +202,11 @@ Budget Sufficiency:   █████░░░░░  XX/100
 - `BUDGET-STRATEGY-REPORT.md`: Full allocation and bidding analysis
 - Current vs recommended budget split (pie chart data)
 - Bidding strategy recommendations per platform/campaign
+- Reallocation table within the current total: campaign, current budget,
+  proposed budget, change, and the reason (in the account currency; never mix
+  currencies across accounts)
+- Tradeoffs: what each move risks (learning phase resets, lost volume, data
+  that's too thin to be sure)
 - Scale list: campaigns ready for more budget
 - Kill list: campaigns/ad groups to pause immediately
 - MER analysis and trend
