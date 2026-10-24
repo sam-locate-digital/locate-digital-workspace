@@ -18,5 +18,9 @@ window.sendEnquiry = function (source, d, message) {
     })
   })
     .then((r) => r.json().catch(() => ({})))
-    .then((j) => { if (!j.success) throw new Error(j.message || 'Send failed'); });
+    .then((j) => {
+      if (!j.success) throw new Error(j.message || 'Send failed');
+      // GA4 lead event; mark generate_lead as a key event in Analytics.
+      if (window.gtag) window.gtag('event', 'generate_lead', { form_source: source });
+    });
 };
