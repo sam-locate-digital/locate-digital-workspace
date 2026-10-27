@@ -1,0 +1,8 @@
+[
+  { "name": "Priya S.", "suburb": "Box Hill", "job": "Hot water replacement", "trade": ["plumbing"], "key": "hot water", "rating": 5, "date": "Sep 2026", "quote": "Hot water died on a Sunday. They came out first thing Monday, had a new unit in by lunch and explained everything as they went." },
+  { "name": "Mark & Jen T.", "suburb": "Blackburn", "job": "Switchboard upgrade", "trade": ["electrical"], "key": "switchboard", "rating": 5, "date": "Aug 2026", "quote": "Our 1960s board was a worry. They explained it in plain English, did it in a day and left the hallway cleaner than they found it." },
+  { "name": "Daniel O.", "suburb": "Ringwood", "job": "Blocked drain", "trade": ["plumbing"], "key": "drain", "rating": 5, "date": "Aug 2026", "quote": "Got a text when they were 30 minutes away, which never happens. Drain cleared, camera footage sent to me after." },
+  { "name": "Helen W.", "suburb": "Camberwell", "job": "Bathroom reno plumbing", "trade": ["plumbing", "electrical"], "key": "reno", "rating": 5, "date": "Jul 2026", "quote": "Plumbing and electrical in one booking for our bathroom. One quote, one invoice, no chasing two trades." },
+  { "name": "Raj K., landlord", "suburb": "Doncaster", "job": "Smoke alarms + leak", "trade": ["plumbing", "electrical"], "key": "smoke", "rating": 5, "date": "Jul 2026", "quote": "I manage four rentals. They deal with the tenant directly and send me photos and the invoice. Saves me hours." },
+  { "name": "Sophie L.", "suburb": "Mitcham", "job": "Gas heater service", "trade": ["plumbing"], "key": "gas", "rating": 5, "date": "Jun 2026", "quote": "Booked online at 9pm, confirmed by text the next morning. Friendly, on time and tidy." }
+]
