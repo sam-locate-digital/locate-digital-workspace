@@ -20,9 +20,9 @@ const ICON = {
 };
 
 // An <img>, or a plain pale-blue box of the same shape when the photo hasn't been added yet (photos/PHOTO-LIST.md).
-function photo({ src, alt = '', width, height, cls = '', loading = 'lazy' }) {
+function photo({ src, alt = '', width, height, cls = '', loading = 'lazy', priority = false }) {
   if (fs.existsSync(path.join(root, src))) {
-    return `<img${cls ? ` class="${cls}"` : ''} src="${src}" alt="${attr(alt)}" width="${width}" height="${height}" loading="${loading}">`;
+    return `<img${cls ? ` class="${cls}"` : ''} src="${src}" alt="${attr(alt)}" width="${width}" height="${height}" loading="${loading}"${priority ? ' fetchpriority="high"' : ''}>`;
   }
   const a11y = alt ? `role="img" aria-label="${attr(alt)}"` : 'aria-hidden="true"';
   return `<span${cls ? ` class="${cls}"` : ''} ${a11y} data-missing-photo="${src}" style="display:block;background:#EAF0FD;aspect-ratio:${width}/${height};width:100%"></span>`;
@@ -42,7 +42,7 @@ function header(C, active) {
 
 <header class="hdr" data-hdr>
 <div class="wrap hdr-in">
-<a class="wm" href="./" aria-label="Harlow Home Loans, home"><b>${esc(C.brand.short)}</b><i>Home Loans</i></a>
+<a class="wm" href="./" aria-label="Harlow Home Loans, home"><b>${esc(C.brand.short)}</b> <i>Home Loans</i></a>
 
 <nav class="nav" aria-label="Main">
 <div class="nav-dd" data-dd>
@@ -107,7 +107,7 @@ function footer(C) {
 <div class="wrap">
 <div class="fcols">
 <div class="fcol">
-<a class="wm" href="./" aria-label="Harlow Home Loans, home"><b>${esc(C.brand.short)}</b><i>Home Loans</i></a>
+<a class="wm" href="./" aria-label="Harlow Home Loans, home"><b>${esc(C.brand.short)}</b> <i>Home Loans</i></a>
 <p style="margin-top: 12px; max-width: 340px">A small, family-run broking team helping buyers and homeowners across Melbourne.</p>
 </div>
 <div class="fcol">

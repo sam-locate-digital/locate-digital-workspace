@@ -700,3 +700,6 @@ body{background:var(--canvas)}
 }
 @keyframes pillIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.hdr.is-past .hdr-pill{animation:none}}
+
+/* legal pages: the placeholder banner is one sentence, so keep it as running text, not flex columns */
+.legal-note{display:block}

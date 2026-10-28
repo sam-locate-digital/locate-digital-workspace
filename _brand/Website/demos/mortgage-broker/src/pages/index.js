@@ -45,7 +45,7 @@ module.exports = (C, R) => {
 <!-- Hero -->
 <section class="hero" id="hero" aria-labelledby="hero-h">
 <div class="hero-frame on-photo">
-${photo({ cls: 'hero-img', src: IMG.hero, alt: 'A couple playing with their toddler in the living room of their new home', width: 1344, height: 752, loading: 'eager' })}
+${photo({ cls: 'hero-img', src: IMG.hero, alt: 'A couple playing with their toddler in the living room of their new home', width: 1344, height: 752, loading: 'eager', priority: true })}
 <div class="hero-copy">
 <h1 class="h1 hero-in" id="hero-h">Your next <em class="ul">move</em>, made simple.</h1>
 <p class="hero-sub hero-in" style="--d: 80ms"><span>Melbourne mortgage brokers.</span><span>We compare <span class="ph">[PLACEHOLDER 30+]</span> lenders and do the legwork, usually at no cost to you.</span></p>
