@@ -684,7 +684,7 @@
         '<div class="field full"><span class="lbl">Photos <span class="opt">(optional, up to 3)</span></span>' +
           '<label class="drop" for="f-photos">' + I.upload() + '<span>Add photos of the problem</span><input id="f-photos" class="sr-only" type="file" accept="image/*" multiple></label>' +
           '<ul class="thumbs-row" style="list-style: none; margin: 0; padding: 0" hidden></ul></div>' +
-        '<div class="form-foot full"><button type="submit" class="btn btn-primary btn-lg btn-block" id="f-submit" aria-disabled="false">Send booking request</button>' +
+        '<div class="form-foot full"><p class="err" id="f-send-err" hidden></p><button type="submit" class="btn btn-primary btn-lg btn-block" id="f-submit" aria-disabled="false">Send booking request</button>' +
           '<p class="cap">We\'ll text you to confirm a time.</p></div>' +
       '</div></form>' +
       '<div class="success" id="success-panel" tabindex="-1" hidden>' +
@@ -706,6 +706,7 @@
   }
 
   const announce = (msg) => { $('#bk-announce').textContent = msg; };
+  const sendErr = (msg) => { const p = $('#f-send-err'); p.hidden = !msg; p.innerHTML = msg ? I.alert() + esc(msg) : ''; };
 
   function setErr(k, msg) {
     if (msg) bk.errors[k] = msg; else delete bk.errors[k];
@@ -749,7 +750,7 @@
     if (sel.value !== f.job) { f.job = ''; sel.value = ''; }
     ['desc', 'date', 'suburb', 'name', 'mobile', 'email', 'address', 'tname', 'tmobile'].forEach((k) => { F(k).value = f[k]; });
     F('landlord').checked = f.landlord;
-    syncTime(); syncLandlord(); syncPhotos(); syncSubmit();
+    syncTime(); syncLandlord(); syncPhotos(); syncSubmit(); sendErr('');
     ORDER.forEach((k) => setErr(k, bk.errors[k] || ''));
   }
 
@@ -773,7 +774,7 @@
   function addPhotos(input) {
     const files = Array.from(input.files || []).filter((f) => /^image\//.test(f.type));
     const room = 3 - bk.form.photos.length;
-    const add = files.slice(0, Math.max(0, room)).map((f, i) => ({ name: f.name, url: URL.createObjectURL(f), id: Date.now() + '-' + i }));
+    const add = files.slice(0, Math.max(0, room)).map((f, i) => ({ name: f.name, file: f, url: URL.createObjectURL(f), id: Date.now() + '-' + i }));
     try { input.value = ''; } catch (x) {}
     bk.form.photos = bk.form.photos.concat(add);
     syncPhotos();
@@ -811,23 +812,28 @@
     syncSubmit();
     announce('Sending your booking');
 
-    setTimeout(() => {
-      const ref = (C.bookingRefPrefix || '') + String(Math.floor(10000 + Math.random() * 90000));
-      const payload = {
-        ref, job: f.job, description: f.desc, preferredTime: f.time === 'Pick a date' ? f.date : f.time, suburb: f.suburb, name: f.name,
-        mobile: f.mobile, email: f.email, landlord: f.landlord, propertyAddress: f.address, tenantName: f.tname, tenantMobile: f.tmobile,
-        photos: f.photos.map((p) => p.name), page: PAGE + (SLUG ? '/' + SLUG : ''), submittedAt: new Date().toISOString()
-      };
-      if (C.formEndpoint) {
-        try { fetch(C.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) }).catch(() => {}); } catch (x) {}
-      } else {
-        try { console.log('[Tradie demo] booking payload', payload); } catch (x) {}
+    sendErr('');
+
+    const ref = (C.bookingRefPrefix || '') + String(Math.floor(10000 + Math.random() * 90000));
+    const payload = {
+      ref, job: f.job, description: f.desc, preferredTime: f.time === 'Pick a date' ? f.date : f.time, suburb: f.suburb, name: f.name,
+      mobile: f.mobile, email: f.email, landlord: f.landlord ? 'Yes' : 'No', propertyAddress: f.address, tenantName: f.tname, tenantMobile: f.tmobile,
+      page: PAGE + (SLUG ? '/' + SLUG : ''), submittedAt: new Date().toISOString()
+    };
+    const started = Date.now();
+    sendBooking(payload, f.photos.map((p) => p.file).filter(Boolean)).then((ok) => setTimeout(() => {
+      bk.submitting = false;
+      syncSubmit();
+      if (!ok) {
+        const msg = "We couldn't send your booking just now. Please try again, or call us on " + c.phone + '.';
+        sendErr(msg);
+        announce(msg);
+        return;
       }
+      track('generate_lead', { job: f.job, suburb: f.suburb });
       const first = f.name.trim().split(/\s+/)[0] || 'there';
       const jobText = f.job === 'Other' ? 'your job' : f.job.toLowerCase();
-      bk.submitting = false;
       bk.done = { ref };
-      syncSubmit();
       $('#done-h').textContent = 'Thanks, ' + first + '. We\'ll text ' + f.mobile + ' with a time shortly.';
       $('#done-ref').textContent = ref;
       $('#done-sms').textContent = c.name + ': Hi ' + first + ", we've got your booking for " + jobText + ' (' + ref + "). We'll text you a time within " + c.responseTime + '.';
@@ -835,7 +841,41 @@
       showDone(true);
       announce('Booking sent. Your reference is ' + ref + '.');
       focusEl($('#success-panel'));
-    }, 900);
+    }, Math.max(0, 900 - (Date.now() - started))));
+  }
+
+  // Shrink a phone photo to 1600px JPEG before upload, so three photos stay well under
+  // form-service size limits. Anything the browser can't decode is sent as it is.
+  const shrinkPhoto = (file) => new Promise((resolve) => {
+    if (!window.createImageBitmap || !/^image\/(jpeg|png|webp)$/.test(file.type)) { resolve(file); return; }
+    createImageBitmap(file).then((bmp) => {
+      const scale = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+      const cv = document.createElement('canvas');
+      cv.width = Math.round(bmp.width * scale);
+      cv.height = Math.round(bmp.height * scale);
+      cv.getContext('2d').drawImage(bmp, 0, 0, cv.width, cv.height);
+      cv.toBlob((b) => resolve(b && b.size < file.size ? new File([b], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' }) : file), 'image/jpeg', 0.82);
+    }).catch(() => resolve(file));
+  });
+
+  // POST the booking to CONFIG.formEndpoint (Formspree) as form data, photos attached.
+  // If the upload with photos is refused (e.g. a plan without file uploads), the booking is
+  // sent again without them, with a note to ask the customer for the photos.
+  function sendBooking(payload, files) {
+    if (!C.formEndpoint) {
+      try { console.log('[Tradie demo] booking payload', payload, files); } catch (x) {}
+      return Promise.resolve(true);
+    }
+    const post = (photos) => {
+      const fd = new FormData();
+      Object.keys(payload).forEach((k) => fd.append(k, payload[k]));
+      fd.append('_subject', 'New booking: ' + payload.job + ' in ' + payload.suburb + ' (' + payload.ref + ')');
+      if (photos) photos.forEach((p, i) => fd.append('photo' + (i + 1), p, p.name));
+      else if (files.length) fd.append('photosNote', 'The customer added ' + files.length + ' photo(s), but they could not be attached. Ask them to text the photos.');
+      return fetch(C.formEndpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } }).then((r) => r.ok, () => false);
+    };
+    if (!files.length) return post(null);
+    return Promise.all(files.map(shrinkPhoto)).then((photos) => post(photos)).then((ok) => ok || post(null), () => post(null));
   }
 
   function resetForm() {
@@ -963,6 +1003,24 @@
     writeForm();
   }
 
+  // ---------- analytics: GA4 from CONFIG.ga4Id, with booking and phone-tap events ----------
+  const track = (event, params) => { if (window.gtag) window.gtag('event', event, params || {}); };
+  function initAnalytics() {
+    if (!C.ga4Id) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', C.ga4Id);
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(C.ga4Id);
+    document.head.appendChild(s);
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="tel:"]');
+      if (a) track('phone_call_click', { link_location: a.className || 'link' });
+    });
+  }
+
   // ---------- scroll: sticky pill, header rule, call bar, reveals ----------
   function initScroll(checkReveal) {
     const pill = $('.pill');
@@ -1000,6 +1058,7 @@
   }
 
   // ---------- boot ----------
+  initAnalytics();
   renderServicePage();
   renderSuburbPage();
   applyBrand();

@@ -20,6 +20,17 @@ window.CONFIG = {
   // Highlights the PLACEHOLDER values in yellow. Set to false before going live.
   showPlaceholders: true,
 
+  // false = demo: every page is hidden from Google. true = a client's live site:
+  // Google can list it, and build.js writes sitemap.xml, robots.txt and vercel.json.
+  // Run `node build.js` after changing anything in this block.
+  production: false,
+  siteUrl: 'https://demo.locatedigital.io/tradie/',   // the live address, ending in /
+  ga4Id: '',                                          // e.g. 'G-XXXXXXXXXX'; '' = no analytics
+  // Old website pages that should send visitors to a new page (production only).
+  redirects: [
+    // { from: '/services/hot-water.php', to: '/plumbing/hot-water' }
+  ],
+
   contact: { phone: '(03) 5550 4127', email: 'jobs@eastsidetrades.example' },
   address: { street: '[street address]', suburb: 'Blackburn', state: 'VIC', postcode: '3130' }, // street: PLACEHOLDER
   hours: { weekdays: '7am–5pm', emergency: '24/7', schema: 'Mo-Fr 07:00-17:00' },

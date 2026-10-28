@@ -2,4 +2,4 @@
 *.md
 *.png
 */design
-*/make-pages.js
+*/build.js
