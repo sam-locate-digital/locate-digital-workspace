@@ -2,7 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/", "destination": "https://www.locatedigital.io", "permanent": false },
-    { "source": "/tradie", "destination": "/tradie/", "permanent": true }
+    { "source": "/tradie", "destination": "/tradie/", "permanent": true },
+    { "source": "/mortgage-broker", "destination": "/mortgage-broker/", "permanent": true }
   ],
   "headers": [
     { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
