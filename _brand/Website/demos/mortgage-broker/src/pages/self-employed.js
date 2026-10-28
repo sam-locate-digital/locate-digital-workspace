@@ -1,0 +1,96 @@
+// Self-employed home loans (canvas/SelfEmployed.dc.html)
+const { esc, photo, ctaBand, reviewRail } = require('../partials');
+
+module.exports = (C, R) => ({
+  title: "Self-employed home loans | Harlow Home Loans",
+  description: "Home loans for sole traders, contractors and business owners in Melbourne, including short trading histories and low-doc options.",
+  active: "buying",
+  drawerDefaults: {"situation":"self-employed","source":"Self-employed page"},
+  body: `
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap phero-grid">
+<div>
+${photo({"src":"icons/self-employed.webp","alt":"","width":240,"height":240,"cls":"ph-ic ill hero-in","loading":"eager"})}
+<h1 class="h1 hero-in" id="ph-h">Home loans for the self-employed</h1>
+<p class="lead hero-in" style="--d: 80ms">Sole trader, contractor or business owner, your income is real even if it doesn't come on a payslip. We know which lenders understand that, including if you've only been trading a short while.</p>
+<div class="ctas hero-in" style="--d: 160ms">
+<button type="button" class="btn btn-primary btn-lg" data-enquire="{}">Book a free chat</button>
+<a class="btn btn-secondary btn-lg" href="${C.contact.phoneHref}">Call ${esc(C.contact.phone)}</a>
+</div>
+<p class="trust hero-in" style="--d: 240ms"><span>Free 20-minute chat</span><span>No credit check</span><span>Evening calls for busy weeks</span></p>
+</div>
+<div class="phero-photo">${photo({"src":"images/advice-table.jpg","alt":"A Harlow broker talking through loan options with a couple at their dining table","width":1120,"height":840,"loading":"eager"})}</div>
+</div>
+</section>
+
+<section class="band band-card" aria-labelledby="ex-h">
+<div class="wrap two-col">
+<div class="rv focus">
+<h2 class="h2" id="ex-h">How we <em class="ul">help</em></h2>
+<p class="lead">Banks often say no to the self-employed because the application didn't show the full picture. We make sure it does.</p>
+</div>
+<ul class="hl-list rv focus" style="--d: 100ms">
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Lenders that read business income properly</b><p>Some add back things like depreciation or one-off costs. We know who does.</p></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Options with a short trading history</b><p>Some lenders accept less than two years of tax returns, depending on your work history.</p></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Low-doc loans, if they fit</b><p>Where full financials aren't ready, we explain the alternatives and what they cost.</p></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Working with your accountant</b><p>We ask for the right documents the first time, so there's no back and forth.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="band" aria-labelledby="tl-h">
+<div class="wrap">
+<div class="intro rv rise">
+<h2 class="h2" id="tl-h">From first chat to <em class="ul">approval</em></h2>
+<p class="lead">The usual path for a self-employed application. Timings depend on your paperwork and the lender.</p>
+</div>
+<ol class="tl">
+<li class="rv rise" style="--d: 0ms"><span class="when">Now</span><b>Pull your numbers together</b><p>Your latest tax returns and BAS, or whatever your accountant has ready.</p></li>
+<li class="rv rise" style="--d: 70ms"><span class="when">Week 1</span><b>Your free chat</b><p>We look at how different lenders would read your income and pick the best fit.</p></li>
+<li class="rv rise" style="--d: 140ms"><span class="when">Week 1 to 2</span><b>Application, done properly</b><p>We write the lender a clear summary of your business so nothing is misread.</p></li>
+<li class="rv rise" style="--d: 210ms"><span class="when">Often 1 to 2 weeks</span><b>Approval</b><p>We answer the lender's questions so you can keep running your business.</p></li>
+<li class="rv rise" style="--d: 280ms"><span class="when">Every year</span><b>Free loan review</b><p>As your business grows, your loan options may get better. We'll check.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="band band-w1" aria-labelledby="dc-h">
+<div class="wrap schemes">
+<div class="rv from-l">
+<h2 class="h2" id="dc-h">Documents to have <em class="ul">handy</em></h2>
+<p class="lead">You don't need all of these for the first chat. They help us move quickly once you're ready to apply.</p>
+</div>
+<ul class="docs rv from-l" style="--d: 100ms">
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Personal and business tax returns for the last two years</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Notices of assessment from the ATO</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Recent business activity statements (BAS)</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Business and personal bank statements</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Your ABN and GST registration details</li>
+<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>Your accountant's contact details</li>
+</ul>
+</div>
+</section>
+
+<section class="band" aria-label="Reviews" style="overflow: hidden">
+<div class="wrap">
+${reviewRail(R, {"hLead":"Business owners who got a ","hBrush":"yes","hTail":"","filterKey":"situation","filterVal":"self-employed"})}
+</div>
+</section>
+
+<section class="band band-card" aria-labelledby="faq-h">
+<div class="wrap two-col">
+<div class="rv fade">
+<h2 class="h2" id="faq-h">Self-employed <em class="ul">questions</em></h2>
+<p class="lead">What sole traders and business owners ask us most.</p>
+</div>
+<div class="faq rv fade" style="--d: 80ms">
+<details name="faq" open><summary>How long do I need to have been trading?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Many lenders like two years, but some accept less. It depends on your industry and what you did before you went out on your own.</p></details>
+<details name="faq"><summary>What is a low-doc loan?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">A loan that uses other evidence, like BAS or an accountant's letter, instead of full tax returns. They can cost more, so we compare them with standard options first.</p></details>
+<details name="faq"><summary>My last year was lower. What then?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Some lenders use your most recent year, others average two. We'll match you with a lender whose approach suits your figures.</p></details>
+<details name="faq"><summary>Can I apply if I'm a contractor?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Yes. Some lenders treat contractors more like employees, using your current contract rate. We'll find the ones that do.</p></details>
+</div>
+</div>
+</section>
+
+${ctaBand(C, {"hLead":"Let's look at your ","hBrush":"numbers","hTail":"","sub":"Evening video calls if your days are full.","prefill":{"situation":"self-employed","source":"Self-employed page"}})}`,
+});

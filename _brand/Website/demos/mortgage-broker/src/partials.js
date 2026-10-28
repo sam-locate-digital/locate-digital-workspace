@@ -260,7 +260,7 @@ ${body}
 </div>`;
 }
 
-function layout(C, { title, description, active = '', drawerDefaults = {}, jsonLd, body }) {
+function layout(C, { title, description, active = '', drawerDefaults = {}, jsonLd, body, scripts = [] }) {
   return `<!doctype html>
 <html lang="en-AU">
 <head>
@@ -288,7 +288,7 @@ ${drawer(drawerDefaults)}
 <script src="config.js"></script>
 <script src="js/form.js"></script>
 <script src="js/main.js"></script>
-</body>
+${scripts.map((s) => `<script src="${s}"></script>\n`).join('')}</body>
 </html>
 `;
 }
