@@ -293,4 +293,12 @@ ${scripts.map((s) => `<script src="${s}"></script>\n`).join('')}</body>
 `;
 }
 
-module.exports = { attr, esc, enquire, ICON, photo, ctaBand, contactAside, inlineForm, reviewRail, layout };
+// Canvas <dc-import name="…"> → partial. The design-to-site converter writes component('Name', props, C, R) calls.
+function component(name, props, C, R) {
+  if (name === 'ReviewRail') return reviewRail(R, props);
+  if (name === 'CtaBand') return ctaBand(C, props);
+  if (name === 'Enquiry') return inlineForm(props.prefill);
+  throw new Error(`component(): no partial for canvas component "${name}". Add it to src/partials.js.`);
+}
+
+module.exports = { attr, esc, enquire, ICON, photo, ctaBand, contactAside, inlineForm, reviewRail, layout, component };

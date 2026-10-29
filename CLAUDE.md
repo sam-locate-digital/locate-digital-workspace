@@ -22,6 +22,7 @@ Every skill is a slash command. There are exactly two homes:
 
 - **Central: `_skills/`** in this workspace (Google Drive, tracked in git). `C:\Users\samue\.claude\skills` is a Windows junction pointing here, so Claude Code loads these as user-level skills, available as `/skill-name` from any project. Edit skills in `_skills/`; never replace the junction with a real folder. `_skills/synced/` is managed by the Claude app and is git-ignored. Every skill that isn't tied to one client lives here:
   - Locate delivery: client-onboarding, service-delivery, tracking-setup, landing-page, google-ads-copy, meta-ad-copy, social-post, email-campaign, seo-audit, monthly-report-narrative, competitor-research, market-research, meeting-prep, client-report-call, discovery-call, check-in-call, humanizer.
+  - Demo websites: design-to-site (Claude Design handoff → static demo in `_brand/Website/demos/<industry>/`, checked and published), publish-demo (commit + push the demos subtree → demo.locatedigital.io). The prompt to paste into Claude Design is `_brand/Website/claude-design-handoff-prompt.md`.
   - Locate brand: locate-voice, reels-script, human-web-design.
   - Ads audit suite: ads and ads-* (google, meta, linkedin, tiktok, youtube, microsoft, apple, amazon, audit, plan, budget, creative, landing, attribution, server-side-tracking and more).
   - Design: frontend-design, banner-design, brand, design-system, slides, ui-styling, ui-ux-pro-max.
