@@ -1,0 +1,32 @@
+# Keep video media out of git. These files stay on Google Drive, which already backs them up.
+# Scripts, configs and notes in this folder are still tracked.
+
+# Media folders
+Raw Footage/
+Exports/
+References/
+
+# Media files anywhere in this folder
+*.mp4
+*.mov
+*.m4v
+*.mkv
+*.webm
+*.avi
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.srt
+*.vtt
+*.psd
+*.prproj
+
+# Build and tool output (Remotion, Whisper, yt-dlp)
+node_modules/
+out/
+.cache/
+*.part
+*.ytdl
