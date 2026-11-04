@@ -8,6 +8,7 @@ This folder is where Sam does all video editing and social posting. Every edit f
 
 ## Folders
 
+- `Scripts/`: reel scripts from the `reels-script` skill, named `YYYY-MM-DD_topic.md`. Force-align captions to these.
 - `Raw Footage/`: source clips. Never edit or delete originals.
 - `References/`: inspiration reels and their `.info.json` files.
 - `Exports/`: finished reels, named `YYYY-MM-DD_topic_v1.mp4`. Bump the version number. Never overwrite.
