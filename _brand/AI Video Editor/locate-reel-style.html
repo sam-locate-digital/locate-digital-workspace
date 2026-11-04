@@ -1,0 +1,565 @@
+<title>Locate Reel Style</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: a single reading column of rule sections, each pairing a short spec with a live 9:16 frame mock-up at true reel proportions. */
+:root{
+  --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd; --surface:#ffffff;
+  --fg:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+  --blue:#007ae8; --blue-text:#0058c4; --cyan:#75dfee; --orange:#ff5900;
+  --tint:rgba(0,122,232,.08);
+  --shadow:0 1px 1px rgba(13,13,13,.04),0 2px 5px rgba(13,13,13,.05),0 8px 20px -6px rgba(13,13,13,.08);
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
+  --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  /* Video-frame colours are fixed: they describe the reel, not the page theme */
+  --v-soft:#fbfcff; --v-grid:#e6e6e6; --v-ink:#0d0d0d; --v-muted:#63666b; --v-blue:#007ae8; --v-cyan:#75dfee; --v-orange:#ff5900;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --bg-soft:#12161c; --row-alt:#161b22; --surface:#151a21;
+  --fg:#eef1f5; --muted:#9aa3ae; --line:#272d36;
+  --blue:#3d9bff; --blue-text:#6cb4ff; --tint:rgba(61,155,255,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -8px rgba(0,0,0,.5);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --bg-soft:#12161c; --row-alt:#161b22; --surface:#151a21;
+  --fg:#eef1f5; --muted:#9aa3ae; --line:#272d36;
+  --blue:#3d9bff; --blue-text:#6cb4ff; --tint:rgba(61,155,255,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -8px rgba(0,0,0,.5);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+h3{font-size:1.2rem}
+p{margin:0}
+.muted{color:var(--muted)}
+.label{font-family:var(--display);font-size:.95rem;color:var(--muted)}
+.brush-word{position:relative;display:inline-block;white-space:nowrap;color:var(--blue-text)}
+.brush-word svg{position:absolute;left:-4%;bottom:-.22em;width:108%;height:.42em;overflow:visible;pointer-events:none}
+.brush-word path{fill:var(--blue)}
+
+/* Header */
+header.top{padding-block:72px 48px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+header.top .lede{font-size:1.15rem;color:var(--muted);max-width:640px;margin-top:18px}
+.meta{display:flex;flex-wrap:wrap;margin-top:36px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.meta div{flex:1 1 180px;padding:16px 22px;border-right:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.meta div:last-child{border-right:0}
+.meta b{display:block;color:var(--fg);font-size:.95rem;font-weight:600;margin-top:3px}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block}
+
+/* Sections */
+section.pg{padding-block:72px;border-bottom:1px solid var(--line)}
+.pg-head{display:grid;gap:12px;max-width:680px;margin-bottom:36px}
+.pg-head p{color:var(--muted);font-size:1.05rem}
+.split{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start}
+@media (max-width:820px){.split{grid-template-columns:minmax(0,1fr)}}
+
+/* Short version */
+.rules6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media (max-width:820px){.rules6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.rules6{grid-template-columns:minmax(0,1fr)}}
+.rules6 div{background:var(--surface);padding:22px 22px 24px;display:grid;gap:6px;align-content:start}
+.rules6 .n{font-family:var(--display);font-size:1.9rem;font-weight:600;color:var(--blue-text);line-height:1}
+.rules6 b{font-size:1rem}
+.rules6 span{font-size:.9rem;color:var(--muted)}
+
+/* Spec tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th{text-align:left;font-weight:600;font-size:.8rem;color:var(--muted);padding:12px 16px;border-bottom:2px solid var(--fg);white-space:nowrap}
+td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.sum td{background:var(--row-alt)}
+.spec{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.spec div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:.93rem}
+.spec div:last-child{border-bottom:0}
+.spec dt,.spec .k{color:var(--muted);font-family:var(--display);font-size:.95rem}
+@media (max-width:520px){.spec div{grid-template-columns:minmax(0,1fr);gap:2px}}
+.note{font-size:.85rem;color:var(--muted);margin-top:14px;max-width:680px}
+
+/* Phone frame — 1080×1920 mapped onto container width (100cqw = 1080px) */
+.phone{container-type:inline-size;position:relative;width:270px;max-width:100%;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#151a20;box-shadow:0 0 0 1px rgba(13,13,13,.12),0 18px 40px -16px rgba(0,40,90,.35);isolation:isolate}
+.phone.sm{width:220px}
+.cap-note{font-size:.8rem;color:var(--muted);margin-top:10px;max-width:270px}
+.footage{position:absolute;inset:0;background:radial-gradient(70% 40% at 82% 18%,rgba(255,196,140,.35),transparent 70%),radial-gradient(120% 70% at 30% 10%,#46505d 0%,#252c35 55%,#171c22 100%);overflow:hidden}
+.footage::before{content:"";position:absolute;left:50%;top:26%;width:30cqw;height:37cqw;border-radius:48% 48% 44% 44%;transform:translateX(-50%);background:linear-gradient(160deg,#d8b497,#a8806a)}
+.footage::after{content:"";position:absolute;left:50%;top:calc(26% + 33cqw);width:82cqw;height:80cqw;border-radius:42% 42% 0 0;transform:translateX(-50%);background:linear-gradient(#3a4d63,#2b3a4c)}
+.footage.punch{transform:scale(1.18);transform-origin:50% 34%}
+.canvas{position:absolute;inset:0;background-color:var(--v-soft);background-image:linear-gradient(var(--v-grid) 1px,transparent 1px),linear-gradient(90deg,var(--v-grid) 1px,transparent 1px);background-size:5cqw 5cqw;background-position:-1px -1px}
+.canvas::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 35% at 85% 8%,rgba(117,223,238,.28),transparent 70%)}
+
+/* Captions in frame */
+.cap{position:absolute;left:6cqw;right:6cqw;top:62%;transform:translateY(-100%);text-align:center;color:#fff;text-shadow:0 .4cqw 1.8cqw rgba(0,0,0,.5);z-index:3;display:grid;justify-items:center;line-height:1.02}
+.cap .plain{font-weight:800;font-size:5.9cqw;letter-spacing:-.01em}
+.cap .setup{font-weight:600;font-size:4.8cqw;margin-bottom:.6cqw}
+.cap .em{position:relative;font-family:var(--display);font-style:italic;font-weight:600;font-size:10.4cqw;letter-spacing:-.01em;line-height:1}
+.cap .em svg{position:absolute;left:-4%;bottom:-1.6cqw;width:108%;height:3.4cqw;overflow:visible;z-index:-1}
+.cap .em path{fill:var(--v-blue);transform-origin:left center}
+.cap.ink{color:var(--v-ink);text-shadow:none}
+.pop{animation:pop .14s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(-100%) scale(.92)}to{opacity:1;transform:translateY(-100%) scale(1)}}
+.sweep path{animation:sweep .35s cubic-bezier(.65,0,.35,1) .12s both}
+@keyframes sweep{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Lower third */
+.tag{position:absolute;left:7cqw;top:44%;z-index:3;display:grid;gap:1.2cqw;animation:rise 4s cubic-bezier(.2,.7,.2,1) infinite}
+.tag .nm{background:var(--v-blue);color:#fff;font-weight:700;font-size:5.2cqw;padding:1.4cqw 3.2cqw;border-radius:2.2cqw;justify-self:start}
+.tag .rl{background:#fff;color:var(--v-ink);font-family:var(--display);font-size:3.9cqw;padding:1.2cqw 3.2cqw;border-radius:2.2cqw;justify-self:start}
+@keyframes rise{0%{opacity:0;transform:translateY(3.7cqw)}6%,88%{opacity:1;transform:none}100%{opacity:0;transform:none}}
+
+/* Cards inside the canvas */
+.vcard{position:absolute;background:#fff;border:1px solid var(--v-grid);border-radius:3cqw;box-shadow:0 .4cqw 1cqw rgba(13,13,13,.05),0 3cqw 6cqw -2cqw rgba(0,60,120,.16);color:var(--v-ink);z-index:2}
+.vlabel{font-family:var(--display);font-size:3.6cqw;color:var(--v-muted)}
+.vh{font-family:var(--display);font-weight:600;color:var(--v-ink);line-height:1.05}
+.top45{position:absolute;left:0;right:0;top:0;height:45%;overflow:hidden}
+.bot55{position:absolute;left:0;right:0;bottom:0;height:55%;overflow:hidden}
+.bot55 .footage::before{top:12%}
+.bot55 .footage::after{top:calc(12% + 33cqw)}
+
+/* Framework steps build */
+.steps{position:absolute;left:8cqw;right:8cqw;top:30%;display:grid;gap:3cqw;z-index:2}
+.step{display:grid;grid-template-columns:12cqw minmax(0,1fr);align-items:center;gap:3cqw;background:#fff;border:1px solid var(--v-grid);border-radius:3cqw;padding:3cqw 4cqw;box-shadow:0 2cqw 5cqw -2cqw rgba(0,60,120,.18);animation:build 6s cubic-bezier(.2,.7,.2,1) infinite both}
+.step:nth-child(2){animation-name:build2}
+.step:nth-child(3){animation-name:build3}
+.step .d{font-family:var(--display);font-weight:600;font-size:10cqw;color:var(--v-blue);line-height:1;text-align:center}
+.step .t{font-weight:700;font-size:4.6cqw;color:var(--v-ink);line-height:1.2}
+.step .t small{display:block;font-family:var(--display);font-weight:400;font-size:3.5cqw;color:var(--v-muted)}
+@keyframes build{0%{opacity:0;transform:translateY(3.7cqw)}4%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes build2{0%,18%{opacity:0;transform:translateY(3.7cqw)}22%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes build3{0%,36%{opacity:0;transform:translateY(3.7cqw)}40%,92%{opacity:1;transform:none}100%{opacity:0}}
+
+/* Proof card */
+.proof{left:7cqw;right:7cqw;top:24%;padding:5cqw}
+.proof .row{display:flex;justify-content:space-between;align-items:baseline;gap:3cqw;padding-block:2.4cqw;border-bottom:1px solid var(--v-grid);font-size:3.9cqw}
+.proof .row:last-of-type{border-bottom:0}
+.proof .big{font-family:var(--display);font-weight:600;font-size:15cqw;line-height:1;color:var(--v-blue);font-variant-numeric:tabular-nums}
+.proof .was{font-family:var(--display);font-size:6.5cqw;color:var(--v-muted);text-decoration:line-through;text-decoration-color:var(--v-orange);text-decoration-thickness:.6cqw}
+.chip{display:inline-flex;align-items:center;gap:1.4cqw;margin-top:3cqw;font-size:3.5cqw;font-weight:600;color:var(--v-blue);background:rgba(0,122,232,.1);border-radius:99px;padding:1.2cqw 3cqw}
+.chip svg{width:3.6cqw;height:3.6cqw}
+
+/* Series title */
+.series{position:absolute;left:0;right:0;top:16%;text-align:center;z-index:3;color:#fff;text-shadow:0 .4cqw 1.8cqw rgba(0,0,0,.45)}
+.series .s1{font-weight:800;font-size:7cqw;letter-spacing:-.01em}
+.series .s2{position:relative;display:inline-block;font-family:var(--display);font-style:italic;font-weight:600;font-size:12cqw;line-height:1}
+.series .s2 svg{position:absolute;left:-4%;bottom:-1.8cqw;width:108%;height:3.8cqw;overflow:visible;z-index:-1}
+.series .s2 path{fill:var(--v-blue);transform-origin:left center;animation:sweepLoop 4s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes sweepLoop{0%,8%{transform:scaleX(0)}18%,90%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+
+/* End card */
+.endc{position:absolute;left:8cqw;right:8cqw;top:30%;display:grid;gap:5cqw;justify-items:center;text-align:center;z-index:2}
+.endc .vh{font-size:9.6cqw}
+.btn{background:var(--v-orange);color:#fff;font-weight:700;font-size:5cqw;padding:3.4cqw 7cqw;border-radius:99px;box-shadow:0 2cqw 5cqw -1.6cqw rgba(255,89,0,.55)}
+.endc .url{font-size:3.6cqw;color:var(--v-muted)}
+
+/* Safe zones */
+.zone{position:absolute;background:repeating-linear-gradient(135deg,rgba(255,89,0,.22) 0 1.4cqw,rgba(255,89,0,.08) 1.4cqw 2.8cqw);z-index:4}
+.zone span{position:absolute;font-size:3.2cqw;font-weight:700;color:#fff;background:rgba(13,13,13,.6);padding:.6cqw 1.6cqw;border-radius:1cqw;white-space:nowrap}
+.baseline{position:absolute;left:0;right:0;top:62%;border-top:.4cqw dashed var(--v-cyan);z-index:4}
+.baseline span{position:absolute;right:13cqw;top:.8cqw;font-size:3.2cqw;font-weight:700;color:var(--v-ink);background:var(--v-cyan);padding:.4cqw 1.6cqw;border-radius:1cqw}
+
+/* Kit grid */
+.kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 28px}
+@media (max-width:900px){.kit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.kit{grid-template-columns:minmax(0,1fr)}}
+.kit figure{margin:0;display:grid;gap:12px;justify-items:start;align-content:start}
+.kit figcaption{display:grid;gap:4px;max-width:270px}
+.kit figcaption b{font-size:1rem}
+.kit figcaption span{font-size:.88rem;color:var(--muted)}
+.kit .phone{width:100%;max-width:270px}
+
+/* Swatches */
+.sw{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.sw{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw div{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.sw .chipc{height:84px}
+.sw p{padding:12px 14px 14px;font-size:.85rem;color:var(--muted);display:grid;gap:2px}
+.sw p b{color:var(--fg);font-size:.95rem}
+.ratio{display:flex;height:16px;border-radius:99px;overflow:hidden;margin-top:24px;border:1px solid var(--line)}
+.ratio-legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.85rem;color:var(--muted);margin-top:10px}
+.ratio-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:0}
+
+/* Timeline */
+.tl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:22px 22px 14px}
+.tl{position:relative;min-width:680px}
+.lane{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:12px;min-height:34px}
+.lane .lname{font-family:var(--display);font-size:.9rem;color:var(--muted)}
+.track{position:relative;height:26px}
+.blk{position:absolute;top:3px;bottom:3px;border-radius:6px;font-size:.72rem;font-weight:600;display:flex;align-items:center;padding:0 7px;white-space:nowrap;overflow:hidden}
+.blk.beat{background:var(--row-alt);color:var(--fg);border:1px solid var(--line)}
+.blk.beat.hook{background:var(--blue);color:#fff;border-color:transparent}
+.blk.beat.cta{background:var(--orange);color:#fff;border-color:transparent}
+.blk.gfx{background:var(--tint);color:var(--blue-text);border:1px solid var(--blue)}
+.blk.caplane{background:repeating-linear-gradient(90deg,var(--fg) 0 18px,transparent 18px 22px);opacity:.75;top:10px;bottom:10px}
+.cut{position:absolute;top:2px;bottom:2px;width:2px;background:var(--fg);border-radius:1px}
+.cut.punch{background:var(--blue);width:3px}
+.music{position:absolute;inset:6px 0;}
+.music svg{width:100%;height:100%;display:block}
+.axis{position:relative;height:22px;margin-left:108px;border-top:1px solid var(--line);margin-top:6px}
+.axis span{position:absolute;top:4px;transform:translateX(-50%);font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl-legend{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:.82rem;color:var(--muted);margin-top:14px}
+.tl-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* Mapping */
+.map td:first-child{font-weight:400;white-space:normal;color:var(--muted)}
+.map td:nth-child(2){font-weight:600}
+
+/* Don'ts */
+.dont{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px;padding:0;margin:0;list-style:none}
+@media (max-width:640px){.dont{grid-template-columns:minmax(0,1fr)}}
+.dont li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.dont li::before{content:"";width:14px;height:2px;background:var(--orange);margin-top:.75em}
+
+/* Zoom pair */
+.zoompair{display:flex;gap:18px;flex-wrap:wrap}
+.zoompair figure{margin:0;display:grid;gap:8px}
+.zoompair figcaption{font-size:.85rem;color:var(--muted)}
+.zoompair .phone{width:180px}
+
+footer{padding-block:56px 80px}
+footer p{max-width:680px;color:var(--muted)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .step{opacity:1!important;transform:none!important}
+  .series .s2 path,.cap .em path{transform:none!important}
+}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><path id="brush" d="M3 19 C 28 11, 96 5, 190 2 C 196 1, 200 4, 197 8 C 186 10, 120 13, 60 17 C 38 19, 18 21, 9 25 C 3 27, 0 22, 3 19 Z"/></defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <p class="label">Locate Digital · video brand sheet</p>
+    <h1 style="margin-top:10px">How a Locate reel <span class="brush-word">looks<svg viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><use href="#brush"/></svg></span> and moves</h1>
+    <p class="lede">The editing rulebook for every reel cut in AI Video Editor. It takes the pacing and structure shared by five reference reels and dresses them in Locate's own type, colour and voice.</p>
+    <div class="meta">
+      <div>Status<b class="status"><i style="background:var(--blue)"></i>Approved 4 Nov 2026</b></div>
+      <div>Format<b>1080 × 1920, 9:16 reels</b></div>
+      <div>Built from<b>5 reference reels, measured</b></div>
+      <div>Fonts<b>Public Sans + Newsreader</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="pg">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">The short version</p><h2>Six rules every edit follows</h2></div>
+    <div class="rules6">
+      <div><span class="n">0.0s</span><b>Talk from the first frame</b><span>No logo sting, no intro. The hook caption is on screen in frame one.</span></div>
+      <div><span class="n">2–4s</span><b>Something changes every few seconds</b><span>A cut, a punch-in or a graphic. Never more than 4 seconds on an unchanged frame.</span></div>
+      <div><span class="n">1–3</span><b>Words per caption</b><span>Word-timed, centred at 62% height. One serif italic emphasis word with a blue brush every 5 to 8 seconds.</span></div>
+      <div><span class="n">1</span><b>Accent colour</b><span>Locate Blue carries every graphic. Orange appears once, on the final call to action.</span></div>
+      <div><span class="n">Light</span><b>Graphics live on a light grid</b><span>Soft white canvas, faint grid, white cards with real numbers. No dark tech panels.</span></div>
+      <div><span class="n">−14</span><b>LUFS, voice first</b><span>Clean voice, quiet instrumental bed underneath, a soft click when a graphic lands.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="captions">
+  <div class="wrap split">
+    <div>
+      <div class="pg-head"><p class="label">1 · Fonts and captions</p><h2>Plain sans for speech, serif italic for the word that matters</h2>
+        <p>Two of the references pair a clean sans with a serif italic for emphasis. That is already Locate's type pairing, so captions read as ours without copying anyone.</p></div>
+      <div class="spec">
+        <div><span class="k">Caption face</span><span>Public Sans 800, 64 px on a 1080 frame. White with a soft shadow on footage, ink #0D0D0D on the light canvas.</span></div>
+        <div><span class="k">Setup line</span><span>Public Sans 600, 52 px, sits directly above an emphasis word.</span></div>
+        <div><span class="k">Emphasis word</span><span>Newsreader 600 italic, 112 px. A blue brush (#007AE8) sweeps under it in 0.35 s. Use it once every 5 to 8 seconds, on the number, outcome or turn of the sentence.</span></div>
+        <div><span class="k">Chunking</span><span>1 to 3 words, at most 2 lines and 18 characters a line. Timed to the spoken word with Whisper.</span></div>
+        <div><span class="k">Position</span><span>Centred, bottom of the text block at 62% of frame height (y ≈ 1190 px). This stays clear of the Instagram caption area.</span></div>
+        <div><span class="k">Entrance</span><span>0.14 s fade-in, scale from 92% to 100%. No bounce, no typewriter effect, no colour-per-word karaoke.</span></div>
+        <div><span class="k">Writing</span><span>Sentence case, Australian spelling, numbers as digits ($2,850, 9 days). No emoji or exclamation marks in captions.</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="phone" role="img" aria-label="Animated example of Locate captions over talking-head footage">
+        <div class="footage"></div>
+        <div class="cap" id="capdemo"><span class="plain">most brokers</span></div>
+      </div>
+      <p class="cap-note">Live example with sample copy. The footage is a stand-in shape.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="colour">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">2 · Colour</p><h2>One accent, the way every reference does it</h2>
+      <p>Each reference picks a single accent and sticks to it: green, red or blue. Ours is Locate Blue. Footage keeps a natural, clean grade with true skin tones and no heavy LUT.</p></div>
+    <div class="sw">
+      <div><div class="chipc" style="background:#007ae8"></div><p><b>Locate Blue · #007AE8</b>Brush underline, name tag, step numerals, chart lines, highlight marker.</p></div>
+      <div><div class="chipc" style="background:#75dfee"></div><p><b>Cyan · #75DFEE</b>Soft glow in a canvas corner and guide lines only. Never text.</p></div>
+      <div><div class="chipc" style="background:#ff5900"></div><p><b>Orange · #FF5900</b>The end-card button and nothing else. Once per reel.</p></div>
+      <div><div class="chipc" style="background:#fbfcff;background-image:linear-gradient(#e6e6e6 1px,transparent 1px),linear-gradient(90deg,#e6e6e6 1px,transparent 1px);background-size:14px 14px"></div><p><b>Canvas · #FBFCFF + #E6E6E6 grid</b>Background for every full-screen and split-screen graphic.</p></div>
+    </div>
+    <div class="ratio" aria-hidden="true"><span style="flex:60;background:#fbfcff"></span><span style="flex:30;background:#007ae8"></span><span style="flex:6;background:#75dfee"></span><span style="flex:4;background:#ff5900"></span></div>
+    <div class="ratio-legend"><span><i style="background:#fbfcff;border:1px solid var(--line)"></i>60% neutral and footage</span><span><i style="background:#007ae8"></i>30% blue</span><span><i style="background:#75dfee"></i>6% cyan</span><span><i style="background:#ff5900"></i>4% orange</span></div>
+    <p class="note">Same ratio as the brand guidelines. Where a reference uses a yellow highlighter on stats, we use a blue marker at 14% opacity.</p>
+  </div>
+</section>
+
+<section class="pg" id="pacing">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">3 · Cuts and pacing</p><h2>What the references actually do</h2>
+      <p>Measured from the five downloaded files: cuts by scene detection, speech by Whisper word timing, loudness by EBU R128.</p></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Reel</th><th>Style</th><th class="num">Length</th><th class="num">Cuts / 10 s</th><th class="num">Avg shot</th><th class="num">Talking</th><th class="num">Words / min</th><th class="num">Loudness</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>Interview, split screen, light grid graphics</td><td class="num">66.9 s</td><td class="num">2.5</td><td class="num">3.7 s</td><td class="num">92%</td><td class="num">241</td><td class="num">−14.3</td></tr>
+          <tr><td>B</td><td>Cinematic interview, serif emphasis, name tag</td><td class="num">46.8 s</td><td class="num">3.0</td><td class="num">3.1 s</td><td class="num">89%</td><td class="num">227</td><td class="num">−14.6</td></tr>
+          <tr><td>C</td><td>Talking head into dark UI cards with count-ups</td><td class="num">38.2 s</td><td class="num">2.6</td><td class="num">3.5 s</td><td class="num">94%</td><td class="num">347*</td><td class="num">−14.1</td></tr>
+          <tr><td>D</td><td>Single-camera podcast, word-by-word captions</td><td class="num">35.1 s</td><td class="num">crops†</td><td class="num">—</td><td class="num">95%</td><td class="num">260</td><td class="num">−14.3</td></tr>
+          <tr><td>E</td><td>Talking head, split-screen UI graphics, series title</td><td class="num">61.0 s</td><td class="num">3.0</td><td class="num">3.2 s</td><td class="num">95%</td><td class="num">260</td><td class="num">−14.2</td></tr>
+          <tr class="sum"><td>Locate</td><td>Our target</td><td class="num">30–60 s</td><td class="num">2.5–3.5</td><td class="num">≤ 4 s</td><td class="num">≥ 90%</td><td class="num">200–240</td><td class="num">−14</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* Reel C's voice is sped up. We leave speech at natural speed, 1.1× at most. † Reel D has no hard cuts. It changes framing on one camera, which scene detection doesn't catch. Four of five reels start talking at 0.0 s.</p>
+
+    <h3 style="margin-top:48px;margin-bottom:16px">A 45-second Locate reel, beat by beat</h3>
+    <div class="tl-wrap">
+      <div class="tl" id="timeline" role="img" aria-label="Timeline of a 45 second reel: hook 0 to 3 seconds, setup to 10, body to 40, call to action to 45, with a cut roughly every 3 seconds and graphics placed through the body"></div>
+    </div>
+    <div class="tl-legend"><span><i style="background:var(--fg)"></i>Hard cut</span><span><i style="background:var(--blue)"></i>Punch-in on an emphasis line</span><span><i style="background:var(--tint);border:1px solid var(--blue)"></i>Graphic on screen</span></div>
+  </div>
+</section>
+
+<section class="pg" id="zoom">
+  <div class="wrap split">
+    <div>
+      <div class="pg-head"><p class="label">4 · Zooms and transitions</p><h2>Two framings, hard cuts, nothing flashy</h2>
+        <p>Every reference uses plain hard cuts and moves between framings to keep a single talking head alive. None use spins, glitches or whip pans.</p></div>
+      <div class="spec">
+        <div><span class="k">Wide</span><span>100%, head and shoulders, eyes on the upper third line.</span></div>
+        <div><span class="k">Punch</span><span>118% from the same clip, cut in on emphasis lines. Alternate wide and punch on jump cuts so a cut never looks like a glitch.</span></div>
+        <div><span class="k">Slow push</span><span>100% to 105% across any take longer than 6 seconds.</span></div>
+        <div><span class="k">Silences</span><span>Cut every pause longer than 0.25 s. Keep breaths that sound natural.</span></div>
+        <div><span class="k">Transitions</span><span>Hard cut between shots. Graphics enter in 0.2 s, sliding up 40 px with a fade (ease-out). They leave on a cut.</span></div>
+        <div><span class="k">B-roll</span><span>Real screens, the client's real office, real documents with private details blurred. No generic stock money or handshake shots.</span></div>
+      </div>
+    </div>
+    <div class="zoompair">
+      <figure><div class="phone" role="img" aria-label="Wide framing at 100 percent"><div class="footage"></div></div><figcaption>Wide · 100%</figcaption></figure>
+      <figure><div class="phone" role="img" aria-label="Punch-in framing at 118 percent"><div class="footage punch"></div></div><figcaption>Punch · 118%</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="graphics">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">5 · Motion graphics kit</p><h2>Six pieces, reused in every reel</h2>
+      <p>Built in Remotion as reusable components, so every reel gets the same pieces with no one-off designs. All copy here is sample copy.</p></div>
+    <div class="kit">
+      <figure>
+        <div class="phone" role="img" aria-label="Name tag lower third"><div class="footage"></div><div class="tag"><span class="nm">Sam</span><span class="rl">Founder, Locate Digital</span></div></div>
+        <figcaption><b>Name tag</b><span>First appearance of each speaker, held for 3 seconds. Name in a blue pill, role in Newsreader.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone" role="img" aria-label="Split screen with a graphic above the speaker">
+          <div class="top45"><div class="canvas"></div>
+            <div class="vcard" style="left:7cqw;right:7cqw;top:14%;padding:4cqw 5cqw">
+              <div class="vlabel">File note, typed</div><div class="vh" style="font-size:7cqw;margin-top:1cqw">40 min</div>
+              <div style="height:1px;background:var(--v-grid);margin:3cqw 0"></div>
+              <div class="vlabel">File note, AI draft + broker check</div><div class="vh" style="font-size:7cqw;margin-top:1cqw;color:var(--v-blue)">6 min</div>
+            </div></div>
+          <div class="bot55"><div class="footage"></div><div class="cap" style="top:70%"><span class="plain">here's the difference</span></div></div>
+        </div>
+        <figcaption><b>Split screen</b><span>Graphic in the top 45%, speaker below. For explaining while still talking to camera.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone" role="img" aria-label="Full screen framework with three steps building in">
+          <div class="canvas"></div>
+          <div class="cap ink" style="top:24%"><span class="plain">how we set it up</span></div>
+          <div class="steps">
+            <div class="step"><span class="d">1</span><span class="t">Record the call<small>with the client's consent</small></span></div>
+            <div class="step"><span class="d">2</span><span class="t">AI drafts the note<small>in the firm's template</small></span></div>
+            <div class="step"><span class="d">3</span><span class="t">Broker checks and signs<small>every time</small></span></div>
+          </div>
+        </div>
+        <figcaption><b>Framework</b><span>Full-screen light grid. Steps build one at a time as they're said. Single digits, never 01.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone" role="img" aria-label="Proof card with a number counting up">
+          <div class="canvas"></div>
+          <div class="vcard proof">
+            <div class="vlabel">Client file notes · per note</div>
+            <div class="row"><span>Before</span><span class="was">40 min</span></div>
+            <div class="row"><span>Now</span><span class="big"><span id="countup">6</span> min</span></div>
+            <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Live with the whole team</span>
+          </div>
+          <div class="cap ink" style="top:78%"><span class="plain">in the first week</span></div>
+        </div>
+        <figcaption><b>Proof card</b><span>Real results as a clean UI card. The number counts up over 0.8 s, the old figure gets an orange strike.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone" role="img" aria-label="Recurring series title over footage">
+          <div class="footage"></div>
+          <div class="series"><div class="s1">AI</div><div class="s2">fix of the week<svg viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><use href="#brush"/></svg></div></div>
+        </div>
+        <figcaption><b>Series title</b><span>A recurring segment name in the first 2 seconds, so returning viewers know the format. The name is a placeholder for you to choose.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone" role="img" aria-label="End card with orange call to action">
+          <div class="canvas"></div>
+          <div class="endc">
+            <div class="vh">Want the file note checklist?</div>
+            <span class="btn">Comment "notes"</span>
+            <span class="url">locatedigital.io</span>
+          </div>
+        </div>
+        <figcaption><b>End card</b><span>Last 3 to 4 seconds. One clear action, the only orange in the reel. You keep talking over it.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="sound">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">6 · Music and sound</p><h2>The voice carries it</h2>
+      <p>All five references are mixed to the same loudness and have music quietly under the speech. Sound effects can't be measured from a file, so that row is our choice, not something copied.</p></div>
+    <div class="spec">
+      <div><span class="k">Loudness</span><span>−14 LUFS integrated, true peak no higher than −1 dBTP. All five references measured between −14.1 and −14.6.</span></div>
+      <div><span class="k">Voice</span><span>Noise removed, high-pass at 80 Hz, light compression, a little presence around 3 to 5 kHz. Recorded on a lapel or close mic, never the phone's built-in mic from a distance.</span></div>
+      <div><span class="k">Music</span><span>Instrumental only: soft piano, warm lo-fi or minimal electronic, 85 to 110 BPM. It sits about 20 dB under the voice and ducks further while you speak. Licensed track or Instagram's library, one track per reel.</span></div>
+      <div><span class="k">Sound effects</span><span>A soft click when a card lands, a low whoosh into a full-screen graphic, a small tick when a count-up stops. No more than one every 4 seconds, never on caption words, never a cash register or airhorn.</span></div>
+      <div><span class="k">Ending</span><span>Music lifts slightly under the end card and finishes on the last frame, so the loop back to the start feels clean.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="export">
+  <div class="wrap split">
+    <div>
+      <div class="pg-head"><p class="label">7 · Safe zones and export</p><h2>Keep text where Instagram won't cover it</h2></div>
+      <div class="spec">
+        <div><span class="k">Frame</span><span>1080 × 1920, 9:16, 30 fps.</span></div>
+        <div><span class="k">Video</span><span>H.264 High, 12 to 16 Mbps, MP4.</span></div>
+        <div><span class="k">Audio</span><span>AAC, 48 kHz, 320 kbps.</span></div>
+        <div><span class="k">Keep clear</span><span>Top 220 px (status bar and tabs), bottom 420 px (caption, username, audio), right 120 px (like, comment and share buttons).</span></div>
+        <div><span class="k">Cover</span><span>Frame one, which is already the hook caption. No separate thumbnail design needed.</span></div>
+        <div><span class="k">Files</span><span>Source from Raw Footage, finished reels to Exports, named <code>YYYY-MM-DD_topic_v1.mp4</code>.</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="phone" role="img" aria-label="Safe zone overlay on a reel frame">
+        <div class="footage"></div>
+        <div class="cap"><span class="setup">it takes</span><span class="em">6 minutes<svg viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><use href="#brush"/></svg></span></div>
+        <div class="zone" style="left:0;right:0;top:0;height:11.5%"><span style="left:3cqw;bottom:1.4cqw">top 220 px</span></div>
+        <div class="zone" style="left:0;right:0;bottom:0;height:21.9%"><span style="left:3cqw;top:1.4cqw">bottom 420 px</span></div>
+        <div class="zone" style="right:0;top:11.5%;bottom:21.9%;width:11.1%"></div>
+        <div class="baseline"><span>caption line · 62%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="ours">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">8 · Inspired by, made ours</p><h2>Where each idea came from and how it changes</h2></div>
+    <div class="tbl-wrap">
+      <table class="map">
+        <thead><tr><th>In the references</th><th>In a Locate reel</th></tr></thead>
+        <tbody>
+          <tr><td>Sans captions with a serif italic word (B, C)</td><td>Public Sans + Newsreader italic, plus the blue brush underline from the website</td></tr>
+          <tr><td>One accent per creator: green, red, blue</td><td>Locate Blue for everything, orange held back for the single call to action</td></tr>
+          <tr><td>Off-white grid paper with hand-drawn icons (A)</td><td>Soft white grid canvas with clean cards and Newsreader numerals</td></tr>
+          <tr><td>Dark UI cards with count-ups (C)</td><td>The same proof idea on light cards, which suits the rest of the brand</td></tr>
+          <tr><td>Red name tag (B), green name tag (A)</td><td>Blue name pill with the role in Newsreader</td></tr>
+          <tr><td>"Skill of the week" series title (E)</td><td>Our own recurring segment name, in Newsreader with the brush</td></tr>
+          <tr><td>Yellow highlighter on screenshots (E)</td><td>Blue marker at 14% over the number that matters</td></tr>
+          <tr><td>"Comment SKILL" and "link in bio" endings (B, E)</td><td>Orange end-card button with one keyword, in Locate's plain voice</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="never">
+  <div class="wrap">
+    <div class="pg-head"><p class="label">9 · Never in a Locate reel</p><h2>Things that make it look like everyone else</h2></div>
+    <ul class="dont">
+      <li>Tracked uppercase captions, or Inter, Poppins and Montserrat</li>
+      <li>Emoji, exclamation marks or hype words in captions</li>
+      <li>Rainbow or colour-per-word karaoke captions</li>
+      <li>More than one orange element in a reel</li>
+      <li>Spin, glitch, zoom-blur or whip-pan transitions</li>
+      <li>Stock footage of cash, handshakes or people pointing at laptops</li>
+      <li>Speeding the voice past 1.1×</li>
+      <li>Logo intros or "hey guys" openings before the hook</li>
+      <li>Numbered markers written 01, 02, 03</li>
+      <li>Real client names, figures or documents on screen without written sign-off</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Approved by Sam on 4 November 2026. This is the rulebook in <code>_brand/AI Video Editor/CLAUDE.md</code>, and every edit follows it unless Sam says otherwise for a particular reel.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var brush = '<svg viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><use href="#brush"/></svg>';
+
+  // Caption demo
+  var seq = [
+    {t:'most brokers'}, {t:'spend 40 minutes'}, {t:'on every'},
+    {s:'on every', e:'file note.'}, {t:"here's how"}, {t:'we got it'},
+    {s:'down to', e:'6 minutes'}
+  ];
+  var el = document.getElementById('capdemo');
+  function render(item){
+    el.innerHTML = item.e
+      ? '<span class="setup">'+item.s+'</span><span class="em">'+item.e+brush+'</span>'
+      : '<span class="plain">'+item.t+'</span>';
+    if (reduce) return;
+    el.classList.remove('pop','sweep'); void el.offsetWidth;
+    el.classList.add('pop'); if (item.e) el.classList.add('sweep');
+  }
+  if (reduce){ render(seq[6]); }
+  else {
+    var i = 0;
+    (function tick(){ var it = seq[i]; render(it); i = (i+1) % seq.length; setTimeout(tick, it.e ? 1700 : 800); })();
+  }
+
+  // Count-up
+  var cu = document.getElementById('countup');
+  if (!reduce){
+    (function loop(){
+      var start = null, from = 40, to = 6, dur = 800;
+      function step(ts){ if(!start) start = ts; var p = Math.min((ts-start)/dur,1); var e = 1-Math.pow(1-p,3);
+        cu.textContent = Math.round(from + (to-from)*e); if (p<1) requestAnimationFrame(step); else setTimeout(loop, 2600); }
+      requestAnimationFrame(step);
+    })();
+  }
+
+  // Timeline (single scale: seconds → percent of 45 s)
+  var T = 45, pct = function(s){ return (s/T*100)+'%'; };
+  var tl = document.getElementById('timeline');
+  function lane(name, inner){ return '<div class="lane"><span class="lname">'+name+'</span><div class="track">'+inner+'</div></div>'; }
+  function blk(cls, a, b, label){ return '<span class="blk '+cls+'" style="left:'+pct(a)+';width:calc('+pct(b-a)+' - 3px)">'+(label||'')+'</span>'; }
+  var beats = blk('beat hook',0,3,'Hook') + blk('beat',3,10,'Setup and credibility') + blk('beat',10,40,'The useful bit, one idea at a time') + blk('beat cta',40,45,'CTA');
+  var cuts = [2.6,5.4,8.1,11.0,13.2,16.4,19.0,22.3,25.1,27.9,31.2,34.0,36.8,40.0,42.6];
+  var punch = [5.4,13.2,22.3,31.2,36.8];
+  var cutHtml = cuts.map(function(c){ return '<span class="cut'+(punch.indexOf(c)>-1?' punch':'')+'" style="left:'+pct(c)+'"></span>'; }).join('');
+  var gfx = blk('gfx',0,2,'Series') + blk('gfx',3,6,'Name') + blk('gfx',10,16,'Split screen') + blk('gfx',19,28,'Framework') + blk('gfx',31,36,'Proof card') + blk('gfx',40,45,'End card');
+  var caps = blk('caplane',0,45,'');
+  var music = '<div class="music"><svg viewBox="0 0 450 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 L20 14 L24 15 L398 15 L404 9 L446 9 L450 20 L0 20 Z" fill="var(--tint)"/><path d="M0 14 L20 14 L24 15 L398 15 L404 9 L446 9 L450 20" fill="none" stroke="var(--blue)" stroke-width="1.5"/></svg></div>';
+  var axis = '<div class="axis">' + [0,5,10,15,20,25,30,35,40,45].map(function(s){ return '<span style="left:'+pct(s)+'">'+s+'s</span>'; }).join('') + '</div>';
+  tl.innerHTML = lane('Beats', beats) + lane('Cuts', cutHtml) + lane('Graphics', gfx) + lane('Captions', caps) + lane('Music', music) + axis;
+})();
+</script>
