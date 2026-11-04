@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: dns-records-for-sam
+expected_outcome: |
+  A plain-English explanation of the DNS instructions for Sam, with a short version, an everyday analogy that maps the parts, and clear next steps, with no unexplained jargon.

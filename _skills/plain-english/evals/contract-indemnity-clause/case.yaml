@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: contract-indemnity-clause
+expected_outcome: |
+  A plain-English explanation of what the clause means for Sam, including the everyday-vs-legal meaning of key terms, an analogy, the practical risk, and what Sam could do or ask before signing.

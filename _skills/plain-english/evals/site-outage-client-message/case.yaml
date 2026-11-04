@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: site-outage-client-message
+expected_outcome: |
+  A paste-ready, first-person message from Sam to a mortgage broker client explaining the outage in plain words, with an analogy from the broker's world, no internal technical detail or blame, and what happens next.

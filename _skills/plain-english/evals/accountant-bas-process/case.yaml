@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: accountant-bas-process
+expected_outcome: |
+  The accountant's email turned into plain numbered steps in order, saying who does what, by when and what Sam must provide, with tax jargon translated, an analogy for the overall flow, and Sam's to-do list.
