@@ -133,6 +133,32 @@ Reels Sam picked to model, broken down hook-first. The hook formulas in `SKILL.m
 
 ---
 
+### @aiwithremy — "I banned AI slop at my company" (Skill of the Week) — studied 2026-11-04
+- Link: https://www.instagram.com/reel/DeO1JDpx2Lc/
+- Length / format: ~76s, talking head with polished UI graphics, cut every 1–3s. 744K plays, 13.9K comments.
+- Title card: "SKILL of the week" series card at ~0:31 (no separate opening title)
+- Spoken hook: "The biggest problem with using AI to build websites is that even if you give it great references, it still comes out looking like AI slop."
+- Line 2: Names the exact clichés (purple gradients, italic serif headlines, cream "old money" backgrounds). It proves the creator sees what the viewer sees.
+- Frame-1 visual: AI app logos popping up around the creator's hands
+- Formula: Failed-fix question (stated as a problem)
+- Structure: problem → named clichés → stakes ("the best product in the world won't be taken seriously") → testing proof (12 tools tested, 11 marked slop on a graphic) → series intro → the fix and who made it → how to use it → own-use proof ("mandatory for my whole team") → CTA
+- CTA: comment "SKILL", delivered standing on the couch as a pattern interrupt
+- Steal this: credibility from testing, not results. A recurring series card. Naming the specific clichés the viewer already dislikes.
+
+### @tahlia.kennedy — "I quit my dream job" — studied 2026-11-04
+- Link: https://www.instagram.com/reel/DfO5RjLTDqt/
+- Length / format: ~40s, single talking-head take sitting on the floor at home, with a picture-in-picture clip. 183K plays (a near-identical version got 10.5K).
+- Title card: "I quit my dream job." (white pill, top, the whole reel)
+- Spoken hook: "So, I just quit my dream job to build something of my own full time."
+- Line 2: "And it's probably been one of the hardest decisions I've ever had to make."
+- Frame-1 visual: casual, unpolished home setting, direct eye contact
+- Formula: Story (the decision, stated plainly)
+- Structure: decision → why it was hard → real clip of the moment (picture-in-picture) → who's in the creator's corner → "follow along on this journey"
+- CTA: soft follow-along
+- Steal this: the story structure for journey reels. The paradox in the hook ("dream job" + "quit"). A real clip instead of describing the feeling. Posting two versions and keeping the winner.
+
+---
+
 ## Quick captures (manual)
 
 Reels spotted in the wild that aren't in the Sheet yet. Migrate to the master Sheet weekly.

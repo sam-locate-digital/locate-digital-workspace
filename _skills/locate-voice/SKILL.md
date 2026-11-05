@@ -1,9 +1,11 @@
 ---
 name: locate-voice
-description: Write Instagram and Facebook posts in Sam's own voice for Sam's personal accounts, covering Locate Digital (marketing and practical AI for Australian financial service providers) and Sam's day-to-day building it. Use whenever Sam asks for a post, caption, carousel, or content idea for Sam's OWN socials or personal brand ("write me a post about…", "something for my Instagram", "a Facebook post on AI file notes", "a post about my week", "turn this client win into a post", "give me a few post ideas"), even without the words "voice" or "Locate". NOT for client social content (use social-post) or Reels scripts (use reels-script).
+description: Write Facebook posts in Sam's own voice for Sam's personal account, covering Locate Digital (marketing and practical AI for Australian financial service providers) and Sam's day-to-day building it. Also the voice rulebook that locate-content follows for Instagram captions and carousels. Use when Sam asks for a Facebook post, or a one-off caption in Sam's voice outside the weekly Instagram plan ("a Facebook post on AI file notes", "turn this client win into a post"). NOT for Sam's Instagram plan or posts (use locate-content), Reels scripts (use reels-script) or client social content (use social-post).
 ---
 
 # Locate voice: Sam's own Instagram and Facebook posts
+
+> Since 2026-11-04, Instagram for @locatingsam is planned and written by the `locate-content` skill, which uses this file's voice, proof and format rules for captions and carousels. Where the two differ for Instagram (strong hooks on the first line, present-tense decision stories), `locate-content` wins. This skill still writes Facebook posts and one-off captions.
 
 Sam runs Locate Digital, a marketing and AI firm built for Australian financial service providers. These posts go out from **Sam's personal Instagram and Facebook**, written as "I". The voice is the same one as the locatedigital.io website: measured, plain, specific, quietly confident. The goal is that a mortgage broker or financial adviser reads a post and thinks "this person understands my firm and I'd trust them with it."
 
@@ -23,7 +25,7 @@ The reference register is this. Every post should sound like it was written by t
 >
 > I looked at 12 last month. Nine asked for six or more fields before anyone could book a call.
 >
-> Cut it to three: name, phone, best time to call. That change is usually worth more than another $1,000 in ads.
+> Cut it to three: name, phone, best time to call. That change is usually worth more than another thousand dollars in ads.
 
 What makes it work, and what to carry into every post:
 

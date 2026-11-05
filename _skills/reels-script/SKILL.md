@@ -1,6 +1,6 @@
 ---
 name: reels-script
-description: Writes Instagram Reels scripts for Sam's own Locate Digital account, aimed at Australian service business owners ($1–3M). Built around a three-layer hook (title card, spoken line, frame-1 visual), list and tutorial formats, and comment-keyword CTAs. Use when Sam asks for a reel, a reel script, hooks, a video idea or IG video content for Sam's own brand. NOT for client social posts (social-post) or written captions/carousels in Sam's voice (locate-voice).
+description: Writes Instagram Reels scripts for Sam's own account (@locatingsam), aimed at Australian business owners, leaning toward advice and finance-style firms. The weekly plan comes from locate-content, which hands each reel here. Built around a three-layer hook (title card, spoken line, frame-1 visual), list and tutorial formats, and comment-keyword CTAs. Use when Sam asks for a reel, a reel script, hooks, a video idea or IG video content for Sam's own brand. NOT for client social posts (social-post), Instagram carousels, captions or weekly plans (locate-content), or Facebook posts (locate-voice).
 ---
 
 # Reels script
@@ -28,11 +28,13 @@ If a reference is empty or has nothing relevant, carry on and flag it once at th
 
 ## Audience (always)
 
-**Service business owners as a whole**, turning over one to three million a year. A mix of accountants, lawyers, physios, dentists, osteos, salons, tradies, agencies, consultants and so on.
+**Owners, principals and team leads of advice and finance-style firms**: brokers, advisers, accountants, insurance and other businesses that run on client files, compliance and trust. Their world supplies the examples: file notes, enquiry forms, client follow-ups, document chasing, EOFY, ASIC, aggregators.
 
-**Frame broadly. Never niche down to one vertical.** Sam's reach depends on the topic landing with every service business owner, not one trade. Use generic framing ("if you own a service business") or mixed lists ("whether you're a tradie, lawyer or physio"). Vertical-specific scripts are for client work, not Sam's brand.
+**Never spell out "financial service providers" as the audience.** The content is operational (how a firm runs its marketing, admin and AI), so write it so any Australian business owner can apply it. Say "your firm", "your business", "your team". Mixed examples are fine ("whether you run a broking firm, an accounting practice or a clinic").
 
-They're time-poor, sceptical of marketing and often burned by past agencies. They want **leads and revenue**, not vanity metrics.
+They're time-poor, careful, sceptical of agencies and AI hype, and often burned by past agencies. They want **enquiries and time back**, not vanity metrics.
+
+Sam's account goal is **10,000 followers** (see `locate-content`). A reel succeeds when it earns follows.
 
 ## Voice
 - Australian English, plain marketing, never AI-sounding
@@ -56,8 +58,8 @@ Every strong reel studied (see `swipe-file.md`) hooks on three channels at once.
 
 | Layer | Job | Example |
 |---|---|---|
-| **Title card** (on-screen, stays up 3–10s) | States the outcome or promise, readable on mute | "How I'd get a tradie 20 leads a week" |
-| **Spoken hook** (first line of voiceover) | Opens a curiosity gap or names a tension | "If I took over a Brisbane plumber's marketing tomorrow with a grand a month, here's exactly what I'd do." |
+| **Title card** (on-screen, stays up 3–10s) | States the outcome or promise, readable on mute | "How I'd set up AI in a 5-person firm" |
+| **Spoken hook** (first line of voiceover) | Opens a curiosity gap or names a tension | "If I joined a 5-person Brisbane accounting firm tomorrow, here's exactly where I'd put AI first." |
 | **Frame-1 visual** | Proves or dramatises the claim before a word lands | The full 3-step plan on screen, or a before/after numbers split |
 
 Rules:
@@ -90,7 +92,7 @@ Use these alongside the hook library. Never copy a creator's line verbatim.
 
 5. **Start over.** A from-scratch scenario with a constraint.
    `If I [started with constraint] tomorrow, here's exactly what I'd do.`
-   → "If I took over a Brisbane plumber's marketing tomorrow with a grand a month, here's exactly what I'd do."
+   → "If I joined a 5-person Brisbane accounting firm tomorrow, here's exactly where I'd put AI first."
    Show the whole plan on screen in frame 1 so they stay to see each piece.
 
 6. **Insider move.** What the best in a peer group quietly do differently.
@@ -121,6 +123,10 @@ Use these alongside the hook library. Never copy a creator's line verbatim.
 | **Value list** | 45–60s | Hook → line 2 → 3–5 named points → proof → CTA | Tips, tools, mistakes, "N ways to…" |
 | **Tutorial** | 45–60s | Hook → result shown → steps on screen → CTA | Screen recordings, setups, how-tos |
 | **Start-over plan** | 55–60s | Hook → map on screen → levels/steps → CTA | Big-picture "what I'd do" reels |
+| **Story** | 30–45s | Decision → why it was hard → real clip of the moment → what's next → follow along | Journey moments, client-type stories (structure in `locate-content`'s formats.md) |
+| **Series episode** | 45–60s | Series title card → problem → fix → shown working → "Follow for next week's fix" | The weekly series ("AI fix of the week" until Sam names it) |
+
+Short 5–15s journey reels (text over footage, no script) are planned and written by `locate-content`, not here.
 
 - Lengths follow the approved Locate Reel Style: 30–60s. Go longer only when Sam says so for that reel.
 - Word budget: Sam speaks about 200–240 words a minute after tightening, so a 60s reel holds about 200 words of voiceover and a 30s reel about 100. Count them.
@@ -150,11 +156,12 @@ The default for value lists, tutorials and start-over plans:
 - Optional mid-roll mention at ~15–20s, then repeat at the end.
 - Show it on screen: a title card or a mock comment box being typed into.
 - **Needs DM automation** (ManyChat or Instagram's own auto-reply). If Sam hasn't set that up, swap to "DM me [WORD] and I'll send it over" and note it in the output.
-- Never "follow for more" on its own.
+- Never "follow for more" on its own. A follow CTA must say what they get next: "Follow for next week's fix", "Follow along to see how this turns out." Series episodes and story reels use a follow CTA instead of a keyword.
 
 ## Proof beat (required for anything over 30s)
-One of:
+Sam has no client results to share yet (Nov 2026), so default to showing the work: the real screen, the setup, what was tested and what failed, how long it took, what Sam uses daily. One of:
 - A real number from Sam's or a client's results (approved, or blurred)
+- A test: "I tried [N] ways to do this. Here's the one that held up." (real count only)
 - A screenshot (ad account, call log, GBP insights, GA4)
 - Self-proof: "this whole reel was scripted with the method I just showed you"
 - Hours/years of work behind it (real figure only)
@@ -231,6 +238,7 @@ Save each script to `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\Scrip
    - Spoken hook: (verbatim)
    - Frame-1 visual: (one line)
    - Formula used and the inspo link from the hook library or swipe file
+   - **2 trial hooks** for Instagram Trial Reels: a different formula each, same body (title card + spoken line). Sam posts these as trial versions and logs the winner in `_brand/social-media/insights-log.md`.
 3. **Script table**: one row per beat, so Sam can film and edit straight from it:
 
    | Time | Voiceover (verbatim) | On-screen text | Visual / cut |

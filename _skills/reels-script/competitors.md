@@ -7,6 +7,14 @@ Accounts to study weekly for hooks, formats, and angles. Mix of direct AU compet
 - @kinso.app
 - @theattnseeker
 
+## Sam's reference accounts (picked 2026-11-04, weight these first)
+Full notes in `$HOME/.claude/skills/locate-content/references/reference-accounts.md`.
+- @aiwithremy: AI tools for business, "Skill of the Week" series, credibility from testing
+- @tahlia.kennedy: Sydney founder, short milestone reels, story structure, posts two versions of a reel
+- @cindiezhu: copy-ready AI prompts ("codes"), keyword-for-more CTAs, many variants a day
+- @minolee.mp4: Claude workflows, build-in-public series ("road to $1M")
+- @jun_yuh: storytelling, intro reel tested in six versions, habit grid
+
 ## Short-form hook masters (any niche)
 - @hormozi — pattern interrupts, contrarian openers, money-specific hooks
 - @garyvee — sub-15s storytelling, direct callouts
