@@ -9,7 +9,8 @@ This folder is where Sam does all video editing and social posting. Every edit f
 ## Folders
 
 - `Scripts/`: reel scripts from the `reels-script` skill, named `YYYY-MM-DD_topic.md`. Force-align captions to these.
-- `Raw Footage/`: source clips. Never edit or delete originals.
+- `Raw Footage/`: source clips, one folder per reel (`YYYY-MM-DD_topic/`) holding the clips, any screenshots and a `notes.md` (script, brands, numbers, call to action, pause cut, client sign-off). Read `notes.md` first. Never edit or delete originals.
+- `Reel checklist.md`: Sam's filming and hand-over checklist. When Sam says "preview first", render a half-size preview for approval before the full-quality export.
 - `References/`: inspiration reels and their `.info.json` files.
 - `Exports/`: finished reels, named `YYYY-MM-DD_topic_v1.mp4`. Bump the version number. Never overwrite.
 - Media and `node_modules` are git-ignored (see `.gitignore`). Scripts, configs and notes are tracked.
@@ -18,25 +19,26 @@ This folder is where Sam does all video editing and social posting. Every edit f
 
 These are installed globally: FFmpeg (Gyan build), yt-dlp, and openai-whisper in the main Python 3.12. Remotion is installed per project (`npm install` inside that reel's project folder) when a reel needs motion graphics. Use Whisper word timestamps for caption timing, and force-align them to the script text when there is one.
 
+The whole process is packaged as the **`/edit-reel` skill** (`_skills/edit-reel/`). Use it for every edit, re-render, change request and CapCut pack. Start every edit from `remotion-kit/`: the Remotion graphics kit (Remotion 4.0.537) plus the Python pipeline that preps footage, cuts pauses, builds captions, makes original music and mixes to −14 LUFS. Its README has the steps and the lessons from the first reel. Copy it to a scratch folder on C: to work, and never install `node_modules` on Drive.
+
 ## The six rules
 
 1. **Talk from frame one.** First word at 0.0 s and the hook caption on screen in frame one. No logo intro, no "hey guys".
 2. **Change something every 2–4 s.** A cut, punch-in or graphic. Never more than 4 s on an unchanged frame.
-3. **1–3 words per caption.** Word-timed, centred at 62% height. One Newsreader italic emphasis word with a blue brush every 5–8 s.
-4. **One accent colour.** Locate Blue carries every graphic. Orange appears once, on the end-card call to action.
-5. **Graphics live on a light grid.** Soft white canvas, faint grid, white cards with real numbers. No dark tech panels.
+3. **1–3 words per caption.** Word-timed, white TikTok Sans with a plain black outline, centred low on the frame. No serif emphasis or brush underline.
+4. **One accent colour.** Locate Blue for any brand touch. Orange appears once at most, on a call to action.
+5. **Premium graphics in a social font.** Use the v2/v4 look: frosted glass canvas with a light grid, split screens, step cards, a proof card with count-up, floating 3D glass icons and app-tile logos. Every graphic is in TikTok Sans, never the brand fonts. Show real proof as the actual screenshot on the canvas, and no section titles like "How to set it up" (Sam, 2026-11-04: asked for v2's graphics back after trying a no-graphics v3).
 6. **−14 LUFS, voice first.** Clean voice, quiet instrumental bed, a soft click when a graphic lands.
 
 ## Captions and type
 
 | | |
 |---|---|
-| Caption | Public Sans 800, 64 px on a 1080 frame. White with a soft shadow (0 4px 18px rgba(0,0,0,.5)) on footage, ink #0D0D0D on the canvas. |
-| Setup line | Public Sans 600, 52 px, directly above an emphasis word |
-| Emphasis | Newsreader 600 italic, 112 px. Blue #007AE8 brush sweeps under it in 0.35 s. Put it on the number, the outcome or the turn of the sentence. |
-| Chunking | 1–3 words, at most 2 lines and 18 characters a line |
-| Position | Centred, bottom of the text block at 62% height (y ≈ 1190 px) |
-| Entrance | 0.14 s fade, scale 92% → 100%. No bounce, typewriter or colour-per-word karaoke. |
+| Caption | TikTok Sans 800 (TikTok's platform font), 68 px on a 1080 frame, white with a plain black outline about 5 px wide. Social reels use standard platform fonts, not the brand fonts (Sam, 2026-11-04). |
+| Emphasis | None. Every caption uses the same white outlined style, numbers included. |
+| Chunking | 1–3 words, at most 2 lines and 18 characters a line. Spoken brand names (GoHighLevel, Claude) show as an app-tile logo instead of a caption. |
+| Position | Centred, bottom of the text block at about 76% height (y ≈ 1470 px), clear of the mouth on close selfie framing and above Instagram's bottom zone |
+| Entrance | 0.12 s fade, scale 94% → 100%. No bounce, typewriter or colour-per-word karaoke. |
 | Writing | Sentence case, Australian spelling, digits for numbers ($2,850, 9 days), no emoji, no exclamation marks |
 
 Brush SVG (viewBox `0 0 200 28`, preserveAspectRatio none, width 108% of the word, offset −4%):
@@ -53,7 +55,7 @@ Brush SVG (viewBox `0 0 200 28`, preserveAspectRatio none, width 108% of the wor
 
 ## Cuts, zooms and pacing
 
-- Length 30–60 s. Visual change every 2.5–3.5 cuts per 10 s, average shot no longer than 4 s, talking at least 90% of the runtime.
+- Length 30–60 s, except **short journey reels** (approved 2026-11-04): 5–15 s of real footage with one or two lines of on-screen text and little or no talking, planned by the `locate-content` skill. They skip the talking-90% rule and the end card, but keep the caption type, safe zones, one accent colour and no emoji. Visual change every 2.5–3.5 cuts per 10 s, average shot no longer than 4 s, talking at least 90% of the runtime.
 - Speech at natural speed, 1.1× at most. Aim for about 200–240 words a minute after tightening.
 - Cut every pause longer than 0.25 s and keep natural breaths.
 - Two framings from one clip: wide 100% and punch 118%. Alternate them on jump cuts and punch in on emphasis lines. Use a slow push from 100% to 105% on takes longer than 6 s.
@@ -62,6 +64,8 @@ Brush SVG (viewBox `0 0 200 28`, preserveAspectRatio none, width 108% of the wor
 - Beat structure (45 s example): hook 0–3 s → setup and credibility 3–10 s → the useful bit, one idea at a time, 10–40 s → CTA end card for the last 3–5 s.
 
 ## Motion graphics kit (build as reusable Remotion components)
+
+> **Current social build (v4, 2026-11-04):** `remotion-kit/src/Reel.jsx` is the template. Call `useSocialFonts()` so every piece below renders in TikTok Sans instead of Newsreader and Public Sans. Use `SocialCaption` (white, black outline), `PremiumCanvas` (Higgsfield glass plate), `StepCard` and `ProofCard` (frosted glass), `Shot` for real screenshots on the canvas, `FloatIcon` (3D glass icons in `public/icons/`) and `LogoPop` app tiles. Leave out section titles. The font names in the list below are the brand versions and only apply outside social reels.
 
 1. **Series title**: recurring segment name in the first 2 s, Public Sans 800 + Newsreader italic with the brush. The name is still to be chosen by Sam; "AI fix of the week" is a placeholder.
 2. **Name tag**: shown on each speaker's first appearance for 3 s. Name in a blue pill (Public Sans 700, white), role on a white pill (Newsreader 400).
@@ -85,4 +89,4 @@ Brush SVG (viewBox `0 0 200 28`, preserveAspectRatio none, width 108% of the wor
 
 ## Never
 
-Tracked uppercase captions. Inter, Poppins or Montserrat. Emoji, exclamation marks or hype words. Rainbow or colour-per-word captions. More than one orange element. Flashy transitions. Stock cash or handshake shots. Voice faster than 1.1×. Logo intros. 01/02 numbering. Real client names, figures or documents on screen without written sign-off.
+Tracked uppercase captions. Inter, Poppins or Montserrat (social reels use TikTok Sans). Emoji, exclamation marks or hype words. Rainbow or colour-per-word captions. More than one orange element. Flashy transitions. Stock cash or handshake shots. Voice faster than 1.1×. Logo intros. 01/02 numbering. Real client names, figures or documents on screen without written sign-off.

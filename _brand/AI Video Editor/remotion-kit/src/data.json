@@ -1,0 +1,378 @@
+{
+ "total": 39.56,
+ "endCard": 39.26,
+ "cues": [
+  {
+   "s": 0.0,
+   "text": "I helped my client",
+   "e": 0.619
+  },
+  {
+   "s": 0.619,
+   "setup": "make over",
+   "em": "$200,000",
+   "emAt": 0.979,
+   "e": 1.739
+  },
+  {
+   "s": 1.739,
+   "text": "in additional",
+   "e": 2.259
+  },
+  {
+   "s": 2.259,
+   "text": "revenue from this",
+   "e": 3.119
+  },
+  {
+   "s": 3.119,
+   "text": "one simple",
+   "e": 3.579
+  },
+  {
+   "s": 3.579,
+   "text": "automation",
+   "e": 4.139
+  },
+  {
+   "s": 4.139,
+   "text": "Here are the",
+   "e": 4.396
+  },
+  {
+   "s": 4.396,
+   "text": "receipts",
+   "e": 4.733
+  },
+  {
+   "s": 4.733,
+   "text": "Here's an",
+   "e": 4.963
+  },
+  {
+   "s": 4.963,
+   "text": "automation that",
+   "e": 5.503
+  },
+  {
+   "s": 5.503,
+   "text": "triggers to",
+   "e": 5.983
+  },
+  {
+   "s": 5.983,
+   "text": "customers who",
+   "e": 6.603
+  },
+  {
+   "s": 6.603,
+   "text": "haven't visited in",
+   "e": 7.303
+  },
+  {
+   "s": 7.303,
+   "text": "the last",
+   "e": 7.483
+  },
+  {
+   "s": 7.483,
+   "text": "3 months",
+   "e": 7.953
+  },
+  {
+   "s": 7.953,
+   "text": "Here's one that",
+   "e": 8.373
+  },
+  {
+   "s": 8.373,
+   "text": "triggers every",
+   "e": 8.913
+  },
+  {
+   "s": 8.913,
+   "text": "6 months",
+   "e": 9.483
+  },
+  {
+   "s": 9.483,
+   "text": "And here's another",
+   "e": 9.96
+  },
+  {
+   "s": 9.96,
+   "text": "one that triggers",
+   "e": 10.4
+  },
+  {
+   "s": 10.4,
+   "text": "every 12 months",
+   "e": 11.237
+  },
+  {
+   "s": 11.237,
+   "text": "These 3",
+   "e": 11.557
+  },
+  {
+   "s": 11.557,
+   "text": "automations are",
+   "e": 12.277
+  },
+  {
+   "s": 12.277,
+   "text": "totalling over",
+   "e": 12.737
+  },
+  {
+   "s": 12.737,
+   "text": "$200,000",
+   "e": 13.677
+  },
+  {
+   "s": 13.677,
+   "text": "this year alone",
+   "e": 14.501
+  },
+  {
+   "s": 14.501,
+   "text": "And here's how",
+   "e": 14.961
+  },
+  {
+   "s": 14.961,
+   "text": "you can do this",
+   "e": 15.421
+  },
+  {
+   "s": 15.421,
+   "setup": "in",
+   "em": "2 hours",
+   "emAt": 15.601,
+   "e": 15.941
+  },
+  {
+   "s": 15.941,
+   "text": "of work",
+   "e": 16.411
+  },
+  {
+   "s": 16.411,
+   "text": "First off",
+   "e": 16.858
+  },
+  {
+   "s": 16.858,
+   "text": "you're gonna need",
+   "e": 17.358
+  },
+  {
+   "s": 17.358,
+   "text": "a CRM that",
+   "e": 17.958
+  },
+  {
+   "s": 17.958,
+   "text": "triggers these",
+   "e": 18.358
+  },
+  {
+   "s": 18.358,
+   "text": "automations based",
+   "e": 19.078
+  },
+  {
+   "s": 19.078,
+   "text": "off the last",
+   "e": 19.678
+  },
+  {
+   "s": 19.678,
+   "text": "visit",
+   "e": 20.105
+  },
+  {
+   "s": 20.105,
+   "text": "I highly recommend",
+   "e": 20.791
+  },
+  {
+   "s": 20.791,
+   "text": "you use whatever is",
+   "e": 21.631
+  },
+  {
+   "s": 21.631,
+   "setup": "the",
+   "em": "best practice",
+   "emAt": 21.751,
+   "e": 22.251
+  },
+  {
+   "s": 22.251,
+   "text": "for your",
+   "e": 22.67
+  },
+  {
+   "s": 22.67,
+   "text": "particular",
+   "e": 23.006
+  },
+  {
+   "s": 23.006,
+   "text": "industry",
+   "e": 23.533
+  },
+  {
+   "s": 23.533,
+   "text": "If you don't",
+   "e": 23.873
+  },
+  {
+   "s": 23.873,
+   "text": "have one",
+   "e": 24.533
+  },
+  {
+   "s": 24.533,
+   "text": "I highly recommend",
+   "e": 25.073
+  },
+  {
+   "s": 25.073,
+   "text": "GoHighLevel",
+   "logo": "highlevel",
+   "e": 25.803
+  },
+  {
+   "s": 25.803,
+   "text": "Then you're going to",
+   "e": 26.471
+  },
+  {
+   "s": 26.471,
+   "text": "Claude",
+   "logo": "claude",
+   "e": 26.691
+  },
+  {
+   "s": 26.691,
+   "text": "and type in",
+   "e": 27.171
+  },
+  {
+   "s": 27.171,
+   "text": "this prompt",
+   "e": 27.721
+  },
+  {
+   "s": 27.721,
+   "setup": "The prompt is",
+   "em": "in the comments",
+   "emAt": 28.164,
+   "e": 28.774
+  },
+  {
+   "s": 28.774,
+   "text": "You then go",
+   "e": 29.238
+  },
+  {
+   "s": 29.238,
+   "text": "ahead and edit",
+   "e": 29.858
+  },
+  {
+   "s": 29.858,
+   "text": "or add images",
+   "e": 30.618
+  },
+  {
+   "s": 30.618,
+   "text": "depending on what",
+   "e": 31.358
+  },
+  {
+   "s": 31.358,
+   "text": "your brand and",
+   "e": 31.958
+  },
+  {
+   "s": 31.958,
+   "text": "tone of voice",
+   "e": 32.418
+  },
+  {
+   "s": 32.418,
+   "text": "is",
+   "e": 32.735
+  },
+  {
+   "s": 32.735,
+   "text": "Make sure you",
+   "e": 33.045
+  },
+  {
+   "s": 33.045,
+   "text": "update these email",
+   "e": 33.745
+  },
+  {
+   "s": 33.745,
+   "text": "promotions",
+   "e": 34.185
+  },
+  {
+   "s": 34.185,
+   "setup": "every",
+   "em": "3 to 6 months",
+   "emAt": 34.445,
+   "e": 35.125
+  },
+  {
+   "s": 35.125,
+   "text": "just so that",
+   "e": 35.625
+  },
+  {
+   "s": 35.625,
+   "text": "they have a",
+   "e": 35.985
+  },
+  {
+   "s": 35.985,
+   "text": "different look and",
+   "e": 36.485
+  },
+  {
+   "s": 36.485,
+   "text": "feel or offer",
+   "e": 37.233
+  },
+  {
+   "s": 37.233,
+   "text": "different",
+   "e": 37.453
+  },
+  {
+   "s": 37.453,
+   "text": "promotions while",
+   "e": 38.133
+  },
+  {
+   "s": 38.133,
+   "text": "you're at it",
+   "e": 38.556
+  },
+  {
+   "s": 38.556,
+   "text": "And there you",
+   "e": 38.944
+  },
+  {
+   "s": 38.944,
+   "text": "have it",
+   "e": 39.56
+  }
+ ]
+}
