@@ -14,12 +14,12 @@ Writes short-form video scripts for Sam's Instagram Reels: hook, body, proof, CT
 ## References (check before scripting)
 
 **1. Hook library: about 1,000 proven intro hooks**
-- Local copy: `$HOME/.claude/skills/reels-script/hooks-flat.txt` (markdown table: hook template | inspo link | brand | notes). Search it for the topic's keywords. It's fast and works offline.
+- Local copy: `G:\My Drive\Claude Code.Locate\_brand\Content\Research\hooks-flat.txt` (markdown table: hook template | inspo link | brand | notes). Search it for the topic's keywords. It's fast and works offline.
 - Live master: Google Sheet "Hooks", file ID `1QQVgwaiPaGfGMgqJ4q65k0BXYv5BkiOfva8HIf2XDj4`, read with the Google Drive connector's `read_file_content` tool. It may hold hooks newer than the local copy. If Drive isn't connected, use the local copy and say so once.
 - Ignore the `Brand` and `Notes` columns.
 - These are opening lines only, not scripts. Pull 5–8 candidates, keep the best 1–3, fill the `[insert X]` blanks, and cite the inspo link so Sam can watch the original.
 
-**2. Files in this skill's folder** (`$HOME/.claude/skills/reels-script/`)
+**2. Research files** (`G:\My Drive\Claude Code.Locate\_brand\Content\Research\`)
 - `swipe-file.md`: reels already studied, with verbatim hooks and why they worked. Start here for structure.
 - `trend-log.md`: this week's hooks, formats and audio. Lean the script toward what's spiking now.
 - `competitors.md`: accounts being modelled. If a starred (⭐) account covered the topic recently, take a different angle.
@@ -168,7 +168,7 @@ Sam has no client results to share yet (Nov 2026), so default to showing the wor
 
 ## Locate Reel Style (approved 2026-11-04): wins on anything visual
 
-Sam's approved edit rules live in `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\CLAUDE.md`. Read it before writing the Visual column. Where this skill and that file differ, that file wins. The parts that shape a script:
+Sam's approved edit rules live in `G:\My Drive\Claude Code.Locate\_brand\Content\CLAUDE.md`. Read it before writing the Visual column. Where this skill and that file differ, that file wins. The parts that shape a script:
 - First word at 0.0s, hook caption on screen in frame one, no logo intro
 - Captions 1–3 words, sentence case, no exclamation marks, digits for numbers. Mark one **emphasis word** every 5–8s (it gets the Newsreader italic and blue brush). Put it on the number, the outcome or the turn of the sentence.
 - Name graphics by the kit: **series title**, **name tag**, **split screen**, **framework** (steps build one at a time), **proof card** (number counts up, old figure struck in orange), **end card** (a question, an orange button with the keyword, locatedigital.io)
@@ -230,7 +230,7 @@ Sam's reach has been drifting offshore. Every script must signal AU, with severa
 
 Return in this order:
 
-Save each script to `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\Scripts\YYYY-MM-DD_topic.md` so the editor can force-align captions to it. Then give Sam the hooks and file links in chat.
+Save each script to `G:\My Drive\Claude Code.Locate\_brand\Content\Scripts\YYYY-MM-DD_topic.md` so the editor can force-align captions to it. Then give Sam the hooks and file links in chat.
 
 1. **Format and length**: e.g. "Value list, ~60s, 195 words"
 2. **Hook**
@@ -238,7 +238,7 @@ Save each script to `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\Scrip
    - Spoken hook: (verbatim)
    - Frame-1 visual: (one line)
    - Formula used and the inspo link from the hook library or swipe file
-   - **2 trial hooks** for Instagram Trial Reels: a different formula each, same body (title card + spoken line). Sam posts these as trial versions and logs the winner in `_brand/social-media/insights-log.md`.
+   - **2 trial hooks** for Instagram Trial Reels: a different formula each, same body (title card + spoken line). Sam posts these as trial versions and logs the winner in `_brand/Content/insights-log.md`.
 3. **Script table**: one row per beat, so Sam can film and edit straight from it:
 
    | Time | Voiceover (verbatim) | On-screen text | Visual / cut |

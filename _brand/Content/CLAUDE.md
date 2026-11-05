@@ -1,6 +1,6 @@
-# AI Video Editor: Locate reel style
+# Content: Locate reel style and Instagram workspace
 
-This folder is where Sam does all video editing and social posting. Every edit follows the **Locate Reel Style** below. Sam approved it on 2026-11-04. Only break a rule when Sam says so for a particular reel.
+This folder (formerly `AI Video Editor`, combined with `social-media` on 2026-11-05) is the one home for Sam's Instagram content: planning, research, scripts, footage, editing and exports. The skills that use it stay in `_skills/` (`locate-content`, `reels-script`, `edit-reel`). Every edit follows the **Locate Reel Style** below. Sam approved it on 2026-11-04. Only break a rule when Sam says so for a particular reel.
 
 - Visual sheet: [locate-reel-style.html](locate-reel-style.html), also published at https://claude.ai/artifact/Npa53by2cxT7U26kvazboQ
 - Brand source of truth: `../brand-guidelines.html` (colours, fonts, voice)
@@ -8,6 +8,10 @@ This folder is where Sam does all video editing and social posting. Every edit f
 
 ## Folders
 
+- `profile.md`: @locatingsam bio, pinned posts, highlights and intro reel plan (`locate-content`)
+- `insights-log.md`: what earns follows, winning Trial Reels hooks (`locate-content` reads it every week)
+- `Weeks/`: one folder per week, named by the Monday (`YYYY-MM-DD/`), holding `plan.md` plus that week's carousel slides and images. Images are git-ignored.
+- `Research/`: `swipe-file.md` (studied reels), `reference-accounts.md`, `competitors.md`, `trend-log.md` and `hooks-flat.txt` (the hook library)
 - `Scripts/`: reel scripts from the `reels-script` skill, named `YYYY-MM-DD_topic.md`. Force-align captions to these.
 - `Raw Footage/`: source clips, one folder per reel (`YYYY-MM-DD_topic/`) holding the clips, any screenshots and a `notes.md` (script, brands, numbers, call to action, pause cut, client sign-off). Read `notes.md` first. Never edit or delete originals.
 - `Reel checklist.md`: Sam's filming and hand-over checklist. When Sam says "preview first", render a half-size preview for approval before the full-quality export.

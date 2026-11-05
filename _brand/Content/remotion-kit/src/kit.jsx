@@ -1,4 +1,4 @@
-// Locate Reel Style kit — reusable pieces that follow _brand/AI Video Editor/CLAUDE.md.
+// Locate Reel Style kit — reusable pieces that follow _brand/Content/CLAUDE.md.
 import React from 'react';
 import {AbsoluteFill, Easing, Img, Loop, OffthreadVideo, interpolate, staticFile} from 'remotion';
 import {loadFont as loadNewsreader} from '@remotion/google-fonts/Newsreader';

@@ -30,3 +30,12 @@ out/
 .cache/
 *.part
 *.ytdl
+
+# Photos and slide images for weekly posts stay on Google Drive
+Weeks/**/*.jpg
+Weeks/**/*.jpeg
+Weeks/**/*.png
+Weeks/**/*.heic
+Weeks/**/*.HEIC
+Weeks/**/*.JPG
+Weeks/**/*.PNG

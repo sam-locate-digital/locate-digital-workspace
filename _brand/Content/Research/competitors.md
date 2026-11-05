@@ -8,7 +8,7 @@ Accounts to study weekly for hooks, formats, and angles. Mix of direct AU compet
 - @theattnseeker
 
 ## Sam's reference accounts (picked 2026-11-04, weight these first)
-Full notes in `$HOME/.claude/skills/locate-content/references/reference-accounts.md`.
+Full notes in `reference-accounts.md` in this folder.
 - @aiwithremy: AI tools for business, "Skill of the Week" series, credibility from testing
 - @tahlia.kennedy: Sydney founder, short milestone reels, story structure, posts two versions of a reel
 - @cindiezhu: copy-ready AI prompts ("codes"), keyword-for-more CTAs, many variants a day

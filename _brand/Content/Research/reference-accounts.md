@@ -1,6 +1,6 @@
 # Reference accounts
 
-The five accounts Sam picked to model, studied on 2026-11-04 from each account's latest 10–12 reels (via vidiQ). Model the patterns, never copy lines, footage or graphics. Full reel breakdowns are in `$HOME/.claude/skills/reels-script/swipe-file.md`.
+The five accounts Sam picked to model, studied on 2026-11-04 from each account's latest 10–12 reels (via vidiQ). Model the patterns, never copy lines, footage or graphics. Full reel breakdowns are in `swipe-file.md` in this folder.
 
 ## Sam's starting point: @locatingsam
 - 1.2K followers, 64 posts (2026-11-04)

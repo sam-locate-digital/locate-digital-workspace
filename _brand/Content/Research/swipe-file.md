@@ -29,7 +29,7 @@ Use the local copy and say once that the live Sheet wasn't checked.
 
 ## Studied reels (full breakdowns)
 
-Reels Sam picked to model, broken down hook-first. The hook formulas in `SKILL.md` come from these. When adding one, use this template:
+Reels Sam picked to model, broken down hook-first. The hook formulas in the `reels-script` skill come from these. When adding one, use this template:
 
 ```
 ### [creator] — [topic] — studied [YYYY-MM-DD]
@@ -39,7 +39,7 @@ Reels Sam picked to model, broken down hook-first. The hook formulas in `SKILL.m
 - Spoken hook (verbatim):
 - Line 2:
 - Frame-1 visual:
-- Formula: (one of the seven in SKILL.md, or a new one)
+- Formula: (one of the seven in the reels-script skill, or a new one)
 - Structure:
 - CTA:
 - Steal this: 1–2 lines

@@ -1,6 +1,6 @@
 # edit-reel reference
 
-Commands, settings and gotchas for the steps in `SKILL.md`. `KIT` is `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\remotion-kit`, and `W` is the work folder in this session's scratchpad (for example `<scratchpad>\reel-<topic>`).
+Commands, settings and gotchas for the steps in `SKILL.md`. `KIT` is `G:\My Drive\Claude Code.Locate\_brand\Content\remotion-kit`, and `W` is the work folder in this session's scratchpad (for example `<scratchpad>\reel-<topic>`).
 
 ## Shell notes (Windows)
 

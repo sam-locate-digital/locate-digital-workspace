@@ -9,7 +9,7 @@ Specs for every format `locate-content` plans. Reels with talking go through `re
 - Type: Public Sans (body, 600–800) and Newsreader (italic emphasis word, numerals). Not Poppins, Inter or Montserrat. (`_brand/brand.json` still lists Poppins; it's out of date. `_brand/brand-guidelines.html` and the reel style are the source.)
 - Locate Blue `#007AE8` for every accent. Orange `#FF5900` once per post at most, on the last slide's CTA.
 - Sentence case, digits for numbers, Australian spelling, no emojis or exclamation marks
-- Real screenshots and real photos of Sam (`_brand/photos/`, `_brand/social-media/`) over icons and stock
+- Real screenshots and real photos of Sam (`_brand/photos/`, `_brand/Content/Weeks/`) over icons and stock
 
 ---
 
@@ -72,7 +72,7 @@ Brief `reels-script` with: "Story reel" plus the moment. Structure (from Tahlia'
 Same layout. Each middle slide is one copy-ready prompt in a white card, with one line on when to use it. Example: "5 prompts for cleaner file notes". The prompts must be ones Sam has actually tested.
 
 ### 5c. Story or journey carousel (photo story)
-Matches the 2 November carousels in `_brand/social-media/2-11-2026/`: full-bleed real photos of Sam, one bold headline line and a short white subline near the bottom, one beat per slide, 5–7 slides. Build with the `photo-story-carousel` skill.
+Matches the 2 November carousels in `_brand/Content/Weeks/2026-11-02/`: full-bleed real photos of Sam, one bold headline line and a short white subline near the bottom, one beat per slide, 5–7 slides. Build with the `photo-story-carousel` skill.
 - Slide 1 states the decision or moment ("I left my corporate job to build an AI training agency. This is why.")
 - The middle slides move through the story, one photo and one line each
 - The last slide is where it's heading, plus "Follow the journey"

@@ -5,11 +5,11 @@ description: Edits Sam's raw talking-head footage into a finished Instagram/TikT
 
 # Edit reel
 
-Turns a folder of raw clips into a finished reel that follows Sam's approved style. The engine is the kit in `G:\My Drive\Claude Code.Locate\_brand\AI Video Editor\remotion-kit\`: Remotion graphics plus a Python pipeline. This skill is the process and the judgement calls around it. Exact commands, script settings and known gotchas are in `$HOME/.claude/skills/edit-reel/reference.md`. Read it before step 3.
+Turns a folder of raw clips into a finished reel that follows Sam's approved style. The engine is the kit in `G:\My Drive\Claude Code.Locate\_brand\Content\remotion-kit\`: Remotion graphics plus a Python pipeline. This skill is the process and the judgement calls around it. Exact commands, script settings and known gotchas are in `$HOME/.claude/skills/edit-reel/reference.md`. Read it before step 3.
 
 ## Ground rules
 
-- **The rulebook wins.** Read `_brand/AI Video Editor/CLAUDE.md` at the start of every edit. It holds the current style (captions, graphics, colour, pacing, sound, safe zones, export spec). If it disagrees with this skill, follow the rulebook. Sam's words for a specific reel beat both.
+- **The rulebook wins.** Read `_brand/Content/CLAUDE.md` at the start of every edit. It holds the current style (captions, graphics, colour, pacing, sound, safe zones, export spec). If it disagrees with this skill, follow the rulebook. Sam's words for a specific reel beat both.
 - **Work on C:, never on Google Drive.** Copy the kit to this session's scratchpad (`reel-<topic>/remotion/`) and install there. Only the finished files go back to Drive.
 - **Never touch originals.** `Raw Footage/` is read-only. Exports never overwrite: bump `_v1` → `_v2`.
 - **Verify with tools, then say what you couldn't check.** You can't hear audio. Measure it, then tell Sam to listen before posting.

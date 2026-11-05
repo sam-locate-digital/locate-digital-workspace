@@ -11,10 +11,12 @@ This skill is the planning layer. It decides what goes out each day and writes t
 
 ## Before planning (read every time)
 
-1. `_brand/social-media/insights-log.md`: what has earned follows so far, winning Trial Reels hooks, what flopped. Lean the week toward winners.
-2. `_brand/social-media/profile.md`: the current bio and pinned posts. If it doesn't exist, run **Profile setup** (below) before the first week.
+Everything this skill reads and writes lives in **`G:\My Drive\Claude Code.Locate\_brand\Content\`**. Paths below that start with `_brand/` are inside `G:\My Drive\Claude Code.Locate\`. The folder map is in `_brand/Content/CLAUDE.md`.
+
+1. `_brand/Content/insights-log.md`: what has earned follows so far, winning Trial Reels hooks, what flopped. Lean the week toward winners.
+2. `_brand/Content/profile.md`: the current bio and pinned posts. If it doesn't exist, run **Profile setup** (below) before the first week.
 3. `$HOME/.claude/skills/locate-content/references/formats.md`: the spec for every format in the weekly mix.
-4. `$HOME/.claude/skills/locate-content/references/reference-accounts.md`: what the five reference accounts do and why it works.
+4. `G:\My Drive\Claude Code.Locate\_brand\Content\Research\reference-accounts.md`: what the five reference accounts do and why it works.
 5. `$HOME/.claude/skills/locate-voice/references/voice-bank.md`: what Locate actually offers, so content never promises a service that doesn't exist.
 
 ## Who it's for
@@ -63,9 +65,9 @@ That's 7 reels and 5 feed posts: one reel every day, plus a second post on five 
 1. **Ask Sam what's on this week** (only if Sam hasn't said): builds in progress, client sessions, events, wins, where Sam will be, anything Sam wants to talk about. Journey and story posts come from this. Never invent Sam's week.
 2. **Read the insights log** and note what to repeat or drop.
 3. **Draft the 7-day plan** as a table (below) and show it to Sam. Wait for Sam's OK or changes before writing everything.
-4. **Write every post.** Reels go through `reels-script` (one script file per reel in `_brand/AI Video Editor/Scripts/`). Carousels, single images and journey reels are written here.
+4. **Write every post.** Reels go through `reels-script` (one script file per reel in `_brand/Content/Scripts/`). Carousels, single images and journey reels are written here.
 5. **Add Trial Reels hooks** to every reel (see below).
-6. **Save the week** to `_brand/social-media/<D-M-YYYY>/plan.md`, using the Monday's date in the same style as the existing `2-11-2026` folder.
+6. **Save the week** to `_brand/Content/Weeks/<YYYY-MM-DD>/plan.md`, named by the Monday's date (like the existing `2026-11-02` folder). Put that week's carousel slides and images in the same folder.
 7. **Offer to build the visuals**: carousels and single images through the Canva connector (Sam's brand kit), or the `photo-story-carousel` skill for photo-story carousels.
 
 ### Plan table
@@ -109,7 +111,7 @@ Sam posts the main version to followers and the trial versions as Trial Reels. L
 
 ## Profile setup (run once, then whenever the positioning changes)
 
-Saved to `_brand/social-media/profile.md`:
+Saved to `_brand/Content/profile.md`:
 1. **Bio** (150 characters max, no emojis, sentence case): who Sam is, what the account teaches, why follow. For example: "Sam, founder of Locate Digital. Practical AI and marketing for Australian firms. I show what I build, as I build it." Link: locatedigital.io.
 2. **Three pinned posts**: an intro reel ("If you don't know me yet, I'm Sam…": who, what Sam's building, what this account will teach, follow to see it), the best-performing teaching reel, and the best story post. Until there's a winner, pin the intro, the newest series episode and the 2 November story carousel.
 3. **Highlights**: up to 4, e.g. Start here, AI fixes, Behind the build, Free stuff.
@@ -119,7 +121,7 @@ Saved to `_brand/social-media/profile.md`:
 
 When Sam shares the week's numbers (or ask for them each Monday before planning):
 - Per post: plays/reach, follows, saves, shares, comments. If the vidiQ Instagram connection is set up, `vidiq_instagram_owner_insights` can pull these.
-- Record in `_brand/social-media/insights-log.md`: the top 2 posts by follows, the winning trial hooks, one thing to repeat, one thing to drop.
+- Record in `_brand/Content/insights-log.md`: the top 2 posts by follows, the winning trial hooks, one thing to repeat, one thing to drop.
 - Adjust next week's mix: more of the format and area that earned follows, less of what didn't. Don't change more than two things a week.
 
 ## Output
@@ -135,7 +137,7 @@ Captions follow `locate-voice`'s format rules (first line works above the fold, 
 
 ## Maintenance
 
-- Update `references/reference-accounts.md` when Sam adds a new account to model.
+- Update `_brand/Content/Research/reference-accounts.md` when Sam adds a new account to model.
 - Re-check the weekly mix monthly against the insights log.
 - Never write a dollar sign followed directly by a digit in this file (Claude Code treats it as an argument placeholder).
 - Last updated: 2026-11-04.
