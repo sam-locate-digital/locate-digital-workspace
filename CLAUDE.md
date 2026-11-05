@@ -40,4 +40,5 @@ Rules for new and edited skills:
 - The file must be named exactly `SKILL.md` with `name` and `description` frontmatter. Not `SKILL (1).md`, not a loose `SKILL.md` in a parent folder — those never load as commands.
 - Never keep skill copies in `.agents/`, this workspace's `.claude/skills/` or anywhere else. One copy per skill, in its home. Test runs go in `_ops/skill-tests/`, `.skill` packages in `_ops/skill-packages/`.
 - Inside a skill, point to its own files as `$HOME/.claude/skills/<name>/...` (use `$HOME`, not `~`, inside quotes), never a workspace-relative `.claude/skills/...` path.
+- Never write a dollar sign followed directly by a digit in a SKILL.md body (like a dollar-one figure). Claude Code reads it as an argument placeholder and swaps in the text typed after the command. Write "a grand" or "one to three million" instead.
 - Third-party toolkits keep their own skills where the toolkit expects them (e.g. `G:\My Drive\claude-code-video-toolkit\.claude\skills`).

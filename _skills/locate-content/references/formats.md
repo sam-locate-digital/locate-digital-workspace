@@ -6,7 +6,7 @@ Specs for every format `locate-content` plans. Reels with talking go through `re
 
 - Size: 1080 × 1350 (4:5) for carousels and single images
 - Canvas `#FBFCFF` with a faint `#E6E6E6` grid, white cards with a `#E6E6E6` border and 32 px radius
-- Type: Public Sans (body, 600–800) and Newsreader (italic emphasis word, numerals). Not Poppins, Inter or Montserrat. (`_brand/brand.json` still lists Poppins; it's out of date. `_brand/brand-guidelines.html` and the reel style are the source.)
+- Type: Public Sans (body, 600–800) and Newsreader (italic emphasis word with the blue brush underline, numerals). Sam chose on 2026-11-05 to keep the serif keyword with the underline for now; it may change later, so don't switch it without being asked. Not Poppins, Inter or Montserrat. (`_brand/brand.json` still lists Poppins; it's out of date. `_brand/brand-guidelines.html` and the reel style are the source.)
 - Locate Blue `#007AE8` for every accent. Orange `#FF5900` once per post at most, on the last slide's CTA.
 - Sentence case, digits for numbers, Australian spelling, no emojis or exclamation marks
 - Real screenshots and real photos of Sam (`_brand/photos/`, `_brand/Content/Weeks/`) over icons and stock

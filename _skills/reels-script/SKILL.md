@@ -170,7 +170,7 @@ Sam has no client results to share yet (Nov 2026), so default to showing the wor
 
 Sam's approved edit rules live in `G:\My Drive\Claude Code.Locate\_brand\Content\CLAUDE.md`. Read it before writing the Visual column. Where this skill and that file differ, that file wins. The parts that shape a script:
 - First word at 0.0s, hook caption on screen in frame one, no logo intro
-- Captions 1–3 words, sentence case, no exclamation marks, digits for numbers. Mark one **emphasis word** every 5–8s (it gets the Newsreader italic and blue brush). Put it on the number, the outcome or the turn of the sentence.
+- Captions 1–3 words, sentence case, no exclamation marks, digits for numbers. Mark one **emphasis word** every 5–8s (it gets the Newsreader italic and blue brush underline). Put it on the number, the outcome or the turn of the sentence. **Sam's decision, 2026-11-05:** keep this serif keyword with the underline for now, even though the reel style's v4 captions are otherwise TikTok Sans. Sam may change it later, so don't switch it without being asked.
 - Name graphics by the kit: **series title**, **name tag**, **split screen**, **framework** (steps build one at a time), **proof card** (number counts up, old figure struck in orange), **end card** (a question, an orange button with the keyword, locatedigital.io)
 - Locate Blue carries every graphic. Orange appears once, on the end-card button.
 - B-roll is real screens, offices and documents with private details blurred. No stock money or handshakes.
