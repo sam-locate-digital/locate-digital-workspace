@@ -29,7 +29,7 @@ The whole process is packaged as the **`/edit-reel` skill** (`_skills/edit-reel/
 
 1. **Talk from frame one.** First word at 0.0 s and the hook caption on screen in frame one. No logo intro, no "hey guys".
 2. **Change something every 2–4 s.** A cut, punch-in or graphic. Never more than 4 s on an unchanged frame.
-3. **1–3 words per caption.** Word-timed, white TikTok Sans with a plain black outline, centred low on the frame. No serif emphasis or brush underline.
+3. **1–3 words per caption.** Word-timed, white TikTok Sans with a plain black outline, centred low on the frame. One key word every 5–8 s is set in Newsreader italic with the blue brush underline (Sam, 2026-11-05: keep the serif keyword for now; may change later).
 4. **One accent colour.** Locate Blue for any brand touch. Orange appears once at most, on a call to action.
 5. **Premium graphics in a social font.** Use the v2/v4 look: frosted glass canvas with a light grid, split screens, step cards, a proof card with count-up, floating 3D glass icons and app-tile logos. Every graphic is in TikTok Sans, never the brand fonts. Show real proof as the actual screenshot on the canvas, and no section titles like "How to set it up" (Sam, 2026-11-04: asked for v2's graphics back after trying a no-graphics v3).
 6. **−14 LUFS, voice first.** Clean voice, quiet instrumental bed, a soft click when a graphic lands.
@@ -39,7 +39,7 @@ The whole process is packaged as the **`/edit-reel` skill** (`_skills/edit-reel/
 | | |
 |---|---|
 | Caption | TikTok Sans 800 (TikTok's platform font), 68 px on a 1080 frame, white with a plain black outline about 5 px wide. Social reels use standard platform fonts, not the brand fonts (Sam, 2026-11-04). |
-| Emphasis | None. Every caption uses the same white outlined style, numbers included. |
+| Emphasis | One key word every 5–8 s, on the number, the outcome or the turn of the sentence: Newsreader 600 italic, 100 px, white with a soft shadow, and the blue brush sweeping under it in 0.35 s. Any setup words sit on the same line, in TikTok Sans (60 px, outlined). Lines over 20 or 24 characters step down (84/52 or 72/46 px) so the pair stays on one line, low on the frame and clear of the mouth. Kit style `keyword` (the house default). Take the words from the script's **bold** words. |
 | Chunking | 1–3 words, at most 2 lines and 18 characters a line. Spoken brand names (GoHighLevel, Claude) show as an app-tile logo instead of a caption. |
 | Position | Centred, bottom of the text block at about 76% height (y ≈ 1470 px), clear of the mouth on close selfie framing and above Instagram's bottom zone |
 | Entrance | 0.12 s fade, scale 94% → 100%. No bounce, typewriter or colour-per-word karaoke. |

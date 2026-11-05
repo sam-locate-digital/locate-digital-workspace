@@ -1,4 +1,4 @@
-// Locate Reel Style kit — reusable pieces that follow _brand/Content/CLAUDE.md.
+// Locate Reel Style kit — reusable pieces that follow _brand/AI Video Editor/CLAUDE.md.
 import React from 'react';
 import {AbsoluteFill, Easing, Img, Loop, OffthreadVideo, interpolate, staticFile} from 'remotion';
 import {loadFont as loadNewsreader} from '@remotion/google-fonts/Newsreader';
@@ -34,6 +34,55 @@ export const SocialCaption = ({cue, t, bottom = 1470}) => {
     >
       <div style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: 68, lineHeight: 1.12, color: '#fff', textShadow: OUTLINE, letterSpacing: '-0.005em'}}>
         {text}
+      </div>
+    </div>
+  );
+};
+
+// ---------- Caption style menu (2026-11-05). Each takes {cue, t, bottom}. ----------
+const capText = (cue) => (cue.em ? `${cue.setup} ${cue.em}` : cue.text);
+const capWrap = (p, bottom, extra = {}) => ({
+  position: 'absolute', left: 90, right: 90, top: 0, height: bottom,
+  display: 'flex', alignItems: 'flex-end', justifyContent: 'center', textAlign: 'center',
+  opacity: p, transform: `scale(${0.94 + 0.06 * p})`, transformOrigin: `50% ${bottom - 40}px`, ...extra,
+});
+const capIn = (cue, t, d = 0.12) => (cue.s <= 0.001 ? 1 : enter(t, cue.s, d));
+
+// "box": white TikTok Sans on a Locate Blue rounded box
+export const BoxCaption = ({cue, t, bottom = 1470}) => (
+  <div style={capWrap(capIn(cue, t), bottom)}>
+    <div style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: 60, lineHeight: 1.15, color: '#fff',
+      background: '#007AE8', borderRadius: 18, padding: '10px 24px 14px', boxShadow: '0 10px 30px -10px rgba(0,0,0,.45)'}}>
+      {capText(cue)}
+    </div>
+  </div>
+);
+
+// "highlight": white outlined words, the word being spoken sits on a blue pill (timing spread across the cue)
+export const HighlightCaption = ({cue, t, bottom = 1470}) => {
+  const words = capText(cue).split(' ');
+  const span = Math.max(0.05, cue.e - cue.s);
+  const idx = Math.min(words.length - 1, Math.max(0, Math.floor(((t - cue.s) / span) * words.length)));
+  return (
+    <div style={capWrap(capIn(cue, t), bottom)}>
+      <div style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: 68, lineHeight: 1.25, color: '#fff'}}>
+        {words.map((w, i) => (
+          <span key={i} style={i === idx
+            ? {background: '#007AE8', borderRadius: 14, padding: '0 12px 4px', margin: '0 2px', textShadow: 'none'}
+            : {textShadow: OUTLINE, margin: '0 2px'}}>{w}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// "bold": the same outline style, much bigger, with a small pop on each cue
+export const BoldCaption = ({cue, t, bottom = 1470}) => {
+  const p = capIn(cue, t, 0.16);
+  return (
+    <div style={{...capWrap(1, bottom), opacity: Math.min(1, p * 1.5), transform: `scale(${1.12 - 0.12 * p})`}}>
+      <div style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: 92, lineHeight: 1.02, color: '#fff', textShadow: outline(7) + ', ' + outline(3.5), letterSpacing: '-0.01em'}}>
+        {capText(cue)}
       </div>
     </div>
   );
@@ -230,6 +279,72 @@ export const Caption = ({cue, t, bottom, ink = false}) => {
       )}
     </div>
   );
+};
+
+// "editorial": the original brand caption (Public Sans, Newsreader italic emphasis, blue brush), fixed to the
+// brand fonts even after useSocialFonts()
+const BRAND_SERIF = `${serif.fontFamily}, Georgia, serif`;
+const BRAND_SANS = `${sans.fontFamily}, system-ui, sans-serif`;
+export const EditorialCaption = ({cue, t, bottom = 1470}) => {
+  const p = cue.s <= 0.001 ? 1 : enter(t, cue.s, 0.14);
+  const brush = cue.em ? enter(t, cue.emAt, 0.35, easeInOut) : 0;
+  return (
+    <div style={{position: 'absolute', left: 64, right: 64, top: 0, height: bottom, display: 'flex', flexDirection: 'column',
+      justifyContent: 'flex-end', alignItems: 'center', textAlign: 'center', color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.55)',
+      opacity: p, transform: `scale(${0.92 + 0.08 * p})`, transformOrigin: `50% ${bottom - 60}px`}}>
+      {cue.em ? (
+        <>
+          <div style={{fontFamily: BRAND_SANS, fontWeight: 600, fontSize: 52, lineHeight: 1.05, marginBottom: 6}}>{cue.setup}</div>
+          <div style={{position: 'relative', isolation: 'isolate', fontFamily: BRAND_SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: 112, lineHeight: 1}}>
+            {cue.em}<Brush progress={brush} />
+          </div>
+        </>
+      ) : (
+        <div style={{fontFamily: BRAND_SANS, fontWeight: 800, fontSize: 64, lineHeight: 1.05, letterSpacing: '-0.01em'}}>{cue.text}</div>
+      )}
+    </div>
+  );
+};
+
+// "keyword" (house style from 2026-11-05, Sam's choice): the clean outline caption in TikTok Sans, but emphasis
+// cues show their key word in Newsreader italic with the blue brush underline (the setup words stay in TikTok Sans)
+export const KeywordCaption = ({cue, t, bottom = 1470}) => {
+  const p = capIn(cue, t);
+  if (!cue.em) {
+    return (
+      <div style={capWrap(p, bottom)}>
+        <div style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: 68, lineHeight: 1.12, color: '#fff', textShadow: OUTLINE, letterSpacing: '-0.005em'}}>
+          {cue.text}
+        </div>
+      </div>
+    );
+  }
+  const brush = enter(t, cue.emAt, 0.35, easeInOut);
+  // Setup words and key word share one baseline, so the block stays as low as a plain caption and clear of
+  // the mouth on close framing (tested 2026-11-05: the stacked version climbed onto the mouth on punch-ins).
+  // Longer lines step down in size so the pair still fits on one 900 px line.
+  const chars = (cue.setup || '').length + cue.em.length;
+  const emSize = chars > 24 ? 72 : chars > 20 ? 84 : 100;
+  const setupSize = chars > 24 ? 46 : chars > 20 ? 52 : 60;
+  return (
+    <div style={capWrap(p, bottom, {alignItems: 'flex-end'})}>
+      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'baseline', columnGap: 16, rowGap: 4}}>
+        {cue.setup ? (
+          <span style={{fontFamily: SOCIAL_FONT, fontWeight: 800, fontSize: setupSize, lineHeight: 1.05, color: '#fff', textShadow: OUTLINE}}>
+            {cue.setup}
+          </span>
+        ) : null}
+        <span style={{position: 'relative', isolation: 'isolate', fontFamily: BRAND_SERIF, fontStyle: 'italic', fontWeight: 600, fontSize: emSize, lineHeight: 1, color: '#fff', textShadow: '0 4px 18px rgba(0,0,0,.6), 0 0 2px rgba(0,0,0,.5)', whiteSpace: 'nowrap'}}>
+          {cue.em}<Brush progress={brush} height={Math.round(emSize * 0.42)} />
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export const CAPTION_STYLES = {
+  outline: SocialCaption, box: BoxCaption, highlight: HighlightCaption, editorial: EditorialCaption, bold: BoldCaption,
+  keyword: KeywordCaption,
 };
 
 // Numbered card for steps and lists. state: 'on' | 'dim' | 'plain'. Dim cards collapse to one compact line.

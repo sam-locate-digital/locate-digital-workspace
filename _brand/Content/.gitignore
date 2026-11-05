@@ -31,6 +31,9 @@ out/
 *.part
 *.ytdl
 
+# Style menu preview clips and posters (some show client figures) stay on Google Drive
+style-menu/previews/
+
 # Photos and slide images for weekly posts stay on Google Drive
 Weeks/**/*.jpg
 Weeks/**/*.jpeg

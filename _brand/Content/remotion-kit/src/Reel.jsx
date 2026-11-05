@@ -6,7 +6,15 @@
 import React from 'react';
 import {AbsoluteFill, Img, OffthreadVideo, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import data from './data.json';
-import {AppTile, FloatIcon, LogoPop, PremiumCanvas, ProofCard, SocialCaption, StepCard, T, enter, glass, riseStyle, useSocialFonts} from './kit';
+import {AppTile, CAPTION_STYLES, EndCard, FloatIcon, LogoPop, PremiumCanvas, ProofCard, StepCard, T, enter, glass, riseStyle, useSocialFonts} from './kit';
+
+// Style menu choices (see _brand/Content/style-menu). Defaults = the current house style (v4).
+//   captionStyle: keyword | outline | box | highlight | editorial | bold
+//   shotStyle:    glass (split screen on the glass canvas) | float (white card over full-frame footage)
+//   logoStyle:    pop (big tile pops at the seam) | row (app tiles collect in a row at the top)
+//   endCard:      false | true (adds a 2.8 s "Want the prompt?" end card)
+export const HOUSE_STYLE = {captionStyle: 'keyword', shotStyle: 'glass', logoStyle: 'pop', endCard: false};
+export const END_CARD_SECONDS = 2.8;
 
 useSocialFonts();
 
@@ -138,21 +146,66 @@ export const OverlayStill = ({kind, index, logo}) => {
 
 // clean: footage only (zooms and split framing baked in). graphicsOnly: everything except footage and
 // captions, on a transparent background — the two CapCut pack layers.
-export const Reel = ({clean = false, graphicsOnly = false}) => {
+// shotStyle "float": the screenshot on a white card over full-frame footage (the v3 look)
+const FloatShot = ({src, at, until, t}) => {
+  if (t < at || t >= until) return null;
+  const p = enter(t, at, 0.22);
+  return (
+    <div style={{position: 'absolute', left: 30, right: 30, top: 240, background: '#fff', borderRadius: 30, padding: '16px 18px',
+      boxShadow: '0 24px 60px -18px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.18)',
+      opacity: p, transform: `translateY(${(1 - p) * 36}px) scale(${0.98 + 0.02 * p})`}}>
+      <Img src={staticFile(src)} style={{width: '100%', display: 'block'}} />
+    </div>
+  );
+};
+
+// logoStyle "row": app tiles collect in a row near the top as each brand is named, held to the end of that section
+const LogoRow = ({t, y, until}) => {
+  const shown = LOGOS.filter((l) => t >= l.at && t < until);
+  if (!shown.length) return null;
+  const size = 130;
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', gap: 28, zIndex: 6}}>
+      {shown.map((l) => {
+        const p = enter(t, l.at, 0.35);
+        return (
+          <div key={l.kind} style={{opacity: Math.min(1, p * 1.5), transform: `translateY(${(1 - p) * 30}px) scale(${0.7 + 0.3 * p})`}}>
+            <AppTile kind={l.kind} size={size} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export const Reel = (props) => {
+  const {clean = false, graphicsOnly = false} = props;
+  const style = {...HOUSE_STYLE, ...props};
+  const Caption = CAPTION_STYLES[style.captionStyle] || CAPTION_STYLES.outline;
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const t = frame / fps;
-  const seg = LAYOUT.find((x) => t >= x.s && t < x.e) || LAYOUT[LAYOUT.length - 1];
+  const layout = style.shotStyle === 'float'
+    ? LAYOUT.map((x) => (x.group === 'shots' ? {s: x.s, e: x.e, mode: 'full', zoom: [1, 1.04], float: true} : x))
+    : LAYOUT;
+  const seg = layout.find((x) => t >= x.s && t < x.e) || layout[layout.length - 1];
   const cue = data.cues.find((c) => t >= c.s && t < c.e && c.s < data.endCard);
+  const ended = t >= data.endCard;
 
   if (clean) {
-    return <AbsoluteFill style={{background: '#000'}}><Footage seg={seg} t={t} /></AbsoluteFill>;
+    return <AbsoluteFill style={{background: '#000'}}><Footage seg={seg} t={Math.min(t, data.total - 0.04)} /></AbsoluteFill>;
+  }
+
+  if (style.endCard && ended) {
+    return <EndCard t={t} at={data.endCard} question="Want the prompt?" button="It's in the comments" url="locatedigital.io" />;
   }
 
   return (
     <AbsoluteFill style={{background: graphicsOnly ? 'transparent' : '#111'}}>
       {graphicsOnly ? null : <Footage seg={seg} t={t} />}
       {seg.mode === 'split' ? <SplitGraphic seg={seg} t={t} /> : null}
+      {seg.float ? SHOTS.map((s) => <FloatShot key={s.src} {...s} t={t} />) : null}
+      {style.logoStyle === 'row' ? <LogoRow t={t} y={seg.mode === 'split' ? 150 : 300} until={27.72} /> : null}
       {seg.mode === 'proof' ? (
         <AbsoluteFill>
           <PremiumCanvas />
@@ -171,12 +224,12 @@ export const Reel = ({clean = false, graphicsOnly = false}) => {
           <FloatIcon src="icons/chart.png" t={t} at={11.3} x={760} y={250} size={250} phase={0.6} />
         </AbsoluteFill>
       ) : null}
-      {LOGOS.map((l) => (
+      {style.logoStyle !== 'row' ? LOGOS.map((l) => (
         <LogoPop key={l.kind + l.at} kind={l.kind} t={t} at={l.at} hold={1.1}
           cx={540} cy={seg.mode === 'split' ? 960 : 1250} size={230} />
-      ))}
-      {cue && !cue.logo && t < data.endCard && !graphicsOnly ? (
-        <SocialCaption cue={cue} t={t} bottom={seg.mode === 'split' ? 838 : 1470} />
+      )) : null}
+      {cue && !cue.logo && !ended && !graphicsOnly ? (
+        <Caption cue={cue} t={t} bottom={seg.mode === 'split' ? 838 : 1470} />
       ) : null}
     </AbsoluteFill>
   );

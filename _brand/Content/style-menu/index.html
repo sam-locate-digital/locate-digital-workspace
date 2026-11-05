@@ -1,0 +1,285 @@
+<title>Locate Style Menu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,600&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a short how-to header, filter chips, then one row of looping 9:16 preview cards per style category; a sticky tray builds the /edit-reel prompt from the picks. */
+:root{
+  --bg:#ffffff; --bg-soft:#fbfcff; --surface:#ffffff; --row:#f4f8fd;
+  --fg:#0d0d0d; --muted:#5f6670; --line:#e6e9ee;
+  --blue:#007ae8; --blue-text:#0058c4; --tint:rgba(0,122,232,.09); --ring:rgba(0,122,232,.22);
+  --on-blue:#ffffff;
+  --shadow:0 1px 1px rgba(13,13,13,.04),0 2px 6px rgba(13,13,13,.05),0 14px 30px -14px rgba(0,50,110,.18);
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
+  --body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --bg-soft:#12161c; --surface:#151a21; --row:#19202a;
+  --fg:#eef1f5; --muted:#9aa3ae; --line:#272d36;
+  --blue:#3d9bff; --blue-text:#7ab9ff; --tint:rgba(61,155,255,.13); --ring:rgba(61,155,255,.35); --on-blue:#06121f;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px -14px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --bg-soft:#12161c; --surface:#151a21; --row:#19202a;
+  --fg:#eef1f5; --muted:#9aa3ae; --line:#272d36;
+  --blue:#3d9bff; --blue-text:#7ab9ff; --tint:rgba(61,155,255,.13); --ring:rgba(61,155,255,.35); --on-blue:#06121f;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 30px -14px rgba(0,0,0,.6); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+code{font-family:var(--mono);font-size:.82em}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+header.top{background:var(--bg-soft);border-bottom:1px solid var(--line)}
+header .wrap{padding-block:52px 34px;display:grid;gap:18px}
+.eyebrow{font-family:var(--display);font-size:1rem;color:var(--muted)}
+h1{font-size:clamp(2.6rem,7vw,4.4rem);letter-spacing:-.015em}
+.brush{position:relative;display:inline-block;color:var(--blue-text)}
+.brush svg{position:absolute;left:-4%;bottom:-.16em;width:108%;height:.36em;overflow:visible}
+.brush path{fill:var(--blue)}
+.lede{max-width:640px;color:var(--muted);font-size:1.08rem}
+.how{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;padding:0;list-style:none}
+.how li{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 8px;font-size:.92rem;font-weight:600}
+.how b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--tint);color:var(--blue-text);font-family:var(--display);font-size:1rem}
+
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.filters .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.chip{flex:none;font:600 .9rem var(--body);color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+main .wrap{padding-block:30px 180px;display:grid;gap:52px}
+.cat{display:grid;gap:16px}
+.cat-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.cat-head h2{font-size:clamp(1.6rem,3.4vw,2.1rem)}
+.cat-head .count{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.cat-head p{flex-basis:100%;color:var(--muted);max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+
+.card{display:grid;gap:12px;align-content:start;min-width:0}
+.frame{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--row);box-shadow:var(--shadow);cursor:pointer;outline:3px solid transparent;outline-offset:3px;transition:outline-color .15s}
+.frame video{width:100%;height:100%;object-fit:cover;display:block}
+.card.selected .frame{outline-color:var(--blue)}
+.badge{position:absolute;left:10px;top:10px;font:700 .72rem var(--body);background:rgba(255,255,255,.92);color:#0d0d0d;border-radius:999px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.badge.house{background:#007ae8;color:#fff}
+.tick{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--blue);display:grid;place-items:center;opacity:0;transform:scale(.7);transition:.15s}
+.card.selected .tick{opacity:1;transform:none}
+.tick svg{width:16px;height:16px}
+.card h3{font-family:var(--body);font-weight:700;font-size:1.02rem;line-height:1.25}
+.sid{justify-self:start;font-family:var(--mono);font-size:.74rem;color:var(--blue-text);background:var(--tint);border-radius:6px;padding:2px 8px}
+.card p{font-size:.9rem;color:var(--muted)}
+.pick{justify-self:start;font:600 .86rem var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:7px 14px;cursor:pointer}
+.card.selected .pick{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -12px 30px -18px rgba(0,30,70,.35);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tray .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 22px;align-items:center;padding-block:14px}
+@media (max-width:760px){.tray .wrap{grid-template-columns:minmax(0,1fr)}}
+.combo{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;min-width:0}
+.combo .lbl{font-family:var(--display);font-size:1rem;margin-right:4px}
+.pill{font-size:.8rem;background:var(--row);border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.pill b{color:var(--blue-text);font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.actions label{font-size:.8rem;color:var(--muted);display:grid;gap:3px}
+.actions input{font:500 .88rem var(--mono);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:230px;max-width:100%}
+.copy{font:700 .92rem var(--body);background:var(--blue);color:var(--on-blue);border:0;border-radius:999px;padding:12px 20px;cursor:pointer}
+.reset{font:600 .86rem var(--body);background:none;border:0;color:var(--muted);cursor:pointer;text-decoration:underline;padding:6px}
+#promptOut{position:absolute;left:-9999px;width:1px;height:1px}
+.toast{position:fixed;left:50%;bottom:calc(110px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);font-weight:600;font-size:.9rem;border-radius:999px;padding:9px 18px;z-index:9}
+footer{color:var(--muted);font-size:.88rem}
+@media (prefers-reduced-motion: reduce){.frame,.tick{transition:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="brushPath" d="M3 19 C 28 11, 96 5, 190 2 C 196 1, 200 4, 197 8 C 186 10, 120 13, 60 17 C 38 19, 18 21, 9 25 C 3 27, 0 22, 3 19 Z"/></defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Locate Digital · reel kit</p>
+    <h1>Style <span class="brush">menu<svg viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><use href="#brushPath"/></svg></span></h1>
+    <p class="lede">Every editing style in your reel kit, shown on your own footage. Pick one per row (your house style is already selected), then copy the prompt and paste it into Claude with your clips.</p>
+    <ol class="how">
+      <li><b>1</b>Pick a style in each row</li>
+      <li><b>2</b>Name your reel folder</li>
+      <li><b>3</b>Copy the prompt into Claude</li>
+    </ol>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filter styles"><div class="wrap" id="chips"></div></nav>
+
+<main><div class="wrap" id="cats"></div>
+  <div class="wrap"><footer>Previews are cut from the "$200,000 automation" test reel at half size, without sound. Picking a style here only builds the prompt. Nothing is edited until you send it.</footer></div>
+</main>
+
+<div class="tray" role="region" aria-label="Your style combo">
+  <div class="wrap">
+    <div class="combo" id="combo"><span class="lbl">Your combo</span></div>
+    <div class="actions">
+      <label for="folder">Reel folder in Raw Footage
+        <input id="folder" type="text" value="2026-11-05_topic" autocomplete="off" spellcheck="false">
+      </label>
+      <button class="copy" id="copyBtn" type="button">Copy prompt</button>
+      <button class="reset" id="resetBtn" type="button">House style</button>
+    </div>
+  </div>
+</div>
+<textarea id="promptOut" aria-hidden="true" tabindex="-1"></textarea>
+<div class="toast" id="toast" hidden>Copied</div>
+
+<script>
+(function(){
+  // Each category maps to one /edit-reel style setting. "pick" = choose one; "toggle" = include or leave out.
+  var CATS = [
+    {key:'captions', title:'Captions', mode:'pick', blurb:'How the spoken words appear. Word-timed, centred low on the frame, always clear of the Instagram buttons.', styles:[
+      {id:'outline', clip:'cap-outline', name:'Clean outline', desc:'White TikTok Sans with a plain black outline. Reads on any background without covering much of you.'},
+      {id:'keyword', clip:'cap-keyword', name:'Outline + serif keyword', desc:'The clean outline in TikTok Sans, with each key word in Newsreader italic and the blue brush underline.', house:true},
+      {id:'box', clip:'cap-box', name:'Blue box', desc:'White text on a Locate Blue box. Loud and on-brand, very readable on busy footage.'},
+      {id:'highlight', clip:'cap-highlight', name:'Word highlight', desc:'Outlined words, with the word being spoken sitting on a blue pill. Pulls the eye along the line.'},
+      {id:'bold', clip:'cap-bold', name:'Big bold', desc:'The outline style much larger, with a small pop on every line. Built for hook-heavy, punchy reels.'},
+      {id:'editorial', clip:'cap-editorial', name:'Editorial serif', desc:'Your brand fonts: Public Sans, with key words in Newsreader italic and the blue brush underline.'}
+    ]},
+    {key:'screenshots', title:'Screenshots', mode:'pick', blurb:'How real results and proof show up when you mention them.', styles:[
+      {id:'glass', clip:'shots-glass', name:'Glass split screen', desc:'Screenshot on the moving glass canvas in the top half, you in the bottom half, with a heading and a 3D icon.', house:true},
+      {id:'float', clip:'shots-float', name:'Floating card', desc:'Screenshot on a white card over your full-frame footage. Simpler, and keeps your face on screen the whole time.'}
+    ]},
+    {key:'cards', title:'Cards & moves', mode:'toggle', blurb:'Graphic moments you can keep in or leave out. Tap a card to switch it on or off.', styles:[
+      {id:'proof', clip:'card-proof', name:'Count-up proof card', desc:'Full-screen glass card counting up to your headline number, with a light sweep when it lands.', house:true},
+      {id:'steps', clip:'card-steps', name:'Step cards', desc:'Numbered glass cards build as you say each step. Earlier steps dim and shrink, with brand logos inline.', house:true}
+    ]},
+    {key:'logos', title:'Logos', mode:'pick', blurb:'When you name a product (GoHighLevel, Claude), its real logo appears instead of the word.', styles:[
+      {id:'pop', clip:'logos-pop', name:'Logo pop', desc:'A big app-style tile pops at the seam the moment you say the name, then clears after a second.', house:true},
+      {id:'row', clip:'logos-row', name:'Logo row', desc:'Tiles collect in a row at the top as each brand is named, and stay for the whole section.'}
+    ]},
+    {key:'ending', title:'Ending', mode:'pick', blurb:'What happens after your last word.', styles:[
+      {id:'none', clip:'cta-none', name:'Straight cut', desc:'Ends on your last word, so the reel loops cleanly. Put the call to action in your spoken line.', house:true},
+      {id:'endcard', clip:'cta-endcard', name:'End card', desc:'A 2.8 s card with a question, one orange button and locatedigital.io. The only orange in the reel.'}
+    ]}
+  ];
+
+  var KEY = 'locate-style-menu-v1';
+  var state = houseState();
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved && saved.picks) state = saved; } catch (e) {}
+
+  function houseState(){
+    var picks = {};
+    CATS.forEach(function(c){
+      if (c.mode === 'pick') picks[c.key] = c.styles.filter(function(s){ return s.house; })[0].id;
+      else c.styles.forEach(function(s){ picks[c.key + ':' + s.id] = !!s.house; });
+    });
+    return {picks: picks, folder: '2026-11-05_topic'};
+  }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var check = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // Filter chips
+  var chips = document.getElementById('chips');
+  var filters = [{key:'all', title:'All'}].concat(CATS.map(function(c){ return {key:c.key, title:c.title}; }));
+  filters.forEach(function(f){
+    var b = document.createElement('button');
+    b.className = 'chip'; b.type = 'button'; b.textContent = f.title; b.id = 'chip-' + f.key;
+    b.setAttribute('aria-pressed', f.key === 'all' ? 'true' : 'false');
+    b.addEventListener('click', function(){
+      chips.querySelectorAll('.chip').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('.cat').forEach(function(sec){ sec.hidden = !(f.key === 'all' || sec.dataset.key === f.key); });
+    });
+    chips.appendChild(b);
+  });
+
+  // Category rows
+  var cats = document.getElementById('cats');
+  CATS.forEach(function(c){
+    var sec = document.createElement('section');
+    sec.className = 'cat'; sec.dataset.key = c.key;
+    sec.innerHTML = '<div class="cat-head"><h2>' + c.title + '</h2><span class="count">' + c.styles.length + ' styles · ' + (c.mode === 'pick' ? 'pick one' : 'switch on or off') + '</span><p>' + c.blurb + '</p></div><div class="grid"></div>';
+    var grid = sec.querySelector('.grid');
+    c.styles.forEach(function(s){
+      var card = document.createElement('article');
+      card.className = 'card'; card.dataset.cat = c.key; card.dataset.id = s.id;
+      var auto = reduce ? '' : ' autoplay';
+      card.innerHTML =
+        '<div class="frame" role="button" tabindex="0" aria-label="' + (c.mode === 'pick' ? 'Choose ' : 'Switch ') + s.name + '">' +
+          '<video src="previews/' + s.clip + '.mp4" poster="previews/' + s.clip + '.jpg" muted loop playsinline preload="metadata"' + auto + '></video>' +
+          (s.house ? '<span class="badge house">House style</span>' : '') +
+          '<span class="tick">' + check + '</span>' +
+        '</div>' +
+        '<h3>' + s.name + '</h3>' +
+        '<span class="sid">' + c.key + ' = ' + s.id + '</span>' +
+        '<p>' + s.desc + '</p>' +
+        '<button class="pick" type="button" id="pick-' + c.key + '-' + s.id + '"></button>';
+      var act = function(){ choose(c, s.id); };
+      card.querySelector('.frame').addEventListener('click', act);
+      card.querySelector('.frame').addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+      card.querySelector('.pick').addEventListener('click', act);
+      if (reduce) {
+        var v = card.querySelector('video');
+        card.querySelector('.frame').addEventListener('mouseenter', function(){ v.play().catch(function(){}); });
+        card.querySelector('.frame').addEventListener('mouseleave', function(){ v.pause(); });
+      }
+      grid.appendChild(card);
+    });
+    cats.appendChild(sec);
+  });
+
+  function choose(c, id){
+    if (c.mode === 'pick') state.picks[c.key] = id;
+    else state.picks[c.key + ':' + id] = !state.picks[c.key + ':' + id];
+    save(); render();
+  }
+
+  function isOn(c, s){ return c.mode === 'pick' ? state.picks[c.key] === s.id : !!state.picks[c.key + ':' + s.id]; }
+
+  function promptText(){
+    var lines = [];
+    CATS.forEach(function(c){
+      if (c.mode === 'pick') lines.push(c.key + ' = ' + state.picks[c.key]);
+      else c.styles.forEach(function(s){ lines.push(s.id + ' = ' + (state.picks[c.key + ':' + s.id] ? 'on' : 'off')); });
+    });
+    return '/edit-reel Raw Footage/' + (state.folder || 'YYYY-MM-DD_topic') + '\nStyles: ' + lines.join(', ');
+  }
+
+  function render(){
+    document.querySelectorAll('.card').forEach(function(card){
+      var c = CATS.filter(function(x){ return x.key === card.dataset.cat; })[0];
+      var s = c.styles.filter(function(x){ return x.id === card.dataset.id; })[0];
+      var on = isOn(c, s);
+      card.classList.toggle('selected', on);
+      card.querySelector('.pick').textContent = c.mode === 'pick' ? (on ? 'Selected' : 'Use this') : (on ? 'Included' : 'Left out');
+      card.querySelector('.frame').setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    var combo = document.getElementById('combo');
+    combo.innerHTML = '<span class="lbl">Your combo</span>';
+    CATS.forEach(function(c){
+      if (c.mode === 'pick') {
+        var s = c.styles.filter(function(x){ return x.id === state.picks[c.key]; })[0];
+        combo.insertAdjacentHTML('beforeend', '<span class="pill">' + c.title + ': <b>' + s.name + '</b></span>');
+      } else {
+        c.styles.forEach(function(s){
+          combo.insertAdjacentHTML('beforeend', '<span class="pill">' + s.name + ': <b>' + (state.picks[c.key + ':' + s.id] ? 'on' : 'off') + '</b></span>');
+        });
+      }
+    });
+    document.getElementById('folder').value = state.folder;
+  }
+
+  document.getElementById('folder').addEventListener('input', function(e){ state.folder = e.target.value.trim(); save(); });
+  document.getElementById('resetBtn').addEventListener('click', function(){ var f = state.folder; state = houseState(); state.folder = f; save(); render(); });
+
+  var toast = document.getElementById('toast'), tt;
+  function showToast(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(tt); tt = setTimeout(function(){ toast.hidden = true; }, 1800); }
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var text = promptText();
+    var out = document.getElementById('promptOut');
+    out.value = text;
+    var fallback = function(){ out.style.position = 'static'; out.style.width = '100%'; out.style.height = '5em'; out.removeAttribute('aria-hidden'); out.select(); showToast('Press Ctrl+C to copy'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast('Prompt copied'); }, fallback);
+    } else { fallback(); }
+  });
+
+  render();
+})();
+</script>

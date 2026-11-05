@@ -24,6 +24,7 @@ Track the steps with the task list, and run long jobs (prep, renders) in the bac
 - The reel folder: `Raw Footage/<YYYY-MM-DD_topic>/` with clips, screenshots and `notes.md`. If there's no `notes.md`, work out the brands, numbers and call to action from the transcript, and ask Sam only about what really is ambiguous.
 - The script, if `notes.md` names one in `Scripts/` (or one matches by date and topic). With a script, captions follow its words.
 - Sam's request. "Preview first" means a half-size preview before the full render. Note any one-off overrides, such as a 0.1 s pause cut instead of the 0.25 s default.
+- **Styles.** Look for a `Styles:` line, either in Sam's message (copied from the style menu) or in `notes.md`. Example: `Styles: captions = box, screenshots = glass, proof = on, steps = on, logos = row, ending = none`. Any setting not listed uses the house style.
 
 ### 2. Set up the workspace
 Copy `remotion-kit/` to the scratchpad and run `npm install` there (Remotion stays pinned to 4.0.537). Copy the clips' paths, not the clips. Prep reads them straight from Drive.
@@ -36,13 +37,32 @@ Run `prep.py` (1440x2560 working copies, silence map, Whisper `small.en`), then 
 - **Assume hidden false starts.** Whisper stretches one word across a restart it doesn't write down. For any take that looks long, check the slice with `segwords.py`, start the take after the restart, and pin its word timings in `OVERRIDE`.
 - Run `edl.py` then `aroll.py`. Then verify the cut three ways: silencedetect shows no pause over the limit, `longwords.py` flags no ordinary word over 0.55 s, and a re-transcription reads every line exactly once. Repeat until all three pass.
 
-### 5. Storyboard (only when it helps)
+### 5. Styles (the style menu)
+The style menu is Sam's gallery of every style in the kit, shown on real footage. It lives in `_brand/Content/style-menu/` (`index.html` plus `previews/`) and is published as the "Locate Style Menu" artifact (URL in `reference.md`).
+- **Sam gave a `Styles:` line:** use it.
+- **No `Styles:` line and the reel is routine:** use the house style and say so in one line, with the menu link in case Sam wants to change it.
+- **Sam asks to see styles first, or the reel is a new format:** offer the menu link. If Sam wants the previews on *this* reel's footage, finish steps 7–8 first (captions and timeline), set each preset's frame window in `pipeline/style_previews.py` to this reel's moments (hook, screenshots, proof, steps, logos, ending), render the previews, copy them to `_brand/Content/style-menu/previews/`, and republish the menu to the same URL. That takes about 10–15 minutes and spends no credits. Then wait for Sam's combo before the storyboard or full render.
+
+How the settings map onto the kit (all are props on the `Reel` composition, and `HOUSE_STYLE` in `Reel.jsx` holds the defaults):
+
+| Menu setting | Prop or change |
+|---|---|
+| captions = keyword (house) / outline / box / highlight / bold / editorial | `captionStyle` |
+| screenshots = glass / float | `shotStyle` |
+| logos = pop / row | `logoStyle` |
+| ending = none / endcard | `endCard: false / true` (adds 2.8 s, so music length = data total + 2.8) |
+| proof = off | Remove the `proof` stretch from `LAYOUT` and show that part full-frame instead |
+| steps = off | Remove the `steps` split stretches from `LAYOUT`. Keep logos as pops. |
+
+For a one-off reel, pass the props with `--props` on every render. If Sam says a pick should become the default, change `HOUSE_STYLE` and the rulebook.
+
+### 6. Storyboard (only when it helps)
 Skip it for routine reels, since the style is locked. Make one when the format is new, there's a lot of graphics or Sam asks. Use real frames from the cut with the planned overlays, beat by beat, and publish it as an artifact. List the points Sam must confirm (unclear words, names, figures).
 
-### 6. Captions
-Set `REPLACE` (house style: digits, Australian spelling, confirmed words), `BRANDS` (spoken product names, which become logo tiles instead of captions) and `EMPH` in `captions.py`, then run it into `remotion/src/data.json`. Check the cue list for missing first words, split numbers ("3 / months") and one-word flashes.
+### 7. Captions
+Set `REPLACE` (house style: digits, Australian spelling, confirmed words), `BRANDS` (spoken product names, which become logo tiles instead of captions) and `EMPH` in `captions.py` (the house `keyword` captions set these words in Newsreader italic with the blue brush; take them from the script's **bold** words, about one every 5–8 s), then run it into `remotion/src/data.json`. Check the cue list for missing first words, split numbers ("3 / months") and one-word flashes.
 
-### 7. Graphics timeline
+### 8. Graphics timeline
 Edit `remotion/src/Reel.jsx` (the worked example is the $200,000 automation reel):
 - `LAYOUT`: alternate full-frame wide (100%) and punch (118%) with split-screen stretches, so something changes every 2–4 s.
 - `SHOTS`: Sam's screenshots in `public/shots/`, timed to when each result is mentioned.
@@ -53,19 +73,19 @@ Edit `remotion/src/Reel.jsx` (the worked example is the $200,000 automation reel
 
 Render 8–10 stills at key frames (scale 0.4), tile them, and look. Fix overlaps, captions on the mouth, and text running into icons before any full render.
 
-### 8. Render, mix, export
+### 9. Render, mix, export
 - "Preview first": render half size and wait for Sam.
 - Full: `music.py` (length = data total) → `audio.py` (set `EVENTS` to the graphic landings) → Remotion render (`--concurrency=2`) → mux to spec.
 - Check duration, H.264 High 1080x1920 30 fps, −14 LUFS with a true peak around −1.5, and a one-frame-per-second contact sheet. Frame one must show the hook caption.
 - Save to `Exports/<date>_<topic>_v<N>.mp4`.
 
-### 9. CapCut pack (when asked)
+### 10. CapCut pack (when asked)
 Render `ReelClean` and `Graphics` (transparent ProRes 4444). Make `graphics_on_magenta.mp4`, run `stems.py` and `srt.py`, write `timings.txt`, and copy the kit's `CAPCUT.md` in as the guide. Save the folder as `Exports/<date>_<topic>_v<N>_capcut/`. Check that the stacked layers match the export.
 
-### 10. Change requests
+### 11. Change requests
 Sam gives a timestamp, an element and the change. Edit that piece only (text, timing, removal, a swapped file), check a still, re-render and export as the next version. If the change is a style preference meant for every reel, update the rulebook and the `locate-reel-style` memory as well.
 
-### 11. Leave the kit better
+### 12. Leave the kit better
 Copy improved code (`kit.jsx`, pipeline scripts) back to `remotion-kit/`. Add any new lesson to its README and to `reference.md` here. Don't copy client screenshots into the kit, since `.png` files are tracked by git. Don't commit unless Sam asks.
 
 ## Hand-over message

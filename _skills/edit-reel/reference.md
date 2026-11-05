@@ -50,6 +50,14 @@ Copy the cut into Remotion: `ffmpeg -i W\aroll.mov -c:v copy -c:a aac -b:a 256k 
   - `Graphics`: `--codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png --muted --concurrency=2`. About 400 MB for 40 s.
   - Magenta backup: `ffmpeg -f lavfi -i color=c=0xff00ff:s=1080x1920:r=30 -i graphics.mov -filter_complex "[0][1]overlay=shortest=1,format=yuv420p" -c:v libx264 -crf 16 graphics_on_magenta.mp4`
 
+## Style menu
+
+- Page: `_brand/Content/style-menu/index.html`, with clips in `style-menu/previews/<id>.mp4` and `.jpg` (git-ignored, because some show client figures). Published as the "Locate Style Menu" artifact: https://claude.ai/artifact/CJzEYzYkwC2fysJLkhANvu (14 styles as of 2026-11-05)
+- Republish after new previews: Artifact publish with `file_path` = the `index.html` and `url` = the menu URL. Map every `previews/*.mp4` and `*.jpg` in `files`.
+- Render previews: `python -I pipeline/style_previews.py W\remotion W\style-menu\previews [ids…]`. Each preset is (props, first frame, last frame) on the reel timeline, at half size, muted, about 0.4 MB and 1–1.5 minutes each. To preview a new reel, change each preset's frame window to that reel's matching moment first.
+- To add a style: build it in `kit.jsx` (captions go in `CAPTION_STYLES`) or as a `Reel` prop, add a preset to `style_previews.py`, add a card to the `CATS` list in `index.html`, then render and republish.
+- Reel props: `captionStyle` (keyword | outline | box | highlight | bold | editorial; `keyword` is the house default), `shotStyle` (glass | float), `logoStyle` (pop | row), `endCard` (bool). The defaults are `HOUSE_STYLE` in `Reel.jsx`. `calculateMetadata` in `index.jsx` adds 2.8 s when `endCard` is on.
+
 ## Layout constants (1080 x 1920)
 
 - Safe zones: keep text out of the top 220, bottom 420 and right 120 px.
@@ -72,6 +80,6 @@ Copy the cut into Remotion: `ffmpeg -i W\aroll.mov -c:v copy -c:a aac -b:a 256k 
 - **Hidden repeats.** Four false starts survived the first cut because Whisper folded them into one long word ("that" lasting 1.2 s, "promotions" lasting 1.7 s). Always run `longwords.py` and re-transcribe the finished cut.
 - **Mis-hearings.** A full-clip transcription leans on context: "go into code" for "going to Claude", and "not going to" for "gonna need". Re-transcribe the exact slice to settle a word. Initial-prompt hints can bias it too, so check against the slice.
 - **Words dropped at piece edges.** The word-to-cut mapping assigns each word to the piece it overlaps most. Don't go back to midpoint-only mapping, which dropped the first word of several lines.
-- **Sam's style changes from the review rounds:** captions are white TikTok Sans with a black outline (no brand serif, no brush). The graphics stay, but in TikTok Sans with no section titles. Real screenshots for proof, and brands as app-tile logos. The end card was dropped for this reel.
+- **Sam's style changes from the review rounds:** captions are white TikTok Sans with a black outline. Update 2026-11-05: Sam brought back one serif key word (Newsreader italic with the blue brush) every 5–8 s, so the house caption style is now `keyword`. The graphics stay, but in TikTok Sans with no section titles. Real screenshots for proof, and brands as app-tile logos. The end card was dropped for this reel.
 - **Close selfie framing** pushes captions down to about 76% and needs `FACE_OFFSET` in split screens. The checklist asks Sam to leave headroom.
 - **4K iPhone clips** take over 10 minutes to prep. The checklist asks for 1080p/30.
