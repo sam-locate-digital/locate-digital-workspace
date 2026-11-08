@@ -1,0 +1,11 @@
+.env
+*.env
+.env.*
+
+# Borrower documents (payslips, IDs, statements) never go in git: Privacy Act.
+# Keep them in the broker's own systems, not in this workspace, wherever possible.
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.heic

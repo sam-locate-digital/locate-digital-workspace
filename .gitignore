@@ -65,3 +65,40 @@ __pycache__/
 # See _ops/website-launch.md. Never commit them into the workspace or push them as a subtree.
 clients/*/website/
 _brand/Website Demo/demos/harlow-cms-test/
+
+# Workspace housekeeping folders (see CLAUDE.md)
+_inbox/
+_to-delete/
+.claude/worktrees/
+
+# Large media: Google Drive keeps it, git doesn't need it
+_brand/Content/Raw Footage/
+_brand/Content/Exports/
+_brand/Content/References/
+_brand/Content/_DROP FILES HERE/
+_brand/Tutorials/Raw Footage/
+_brand/Tutorials/Exports/
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*.avi
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.heic
+*.HEIC
+*.psd
+*.zip
+node_modules/
+
+# Raw image renders before the logo/text pass (the finished slides sit one level up)
+clients/*/Social Media Post/*/raw/
+
+# Full-size AI photo originals in demo folders (the sites use the WebP/JPG copies in images/)
+_brand/Website Demo/demos/*/*.png
+_brand/Website Demo/demo-mortgage broker/*.png
