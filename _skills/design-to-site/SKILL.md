@@ -1,13 +1,13 @@
 ---
 name: design-to-site
-description: Turn a Claude Design website handoff (a folder or zip with canvas/*.dc.html, assets/asset-map.json and CLAUDE.md) into a working static demo site in _brand/Website/demos/<industry>/, check it with Playwright and Lighthouse, then publish it with publish-demo. Plain HTML/CSS/JS built by node build.js, no npm. Use when Sam says "design to site", "build this Claude Design export", "turn this handoff into a site", "rebuild the canvas", "new industry demo from Claude Design", or points at a *-handoff folder or .dc.html files. For publishing changes to an existing demo, use publish-demo instead.
+description: Turn a Claude Design website handoff (a folder or zip with canvas/*.dc.html, assets/asset-map.json and CLAUDE.md) into a working static demo site in _brand/Website Demo/demos/<industry>/, check it with Playwright and Lighthouse, then publish it with publish-demo. Plain HTML/CSS/JS built by node build.js, no npm. Use when Sam says "design to site", "build this Claude Design export", "turn this handoff into a site", "rebuild the canvas", "new industry demo from Claude Design", or points at a *-handoff folder or .dc.html files. For publishing changes to an existing demo, use publish-demo instead.
 ---
 
 # Design to site
 
 Rebuild a Claude Design canvas as a static demo site that matches the tradie and mortgage-broker demos, check it properly, and put it live at `demo.locatedigital.io/<industry>/`.
 
-The reference implementation is `G:\My Drive\Claude Code.Locate\_brand\Website\demos\mortgage-broker\` (Harlow Home Loans). It was built from a canvas handoff with this exact process. Read its `build.js`, `src/partials.js`, `js/main.js` and `js/form.js` before writing anything: most new sites reuse 80% of them.
+The reference implementation is `G:\My Drive\Claude Code.Locate\_brand\Website Demo\demos\mortgage-broker\` (Harlow Home Loans). It was built from a canvas handoff with this exact process. Read its `build.js`, `src/partials.js`, `js/main.js` and `js/form.js` before writing anything: most new sites reuse 80% of them.
 
 Bundled scripts (run them from their skill path):
 - `$HOME/.claude/skills/design-to-site/scripts/convert.js`: canvas pages → `src/pages/*.js` modules.
@@ -38,7 +38,7 @@ Bundled scripts (run them from their skill path):
 
 ## Step 2: Set up the demo folder
 
-1. Create `_brand/Website/demos/<slug>/` with:
+1. Create `_brand/Website Demo/demos/<slug>/` with:
    - `styles.css`: the handoff's stylesheet, copied unchanged. Put any SVGs it references with `url(...)` next to it.
    - `icons/`, `images/`: from the handoff's assets and photos. Use the asset map's file names, `photos/` → `images/`.
    - `config.js`: `window.CONFIG` (brand, contact, hours, team, compliance, `production: false`) plus `window.REVIEWS` if the design has reviews. Merge every `CONFIG` block from the canvas scripts into it.
@@ -58,18 +58,18 @@ Build `src/partials.js` (layout, header, footer, drawer shell, shared components
 - Reveals use `.rv` / `.ul` + IntersectionObserver, gated by `html.js-rv`. Odometers, auto-advancing steps and carousels check `prefers-reduced-motion` and jump to their end state.
 - `[hidden]{display:none!important}` in the layout, because components with `display:grid/flex` otherwise ignore `hidden`.
 
-Run `node build.js`, preview it (the `demo-tradie` launch config serves `_brand/Website/demos` on port 5173; open `http://localhost:5173/<slug>/`), and test the drawer, form steps, validation and Esc. Missing-page warnings for the pages not built yet are expected at this stage.
+Run `node build.js`, preview it (the `demo-tradie` launch config serves `_brand/Website Demo/demos` on port 5173; open `http://localhost:5173/<slug>/`), and test the drawer, form steps, validation and Esc. Missing-page warnings for the pages not built yet are expected at this stage.
 
 ## Step 4: Convert the remaining pages
 
 ```bash
-node "$HOME/.claude/skills/design-to-site/scripts/convert.js" "<handoff>/canvas" "_brand/Website/demos/<slug>/src/pages" PageA PageB PageC ...
+node "$HOME/.claude/skills/design-to-site/scripts/convert.js" "<handoff>/canvas" "_brand/Website Demo/demos/<slug>/src/pages" PageA PageB PageC ...
 ```
 List every page except the homepage and the hand-built ones. Add `--values values.json` (a map of `{{key}}` to `${…}` expressions) if the design uses site-wide values beyond the defaults: phone, phoneHref, email, mailHref, hours, office, feePolicy, entity, generalInfo. The script reads each page's drawer defaults and inline-form prefill from its canvas script, and prints anything it couldn't convert under **NEEDS HAND WORK**. Fix those by hand in the generated module (loops become `${C.list.map(...)}`; page-specific handlers become `data-enquire` attributes or a small page script passed in the module's `scripts: []`).
 
 Then `node build.js` must report **Checks passed** (no `/_blob/`, `.dc.html` or `{{` left, every local link resolves). Confirm placeholders survived:
 ```bash
-node -e 'const fs=require("fs"),C="<handoff>/canvas/",O="_brand/Website/demos/<slug>/";const k=n=>n==="Main"?"index":n.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();let t=0,b=0;for(const f of fs.readdirSync(C).filter(f=>f.endsWith(".dc.html"))){const o=O+k(f.slice(0,-8))+".html";if(!fs.existsSync(o))continue;const s=fs.readFileSync(C+f,"utf8"),out=fs.readFileSync(o,"utf8");for(const p of new Set(s.slice(s.indexOf("<main"),s.indexOf("</main>")).match(/\[[^\]]*PLACEHOLDER[^\]]*\]/g)||[])){t++;if(!out.includes(p)){b++;console.log(f,"missing",p)}}}console.log("placeholders",t,"missing",b)'
+node -e 'const fs=require("fs"),C="<handoff>/canvas/",O="_brand/Website Demo/demos/<slug>/";const k=n=>n==="Main"?"index":n.replace(/([a-z])([A-Z])/g,(m,a,b)=>a+"-"+b).toLowerCase();let t=0,b=0;for(const f of fs.readdirSync(C).filter(f=>f.endsWith(".dc.html"))){const o=O+k(f.slice(0,-8))+".html";if(!fs.existsSync(o))continue;const s=fs.readFileSync(C+f,"utf8"),out=fs.readFileSync(o,"utf8");for(const p of new Set(s.slice(s.indexOf("<main"),s.indexOf("</main>")).match(/\[[^\]]*PLACEHOLDER[^\]]*\]/g)||[])){t++;if(!out.includes(p)){b++;console.log(f,"missing",p)}}}console.log("placeholders",t,"missing",b)'
 ```
 
 ## Step 5: Check
@@ -80,7 +80,7 @@ node -e 'const fs=require("fs"),C="<handoff>/canvas/",O="_brand/Website/demos/<s
    ```
 2. With the preview server running:
    ```bash
-   NODE_PATH="$LOCALAPPDATA/locate-qa/node_modules" node "$HOME/.claude/skills/design-to-site/scripts/qa.js" "http://localhost:5173/<slug>/" "G:/My Drive/Claude Code.Locate/_brand/Website/demos/<slug>" "G:/My Drive/Claude Code.Locate/_brand/Website/demos/<slug>/checks"
+   NODE_PATH="$LOCALAPPDATA/locate-qa/node_modules" node "$HOME/.claude/skills/design-to-site/scripts/qa.js" "http://localhost:5173/<slug>/" "G:/My Drive/Claude Code.Locate/_brand/Website Demo/demos/<slug>" "G:/My Drive/Claude Code.Locate/_brand/Website Demo/demos/<slug>/checks"
    cd "$LOCALAPPDATA/locate-qa" && npx lighthouse "http://localhost:5173/<slug>/" --only-categories=accessibility,best-practices,performance --chrome-path="C:/Program Files/Google/Chrome/Application/chrome.exe" --chrome-flags="--headless=new" --output=json --output-path=./lh.json --quiet && node -e 'const r=require("./lh.json");for(const[k,c]of Object.entries(r.categories))console.log(k,Math.round(c.score*100));for(const ref of r.categories.accessibility.auditRefs){const a=r.audits[ref.id];if(a.score!==null&&a.score<1)console.log(" a11y fail:",a.id,"-",a.title)}'
    ```
    Accessibility must be 95+. SEO is ignored, because noindex is deliberate.

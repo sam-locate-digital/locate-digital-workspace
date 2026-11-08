@@ -1,6 +1,6 @@
 # Claude Design → Claude Code handoff prompt
 
-Paste this into the Claude Design session once a website design is finished. Download the zip it makes, unzip it into `_brand/Website/<name>/`, then run `/design-to-site` in Claude Code and point it at that folder.
+Paste this into the Claude Design session once a website design is finished. Download the zip it makes, unzip it into `_brand/Website Demo/<name>/`, then run `/design-to-site` in Claude Code and point it at that folder.
 
 If Claude Design can't include the photos, save each one from the canvas (right-click → Save image as) into the same folder. `/design-to-site` can match loose photos to their canvas ids.
 

@@ -60,3 +60,8 @@ _skills/synced/
 __pycache__/
 *.pyc
 .coverage
+
+# Client website repos: each is its own private GitHub repo (site-<client>), cloned here.
+# See _ops/website-launch.md. Never commit them into the workspace or push them as a subtree.
+clients/*/website/
+_brand/Website Demo/demos/harlow-cms-test/

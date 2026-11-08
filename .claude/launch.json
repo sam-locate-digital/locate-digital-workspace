@@ -4,14 +4,65 @@
     {
       "name": "mosic-scoliosis",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "clients/MOSIC/webpages"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "3456",
+        "--directory",
+        "clients/MOSIC/webpages"
+      ],
       "port": 3456
     },
     {
       "name": "checklists",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4400", "--directory", "."],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4400",
+        "--directory",
+        "."
+      ],
       "port": 4400
+    },
+    {
+      "name": "locate-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-I",
+        "C:/Users/samue/AppData/Local/Temp/claude/G--My-Drive-Claude-Code-Locate/48398456-7e71-42e9-81b6-0312e0714ecc/scratchpad/serve_clean.py",
+        "_brand/site",
+        "4500"
+      ],
+      "port": 4500
+    },
+    {
+      "name": "demo-tradie",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5173",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "_brand/Website Demo/demos"
+      ],
+      "port": 5173
+    },
+    {
+      "name": "locate-site-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4510",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "_brand/site"
+      ],
+      "port": 4510
     }
   ]
 }
