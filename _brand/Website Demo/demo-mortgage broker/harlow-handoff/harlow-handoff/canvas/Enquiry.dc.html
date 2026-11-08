@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Enquiry and booking form</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="display: contents; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif">
+
+<sc-if value="{{isDrawerOpen}}" hint-placeholder-val="{{ false }}">
+<div class="drawer-wrap" onKeyDown="{{trapKeys}}" ref="{{wrapRef}}">
+<button type="button" class="scrim" aria-label="Close" tabindex="-1" onClick="{{close}}"></button>
+<div class="drawer" role="dialog" aria-modal="true" aria-labelledby="{{ids.dlgTitle}}">
+<div class="drawer-h">
+<b id="{{ids.dlgTitle}}">Book a free 20-minute chat</b>
+<button type="button" class="btn-icon arrow-btn" aria-label="Close" onClick="{{close}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+<dc-import name="EnquiryForm" style="display: contents" prefill="{{prefill}}" uid="drw" hint-size="100%,600px"></dc-import>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isInline}}" hint-placeholder-val="{{ true }}">
+<dc-import name="EnquiryForm" style="display: contents" prefill="{{prefill}}" uid="inl" card="{{ true }}" hint-size="100%,640px"></dc-import>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":null},"open":{"editor":null},"prefill":{"editor":null},"onClose":{"editor":null},"$preview":{"width":600,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.wrapRef = React.createRef();
+    this.lastFocus = null;
+  }
+  componentDidMount() { if (this.isOpen()) this.onOpened(); }
+  componentDidUpdate(prev) {
+    const was = prev.variant === 'drawer' && !!prev.open;
+    const now = this.isOpen();
+    if (!was && now) this.onOpened();
+    if (was && !now) this.onClosed();
+  }
+  componentWillUnmount() { document.documentElement.style.overflow = ''; }
+  isOpen() { return this.props.variant === 'drawer' && !!this.props.open; }
+  onOpened() {
+    this.lastFocus = document.activeElement;
+    document.documentElement.style.overflow = 'hidden';
+    const tryFocus = (n) => {
+      const w = this.wrapRef.current;
+      const el = w && w.querySelector('.drawer [data-autofocus], .drawer button:not([tabindex="-1"]), .drawer input');
+      if (el) el.focus({ preventScroll: true }); else if (n < 20) setTimeout(() => tryFocus(n + 1), 50);
+    };
+    setTimeout(() => tryFocus(0), 30);
+  }
+  onClosed() {
+    document.documentElement.style.overflow = '';
+    const f = this.lastFocus;
+    if (f && typeof f.focus === 'function' && document.contains(f)) f.focus({ preventScroll: true });
+  }
+  renderVals() {
+    const close = () => { const fn = this.props.onClose; if (typeof fn === 'function') fn(); };
+    return {
+      isDrawerOpen: this.isOpen(),
+      isInline: this.props.variant !== 'drawer',
+      prefill: this.props.prefill || {},
+      wrapRef: this.wrapRef,
+      ids: { dlgTitle: 'enq-dlg-title' },
+      close,
+      trapKeys: (e) => {
+        if (e.key === 'Escape') { e.stopPropagation(); close(); return; }
+        if (e.key !== 'Tab') return;
+        const w = this.wrapRef.current; if (!w) return;
+        const list = Array.from(w.querySelectorAll('.drawer a[href], .drawer button:not([disabled]), .drawer input, .drawer select, .drawer textarea, .drawer [tabindex]:not([tabindex="-1"])')).filter((el) => el.offsetParent !== null || el === document.activeElement);
+        if (!list.length) return;
+        const first = list[0], last = list[list.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

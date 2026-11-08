@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Tom Nguyen, broker | Harlow Home Loans</title>
+<meta name="description" content="Meet Tom Nguyen, mortgage broker at Harlow Home Loans. Appointments in English and Vietnamese.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="about" hint-size="100%,112px"></dc-import>
+<main id="main">
+
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap profile">
+<div class="portrait phero-photo" style="max-width: 420px; aspect-ratio: 4 / 5"><img src="/_blob/7ba03d6a6144f3f13121da00775cc7c5" alt="Tom Nguyen, broker" width="236" height="295"></div>
+<div>
+<a class="backlink hero-in" href="Team.dc.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg>All of the team</a>
+<h1 class="h1 hero-in" id="ph-h" style="margin-top: 8px">Tom Nguyen</h1>
+<p class="lead hero-in" style="--d: 60ms; margin-top: 8px; color: #14204A; font-weight: 600">Broker</p>
+<p class="lead hero-in" style="--d: 120ms">Tom joined Harlow in <span class="ph">[PLACEHOLDER year]</span>. He looks after a lot of our refinancing and investment clients, and likes nothing more than finding a fee or a feature someone has been paying for without using. He works in English and Vietnamese.</p>
+<div class="hero-in" style="--d: 180ms; margin-top: 24px; display: grid; gap: 18px">
+<div><p class="cap" style="margin-bottom: 8px">Specialities</p><div class="tags"><span class="tag">Refinancing</span><span class="tag">Investment loans</span><span class="tag">Fixed rate expiries</span></div></div>
+<div><p class="cap" style="margin-bottom: 8px">Languages</p><div class="tags"><span class="tag">English</span><span class="tag">Vietnamese</span></div></div>
+<div><p class="cap" style="margin-bottom: 8px">Credentials</p><p class="small">Member of <span class="ph">[PLACEHOLDER MFAA or FBAA]</span> · <span class="ph">[PLACEHOLDER qualifications]</span> · Credit Representative <span class="ph">[PLACEHOLDER]</span></p></div>
+</div>
+<div class="ctas hero-in" style="--d: 240ms">
+<button type="button" class="btn btn-primary btn-lg" onClick="{{openPage}}">Book with Tom</button>
+<a class="btn btn-secondary btn-lg" href="{{phoneHref}}">Call {{phone}}</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band band-card" aria-labelledby="nt-h">
+<div class="wrap two-col">
+<div class="rv focus">
+<h2 class="h2" id="nt-h">How Tom <em class="ul">works</em></h2>
+</div>
+<div class="rv focus prose" style="--d: 100ms">
+<p>"A lot of people stay with the same loan for years because switching sounds like a hassle. I do the comparing and the forms, and I'll tell you honestly if staying put is the better call.</p>
+<p>For investors, I spend time on the structure up front, with your accountant if you like, so the loan still works when you're ready for the next one."</p>
+<p class="cap" style="margin-top: 16px">Illustrative profile for this demo. <span class="ph">[PLACEHOLDER: replace with the broker's own words]</span></p>
+</div>
+</div>
+</section>
+
+<section class="band" aria-label="Reviews" style="overflow: hidden">
+<div class="wrap">
+<dc-import name="ReviewRail" h-lead="What clients say about " h-brush="Tom" h-tail="" filter-key="broker" filter-val="tom" hint-size="100%,560px"></dc-import>
+</div>
+</section>
+
+<dc-import name="CtaBand" h-lead="Book a chat with " h-brush="Tom" h-tail="" sub="Phone, video or at our office, in English or Vietnamese." prefill="{{inlinePrefill}}" hint-size="100%,900px"></dc-import>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+const CONFIG = { contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861" } };
+const BROKER = 'tom'; const SOURCE = 'Tom Nguyen profile';
+
+function harlowReveal() {
+  const root = document.documentElement;
+  if (root.__hrv) { root.__hrv.scan(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('js-rv');
+  const sel = '.rv:not(.in), .ul:not(.in)';
+  const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(sel).forEach((el) => { if (!seen.has(el)) { seen.add(el); io.observe(el); } });
+  const fallback = () => { const h = window.innerHeight || 800; document.querySelectorAll(sel).forEach((el) => { if (el.getBoundingClientRect().top < h * 0.96) el.classList.add('in'); }); };
+  let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 40); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', fallback, { passive: true });
+  window.addEventListener('beforeprint', () => document.querySelectorAll(sel).forEach((el) => el.classList.add('in')));
+  scan(); setTimeout(fallback, 900); setTimeout(fallback, 2500);
+  root.__hrv = { scan };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {} };
+    this.inlinePrefill = { broker: BROKER, language: 'English', source: SOURCE };
+  }
+  componentDidMount() { harlowReveal(); }
+  open(p) { const q = { ...(p || {}) }; if (!q.situation) delete q.situation; this.setState({ drawerOpen: true, prefill: { broker: BROKER, source: SOURCE, ...q } }); }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill, inlinePrefill: this.inlinePrefill,
+      open: (p) => this.open(p), openPage: () => this.open({}), close: () => this.setState({ drawerOpen: false }),
+      phone: CONFIG.contact.phone, phoneHref: CONFIG.contact.phoneHref
+    };
+  }
+}
+</script>
+</body>
+</html>

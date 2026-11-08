@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>About us and our team | Harlow Home Loans</title>
+<meta name="description" content="Harlow Home Loans is a small, family-run mortgage broking team in Melbourne. Meet Claire, Tom, Priya and Mia.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="about" hint-size="100%,112px"></dc-import>
+<main id="main">
+
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap phero-grid">
+<div>
+<h1 class="h1 hero-in" id="ph-h">A small team that knows Melbourne</h1>
+<p class="lead hero-in" style="--d: 80ms">Harlow Home Loans is a family-run broking team helping people across Melbourne since <span class="ph">[PLACEHOLDER 2011]</span>. We're small on purpose: you deal with the same broker from your first chat to settlement, and every year after.</p>
+<div class="ctas hero-in" style="--d: 160ms">
+<button type="button" class="btn btn-primary btn-lg" onClick="{{openPage}}">Book a free chat</button>
+<a class="btn btn-secondary btn-lg" href="{{phoneHref}}">Call {{phone}}</a>
+</div>
+</div>
+<div class="phero-photo" style="aspect-ratio: 3 / 2"><img src="/_blob/8b3ceb7ac7b7d96d471aea869b1a30c7" alt="The Harlow Home Loans team outside their office" width="1024" height="688"></div>
+</div>
+</section>
+
+<section class="band band-card" aria-labelledby="tm-h">
+<div class="wrap">
+<div class="intro rv focus">
+<h2 class="h2" id="tm-h">Meet the <em class="ul">team</em></h2>
+<p class="lead">Three brokers and one very organised support lead. Between us we speak five languages.</p>
+</div>
+<div style="display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr))">
+<sc-for list="{{team}}" as="t" hint-placeholder-count="4">
+<article class="rv focus" style="--d: {{t.delay}}; display: flex; flex-direction: column; gap: 6px">
+<a href="{{t.href}}" class="portrait lift" style="display: block; margin-bottom: 12px" aria-label="{{t.profileLabel}}"><img src="{{t.img}}" alt="{{t.name}}" loading="lazy" width="236" height="295"></a>
+<b style="font-size: 18px; line-height: 24px; color: #14204A">{{t.name}}</b>
+<span style="font-size: 16px; line-height: 22px">{{t.role}}</span>
+<span class="cap">{{t.langs}}</span>
+<div class="row" style="gap: 0 18px; margin-top: 2px">
+<sc-if value="{{t.books}}" hint-placeholder-val="{{ true }}"><button type="button" class="textlink" onClick="{{t.book}}">Book with {{t.first}}</button></sc-if>
+<a class="textlink" href="{{t.href}}" style="color: #2E3A5C">Profile</a>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="band band-w1" aria-labelledby="why-h">
+<div class="wrap">
+<div class="intro rv fade">
+<h2 class="h2" id="why-h">Advice you can <em class="ul">trust</em></h2>
+<p class="lead">The way we work, written down so you can hold us to it.</p>
+</div>
+<ol class="olist two">
+<li class="rv fade" style="--d: 0ms"><span class="n">01</span><b>Your interests come first, by law.</b><p>Brokers must act in your best interests, and we'll show you why we recommend a loan.</p></li>
+<li class="rv fade" style="--d: 60ms"><span class="n">02</span><b>We show you how we're paid.</b><p>{{feePolicy}}</p></li>
+<li class="rv fade" style="--d: 120ms"><span class="n">03</span><b>A shortlist, not a sales pitch.</b><p>We compare <span class="ph">[PLACEHOLDER 30+]</span> lenders and explain the trade-offs side by side.</p></li>
+<li class="rv fade" style="--d: 180ms"><span class="n">04</span><b>After hours when you need it.</b><p>Evening video calls and Saturday appointments.</p></li>
+<li class="rv fade" style="--d: 240ms"><span class="n">05</span><b>We don't disappear after settlement.</b><p>A free loan review every year, so you're not left on an old rate.</p></li>
+<li class="rv fade" style="--d: 300ms"><span class="n">06</span><b>In your language.</b><p>Appointments in English, Mandarin, Hindi, Gujarati and Vietnamese.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="band" aria-labelledby="of-h">
+<div class="wrap grid-2" style="align-items: center">
+<div class="rv rise">
+<h2 class="h2" id="of-h">Come and <em class="ul">see</em> us</h2>
+<p class="lead">Meet at our office, at your kitchen table, or on video. Whatever's easiest.</p>
+<div class="kv" style="margin-top: 24px">
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span><span class="ph">[PLACEHOLDER street address]</span>, {{office}}</span></div>
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>{{hours}}</span></div>
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 4l9 6.5"></path><path d="M5 9.5V20h14V9.5"></path></svg><span>Home visits across Melbourne, by appointment</span></div>
+</div>
+</div>
+<div class="photo r43 rv rise" style="--d: 100ms"><img src="/_blob/98bf1b0bd1582444e165234389d67222" alt="A tree-lined street of period homes at golden hour" loading="lazy" width="1344" height="752"></div>
+</div>
+</section>
+
+<dc-import name="CtaBand" prefill="{{inlinePrefill}}" hint-size="100%,900px"></dc-import>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+const CONFIG = {
+  contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861", office: "[PLACEHOLDER suburb] VIC" },
+  hours: "Mon–Fri 8:30am–6pm, Sat by appointment, evening video calls",
+  feePolicy: "Our service is usually free to you. Lenders pay us a commission when your loan settles, and we'll show you exactly how much before you choose.",
+  team: [
+    { id: "claire", name: "Claire Harlow", first: "Claire", role: "Principal broker", languages: ["English"], href: "Claire.dc.html", img: "/_blob/48283e968fd0f5888dcd38c43e359311", books: true },
+    { id: "tom", name: "Tom Nguyen", first: "Tom", role: "Broker", languages: ["English", "Vietnamese"], href: "Tom.dc.html", img: "/_blob/7ba03d6a6144f3f13121da00775cc7c5", books: true },
+    { id: "priya", name: "Priya Shah", first: "Priya", role: "Broker", languages: ["English", "Hindi", "Gujarati"], href: "Priya.dc.html", img: "/_blob/1412f8d3457be6798cd9a3b45f3d3a69", books: true },
+    { id: "mia", name: "Mia Chen", first: "Mia", role: "Client support", languages: ["English", "Mandarin"], href: "Mia.dc.html", img: "/_blob/86d2a88450a949c402b20a46d45b85d8", books: false }
+  ]
+};
+const SOURCE = 'Team page';
+
+function harlowReveal() {
+  const root = document.documentElement;
+  if (root.__hrv) { root.__hrv.scan(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('js-rv');
+  const sel = '.rv:not(.in), .ul:not(.in)';
+  const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(sel).forEach((el) => { if (!seen.has(el)) { seen.add(el); io.observe(el); } });
+  const fallback = () => { const h = window.innerHeight || 800; document.querySelectorAll(sel).forEach((el) => { if (el.getBoundingClientRect().top < h * 0.96) el.classList.add('in'); }); };
+  let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 40); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', fallback, { passive: true });
+  window.addEventListener('beforeprint', () => document.querySelectorAll(sel).forEach((el) => el.classList.add('in')));
+  scan(); setTimeout(fallback, 900); setTimeout(fallback, 2500);
+  root.__hrv = { scan };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {} };
+    this.inlinePrefill = { source: SOURCE };
+  }
+  componentDidMount() { harlowReveal(); }
+  open(p) { const q = { ...(p || {}) }; if (!q.situation) delete q.situation; this.setState({ drawerOpen: true, prefill: { source: SOURCE, ...q } }); }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill, inlinePrefill: this.inlinePrefill,
+      open: (p) => this.open(p), openPage: () => this.open({}), close: () => this.setState({ drawerOpen: false }),
+      phone: CONFIG.contact.phone, phoneHref: CONFIG.contact.phoneHref, office: CONFIG.contact.office, hours: CONFIG.hours, feePolicy: CONFIG.feePolicy,
+      team: CONFIG.team.map((t, i) => ({ ...t, langs: t.languages.join(', '), delay: (i * 70) + 'ms', profileLabel: t.name + ', view profile', book: () => this.open({ broker: t.id }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

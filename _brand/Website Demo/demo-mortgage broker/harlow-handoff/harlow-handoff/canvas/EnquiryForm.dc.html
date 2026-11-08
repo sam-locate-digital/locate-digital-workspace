@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Enquiry form steps</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="enq" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif">
+<p class="sr" aria-live="polite" role="status">{{live}}</p>
+
+<sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" aria-labelledby="{{ids.head}}">
+<div class="enq-prog"><span>Step {{step}} of 3</span><span class="bar" aria-hidden="true"><i style="width: {{progW}}"></i></span></div>
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
+<h3 class="h3" id="{{ids.head}}" tabindex="-1" ref="{{headRef}}">What are you planning?</h3>
+<p class="small" style="color: #46506A">Pick the one that fits best. You can change it later.</p>
+<div class="sit-chips" role="group" aria-label="Your situation" style="margin-top: 18px">
+<sc-for list="{{sits}}" as="it" hint-placeholder-count="6">
+<button type="button" class="chip chip-lg" aria-pressed="{{it.on}}" onClick="{{it.pick}}"><span><span style="display: block">{{it.label}}</span><small>{{it.sub}}</small></span></button>
+</sc-for>
+</div>
+<sc-if value="{{show.situation}}" hint-placeholder-val="{{ false }}"><p class="err" style="margin-top: 10px">{{err.situation}}</p></sc-if>
+<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><p class="note" style="margin-top: 16px">{{d.note}}</p></sc-if>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<h3 class="h3" id="{{ids.head}}" tabindex="-1" ref="{{headRef}}">The numbers</h3>
+<p class="small" style="color: #46506A">All optional. Rough is fine, we'll go through it properly on the call.</p>
+<div class="enq-grid two">
+<div class="f">
+<label for="{{ids.price}}">{{priceLabel}}</label>
+<div class="money"><input class="fld" id="{{ids.price}}" inputMode="numeric" autoComplete="off" placeholder="0" value="{{d.price}}" onChange="{{on.price}}"></div>
+</div>
+<div class="f">
+<label for="{{ids.deposit}}">{{depositLabel}}</label>
+<div class="money"><input class="fld" id="{{ids.deposit}}" inputMode="numeric" autoComplete="off" placeholder="0" value="{{d.deposit}}" onChange="{{on.deposit}}"></div>
+</div>
+<div class="f">
+<label for="{{ids.income}}">Household income (before tax, yearly)</label>
+<div class="money"><input class="fld" id="{{ids.income}}" inputMode="numeric" autoComplete="off" placeholder="0" value="{{d.income}}" onChange="{{on.income}}"></div>
+</div>
+<div class="f">
+<label for="{{ids.suburb}}">Suburb</label>
+<input class="fld" id="{{ids.suburb}}" list="{{ids.subList}}" autoComplete="address-level2" placeholder="e.g. Doncaster" value="{{d.suburb}}" onChange="{{on.suburb}}">
+<datalist id="{{ids.subList}}">
+<sc-for list="{{suburbs}}" as="sb" hint-placeholder-count="4"><option value="{{sb}}"></option></sc-for>
+</datalist>
+</div>
+</div>
+<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><p class="note" style="margin-top: 16px">{{d.note}}</p></sc-if>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<h3 class="h3" id="{{ids.head}}" tabindex="-1" ref="{{headRef}}">Your details</h3>
+<p class="small" style="color: #46506A">So we can call you at a time that suits. No credit check.</p>
+<div class="enq-grid">
+<div class="f">
+<label for="{{ids.name}}">Your name</label>
+<input class="fld" id="{{ids.name}}" autoComplete="name" value="{{d.name}}" onChange="{{on.name}}" onBlur="{{blur.name}}" aria-invalid="{{inv.name}}" aria-describedby="{{ids.nameErr}}" aria-required="true">
+<sc-if value="{{show.name}}" hint-placeholder-val="{{ false }}"><p class="err" id="{{ids.nameErr}}">{{err.name}}</p></sc-if>
+</div>
+<div class="enq-grid two" style="margin-top: 0">
+<div class="f">
+<label for="{{ids.mobile}}">Mobile</label>
+<input class="fld" id="{{ids.mobile}}" type="tel" inputMode="tel" autoComplete="tel" placeholder="04XX XXX XXX" value="{{d.mobile}}" onChange="{{on.mobile}}" onBlur="{{blur.mobile}}" aria-invalid="{{inv.mobile}}" aria-describedby="{{ids.mobileErr}}" aria-required="true">
+<sc-if value="{{show.mobile}}" hint-placeholder-val="{{ false }}"><p class="err" id="{{ids.mobileErr}}">{{err.mobile}}</p></sc-if>
+</div>
+<div class="f">
+<label for="{{ids.email}}">Email</label>
+<input class="fld" id="{{ids.email}}" inputMode="email" autoComplete="email" placeholder="you@example.com" value="{{d.email}}" onChange="{{on.email}}" onBlur="{{blur.email}}" aria-invalid="{{inv.email}}" aria-describedby="{{ids.emailErr}}" aria-required="true">
+<sc-if value="{{show.email}}" hint-placeholder-val="{{ false }}"><p class="err" id="{{ids.emailErr}}">{{err.email}}</p></sc-if>
+</div>
+</div>
+
+<div class="f">
+<span class="lbl" id="{{ids.howL}}">Best way to reach you</span>
+<div class="chips" role="group" aria-labelledby="{{ids.howL}}">
+<sc-for list="{{contacts}}" as="c" hint-placeholder-count="4"><button type="button" class="chip" aria-pressed="{{c.on}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+</div>
+
+<div class="f">
+<span class="lbl" id="{{ids.dayL}}">Preferred time <span style="font-weight: 500; color: #5B6684">(optional)</span></span>
+<div class="days" role="group" aria-labelledby="{{ids.dayL}}">
+<sc-for list="{{days}}" as="dy" hint-placeholder-count="6"><button type="button" class="day" aria-pressed="{{dy.on}}" onClick="{{dy.pick}}" aria-label="{{dy.long}}">{{dy.dow}}<small>{{dy.dm}}</small></button></sc-for>
+</div>
+<sc-if value="{{hasDay}}" hint-placeholder-val="{{ false }}">
+<div class="chips" role="group" aria-label="Time of day" style="margin-top: 6px">
+<sc-for list="{{slots}}" as="sl" hint-placeholder-count="3"><button type="button" class="chip" aria-pressed="{{sl.on}}" onClick="{{sl.pick}}" disabled="{{sl.off}}" style="opacity: {{sl.op}}"><span><span style="display: block">{{sl.label}}</span><small>{{sl.sub}}</small></span></button></sc-for>
+</div>
+</sc-if>
+</div>
+
+<div class="enq-grid two" style="margin-top: 0">
+<div class="f">
+<span class="lbl" id="{{ids.brokerL}}">Broker</span>
+<div class="chips" role="group" aria-labelledby="{{ids.brokerL}}">
+<sc-for list="{{brokers}}" as="b" hint-placeholder-count="4"><button type="button" class="chip" aria-pressed="{{b.on}}" onClick="{{b.pick}}">{{b.label}}</button></sc-for>
+</div>
+</div>
+<div class="f">
+<label for="{{ids.lang}}">Language</label>
+<select class="fld" id="{{ids.lang}}" value="{{d.language}}" onChange="{{on.language}}">
+<sc-for list="{{langs}}" as="lg" hint-placeholder-count="5"><option value="{{lg}}">{{lg}}</option></sc-for>
+</select>
+</div>
+</div>
+
+<div class="f">
+<label class="check"><input type="checkbox" checked="{{d.consent}}" onChange="{{on.consent}}" onBlur="{{blur.consent}}" aria-invalid="{{inv.consent}}" aria-describedby="{{ids.consentErr}}"><span>I'm happy for Harlow Home Loans to contact me about my enquiry. I've read the <a href="Privacy.dc.html">Privacy Policy</a>.</span></label>
+<sc-if value="{{show.consent}}" hint-placeholder-val="{{ false }}"><p class="err" id="{{ids.consentErr}}">{{err.consent}}</p></sc-if>
+</div>
+</div>
+</sc-if>
+
+<div class="enq-nav">
+<sc-if value="{{canBack}}" hint-placeholder-val="{{ false }}">
+<button type="button" class="btn btn-secondary" onClick="{{back}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg>Back</button>
+</sc-if>
+<sc-if value="{{notLast}}" hint-placeholder-val="{{ true }}">
+<button type="button" class="btn btn-primary" onClick="{{next}}">Continue<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+</sc-if>
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<button type="submit" class="btn btn-primary" aria-disabled="{{sending}}">
+<sc-if value="{{sending}}" hint-placeholder-val="{{ false }}"><span class="spin" aria-hidden="true"></span>Sending</sc-if>
+<sc-if value="{{notSending}}" hint-placeholder-val="{{ true }}">Book my free chat</sc-if>
+</button>
+</sc-if>
+</div>
+<p class="cap" style="margin-top: 14px">No obligation and no credit check. Your details stay private.</p>
+</form>
+</sc-if>
+
+<sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}">
+<div class="done">
+<span class="tick" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg></span>
+<h3 class="h3" tabindex="-1" ref="{{doneRef}}">{{doneTitle}}</h3>
+<p>{{doneLine}}</p>
+<span class="ref">Reference {{ref}}</span>
+<div class="row">
+<sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}">
+<button type="button" class="btn btn-primary" onClick="{{ics}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"></rect><path d="M3 9.5h18M8 2.5v4M16 2.5v4"></path></svg>Add to calendar</button>
+</sc-if>
+<button type="button" class="btn btn-secondary" onClick="{{restart}}">Start a new enquiry</button>
+</div>
+<div style="padding-top: 8px; border-top: 1px solid #DCE4F5">
+<p class="ink" style="font-weight: 600; margin: 14px 0 10px">What to have ready</p>
+<ul class="ready">
+<sc-for list="{{ready}}" as="r" hint-placeholder-count="4"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>{{r}}</li></sc-for>
+</ul>
+</div>
+<p class="cap">Demo site: nothing has been sent to a real broker.</p>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"prefill":{"editor":null},"uid":{"editor":null},"$preview":{"width":600,"height":980}}'>
+const CONFIG = {
+  brand: { name: "Harlow Home Loans" },
+  contact: { phone: "(03) 5550 2861", office: "[PLACEHOLDER suburb] VIC" },
+  responseTime: "1 business day",
+  team: [
+    { id: "claire", name: "Claire Harlow", first: "Claire" },
+    { id: "tom", name: "Tom Nguyen", first: "Tom" },
+    { id: "priya", name: "Priya Shah", first: "Priya" }
+  ],
+  suburbs: [],
+  formEndpoint: null
+};
+const SITS = [
+  { id: 'first-home', label: 'First home', sub: 'Buying my first place' },
+  { id: 'next-home', label: 'Next home', sub: 'Upsizing or moving on' },
+  { id: 'refinance', label: 'Refinance', sub: 'Review my current loan' },
+  { id: 'invest', label: 'Invest', sub: 'An investment property' },
+  { id: 'self-employed', label: 'Self-employed', sub: 'Business or contract income' },
+  { id: 'other', label: 'Something else', sub: 'Building, bridging, other' }
+];
+const CONTACTS = [
+  { id: 'call', label: 'Phone call', verb: 'call you' },
+  { id: 'video', label: 'Video call', verb: 'video call you' },
+  { id: 'sms', label: 'Text first', verb: 'text you' },
+  { id: 'email', label: 'Email', verb: 'email you' }
+];
+const SLOTS = [
+  { id: 'morning', label: 'Morning', sub: '9–11am', h: 9, m: 30, word: 'in the morning' },
+  { id: 'lunch', label: 'Lunchtime', sub: '12–2pm', h: 12, m: 30, word: 'at lunchtime' },
+  { id: 'evening', label: 'Evening', sub: '5:30–7:30pm', h: 18, m: 0, word: 'in the evening' }
+];
+const LANGS = ['English', 'Mandarin', 'Hindi', 'Gujarati', 'Vietnamese'];
+const READY = ['Your last two payslips (or two years of tax returns if self-employed)', 'Photo ID, like a driver licence or passport', 'Three months of bank statements', 'Your current home loan statement, if you have one'];
+const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const DOWL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MONL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+function fmtMoney(v) { const d = String(v == null ? '' : v).replace(/\D/g, '').slice(0, 9); return d ? Number(d).toLocaleString('en-AU') : ''; }
+function fmtMobile(v) {
+  let d = String(v || '').replace(/\D/g, '');
+  if (d.startsWith('61')) d = '0' + d.slice(2);
+  d = d.slice(0, 10);
+  if (d.length <= 4) return d;
+  if (d.length <= 7) return d.slice(0, 4) + ' ' + d.slice(4);
+  return d.slice(0, 4) + ' ' + d.slice(4, 7) + ' ' + d.slice(7);
+}
+function pad(n) { return String(n).padStart(2, '0'); }
+function nextDays() {
+  const out = []; const t = new Date(); t.setHours(12, 0, 0, 0);
+  let weekdays = 0, sat = null;
+  for (let i = 1; i < 14 && (weekdays < 5 || !sat); i++) {
+    const d = new Date(t); d.setDate(t.getDate() + i);
+    const w = d.getDay();
+    const item = { id: d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()), dow: DOW[w], dm: d.getDate() + ' ' + MON[d.getMonth()], long: DOWL[w] + ' ' + d.getDate() + ' ' + MONL[d.getMonth()], sat: w === 6, y: d.getFullYear(), mo: d.getMonth(), da: d.getDate() };
+    if (w >= 1 && w <= 5 && weekdays < 5) { out.push(item); weekdays++; }
+    else if (w === 6 && !sat) { sat = item; }
+  }
+  if (sat) out.push(sat);
+  return out.sort((a, b) => (a.id < b.id ? -1 : 1));
+}
+// Melbourne offset: AEDT (+11) from first Sunday in October to first Sunday in April, else AEST (+10)
+function melOffset(y, mo, da) {
+  const firstSun = (yy, m) => { const d = new Date(Date.UTC(yy, m, 1)); return 1 + ((7 - d.getUTCDay()) % 7); };
+  const startDst = Date.UTC(y, 9, firstSun(y, 9)); const endDst = Date.UTC(y, 3, firstSun(y, 3));
+  const t = Date.UTC(y, mo, da);
+  return (t >= startDst || t < endDst) ? 11 : 10;
+}
+function blank(prefill) {
+  const p = prefill || {};
+  let sit = p.situation || '';
+  let note = p.note || '';
+  if (sit === 'building') { sit = 'other'; note = note || 'Interested in a construction loan.'; }
+  return {
+    situation: sit, price: fmtMoney(p.price), deposit: fmtMoney(p.deposit), income: fmtMoney(p.income), suburb: p.suburb || '',
+    name: '', mobile: '', email: '', contact: 'call', day: '', slot: '', broker: p.broker || 'any', language: p.language || 'English', consent: false,
+    note, source: p.source || 'Website'
+  };
+}
+function validate(d) {
+  const e = {};
+  if (!d.situation) e.situation = 'Choose the option that fits best, or "Something else".';
+  if (!d.name || d.name.trim().length < 2) e.name = 'Please tell us your name.';
+  const m = String(d.mobile || '').replace(/\D/g, '');
+  if (!m) e.mobile = 'We need a mobile number to call you back.';
+  else if (!/^04\d{8}$/.test(m)) e.mobile = 'That doesn\'t look like an Australian mobile. It should be 10 digits starting with 04.';
+  if (!d.email) e.email = 'Please add your email so we can send a summary.';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim())) e.email = 'Check your email address. It should look like name@example.com.';
+  if (!d.consent) e.consent = 'Please tick the box so we\'re allowed to contact you.';
+  return e;
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 1, d: blank(props.prefill), touched: {}, tried: {}, sending: false, done: false, ref: '', live: '' };
+    this.headRef = React.createRef();
+    this.doneRef = React.createRef();
+    this.days = nextDays();
+  }
+  componentDidUpdate(prev, prevState) {
+    if (prev.prefill !== this.props.prefill && this.props.prefill) {
+      this.setState({ step: 1, d: blank(this.props.prefill), touched: {}, tried: {}, sending: false, done: false, live: '' });
+    }
+    if (prevState && prevState.step !== this.state.step && this.headRef.current) this.headRef.current.focus({ preventScroll: false });
+    if (prevState && !prevState.done && this.state.done && this.doneRef.current) this.doneRef.current.focus();
+  }
+  set(k, v) { this.setState({ d: { ...this.state.d, [k]: v } }); }
+  goNext() {
+    const s = this.state;
+    if (s.step === 1 && !s.d.situation) { this.setState({ tried: { ...s.tried, 1: true }, live: 'Please choose your situation to continue.' }); return; }
+    const step = Math.min(3, s.step + 1);
+    this.setState({ step, live: 'Step ' + step + ' of 3' });
+  }
+  doSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const s = this.state;
+    if (s.sending) return;
+    const errs = validate(s.d); delete errs.situation;
+    const n = Object.keys(errs).length;
+    if (n) {
+      this.setState({ tried: { ...s.tried, 3: true }, live: n === 1 ? 'There is 1 thing to fix: ' + Object.values(errs)[0] : 'There are ' + n + ' things to fix before we can book your chat.' });
+      setTimeout(() => { const el = document.querySelector('.enq [aria-invalid="true"]'); if (el) el.focus(); }, 30);
+      return;
+    }
+    this.setState({ sending: true, live: 'Sending your enquiry' });
+    const payload = { ...s.d, submittedAt: new Date().toISOString() };
+    if (CONFIG.formEndpoint) {
+      try { fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {}); } catch (err) {}
+    } else {
+      console.log('[Harlow demo] Enquiry (not sent anywhere):', payload);
+    }
+    setTimeout(() => {
+      const ref = 'HL-' + String(Math.floor(10000 + Math.random() * 90000));
+      this.setState({ sending: false, done: true, ref, live: 'Thanks. Your chat is booked. Reference ' + ref });
+    }, 900);
+  }
+  brokerName() { const b = CONFIG.team.find((t) => t.id === this.state.d.broker); return b ? b.first : null; }
+  downloadIcs() {
+    const d = this.state.d; const day = this.days.find((x) => x.id === d.day); const slot = SLOTS.find((x) => x.id === d.slot);
+    if (!day || !slot) return;
+    const off = melOffset(day.y, day.mo, day.da);
+    const start = new Date(Date.UTC(day.y, day.mo, day.da, slot.h - off, slot.m));
+    const end = new Date(start.getTime() + 20 * 60000);
+    const f = (dt) => dt.getUTCFullYear() + pad(dt.getUTCMonth() + 1) + pad(dt.getUTCDate()) + 'T' + pad(dt.getUTCHours()) + pad(dt.getUTCMinutes()) + '00Z';
+    const who = this.brokerName() || 'a Harlow broker';
+    const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Harlow Home Loans//Demo//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'BEGIN:VEVENT',
+      'UID:' + this.state.ref + '@harlowhomeloans.example', 'DTSTAMP:' + f(new Date()), 'DTSTART:' + f(start), 'DTEND:' + f(end),
+      'SUMMARY:Free 20-minute chat with ' + who, 'DESCRIPTION:Reference ' + this.state.ref + '. ' + who + ' will contact you. Questions? Call ' + CONFIG.contact.phone + '.',
+      'LOCATION:' + (d.contact === 'video' ? 'Video call (link to follow)' : 'Phone call'), 'END:VEVENT', 'END:VCALENDAR'];
+    const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'harlow-chat-' + this.state.ref + '.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+  renderVals() {
+    const s = this.state; const d = s.d; const uid = this.props.uid || 'enq';
+    const errs = validate(d);
+    const showErr = (k) => !!errs[k] && (!!s.touched[k] || !!s.tried[3]);
+    const show = { situation: !!errs.situation && !!s.tried[1], name: showErr('name'), mobile: showErr('mobile'), email: showErr('email'), consent: showErr('consent') };
+    const inv = { name: show.name, mobile: show.mobile, email: show.email, consent: show.consent };
+    const id = (k) => uid + '-' + k;
+    const day = this.days.find((x) => x.id === d.day);
+    const slot = SLOTS.find((x) => x.id === d.slot);
+    const first = (d.name || '').trim().split(/\s+/)[0] || 'there';
+    const bn = this.brokerName();
+    const contact = CONTACTS.find((c) => c.id === d.contact) || CONTACTS[0];
+    const who = bn || 'One of our brokers';
+    const doneLine = day && slot
+      ? who + ' will ' + contact.verb + ' on ' + day.long + ' ' + slot.word + '. If that time stops suiting you, just reply to our confirmation or call ' + CONFIG.contact.phone + '.'
+      : who + ' will ' + contact.verb + ' within ' + CONFIG.responseTime + ' [PLACEHOLDER] to find a time that suits.';
+    const isRefi = d.situation === 'refinance';
+    const isMove = d.situation === 'next-home';
+    return {
+      live: s.live, step: s.step, progW: Math.round((s.step / 3) * 100) + '%',
+      s1: s.step === 1 && !s.done, s2: s.step === 2 && !s.done, s3: s.step === 3 && !s.done,
+      notDone: !s.done, isDone: s.done, canBack: s.step > 1, notLast: s.step < 3,
+      sending: s.sending, notSending: !s.sending,
+      headRef: this.headRef, doneRef: this.doneRef,
+      d, err: errs, show, inv,
+      hasNote: !!d.note,
+      ids: { head: id('head'), price: id('price'), deposit: id('deposit'), income: id('income'), suburb: id('suburb'), subList: id('sublist'), name: id('name'), nameErr: id('name-err'), mobile: id('mobile'), mobileErr: id('mobile-err'), email: id('email'), emailErr: id('email-err'), howL: id('how'), dayL: id('day'), brokerL: id('broker'), lang: id('lang'), consentErr: id('consent-err') },
+      priceLabel: isRefi ? 'Current loan balance' : 'Property price',
+      depositLabel: isRefi || isMove ? 'Equity, roughly' : 'Deposit saved',
+      suburbs: CONFIG.suburbs, langs: LANGS, ready: READY,
+      sits: SITS.map((x) => ({ ...x, on: d.situation === x.id, pick: () => this.setState({ d: { ...this.state.d, situation: x.id }, tried: { ...this.state.tried, 1: false } }) })),
+      contacts: CONTACTS.map((x) => ({ ...x, on: d.contact === x.id, pick: () => this.set('contact', x.id) })),
+      brokers: [{ id: 'any', label: 'Any broker' }].concat(CONFIG.team.map((t) => ({ id: t.id, label: t.first }))).map((x) => ({ ...x, on: d.broker === x.id, pick: () => this.set('broker', x.id) })),
+      days: this.days.map((x) => ({ ...x, on: d.day === x.id, pick: () => { const nd = { ...this.state.d, day: this.state.d.day === x.id ? '' : x.id }; if (x.sat && nd.slot && nd.slot !== 'morning') nd.slot = 'morning'; if (nd.day && !nd.slot) nd.slot = x.sat ? 'morning' : ''; this.setState({ d: nd }); } })),
+      hasDay: !!day,
+      slots: SLOTS.map((x) => { const off = !!(day && day.sat && x.id !== 'morning'); return { ...x, on: d.slot === x.id, off, op: off ? 0.45 : 1, pick: () => { if (!off) this.set('slot', x.id); } }; }),
+      on: {
+        price: (e) => this.set('price', fmtMoney(e.target.value)),
+        deposit: (e) => this.set('deposit', fmtMoney(e.target.value)),
+        income: (e) => this.set('income', fmtMoney(e.target.value)),
+        suburb: (e) => this.set('suburb', e.target.value),
+        name: (e) => this.set('name', e.target.value),
+        mobile: (e) => this.set('mobile', fmtMobile(e.target.value)),
+        email: (e) => this.set('email', e.target.value),
+        language: (e) => this.set('language', e.target.value),
+        consent: (e) => this.setState({ d: { ...this.state.d, consent: e.target.checked }, touched: { ...this.state.touched, consent: true } })
+      },
+      blur: {
+        name: () => this.setState({ touched: { ...this.state.touched, name: true } }),
+        mobile: () => this.setState({ touched: { ...this.state.touched, mobile: true } }),
+        email: () => this.setState({ touched: { ...this.state.touched, email: true } }),
+        consent: () => this.setState({ touched: { ...this.state.touched, consent: true } })
+      },
+      next: () => this.goNext(),
+      back: () => this.setState({ step: Math.max(1, s.step - 1), live: 'Step ' + Math.max(1, s.step - 1) + ' of 3' }),
+      submit: (e) => this.doSubmit(e),
+      doneTitle: 'Thanks, ' + first + '.',
+      doneLine, ref: s.ref, hasTime: !!(day && slot),
+      ics: () => this.downloadIcs(),
+      restart: () => this.setState({ step: 1, d: blank(this.props.prefill), touched: {}, tried: {}, done: false, live: 'New enquiry, step 1 of 3' })
+    };
+  }
+}
+</script>
+</body>
+</html>

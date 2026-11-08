@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Refinance health check | Harlow Home Loans</title>
+<meta name="description" content="Five quick questions to see whether your home loan is worth a review. Free, no credit check.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="refinancing" hint-size="100%,112px"></dc-import>
+<main id="main">
+
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap">
+<div class="hc">
+<img class="ph-ic ill hero-in" src="/_blob/58edd52306ed0569e8528aaf56c6605c" alt="" width="240" height="240">
+<h1 class="h1 hero-in" id="ph-h" style="max-width: none">Refinance health check</h1>
+<p class="lead hero-in" style="--d: 80ms">Five quick questions to see whether your loan is worth a closer look. No credit check, and nothing is sent unless you ask us to call.</p>
+
+<div class="enq hero-in" style="--d: 160ms; margin-top: 28px">
+<p class="sr" aria-live="polite" role="status">{{live}}</p>
+<sc-if value="{{asking}}" hint-placeholder-val="{{ true }}">
+<div class="enq-prog"><span>Question {{qn}} of 5</span><span class="bar" aria-hidden="true"><i style="width: {{progW}}"></i></span></div>
+
+<sc-if value="{{q1}}" hint-placeholder-val="{{ true }}">
+<h2 class="h3" tabindex="-1" ref="{{qRef}}">Who is your loan with?</h2>
+<p class="cap" style="margin-top: 6px">No need to name them.</p>
+<div class="sit-chips" role="group" aria-label="Your lender" style="margin-top: 18px">
+<sc-for list="{{lenders}}" as="o" hint-placeholder-count="4"><button type="button" class="chip chip-lg" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{q2}}" hint-placeholder-val="{{ false }}">
+<h2 class="h3" tabindex="-1" ref="{{qRef}}">Roughly how much do you owe?</h2>
+<div class="slide-f" style="margin-top: 20px">
+<label for="hc-bal">Loan balance</label>
+<input class="range" type="range" min="50000" max="3000000" step="10000" value="{{balRaw}}" onChange="{{onBalRange}}" aria-label="Loan balance" style="--fill: {{balFill}}" tabindex="-1">
+<div class="money"><input class="fld" id="hc-bal" inputMode="numeric" value="{{balShown}}" onChange="{{onBal}}"></div>
+</div>
+</sc-if>
+
+<sc-if value="{{q3}}" hint-placeholder-val="{{ false }}">
+<h2 class="h3" tabindex="-1" ref="{{qRef}}">What's your current interest rate?</h2>
+<p class="cap" style="margin-top: 6px">It's on your latest loan statement or in your banking app.</p>
+<div class="enq-grid two">
+<div class="f">
+<label for="hc-rate">Current rate</label>
+<div class="suffix"><input class="fld" id="hc-rate" inputMode="decimal" placeholder="e.g. 6.25" value="{{a.rate}}" onChange="{{onRate}}" disabled="{{a.unsure}}"><i>% p.a.</i></div>
+</div>
+<div class="f" style="justify-content: flex-end">
+<button type="button" class="chip" aria-pressed="{{a.unsure}}" onClick="{{toggleUnsure}}" style="min-height: 52px">I'm not sure</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{q4}}" hint-placeholder-val="{{ false }}">
+<h2 class="h3" tabindex="-1" ref="{{qRef}}">Is it fixed or variable?</h2>
+<div class="chips" role="group" aria-label="Rate type" style="margin-top: 18px">
+<sc-for list="{{types}}" as="o" hint-placeholder-count="3"><button type="button" class="chip chip-lg" aria-pressed="{{o.on}}" onClick="{{o.pick}}" style="width: auto; min-width: 140px">{{o.label}}</button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{q5}}" hint-placeholder-val="{{ false }}">
+<h2 class="h3" tabindex="-1" ref="{{qRef}}">{{q5Title}}</h2>
+<div class="sit-chips" role="group" aria-label="{{q5Title}}" style="margin-top: 18px">
+<sc-for list="{{whens}}" as="o" hint-placeholder-count="4"><button type="button" class="chip chip-lg" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{showErr}}" hint-placeholder-val="{{ false }}"><p class="err" style="margin-top: 12px">Choose an option to continue.</p></sc-if>
+
+<div class="enq-nav">
+<sc-if value="{{canBack}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn-secondary" onClick="{{back}}">Back</button></sc-if>
+<button type="button" class="btn btn-primary" onClick="{{next}}">{{nextLabel}}</button>
+</div>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+<div class="done">
+<span class="{{verdictCls}}"><i aria-hidden="true"></i>{{verdict}}</span>
+<h2 class="h3" tabindex="-1" ref="{{resRef}}">{{resTitle}}</h2>
+<ul class="ready">
+<sc-for list="{{reasons}}" as="r" hint-placeholder-count="2"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #5B6684"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>{{r}}</li></sc-for>
+</ul>
+<p class="disc">This is a general guide based on your answers. It isn't credit advice, and it doesn't compare your loan against any lender's current rates.</p>
+<div class="row">
+<button type="button" class="btn btn-primary" onClick="{{book}}">Book a free rate review</button>
+<button type="button" class="textlink" onClick="{{restart}}">Start again</button>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band band-card" aria-label="Reviews" style="overflow: hidden">
+<div class="wrap">
+<dc-import name="ReviewRail" h-lead="Clients who " h-brush="checked" h-tail="" filter-key="situation" filter-val="refinance" hint-size="100%,560px"></dc-import>
+</div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+const LENDERS = [{ id: 'big4', label: 'One of the big four banks' }, { id: 'bank', label: 'Another bank or credit union' }, { id: 'nonbank', label: 'A non-bank lender' }, { id: 'unsure', label: "I'm not sure" }];
+const TYPES = [{ id: 'fixed', label: 'Fixed' }, { id: 'variable', label: 'Variable' }, { id: 'split', label: 'Split' }];
+const FIXED_WHEN = [{ id: 'f3', label: 'In the next 3 months', soon: true }, { id: 'f6', label: 'In 3 to 6 months', soon: true }, { id: 'f12', label: 'In 6 to 12 months' }, { id: 'f99', label: 'More than a year away' }];
+const VAR_WHEN = [{ id: 'v1', label: 'In the last 12 months' }, { id: 'v2', label: 'More than a year ago', stale: true }, { id: 'v3', label: "Never, or I'm not sure", stale: true }];
+const AUD = (n) => '$' + Math.round(n).toLocaleString('en-AU');
+const num = (v) => { const n = Number(String(v).replace(/[^\d.]/g, '')); return isFinite(n) ? n : 0; };
+
+function harlowReveal() {
+  const root = document.documentElement;
+  if (root.__hrv) { root.__hrv.scan(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('js-rv');
+  const sel = '.rv:not(.in), .ul:not(.in)';
+  const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(sel).forEach((el) => { if (!seen.has(el)) { seen.add(el); io.observe(el); } });
+  const fallback = () => { const h = window.innerHeight || 800; document.querySelectorAll(sel).forEach((el) => { if (el.getBoundingClientRect().top < h * 0.96) el.classList.add('in'); }); };
+  let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 40); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', fallback, { passive: true });
+  window.addEventListener('beforeprint', () => document.querySelectorAll(sel).forEach((el) => el.classList.add('in')));
+  scan(); setTimeout(fallback, 900); setTimeout(fallback, 2500);
+  root.__hrv = { scan };
+}
+const fresh = () => ({ lender: '', bal: 500000, rate: '', unsure: false, type: '', when: '' });
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {}, q: 1, a: fresh(), err: false, done: false, live: '' };
+    this.qRef = React.createRef(); this.resRef = React.createRef();
+  }
+  componentDidMount() { harlowReveal(); }
+  componentDidUpdate(pp, ps) {
+    if (ps.q !== this.state.q && this.qRef.current) this.qRef.current.focus();
+    if (!ps.done && this.state.done && this.resRef.current) this.resRef.current.focus();
+  }
+  setA(o) { this.setState({ a: { ...this.state.a, ...o }, err: false }); }
+  answered() {
+    const { q, a } = this.state;
+    if (q === 1) return !!a.lender; if (q === 2) return a.bal > 0; if (q === 3) return a.unsure || num(a.rate) > 0;
+    if (q === 4) return !!a.type; if (q === 5) return !!a.when; return true;
+  }
+  result() {
+    const a = this.state.a; const reasons = []; let worth = false;
+    const fw = FIXED_WHEN.find((x) => x.id === a.when); const vw = VAR_WHEN.find((x) => x.id === a.when);
+    if (fw && fw.soon) { worth = true; reasons.push('Your fixed rate ends soon. When it does, your loan usually moves to the lender\'s standard variable rate.'); }
+    if (fw && !fw.soon) reasons.push('Your fixed rate has a while to run. Breaking it early can cost money, so it\'s often better to plan ahead.');
+    if (vw && vw.stale) { worth = true; reasons.push('Your rate hasn\'t been reviewed in over a year. Lenders often offer new customers sharper deals than existing ones.'); }
+    if (vw && !vw.stale) reasons.push('Your rate was reviewed in the last year, which is a good sign.');
+    if (a.unsure) { worth = true; reasons.push('You weren\'t sure of your rate. A quick look at your statement will tell us where you stand.'); }
+    if (a.lender === 'unsure') reasons.push('We can find your lender details from your loan statement.');
+    if (a.bal >= 300000) reasons.push('With a balance around ' + AUD(a.bal) + ', small changes to your loan can add up over the years.');
+    return { worth, reasons };
+  }
+  renderVals() {
+    const s = this.state; const a = s.a;
+    const res = this.result();
+    const isFixed = a.type === 'fixed' || a.type === 'split';
+    const whenList = isFixed ? FIXED_WHEN : VAR_WHEN;
+    const next = () => {
+      if (!this.answered()) { this.setState({ err: true, live: 'Choose an option to continue.' }); return; }
+      if (s.q < 5) this.setState({ q: s.q + 1, err: false, live: 'Question ' + (s.q + 1) + ' of 5' });
+      else { const r = this.result(); this.setState({ done: true, live: r.worth ? 'Result: worth a review' : 'Result: looks OK for now' }); }
+    };
+    const summary = () => {
+      const l = LENDERS.find((x) => x.id === a.lender); const t = TYPES.find((x) => x.id === a.type); const w = whenList.find((x) => x.id === a.when);
+      return 'Health check: ' + (l ? l.label.toLowerCase() : 'lender not given') + ', balance about ' + AUD(a.bal) + ', rate ' + (a.unsure ? 'not sure' : num(a.rate).toFixed(2) + '%') + ', ' + (t ? t.label.toLowerCase() : '') + (w ? ' (' + w.label.toLowerCase() + ')' : '') + '. Result: ' + (res.worth ? 'worth a review' : 'looks OK for now') + '.';
+    };
+    return {
+      drawerOpen: s.drawerOpen, prefill: s.prefill,
+      open: (p) => { const q = { ...(p || {}) }; if (!q.situation) delete q.situation; this.setState({ drawerOpen: true, prefill: { situation: 'refinance', source: 'Health check', ...q } }); },
+      close: () => this.setState({ drawerOpen: false }),
+      live: s.live, qn: s.q, progW: (s.q * 20) + '%', qRef: this.qRef, resRef: this.resRef,
+      asking: !s.done, done: s.done,
+      q1: s.q === 1, q2: s.q === 2, q3: s.q === 3, q4: s.q === 4, q5: s.q === 5,
+      a, showErr: s.err, canBack: s.q > 1, nextLabel: s.q < 5 ? 'Next' : 'See my result',
+      next, back: () => this.setState({ q: Math.max(1, s.q - 1), err: false }),
+      lenders: LENDERS.map((o) => ({ ...o, on: a.lender === o.id, pick: () => this.setA({ lender: o.id }) })),
+      balRaw: Math.min(3000000, Math.max(50000, a.bal)), balFill: Math.round(((Math.min(3000000, Math.max(50000, a.bal)) - 50000) / 2950000) * 100) + '%', balShown: a.bal.toLocaleString('en-AU'),
+      onBalRange: (e) => this.setA({ bal: Number(e.target.value) }), onBal: (e) => this.setA({ bal: Math.min(num(e.target.value), 99999999) }),
+      onRate: (e) => this.setA({ rate: e.target.value.replace(/[^\d.]/g, '').slice(0, 5) }),
+      toggleUnsure: () => this.setA({ unsure: !a.unsure }),
+      types: TYPES.map((o) => ({ ...o, on: a.type === o.id, pick: () => this.setA({ type: o.id, when: (o.id === 'variable') === (a.type === 'variable') ? a.when : '' }) })),
+      q5Title: isFixed ? 'When does your fixed rate end?' : 'When was your rate last reviewed?',
+      whens: whenList.map((o) => ({ ...o, on: a.when === o.id, pick: () => this.setA({ when: o.id }) })),
+      verdict: res.worth ? 'Worth a review' : 'Looks OK for now',
+      verdictCls: 'verdict' + (res.worth ? ' good' : ''),
+      resTitle: res.worth ? 'A free rate review is worth your time.' : 'Your loan looks OK for now. We\'re happy to check in later.',
+      reasons: res.reasons,
+      book: () => this.setState({ drawerOpen: true, prefill: { situation: 'refinance', price: a.bal, source: 'Health check', note: summary() } }),
+      restart: () => this.setState({ q: 1, a: fresh(), done: false, err: false, live: 'Question 1 of 5' })
+    };
+  }
+}
+</script>
+</body>
+</html>

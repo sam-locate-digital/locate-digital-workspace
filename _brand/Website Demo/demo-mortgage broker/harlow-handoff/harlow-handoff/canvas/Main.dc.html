@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Harlow Home Loans | Melbourne mortgage brokers</title>
+<meta name="description" content="Melbourne mortgage brokers helping first home buyers, upgraders, refinancers, investors and self-employed borrowers.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["FinancialService","LocalBusiness"],"name":"Harlow Home Loans","telephone":"+61355502861","email":"hello@harlowhomeloans.example","address":{"@type":"PostalAddress","streetAddress":"[PLACEHOLDER]","addressLocality":"[PLACEHOLDER]","addressRegion":"VIC","postalCode":"[PLACEHOLDER]","addressCountry":"AU"},"areaServed":"Melbourne","openingHours":"Mo-Fr 08:30-18:00"}</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="" hint-size="100%,112px"></dc-import>
+
+<main id="main">
+
+<!-- 3. Hero -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+<div class="hero-frame on-photo">
+<img class="hero-img" src="/_blob/13861959de95e7d82ac5d6cc8ce1b7e3" alt="A couple playing with their toddler in the living room of their new home" width="1344" height="752">
+<div class="hero-copy">
+<h1 class="h1 hero-in" id="hero-h">Your next <em class="ul">move</em>, made simple.</h1>
+<p class="hero-sub hero-in" style="--d: 80ms"><span>Melbourne mortgage brokers.</span><span>We compare <span class="ph">[PLACEHOLDER 30+]</span> lenders and do the legwork, usually at no cost to you.</span></p>
+
+<div class="ctas hero-in" style="--d: 160ms; justify-content: center">
+<button type="button" class="btn btn-primary btn-lg" onClick="{{openHero}}">Book a free chat</button>
+<a class="btn btn-secondary btn-lg" href="{{phoneHref}}">Call {{phone}}</a>
+</div>
+<p class="micro hero-in" style="--d: 240ms"><span>Free 20-minute chat</span><i aria-hidden="true">│</i><span>No credit check</span><i aria-hidden="true">│</i><span>Evening and Saturday times</span></p>
+</div>
+
+<div class="wrap hero-stats hero-in" style="--d: 320ms" onMouseEnter="{{odoDone}}" onFocus="{{odoDone}}">
+<div class="stat"><b>4.9 ★</b><span>Google rating, from 280 reviews</span><i>[PLACEHOLDER]</i></div>
+<div class="stat" ref="{{odoRef}}"><b aria-label="640 million dollars, placeholder figure">{{odoText}}</b><span>in home loans settled</span><i>[PLACEHOLDER]</i></div>
+<div class="stat"><b>30+</b><span>lenders compared</span><i>[PLACEHOLDER]</i></div>
+</div>
+</div>
+</section>
+
+<!-- 4. Situations -->
+<section class="band" aria-labelledby="sit-h">
+<div class="wrap">
+<div class="intro">
+<h2 class="h2" id="sit-h">Where are you at?</h2>
+<p class="lead">Every situation needs a different loan. Start with yours.</p>
+</div>
+<div class="sit">
+<ul class="sit-list">
+<sc-for list="{{sits}}" as="s" hint-placeholder-count="5">
+<li class="rv fade" style="--d: {{s.delay}}">
+<a class="{{s.cls}}" href="{{s.href}}" onMouseEnter="{{s.hover}}" onFocus="{{s.hover}}">
+<img class="sit-ic" src="{{s.icon}}" alt="" width="240" height="240" loading="lazy">
+<b>{{s.title}}</b>
+<p>{{s.line}}</p>
+<span class="arr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span>
+<img src="{{s.img}}" alt="{{s.alt}}" loading="lazy" width="1168" height="876">
+</a>
+</li>
+</sc-for>
+</ul>
+<div class="sit-photo rv fade" aria-hidden="true">
+<sc-for list="{{sits}}" as="s" hint-placeholder-count="5"><img class="{{s.imgCls}}" src="{{s.img}}" alt="" loading="lazy" width="1168" height="876"></sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 5. How it works -->
+<section class="band band-card" aria-labelledby="how-h" ref="{{stepRef}}">
+<div class="wrap steps">
+<div class="step-photo rv focus">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="4"><img class="{{st.imgCls}}" src="{{st.img}}" alt="{{st.alt}}" loading="lazy" width="896" height="1120"></sc-for>
+</div>
+
+<div class="rv focus" style="--d: 100ms">
+<h2 class="h2" id="how-h">How we <em class="ul">work</em> with you</h2>
+<div class="step-list" style="margin-top: 32px" onMouseEnter="{{hoverOn}}" onMouseLeave="{{hoverOff}}" onFocus="{{focusOn}}" onBlur="{{focusOff}}" onKeyDown="{{stepKeys}}">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
+<button type="button" class="step" aria-expanded="{{st.on}}" aria-controls="{{st.bid}}" onClick="{{st.pick}}">
+<span class="step-top"><img class="step-ic" src="{{st.icon}}" alt="" width="240" height="240" loading="lazy"><span class="step-t"><small>Step {{st.n}}</small>{{st.title}}</span></span>
+<sc-if value="{{st.on}}" hint-placeholder-val="{{ false }}">
+<span class="step-b" id="{{st.bid}}" style="display: block">{{st.body}}</span>
+<span class="{{progCls}}" aria-hidden="true" style="display: block"><i onAnimationEnd="{{advance}}"></i></span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+<div class="row" style="margin-top: 28px">
+<button type="button" class="btn btn-primary" onClick="{{openHow}}">Book a free chat</button>
+<a class="textlink" href="{{phoneHref}}">Or call {{phone}}</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 7. Reviews -->
+<section class="band" aria-label="Reviews" style="overflow: hidden">
+<div class="wrap">
+<dc-import name="ReviewRail" h-lead="Clients who've " h-brush="made" h-tail=" their move" hint-size="100%,560px"></dc-import>
+<p style="margin-top: 4px"><a class="textlink" href="Reviews.dc.html">Read all reviews <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></p>
+</div>
+</section>
+
+<!-- 8. Why Harlow -->
+<section class="band band-w1" aria-labelledby="why-h">
+<div class="wrap">
+<div class="grid-2" style="align-items: center">
+<div class="photo r43 rv fade">
+<img src="/_blob/6298997062c3d91b7be42751d1805c94" alt="A Harlow broker talking through loan options with a couple at their dining table" loading="lazy" width="1120" height="840">
+</div>
+<div class="rv fade" style="--d: 80ms">
+<h2 class="h2" id="why-h">Advice you can <em class="ul">trust</em></h2>
+<p class="lead">The way we work, written down so you can hold us to it.</p>
+</div>
+</div>
+<ol class="olist three" style="margin-top: 48px">
+<li class="rv fade" style="--d: 0ms"><span class="n">01</span><b>Your interests come first, by law.</b><p>Brokers must act in your best interests, and we'll show you why we recommend a loan.</p></li>
+<li class="rv fade" style="--d: 60ms"><span class="n">02</span><b>We show you how we're paid.</b><p>Usually the lender pays us. You'll see the amount before you choose.</p></li>
+<li class="rv fade" style="--d: 120ms"><span class="n">03</span><b>A shortlist, not a sales pitch.</b><p>We compare <span class="ph">[PLACEHOLDER 30+]</span> lenders and explain the trade-offs side by side.</p></li>
+<li class="rv fade" style="--d: 180ms"><span class="n">04</span><b>After hours when you need it.</b><p>Evening video calls and Saturday appointments.</p></li>
+<li class="rv fade" style="--d: 240ms"><span class="n">05</span><b>We don't disappear after settlement.</b><p>A free loan review every year, so you're not left on an old rate.</p></li>
+<li class="rv fade" style="--d: 300ms"><span class="n">06</span><b>In your language.</b><p>Appointments in English, Mandarin, Hindi, Gujarati and Vietnamese.</p></li>
+</ol>
+<div class="awards" aria-labelledby="aw-h">
+<h3 class="h3 rv fade" id="aw-h">Awards and recognition</h3>
+<ul class="aw-list"><li class="rv rise" style="--d: 0ms"><svg class="aw-mark" width="44" height="40" viewBox="0 0 44 40" fill="none" aria-hidden="true"><path d="M14 36C7 32 3 25 4 16M30 36c7-4 11-11 10-20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 27c-3-.5-4.6-2.6-4.8-5 2.6-.4 4.6 1 5.4 3.4M5 20c-2.8-1.2-3.8-3.6-3.4-6 2.6.2 4.2 2.1 4.4 4.6M5.6 12.8C3.4 10.8 3 8.2 4 6c2.4.9 3.4 3.1 3 5.6M37.5 27c3-.5 4.6-2.6 4.8-5-2.6-.4-4.6 1-5.4 3.4M39 20c2.8-1.2 3.8-3.6 3.4-6-2.6.2-4.2 2.1-4.4 4.6M38.4 12.8c2.2-2 2.6-4.6 1.6-6.8-2.4.9-3.4 3.1-3 5.6" fill="currentColor"/><path d="M22 9.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7Z" fill="var(--amber)"/></svg><b>Award name <span class="ph">[PLACEHOLDER]</span></b><p>Awarding body · Year <span class="ph">[PLACEHOLDER]</span></p></li><li class="rv rise" style="--d: 70ms"><svg class="aw-mark" width="44" height="40" viewBox="0 0 44 40" fill="none" aria-hidden="true"><path d="M14 36C7 32 3 25 4 16M30 36c7-4 11-11 10-20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 27c-3-.5-4.6-2.6-4.8-5 2.6-.4 4.6 1 5.4 3.4M5 20c-2.8-1.2-3.8-3.6-3.4-6 2.6.2 4.2 2.1 4.4 4.6M5.6 12.8C3.4 10.8 3 8.2 4 6c2.4.9 3.4 3.1 3 5.6M37.5 27c3-.5 4.6-2.6 4.8-5-2.6-.4-4.6 1-5.4 3.4M39 20c2.8-1.2 3.8-3.6 3.4-6-2.6.2-4.2 2.1-4.4 4.6M38.4 12.8c2.2-2 2.6-4.6 1.6-6.8-2.4.9-3.4 3.1-3 5.6" fill="currentColor"/><path d="M22 9.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7Z" fill="var(--amber)"/></svg><b>Award name <span class="ph">[PLACEHOLDER]</span></b><p>Awarding body · Year <span class="ph">[PLACEHOLDER]</span></p></li><li class="rv rise" style="--d: 140ms"><svg class="aw-mark" width="44" height="40" viewBox="0 0 44 40" fill="none" aria-hidden="true"><path d="M14 36C7 32 3 25 4 16M30 36c7-4 11-11 10-20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 27c-3-.5-4.6-2.6-4.8-5 2.6-.4 4.6 1 5.4 3.4M5 20c-2.8-1.2-3.8-3.6-3.4-6 2.6.2 4.2 2.1 4.4 4.6M5.6 12.8C3.4 10.8 3 8.2 4 6c2.4.9 3.4 3.1 3 5.6M37.5 27c3-.5 4.6-2.6 4.8-5-2.6-.4-4.6 1-5.4 3.4M39 20c2.8-1.2 3.8-3.6 3.4-6-2.6.2-4.2 2.1-4.4 4.6M38.4 12.8c2.2-2 2.6-4.6 1.6-6.8-2.4.9-3.4 3.1-3 5.6" fill="currentColor"/><path d="M22 9.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7Z" fill="var(--amber)"/></svg><b>Award name <span class="ph">[PLACEHOLDER]</span></b><p>Awarding body · Year <span class="ph">[PLACEHOLDER]</span></p></li><li class="rv rise" style="--d: 210ms"><svg class="aw-mark" width="44" height="40" viewBox="0 0 44 40" fill="none" aria-hidden="true"><path d="M14 36C7 32 3 25 4 16M30 36c7-4 11-11 10-20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6.5 27c-3-.5-4.6-2.6-4.8-5 2.6-.4 4.6 1 5.4 3.4M5 20c-2.8-1.2-3.8-3.6-3.4-6 2.6.2 4.2 2.1 4.4 4.6M5.6 12.8C3.4 10.8 3 8.2 4 6c2.4.9 3.4 3.1 3 5.6M37.5 27c3-.5 4.6-2.6 4.8-5-2.6-.4-4.6 1-5.4 3.4M39 20c2.8-1.2 3.8-3.6 3.4-6-2.6.2-4.2 2.1-4.4 4.6M38.4 12.8c2.2-2 2.6-4.6 1.6-6.8-2.4.9-3.4 3.1-3 5.6" fill="currentColor"/><path d="M22 9.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7Z" fill="var(--amber)"/></svg><b>Award name <span class="ph">[PLACEHOLDER]</span></b><p>Awarding body · Year <span class="ph">[PLACEHOLDER]</span></p></li></ul>
+<p class="cap rv fade">Placeholder. Add the broker's real awards here, with the year and awarding body, or remove this row before launch.</p>
+</div>
+</div>
+</section>
+
+<!-- 9. Team -->
+<section class="band" aria-labelledby="team-h">
+<div class="wrap">
+<div class="intro intro-row rv from-l">
+<div>
+<h2 class="h2" id="team-h">The people you'll <em class="ul">deal</em> with</h2>
+<p class="lead">Four of us, one office. You'll talk to the same broker from first chat to settlement.</p>
+</div>
+<a class="textlink" href="Team.dc.html">Meet the team <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+</div>
+<div class="photo r32 lift rv from-l" style="--d: 80ms">
+<img src="/_blob/8b3ceb7ac7b7d96d471aea869b1a30c7" alt="The Harlow Home Loans team outside their office" loading="lazy" width="1024" height="688">
+</div>
+<div class="about-cols">
+<div class="rv from-l" style="--d: 120ms">
+<b>About us</b>
+<p>We're a small, family-run broking team. Since <span class="ph">[PLACEHOLDER 2011]</span> we've helped people across Melbourne buy their first home, move to their next one, refinance and invest.</p>
+</div>
+<div class="rv from-l" style="--d: 180ms">
+<b>Why people choose us</b>
+<p>You deal with the same broker from first chat to settlement. We compare <span class="ph">[PLACEHOLDER 30+]</span> lenders, explain the trade-offs in plain English and check your loan every year after it settles.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 10. Local band -->
+<section class="band band-w3" aria-labelledby="area-h">
+<div class="wrap">
+<div class="area rv scale">
+<img src="/_blob/98bf1b0bd1582444e165234389d67222" alt="A tree-lined street of period homes at golden hour" loading="lazy" width="1344" height="752">
+<div class="area-copy">
+<h2 class="h2" id="area-h">Local to <em class="ul">Melbourne</em></h2>
+<p>Meet at our office, at your kitchen table, or on video.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="band band-card" aria-labelledby="faq-h">
+<div class="wrap two-col">
+<div class="rv fade">
+<h2 class="h2" id="faq-h">Questions we <em class="ul">hear</em> a lot</h2>
+<p class="lead">Straight answers. If yours isn't here, ask us on a free chat.</p>
+</div>
+<div class="faq rv fade" style="--d: 80ms">
+<details name="faq" open="{{ true }}"><summary>What does a mortgage broker cost?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Usually nothing. Lenders pay us a commission when your loan settles, and we'll show you how much before you choose. <span class="ph">[PLACEHOLDER: confirm fee policy]</span></p></details>
+<details name="faq"><summary>How much can I borrow?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">It depends on your income, expenses, debts, deposit and each lender's rules. We'll give you a rough figure in your free chat, then check it properly against real lender rules.</p></details>
+<details name="faq"><summary>Will talking to you affect my credit score?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">No. A first chat and estimate don't involve a credit check.</p></details>
+<details name="faq"><summary>What deposit do I need?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Often 5 to 20% of the price, depending on the lender and any scheme you qualify for. We'll check what applies to you.</p></details>
+<details name="faq"><summary>When should I refinance?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">When a fixed rate is ending, your rate hasn't been reviewed in a while, or you want to access equity. We'll tell you if it isn't worth it.</p></details>
+<details name="faq"><summary>How long does pre-approval take?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Often a few days to two weeks, depending on the lender and your paperwork.</p></details>
+<details name="faq"><summary>Do you work with self-employed people?<span class="pm" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p class="ans">Yes, including sole traders and new businesses. <a href="SelfEmployed.dc.html">See how we help self-employed borrowers</a>.</p></details>
+</div>
+</div>
+</section>
+
+<!-- 12. Final CTA + enquiry -->
+<section class="band band-w2" aria-labelledby="cta-h" id="enquire">
+<div class="wrap">
+<div class="intro rv rise">
+<h2 class="h2" id="cta-h">Let's work out your next <em class="ul">step</em></h2>
+<p class="lead">Book a free 20-minute chat. We'll call you back within <span class="ph">[PLACEHOLDER 1 business day]</span>.</p>
+</div>
+<div class="cta-grid">
+<div class="rv rise" style="--d: 60ms">
+<dc-import name="Enquiry" variant="inline" prefill="{{inlinePrefill}}" hint-size="100%,640px"></dc-import>
+</div>
+<aside class="talk rv rise" style="--d: 140ms" aria-label="Contact details">
+<p class="h3">Rather talk now?</p>
+<a class="bigphone" href="{{phoneHref}}">{{phone}}</a>
+<div class="kv">
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>{{hours}}</span></div>
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span><span class="ph">[PLACEHOLDER street address]</span>, {{office}}</span></div>
+<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6 8.5 7 8.5-7"></path></svg><a href="{{mailHref}}">{{email}}</a></div>
+</div>
+<div class="map">
+<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#E6EDFB"></rect><path d="M0 70 L400 40 M0 160 L400 140 M0 225 L400 215 M80 0 L110 250 M210 0 L200 250 M320 0 L300 250" stroke="#FFFFFF" stroke-width="10" fill="none"></path><path d="M0 115 C120 100 260 120 400 95" stroke="#F8FAFF" stroke-width="16" fill="none"></path><rect x="226" y="160" width="58" height="40" rx="6" fill="#DCE5D2"></rect><rect x="20" y="180" width="44" height="30" rx="6" fill="#DCE5D2"></rect></svg>
+<div class="pin"><b>Harlow Home Loans</b><svg width="28" height="34" viewBox="0 0 28 34" aria-hidden="true"><path d="M14 33s12-10.3 12-19A12 12 0 0 0 2 14c0 8.7 12 19 12 19Z" fill="#1F45D6"></path><circle cx="14" cy="14" r="4.5" fill="#fff"></circle></svg></div>
+<span class="lab ph">[PLACEHOLDER map]</span>
+</div>
+<a class="textlink" href="https://www.google.com/maps/search/?api=1&amp;query=Box+Hill+VIC+3128">Get directions <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+</aside>
+</div>
+</div>
+</section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9800}}'>
+const CONFIG = {
+  contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861", email: "hello@harlowhomeloans.example", office: "[PLACEHOLDER suburb] VIC" },
+  hours: "Mon–Fri 8:30am–6pm, Sat by appointment, evening video calls",
+  stats: { settledMillions: 640 },
+  suburbs: [],
+  team: [
+    { id: "claire", name: "Claire Harlow", first: "Claire", role: "Principal broker", languages: ["English"], href: "Claire.dc.html", books: true },
+    { id: "tom", name: "Tom Nguyen", first: "Tom", role: "Broker", languages: ["English", "Vietnamese"], href: "Tom.dc.html", books: true },
+    { id: "priya", name: "Priya Shah", first: "Priya", role: "Broker", languages: ["English", "Hindi", "Gujarati"], href: "Priya.dc.html", books: true },
+    { id: "mia", name: "Mia Chen", first: "Mia", role: "Client support", languages: ["English", "Mandarin"], href: "Mia.dc.html", books: false }
+  ]
+};
+const IMG = {
+  first: "/_blob/3e697b092d3c8018fdada8861809f582", next: "/_blob/3f3f20c8bd1f7e84740f8a4dc26b9e9b", refi: "/_blob/81579e00e13efdd68da367143318502b",
+  invest: "/_blob/eac3ae4218b9603f6bf34ac804e329c6", why: "/_blob/6298997062c3d91b7be42751d1805c94",
+  s1: "/_blob/226d2cc4224cffad35bdf8cf3fae7869", s2: "/_blob/4cb5ca49c0fb86b291b90ef80ac51f0e", s3: "/_blob/1f94d8c01ec3ca1cac213e5677d4e226", s4: "/_blob/3a84958f3568cf3ecc521820dc56f309"
+};
+const ICONS = {
+  firstHome: '/_blob/1336a741e5dad3edb059722f9b1ece54', nextHome: '/_blob/74bf4b70e29712ca2865dbcd6d5c7eef', refinance: '/_blob/367ebebd570d75f2f9820b5c855df55d',
+  invest: '/_blob/58cad5b56869bac899ed960320d2150f', selfEmployed: '/_blob/9189bc43e5dadaa9823dd13e352b891f', chat: '/_blob/894413fd3728b9a35230789327e5eb13',
+  compare: '/_blob/58edd52306ed0569e8528aaf56c6605c', approval: '/_blob/123f3df4a956c3393cd9fa27ecdeb608', settle: '/_blob/035f3c118fb22306b9ec0181a85ff1b1',
+  lender: '/_blob/2ef463c2111271eb3e11186a93283532', broker: '/_blob/a6637bd2bec4b2d3f8d6a9d5b6865de9', you: '/_blob/f4922ecf479c7da9dc926b0b10743d15'
+};
+const SITS = [
+  { icon: ICONS.firstHome, id: 'first-home', title: 'Buying my first home', line: 'Deposits, schemes, pre-approval, and what to do on auction day.', img: IMG.first, alt: 'First home buyers holding their new keys', href: 'FirstHome.dc.html' },
+  { icon: ICONS.nextHome, id: 'next-home', title: 'Buying my next home', line: 'Buying before you sell, bridging finance and moving your equity.', img: IMG.next, alt: 'A family exploring the backyard of their next home', href: 'NextHome.dc.html' },
+  { icon: ICONS.refinance, id: 'refinance', title: 'Refinancing', line: 'Check your rate, cut fees, or free up equity for a renovation.', img: IMG.refi, alt: 'A homeowner relaxed after reviewing his home loan', href: 'Refinancing.dc.html' },
+  { icon: ICONS.invest, id: 'invest', title: 'Investing', line: 'Structuring a loan for your first or next investment property.', img: IMG.invest, alt: 'A woman looking at new townhouses as an investment', href: 'Investing.dc.html' },
+  { icon: ICONS.selfEmployed, id: 'self-employed', title: 'Self-employed', line: 'Lenders who understand business income, even with a short trading history.', img: IMG.why, alt: 'A Harlow broker talking through loan options with a couple at their dining table', href: 'SelfEmployed.dc.html' }
+];
+const STEPS = [
+  { icon: ICONS.chat, title: 'A free 20-minute chat', body: 'Phone, video or at our office. We work out where you stand and what\'s possible.', img: IMG.s1, alt: 'A woman on a first call with her broker' },
+  { icon: ICONS.compare, title: 'We compare lenders for you', body: 'We shortlist loans that fit your situation and show you the trade-offs side by side.', img: IMG.s2, alt: 'A broker comparing loan options at his desk' },
+  { icon: ICONS.approval, title: 'Pre-approval in hand', body: 'We handle the application and keep you posted, so you can bid with confidence.', img: IMG.s3, alt: 'A couple reading good news on their phone' },
+  { icon: ICONS.settle, title: 'Settled, then reviewed every year', body: 'We line up settlement with your solicitor, then check your loan every year.', img: IMG.s4, alt: 'A couple carrying boxes into their new home' }
+];
+const PICK = [{ id: 'first-home', label: 'Buy my first home' }, { id: 'next-home', label: 'Buy my next home' }, { id: 'refinance', label: 'Refinance' }, { id: 'invest', label: 'Invest' }];
+const fmtMoney = (v) => { const d = String(v || '').replace(/\D/g, '').slice(0, 9); return d ? Number(d).toLocaleString('en-AU') : ''; };
+
+// Scroll reveals: only hide content once JS is running; IntersectionObserver plus a scroll-position fallback.
+function harlowReveal() {
+  const root = document.documentElement;
+  if (root.__hrv) { root.__hrv.scan(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('js-rv');
+  const sel = '.rv:not(.in), .ul:not(.in)';
+  const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(sel).forEach((el) => { if (!seen.has(el)) { seen.add(el); io.observe(el); } });
+  const fallback = () => { const h = window.innerHeight || 800; document.querySelectorAll(sel).forEach((el) => { if (el.getBoundingClientRect().top < h * 0.96) el.classList.add('in'); }); };
+  let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 40); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', fallback, { passive: true });
+  window.addEventListener('beforeprint', () => document.querySelectorAll(sel).forEach((el) => el.classList.add('in')));
+  scan(); setTimeout(fallback, 900); setTimeout(fallback, 2500);
+  root.__hrv = { scan };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {}, pick: { sit: 'first-home', amount: '', suburb: '' }, sitOn: 0, step: 0, hover: false, focus: false, offscreen: false, hidden: false, odo: 0 };
+    this.inlinePrefill = { source: 'Homepage form' };
+    this.stepRef = React.createRef(); this.odoRef = React.createRef();
+    try { this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { this.reduce = false; }
+    this.onVis = () => this.setState({ hidden: document.hidden });
+  }
+  componentDidMount() {
+    harlowReveal();
+    document.addEventListener('visibilitychange', this.onVis);
+    if ('IntersectionObserver' in window) {
+      this.stepIo = new IntersectionObserver((ents) => ents.forEach((e) => this.setState({ offscreen: !e.isIntersecting })), { threshold: 0.2 });
+      const tryObs = (n) => { if (this.stepRef.current) this.stepIo.observe(this.stepRef.current); else if (n < 20) setTimeout(() => tryObs(n + 1), 100); };
+      tryObs(0);
+    }
+    this.runOdo();
+  }
+  componentWillUnmount() {
+    document.removeEventListener('visibilitychange', this.onVis);
+    if (this.stepIo) this.stepIo.disconnect();
+    this.odoStop = true;
+  }
+  runOdo() {
+    const target = CONFIG.stats.settledMillions;
+    if (this.reduce) { this.setState({ odo: target }); return; }
+    const t0 = performance.now() + 500; const dur = 1600;
+    const tick = (now) => {
+      if (this.odoStop) return;
+      if (document.hidden) { this.setState({ odo: target }); return; }
+      const p = Math.max(0, Math.min(1, (now - t0) / dur)); const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ odo: Math.round(target * e) });
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  open(prefill) { this.setState({ drawerOpen: true, prefill: { ...(prefill || {}) } }); }
+  renderVals() {
+    const s = this.state;
+    const paused = s.hover || s.focus || s.offscreen || s.hidden;
+    const sitLabel = s.pick.sit === 'refinance' ? 'Current loan balance' : 'Property price';
+    return {
+      drawerOpen: s.drawerOpen, prefill: s.prefill, inlinePrefill: this.inlinePrefill,
+      open: (p) => this.open(p), close: () => this.setState({ drawerOpen: false }),
+      talk: (p) => this.open(p),
+      phone: CONFIG.contact.phone, phoneHref: CONFIG.contact.phoneHref, email: CONFIG.contact.email, mailHref: 'mailto:' + CONFIG.contact.email, office: CONFIG.contact.office, hours: CONFIG.hours,
+      suburbs: CONFIG.suburbs,
+      odo: s.odo, odoText: "$" + s.odo + "m", odoRef: this.odoRef,
+      odoDone: () => { this.odoStop = true; this.setState({ odo: CONFIG.stats.settledMillions }); },
+      pick: s.pick, amtLabel: sitLabel,
+      pickChips: PICK.map((p) => ({ ...p, on: s.pick.sit === p.id, pick: () => this.setState({ pick: { ...this.state.pick, sit: p.id } }) })),
+      onAmt: (e) => this.setState({ pick: { ...this.state.pick, amount: fmtMoney(e.target.value) } }),
+      onSub: (e) => this.setState({ pick: { ...this.state.pick, suburb: e.target.value } }),
+      go: (e) => { e.preventDefault(); this.open({ situation: s.pick.sit, price: s.pick.amount, suburb: s.pick.suburb, source: 'Hero picker' }); },
+      icons: ICONS,
+      sits: SITS.map((x, i) => ({ ...x, delay: (i * 60) + 'ms', cls: 'sit-row' + (s.sitOn === i ? ' on' : ''), imgCls: s.sitOn === i ? 'on' : '', hover: () => { if (this.state.sitOn !== i) this.setState({ sitOn: i }); } })),
+      steps: STEPS.map((x, i) => ({ ...x, n: '0' + (i + 1), on: s.step === i, bid: 'step-body-' + i, imgCls: s.step === i ? 'on' : '', pick: () => this.setState({ step: i }) })),
+      d1: s.step === 0, d2: s.step === 1, d3: s.step === 2, d4: s.step === 3,
+      progCls: 'prog' + (this.reduce ? ' still' : paused ? ' paused' : ''),
+      advance: () => { if (!this.reduce) this.setState({ step: (this.state.step + 1) % STEPS.length }); },
+      stepRef: this.stepRef,
+      hoverOn: () => this.setState({ hover: true }), hoverOff: () => this.setState({ hover: false }),
+      focusOn: () => this.setState({ focus: true }),
+      focusOff: (e) => { const wrap = e.currentTarget; setTimeout(() => { if (!wrap.contains(document.activeElement)) this.setState({ focus: false }); }, 0); },
+      stepKeys: (e) => {
+        const k = e.key; if (!['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(k)) return;
+        e.preventDefault();
+        let n = s.step;
+        if (k === 'ArrowDown' || k === 'ArrowRight') n = (n + 1) % STEPS.length;
+        if (k === 'ArrowUp' || k === 'ArrowLeft') n = (n - 1 + STEPS.length) % STEPS.length;
+        if (k === 'Home') n = 0; if (k === 'End') n = STEPS.length - 1;
+        this.setState({ step: n });
+        const wrap = e.currentTarget; setTimeout(() => { const b = wrap.querySelectorAll('.step')[n]; if (b) b.focus(); }, 0);
+      },
+      openHow: () => this.open({ source: 'How it works' }),
+      openHero: () => this.open({ source: 'Homepage hero' }),
+      team: CONFIG.team.map((t, i) => ({ ...t, langs: t.languages.join(', '), delay: (i * 70) + 'ms', book: () => this.open({ broker: t.id, source: 'Team strip' }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

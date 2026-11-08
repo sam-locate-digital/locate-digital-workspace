@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Credit Guide | Harlow Home Loans</title>
+<meta name="description" content="Harlow Home Loans Credit Guide (placeholder for the demo site).">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="" hint-size="100%,112px"></dc-import>
+<main id="main">
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap">
+<div class="prose">
+<h1 class="h1 hero-in" id="ph-h" style="max-width: none">Credit Guide</h1>
+<p class="legal-note hero-in" style="--d: 80ms; margin-top: 20px">Placeholder. Replace this page with the Credit Guide supplied by <span class="ph">[Aggregator PLACEHOLDER] Pty Ltd</span> before the site goes live.</p>
+<h2>About us</h2>
+<p>{{entity}} (Credit Representative <span class="ph">[PLACEHOLDER]</span>) is authorised under Australian Credit Licence <span class="ph">[PLACEHOLDER]</span> held by <span class="ph">[Aggregator PLACEHOLDER] Pty Ltd</span>.</p>
+<h2>Lenders we use</h2>
+<p>We have access to <span class="ph">[PLACEHOLDER 30+]</span> lenders. The licensee's Credit Guide lists the lenders used most often.</p>
+<h2>How we're paid</h2>
+<p>{{feePolicy}} Any commission, fees and referral payments are disclosed in writing before you proceed.</p>
+<h2>Our obligations to you</h2>
+<p>We must act in your best interests and make reasonable inquiries about your situation before recommending a loan.</p>
+<h2>Complaints</h2>
+<p>See our <a href="Complaints.dc.html">Complaints page</a> for how to raise a concern and how we handle it.</p>
+</div>
+</div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+const CONFIG = { compliance: { entity: "Harlow Home Loans Pty Ltd", feePolicy: "Our service is usually free to you. Lenders pay us a commission when your loan settles, and we'll show you exactly how much before you choose." } };
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { drawerOpen: false, prefill: {} }; }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill,
+      open: (p) => this.setState({ drawerOpen: true, prefill: { source: 'Credit Guide page', ...(p || {}) } }), close: () => this.setState({ drawerOpen: false }),
+      entity: CONFIG.compliance.entity, feePolicy: CONFIG.compliance.feePolicy
+    };
+  }
+}
+</script>
+</body>
+</html>

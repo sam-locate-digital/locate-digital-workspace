@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Reviews carousel</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif">
+<div class="intro intro-row">
+<div>
+<h2 class="h2">{{hLead}}<em class="ul">{{hBrush}}</em>{{hTail}}</h2>
+<sc-if value="{{hasSub}}" hint-placeholder-val="{{ false }}"><p class="lead">{{sub}}</p></sc-if>
+</div>
+<div class="row" style="gap: 16px">
+<p class="small" style="display: flex; align-items: center; gap: 8px; color: #2E3A5C"><span class="stars" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8Z"></path></svg></span><b class="ink">{{average}}</b> average on Google <span class="ph">[PLACEHOLDER]</span></p>
+<sc-if value="{{isRail}}" hint-placeholder-val="{{ true }}">
+<div class="row" style="gap: 8px">
+<button type="button" class="arrow-btn" aria-label="Previous reviews" disabled="{{atStart}}" onClick="{{prev}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="m11 18-6-6 6-6"></path></svg></button>
+<button type="button" class="arrow-btn" aria-label="Next reviews" disabled="{{atEnd}}" onClick="{{next}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></button>
+</div>
+</sc-if>
+</div>
+</div>
+
+<sc-if value="{{isGrid}}" hint-placeholder-val="{{ false }}">
+<div class="filters" role="group" aria-label="Filter reviews">
+<sc-for list="{{filters}}" as="fl" hint-placeholder-count="5"><button type="button" class="chip" aria-pressed="{{fl.on}}" onClick="{{fl.pick}}">{{fl.label}}</button></sc-for>
+</div>
+<div class="rgrid">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="6">
+<article class="rcard">
+<div class="stars" role="img" aria-label="{{c.starsLabel}}"><sc-for list="{{c.stars}}" as="st" hint-placeholder-count="5"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8Z"></path></svg></sc-for></div>
+<blockquote>“{{c.quote}}”</blockquote>
+<footer><b>{{c.name}}</b><span class="cap">{{c.suburb}} · {{c.situationLabel}}</span></footer>
+<div class="rmeta"><span>Google review</span><span>{{c.dateText}}</span></div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isRail}}" hint-placeholder-val="{{ true }}">
+<div class="rv-rail" ref="{{railRef}}" onScroll="{{onScroll}}" tabindex="0" aria-label="Client reviews, scroll sideways" onKeyDown="{{railKeys}}" role="region">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="4">
+<article class="{{c.cls}}" style="--d: {{c.delay}}">
+<div class="stars" role="img" aria-label="{{c.starsLabel}}"><sc-for list="{{c.stars}}" as="st" hint-placeholder-count="5"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8Z"></path></svg></sc-for></div>
+<blockquote>“{{c.quote}}”</blockquote>
+<footer><b>{{c.name}}</b><span class="cap">{{c.suburb}} · {{c.situationLabel}}</span></footer>
+<div class="rmeta"><span>Google review</span><span>{{c.dateText}}</span></div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<p class="cap" style="margin-top: 8px">Illustrative reviews for this demo. A live site only shows genuine reviews, used with permission.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"hLead":{"editor":null},"hBrush":{"editor":null},"hTail":{"editor":null},"sub":{"editor":null},"filterKey":{"editor":null},"filterVal":{"editor":null},"mode":{"editor":null},"$preview":{"width":1440,"height":640}}'>
+const REVIEWS = {
+  note: "Illustrative reviews for the demo only. Replace with genuine reviews used with the client's permission.",
+  average: 4.9,
+  reviews: [
+    { name: "Ben & Aisha R.", suburb: "Doncaster", situation: "first-home", situationLabel: "First home", broker: "claire", rating: 5, date: "2026-09-14", quote: "We thought we were years away. Claire showed us what was possible and walked us through every form. Settled in six weeks." },
+    { name: "Margaret L.", suburb: "Blackburn", situation: "refinance", situationLabel: "Refinance", broker: "tom", rating: 5, date: "2026-08-30", quote: "My fixed rate was about to end. Tom compared it, did the paperwork, and my repayments came down. I didn't call the bank once." },
+    { name: "Raj & Neha P.", suburb: "Glen Waverley", situation: "next-home", situationLabel: "Next home", broker: "priya", rating: 5, date: "2026-08-12", quote: "Buying before selling scared us. Priya explained bridging finance in plain English, and in Hindi for my parents." },
+    { name: "Jess T.", suburb: "Mitcham", situation: "self-employed", situationLabel: "Self-employed", broker: "claire", rating: 5, date: "2026-07-21", quote: "Two banks said no because I'm a sole trader. Harlow found a lender that understood my business." },
+    { name: "David K.", suburb: "Northcote", situation: "invest", situationLabel: "Investing", broker: "tom", rating: 5, date: "2026-07-03", quote: "Quick and honest about what made sense for my second property, including when to wait." },
+    { name: "Lucy & Sam W.", suburb: "Camberwell", situation: "next-home", situationLabel: "Next home", broker: "priya", rating: 5, date: "2026-06-18", quote: "Evening video calls meant we never took time off work. Mia kept us updated at every step." }
+  ]
+};
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const FILTERS = [{ id: '', label: 'All' }, { id: 'first-home', label: 'First home' }, { id: 'next-home', label: 'Next home' }, { id: 'refinance', label: 'Refinance' }, { id: 'invest', label: 'Investing' }, { id: 'self-employed', label: 'Self-employed' }];
+const mentions = (r, key, val) => {
+  if (!key || !val) return false;
+  if (key === 'broker') return r.broker === val || r.quote.toLowerCase().includes(val.toLowerCase());
+  return r[key] === val;
+};
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.railRef = React.createRef();
+    this.state = { atStart: true, atEnd: false, filter: '' };
+  }
+  componentDidMount() { setTimeout(() => this.measure(), 60); }
+  measure() {
+    const el = this.railRef.current; if (!el) return;
+    const atStart = el.scrollLeft <= 4;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+    if (atStart !== this.state.atStart || atEnd !== this.state.atEnd) this.setState({ atStart, atEnd });
+  }
+  scrollBy(dir) {
+    const el = this.railRef.current; if (!el) return;
+    const card = el.querySelector('.rcard:not(.big)') || el.querySelector('.rcard');
+    const w = card ? card.getBoundingClientRect().width + 16 : 340;
+    let reduce = false; try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    el.scrollBy({ left: dir * w, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  renderVals() {
+    const p = this.props; const mode = p.mode === 'grid' ? 'grid' : 'rail';
+    let list = REVIEWS.reviews.slice();
+    if (mode === 'grid') {
+      if (this.state.filter) list = list.filter((r) => r.situation === this.state.filter);
+    } else if (p.filterKey && p.filterVal) {
+      const a = list.filter((r) => mentions(r, p.filterKey, p.filterVal));
+      const b = list.filter((r) => !mentions(r, p.filterKey, p.filterVal));
+      list = a.concat(b);
+    }
+    const cards = list.map((r, i) => {
+      const d = new Date(r.date + 'T12:00:00');
+      return { ...r, cls: 'rcard rv from-r' + (i === 0 && mode === 'rail' ? ' big' : ''), delay: (Math.min(i, 4) * 80) + 'ms', stars: Array.from({ length: r.rating }, (_, k) => k), starsLabel: r.rating + ' out of 5 stars', dateText: d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear() };
+    });
+    return {
+      hLead: p.hLead ?? "Clients who've ", hBrush: p.hBrush ?? 'made', hTail: p.hTail ?? ' their move',
+      sub: p.sub || '', hasSub: !!p.sub,
+      average: REVIEWS.average.toFixed(1),
+      isRail: mode === 'rail', isGrid: mode === 'grid',
+      cards, railRef: this.railRef,
+      atStart: this.state.atStart, atEnd: this.state.atEnd,
+      onScroll: () => this.measure(),
+      prev: () => this.scrollBy(-1), next: () => this.scrollBy(1),
+      railKeys: (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); this.scrollBy(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); this.scrollBy(-1); } },
+      filters: FILTERS.map((f) => ({ ...f, on: this.state.filter === f.id, pick: () => this.setState({ filter: f.id }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Client reviews | Harlow Home Loans</title>
+<meta name="description" content="What first home buyers, refinancers, investors and self-employed clients say about Harlow Home Loans.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="" hint-size="100%,112px"></dc-import>
+<main id="main">
+
+<section class="phero" id="hero" aria-labelledby="ph-h" style="padding-bottom: 32px">
+<div class="wrap">
+<h1 class="h1 hero-in" id="ph-h" style="max-width: 18ch">What our clients say</h1>
+<p class="lead hero-in" style="--d: 80ms; max-width: 680px">Reviews from first home buyers, families moving on, refinancers, investors and business owners across Melbourne. Filter by what you're planning.</p>
+</div>
+</section>
+
+<section class="band" aria-label="All reviews" style="padding-top: 0">
+<div class="wrap rv rise">
+<dc-import name="ReviewRail" mode="grid" h-lead="Every review, in one " h-brush="place" h-tail="" hint-size="100%,900px"></dc-import>
+</div>
+</section>
+
+<dc-import name="CtaBand" h-lead="Ready to make your " h-brush="move" h-tail="?" sub="Book a free 20-minute chat." prefill="{{inlinePrefill}}" hint-size="100%,900px"></dc-import>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3800}}'>
+const SOURCE = 'Reviews page';
+
+function harlowReveal() {
+  const root = document.documentElement;
+  if (root.__hrv) { root.__hrv.scan(); return; }
+  if (!('IntersectionObserver' in window)) return;
+  root.classList.add('js-rv');
+  const sel = '.rv:not(.in), .ul:not(.in)';
+  const io = new IntersectionObserver((ents) => ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(sel).forEach((el) => { if (!seen.has(el)) { seen.add(el); io.observe(el); } });
+  const fallback = () => { const h = window.innerHeight || 800; document.querySelectorAll(sel).forEach((el) => { if (el.getBoundingClientRect().top < h * 0.96) el.classList.add('in'); }); };
+  let t = 0; const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(scan, 40); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('scroll', fallback, { passive: true });
+  window.addEventListener('beforeprint', () => document.querySelectorAll(sel).forEach((el) => el.classList.add('in')));
+  scan(); setTimeout(fallback, 900); setTimeout(fallback, 2500);
+  root.__hrv = { scan };
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {} };
+    this.inlinePrefill = { source: SOURCE };
+  }
+  componentDidMount() { harlowReveal(); }
+  open(p) { const q = { ...(p || {}) }; if (!q.situation) delete q.situation; this.setState({ drawerOpen: true, prefill: { source: SOURCE, ...q } }); }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill, inlinePrefill: this.inlinePrefill,
+      open: (p) => this.open(p), close: () => this.setState({ drawerOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

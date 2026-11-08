@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Header and promo bar</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="display: contents">
+<a class="skip" href="#main">Skip to content</a>
+
+<sc-if value="{{showPromo}}" hint-placeholder-val="{{ true }}">
+<div class="promo" role="region" aria-label="Rate review offer">
+<p>{{promo}}</p>
+<button type="button" class="promo-go" aria-label="Book a free rate review" onClick="{{openRefi}}"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></button>
+<button type="button" class="promo-x" aria-label="Dismiss this message" onClick="{{dismiss}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+</sc-if>
+
+<header class="{{hdrClass}}">
+<div class="wrap hdr-in">
+<a class="wm" href="Main.dc.html" aria-label="Harlow Home Loans, home"><b>{{brandShort}}</b><i>Home Loans</i></a>
+
+<nav class="nav" aria-label="Main">
+<div class="nav-dd" onMouseLeave="{{closeDd}}" onKeyDown="{{ddKey}}" onBlur="{{ddBlur}}">
+<button type="button" class="nav-a" aria-expanded="{{ddOpen}}" aria-controls="buying-panel" onClick="{{toggleDd}}" aria-current="{{curBuying}}">Buying <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{ false }}">
+<div class="dd" id="buying-panel">
+<a href="FirstHome.dc.html"><b>First home</b><span>Deposits, schemes and pre-approval</span></a>
+<a href="NextHome.dc.html"><b>Next home</b><span>Buying before you sell, bridging</span></a>
+<a href="Building.dc.html"><b>Building</b><span>Construction loans, step by step</span></a>
+<a href="SelfEmployed.dc.html"><b>Self-employed</b><span>Lenders who get business income</span></a>
+</div>
+</sc-if>
+</div>
+<a class="nav-a" href="Refinancing.dc.html" aria-current="{{curRefi}}">Refinancing</a>
+<a class="nav-a" href="Investing.dc.html" aria-current="{{curInvest}}">Investing</a>
+<a class="nav-a" href="Guides.dc.html" aria-current="{{curGuides}}">Guides</a>
+<a class="nav-a" href="Team.dc.html" aria-current="{{curAbout}}">About</a>
+</nav>
+
+<button type="button" class="hdr-pill" onClick="{{openBlank}}" tabindex="{{pillTab}}">What are you planning? <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></span></button>
+
+<div class="hdr-right">
+<a class="hdr-phone" href="{{phoneHref}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>{{phone}}</a>
+<button type="button" class="btn btn-primary btn-sm hdr-book" onClick="{{openBlank}}">Book a free chat</button>
+<button type="button" class="menu-btn" aria-expanded="{{menuOpen}}" aria-controls="mobile-nav" aria-label="{{menuLabel}}" onClick="{{toggleMenu}}">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
+</button>
+</div>
+</div>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" id="mobile-nav" aria-label="Mobile">
+<div class="wrap">
+<span class="mnav-h">Buying</span>
+<a class="sub" href="FirstHome.dc.html">First home <span aria-hidden="true">›</span></a>
+<a class="sub" href="NextHome.dc.html">Next home <span aria-hidden="true">›</span></a>
+<a class="sub" href="Building.dc.html">Building <span aria-hidden="true">›</span></a>
+<a class="sub" href="SelfEmployed.dc.html">Self-employed <span aria-hidden="true">›</span></a>
+<span class="mnav-h">More</span>
+<a href="Refinancing.dc.html">Refinancing <span aria-hidden="true">›</span></a>
+<a href="HealthCheck.dc.html">Refinance health check <span aria-hidden="true">›</span></a>
+<a href="Investing.dc.html">Investing <span aria-hidden="true">›</span></a>
+<a href="Team.dc.html">About and team <span aria-hidden="true">›</span></a>
+<a href="Reviews.dc.html">Reviews <span aria-hidden="true">›</span></a>
+<a href="Guides.dc.html">Guides <span aria-hidden="true">›</span></a>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 20px">
+<a class="btn btn-secondary" href="{{phoneHref}}" style="border: 0; min-height: 52px; justify-content: center">Call us</a>
+<button type="button" class="btn btn-primary" onClick="{{openBlank}}" style="min-height: 52px">Book a free chat</button>
+</div>
+</div>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{showBar}}" hint-placeholder-val="{{ false }}">
+<div class="callbar show" role="region" aria-label="Quick contact" style="animation: heroUp .35s cubic-bezier(.2,.7,.2,1) both">
+<a class="btn btn-secondary" href="{{phoneHref}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>Call</a>
+<button type="button" class="btn btn-primary" onClick="{{openBlank}}">Book a free chat</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onOpen":{"editor":null},"drawerOpen":{"editor":null},"active":{"editor":null},"$preview":{"width":1440,"height":260}}'>
+const CONFIG = {
+  brand: { short: "Harlow" },
+  contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861" },
+  promo: "Fixed rate ending soon? Book a free rate review before it rolls onto a higher variable rate."
+};
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let hidden = false;
+    try { hidden = sessionStorage.getItem('harlow-promo') === 'x'; } catch (e) {}
+    this.state = { promoHidden: hidden, ddOpen: false, menuOpen: false, past: false, bar: false };
+    this.onScroll = this.onScroll.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+  }
+  onScroll() {
+    const y = window.scrollY || 0;
+    const hero = document.getElementById('hero');
+    const past = hero ? hero.getBoundingClientRect().bottom < 80 : y > 260;
+    const bar = y > 300;
+    if (past !== this.state.past || bar !== this.state.bar) this.setState({ past, bar });
+  }
+  open(prefill) {
+    this.setState({ menuOpen: false, ddOpen: false });
+    const fn = this.props.onOpen;
+    if (typeof fn === 'function') fn(prefill || {});
+  }
+  renderVals() {
+    const a = this.props.active || '';
+    const cur = (k) => (a === k ? 'page' : undefined);
+    const s = this.state;
+    return {
+      promo: CONFIG.promo,
+      brandShort: CONFIG.brand.short,
+      phone: CONFIG.contact.phone,
+      phoneHref: CONFIG.contact.phoneHref,
+      showPromo: !s.promoHidden,
+      hdrClass: 'hdr' + (s.past ? ' is-past' : ''),
+      pillTab: s.past ? 0 : -1,
+      ddOpen: s.ddOpen,
+      menuOpen: s.menuOpen,
+      menuClosed: !s.menuOpen,
+      menuLabel: s.menuOpen ? 'Close menu' : 'Open menu',
+      showBar: s.bar && !this.props.drawerOpen && !s.menuOpen,
+      curBuying: cur('buying'), curRefi: cur('refinancing'), curInvest: cur('investing'), curGuides: cur('guides'), curAbout: cur('about'),
+      openRefi: () => this.open({ situation: 'refinance', source: 'Promo bar' }),
+      openBlank: () => this.open({ source: 'Header' }),
+      dismiss: () => { try { sessionStorage.setItem('harlow-promo', 'x'); } catch (e) {} this.setState({ promoHidden: true }); },
+      toggleDd: () => this.setState({ ddOpen: !s.ddOpen }),
+      closeDd: () => { if (s.ddOpen) this.setState({ ddOpen: false }); },
+      ddKey: (e) => { if (e.key === 'Escape' && s.ddOpen) { this.setState({ ddOpen: false }); const b = e.currentTarget.querySelector('button'); if (b) b.focus(); } },
+      ddBlur: (e) => { const wrap = e.currentTarget; setTimeout(() => { if (!wrap.contains(document.activeElement) && this.state.ddOpen) this.setState({ ddOpen: false }); }, 0); },
+      toggleMenu: () => this.setState({ menuOpen: !s.menuOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>

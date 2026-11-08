@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Privacy Policy | Harlow Home Loans</title>
+<meta name="description" content="Harlow Home Loans Privacy Policy (placeholder for the demo site).">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="" hint-size="100%,112px"></dc-import>
+<main id="main">
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap">
+<div class="prose">
+<h1 class="h1 hero-in" id="ph-h" style="max-width: none">Privacy Policy</h1>
+<p class="legal-note hero-in" style="--d: 80ms; margin-top: 20px">Placeholder. Replace this page with the Privacy Policy supplied by <span class="ph">[Aggregator PLACEHOLDER] Pty Ltd</span> before the site goes live.</p>
+<h2>What we collect</h2>
+<p>The details you give us in an enquiry or booking: your name, contact details, the situation you're asking about and any figures you choose to share.</p>
+<h2>How we use it</h2>
+<p>To contact you about your enquiry and, if you go ahead, to arrange a loan. We don't sell your information.</p>
+<h2>Credit checks</h2>
+<p>We don't run a credit check for a first chat or an estimate. If you apply for a loan, the lender will, with your consent.</p>
+<h2>Access and correction</h2>
+<p>You can ask to see or correct the information we hold about you by emailing <a href="{{mailHref}}">{{email}}</a>.</p>
+</div>
+</div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+const CONFIG = { contact: { email: "hello@harlowhomeloans.example" } };
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { drawerOpen: false, prefill: {} }; }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill,
+      open: (p) => this.setState({ drawerOpen: true, prefill: { source: 'Privacy page', ...(p || {}) } }), close: () => this.setState({ drawerOpen: false }),
+      email: CONFIG.contact.email, mailHref: 'mailto:' + CONFIG.contact.email
+    };
+  }
+}
+</script>
+</body>
+</html>

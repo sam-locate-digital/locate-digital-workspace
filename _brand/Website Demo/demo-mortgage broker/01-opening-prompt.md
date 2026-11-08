@@ -1,0 +1,7 @@
+Act as an award-winning web designer with a $50,000 budget. Build a full, working demo website for a fictional Melbourne mortgage broker called Harlow Home Loans, based in Melbourne's eastern suburbs. It will be shown to real mortgage brokers as a sales demo, so it must feel finished and real: working enquiry and booking forms, working calculators, click-to-call, a mobile call bar, and smooth but restrained motion.
+
+Use the attached brief (02-brief.md) as the single source of truth for brand, copy, layout, motion, imagery and compliance. Use config.js for all business details, reviews.json for reviews, and the images folder for photography (file names match the brief). The look borrows Opendoor's warm, tactile feel (soft off-white canvas, brown-tinted neutrals, one royal-blue accent, bevelled "pressable" buttons), but the content is a local broking business.
+
+Rules that override anything else: no Inter, Poppins, DM Sans, Manrope, Plus Jakarta Sans, Space Grotesk, Figtree, Fraunces or Instrument Serif anywhere. No stock "STEP 1" cards or generic icon-in-circle cards. No dark full-width bands. No interest rates, savings figures or approval promises shown as fact: every number is marked [PLACEHOLDER] or comes from the calculators with the disclaimer beside it. Respect prefers-reduced-motion. Mobile first, up to 1440px.
+
+Start with the homepage, then build the page templates in the order listed.

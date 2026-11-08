@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Footer and compliance</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<footer class="ftr" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif">
+<div class="wrap">
+<div class="fcols">
+<div class="fcol">
+<a class="wm" href="Main.dc.html" aria-label="Harlow Home Loans, home"><b>{{brandShort}}</b><i>Home Loans</i></a>
+<p style="margin-top: 12px; max-width: 340px">A small, family-run broking team helping buyers and homeowners across Melbourne.</p>
+</div>
+<div class="fcol">
+<h4>Buying</h4>
+<ul>
+<li><a href="FirstHome.dc.html">First home</a></li>
+<li><a href="NextHome.dc.html">Next home</a></li>
+<li><a href="Building.dc.html">Building</a></li>
+<li><a href="SelfEmployed.dc.html">Self-employed</a></li>
+</ul>
+</div>
+<div class="fcol">
+<h4>Refinancing and investing</h4>
+<ul>
+<li><a href="Refinancing.dc.html">Refinancing</a></li>
+<li><a href="HealthCheck.dc.html">Refinance health check</a></li>
+<li><a href="Investing.dc.html">Investing</a></li>
+<li><a href="Guides.dc.html">Guides</a></li>
+<li><a href="Reviews.dc.html">Reviews</a></li>
+</ul>
+</div>
+<div class="fcol">
+<h4>Contact</h4>
+<ul>
+<li><a href="{{phoneHref}}">{{phone}}</a></li>
+<li><a href="{{mailHref}}">{{email}}</a></li>
+<li><a href="Team.dc.html">Our team</a></li>
+<li><a href="Book.dc.html">Book a free chat</a></li>
+</ul>
+<p class="small" style="margin-top: 10px; color: #5B6684">{{office}}<br>{{hours}}</p>
+</div>
+</div>
+
+<div class="comp">
+<p>{{entity}} ABN <span class="ph">{{abn}}</span> (Credit Representative <span class="ph">{{creditRep}}</span>) is authorised under Australian Credit Licence <span class="ph">{{acl}}</span> held by <span class="ph">{{licensee}}</span>. {{generalInfo}}</p>
+<p>{{feePolicy}} <span class="ph">[PLACEHOLDER: confirm fee policy]</span> Reviews shown on this demo site are illustrative.</p>
+</div>
+
+<div class="fbot">
+<a href="CreditGuide.dc.html">Credit Guide</a>
+<a href="Privacy.dc.html">Privacy Policy</a>
+<a href="Complaints.dc.html">Complaints</a>
+<a href="Terms.dc.html">Terms</a>
+<span>© 2026 {{brandName}}</span>
+</div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":720}}'>
+const CONFIG = {
+  brand: { name: "Harlow Home Loans", short: "Harlow" },
+  contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861", email: "hello@harlowhomeloans.example", office: "[PLACEHOLDER suburb] VIC" },
+  hours: "Mon–Fri 8:30am–6pm, Sat by appointment, evening video calls",
+  compliance: {
+    entity: "Harlow Home Loans Pty Ltd",
+    abn: "[PLACEHOLDER]",
+    creditRep: "[PLACEHOLDER]",
+    licensee: "[Aggregator PLACEHOLDER] Pty Ltd",
+    acl: "[PLACEHOLDER]",
+    feePolicy: "Our service is usually free to you. Lenders pay us a commission when your loan settles, and we'll show you exactly how much before you choose.",
+    generalInfo: "The information on this website is general only and doesn't take into account your objectives, financial situation or needs. Your full financial situation will need to be reviewed before any loan offer."
+  }
+};
+class Component extends DCLogic {
+  renderVals() {
+    const c = CONFIG.compliance;
+    return {
+      brandShort: CONFIG.brand.short, brandName: CONFIG.brand.name,
+      phone: CONFIG.contact.phone, phoneHref: CONFIG.contact.phoneHref,
+      email: CONFIG.contact.email, mailHref: 'mailto:' + CONFIG.contact.email,
+      office: CONFIG.contact.office + ' [PLACEHOLDER street address]', hours: CONFIG.hours,
+      entity: c.entity, abn: c.abn, creditRep: c.creditRep, acl: c.acl, licensee: c.licensee,
+      generalInfo: c.generalInfo, feePolicy: c.feePolicy
+    };
+  }
+}
+</script>
+</body>
+</html>

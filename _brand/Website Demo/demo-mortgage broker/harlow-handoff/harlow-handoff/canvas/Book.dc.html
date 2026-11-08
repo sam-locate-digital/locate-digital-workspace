@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Book a free chat | Harlow Home Loans</title>
+<meta name="description" content="Book a free 20-minute chat with a Harlow Home Loans broker. Phone, video or at our office. No credit check.">
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/bb73c46a29dda8d5bc98263b6ddb0aa1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="page" style="font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; color: #46506A">
+<dc-import name="Header" on-open="{{open}}" drawer-open="{{drawerOpen}}" active="" hint-size="100%,112px"></dc-import>
+<main id="main">
+<section class="phero" id="hero" aria-labelledby="ph-h">
+<div class="wrap cta-grid" style="align-items: start">
+<div class="hero-in" style="--d: 120ms; order: 2">
+<dc-import name="Enquiry" variant="inline" prefill="{{inlinePrefill}}" hint-size="100%,640px"></dc-import>
+</div>
+<div style="order: 1">
+<h1 class="h1 hero-in" id="ph-h">Book a free 20-minute chat</h1>
+<p class="lead hero-in" style="--d: 60ms">Tell us a little about your plans, pick a time and a broker, and we'll call you. It ends with a clear answer on roughly what you could borrow and your best next step.</p>
+<ul class="hl-list hero-in" style="--d: 120ms; margin-top: 28px">
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>No obligation, no credit check</b><p>A first chat and estimate don't touch your credit file.</p></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Phone, video or our office</b><p>Evening video calls and Saturday appointments too.</p></li>
+<li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg><b>Usually free to you</b><p>{{feePolicy}}</p></li>
+</ul>
+<p class="cap hero-in" style="--d: 180ms; margin-top: 24px">Rather talk now? Call <a href="{{phoneHref}}">{{phone}}</a>. {{hours}}.</p>
+</div>
+</div>
+</section>
+</main>
+<dc-import name="Footer" hint-size="100%,560px"></dc-import>
+<dc-import name="Enquiry" variant="drawer" open="{{drawerOpen}}" prefill="{{prefill}}" on-close="{{close}}" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+const CONFIG = {
+  contact: { phone: "(03) 5550 2861", phoneHref: "tel:+61355502861" },
+  hours: "Mon–Fri 8:30am–6pm, Sat by appointment, evening video calls",
+  feePolicy: "Lenders pay us a commission when your loan settles, and we'll show you exactly how much before you choose."
+};
+const SOURCE = 'Book page';
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { drawerOpen: false, prefill: {} };
+    this.inlinePrefill = { source: SOURCE };
+  }
+  open(p) { this.setState({ drawerOpen: true, prefill: { source: SOURCE, ...(p || {}) } }); }
+  renderVals() {
+    return {
+      drawerOpen: this.state.drawerOpen, prefill: this.state.prefill, inlinePrefill: this.inlinePrefill,
+      open: (p) => this.open(p), close: () => this.setState({ drawerOpen: false }),
+      phone: CONFIG.contact.phone, phoneHref: CONFIG.contact.phoneHref, hours: CONFIG.hours, feePolicy: CONFIG.feePolicy
+    };
+  }
+}
+</script>
+</body>
+</html>

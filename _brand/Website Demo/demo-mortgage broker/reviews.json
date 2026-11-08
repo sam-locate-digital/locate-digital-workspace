@@ -1,0 +1,12 @@
+{
+  "note": "Illustrative reviews for the demo only. Replace with genuine reviews used with the client's permission.",
+  "average": 4.9,
+  "reviews": [
+    { "name": "Ben & Aisha R.", "suburb": "Doncaster", "situation": "first-home", "situationLabel": "First home", "broker": "claire", "rating": 5, "date": "2026-09-14", "quote": "We thought we were years away. Claire showed us what was possible and walked us through every form. Settled in six weeks." },
+    { "name": "Margaret L.", "suburb": "Blackburn", "situation": "refinance", "situationLabel": "Refinance", "broker": "tom", "rating": 5, "date": "2026-08-30", "quote": "My fixed rate was about to end. Tom compared it, did the paperwork, and my repayments came down. I didn't call the bank once." },
+    { "name": "Raj & Neha P.", "suburb": "Glen Waverley", "situation": "next-home", "situationLabel": "Next home", "broker": "priya", "rating": 5, "date": "2026-08-12", "quote": "Buying before selling scared us. Priya explained bridging finance in plain English, and in Hindi for my parents." },
+    { "name": "Jess T.", "suburb": "Mitcham", "situation": "self-employed", "situationLabel": "Self-employed", "broker": "claire", "rating": 5, "date": "2026-07-21", "quote": "Two banks said no because I'm a sole trader. Harlow found a lender that understood my business." },
+    { "name": "David K.", "suburb": "Box Hill", "situation": "invest", "situationLabel": "Investing", "broker": "tom", "rating": 5, "date": "2026-07-03", "quote": "Quick and honest about what made sense for my second property, including when to wait." },
+    { "name": "Lucy & Sam W.", "suburb": "Camberwell", "situation": "next-home", "situationLabel": "Next home", "broker": "priya", "rating": 5, "date": "2026-06-18", "quote": "Evening video calls meant we never took time off work. Mia kept us updated at every step." }
+  ]
+}
