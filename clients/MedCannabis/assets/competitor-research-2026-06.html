@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicinal cannabis — Melbourne competitive landscape | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --g-dark: #1a3a2e;
+    --g-mid: #2d5a4a;
+    --g-light: #eaf0eb;
+    --gold: #b8913a;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5c6b62;
+    --border: #cfd8d0;
+    --red: #c0392b;
+    --amber: #e67e22;
+    --green-ok: #27ae60;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+  /* Cover */
+  .cover {
+    background: var(--g-dark);
+    color: var(--white);
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(184,145,58,0.08);
+    pointer-events: none;
+  }
+  .cover-tag { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .cover h1 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; line-height: 1.15; margin-bottom: 20px; max-width: 700px; }
+  .cover-sub { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 540px; margin-bottom: 48px; }
+  .cover-meta { display: flex; gap: 48px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; }
+  .cover-meta-item { }
+  .cover-meta-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
+  .cover-meta-val { font-size: 15px; color: var(--white); }
+  .locate-badge { position: absolute; bottom: 60px; right: 60px; text-align: right; }
+  .locate-badge span { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .locate-badge strong { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+  /* Layout */
+  .page { max-width: 960px; margin: 0 auto; padding: 64px 40px; }
+  .section { margin-bottom: 72px; }
+
+  /* Headings */
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--g-dark); margin-bottom: 8px; line-height: 1.2; }
+  h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: var(--g-dark); margin-bottom: 16px; }
+  .section-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-divider { width: 48px; height: 3px; background: var(--gold); margin: 16px 0 32px; }
+
+  /* Stat boxes */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+  .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px 20px; }
+  .stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; color: var(--g-dark); line-height: 1; margin-bottom: 8px; }
+  .stat-box .num span { font-size: 22px; }
+  .stat-box .label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .stat-box.gold { border-color: var(--gold); }
+  .stat-box.gold .num { color: var(--gold); }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: var(--g-dark); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.05em; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--g-light); }
+  tr:hover td { background: #dce8de; }
+
+  /* Score dots */
+  .score { display: inline-flex; gap: 3px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+  .dot.fill { background: var(--g-mid); }
+  .dot.gold { background: var(--gold); }
+
+  /* Gap matrix */
+  .gap-yes { color: var(--green-ok); font-weight: 600; }
+  .gap-no { color: var(--red); font-weight: 600; }
+  .gap-partial { color: var(--amber); font-weight: 600; }
+
+  /* Competitor cards */
+  .comp-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 32px; margin-bottom: 24px; }
+  .comp-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .comp-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--g-dark); }
+  .comp-owner { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .comp-grade { background: var(--g-light); border: 1px solid var(--border); border-radius: 6px; padding: 8px 16px; text-align: center; }
+  .comp-grade .grade { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--g-dark); line-height: 1; }
+  .comp-grade .grade-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .comp-section label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+  .comp-section p { font-size: 14px; }
+  .quote { font-style: italic; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 14px; margin: 10px 0; font-size: 13px; }
+  .flag { background: #fef3e2; border: 1px solid #f0d090; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #7a5a1a; margin-top: 10px; }
+
+  /* Opportunity cards */
+  .opp-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .opp-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .opp-card.primary { border-color: var(--gold); border-width: 2px; }
+  .opp-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 700; color: var(--g-light); line-height: 1; margin-bottom: 8px; }
+  .opp-card.primary .opp-num { color: rgba(184,145,58,0.25); }
+  .opp-title { font-weight: 600; font-size: 15px; color: var(--g-dark); margin-bottom: 8px; }
+  .opp-evidence { font-size: 13px; color: var(--muted); border-left: 3px solid var(--border); padding-left: 12px; margin-bottom: 8px; }
+  .opp-card.primary .opp-evidence { border-color: var(--gold); }
+  .opp-action { font-size: 13px; background: var(--g-light); border-radius: 5px; padding: 8px 12px; }
+
+  /* Grade badges */
+  .grade-a { color: var(--green-ok); font-weight: 700; }
+  .grade-b { color: #2980b9; font-weight: 700; }
+  .grade-c { color: var(--amber); font-weight: 700; }
+  .grade-d { color: var(--red); font-weight: 700; }
+
+  /* Keywords */
+  .kw-intent-high { background: #e8f5e9; color: #2e7d32; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+  .kw-intent-med { background: #fff8e1; color: #e65100; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+
+  /* Recommendation */
+  .rec-box { background: var(--g-dark); color: var(--white); border-radius: 10px; padding: 40px; }
+  .rec-box h3 { color: var(--gold); margin-bottom: 16px; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+  .rec-box h2 { color: var(--white); font-size: 28px; margin-bottom: 20px; }
+  .rec-box p { color: rgba(255,255,255,0.8); margin-bottom: 16px; }
+  .rec-actions { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rec-action { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 16px; }
+  .rec-action-timing { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .rec-action p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; }
+
+  /* Summary box */
+  .exec-summary { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 24px 28px; margin-bottom: 40px; }
+  .exec-summary p { font-size: 15px; margin-bottom: 8px; }
+  .exec-summary p:last-child { margin-bottom: 0; }
+
+  /* Warning */
+  .warn { background: #fdf2f2; border: 1px solid #e8b4b4; border-radius: 8px; padding: 16px 20px; font-size: 13px; color: #8b2020; margin-bottom: 24px; }
+
+  /* Footer */
+  .doc-footer { background: var(--g-dark); color: rgba(255,255,255,0.4); font-size: 12px; padding: 24px 40px; text-align: center; margin-top: 80px; }
+
+  @media (max-width: 700px) {
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .opp-cards { grid-template-columns: 1fr; }
+    .rec-actions { grid-template-columns: 1fr; }
+    .cover h1 { font-size: 34px; }
+    .cover { padding: 48px 28px; }
+    .page { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-tag">Competitive intelligence report</div>
+  <h1>Medicinal cannabis — Melbourne competitive landscape</h1>
+  <div class="cover-sub">Market analysis, competitor deep-dives, and strategic positioning for a new independent clinic and dispensary entering the Melbourne market in 2026.</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Prepared for</div>
+      <div class="cover-meta-val">[Client name TBC]</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Date</div>
+      <div class="cover-meta-val">June 2026</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Competitors covered</div>
+      <div class="cover-meta-val">Alternaleaf, Polln, Trueleaf</div>
+    </div>
+  </div>
+  <div class="locate-badge">
+    <span>Prepared by</span>
+    <strong>Locate Digital</strong>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- Executive summary -->
+<div class="section">
+  <div class="section-tag">Executive summary</div>
+  <h2>The short version</h2>
+  <div class="section-divider"></div>
+  <div class="exec-summary">
+    <p>The Melbourne medicinal cannabis market is growing fast, but the patient experience is poor. Two of the three dominant players are owned by cannabis suppliers, creating a structural conflict of interest that regulators, the media, and increasingly patients are noticing. Consultation quality has been called out publicly.</p>
+    <p>That creates a clear opening. A clinic that is genuinely independent, offers in-person care, and applies Medicare rebates sits in a category of one locally. This isn't a niche, it's an underserved segment of a 224,000-patient-approval market growing at 13% a year.</p>
+    <p>The biggest single opportunity: GP and specialist outreach. Only 52% of Australian GPs feel comfortable discussing medicinal cannabis with patients. An independent clinic that positions itself as a trusted referral destination, not a competitor, can build a referral pipeline that no telehealth-only service can replicate.</p>
+  </div>
+</div>
+
+<!-- Market context -->
+<div class="section">
+  <div class="section-tag">Market context</div>
+  <h2>The market in numbers</h2>
+  <div class="section-divider"></div>
+  <div class="stat-row">
+    <div class="stat-box gold">
+      <div class="num">$595<span>M USD</span></div>
+      <div class="label">Australian medicinal cannabis market value, 2025</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">13<span>%</span></div>
+      <div class="label">Compound annual growth rate to 2033</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">224<span>k</span></div>
+      <div class="label">TGA SAS-B approvals in 2025, up 26% year on year</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">$278</div>
+      <div class="label">Average monthly patient spend on cannabis products</div>
+    </div>
+  </div>
+
+  <p style="margin-bottom:16px;">The sector is not slowing down. In the first half of 2025 alone, the TGA processed 113,000 SAS-B applications, a 27% increase on the same period the previous year. Flower-based products overtook oils as the most prescribed form. The top three conditions driving approvals are anxiety, chronic pain, and sleep disorders — all well within the patient profile this clinic will serve.</p>
+
+  <p style="margin-bottom:16px;">At the consolidation end of the market, Little Green Pharma and Cannatrek merged in 2026 to create a combined entity with approximately $112 million AUD in revenue. Vitura Health reported H1 FY2026 revenues of $67.9 million, up 8.3% on the prior period. The supply side is mature and scaling. On the patient access side, the gap between supply and quality clinical care is still wide.</p>
+
+  <div class="warn"><strong>Advertising constraint:</strong> Section 42DL of the Therapeutic Goods Act prohibits advertising Schedule 4 and Schedule 8 medicines to the general public. Google Ads and Meta both block cannabis advertising. The market is growing without paid acquisition, which means clinical reputation, referral networks, and organic search are the only real channels — and nobody is doing them particularly well.</div>
+</div>
+
+<!-- Competitive matrix -->
+<div class="section">
+  <div class="section-tag">Competitive matrix</div>
+  <h2>How the field scores</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:24px;">Scored 1–5 against eight dimensions. Every score has a source — nothing is assumed.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Alternaleaf</th>
+        <th>Polln</th>
+        <th>Trueleaf</th>
+        <th>New clinic (target)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Clinical independence</strong><br><span style="font-size:12px;color:#5c6b62;">No commercial ties to suppliers</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — owned by Montu (cannabis supplier)</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — owned by Nectar Brands (owns Cultiva)</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span></span><br><span style="font-size:12px;">5 — explicitly brand agnostic</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span></span><br><span style="font-size:12px;">5 — target position</span></td>
+      </tr>
+      <tr>
+        <td><strong>Physical presence</strong><br><span style="font-size:12px;color:#5c6b62;">Melbourne clinic/dispensary</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — telehealth only nationally</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">2 — some physical presence in Melbourne</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — physical clinic + dispensary, Prahran</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — clinic + dispensary + delivery</span></td>
+      </tr>
+      <tr>
+        <td><strong>Consultation quality</strong><br><span style="font-size:12px;color:#5c6b62;">Depth and time per patient</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">2 — 10-min consults, 3.5-min case reported by CHOICE</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">3 — 30-min initial consult</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — in-person, no commercial pressure</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span></span><br><span style="font-size:12px;">5 — target</span></td>
+      </tr>
+      <tr>
+        <td><strong>Medicare rebate</strong><br><span style="font-size:12px;color:#5c6b62;">Bulk bill or rebate available</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — not applicable (not Medicare-eligible)</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — flat fee, no Medicare</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — Medicare rebates 45–60% for face-to-face</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — confirm with billing team</span></td>
+      </tr>
+      <tr>
+        <td><strong>Digital visibility</strong><br><span style="font-size:12px;color:#5c6b62;">SEO, GMB, social reach</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span></span><br><span style="font-size:12px;">5 — 200k patients, top-ranking nationally</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — 20k patients, solid SEO</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">2 — thin website, limited content</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — starting from zero</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pricing transparency</strong><br><span style="font-size:12px;color:#5c6b62;">Consultation fees published</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — $0 nurse / $29 doctor shown clearly</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span></span><br><span style="font-size:12px;">5 — $79 initial shown; no hidden costs stated</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">1 — no pricing on site</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — publish upfront, including Medicare out-of-pocket</span></td>
+      </tr>
+      <tr>
+        <td><strong>Public trust and reputation</strong><br><span style="font-size:12px;color:#5c6b62;">Reviews, media, independence</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">3 — large review volume but CHOICE investigation is a liability</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">3 — 98% recommend stat, supplier ties undisclosed</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — genuine independence is a real differentiator</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — build on independence + GP relationships</span></td>
+      </tr>
+      <tr>
+        <td><strong>Conditions breadth</strong><br><span style="font-size:12px;color:#5c6b62;">Range of conditions treated</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span></span><br><span style="font-size:12px;">5 — 140+ conditions claimed</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span></span><br><span style="font-size:12px;">5 — 140 health concerns listed</span></td>
+        <td><span class="score"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span></span><br><span style="font-size:12px;">3 — pain, sleep, stress, mood</span></td>
+        <td><span class="score"><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot gold"></span><span class="dot"></span></span><br><span style="font-size:12px;">4 — four primary condition pillars to lead with</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Product gap matrix -->
+<div class="section">
+  <div class="section-tag">Product gap matrix</div>
+  <h2>What the competitors offer vs what you offer</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:24px;">Based on public-facing pages and confirmed via site searches. Manual verification recommended before using in client communications.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Alternaleaf</th>
+        <th>Polln</th>
+        <th>Trueleaf</th>
+        <th>New clinic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>In-person consultations</strong></td>
+        <td class="gap-no">✗ telehealth only</td>
+        <td class="gap-partial">Partial — some Melbourne presence</td>
+        <td class="gap-yes">✓ Prahran, VIC</td>
+        <td class="gap-yes">✓ physical clinic</td>
+      </tr>
+      <tr>
+        <td><strong>On-site dispensary (walk-in)</strong></td>
+        <td class="gap-no">✗</td>
+        <td class="gap-no">✗</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Online / delivery dispensing</strong></td>
+        <td class="gap-yes">✓ 24/7</td>
+        <td class="gap-yes">✓ same-day dispatch</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Telehealth consultations</strong></td>
+        <td class="gap-yes">✓ core model</td>
+        <td class="gap-yes">✓ core model</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>External script dispensing</strong></td>
+        <td class="gap-no">✗ own scripts only</td>
+        <td class="gap-no">✗ own scripts only</td>
+        <td class="gap-partial">Partial — likely accepts some</td>
+        <td class="gap-yes">✓ key differentiator</td>
+      </tr>
+      <tr>
+        <td><strong>Brand agnostic prescribing</strong></td>
+        <td class="gap-no">✗ prescribes Montu brands</td>
+        <td class="gap-no">✗ prescribes Cultiva brands</td>
+        <td class="gap-yes">✓ explicitly stated</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Medicare rebate eligible</strong></td>
+        <td class="gap-no">✗</td>
+        <td class="gap-no">✗</td>
+        <td class="gap-yes">✓ 45–60% face-to-face</td>
+        <td class="gap-yes">✓ confirm schedule</td>
+      </tr>
+      <tr>
+        <td><strong>Chronic pain management</strong></td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Mental health (anxiety, PTSD)</strong></td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Neurological conditions</strong></td>
+        <td class="gap-yes">✓ claimed</td>
+        <td class="gap-yes">✓ claimed</td>
+        <td class="gap-partial">Partial — not explicit</td>
+        <td class="gap-yes">✓</td>
+      </tr>
+      <tr>
+        <td><strong>Oncology / palliative care</strong></td>
+        <td class="gap-partial">Partial — general pain listed</td>
+        <td class="gap-partial">Partial</td>
+        <td class="gap-partial">Partial</td>
+        <td class="gap-yes">✓ explicit focus</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:16px;font-size:13px;color:var(--muted);">The strongest uncontested position: external script dispensing + in-person care + brand agnostic prescribing. None of the major national telehealth players offer all three.</p>
+</div>
+
+<!-- Competitor deep dives -->
+<div class="section">
+  <div class="section-tag">Competitor deep dives</div>
+  <h2>Who you're up against</h2>
+  <div class="section-divider"></div>
+
+  <!-- Alternaleaf -->
+  <div class="comp-card">
+    <div class="comp-card-header">
+      <div>
+        <div class="comp-name">Alternaleaf</div>
+        <div class="comp-owner">Owned by Montu, a vertically integrated cannabis supplier</div>
+      </div>
+      <div class="comp-grade">
+        <div class="grade">B+</div>
+        <div class="grade-label">Overall grade</div>
+      </div>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-section">
+        <label>Positioning</label>
+        <p>Australia's largest alternative health clinic. Leads on accessibility, low cost, and speed. "Same-day consults. Zero wait times."</p>
+      </div>
+      <div class="comp-section">
+        <label>Key messages (exact copy)</label>
+        <p>"Evidence-informed care. Zero stigma."<br>"Skip the clipboard. Go straight to care."<br>"Expert Doctors. Undivided Attention."</p>
+      </div>
+      <div class="comp-section">
+        <label>Lead capture</label>
+        <p>Free nurse consult → 5-question eligibility screener → doctor booking. Entry point cost is $0, which reduces friction significantly.</p>
+      </div>
+      <div class="comp-section">
+        <label>Pricing</label>
+        <p>Nurse consult: $0. Doctor: $29 (reduced from $59). Follow-up: $29 flat. Product: prescribed from Montu's own range.</p>
+      </div>
+      <div class="comp-section">
+        <label>Scale</label>
+        <p>200,000+ patients nationally. 120+ doctors and nurses. Top Google rankings for most high-intent national terms.</p>
+      </div>
+      <div class="comp-section">
+        <label>Weakness</label>
+        <p>CHOICE investigation found consultations as short as 3.5 minutes. Doctor did not disclose commercial relationship to cannabis supplier. AHPRA monitoring high-volume prescribers from 2025.</p>
+      </div>
+    </div>
+    <div class="flag">Conflict of interest: Alternaleaf's doctors prescribe products from Montu's portfolio. The clinic and the supplier are the same business. CHOICE published this in 2025. Patients are beginning to notice.</div>
+  </div>
+
+  <!-- Polln -->
+  <div class="comp-card">
+    <div class="comp-card-header">
+      <div>
+        <div class="comp-name">Polln</div>
+        <div class="comp-owner">Owned by Nectar Brands, which also owns cannabis supplier Cultiva</div>
+      </div>
+      <div class="comp-grade">
+        <div class="grade">B</div>
+        <div class="grade-label">Overall grade</div>
+      </div>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-section">
+        <label>Positioning</label>
+        <p>"Natural therapies, delivered differently." Presents as Australia's first online alternative health clinic. Softer tone than Alternaleaf.</p>
+      </div>
+      <div class="comp-section">
+        <label>Key messages (exact copy)</label>
+        <p>"Healthcare should feel human."<br>"Flexible appointments. After-hours and same-day."<br>"Unlimited free nurse and pharmacy assistance."</p>
+      </div>
+      <div class="comp-section">
+        <label>Lead capture</label>
+        <p>Free 2-minute eligibility quiz → free nurse call → $79 initial 30-minute doctor consult. Slightly higher friction than Alternaleaf but longer consultation time.</p>
+      </div>
+      <div class="comp-section">
+        <label>Pricing</label>
+        <p>Initial: $79 (30 min). Return: from $49. Products: 24/7 online ordering, next-day delivery. Explicit "no hidden costs" promise.</p>
+      </div>
+      <div class="comp-section">
+        <label>Trust signals</label>
+        <p>20,000+ patients since 2021. 98% would recommend. LegitScript approved. 5-star Google reviews shown.</p>
+      </div>
+      <div class="comp-section">
+        <label>Weakness</label>
+        <p>Smaller than Alternaleaf. Also supplier-owned (undisclosed). No Medicare. Telehealth only. Messaging leans soft — doesn't own a clear clinical position.</p>
+      </div>
+    </div>
+    <div class="flag">Same structural conflict: Polln prescribes Cultiva products. This isn't stated upfront to patients. The same AHPRA scrutiny applies.</div>
+  </div>
+
+  <!-- Trueleaf -->
+  <div class="comp-card">
+    <div class="comp-card-header">
+      <div>
+        <div class="comp-name">Trueleaf</div>
+        <div class="comp-owner">Independent. Physical clinic and dispensary, Prahran VIC</div>
+      </div>
+      <div class="comp-grade">
+        <div class="grade">C+</div>
+        <div class="grade-label">Overall grade — weak digital, strong clinical model</div>
+      </div>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-section">
+        <label>Positioning</label>
+        <p>"Your local alternative health clinic and dispensary." Leads on independence, Medicare rebates, and no commercial ties to suppliers.</p>
+      </div>
+      <div class="comp-section">
+        <label>Key messages (exact copy)</label>
+        <p>"Brand Agnostic Prescribing."<br>"No Script Locking."<br>"Medicare rebates available for eligible patients."<br>"Australian owned and operated."</p>
+      </div>
+      <div class="comp-section">
+        <label>Lead capture</label>
+        <p>Book online or phone. No quiz, no nurse entry. Friction is higher than the telehealth players. No pricing on site.</p>
+      </div>
+      <div class="comp-section">
+        <label>Physical presence</label>
+        <p>Physical clinic and dispensary in Prahran, Victoria. Telehealth available nationally. In-store collection and express post dispensing.</p>
+      </div>
+      <div class="comp-section">
+        <label>Trust signals</label>
+        <p>AHPRA licensed. Australian-owned. "Thousands of patients served." Thin — no review volume or specific numbers published.</p>
+      </div>
+      <div class="comp-section">
+        <label>Weakness</label>
+        <p>Very thin website. No SEO content. No pricing published. Almost no digital visibility outside direct search for their name. No review strategy visible.</p>
+      </div>
+    </div>
+    <div class="flag">Trueleaf has the right clinical model but almost no digital presence. They are the most direct comparator for this new clinic — and they're leaving the digital playing field largely empty.</div>
+  </div>
+</div>
+
+<!-- Website scorecards -->
+<div class="section">
+  <div class="section-tag">Website scorecards</div>
+  <h2>What their homepages actually do</h2>
+  <div class="section-divider"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Criterion</th>
+        <th>Alternaleaf</th>
+        <th>Polln</th>
+        <th>Trueleaf</th>
+        <th>Target for new clinic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Headline clarity</td>
+        <td><span class="grade-a">A</span> — specific, patient-centric</td>
+        <td><span class="grade-b">B</span> — vague "delivered differently"</td>
+        <td><span class="grade-b">B</span> — clear on independence, thin on differentiation</td>
+        <td>Headline should name independence + physical + Medicare in the first 10 words</td>
+      </tr>
+      <tr>
+        <td>Lead capture</td>
+        <td><span class="grade-a">A</span> — free nurse consult removes all friction</td>
+        <td><span class="grade-a">A</span> — free quiz + free nurse call</td>
+        <td><span class="grade-c">C</span> — just a booking form</td>
+        <td>Free initial eligibility call or online booking with visible pricing</td>
+      </tr>
+      <tr>
+        <td>Social proof</td>
+        <td><span class="grade-a">A</span> — 200k patients, visible reviews</td>
+        <td><span class="grade-b">B</span> — 20k patients, 98% recommend stat</td>
+        <td><span class="grade-c">C</span> — "thousands of patients", no specifics</td>
+        <td>Even early Google reviews matter — build a review strategy from day one</td>
+      </tr>
+      <tr>
+        <td>Speed claim</td>
+        <td><span class="grade-a">A</span> — "same-day consults"</td>
+        <td><span class="grade-b">B</span> — same-day available, not primary message</td>
+        <td><span class="grade-d">D</span> — nothing stated</td>
+        <td>Publish turnaround time for appointments and script processing</td>
+      </tr>
+      <tr>
+        <td>Pricing transparency</td>
+        <td><span class="grade-b">B</span> — partial, no product pricing</td>
+        <td><span class="grade-a">A</span> — consultation fees shown, "no hidden costs"</td>
+        <td><span class="grade-d">D</span> — nothing on site</td>
+        <td>Show consultation fees and Medicare out-of-pocket upfront</td>
+      </tr>
+      <tr>
+        <td>Clinical independence messaging</td>
+        <td><span class="grade-d">D</span> — not mentioned (because it doesn't apply)</td>
+        <td><span class="grade-d">D</span> — not mentioned</td>
+        <td><span class="grade-a">A</span> — brand agnostic, no script locking stated clearly</td>
+        <td>Lead with independence — it is the single strongest trust signal in this market</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Keywords -->
+<div class="section">
+  <div class="section-tag">Keyword battleground</div>
+  <h2>Where to compete organically</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:24px;">No paid search is available for cannabis. These are the SEO battlegrounds that matter. Priority order reflects intent and competition gap.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Intent</th>
+        <th>Competitor presence</th>
+        <th>Opportunity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>medicinal cannabis clinic melbourne</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Alternaleaf, Polln rank. Trueleaf ranks locally.</td>
+        <td>Physical clinic + content strategy can rank within 6–12 months</td>
+      </tr>
+      <tr>
+        <td>cannabis dispensary melbourne</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Thin competition — mostly directories</td>
+        <td>Strong. Physical dispensary + GMB listing + optimised page = quick win</td>
+      </tr>
+      <tr>
+        <td>medicinal cannabis prescription melbourne</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Alternaleaf dominates nationally</td>
+        <td>Local modifiers (suburb, Melbourne) reduce competition significantly</td>
+      </tr>
+      <tr>
+        <td>medicinal cannabis for chronic pain</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Multiple players, none with deep local content</td>
+        <td>Condition-specific landing pages + blog = medium-term SEO asset</td>
+      </tr>
+      <tr>
+        <td>medicinal cannabis anxiety melbourne</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Low local competition</td>
+        <td>High. Anxiety is the #1 approval condition. Nobody owns this locally.</td>
+      </tr>
+      <tr>
+        <td>independent cannabis clinic australia</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Almost none</td>
+        <td>Uncontested. "Independent" is a real search modifier as CHOICE scrutiny grows.</td>
+      </tr>
+      <tr>
+        <td>how to get medicinal cannabis australia</td>
+        <td><span class="kw-intent-med">Medium</span></td>
+        <td>Alternaleaf, Polln, government sites</td>
+        <td>Educational content competes here — builds trust and captures early-funnel patients</td>
+      </tr>
+      <tr>
+        <td>cannabis clinic near me</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>GMB results dominate</td>
+        <td>GMB optimisation is the most important single action in the first 90 days</td>
+      </tr>
+      <tr>
+        <td>medicinal cannabis palliative care melbourne</td>
+        <td><span class="kw-intent-high">High</span></td>
+        <td>Essentially uncontested locally</td>
+        <td>Niche but emotionally significant. Nobody owns this. Build a dedicated page.</td>
+      </tr>
+      <tr>
+        <td>medicinal cannabis sleep disorder</td>
+        <td><span class="kw-intent-med">Medium</span></td>
+        <td>National content from large players</td>
+        <td>Local angle + condition guide makes this rankable in 12+ months</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Opportunities -->
+<div class="section">
+  <div class="section-tag">Prioritised opportunities</div>
+  <h2>Where to focus first</h2>
+  <div class="section-divider"></div>
+  <div class="opp-cards">
+    <div class="opp-card primary">
+      <div class="opp-num">1</div>
+      <div class="opp-title">Own the "independent clinic" position before anyone else takes it</div>
+      <div class="opp-evidence">Evidence: CHOICE investigation has made supplier-clinic conflicts front of mind. Trueleaf owns this locally but has no digital strategy to capitalise on it. Alternaleaf and Polln cannot claim it at all.</div>
+      <div class="opp-action">Lead all marketing with independence and brand agnostic prescribing as the primary message, not cannabis treatment generally.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-num">2</div>
+      <div class="opp-title">Build GP referral relationships as a primary acquisition channel</div>
+      <div class="opp-evidence">Evidence: 52% of GPs are uncomfortable discussing medicinal cannabis. No competitor offers structured GP education or referral pathways. This is a channel entirely open.</div>
+      <div class="opp-action">Launch a GP outreach programme in months 1–3. Host lunch-and-learn sessions within 5 km. Position as a clinical partner, not a competitor.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-num">3</div>
+      <div class="opp-title">Create condition-specific pages for the four patient pillars</div>
+      <div class="opp-evidence">Evidence: chronic pain, anxiety, neurological, and oncology/palliative are underserved locally with quality clinical content. Telehealth players produce volume content, not depth.</div>
+      <div class="opp-action">Build four cornerstone pages — one per condition — with real clinical detail. These become the main SEO assets and GP information resources simultaneously.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-num">4</div>
+      <div class="opp-title">Optimise GMB from week one — it's the most direct path to local patients</div>
+      <div class="opp-evidence">Evidence: "cannabis clinic near me" is a high-intent query dominated by Google Maps results. Trueleaf ranks locally but thin. A fully optimised profile with photos, posts, and early reviews can compete quickly.</div>
+      <div class="opp-action">Claim, verify, and fully optimise GMB profile before launch. Set up a review request process from day one. Post weekly in months 1–3.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-num">5</div>
+      <div class="opp-title">Serve external script patients that telehealth clinics can't help</div>
+      <div class="opp-evidence">Evidence: Alternaleaf and Polln only dispense their own prescriptions. Patients with scripts from GPs or specialists have nowhere obvious to go in Melbourne for in-person dispensing.</div>
+      <div class="opp-action">Make external script dispensing explicit on the website and GMB. This is a largely invisible market segment. Be the first to name it clearly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Recommendation -->
+<div class="section">
+  <div class="section-tag">Strategic recommendation</div>
+  <div class="rec-box">
+    <h3>The position to own</h3>
+    <h2>Melbourne's only genuinely independent medicinal cannabis clinic</h2>
+    <p>The two dominant players in Australian medicinal cannabis are both owned by the companies whose products their doctors prescribe. That's not a conspiracy theory — it's a structural fact being reported by mainstream media. The market is ready for a clinic that doesn't have this problem, and says so clearly.</p>
+    <p>This clinic should lead with independence. Not cannabis broadly, not conditions, not telehealth access. Independence first, then patient care depth, then physical presence. That combination is unowned in Melbourne.</p>
+    <p>GP referral is the growth engine. Telehealth players cannot visit GP practices and cannot build clinical relationships with prescribers. An in-person clinic can. The 52% of GPs who don't feel comfortable discussing cannabis are not lost patients — they're future referral sources waiting to be educated.</p>
+    <div class="rec-actions">
+      <div class="rec-action">
+        <div class="rec-action-timing">Immediate (months 1–3)</div>
+        <p>GMB optimisation. GP outreach programme launch. Website live with condition pages and independence messaging. Review strategy in place.</p>
+      </div>
+      <div class="rec-action">
+        <div class="rec-action-timing">Short term (months 3–6)</div>
+        <p>Condition-specific SEO content published. 20+ GP referral relationships active. Patient testimonial and review pipeline generating weekly reviews.</p>
+      </div>
+      <div class="rec-action">
+        <div class="rec-action-timing">Medium term (months 6–12)</div>
+        <p>Ranking for 3–5 local high-intent keywords. 150+ active patients. Monthly GP newsletter or update running. External script dispensing explicitly marketed.</p>
+      </div>
+      <div class="rec-action">
+        <div class="rec-action-timing">Year 2</div>
+        <p>Established referral network. SEO delivering consistent organic leads. Consider second location or expanded telehealth reach off the back of physical clinic reputation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page -->
+
+<div class="doc-footer">
+  Prepared by Locate Digital &nbsp;|&nbsp; June 2026 &nbsp;|&nbsp; Confidential — for client use only &nbsp;|&nbsp; Data sourced from public sources. Market data: Grand View Research, Market.us, TGA SAS-B dashboard. Competitor data: direct site research, CHOICE investigation (2025).
+</div>
+
+</body>
+</html>

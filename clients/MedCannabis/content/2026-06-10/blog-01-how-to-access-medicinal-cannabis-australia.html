@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to access medicinal cannabis in Australia: the complete guide</title>
+<meta name="description" content="A plain-English guide to accessing medicinal cannabis in Australia: who can prescribe, eligibility, what the consultation involves, costs, and driving rules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --paper-deep: #efeadf;
+    --ink: #1c2a22;
+    --ink-soft: #3d4a42;
+    --ink-faint: #6b766e;
+    --clinic: #2e5e4a;
+    --clinic-bright: #3d7a60;
+    --rule: #d8d2c2;
+    --amber: #b07d3a;
+    --callout: #e9e3d3;
+    --display: "Fraunces", Georgia, serif;
+    --body: "Source Serif 4", Georgia, serif;
+    --label: "Archivo", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 19px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: .35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* reading progress */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--clinic);
+    z-index: 1001;
+    transition: width .1s linear;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px clamp(20px, 5vw, 56px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .wordmark svg { display: block; }
+  .wordmark span {
+    font-family: var(--label);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .wordmark small {
+    display: block;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--ink-faint);
+  }
+  .masthead-note {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vw, 110px) clamp(20px, 5vw, 56px) clamp(40px, 6vw, 72px);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--clinic);
+    animation: rise .7s ease both;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--clinic);
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(38px, 6.2vw, 76px);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    max-width: 16ch;
+    margin: 26px 0 0;
+    animation: rise .7s .12s ease both;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--clinic);
+  }
+  .standfirst {
+    max-width: 52ch;
+    margin-top: 28px;
+    font-size: clamp(19px, 2vw, 23px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    animation: rise .7s .24s ease both;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 40px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    animation: rise .7s .36s ease both;
+  }
+  .meta-row div {
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .meta-row div b {
+    display: block;
+    color: var(--ink);
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ---------- at a glance ---------- */
+  .glance {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 56px);
+  }
+  .glance-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(28px, 4vw, 44px);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(20px, 4vw, 48px);
+    align-items: start;
+  }
+  .glance-box .tag {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: .55;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    border-left: 1px solid rgba(246,243,236,.25);
+    padding-left: 14px;
+  }
+  .glance-box p {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(19px, 2.2vw, 25px);
+    line-height: 1.5;
+  }
+  .glance-box p strong { font-weight: 600; color: #cfe3d4; }
+
+  /* ---------- article ---------- */
+  .article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 56px);
+    display: grid;
+    grid-template-columns: minmax(0, 660px) 1fr;
+    gap: clamp(32px, 6vw, 88px);
+  }
+  .article-body { min-width: 0; }
+
+  .section { margin-bottom: clamp(44px, 6vw, 72px); }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-num {
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: var(--amber);
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 10px 0 22px;
+  }
+  h3 {
+    font-family: var(--label);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--clinic);
+    margin: 30px 0 12px;
+  }
+  p { margin-bottom: 18px; }
+  p:last-child { margin-bottom: 0; }
+
+  .lede::first-letter {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 4.1em;
+    float: left;
+    line-height: .82;
+    padding: 6px 12px 0 0;
+    color: var(--clinic);
+  }
+
+  /* pathway cards */
+  .pathways { display: grid; gap: 14px; margin: 26px 0; }
+  .pathway {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--clinic);
+    padding: 22px 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .pathway:hover {
+    transform: translateX(4px);
+    box-shadow: -6px 8px 0 rgba(28,42,34,.07);
+  }
+  .pathway h4 {
+    font-family: var(--label);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pathway p { font-size: 17px; line-height: 1.65; margin: 0; color: var(--ink-soft); }
+
+  /* eligibility list */
+  .criteria { counter-reset: crit; list-style: none; margin: 26px 0; }
+  .criteria li {
+    counter-increment: crit;
+    position: relative;
+    padding: 20px 0 20px 64px;
+    border-top: 1px solid var(--rule);
+  }
+  .criteria li:last-child { border-bottom: 1px solid var(--rule); }
+  .criteria li::before {
+    content: "0" counter(crit);
+    position: absolute;
+    left: 0; top: 22px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--amber);
+  }
+  .criteria b {
+    display: block;
+    font-family: var(--label);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .criteria p { font-size: 17px; color: var(--ink-soft); margin: 0; }
+
+  /* plain lists */
+  ul.plain { margin: 0 0 18px; padding-left: 0; list-style: none; }
+  ul.plain li {
+    position: relative;
+    padding: 5px 0 5px 26px;
+  }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 16px;
+    width: 12px; height: 1.5px;
+    background: var(--clinic);
+  }
+
+  /* cost cards */
+  .costs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 26px 0; }
+  .cost {
+    background: var(--paper);
+    padding: 22px 20px;
+  }
+  .cost b {
+    display: block;
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--clinic);
+    margin-bottom: 10px;
+  }
+  .cost p { font-size: 15.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  /* warning callout */
+  .callout {
+    background: var(--callout);
+    border-top: 3px solid var(--amber);
+    padding: 26px 28px;
+    margin: 26px 0;
+  }
+  .callout b {
+    display: block;
+    font-family: var(--label);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .callout p { font-size: 17px; margin-bottom: 12px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* pull quote */
+  .pullquote {
+    margin: 34px 0;
+    padding: 6px 0 6px 28px;
+    border-left: 3px solid var(--clinic);
+  }
+  .pullquote p {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(21px, 2.4vw, 26px);
+    line-height: 1.45;
+    color: var(--clinic);
+    margin: 0;
+  }
+
+  /* ---------- margin rail ---------- */
+  .rail { position: relative; }
+  .rail-inner { position: sticky; top: 48px; display: grid; gap: 28px; }
+  .rail-note {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .rail-note b {
+    display: block;
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .rail-note p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+  .rail-note .big {
+    font-family: var(--display);
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- disclaimer band ---------- */
+  .disclaimer {
+    background: var(--clinic);
+    color: var(--paper);
+    text-align: center;
+    padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 56px);
+  }
+  .disclaimer p {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.6vw, 28px);
+    font-weight: 400;
+    line-height: 1.45;
+    max-width: 28ch;
+    margin: 0 auto;
+  }
+  .disclaimer p em { font-style: italic; color: #cfe3d4; }
+
+  footer {
+    padding: 26px clamp(20px, 5vw, 56px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    font-family: var(--label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .article { grid-template-columns: 1fr; }
+    .rail-inner { position: static; grid-template-columns: repeat(2, 1fr); }
+    .costs { grid-template-columns: 1fr; }
+    .glance-box { grid-template-columns: 1fr; }
+    .glance-box .tag { writing-mode: horizontal-tb; transform: none; border-left: 0; padding-left: 0; border-top: 1px solid rgba(246,243,236,.25); padding-top: 12px; }
+  }
+  @media (max-width: 560px) {
+    .rail-inner { grid-template-columns: 1fr; }
+    body { font-size: 17.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow, h1, .standfirst, .meta-row { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="masthead">
+  <a class="wordmark" href="#">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="1" y="1" width="32" height="32" rx="16" stroke="#2e5e4a" stroke-width="2"/>
+      <path d="M17 9v16M9 17h16" stroke="#2e5e4a" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>Clinic name<small>Melbourne · dispensary &amp; telehealth</small></span>
+  </a>
+  <div class="masthead-note">Patient education</div>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Access guide · June 2026</span>
+  <h1>How to access medicinal cannabis in Australia: <em>the complete guide</em></h1>
+  <p class="standfirst">Medicinal cannabis has been legal since 2016, but the access process still confuses a lot of people. Some assume they can walk into a dispensary and buy it. Others assume it's nearly impossible to get. Neither is true.</p>
+  <div class="meta-row">
+    <div>Reading time<b>6 minutes</b></div>
+    <div>Reviewed by<b>AHPRA-registered prescriber</b></div>
+    <div>Category<b>Patient education</b></div>
+  </div>
+</section>
+
+<section class="glance">
+  <div class="glance-box">
+    <span class="tag">At a glance</span>
+    <p>Medicinal cannabis is a <strong>prescription medicine</strong>. Access requires a consultation with a doctor, a clinical assessment, and a script dispensed through a pharmacy or licensed dispensary. For most patients the whole process takes <strong>one to two weeks</strong>.</p>
+  </div>
+</section>
+
+<div class="article">
+  <div class="article-body">
+
+    <div class="section">
+      <span class="section-num">01</span>
+      <h2>Who can prescribe medicinal cannabis?</h2>
+      <p class="lede">Any registered doctor in Australia can prescribe medicinal cannabis. They don't need to be a specialist. In practice, prescriptions come through two pathways set up by the Therapeutic Goods Administration (TGA).</p>
+      <div class="pathways">
+        <div class="pathway">
+          <h4>The Special Access Scheme (SAS-B)</h4>
+          <p>The doctor applies to the TGA for approval to prescribe an unapproved medicine for a specific patient. Approvals usually come back within a couple of business days, and many are processed within 48 hours.</p>
+        </div>
+        <div class="pathway">
+          <h4>Authorised Prescribers</h4>
+          <p>These doctors hold standing TGA approval to prescribe certain medicinal cannabis products to patients under their care, without applying for each patient individually. This makes the process quicker.</p>
+        </div>
+      </div>
+      <p>Some GPs are comfortable prescribing. Many aren't, simply because it sits outside their usual practice. If your regular GP doesn't prescribe, you can ask for a referral or book directly with a clinic that has prescribers on staff, either in person or by telehealth.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">02</span>
+      <h2>Who is eligible?</h2>
+      <p>There's no fixed list of approved conditions, but prescribers generally look for two things:</p>
+      <ol class="criteria">
+        <li>
+          <b>A chronic condition</b>
+          <p>Most prescribers want to see a condition that has lasted three months or longer. Common examples include chronic pain, anxiety, PTSD, sleep disorders, epilepsy, multiple sclerosis, and symptoms related to cancer treatment or palliative care.</p>
+        </li>
+        <li>
+          <b>Previous treatments that haven't worked well enough</b>
+          <p>Medicinal cannabis is not a first-line treatment. Doctors will ask what you've already tried, whether that's medication, physiotherapy, psychology, or something else, and how it went.</p>
+        </li>
+      </ol>
+      <p>Eligibility is a clinical judgement, not a checkbox exercise. A doctor may decide medicinal cannabis isn't appropriate for you, particularly if you have a history of psychosis, certain heart conditions, or are pregnant or breastfeeding.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">03</span>
+      <h2>What happens at the consultation</h2>
+      <p>The first appointment is a standard medical consultation. Expect the doctor to ask about:</p>
+      <ul class="plain">
+        <li>Your condition and how long you've had it</li>
+        <li>Treatments you've tried and how you responded</li>
+        <li>Your general health, current medications, and medical history</li>
+        <li>Your work, driving needs, and lifestyle</li>
+      </ul>
+      <p>Bring whatever records you have. A referral or health summary from your GP helps, but most clinics can work without one.</p>
+      <p>If the doctor decides medicinal cannabis is clinically appropriate, they'll talk you through product types, what to expect, possible side effects, and the legal considerations. Then they apply for TGA approval (if needed) and write the prescription.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">04</span>
+      <h2>Filling the prescription</h2>
+      <p>Once approved, your prescription is dispensed like any other medicine: through a pharmacy or a licensed dispensary. Depending on the provider, you can collect in person or have it delivered. Delivery requires ID verification because most medicinal cannabis products are Schedule 8 controlled medicines.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">05</span>
+      <h2>What it costs</h2>
+      <p>Medicinal cannabis is not subsidised under the PBS, so patients pay the full cost. Budget for:</p>
+      <div class="costs">
+        <div class="cost">
+          <b>Consultation fees</b>
+          <p>These vary by clinic. Some bulk bill the initial assessment; most charge a private fee.</p>
+        </div>
+        <div class="cost">
+          <b>The medicine itself</b>
+          <p>Costs vary widely depending on the product and dose your doctor prescribes. Your prescriber can give you a realistic monthly estimate before you commit.</p>
+        </div>
+        <div class="cost">
+          <b>Follow-up appointments</b>
+          <p>Prescribers are required to review your progress, usually within the first month and then periodically.</p>
+        </div>
+      </div>
+      <p>If cost is a concern, raise it at the consultation. It's a normal part of the conversation.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">06</span>
+      <h2>Driving and work: know the rules before you start</h2>
+      <div class="callout">
+        <b>Important</b>
+        <p>THC, the psychoactive component in many medicinal cannabis products, can be detected in roadside drug tests. In most Australian states it is an offence to drive with any THC in your system, even with a valid prescription.</p>
+        <p>The rules differ between states and are changing, so ask your doctor about the current law where you live before you start treatment.</p>
+      </div>
+      <p>Workplaces with drug testing policies are a similar story. If your job involves testing, tell your prescriber. It will shape what they recommend.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">07</span>
+      <h2>How long does it all take?</h2>
+      <p>For most patients: one to two weeks from booking the first appointment to having medicine in hand. Telehealth has made the process much faster than it was a few years ago, and same-week appointments are common.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-num">08</span>
+      <h2>Where to start</h2>
+      <p>Talk to a doctor. That can be your regular GP, or a clinic with prescribers on staff. The consultation is an assessment, not a guarantee of a prescription, and that's how it should be.</p>
+      <div class="pullquote">
+        <p>A prescriber who says yes to everyone isn't doing their job.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="rail">
+    <div class="rail-inner">
+      <div class="rail-note">
+        <span class="big">2016</span>
+        <p>The year medicinal cannabis became legal in Australia under TGA regulation.</p>
+      </div>
+      <div class="rail-note">
+        <b>Approval speed</b>
+        <p>Most SAS-B applications are processed by the TGA within 48 hours.</p>
+      </div>
+      <div class="rail-note">
+        <b>Not PBS subsidised</b>
+        <p>Patients pay the full cost of consultations and medicine. Ask for a realistic monthly estimate before starting.</p>
+      </div>
+      <div class="rail-note">
+        <b>Driving</b>
+        <p>In most states, any detectable THC while driving is an offence, prescription or not. Check your state's current law.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="disclaimer">
+  <p>Medicinal cannabis is a prescription medicine. <em>Speak to a doctor to find out if it's right for you.</em></p>
+</section>
+
+<footer>
+  <span>© 2026 [Clinic name] · Melbourne, VIC</span>
+  <span>Educational content only · Not medical advice</span>
+</footer>
+
+<script>
+  const bar = document.getElementById("progress");
+  addEventListener("scroll", () => {
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+  }, { passive: true });
+</script>
+
+</body>
+</html>

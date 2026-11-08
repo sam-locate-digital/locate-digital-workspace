@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOSIC — Conversion Tracking Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#007ae8;--secondary:#75dfee;--accent:#ff5900;--ink:#0d0d0d;--muted:#63666b;--line:#e6e6e6;--bg-soft:#fbfcff;--row-alt:#f4f8fd;--head:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Poppins",system-ui,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  header.hero{background:linear-gradient(135deg,var(--primary),#0560b8);color:#fff;padding:46px 0 38px}
+  .logo-mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;font-size:20px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  header.hero h1{font-family:var(--head);font-weight:800;font-size:32px;margin:10px 0 4px;letter-spacing:-.02em}
+  header.hero .meta{opacity:.92;font-size:14px}
+  section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 30px;margin:22px auto;max-width:880px}
+  h2{font-family:var(--head);font-weight:800;font-size:21px;margin:0 0 10px}
+  h3{font-family:var(--head);font-weight:700;font-size:16px;margin:18px 0 6px}
+  p{margin:0 0 10px}ul,ol{margin:0 0 10px;padding-left:20px}li{margin:5px 0}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--head);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--row-alt)}
+  td.c,th.c{text-align:center}
+  code{background:var(--row-alt);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px}
+  pre{background:#0d1b2a;color:#e6f0fa;border-radius:10px;padding:14px 16px;overflow:auto;font-size:12.5px;line-height:1.5}
+  .callout{border-radius:10px;padding:14px 18px;margin:14px 0}
+  .callout.gate{background:#fff7ed;border:1px solid #ffd9b3}
+  .callout.note{background:#eef3fb;border:1px solid #cfe0f5}
+  .callout b{font-family:var(--head)}
+  .qa{background:var(--row-alt);border:1px solid var(--line);border-radius:10px;padding:14px 20px}
+  .qa label{display:block;margin:6px 0;font-size:14px}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;padding:24px 0 50px}
+  @media print{body{background:#fff}section{box-shadow:none;page-break-inside:avoid}header.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="logo-mark"><span class="logo-dot"></span>Locate Digital.</div>
+  <h1>MOSIC — conversion tracking plan</h1>
+  <div class="meta">Date: 2026-06-23 · Tier: GA4 + GTM (Growth) · CMS: WordPress (WPBakery) · Booking: Cliniko · Import: Google Ads (live), Meta (staged)</div>
+</div></header>
+
+<section>
+  <div class="callout note"><b>Context:</b> MOSIC runs Google Ads but has no verified conversion tracking. This closes the "set up conversion tracking audit before next spend cycle" item. Right now spend can't be tied to bookings — the account is flying blind.</div>
+</section>
+
+<section>
+  <h2>Measurement plan</h2>
+  <p>Three real entry points: phone calls, website enquiry forms, and Cliniko online bookings. Telehealth books through the same Cliniko flow.</p>
+  <table>
+    <thead><tr><th>Event</th><th>Fires when</th><th>Value</th><th class="c">Primary?</th></tr></thead>
+    <tbody>
+      <tr><td><code>phone_call</code></td><td>Click-to-call tap on <code>tel:</code> links</td><td>new-patient value</td><td class="c">✓</td></tr>
+      <tr><td><code>form_submit</code></td><td>Website enquiry/contact form success</td><td>new-patient value</td><td class="c">✓</td></tr>
+      <tr><td><code>booking_start</code></td><td>Click through to the Cliniko booking page</td><td>—</td><td class="c">—</td></tr>
+      <tr><td><code>booking_confirmed</code></td><td>Cliniko booking completes (see limitation)</td><td>new-patient value</td><td class="c">✓</td></tr>
+      <tr><td><code>generate_lead</code></td><td>Umbrella event on any primary action</td><td>new-patient value</td><td class="c">✓</td></tr>
+    </tbody>
+  </table>
+  <p><b>Value to assign:</b> set one new-patient value so Google optimises to revenue, not clicks. Osteo initial consults run ~$110–130. <b>Recommend $120 (first-visit value)</b> — conservative and defensible. Confirm with MOSIC; if they share average new-patient lifetime value from Cliniko, use that.</p>
+</section>
+
+<section>
+  <h2>GA4 setup</h2>
+  <ol>
+    <li>Confirm one GA4 property (not duplicated). Record the Measurement ID.</li>
+    <li>Create key events: <code>phone_call</code>, <code>form_submit</code>, <code>booking_start</code>, <code>booking_confirmed</code>, <code>generate_lead</code>.</li>
+    <li>Mark the primary events as key events / conversions.</li>
+    <li>Link GA4 → Google Ads for import + audience sharing.</li>
+    <li>Data retention 14 months. Google signals only if consent allows.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>GTM setup</h2>
+  <p>GTM is cleanest here — WordPress site with several actions to track. Install a container if none is live.</p>
+  <h3>phone_call</h3>
+  <pre>Trigger: Click — Just Links, Click URL contains "tel:"
+Tags: GA4 event phone_call {value:120, currency:AUD}
+      Google Ads conversion [Phone call label]
+      Meta pixel Lead  (staged, paused)</pre>
+  <h3>form_submit</h3>
+  <pre>Trigger: form plugin submit-success event,
+         or thank-you page view (Path = /thank-you)
+Tags: GA4 form_submit {value:120, currency:AUD}
+      Google Ads conversion [Lead form label]
+      Meta pixel Lead  (staged)
+Note: confirm which form plugin MOSIC uses — it sets the method.</pre>
+  <h3>booking_start (Cliniko)</h3>
+  <pre>Trigger: Click — Just Links, URL contains the Cliniko booking domain
+         (confirm exact: e.g. mosic.au1.cliniko.com)
+Tags: GA4 booking_start</pre>
+  <div class="callout note"><b>booking_confirmed limitation:</b> Cliniko's booking runs on its own domain — GTM on the MOSIC site can't see a completed booking. Options, best first: <b>1)</b> if Cliniko can redirect to a MOSIC thank-you URL, fire <code>booking_confirmed</code> on that page view; <b>2)</b> reconcile bookings via the Cliniko API in the monthly report (accurate, offline); <b>3)</b> use <code>booking_start</code> as the proxy for now. Launch on the proxy, pursue option 1.</div>
+</section>
+
+<section>
+  <h2>Platform conversions</h2>
+  <p><b>Google Ads (active):</b> import GA4 primary key events as conversions (single source of truth). Categories: <code>phone_call</code> → Phone calls; <code>form_submit</code> → Submit lead form; bookings → Book appointment. Optimise to the strongest confirmed signal.</p>
+  <p><b>Meta (staged):</b> pixel + standard events written into GTM but paused. Flip on when MOSIC starts Meta. <code>Lead</code> for forms/calls, <code>Schedule</code> for bookings.</p>
+  <h3>Server-side</h3>
+  <p>Not in scope at Growth. Flag to MOSIC as a Scale upgrade — server-side GTM + enhanced conversions would recover iOS/ad-blocker loss. Park as an upsell.</p>
+</section>
+
+<section>
+  <h2>Consent &amp; privacy</h2>
+  <ul>
+    <li>If a consent banner exists, set up <b>Consent Mode v2</b> — tags wait for consent, GA4 models the gap.</li>
+    <li><b>Health sensitivity:</b> never pass condition/treatment/patient detail into events. Track <i>that</i> a booking happened, never <i>what for</i>.</li>
+    <li>No raw email/phone in any payload. If enhanced conversions go on later, confirm Google is hashing, not sending plain.</li>
+    <li>Australian Privacy Act applies — match MOSIC's privacy policy; if it omits analytics/ad cookies, flag to update.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>QA checklist — the gate</h2>
+  <div class="callout gate"><b>Run before the next spend cycle. Every line passes, or tracking is broken.</b></div>
+  <div class="qa">
+    <label><input type="checkbox"> GA4 Realtime shows a test session</label>
+    <label><input type="checkbox"> tel: click fires phone_call once (no double-fire)</label>
+    <label><input type="checkbox"> Test enquiry form fires form_submit once</label>
+    <label><input type="checkbox"> Click to Cliniko fires booking_start</label>
+    <label><input type="checkbox"> booking_confirmed fires (if redirect live) — else proxy noted</label>
+    <label><input type="checkbox"> Google Ads shows imported conversions</label>
+    <label><input type="checkbox"> Conversion values show $120 AUD (or confirmed value)</label>
+    <label><input type="checkbox"> Meta tags confirmed PAUSED</label>
+    <label><input type="checkbox"> Consent Mode holds pre-consent, fires post-consent</label>
+    <label><input type="checkbox"> No PII or health detail in any payload</label>
+  </div>
+</section>
+
+<section>
+  <h2>Needs a human / developer</h2>
+  <ul>
+    <li>Confirm a GTM container is installed on the WordPress site (add if not)</li>
+    <li>Identify the form plugin so the form_submit trigger is correct</li>
+    <li>Confirm the exact Cliniko booking URL/domain</li>
+    <li>Investigate Cliniko post-booking redirect for true booking_confirmed</li>
+    <li>Confirm the new-patient conversion value with MOSIC (default $120)</li>
+  </ul>
+</section>
+
+<footer>Locate Digital · MOSIC · Source: clients/MOSIC/tracking/tracking-plan.md</footer>
+</body>
+</html>

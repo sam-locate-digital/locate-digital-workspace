@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MOSIC DVA/TAC/WorkCover post — logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1c2674;
+    --purple:#8b68b3;
+    --g1:#3f2b96;
+    --g2:#a13d97;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#555}
+  .canvas{
+    width:1080px;height:1080px;
+    position:relative;overflow:hidden;
+    font-family:'Roboto',sans-serif;color:#fff;
+    display:flex;flex-direction:column;
+  }
+  .bg{
+    position:absolute;inset:0;
+    background:url('_bg-osteo.jpg') center 35% / cover no-repeat;
+    transform:scale(1.02);
+  }
+  .scrim{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(20,26,74,.66) 0%, rgba(20,26,74,.34) 34%, rgba(20,26,74,.58) 70%, rgba(16,20,58,.92) 100%),
+      linear-gradient(90deg, rgba(28,38,116,.62) 0%, rgba(28,38,116,.12) 62%, rgba(28,38,116,0) 100%);
+  }
+  .canvas::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:16px;z-index:5;
+    background:linear-gradient(90deg,var(--g1),var(--g2));
+  }
+
+  /* transparent logo, top-right, no box */
+  .logo{
+    position:absolute;top:64px;right:74px;z-index:6;
+    width:212px;height:auto;
+    filter:drop-shadow(0 2px 10px rgba(10,12,40,.45));
+  }
+
+  .layer{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;height:100%;padding:96px 84px}
+
+  .kicker{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'Ubuntu';font-weight:700;font-size:22px;
+    letter-spacing:.24em;text-transform:uppercase;color:#eaddfb;
+    margin-bottom:30px;text-shadow:0 2px 8px rgba(0,0,0,.45);
+  }
+  .kicker::before{content:"";width:46px;height:3px;background:var(--purple);border-radius:3px}
+
+  h1{
+    font-family:'Ubuntu',sans-serif;font-weight:700;
+    font-size:104px;line-height:1.0;color:#fff;
+    letter-spacing:-1px;max-width:900px;text-shadow:0 3px 20px rgba(10,12,40,.6);
+  }
+  h1 .grad{
+    background:linear-gradient(90deg,#d9bff0,#f7c8ee);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  .sub{
+    margin-top:36px;font-size:34px;line-height:1.45;color:#f4f2fb;font-weight:400;
+    max-width:760px;text-shadow:0 2px 12px rgba(10,12,40,.6);
+  }
+
+  .pills{display:flex;gap:22px;margin-top:56px}
+  .pill{
+    flex:1;text-align:center;padding:32px 14px;border-radius:20px;
+    background:rgba(255,255,255,.97);
+    box-shadow:0 16px 38px rgba(10,12,40,.38);
+  }
+  .pill b{
+    display:block;font-family:'Ubuntu';font-weight:700;font-size:42px;
+    background:linear-gradient(90deg,var(--g1),var(--g2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    letter-spacing:.02em;
+  }
+  .pill small{
+    display:block;margin-top:10px;font-size:21px;color:#2b2350;
+    font-weight:700;letter-spacing:.01em;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg"></div>
+  <div class="scrim"></div>
+  <img class="logo" src="_mosic-logo-white.png" alt="Melbourne Osteopathy Sports Injury Centre">
+
+  <div class="layer">
+    <div class="kicker">Now available</div>
+    <h1>We now accept <span class="grad">DVA, TAC<br>&amp; WorkCover</span></h1>
+    <p class="sub">Injured at work, on the road, or through service? Your osteopathy care may be fully covered. We handle the claim so you can focus on getting better.</p>
+
+    <div class="pills">
+      <div class="pill"><b>DVA</b><small>Veterans' care</small></div>
+      <div class="pill"><b>TAC</b><small>Road injury</small></div>
+      <div class="pill"><b>WorkCover</b><small>Workplace injury</small></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

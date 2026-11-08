@@ -1,0 +1,47 @@
+Ad group,Keyword,Match type,Intent tier,Source,Notes
+Hyrox Injury - Treatment,hyrox physio,Phrase,1 - Ready to book,Autocomplete,Core term; osteo is a direct alternative
+Hyrox Injury - Treatment,hyrox physiotherapist,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Injury - Treatment,hyrox osteo,Phrase,1 - Ready to book,Inferred,Not in autocomplete; keep for brand fit
+Hyrox Injury - Treatment,hyrox osteopath,Phrase,1 - Ready to book,Inferred,
+Hyrox Injury - Treatment,hyrox injury,Phrase,1 - Ready to book,Autocomplete,Broadest head term
+Hyrox Injury - Treatment,hyrox injuries,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Injury - Treatment,hyrox training injury,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Injury - Treatment,hyrox training injuries,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Injury - Treatment,hyrox melbourne injury,Phrase,1 - Ready to book,Autocomplete,Local signal; high priority
+Hyrox Injury - Treatment,hyrox sports massage,Phrase,2 - Problem aware,Autocomplete,Only if MOSIC offers massage
+Hyrox Injury - Treatment,hyrox recovery massage,Phrase,2 - Problem aware,Autocomplete,Only if MOSIC offers massage
+Hyrox Knee,hyrox knee pain,Phrase,1 - Ready to book,Autocomplete,Biggest body-part cluster
+Hyrox Knee,hyrox knee injury,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Knee,hyrox and knee pain,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Knee,hyrox training knee pain,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Knee,hyrox lunges knee pain,Phrase,1 - Ready to book,Autocomplete,Sandbag lunges are the knee trigger
+Hyrox Knee,hyrox with knee injury,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Knee,hyrox training with knee injury,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Knee,hyrox bad knees,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Back,hyrox back pain,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Back,hyrox lower back pain,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Back,lower back pain after hyrox,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Back,hyrox back injury,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Back,hyrox with back pain,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Lower Leg,hyrox achilles,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Lower Leg,hyrox achilles tendonitis,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Lower Leg,hyrox shin splints,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Lower Leg,shin splints before hyrox,Phrase,1 - Ready to book,Autocomplete,Pre-race urgency
+Hyrox Lower Leg,calf strain hyrox,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Lower Leg,hyrox plantar fasciitis,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Lower Leg,hyrox calf cramp,Phrase,3 - Research,Autocomplete,Low booking intent; monitor
+Hyrox Pre-Race,injured before hyrox,Phrase,1 - Ready to book,Autocomplete,Strong urgency angle
+Hyrox Pre-Race,injury before hyrox,Phrase,1 - Ready to book,Autocomplete,
+Hyrox Pre-Race,massage before hyrox,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Pre-Race,pre hyrox massage,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Pre-Race,hyrox prehab,Phrase,2 - Problem aware,Autocomplete,Good fit for the EP on staff
+Hyrox Pre-Race,hyrox injury prevention,Phrase,2 - Problem aware,Autocomplete,Good fit for the EP on staff
+Hyrox Post-Race,sore after hyrox,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Post-Race,massage after hyrox,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Post-Race,post hyrox massage,Phrase,2 - Problem aware,Autocomplete,
+Hyrox Post-Race,recovery after hyrox race,Phrase,3 - Research,Autocomplete,Mostly informational; low bid
+Hyrox Post-Race,hyrox post race recovery,Phrase,3 - Research,Autocomplete,Mostly informational; low bid
+Hyrox Other Areas,hyrox shoulder,Phrase,2 - Problem aware,Autocomplete,Needs shoulder negatives (bag/press/taps/workout)
+Hyrox Other Areas,hyrox hamstrings,Phrase,3 - Research,Autocomplete,Mixed intent (training vs injury)
+Hyrox Other Areas,hyrox after hip replacement,Phrase,3 - Research,Autocomplete,Older demographic; content angle more than ads
+Hyrox Other Areas,hyrox after knee replacement,Phrase,3 - Research,Autocomplete,Older demographic; content angle more than ads

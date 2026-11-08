@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js scheme_default">
+<head><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+		<meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+btoa(t.text)}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{delete Object.assign(arguments[0],{[t(e)]:arguments[0][e]})[e]})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=UA-32878422-1"></script>
+	<script type="rocketlazyloadscript">
+	 window.dataLayer = window.dataLayer || [];
+	 function gtag(){dataLayer.push(arguments);}
+	 gtag('js', new Date());
+
+	 gtag('config', 'UA-32878422-1');
+	</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		
+		
+	<!-- This site is optimized with the Yoast SEO plugin v21.8.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Golf Injury and Performance Centre | Melbourne Osteopathy</title>
+	<meta name="description" content="Leading Golf Injury and Performance Center at Melbourne Osteopathy Sports Injury Center. For details call (03) 9663 6202." />
+	<link rel="canonical" href="https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Golf Injury and Performance Centre | Melbourne Osteopathy" />
+	<meta property="og:description" content="Leading Golf Injury and Performance Center at Melbourne Osteopathy Sports Injury Center. For details call (03) 9663 6202." />
+	<meta property="og:url" content="https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/" />
+	<meta property="og:site_name" content="Melbourne Osteopathy Sports Injury Centre" />
+	<meta property="article:modified_time" content="2024-11-24T11:29:09+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.youtube.com' />
+
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/block-library/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-components-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/components/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-editor-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/block-editor/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-nux-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/nux/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-reusable-blocks-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/reusable-blocks/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-editor-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/dist/editor/style.min.css?ver=6.2.9' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='qcld-slider-hero-style-css-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/slider-hero/gutenberg/slider-hero-block/dist/blocks.style.build.css?ver=1732675139' type='text/css' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/css/classic-themes.min.css?ver=6.2.9' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='contact-form-7-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='essential-grid-plugin-settings-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/essential-grid/public/assets/css/settings.css?ver=1732675139' type='text/css' media='all' />
+
+
+
+<link data-minify="1" rel='stylesheet' id='tp-fontello-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/essential-grid/public/assets/font/fontello/css/fontello.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='qcld-sliderhero-front-end-fontawesome-css-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/slider-hero/css/font-awesome.min.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='swiperslider-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/trx_addons/js/swiper/swiper.css?ver=1732675139' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/plugins/trx_addons/js/magnific/magnific-popup.min.css' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='wpcf7-redirect-script-frontend-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.css?ver=1745418803' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='brb-public-main-css-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/business-reviews-bundle/assets/css/public-main.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='parent-style-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/style.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-ekiticons-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticons.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='js_composer_custom_css-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/uploads/js_composer/custom.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='skb-cife-elegant_icon-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/skyboot-custom-icons-for-elementor/assets/css/elegant.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='skb-cife-linearicons_icon-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/skyboot-custom-icons-for-elementor/assets/css/linearicons.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='skb-cife-themify_icon-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/skyboot-custom-icons-for-elementor/assets/css/themify.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='ekit-widget-styles-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='ekit-responsive-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-font-google_fonts-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/uploads/omgf/mandala-font-google_fonts/mandala-font-google_fonts.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-main-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/style.css?ver=1732675139' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-child-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala-child/style.css?ver=1732675140' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-animation-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/css/animation.css?ver=1732675140' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-colors-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/css/__colors.css?ver=1732675140' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-styles-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/css/__styles.css?ver=1732675140' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://www.melbourneosteopathycentre.com.au/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.2.9' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='mandala-responsive-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/css/responsive.css?ver=1732675140' type='text/css' media='all' />
+<style id='rocket-lazyload-inline-css' type='text/css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.melbourneosteopathycentre.com.au/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<!--n2css--><script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.youtube.com/iframe_api?ver=6.2.9' id='qcld_hero_youtube_js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' defer="defer" data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/business-reviews-bundle/assets/js/public-main.js?ver=1732675140' id='brb-public-main-js-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala-child/custom.js?ver=1732675140' id='vevos_custom-js' defer></script>
+<link rel="https://api.w.org/" href="https://www.melbourneosteopathycentre.com.au/wp-json/" /><link rel="alternate" type="application/json" href="https://www.melbourneosteopathycentre.com.au/wp-json/wp/v2/pages/6149" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.melbourneosteopathycentre.com.au/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.melbourneosteopathycentre.com.au/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.9" />
+<link rel='shortlink' href='https://www.melbourneosteopathycentre.com.au/?p=6149' />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-C62B31LHZW"></script>
+		<script type="rocketlazyloadscript">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-C62B31LHZW');
+		</script>
+
+	<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCCTX2S');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="generator" content="Elementor 3.21.8; features: e_optimized_assets_loading, e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+
+<!-- Schema & Structured Data For WP v1.32 - -->
+<script type="application/ld+json" class="saswp-schema-markup-output">
+[{"@context":"https://schema.org/","@graph":[{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Home Page","url":"https://www.melbourneosteopathycentre.com.au/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Low Back Pain (Chronic &#038; Acute)","url":"https://www.melbourneosteopathycentre.com.au/low-back-pain-chronic-acute/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"What’s causing my neck pain?","url":"https://www.melbourneosteopathycentre.com.au/neck-pain/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Headaches","url":"https://www.melbourneosteopathycentre.com.au/headaches/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Osteoarthritis","url":"https://www.melbourneosteopathycentre.com.au/osteoarthritis/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Sporting Injuries","url":"https://www.melbourneosteopathycentre.com.au/sporting-injuries/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Shoulder","url":"https://www.melbourneosteopathycentre.com.au/shoulder/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Knee, Ankle &#038; Lower Limb","url":"https://www.melbourneosteopathycentre.com.au/knee-ankle-lower-limb/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Our Services","url":"https://www.melbourneosteopathycentre.com.au/services/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Osteopathy","url":"https://www.melbourneosteopathycentre.com.au/our-services-osteopathy/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Exercise Physiologist","url":"https://www.melbourneosteopathycentre.com.au/services/exercise-physiology/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Running Injury Centre","url":"https://www.melbourneosteopathycentre.com.au/running-injury-centre/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Golf Injury and Performance Centre","url":"https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Myotherapy","url":"https://www.melbourneosteopathycentre.com.au/services/myotherapy/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dry Needling","url":"https://www.melbourneosteopathycentre.com.au/services/needling-accupuncture/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Pilates","url":"https://www.melbourneosteopathycentre.com.au/services/pilates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Studio Pilates","url":"https://www.melbourneosteopathycentre.com.au/services/pilates/studio-pilates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Timetable","url":"https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-timetable/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Pilates FAQs","url":"https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-faq/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Running Analysis","url":"https://www.melbourneosteopathycentre.com.au/services/running-analysis/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Nutrition","url":"https://www.melbourneosteopathycentre.com.au/services/nutrition/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Bike Fitting and Analysis","url":"https://www.melbourneosteopathycentre.com.au/services/bike-fitting-and-analysis/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Coaching and Athlete Development","url":"https://www.melbourneosteopathycentre.com.au/services/coaching/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Podiatry","url":"https://www.melbourneosteopathycentre.com.au/services/podiatry/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Exercise Rehabilitation","url":"https://www.melbourneosteopathycentre.com.au/services/exercise-rehabilitation/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Pregnancy Massage","url":"https://www.melbourneosteopathycentre.com.au/services/pregnancy-massage/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Chronic Pain Management","url":"https://www.melbourneosteopathycentre.com.au/services/chronic-pain-management/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Low Back Pain Solutions","url":"https://www.melbourneosteopathycentre.com.au/low-back-pain-solutions/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Advanced Knee Injury Solutions","url":"https://www.melbourneosteopathycentre.com.au/services/advanced-knee-injury-solutions/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Gym &#038; Weight Training Injury Clinic","url":"https://www.melbourneosteopathycentre.com.au/services/gym-weight-training-injury-clinic/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Corporate Health","url":"https://www.melbourneosteopathycentre.com.au/services/corporate-health-services/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"About Us","url":"https://www.melbourneosteopathycentre.com.au/about-us/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Who We Are","url":"https://www.melbourneosteopathycentre.com.au/about-us/who-we-are/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"What You Can Expect From Us","url":"https://www.melbourneosteopathycentre.com.au/what-you-can-expect-from-us/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Testimonials","url":"https://www.melbourneosteopathycentre.com.au/about-us/testimonials/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Partners and Affiliations","url":"https://www.melbourneosteopathycentre.com.au/about-us/partners-and-affiliations/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Our Team","url":"https://www.melbourneosteopathycentre.com.au/team/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Shane Buntman","url":"https://www.melbourneosteopathycentre.com.au/team/dr-shane-buntman/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Jessica Fetterplace","url":"https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Jai Keighery","url":"https://www.melbourneosteopathycentre.com.au/team/dr-jai-keighery/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr David Sokoloff","url":"https://www.melbourneosteopathycentre.com.au/team/dr-david-sokoloff/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Ben McChesney","url":"https://www.melbourneosteopathycentre.com.au/team/dr-ben-mcchesney/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Brendan O’Loughlin","url":"https://www.melbourneosteopathycentre.com.au/team/dr-brendan-oloughlin/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Nicholas Tripodi","url":"https://www.melbourneosteopathycentre.com.au/team/dr-nicholas-tripodi/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dr Jessica Fetterplace","url":"https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Craig Plumridge","url":"https://www.melbourneosteopathycentre.com.au/team/craig-plumridge/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Jonny Gbla","url":"https://www.melbourneosteopathycentre.com.au/team/jonny-gbla/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Mohamad El Hassan","url":"https://www.melbourneosteopathycentre.com.au/team/mohamad-el-hassan/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Rachel Limanou","url":"https://www.melbourneosteopathycentre.com.au/team/rachel-limanou/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Zac Hussey","url":"https://www.melbourneosteopathycentre.com.au/team/zac-hussey/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Esther Rentsch","url":"https://www.melbourneosteopathycentre.com.au/team/esther-rentsch/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Lyndelle Smart","url":"https://www.melbourneosteopathycentre.com.au/team/lyndelle-smart/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Blogs","url":"/blog/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Triathlons","url":"https://www.melbourneosteopathycentre.com.au/blog/sports/triathlons/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Running","url":"https://www.melbourneosteopathycentre.com.au/blog/sports/running/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Weight Training / Crossfit","url":"https://www.melbourneosteopathycentre.com.au/blog/sports/weight-training-crossfit/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"AFL","url":"https://www.melbourneosteopathycentre.com.au/blog/sports/afl/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Swimming","url":"https://www.melbourneosteopathycentre.com.au/blog/sports/swimming/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Osteopathy","url":"https://www.melbourneosteopathycentre.com.au/blog/category/osteopathy/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Pilates","url":"https://www.melbourneosteopathycentre.com.au/blog/category/pilates/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Health","url":"https://www.melbourneosteopathycentre.com.au/blog/category/health-well-being/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Events","url":"https://www.melbourneosteopathycentre.com.au/blog/category/events/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Training","url":"https://www.melbourneosteopathycentre.com.au/blog/category/training/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Dry Needling","url":"https://www.melbourneosteopathycentre.com.au/blog/category/dry-needling/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Yoga","url":"https://www.melbourneosteopathycentre.com.au/blog/category/yoga/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Contact Us","url":"https://www.melbourneosteopathycentre.com.au/contact-us/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Locations","url":"https://www.melbourneosteopathycentre.com.au/contact-us/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Melbourne Osteopathy","url":"https://www.melbourneosteopathycentre.com.au/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Essendon Osteopathy","url":"https://www.melbourneosteopathycentre.com.au/essendon-osteopathy/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Customer Feedback Form","url":"https://www.melbourneosteopathycentre.com.au/contact-us/customer-feedback-form/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Make a Booking","url":"https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Join MOSIC Team","url":"https://www.melbourneosteopathycentre.com.au/join-mosic-team/"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"(03) 9663 6202","url":"tel:+61396636202"},{"@context":"https://schema.org/","@type":"SiteNavigationElement","@id":"https://www.melbourneosteopathycentre.com.au#Main menu","name":"Make A Booking","url":"https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"}]},
+
+{"@context":"https://schema.org/","@type":"BreadcrumbList","@id":"https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://www.melbourneosteopathycentre.com.au","name":"Melbourne Osteopathy Sports Injury Centre"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.melbourneosteopathycentre.com.au/?page_id=24","name":"Private: Our Services"}},{"@type":"ListItem","position":3,"item":{"@id":"https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/","name":"Golf Injury and Performance Centre | Melbourne Osteopathy"}}]}]
+</script>
+
+
+<!-- Schema & Structured Data For WP Custom Markup v1.32 - -->
+<script type="application/ld+json" class="saswp-custom-schema-markup-output">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalClinic",
+      "name": "Golf Injury and Performance Centre - Melbourne Osteopathy Sports Injury Centre",
+      "url": "https://www.melbourneosteopathycentre.com.au/our-services/golf-injury-and-performance-centre/",
+      "description": "Leading Golf Injury and Performance Center at Melbourne Osteopathy Sports Injury Center. For details call (03) 9663 6202.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Suite 903, Level 9/140 Bourke St",
+        "addressLocality": "Melbourne",
+        "postalCode": "VIC 3000",
+        "addressCountry": "Australia"
+      },
+      "telephone": "+61 396636202",
+      "openingHours": "Monday – Friday: 08:00am-19:00 pm",
+      "medicalSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Physiotherapy"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Suite 903, Level 9/140 Bourke St",
+        "addressLocality": "Melbourne",
+        "postalCode": "VIC 3000",
+        "addressCountry": "Australia"
+      },
+      "name": "Melbourne Osteopathy Sports Injury Centre - Golf Injury and Performance Centre",
+      "email": "info@melbourneosteopathycentre.com.au",
+      "url": "https://www.melbourneosteopathycentre.com.au/our-services/golf-injury-and-performance-centre/",
+      "telephone": "+61 396636202",
+      "openingHours": ["Mo 08:00-19:00", "Tu 08:00-19:00", "We 08:00-19:00", "Th 08:00-19:00", "Fr 08:00-19:00"],
+      "image": "https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2023/01/melbourne-osteopathy-centre-logo.png",
+      "priceRange": "$$$"
+    }
+  ]
+}
+</script>
+
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url("https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/04/bg-2.jpg"); background-position: center top; background-size: auto; background-repeat: no-repeat; background-attachment: fixed; }
+</style>
+	<style class="wpcode-css-snippet">@media only screen and (max-width: 767px) {
+	.your_diagnosis img{
+		vertical-align:middle;
+	}
+	.page-id-5443 .slider_2_subtitle{
+		margin:0 px !important;
+		margin-top:-10px !important;
+	}
+	.page-id-5443 .slider_2_title{
+		margin-top: 0px !important;
+	}
+	.page-id-5443 .rev_slider .sc_button.sc_button_size_large{
+		margin-top:-20px !important;
+	}
+	.page-id-5443 .home-first-row .sc_icons_title{
+		margin-top:-10px;
+	}
+	.page-id-5443 .home-first-row .sc_icons .sc_icons_title + .sc_icons_description{
+		margin-top:5px;
+	}
+	.page-id-5443 .home-first-row .sc_item_button{
+		margin-top: -30px;
+		padding: 10px 15px !important;
+	}
+	.list-icon-text-diagnosis p{
+		line-height:0px !important; 
+	}
+	.location-grid-item{
+		margin-top:-40px !important;
+	}
+	.location-grid-item2{
+		margin-top:-70px !important;
+	}
+	.learn-more-link4, .learn-more-link5{
+		margin-top:20px !important;
+	}
+	.last-learn-more-link{
+		margin-top:0px !important;
+	}
+	.learn-more-link2{
+		margin-top:20px !important;
+	}
+	.home-button.mobile a{
+		padding-left:0px !important;
+	}
+	.home-cta p span{
+		font-size: 17px !important;
+	}
+}
+
+@media only screen and (max-width: 767px) and (min-width: 569px){
+	.page-id-5443 .home-first-row .sc_item_button{
+		margin-top: -50px !important;
+	}
+	.learn-more-link4, .learn-more-link5{
+		margin-top:0px !important;
+	}
+	.page-id-5443 .home-first-row .sc_icons_title{
+		margin-top:0px !important;
+	}
+	.wrapper-listening-to-you{
+		padding-left:18px;
+		padding-right:18px;
+	}
+	.wrapper-we-understand-you{
+		margin:0px !important;
+		width: 100% !important;
+	}
+}
+</style><link rel="icon" href="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/07/cropped-logo-fi-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/07/cropped-logo-fi-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/07/cropped-logo-fi-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/07/cropped-logo-fi-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/* Footer 4 col css */
+.footer_wrap_inner aside {
+    float: left !important;
+    width: 23.33% !important;
+}
+@media (max-width: 479px) {
+.footer_wrap_inner aside  {
+    width: 93.33% !important;
+    margin-left: 8% !important;
+	} }
+#nav_menu-5 {
+   margin-left: 50px
+}
+.menu_main_nav>li>a {
+text-transform: capitalize !important;
+}
+.sc_icons_title {
+	font-size: 1.614em;
+}
+
+@media screen and (max-width: 500px) {
+  #cta-section {
+    font-size:20px !important;
+line-height: 32px;
+  }
+}
+#cta_clm .vc_column-inner .wpb_wrapper .sc_item_button .scheme_default  a.sc_button_hover_slide_left ,#cta_clm .vc_column-inner .wpb_wrapper .sc_item_button  a.sc_button_hover_slide_left {
+    background: #1c2674 !important;
+    background-color: #1c2674 !important;
+    border: 1px solid #1c2674 !important;
+} 
+@media (max-width: 479px) {
+.header_style_header-2 .top_panel_navi {
+background-color :white
+	} }
+.scheme_default a.sc_button_hover_slide_left {
+    background: #1c2674 !important;
+    background-color: #1c2674 !important;
+    border: 1px solid #1c2674 !important;
+}
+
+.vc_btn3.vc_btn3-shape-rounded {
+    border-radius: 25px
+	!important;
+}
+.bt-get-excerpt {
+font-weight:300;
+}
+.h3-mobilefaq {
+font-size 12px;
+}
+.faq-home {
+font-size: 20px 
+}
+@media (max-width: 479px) {
+.vc_toggle_title h4 {
+font-size :18px;
+	} }
+.text-correction .sc_item_descr {
+font-size: 14px !important ;
+}
+
+.min-height-box{
+	min-height: 220px;
+}
+.page-id-5443 .bt368-nav-ptt[id^=jps_bete_][data-style*=bt-post-grid-] .bt-ajax-listing .bt-picture-item{
+	height: 140px;
+}
+
+.column_390px.width_1_3{
+	width: calc(100% / 3 - 32px) !important;
+	height: 360px !important;
+}
+
+/* Custom CSS */
+/* Contact: Chris @ dev.chris.smith@gmail.com */
+.sc_team_item_subtitle {
+    font-size: 0.85em !important;
+}
+
+div#particles-js2 {
+    height: 740px;
+}
+.post-type-archive-cpt_team .sc_team_item_subtitle {
+    text-align: left;
+}
+
+/* CSS for header: */
+.top_panel {
+	margin-bottom:0px;
+}
+
+		</style>
+		<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1638536597483{margin-top: 30px !important;margin-bottom: 30px !important;padding-top: 60px !important;padding-bottom: 40px !important;background-color: #8b68b3 !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1638536586737{padding-left: 30px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	
+	<!-- Facebook Pixel Code -->
+    <script type="rocketlazyloadscript">
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '949373542208394');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" 
+           src="https://www.facebook.com/tr?id=949373542208394&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body class="page-template-default page page-id-6149 page-child parent-pageid-24 custom-background blog_mode_page body_tag body_style_fullwide scheme_default is_single sidebar_hide expand_content header_style_header-2 header_position_default header_title_on menu_style_top no_layout wpb-js-composer js-comp-ver-7.6 vc_responsive elementor-default elementor-kit-6471">
+
+	
+	<div class="body_wrap">
+
+		<div class="page_wrap">
+
+			<header class="top_panel top_panel_default"><div class="header-top-menu"><a class="header-phone" href="tel:+61396636202">(03) 9663 6202</a><a class="header-book" href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings" target="_blank">Book Now</a><a class="menu_mobile_button icon-menu-2"></a><div class="top_panel_fixed_wrap"></div>
+<div class="top_panel_navi 
+						scheme_default">
+	<div class="menu_main_wrap clearfix menu_hover_fade">
+		<div class="content_wrap">
+			<a class="logo" href="https://www.melbourneosteopathycentre.com.au/"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20250%20103'%3E%3C/svg%3E" class="logo_main" alt="MELBOURNE OSTEOPATHY CENTRE" width="250" height="103" data-lazy-src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/06/MOSIC-Logo-transparent.png"><noscript><img src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/06/MOSIC-Logo-transparent.png" class="logo_main" alt="MELBOURNE OSTEOPATHY CENTRE" width="250" height="103"></noscript></a><nav class="menu_main_nav_area"><ul id="menu_main" class="menu_main_nav"><li id="menu-item-5778" class="home_icon menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-5778"><a href="https://www.melbourneosteopathycentre.com.au/"><span>Home Page</span></a></li><li id="menu-item-2094" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2094"><a href="#"><span>We Can Help</span></a>
+<ul class="sub-menu"><li id="menu-item-2097" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2097"><a href="https://www.melbourneosteopathycentre.com.au/low-back-pain-chronic-acute/"><span>Low Back Pain (Chronic &#038; Acute)</span></a></li><li id="menu-item-2212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2212"><a href="https://www.melbourneosteopathycentre.com.au/neck-pain/"><span>What’s causing my neck pain?</span></a></li><li id="menu-item-2211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2211"><a href="https://www.melbourneosteopathycentre.com.au/headaches/"><span>Headaches</span></a></li><li id="menu-item-2210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2210"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2199"><span>Osteoarthritis</span></a></li><li id="menu-item-2209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2209"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2201"><span>Sporting Injuries</span></a></li><li id="menu-item-2208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2208"><a href="https://www.melbourneosteopathycentre.com.au/shoulder/"><span>Shoulder</span></a></li><li id="menu-item-2207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2207"><a href="https://www.melbourneosteopathycentre.com.au/knee-ankle-lower-limb/"><span>Knee, Ankle &#038; Lower Limb</span></a></li></ul>
+</li><li id="menu-item-1124" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1124"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=24"><span>Our Services</span></a>
+<ul class="sub-menu"><li id="menu-item-7210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7210"><a href="https://www.melbourneosteopathycentre.com.au/our-services-osteopathy/"><span>Osteopathy</span></a></li><li id="menu-item-1679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1679"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-physiology/"><span>Exercise Physiologist</span></a></li><li id="menu-item-6253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6253"><a href="https://www.melbourneosteopathycentre.com.au/running-injury-centre/"><span>Running Injury Centre</span></a></li><li id="menu-item-6154" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-6149 current_page_item menu-item-6154"><a href="https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/" aria-current="page"><span>Golf Injury and Performance Centre</span></a></li><li id="menu-item-6491" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6491"><a href="https://www.melbourneosteopathycentre.com.au/services/myotherapy/"><span>Myotherapy</span></a></li><li id="menu-item-4288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4288"><a href="https://www.melbourneosteopathycentre.com.au/services/needling-accupuncture/"><span>Dry Needling</span></a></li><li id="menu-item-4885" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4885"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/"><span>Pilates</span></a>
+	<ul class="sub-menu"><li id="menu-item-1645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1645"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/studio-pilates/"><span>Studio Pilates</span></a></li><li id="menu-item-1646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1646"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-timetable/"><span>Timetable</span></a></li><li id="menu-item-3157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3157"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-faq/"><span>Pilates FAQs</span></a></li></ul>
+</li><li id="menu-item-4289" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4289"><a href="#"><span>Athletes Services</span></a>
+	<ul class="sub-menu"><li id="menu-item-3905" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3905"><a href="https://www.melbourneosteopathycentre.com.au/services/running-analysis/"><span>Running Analysis</span></a></li><li id="menu-item-3903" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3903"><a href="https://www.melbourneosteopathycentre.com.au/services/nutrition/"><span>Nutrition</span></a></li><li id="menu-item-3902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3902"><a href="https://www.melbourneosteopathycentre.com.au/services/bike-fitting-and-analysis/"><span>Bike Fitting and Analysis</span></a></li><li id="menu-item-3906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3906"><a href="https://www.melbourneosteopathycentre.com.au/services/coaching/"><span>Coaching and Athlete Development</span></a></li></ul>
+</li><li id="menu-item-4385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4385"><a href="https://www.melbourneosteopathycentre.com.au/services/podiatry/"><span>Podiatry</span></a></li><li id="menu-item-2192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2192"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-rehabilitation/"><span>Exercise Rehabilitation</span></a></li><li id="menu-item-2109" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2109"><a href="https://www.melbourneosteopathycentre.com.au/services/pregnancy-massage/"><span>Pregnancy Massage</span></a></li><li id="menu-item-2187" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2187"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2177"><span>Chronic Pain Management</span></a></li><li id="menu-item-2188" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2188"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2179"><span>Low Back Pain Solutions</span></a></li><li id="menu-item-2190" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2190"><a href="https://www.melbourneosteopathycentre.com.au/services/advanced-knee-injury-solutions/"><span>Advanced Knee Injury Solutions</span></a></li><li id="menu-item-2191" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2191"><a href="https://www.melbourneosteopathycentre.com.au/services/gym-weight-training-injury-clinic/"><span>Gym &#038; Weight Training Injury Clinic</span></a></li><li id="menu-item-1831" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="https://www.melbourneosteopathycentre.com.au/services/corporate-health-services/"><span>Corporate Health</span></a></li></ul>
+</li><li id="menu-item-1259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1259"><a href="https://www.melbourneosteopathycentre.com.au/about-us/"><span>About Us</span></a>
+<ul class="sub-menu"><li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="https://www.melbourneosteopathycentre.com.au/about-us/who-we-are/"><span>Who We Are</span></a></li><li id="menu-item-6189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6189"><a href="https://www.melbourneosteopathycentre.com.au/what-you-can-expect-from-us/"><span>What You Can Expect From Us</span></a></li><li id="menu-item-2063" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2063"><a href="https://www.melbourneosteopathycentre.com.au/about-us/testimonials/"><span>Testimonials</span></a></li><li id="menu-item-1393" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://www.melbourneosteopathycentre.com.au/about-us/partners-and-affiliations/"><span>Partners and Affiliations</span></a></li><li id="menu-item-1928" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1928"><a href="https://www.melbourneosteopathycentre.com.au/team/"><span>Our Team</span></a>
+	<ul class="sub-menu"><li id="menu-item-2112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2112"><a href="#"><span>Osteopathy</span></a>
+		<ul class="sub-menu"><li id="menu-item-2115" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2115"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-shane-buntman/"><span>Dr Shane Buntman</span></a></li><li id="menu-item-2927" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2927"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"><span>Dr Jessica Fetterplace</span></a></li><li id="menu-item-7374" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7374"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jai-keighery/"><span>Dr Jai Keighery</span></a></li><li id="menu-item-2113" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2113"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-david-sokoloff/"><span>Dr David Sokoloff</span></a></li><li id="menu-item-7346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7346"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-ben-mcchesney/"><span>Dr Ben McChesney</span></a></li><li id="menu-item-2114" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2114"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-brendan-oloughlin/"><span>Dr Brendan O’Loughlin</span></a></li><li id="menu-item-4008" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-4008"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-nicholas-tripodi/"><span>Dr Nicholas Tripodi</span></a></li></ul>
+</li><li id="menu-item-2117" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2117"><a href="#"><span>Exercise Physiology</span></a>
+		<ul class="sub-menu"><li id="menu-item-2928" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2928"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"><span>Dr Jessica Fetterplace</span></a></li></ul>
+</li><li id="menu-item-2121" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-2121"><a href="#"><span>Pilates &#038; Group Exercise classes</span></a></li><li id="menu-item-2689" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2689"><a href="#"><span>Podiatry</span></a>
+		<ul class="sub-menu"><li id="menu-item-2691" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2691"><a href="https://www.melbourneosteopathycentre.com.au/team/craig-plumridge/"><span>Craig Plumridge</span></a></li><li id="menu-item-6668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6668"><a href="https://www.melbourneosteopathycentre.com.au/team/jonny-gbla/"><span>Jonny Gbla</span></a></li><li id="menu-item-7412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7412"><a href="https://www.melbourneosteopathycentre.com.au/team/mohamad-el-hassan/"><span>Mohamad El Hassan</span></a></li><li id="menu-item-7408" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7408"><a href="https://www.melbourneosteopathycentre.com.au/team/rachel-limanou/"><span>Rachel Limanou</span></a></li></ul>
+</li><li id="menu-item-7285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7285"><a href="#"><span>Massage Therapist</span></a>
+		<ul class="sub-menu"><li id="menu-item-7284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7284"><a href="https://www.melbourneosteopathycentre.com.au/team/zac-hussey/"><span>Zac Hussey</span></a></li></ul>
+</li><li id="menu-item-2125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2125"><a href="#"><span>Client Care Team</span></a>
+		<ul class="sub-menu"><li id="menu-item-7323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7323"><a href="https://www.melbourneosteopathycentre.com.au/team/esther-rentsch/"><span>Esther Rentsch</span></a></li><li id="menu-item-7324" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7324"><a href="https://www.melbourneosteopathycentre.com.au/team/lyndelle-smart/"><span>Lyndelle Smart</span></a></li></ul>
+</li></ul>
+</li></ul>
+</li><li id="menu-item-2145" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2145"><a href="/blog/"><span>Blogs</span></a>
+<ul class="sub-menu"><li id="menu-item-2147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2147"><a href="#"><span>Sports</span></a>
+	<ul class="sub-menu"><li id="menu-item-2037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2037"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/triathlons/"><span>Triathlons</span></a></li><li id="menu-item-2040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2040"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/running/"><span>Running</span></a></li><li id="menu-item-2045" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2045"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/weight-training-crossfit/"><span>Weight Training / Crossfit</span></a></li><li id="menu-item-2048" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2048"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/afl/"><span>AFL</span></a></li><li id="menu-item-2043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2043"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/swimming/"><span>Swimming</span></a></li></ul>
+</li><li id="menu-item-2146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2146"><a href="#"><span>News</span></a>
+	<ul class="sub-menu"><li id="menu-item-3180" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3180"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/osteopathy/"><span>Osteopathy</span></a></li><li id="menu-item-3181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3181"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/pilates/"><span>Pilates</span></a></li><li id="menu-item-3182" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3182"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/health-well-being/"><span>Health</span></a></li><li id="menu-item-3183" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3183"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/events/"><span>Events</span></a></li><li id="menu-item-3184" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3184"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/training/"><span>Training</span></a></li><li id="menu-item-3185" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3185"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/dry-needling/"><span>Dry Needling</span></a></li><li id="menu-item-3186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3186"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/yoga/"><span>Yoga</span></a></li></ul>
+</li></ul>
+</li><li id="menu-item-3153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3153"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/"><span>Contact Us</span></a>
+<ul class="sub-menu"><li id="menu-item-2864" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2864"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/"><span>Locations</span></a>
+	<ul class="sub-menu"><li id="menu-item-5779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-5779"><a href="https://www.melbourneosteopathycentre.com.au/"><span>Melbourne Osteopathy</span></a></li><li id="menu-item-7211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7211"><a href="https://www.melbourneosteopathycentre.com.au/essendon-osteopathy/"><span>Essendon Osteopathy</span></a></li></ul>
+</li><li id="menu-item-1340" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1340"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/customer-feedback-form/"><span>Customer Feedback Form</span></a></li><li id="menu-item-2935" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-2935"><a target="_blank" rel="noopener" href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"><span>Make a Booking</span></a></li><li id="menu-item-2156" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2156"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2154"><span>Join MOSIC Team</span></a></li></ul>
+</li><li id="menu-item-2944" class="call_icon menu-item menu-item-type-custom menu-item-object-custom menu-item-2944"><a href="tel:+61396636202"><span>(03) 9663 6202</span></a></li><li id="menu-item-2885" class="ext_hover_button menu-item menu-item-type-custom menu-item-object-custom menu-item-2885"><a target="_blank" rel="noopener" href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"><span>Make A Booking</span></a></li></ul></nav>		</div>
+	</div>
+</div><!-- /.top_panel_navi --></div>	<div class="top_panel_title_wrap with_bg_image mandala_inline_0 scheme_default">
+		<div class="top_panel_title">
+			<div class="content_wrap">
+				<div class="page_title">
+													<h1 class="page_caption">Golf Injury and Performance Centre</h1>
+																</div>
+				<div class="breadcrumbs"><a class="breadcrumbs_item home" href="https://www.melbourneosteopathycentre.com.au/">Home</a><span class="breadcrumbs_delimiter"></span><a class="breadcrumbs_item cat_post" href="https://www.melbourneosteopathycentre.com.au/?page_id=24">Our Services</a><span class="breadcrumbs_delimiter"></span><span class="breadcrumbs_item current">Golf Injury and Performance Centre</span></div>			</div>
+		</div>
+	</div>
+	</header>
+<div class="menu_mobile_overlay"></div>
+<div class="menu_mobile">
+	<div class="menu_mobile_inner">
+		<a class="menu_mobile_close icon-cancel"></a><a class="logo" href="https://www.melbourneosteopathycentre.com.au/"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20250%20103'%3E%3C/svg%3E" class="logo_main" alt="MELBOURNE OSTEOPATHY CENTRE" width="250" height="103" data-lazy-src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/06/MOSIC-Logo-transparent.png"><noscript><img src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2020/06/MOSIC-Logo-transparent.png" class="logo_main" alt="MELBOURNE OSTEOPATHY CENTRE" width="250" height="103"></noscript></a><nav class="menu_mobile_nav_area"><ul id="menu_mobile" class="menu_mobile_nav"><li id="menu_mobile-item-5778" class="home_icon menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-5778"><a href="https://www.melbourneosteopathycentre.com.au/"><span>Home Page</span></a></li><li id="menu_mobile-item-2094" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2094"><a href="#"><span>We Can Help</span></a>
+<ul class="sub-menu"><li id="menu_mobile-item-2097" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2097"><a href="https://www.melbourneosteopathycentre.com.au/low-back-pain-chronic-acute/"><span>Low Back Pain (Chronic &#038; Acute)</span></a></li><li id="menu_mobile-item-2212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2212"><a href="https://www.melbourneosteopathycentre.com.au/neck-pain/"><span>What’s causing my neck pain?</span></a></li><li id="menu_mobile-item-2211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2211"><a href="https://www.melbourneosteopathycentre.com.au/headaches/"><span>Headaches</span></a></li><li id="menu_mobile-item-2210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2210"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2199"><span>Osteoarthritis</span></a></li><li id="menu_mobile-item-2209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2209"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2201"><span>Sporting Injuries</span></a></li><li id="menu_mobile-item-2208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2208"><a href="https://www.melbourneosteopathycentre.com.au/shoulder/"><span>Shoulder</span></a></li><li id="menu_mobile-item-2207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2207"><a href="https://www.melbourneosteopathycentre.com.au/knee-ankle-lower-limb/"><span>Knee, Ankle &#038; Lower Limb</span></a></li></ul>
+</li><li id="menu_mobile-item-1124" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1124"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=24"><span>Our Services</span></a>
+<ul class="sub-menu"><li id="menu_mobile-item-7210" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7210"><a href="https://www.melbourneosteopathycentre.com.au/our-services-osteopathy/"><span>Osteopathy</span></a></li><li id="menu_mobile-item-1679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1679"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-physiology/"><span>Exercise Physiologist</span></a></li><li id="menu_mobile-item-6253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6253"><a href="https://www.melbourneosteopathycentre.com.au/running-injury-centre/"><span>Running Injury Centre</span></a></li><li id="menu_mobile-item-6154" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-6149 current_page_item menu-item-6154"><a href="https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/" aria-current="page"><span>Golf Injury and Performance Centre</span></a></li><li id="menu_mobile-item-6491" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6491"><a href="https://www.melbourneosteopathycentre.com.au/services/myotherapy/"><span>Myotherapy</span></a></li><li id="menu_mobile-item-4288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4288"><a href="https://www.melbourneosteopathycentre.com.au/services/needling-accupuncture/"><span>Dry Needling</span></a></li><li id="menu_mobile-item-4885" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4885"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/"><span>Pilates</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-1645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1645"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/studio-pilates/"><span>Studio Pilates</span></a></li><li id="menu_mobile-item-1646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1646"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-timetable/"><span>Timetable</span></a></li><li id="menu_mobile-item-3157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3157"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/pilates-faq/"><span>Pilates FAQs</span></a></li></ul>
+</li><li id="menu_mobile-item-4289" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4289"><a href="#"><span>Athletes Services</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-3905" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3905"><a href="https://www.melbourneosteopathycentre.com.au/services/running-analysis/"><span>Running Analysis</span></a></li><li id="menu_mobile-item-3903" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3903"><a href="https://www.melbourneosteopathycentre.com.au/services/nutrition/"><span>Nutrition</span></a></li><li id="menu_mobile-item-3902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3902"><a href="https://www.melbourneosteopathycentre.com.au/services/bike-fitting-and-analysis/"><span>Bike Fitting and Analysis</span></a></li><li id="menu_mobile-item-3906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3906"><a href="https://www.melbourneosteopathycentre.com.au/services/coaching/"><span>Coaching and Athlete Development</span></a></li></ul>
+</li><li id="menu_mobile-item-4385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4385"><a href="https://www.melbourneosteopathycentre.com.au/services/podiatry/"><span>Podiatry</span></a></li><li id="menu_mobile-item-2192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2192"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-rehabilitation/"><span>Exercise Rehabilitation</span></a></li><li id="menu_mobile-item-2109" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2109"><a href="https://www.melbourneosteopathycentre.com.au/services/pregnancy-massage/"><span>Pregnancy Massage</span></a></li><li id="menu_mobile-item-2187" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2187"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2177"><span>Chronic Pain Management</span></a></li><li id="menu_mobile-item-2188" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2188"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2179"><span>Low Back Pain Solutions</span></a></li><li id="menu_mobile-item-2190" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2190"><a href="https://www.melbourneosteopathycentre.com.au/services/advanced-knee-injury-solutions/"><span>Advanced Knee Injury Solutions</span></a></li><li id="menu_mobile-item-2191" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2191"><a href="https://www.melbourneosteopathycentre.com.au/services/gym-weight-training-injury-clinic/"><span>Gym &#038; Weight Training Injury Clinic</span></a></li><li id="menu_mobile-item-1831" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="https://www.melbourneosteopathycentre.com.au/services/corporate-health-services/"><span>Corporate Health</span></a></li></ul>
+</li><li id="menu_mobile-item-1259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1259"><a href="https://www.melbourneosteopathycentre.com.au/about-us/"><span>About Us</span></a>
+<ul class="sub-menu"><li id="menu_mobile-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="https://www.melbourneosteopathycentre.com.au/about-us/who-we-are/"><span>Who We Are</span></a></li><li id="menu_mobile-item-6189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6189"><a href="https://www.melbourneosteopathycentre.com.au/what-you-can-expect-from-us/"><span>What You Can Expect From Us</span></a></li><li id="menu_mobile-item-2063" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2063"><a href="https://www.melbourneosteopathycentre.com.au/about-us/testimonials/"><span>Testimonials</span></a></li><li id="menu_mobile-item-1393" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1393"><a href="https://www.melbourneosteopathycentre.com.au/about-us/partners-and-affiliations/"><span>Partners and Affiliations</span></a></li><li id="menu_mobile-item-1928" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1928"><a href="https://www.melbourneosteopathycentre.com.au/team/"><span>Our Team</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-2112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2112"><a href="#"><span>Osteopathy</span></a>
+		<ul class="sub-menu"><li id="menu_mobile-item-2115" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2115"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-shane-buntman/"><span>Dr Shane Buntman</span></a></li><li id="menu_mobile-item-2927" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2927"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"><span>Dr Jessica Fetterplace</span></a></li><li id="menu_mobile-item-7374" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7374"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jai-keighery/"><span>Dr Jai Keighery</span></a></li><li id="menu_mobile-item-2113" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2113"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-david-sokoloff/"><span>Dr David Sokoloff</span></a></li><li id="menu_mobile-item-7346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7346"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-ben-mcchesney/"><span>Dr Ben McChesney</span></a></li><li id="menu_mobile-item-2114" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2114"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-brendan-oloughlin/"><span>Dr Brendan O’Loughlin</span></a></li><li id="menu_mobile-item-4008" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-4008"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-nicholas-tripodi/"><span>Dr Nicholas Tripodi</span></a></li></ul>
+</li><li id="menu_mobile-item-2117" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2117"><a href="#"><span>Exercise Physiology</span></a>
+		<ul class="sub-menu"><li id="menu_mobile-item-2928" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2928"><a href="https://www.melbourneosteopathycentre.com.au/team/dr-jessica-fetterplace/"><span>Dr Jessica Fetterplace</span></a></li></ul>
+</li><li id="menu_mobile-item-2121" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-2121"><a href="#"><span>Pilates &#038; Group Exercise classes</span></a></li><li id="menu_mobile-item-2689" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2689"><a href="#"><span>Podiatry</span></a>
+		<ul class="sub-menu"><li id="menu_mobile-item-2691" class="menu-item menu-item-type-post_type menu-item-object-cpt_team menu-item-2691"><a href="https://www.melbourneosteopathycentre.com.au/team/craig-plumridge/"><span>Craig Plumridge</span></a></li><li id="menu_mobile-item-6668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6668"><a href="https://www.melbourneosteopathycentre.com.au/team/jonny-gbla/"><span>Jonny Gbla</span></a></li><li id="menu_mobile-item-7412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7412"><a href="https://www.melbourneosteopathycentre.com.au/team/mohamad-el-hassan/"><span>Mohamad El Hassan</span></a></li><li id="menu_mobile-item-7408" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7408"><a href="https://www.melbourneosteopathycentre.com.au/team/rachel-limanou/"><span>Rachel Limanou</span></a></li></ul>
+</li><li id="menu_mobile-item-7285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7285"><a href="#"><span>Massage Therapist</span></a>
+		<ul class="sub-menu"><li id="menu_mobile-item-7284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7284"><a href="https://www.melbourneosteopathycentre.com.au/team/zac-hussey/"><span>Zac Hussey</span></a></li></ul>
+</li><li id="menu_mobile-item-2125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2125"><a href="#"><span>Client Care Team</span></a>
+		<ul class="sub-menu"><li id="menu_mobile-item-7323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7323"><a href="https://www.melbourneosteopathycentre.com.au/team/esther-rentsch/"><span>Esther Rentsch</span></a></li><li id="menu_mobile-item-7324" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7324"><a href="https://www.melbourneosteopathycentre.com.au/team/lyndelle-smart/"><span>Lyndelle Smart</span></a></li></ul>
+</li></ul>
+</li></ul>
+</li><li id="menu_mobile-item-2145" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2145"><a href="/blog/"><span>Blogs</span></a>
+<ul class="sub-menu"><li id="menu_mobile-item-2147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2147"><a href="#"><span>Sports</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-2037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2037"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/triathlons/"><span>Triathlons</span></a></li><li id="menu_mobile-item-2040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2040"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/running/"><span>Running</span></a></li><li id="menu_mobile-item-2045" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2045"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/weight-training-crossfit/"><span>Weight Training / Crossfit</span></a></li><li id="menu_mobile-item-2048" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2048"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/afl/"><span>AFL</span></a></li><li id="menu_mobile-item-2043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2043"><a href="https://www.melbourneosteopathycentre.com.au/blog/sports/swimming/"><span>Swimming</span></a></li></ul>
+</li><li id="menu_mobile-item-2146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2146"><a href="#"><span>News</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-3180" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3180"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/osteopathy/"><span>Osteopathy</span></a></li><li id="menu_mobile-item-3181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3181"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/pilates/"><span>Pilates</span></a></li><li id="menu_mobile-item-3182" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3182"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/health-well-being/"><span>Health</span></a></li><li id="menu_mobile-item-3183" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3183"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/events/"><span>Events</span></a></li><li id="menu_mobile-item-3184" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3184"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/training/"><span>Training</span></a></li><li id="menu_mobile-item-3185" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3185"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/dry-needling/"><span>Dry Needling</span></a></li><li id="menu_mobile-item-3186" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3186"><a href="https://www.melbourneosteopathycentre.com.au/blog/category/yoga/"><span>Yoga</span></a></li></ul>
+</li></ul>
+</li><li id="menu_mobile-item-3153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3153"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/"><span>Contact Us</span></a>
+<ul class="sub-menu"><li id="menu_mobile-item-2864" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2864"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/"><span>Locations</span></a>
+	<ul class="sub-menu"><li id="menu_mobile-item-5779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-5779"><a href="https://www.melbourneosteopathycentre.com.au/"><span>Melbourne Osteopathy</span></a></li><li id="menu_mobile-item-7211" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7211"><a href="https://www.melbourneosteopathycentre.com.au/essendon-osteopathy/"><span>Essendon Osteopathy</span></a></li></ul>
+</li><li id="menu_mobile-item-1340" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-1340"><a href="https://www.melbourneosteopathycentre.com.au/contact-us/customer-feedback-form/"><span>Customer Feedback Form</span></a></li><li id="menu_mobile-item-2935" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-2935"><a target="_blank" rel="noopener" href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"><span>Make a Booking</span></a></li><li id="menu_mobile-item-2156" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-2156"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=2154"><span>Join MOSIC Team</span></a></li></ul>
+</li><li id="menu_mobile-item-2944" class="call_icon menu-item menu-item-type-custom menu-item-object-custom menu-item-2944"><a href="tel:+61396636202"><span>(03) 9663 6202</span></a></li><li id="menu_mobile-item-2885" class="ext_hover_button menu-item menu-item-type-custom menu-item-object-custom menu-item-2885"><a target="_blank" rel="noopener" href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings"><span>Make A Booking</span></a></li></ul></nav>		<div class="search_mobile">
+			<div class="search_form_wrap">
+				<form role="search" method="get" class="search_form" action="https://www.melbourneosteopathycentre.com.au/">
+					<input type="text" class="search_field" placeholder="Search ..." value="" name="s">
+					<button type="submit" class="search_submit icon-search" title="Start search"></button>
+				</form>
+			</div>
+		</div>
+		<div class="socials_mobile"><span class="social_item"><a href="https://www.facebook.com/MelbourneOsteopathySportsInjuryCentre" target="_blank" class="social_icons social_facebook"><span class="trx_addons_icon-facebook"></span></a></span><span class="social_item"><a href="https://www.instagram.com/melbosteo/" target="_blank" class="social_icons social_instagram"><span class="trx_addons_icon-instagram"></span></a></span></div>	</div>
+</div>
+						<div class="page_content_wrap scheme_default">
+
+								<div class="content_wrap">
+				
+									
+
+					<div class="content">
+										
+
+<article id="post-6149" class="post_item_single post_type_page post-6149 page type-page status-publish hentry">
+
+	
+	<div class="post_content entry-content">
+		<div class="wpb-content-wrapper"><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div id="sc_title_1890734658"
+		class="sc_title sc_title_default"><h2 class="sc_item_title sc_title_title sc_align_default sc_item_title_style_h4_thin">Welcome to our Golf Injury and Performance Centre- Your Destination for Golf-Related Health and Performance</h2></div><!-- /.sc_title --><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div>
+	<div class="wpb_text_column wpb_content_element" >
+		<div class="wpb_wrapper">
+			<p><span style="font-weight: 400;">Our <strong>Golf Injury</strong> and Performance Centre combines an Osteopathic approach with golf-specific biomechanics to provide a unique perspective to golf-related injuries </span></p>
+<p><i><span style="font-weight: 400;">“</span></i><i><span style="font-weight: 400;">If I had an hour to solve a problem I&#8217;d spend 55 minutes thinking about the problem and five minutes thinking about solutions</span></i><i><span style="font-weight: 400;">.” &#8211; Albert Einstein</span></i></p>
+<p><span style="font-weight: 400;">We spend more time understanding the problem, so that we can more effectively deal with challenging and complex problems.</span></p>
+<p><span style="font-weight: 400;">We believe that every golfer is an individual, and as such, has an individual swing. We don’t follow rigid rules or structures, but rather we flexibly adapt our approach to help you optimise your own unique swing.</span></p>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div id="sc_title_1484808211"
+		class="sc_title sc_title_default"><h2 class="sc_item_title sc_title_title sc_align_default sc_item_title_style_h4_thin">Who is it for?</h2></div><!-- /.sc_title --><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element" >
+		<div class="wpb_wrapper">
+			<ul>
+<li><b>Anyone who has pain on the golf course:</b><span style="font-weight: 400;"><br />
+</span><span style="font-weight: 400;">Maybe you’ve seen people before to help your pain, but as soon as you go back out and play the pain comes back? We will address the root cause of your issues occurring within your game, to provide long-term solutions. </span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><b>Anyone who is having trouble getting their body to execute or stick to swing changes:</b><span style="font-weight: 400;"><br />
+</span><span style="font-weight: 400;">Have you seen coaches, watched youtube videos, but you can’t seem to get your body to achieve certain movements in the golf swing? We can help to resolve the limitations in your physical capacity, to facilitate a greater ease in technique change. </span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><b>Anyone who is looking to optimise the body&#8217;s capacity to function in the golf swing, and in walking around the course:<br />
+</b>By focusing on mobility, co-ordination and conditioning, we are able to assist you in getting the best out of your own golf swing.</li>
+<li style="list-style-type: none;"></li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div  class="wpb_single_image wpb_content_element vc_align_left wpb_content_element">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="384" height="480" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%20480'%3E%3C/svg%3E" class="vc_single_image-img attachment-thumbnail" alt="Pro golf player getting his swing analysed after Golf Injury" decoding="async" title="Golf Injury" data-lazy-src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2023/08/FullSizeRender-Camera-384x480.jpg" /><noscript><img width="384" height="480" src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2023/08/FullSizeRender-Camera-384x480.jpg" class="vc_single_image-img attachment-thumbnail" alt="Pro golf player getting his swing analysed after Golf Injury" decoding="async" title="Golf Injury" /></noscript></div>
+		</figure>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div id="sc_title_1529630451"
+		class="sc_title sc_title_default"><h2 class="sc_item_title sc_title_title sc_align_default sc_item_title_style_h4_thin">What does it involve?</h2></div><!-- /.sc_title --><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element" >
+		<div class="wpb_wrapper">
+			<ul>
+<li>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Injury and golfing history:</b><span style="font-weight: 400;"> We take the time to sit down and understand your pain, your goals, and the specifics around your golf game, in order to create a deep understanding of the problem you’re presenting with.</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Gait analysis:</b><span style="font-weight: 400;"> Given that we walk around the golf course, we first look to understand how you move across the ground, to screen your movements, and to understand whether this is influencing your painful presentation.</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Golf swing analysis:</b><span style="font-weight: 400;"> We will break down your golf swing via slow motion video analysis to understand where in inefficiencies and limitations in your golf swing occur.</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Golf-specific movement assessment:</b><span style="font-weight: 400;"> We will then perform a functional golf screen.</span></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Tailored treatment plan: </b>We will then implement a truly tailored plan, which is based on your individual needs, abilities and swing characteristics.</li>
+</ul>
+</li>
+<li style="list-style-type: none;"></li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div  class="wpb_single_image wpb_content_element vc_align_left wpb_content_element">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="384" height="480" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%20480'%3E%3C/svg%3E" class="vc_single_image-img attachment-thumbnail" alt="Professional golf player experiencing hip pain and is getting treated after golf injury" decoding="async" title="Pro Golfer going through Rehab after golf injury" data-lazy-src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2023/08/FullSizeRender-Stretch-scaled-e1710338238631-384x480.jpg" /><noscript><img width="384" height="480" src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2023/08/FullSizeRender-Stretch-scaled-e1710338238631-384x480.jpg" class="vc_single_image-img attachment-thumbnail" alt="Professional golf player experiencing hip pain and is getting treated after golf injury" decoding="async" title="Pro Golfer going through Rehab after golf injury" /></noscript></div>
+		</figure>
+	</div>
+</div></div></div></div><div id="cta_row" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1638536597483 vc_row-has-fill vc_row-o-equal-height vc_row-o-content-middle vc_row-flex"><div class="wpb_column vc_column_container vc_col-sm-12" id="cta_clm"><div class="vc_column-inner vc_custom_1638536586737"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element" >
+		<div class="wpb_wrapper">
+			
+		</div>
+	</div>
+<p style="text-align: center;"><span id="cta-section" style="font-size: 24pt; color: white; font-weight: 400;">Schedule an Appointment With Our Experienced Practitioners!</span></p>
+<p></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space  height_small"   style="height: 0px"><span class="vc_empty_space_inner"></span></div><div id="sc_title_251935019"
+		class="sc_title sc_title_default"><h2 class="sc_item_title sc_title_title sc_align_default sc_item_title_style_h4_thin">Meet your team</h2></div><!-- /.sc_title -->
+	<div class="wpb_text_column wpb_content_element cta_box" >
+		<div class="wpb_wrapper">
+			<p><b>Lead by:</b><span style="font-weight: 400;">  Senior golf practitioner Dr </span><a href="https://www.melbourneosteopathycentre.com.au/team/dr-david-sokoloff/"><span style="font-weight: 400;" data-rich-links="{&quot;per_n&quot;:&quot;David Sokoloff&quot;,&quot;per_e&quot;:&quot;davidoliversokoloff@gmail.com&quot;,&quot;type&quot;:&quot;person&quot;}">David Sokoloff</span></a></p>
+<p><em><span style="font-weight: 400; font-size: 10pt;">Dave believes the most valuable information comes from understanding how his patients interact with their environment through movement. As such, Dave’s sessions utilise manual therapy, rehabilitation and education, all whilst in the specific positions and context in which pain occurs.</span></em></p>
+<p>If you would like any further information on <span style="text-decoration: underline;">golf injury</span> or to book an appointment then please contact us on:</p>
+<ul>
+<li>call <a href="tel:+61396636202"><strong>(03) 9663 6202</strong></a></li>
+<li>email: <a href="mailto:info@melbourneosteopathycentre.com.au" target="_blank" rel="noopener noreferrer">info@<wbr />melbourneosteopathycentre.com.<wbr />au</a></li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_raw_code wpb_raw_html wpb_content_element" id="David booking">
+		<div class="wpb_wrapper">
+			<iframe loading="lazy" id='cliniko-82732961' src='about:blank' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;' data-rocket-lazyload="fitvidscompatible" data-lazy-src="https://melbourne-osteopathy-sports-injury-centre.au1.cliniko.com/bookings?practitioner_id=68304&#038;embedded=true"></iframe><noscript><iframe id='cliniko-82732961' src='https://melbourne-osteopathy-sports-injury-centre.au1.cliniko.com/bookings?practitioner_id=68304&embedded=true' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe></noscript> <script type="rocketlazyloadscript" data-rocket-type='text/javascript'> window.addEventListener('message', function handleIFrameMessage (e) { var clinikoBookings = document.getElementById('cliniko-82732961'); if (typeof e.data !== 'string') return; if (e.data.search('cliniko-bookings-resize') > -1) { var height = Number(e.data.split(':')[1]); clinikoBookings.style.height = height + 'px'; } e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView(); }); </script>
+		</div>
+	</div>
+</div></div></div></div>
+</div>	</div><!-- .entry-content -->
+
+</article>
+				
+					</div><!-- </.content> -->
+
+					</div><!-- </.content_wrap> -->			</div><!-- </.page_content_wrap> -->
+
+						
+			<footer class="site_footer_wrap scheme_dark">
+									<div class="footer_wrap widget_area">
+						<div class="footer_wrap_inner widget_area_inner">
+							<div class="content_wrap"><div class="columns_wrap"><aside id="custom_html-2" class="widget_text widget widget_custom_html"><h5 class="widget_title">Our Vision &#038; Core Values</h5><div class="textwidget custom-html-widget">Our vision is 'To influence Melbournians in shaping Melbourne CBD to become the healthiest capital city in Australia. Our core values are Growth, Care & Teamwork. <a href="https://www.melbourneosteopathycentre.com.au/about-us/who-we-are/">Learn more</a></div></aside><aside id="nav_menu-5" class="column-1_4 widget widget_nav_menu"><h5 class="widget_title">Health Products</h5><div class="menu-health-lifestyle-products-container"><ul id="menu-health-lifestyle-products" class="menu"><li id="menu-item-4231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4231"><a href="https://www.melbourneosteopathycentre.com.au/services/health-lifestyle-products/spiky-balls/">Spiky Balls</a></li>
+<li id="menu-item-4235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235"><a href="https://www.melbourneosteopathycentre.com.au/services/health-lifestyle-products/foam-rollers/">Foam Rollers</a></li>
+<li id="menu-item-4234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4234"><a href="https://www.melbourneosteopathycentre.com.au/services/health-lifestyle-products/flexi-pillow/">Flexi Pillow</a></li>
+<li id="menu-item-4233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4233"><a href="https://www.melbourneosteopathycentre.com.au/services/health-lifestyle-products/thera-band/">Thera-Band®</a></li>
+</ul></div></aside><aside id="nav_menu-4" class="column-1_4 widget widget_nav_menu"><h5 class="widget_title">Our Services</h5><div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-3189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3189"><a href="https://www.melbourneosteopathycentre.com.au/?page_id=1623">Osteopathy</a>
+<ul class="sub-menu">
+	<li id="menu-item-7214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7214"><a href="https://www.melbourneosteopathycentre.com.au/essendon-osteopathy/">Essendon Osteopathy</a></li>
+</ul>
+</li>
+<li id="menu-item-3191" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3191"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-physiology/">Exercise Physiologist</a></li>
+<li id="menu-item-6156" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-6149 current_page_item menu-item-6156"><a href="https://www.melbourneosteopathycentre.com.au/services/golf-injury-and-performance-centre/" aria-current="page">Golf Injury and Performance Centre</a></li>
+<li id="menu-item-2853" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2853"><a href="https://www.melbourneosteopathycentre.com.au/services/needling-accupuncture/">Dry Needling</a></li>
+<li id="menu-item-4393" class="hideme menu-item menu-item-type-custom menu-item-object-custom menu-item-4393"><a href="https://www.melbourneosteopathycentre.com.au/our-services/corporate-health-services/">Corporate Health</a></li>
+<li id="menu-item-4391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4391"><a href="https://www.melbourneosteopathycentre.com.au/services/podiatry/">Podiatry</a></li>
+<li id="menu-item-4394" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4394"><a href="https://www.melbourneosteopathycentre.com.au/services/exercise-rehabilitation/">Exercise Rehabilitation</a></li>
+<li id="menu-item-5381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5381"><a href="https://www.melbourneosteopathycentre.com.au/services/pilates/">Pilates</a></li>
+<li id="menu-item-4392" class="hideme menu-item menu-item-type-post_type menu-item-object-page menu-item-4392"><a href="https://www.melbourneosteopathycentre.com.au/services/pregnancy-massage/">Pregnancy Massage</a></li>
+</ul></div></aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><h5 class="widget_title">Contact Us</h5><div class="textwidget custom-html-widget"><p><a href="tel:+61396636202">Phone Number: (03) 9663 6202</a><br><a href="mailto:info@melbourneosteopathycentre.com.au">Email: info@melbourneosteopathycentre.com.au</a><br>
+<a href="https://www.melbourneosteopathycentre.com.au/contact-us/"></a></p>
+
+<p><strong>Essendon Osteopathy Sports Injury Centre</strong><br>320-324 Keilor Rd, <br>
+Essendon North VIC 3041 </p>
+
+<p><strong>Bourke Street Centre</strong><br>
+Suite 903, Level 9/140<br>Bourke St, Melbourne VIC 3000</p>
+
+</div></aside></div><!-- /.columns_wrap --></div><!-- /.content_wrap -->						</div><!-- /.footer_wrap_inner -->
+					</div><!-- /.footer_wrap -->
+				 
+				<div class="copyright_wrap scheme_">
+					<div class="copyright_wrap_inner">
+						<div class="content_wrap">
+							<div class="copyright_text"><span>Copyright © 2023 Melbourne Osteopathy Sports Injury Centre. All Rights Reserved.</span> <a href="#">Terms of Use</a> and <a href="#">Privacy Policy. </a><a href="https://www.melbourneosteopathycentre.com.au/sitemap">Sitemap</a></div>
+															<div class="socials_footer_wrap socials_wrap">
+									<div class="socials_footer_wrap_inner">
+										<span class="social_item"><a href="https://www.facebook.com/MelbourneOsteopathySportsInjuryCentre" target="_blank" class="social_icons social_facebook"><span class="trx_addons_icon-facebook"></span></a></span><span class="social_item"><a href="https://www.instagram.com/melbosteo/" target="_blank" class="social_icons social_instagram"><span class="trx_addons_icon-instagram"></span></a></span>									</div>
+								</div>
+														</div>
+					</div>
+				</div>
+
+			</footer><!-- /.site_footer_wrap -->
+										<div class="footer_bottom_border">
+							<img width="1920" height="4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%204'%3E%3C/svg%3E" alt="MELBOURNE OSTEOPATHY CENTRE" data-lazy-src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2016/11/footer_border.png"><noscript><img width="1920" height="4" src="https://www.melbourneosteopathycentre.com.au/wp-content/uploads/2016/11/footer_border.png" alt="MELBOURNE OSTEOPATHY CENTRE"></noscript>
+						</div>
+									
+			
+		</div><!-- /.page_wrap -->
+
+	</div><!-- /.body_wrap -->
+
+	
+
+<div class="sticky-form">
+            <span class="sticky_button"></span>
+            <span class="sticky_button button_mobile"></span>
+            <div class="sticky_form">
+            
+<div class="wpcf7 no-js" id="wpcf7-f3083-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/services/golf-injury-and-performance-centre/#wpcf7-f3083-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="3083" />
+<input type="hidden" name="_wpcf7_version" value="5.8.7" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f3083-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+<input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</div>
+<div class="button-image">
+	<p><a href="https://melbourne-osteopathy-sports-injury-centre.cliniko.com/bookings" class="button sc_button_hover_slide_left" target="_blank">Book an Appointment Now</a><a href="https://clients.mindbodyonline.com/classic/home?studioid=186192" class="button sc_button_hover_slide_left" target="_blank">Book a Class Now</a>
+	</p>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+	
+                        </div>        
+        </div>
+
+	<!-- Post/page views count increment -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function() {
+		setTimeout(function() {
+			jQuery.post(TRX_ADDONS_STORAGE['ajax_url'], {
+				action: 'post_counter',
+				nonce: TRX_ADDONS_STORAGE['ajax_nonce'],
+				post_id: 6149,
+				views: 1
+			}).done(function(response) {
+				var rez = {};
+				try {
+					rez = JSON.parse(response);
+				} catch (e) {
+					rez = { error: TRX_ADDONS_STORAGE['ajax_error'] };
+					console.log(response);
+				}
+				if (rez.error === '') {
+					jQuery('.post_counters_single .post_counters_views .post_counters_number').html(rez.counter);
+				}
+			});
+		}, 10);
+	});
+});</script><script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {jQuery(document).ready(function(){
+	jQuery(".qcld_hero_content_area")[0].remove();
+	
+})
+jQuery("h2.slider-x-lead-title").each(function() {
+  	jQuery(this).replaceWith(jQuery('<h1 class="slider-x-lead-title slider-x-lead-title2 animated bounceInLeft">' + this.innerHTML + '</h1>'));
+	});});</script><link data-minify="1" rel='stylesheet' id='mandala-inline-styles-css' href='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/css/__inline.css?ver=1732675151' type='text/css' media='all' />
+<style id='mandala-inline-styles-inline-css' type='text/css'>
+.mandala_inline_0{background-image: url(https://dev.webkos.co.id/osteo/wp-content/uploads/2020/03/top-banner.jpg);}
+</style>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1732675140' id='swv-js' defer></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.melbourneosteopathycentre.com.au\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1732675140' id='contact-form-7-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/plugins/trx_addons/js/swiper/swiper.jquery.min.js' id='swiperslider-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/trx_addons/js/magnific/jquery.magnific-popup.js?ver=1732675140' id='magnific-popup-js' defer></script>
+<script type='text/javascript' id='trx_addons-js-extra'>
+/* <![CDATA[ */
+var TRX_ADDONS_STORAGE = {"ajax_url":"https:\/\/www.melbourneosteopathycentre.com.au\/wp-admin\/admin-ajax.php","ajax_nonce":"2ff5dc05d3","site_url":"https:\/\/www.melbourneosteopathycentre.com.au","vc_edit_mode":"0","popup_engine":"magnific","menu_cache":[],"user_logged_in":"0","email_mask":"^([a-zA-Z0-9_\\-]+\\.)*[a-zA-Z0-9_\\-]+@[a-z0-9_\\-]+(\\.[a-z0-9_\\-]+)*\\.[a-z]{2,6}$","msg_ajax_error":"Invalid server answer!","msg_magnific_loading":"Loading image","msg_magnific_error":"Error loading image","msg_error_like":"Error saving your like! Please, try again later.","msg_field_name_empty":"The name can't be empty","msg_field_email_empty":"Too short (or empty) email address","msg_field_email_not_valid":"Invalid email address","msg_field_text_empty":"The message text can't be empty","msg_send_complete":"Send message complete!","msg_send_error":"Transmit failed!","login_via_ajax":"1","msg_login_empty":"The Login field can't be empty","msg_login_long":"The Login field is too long","msg_password_empty":"The password can't be empty and shorter then 4 characters","msg_password_long":"The password is too long","msg_login_success":"Login success! The page should be reloaded in 3 sec.","msg_login_error":"Login failed!","msg_not_agree":"Please, read and check 'Terms and Conditions'","msg_email_long":"E-mail address is too long","msg_email_not_valid":"E-mail address is invalid","msg_password_not_equal":"The passwords in both fields are not equal","msg_registration_success":"Registration success! Please log in!","msg_registration_error":"Registration failed!","msg_sc_googlemap_not_avail":"Googlemap service is not available","msg_sc_googlemap_geocoder_error":"Error while geocode address"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/trx_addons/js/trx_addons.js?ver=1732675140' id='trx_addons-js' defer></script>
+<script type='text/javascript' id='wpcf7-redirect-script-js-extra'>
+/* <![CDATA[ */
+var wpcf7r = {"ajax_url":"https:\/\/www.melbourneosteopathycentre.com.au\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.js?ver=1745418803' id='wpcf7-redirect-script-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?(.*)wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.melbourneosteopathycentre.com.au","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-script.js?ver=1732675140' id='elementskit-framework-js-frontend-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='elementskit-framework-js-frontend-js-after'>
+		var elementskit = {
+			resturl: 'https://www.melbourneosteopathycentre.com.au/wp-json/elementskit/v1/',
+		}
+
+		
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=1732675140' id='ekit-widget-scripts-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.google.com/recaptcha/api.js?render=6Lc5oAEVAAAAAC_MvC2LTOr4S1cqBB_u-RxxQXUe&#038;ver=3.0' id='google-recaptcha-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2' id='wp-polyfill-inert-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.11' id='regenerator-runtime-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6Lc5oAEVAAAAAC_MvC2LTOr4S1cqBB_u-RxxQXUe","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1732675140' id='wpcf7-recaptcha-js' defer></script>
+<script type='text/javascript' id='mandala-init-js-extra'>
+/* <![CDATA[ */
+var MANDALA_STORAGE = {"ajax_url":"https:\/\/www.melbourneosteopathycentre.com.au\/wp-admin\/admin-ajax.php","ajax_nonce":"2ff5dc05d3","site_url":"https:\/\/www.melbourneosteopathycentre.com.au","user_logged_in":"","mobile_layout_width":"959","menu_stretch":"","menu_animation_in":"fadeInUpSmall","menu_animation_out":"fadeOutDownSmall","background_video":"","use_mediaelements":"1","message_maxlength":"1000","site_scheme":"scheme_default","admin_mode":"","email_mask":"^([a-zA-Z0-9_\\-]+\\.)*[a-zA-Z0-9_\\-]+@[a-z0-9_\\-]+(\\.[a-z0-9_\\-]+)*\\.[a-z]{2,6}$","strings":{"ajax_error":"Invalid server answer!","error_global":"Error data validation!","name_empty":"The name can&#039;t be empty","name_long":"Too long name","email_empty":"Too short (or empty) email address","email_long":"Too long email address","email_not_valid":"Invalid email address","text_empty":"The message text can&#039;t be empty","text_long":"Too long message text","search_error":"Search error! Try again later.","send_complete":"Send message complete!","send_error":"Transmit failed!"},"menu_hover":"fade","menu_hover_color":"#8b68b3","button_hover":"slide_left","alter_link_color":"#1c2674"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/cache/min/1/wp-content/themes/mandala/js/__scripts.js?ver=1732675140' id='mandala-init-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='mediaelement-core-js-before'>
+var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17' id='mediaelement-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.2.9' id='mediaelement-migrate-js' defer></script>
+<script type='text/javascript' id='mediaelement-js-extra'>
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.2.9' id='wp-mediaelement-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/plugins/wp-rocket/assets/js/heartbeat.js?ver=3.12.6' id='heartbeat-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' data-rocket-src='https://www.melbourneosteopathycentre.com.au/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=7.6' id='wpb_composer_front_js-js' defer></script>
+<a href="#" class="trx_addons_scroll_to_top trx_addons_icon-up" title="Scroll to top"></a><script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.melbourneosteopathycentre.com.au/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1779820098 -->

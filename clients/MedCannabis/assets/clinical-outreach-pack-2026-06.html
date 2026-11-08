@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GP and specialist outreach strategy | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --g-dark: #1a3a2e;
+    --g-mid: #2d5a4a;
+    --g-light: #eaf0eb;
+    --gold: #b8913a;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5c6b62;
+    --border: #cfd8d0;
+    --red: #c0392b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+  .cover { background: var(--g-dark); color: var(--white); padding: 80px 60px; position: relative; overflow: hidden; }
+  .cover::after { content: ''; position: absolute; top: 0; right: 0; width: 280px; height: 100%; background: rgba(184,145,58,0.05); pointer-events: none; }
+  .cover-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .cover h1 { font-family: 'Cormorant Garamond', serif; font-size: 50px; font-weight: 600; line-height: 1.15; margin-bottom: 20px; max-width: 680px; }
+  .cover-sub { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 520px; margin-bottom: 48px; }
+  .cover-meta { display: flex; gap: 48px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; }
+  .cover-meta-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .cover-meta-val { font-size: 15px; color: var(--white); }
+  .locate-badge { position: absolute; bottom: 60px; right: 60px; text-align: right; }
+  .locate-badge span { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .locate-badge strong { font-size: 14px; color: rgba(255,255,255,0.65); }
+
+  .page { max-width: 960px; margin: 0 auto; padding: 64px 40px; }
+  .section { margin-bottom: 72px; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--g-dark); margin-bottom: 8px; }
+  h3 { font-size: 16px; font-weight: 600; color: var(--g-dark); margin-bottom: 12px; }
+  .section-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-divider { width: 48px; height: 3px; background: var(--gold); margin: 16px 0 32px; }
+
+  /* Stat row */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px 20px; }
+  .stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: var(--g-dark); line-height: 1; margin-bottom: 8px; }
+  .stat-box.gold .num { color: var(--gold); }
+  .stat-box .label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* Target types */
+  .target-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .target-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+  .target-card.priority { border-color: var(--gold); border-width: 2px; }
+  .target-card .priority-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .target-card h3 { font-size: 15px; margin-bottom: 10px; }
+  .target-card p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .target-card ul { list-style: none; padding: 0; }
+  .target-card ul li { font-size: 13px; padding: 4px 0; border-top: 1px solid var(--border); }
+  .target-card ul li:first-child { border-top: none; }
+
+  /* Email templates */
+  .email-template { background: var(--white); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; overflow: hidden; }
+  .email-header { background: var(--g-dark); color: var(--white); padding: 20px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .email-title { font-size: 15px; font-weight: 600; }
+  .email-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .email-meta { padding: 16px 28px; background: var(--g-light); border-bottom: 1px solid var(--border); }
+  .email-meta-row { display: flex; gap: 8px; font-size: 13px; margin-bottom: 4px; }
+  .email-meta-row:last-child { margin-bottom: 0; }
+  .email-meta-label { color: var(--muted); width: 90px; flex-shrink: 0; }
+  .email-meta-val { color: var(--text); }
+  .email-body { padding: 28px; font-size: 14px; line-height: 1.75; white-space: pre-wrap; font-family: Georgia, serif; }
+  .email-note { padding: 16px 28px; background: #fef9ed; border-top: 1px solid #e8d4a0; font-size: 13px; color: #7a6030; }
+
+  /* Phase timeline */
+  .phases { display: flex; flex-direction: column; gap: 0; }
+  .phase { display: flex; gap: 24px; position: relative; }
+  .phase-line { display: flex; flex-direction: column; align-items: center; }
+  .phase-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--g-mid); flex-shrink: 0; margin-top: 4px; }
+  .phase-connector { width: 2px; flex: 1; background: var(--border); margin: 4px 0; }
+  .phase:last-child .phase-connector { display: none; }
+  .phase-content { padding-bottom: 32px; flex: 1; }
+  .phase-timing { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .phase-content h3 { margin-bottom: 8px; }
+  .phase-content p { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+  .phase-actions { list-style: none; padding: 0; }
+  .phase-actions li { font-size: 13px; padding: 4px 0 4px 16px; position: relative; }
+  .phase-actions li::before { content: '→'; position: absolute; left: 0; color: var(--g-mid); }
+
+  /* Objection handling */
+  .objection-list { display: flex; flex-direction: column; gap: 16px; }
+  .objection { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .objection-q { background: var(--g-light); padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--g-dark); }
+  .objection-a { padding: 16px 20px; font-size: 14px; color: var(--text); }
+
+  /* GP info sheet */
+  .info-sheet { background: var(--white); border: 2px solid var(--g-dark); border-radius: 10px; padding: 40px; }
+  .info-sheet-header { border-bottom: 2px solid var(--g-dark); padding-bottom: 20px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .info-sheet h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--g-dark); }
+  .info-sheet .clinic-placeholder { font-size: 12px; color: var(--muted); background: var(--g-light); padding: 6px 12px; border-radius: 4px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .info-block label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+  .info-block ul { padding-left: 18px; }
+  .info-block ul li { font-size: 13px; margin-bottom: 4px; }
+  .info-block p { font-size: 13px; }
+  .referral-pathway { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .pathway-steps { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+  .pathway-step { background: var(--g-light); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 12px; font-weight: 600; color: var(--g-dark); text-align: center; }
+  .pathway-arrow { padding: 0 8px; color: var(--muted); font-size: 16px; }
+
+  .table-basic { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 24px; }
+  .table-basic th { background: var(--g-dark); color: var(--white); padding: 10px 14px; text-align: left; font-size: 12px; }
+  .table-basic td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .table-basic tr:nth-child(even) td { background: var(--g-light); }
+
+  .doc-footer { background: var(--g-dark); color: rgba(255,255,255,0.4); font-size: 12px; padding: 24px 40px; text-align: center; margin-top: 80px; }
+
+  @media (max-width: 700px) {
+    .stat-row, .target-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .cover { padding: 48px 28px; }
+    .cover h1 { font-size: 34px; }
+    .page { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-tag">Clinical development</div>
+  <h1>GP and specialist outreach strategy</h1>
+  <div class="cover-sub">A complete referral development programme for a new Melbourne medicinal cannabis clinic. Includes strategy, phase plan, email templates, and a printable GP information sheet.</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="cover-meta-label">Prepared for</div><div class="cover-meta-val">[Client name TBC]</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Date</div><div class="cover-meta-val">June 2026</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Focus</div><div class="cover-meta-val">GP + specialist referral acquisition</div></div>
+  </div>
+  <div class="locate-badge"><span>Prepared by</span><strong>Locate Digital</strong></div>
+</div>
+
+<div class="page">
+
+<!-- Why this matters -->
+<div class="section">
+  <div class="section-tag">Why this is the #1 acquisition channel</div>
+  <h2>The GP knowledge gap is your growth engine</h2>
+  <div class="section-divider"></div>
+  <div class="stat-row">
+    <div class="stat-box gold">
+      <div class="num">52<span>%</span></div>
+      <div class="label">of Australian GPs feel comfortable discussing medicinal cannabis with patients (2021–22 survey)</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">85<span>%</span></div>
+      <div class="label">of GPs have received a patient enquiry about medicinal cannabis in the past three months</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">5,284</div>
+      <div class="label">registered prescribers in Australia as of 2022 — many still rely on specialist clinics to manage their cases</div>
+    </div>
+  </div>
+  <p style="margin-bottom:16px;">Almost every GP is getting patient questions about medicinal cannabis. Less than half know what to say. The ones who feel comfortable either refer to a telehealth service or write scripts themselves — but most don't write scripts, because they're unsure of the clinical pathway, the evidence base, or what to prescribe.</p>
+  <p style="margin-bottom:16px;">That's an opening. A clinic that positions itself as the GP's trusted clinical partner — not a competitor, not a threat to the patient relationship — can build a referral pipeline in months, not years. The telehealth giants cannot do this. They have no local presence, no face, and no relationship with the GPs in your postcode.</p>
+  <p>One GP who actively refers sends two to five patients a month. Ten active GP referrers generates 20–50 new patients every month from a single channel, with essentially zero ongoing cost.</p>
+</div>
+
+<!-- Who to target -->
+<div class="section">
+  <div class="section-tag">Referral targets</div>
+  <h2>Who to approach and in what order</h2>
+  <div class="section-divider"></div>
+  <div class="target-grid">
+    <div class="target-card priority">
+      <div class="priority-tag">Priority 1</div>
+      <h3>GPs within 5 km</h3>
+      <p>Local GPs are the fastest path to referrals. They want to refer patients somewhere nearby, not to a website. Start here.</p>
+      <ul>
+        <li>Solo GP practices</li>
+        <li>Group practices with chronic disease focus</li>
+        <li>GPs with pain management patients</li>
+        <li>GPs who already see mental health patients</li>
+      </ul>
+    </div>
+    <div class="target-card priority">
+      <div class="priority-tag">Priority 2</div>
+      <h3>Pain specialists and physios</h3>
+      <p>Chronic pain is the #1 prescribing category. Specialists who manage refractory pain see patients who have exhausted other options.</p>
+      <ul>
+        <li>Rheumatologists</li>
+        <li>Anaesthetists with pain clinic</li>
+        <li>Physiotherapists and osteopaths</li>
+        <li>Musculoskeletal specialists</li>
+      </ul>
+    </div>
+    <div class="target-card priority">
+      <div class="priority-tag">Priority 3</div>
+      <h3>Mental health specialists</h3>
+      <p>Psychiatrists treating PTSD, anxiety, and treatment-resistant depression are increasingly open to medicinal cannabis as an adjunct.</p>
+      <ul>
+        <li>Psychiatrists</li>
+        <li>Psychologists (refer, can't prescribe)</li>
+        <li>Mental health GPs</li>
+        <li>PTSD-focused practices</li>
+      </ul>
+    </div>
+    <div class="target-card">
+      <h3>Neurologists</h3>
+      <p>Epilepsy and MS patients are a smaller but high-need cohort. Neurologists are typically more conservative — relationship-building matters more here.</p>
+      <ul>
+        <li>Neurologists with epilepsy patients</li>
+        <li>MS nurses and coordinators</li>
+        <li>Parkinson's disease specialists</li>
+      </ul>
+    </div>
+    <div class="target-card">
+      <h3>Oncology and palliative care</h3>
+      <p>Oncologists and palliative care teams manage patients with complex symptom burdens. Cannabis for nausea, pain, and appetite is well-accepted clinically.</p>
+      <ul>
+        <li>Oncologists at local hospitals</li>
+        <li>Palliative care nurses</li>
+        <li>Hospital social workers</li>
+        <li>Community palliative care services</li>
+      </ul>
+    </div>
+    <div class="target-card">
+      <h3>Allied health networks</h3>
+      <p>Allied health practitioners can't prescribe but they refer patients to GPs and specialists daily. Being on their radar matters.</p>
+      <ul>
+        <li>Occupational therapists</li>
+        <li>Exercise physiologists</li>
+        <li>Naturopaths and integrative practitioners</li>
+        <li>Community health centres</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Phase plan -->
+<div class="section">
+  <div class="section-tag">Outreach programme</div>
+  <h2>Three phases, 12 months</h2>
+  <div class="section-divider"></div>
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-line"><div class="phase-dot"></div><div class="phase-connector"></div></div>
+      <div class="phase-content">
+        <div class="phase-timing">Phase 1 — Months 1–3: Foundation</div>
+        <h3>Map the local referral landscape and make first contact</h3>
+        <p>Before anything else, build the target list. This is desk research — find every GP practice, pain clinic, and mental health practice within 5–10 km. Rate them by patient profile match.</p>
+        <ul class="phase-actions">
+          <li>Build a spreadsheet of 50–80 target practices with address, principal GP name, and phone</li>
+          <li>Send introductory letters to all 50–80 targets (template below)</li>
+          <li>Follow up by phone within two weeks to offer a brief clinic visit or info drop-off</li>
+          <li>Host a first lunch-and-learn at the clinic for 5–10 local GPs (cover basic clinical education)</li>
+          <li>Prepare printed GP information sheet (leave-behind) — design version below</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-line"><div class="phase-dot"></div><div class="phase-connector"></div></div>
+      <div class="phase-content">
+        <div class="phase-timing">Phase 2 — Months 4–6: Relationship building</div>
+        <h3>Convert interested GPs into active referrers</h3>
+        <p>The GPs who responded to phase one outreach need nurturing. Regular, low-friction touchpoints keep the clinic top of mind when the next relevant patient comes in.</p>
+        <ul class="phase-actions">
+          <li>Visit the top 10–15 practices in person — 15-minute "pop-in" with a small gift and a brochure refresh</li>
+          <li>Send a monthly clinical update email to all contacts (not marketing — clinical, 200 words, one useful stat or study finding)</li>
+          <li>Host a second lunch-and-learn, this time condition-specific (e.g. chronic pain and cannabis: the evidence)</li>
+          <li>Set up a GP hotline or direct contact number for clinical questions</li>
+          <li>Send a referral pathway document confirming how to refer and what happens next (template below)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="phase-line"><div class="phase-dot"></div><div class="phase-connector"></div></div>
+      <div class="phase-content">
+        <div class="phase-timing">Phase 3 — Months 7–12: Network maintenance</div>
+        <h3>Sustain the relationships and expand the network</h3>
+        <p>Active referrers need recognition and continued contact. Cold targets from phase one who haven't responded yet may be ready now — circumstances change.</p>
+        <ul class="phase-actions">
+          <li>Thank active referrers with a quarterly clinical update letter (with anonymised case-type stats from the clinic)</li>
+          <li>Expand outreach to the next ring — practices 10–20 km from the clinic</li>
+          <li>Attend local GP and specialist CME events — visibility without a hard sell</li>
+          <li>Re-contact phase one non-responders with a brief "just checking in" email</li>
+          <li>Explore specialist hospital outreach — pain clinics, oncology units, neurology departments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email templates -->
+<div class="section">
+  <div class="section-tag">Outreach templates</div>
+  <h2>Copy-ready email templates</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:32px;">Replace all bracketed fields before sending. These are written for clarity and clinical credibility — not marketing. GPs respond to peer communication, not promotions.</p>
+
+  <!-- Template 1 -->
+  <div class="email-template">
+    <div class="email-header">
+      <div class="email-title">Template 1 — Cold introduction</div>
+      <div class="email-tag">First contact</div>
+    </div>
+    <div class="email-meta">
+      <div class="email-meta-row"><span class="email-meta-label">Subject:</span><span class="email-meta-val">Medicinal cannabis referrals — [CLINIC NAME], [SUBURB]</span></div>
+      <div class="email-meta-row"><span class="email-meta-label">To:</span><span class="email-meta-val">Dr [NAME], [PRACTICE NAME]</span></div>
+      <div class="email-meta-row"><span class="email-meta-label">From:</span><span class="email-meta-val">Dr [PRESCRIBER NAME], [CLINIC NAME]</span></div>
+    </div>
+    <div class="email-body">Dear Dr [NAME],
+
+I'm writing to introduce [CLINIC NAME], a medicinal cannabis clinic and dispensary that recently opened in [SUBURB].
+
+We work with GPs across [LOCAL AREA] to manage patients who may benefit from medicinal cannabis — particularly those with refractory chronic pain, treatment-resistant anxiety, PTSD, sleep disorders, and neurological conditions including epilepsy.
+
+A few things that might be useful to know about how we work:
+
+We prescribe independently of any cannabis supplier. Our doctors choose the most appropriate product for each patient — not products from a company we have a commercial relationship with. Patients can also bring existing scripts to our dispensary.
+
+Consultations are available in person at our [SUBURB] clinic or via telehealth. Medicare rebates apply for eligible face-to-face appointments. Follow-up care is coordinated with you, and we send you a clinical summary after each consultation.
+
+If you have patients you'd like to discuss, or if you'd like to visit the clinic or receive our GP referral information, I'd be happy to arrange either.
+
+You can reach me directly on [PHONE] or at [EMAIL].
+
+Kind regards,
+
+Dr [NAME]
+[TITLE], [CLINIC NAME]
+[ADDRESS] | [PHONE] | [EMAIL]</div>
+    <div class="email-note">Personalise the specific conditions mentioned based on what you know about the practice (e.g. a sports medicine practice gets pain lead; a psychiatry-adjacent GP gets mental health lead). Keep it under 250 words.</div>
+  </div>
+
+  <!-- Template 2 -->
+  <div class="email-template">
+    <div class="email-header">
+      <div class="email-title">Template 2 — Follow-up after no response</div>
+      <div class="email-tag">Nurture — send 10–14 days after template 1</div>
+    </div>
+    <div class="email-meta">
+      <div class="email-meta-row"><span class="email-meta-label">Subject:</span><span class="email-meta-val">Following up — [CLINIC NAME] referral pathway</span></div>
+      <div class="email-meta-row"><span class="email-meta-label">To:</span><span class="email-meta-val">Dr [NAME], [PRACTICE NAME]</span></div>
+    </div>
+    <div class="email-body">Dear Dr [NAME],
+
+I sent a brief introduction last week and wanted to follow up.
+
+I know medicinal cannabis sits in uncertain territory for a lot of GPs — the evidence base is still developing, patient demand has outpaced prescriber education, and the regulatory requirements aren't always clear. We work with a number of local GPs specifically to fill that gap.
+
+We're happy to answer clinical questions over the phone, receive referrals for complex cases you'd prefer we manage directly, or simply act as a resource when patients ask about cannabis and you want somewhere credible to point them.
+
+I've attached a short referral information sheet. If it's easier, you're also welcome to visit the clinic at a time that suits you.
+
+No obligation either way — I just wanted to make sure you had our details.
+
+Dr [NAME]
+[CLINIC NAME] | [PHONE]</div>
+    <div class="email-note">Short is better here. They've already seen the full introduction. This is a low-pressure reminder with a concrete offer.</div>
+  </div>
+
+  <!-- Template 3 -->
+  <div class="email-template">
+    <div class="email-header">
+      <div class="email-title">Template 3 — Monthly clinical update (ongoing nurture)</div>
+      <div class="email-tag">Ongoing — monthly to all GP contacts</div>
+    </div>
+    <div class="email-meta">
+      <div class="email-meta-row"><span class="email-meta-label">Subject:</span><span class="email-meta-val">[MONTH] clinical update — [CLINIC NAME]</span></div>
+      <div class="email-meta-row"><span class="email-meta-label">Format:</span><span class="email-meta-val">Plain text, 150–200 words. One clinical topic per month.</span></div>
+    </div>
+    <div class="email-body">Hi Dr [NAME],
+
+A brief update from [CLINIC NAME] for [MONTH].
+
+This month's clinical note: [ONE SPECIFIC CLINICAL POINT — e.g. "A 2025 Frontiers in Pharmacology study found that cannabidiol-dominant products reduced neuropathic pain scores by an average of 32% at 12 weeks in a cohort of 88 patients with fibromyalgia. We've been seeing comparable outcomes in a similar patient group here — happy to discuss if relevant to any of your patients."]
+
+Referral reminder: patients can book directly via [BOOKING LINK] or you can contact us at [PHONE] to discuss a case before referring.
+
+What we've been seeing this month: [ONE OR TWO SENTENCES ON PATIENT PRESENTATIONS, anonymised — e.g. "We've had a strong cohort of PTSD-related referrals from the [LOCAL AREA] area. Sleep is consistently the first presenting complaint, with mood and anxiety improvements reported at 8–12 weeks."]
+
+As always, happy to answer any clinical questions.
+
+Dr [NAME]
+[CLINIC NAME] | [DIRECT NUMBER]</div>
+    <div class="email-note">This email should feel like a clinical colleague update, not a newsletter. Never use marketing language. One study, one clinical observation, one referral reminder. That's it.</div>
+  </div>
+</div>
+
+<!-- Objection handling -->
+<div class="section">
+  <div class="section-tag">GP objection handling</div>
+  <h2>What GPs say and what to say back</h2>
+  <div class="section-divider"></div>
+  <div class="objection-list">
+    <div class="objection">
+      <div class="objection-q">"I'm not sure the evidence base is strong enough."</div>
+      <div class="objection-a">That's a reasonable position, and the evidence varies a lot by condition. For chronic neuropathic pain, there's RCT-level evidence. For PTSD-related sleep, the evidence is solid. For general anxiety, it's emerging. We're not asking you to endorse it as a first-line treatment — we're asking you to refer patients who haven't responded to first or second-line options and want to explore it. The patients are going to try it regardless; the question is whether they do it with or without clinical oversight.</div>
+    </div>
+    <div class="objection">
+      <div class="objection-q">"I'm worried about addiction or dependence risk."</div>
+      <div class="objection-a">That's worth taking seriously. CBD-dominant products have no meaningful addiction risk. THC-containing products do carry dependence potential, particularly in younger patients and those with a personal or family history of cannabis use disorder. We screen for these factors before prescribing and we don't prescribe THC-dominant products to patients with those risk factors. We'd be happy to share our screening protocol if that's useful.</div>
+    </div>
+    <div class="objection">
+      <div class="objection-q">"I have patients who've tried the big telehealth services and had a bad experience."</div>
+      <div class="objection-a">We understand why that happens. The large telehealth clinics operate a volume model — short consultations, limited follow-up, products chosen from a supplier-affiliated range. We operate differently. Consultations are longer, follow-up care is coordinated back to you, and we prescribe from across the full market, not from a commercial partner's catalogue. If a patient came to us after a bad experience elsewhere, we'd take the time to start properly.</div>
+    </div>
+    <div class="objection">
+      <div class="objection-q">"I don't want to lose the patient relationship."</div>
+      <div class="objection-a">You won't. We position ourselves as a specialist service you refer to, not a clinic that replaces you. We send clinical summaries after each appointment. For ongoing patients, we recommend annual reviews with you for their broader health management. The patient stays yours — we manage the cannabis prescribing specifically.</div>
+    </div>
+    <div class="objection">
+      <div class="objection-q">"What's the regulatory pathway? I don't understand TGA and SAS-B."</div>
+      <div class="objection-a">That's actually why referral to us makes sense. We handle the TGA SAS-B application process entirely. For most conditions, you don't need to do anything except refer the patient to us. If you want to become an Authorised Prescriber and manage cannabis yourself, we can walk you through that process too — it's not complicated once you know the steps.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GP info sheet -->
+<div class="section">
+  <div class="section-tag">Printable leave-behind</div>
+  <h2>GP information sheet</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:24px;">Print A5 or A4. Leave at reception desks and with practice managers. Update with the clinic's final contact details before printing.</p>
+
+  <div class="info-sheet">
+    <div class="info-sheet-header">
+      <div>
+        <h3>Medicinal cannabis referral guide for GPs</h3>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;">For GPs in [SUBURB] and surrounding areas</p>
+      </div>
+      <div class="clinic-placeholder">[CLINIC NAME] — [ADDRESS] — [PHONE]</div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <label>Who we see</label>
+        <ul>
+          <li>Chronic pain (neuropathic, musculoskeletal, fibromyalgia)</li>
+          <li>Mental health (anxiety, PTSD, treatment-resistant depression, sleep disorders)</li>
+          <li>Neurological (epilepsy, MS, Parkinson's disease)</li>
+          <li>Oncology and palliative care (pain, nausea, appetite)</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <label>How we work</label>
+        <ul>
+          <li>Independent prescribing — no commercial ties to cannabis suppliers</li>
+          <li>In-person and telehealth consultations</li>
+          <li>Medicare rebates available for eligible face-to-face appointments</li>
+          <li>Clinical summaries sent to referring GP after every appointment</li>
+          <li>External scripts dispensed — patients with your scripts can use our dispensary</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <label>When to refer</label>
+        <ul>
+          <li>Patient has not responded to first- or second-line treatments</li>
+          <li>Patient is already using illicit cannabis and would benefit from clinical oversight</li>
+          <li>Patient is asking about medicinal cannabis and you want them assessed properly</li>
+          <li>You've written a script and need a dispensary you trust</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <label>What we don't do</label>
+        <ul>
+          <li>Prescribe without a thorough initial assessment</li>
+          <li>Prescribe THC to patients with a history of cannabis use disorder</li>
+          <li>Prescribe to patients under 18 (unless exceptional circumstances)</li>
+          <li>Take over ongoing management of the patient's other conditions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="referral-pathway">
+      <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px;">Referral pathway</label>
+      <div class="pathway-steps">
+        <div class="pathway-step">GP refers<br>by phone or letter</div>
+        <div class="pathway-arrow">→</div>
+        <div class="pathway-step">Patient books<br>initial consult</div>
+        <div class="pathway-arrow">→</div>
+        <div class="pathway-step">Clinical assessment<br>and TGA pathway</div>
+        <div class="pathway-arrow">→</div>
+        <div class="pathway-step">Prescription issued<br>(or not — we assess)</div>
+        <div class="pathway-arrow">→</div>
+        <div class="pathway-step">Clinical summary<br>sent to GP</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Direct clinical line (GP queries)</div>
+        <div style="font-size:18px;font-weight:600;color:var(--g-dark);">[PHONE NUMBER]</div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Clinic email</div>
+        <div style="font-size:15px;font-weight:600;color:var(--g-dark);">[EMAIL]</div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Online referral form</div>
+        <div style="font-size:15px;font-weight:600;color:var(--g-dark);">[WEBSITE]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tracking -->
+<div class="section">
+  <div class="section-tag">Measurement</div>
+  <h2>How to track referral programme performance</h2>
+  <div class="section-divider"></div>
+  <table class="table-basic">
+    <thead><tr><th>Metric</th><th>How to track</th><th>Target (month 6)</th></tr></thead>
+    <tbody>
+      <tr><td>Outreach letters sent</td><td>Spreadsheet</td><td>60+</td></tr>
+      <tr><td>GP responses or meetings</td><td>CRM or spreadsheet</td><td>15+ engaged</td></tr>
+      <tr><td>Active referrers (sent at least 1 patient)</td><td>Patient intake form — "how did you hear about us?"</td><td>5+</td></tr>
+      <tr><td>Monthly referral-source patients</td><td>Booking system intake</td><td>15+/month</td></tr>
+      <tr><td>Lunch-and-learns hosted</td><td>Event log</td><td>2</td></tr>
+      <tr><td>GP info sheets distributed</td><td>Print run count</td><td>80+</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--muted);">Add "how did you hear about us?" as a required field on every intake form. It's the only reliable way to track which referrer sent each patient.</p>
+</div>
+
+</div>
+
+<div class="doc-footer">
+  Prepared by Locate Digital &nbsp;|&nbsp; June 2026 &nbsp;|&nbsp; Confidential — for client use only &nbsp;|&nbsp; All email templates require personalisation before sending.
+</div>
+
+</body>
+</html>

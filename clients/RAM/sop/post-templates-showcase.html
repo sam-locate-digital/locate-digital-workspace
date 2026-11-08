@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAM Precincts — Instagram Template Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ── PRECINCT SKIN: change these three per centre ── */
+    --brand:#2f5d50;     /* primary (deep eucalyptus) */
+    --accent:#d96e3c;    /* accent  (warm terracotta) */
+    --logo:"PRECINCT";   /* wordmark stand-in */
+
+    --cream:#f4efe4; --paper:#fbf8f1; --ink:#241f1a; --muted:#6f655a; --line:#e2d9c8;
+    --disp:"Fraunces", Georgia, "Times New Roman", serif;
+    --grot:"Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--grot);font-size:15px;line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:34px 22px 70px}
+
+  /* page chrome */
+  header.top{margin-bottom:26px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .ey{font-family:var(--grot);font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+  h1{font-family:var(--disp);font-weight:600;font-size:40px;line-height:1.04;letter-spacing:-.01em;margin:10px 0 8px;font-optical-sizing:auto}
+  .lede{color:var(--muted);max-width:620px;margin:0;font-size:15px}
+  .skin{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:var(--muted)}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:5px 11px;font-family:var(--grot);font-weight:600;color:var(--ink)}
+  .sw{width:13px;height:13px;border-radius:50%}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:30px}
+  .card{}
+  .cap{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .cap .nm{font-family:var(--disp);font-weight:600;font-size:18px}
+  .cap .pl{font-family:var(--grot);font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .edit{margin-top:9px;font-size:12px;color:var(--muted);font-family:var(--grot)}
+  .edit b{color:var(--ink);font-weight:600}
+
+  /* ── the 1080² post ── */
+  .post{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+  .post:after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.04;pointer-events:none;mix-blend-mode:multiply}
+  .logo{position:absolute;z-index:5;font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.02em}
+  .logo:before{content:var(--logo)}
+
+  /* duotone photo block (placeholder) */
+  .ph{position:relative;background:#cdbfa8;overflow:hidden}
+  .ph:before{content:"";position:absolute;inset:0;background:var(--brand);mix-blend-mode:multiply;opacity:.62}
+  .ph:after{content:"[ photo ]";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--grot);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  .ph.sage{background:#b9c2a8}.ph.clay{background:#d3a98c}.ph.sky{background:#a7bcc4}.ph.rose{background:#cfa8a4}
+
+  .kick{font-family:var(--grot);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  .rule{height:1px;background:currentColor;opacity:.25}
+  .arrow{font-family:var(--disp);font-style:italic}
+
+  /* 1 · SPOTLIGHT — editorial split */
+  .t1{display:grid;grid-template-columns:1fr 1fr}
+  .t1 .left{background:var(--brand);color:var(--cream);padding:30px 26px;display:flex;flex-direction:column}
+  .t1 .logo{color:var(--cream);position:static;margin-bottom:auto}
+  .t1 .kick{color:var(--accent);margin-bottom:10px}
+  .t1 h2{font-family:var(--disp);font-weight:600;font-size:38px;line-height:.98;margin:0 0 12px}
+  .t1 p{font-size:13.5px;color:rgba(244,239,228,.82);margin:0 0 16px;font-family:var(--grot)}
+  .t1 .cta{font-family:var(--disp);font-style:italic;font-size:17px;color:var(--cream)}
+  .t1 .ph{height:100%}
+
+  /* 2 · FOOD — full bleed + overlapping cream card */
+  .t2 .ph{position:absolute;inset:0}
+  .t2 .logo{top:24px;left:24px;color:#fff}
+  .t2 .card2{position:absolute;left:24px;right:70px;bottom:24px;background:var(--cream);padding:20px 22px;z-index:4}
+  .t2 .kick{color:var(--accent)}
+  .t2 h2{font-family:var(--disp);font-weight:600;font-size:30px;line-height:1;margin:7px 0 6px}
+  .t2 p{margin:0;font-size:13px;color:var(--muted);font-family:var(--grot)}
+
+  /* 3 · OFFER — typographic poster + stamp */
+  .t3{background:var(--brand);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:32px;text-align:left}
+  .t3 .logo{top:26px;left:26px;color:var(--cream)}
+  .t3 .kick{color:var(--accent);margin-bottom:4px}
+  .t3 .big{font-family:var(--disp);font-weight:600;font-size:96px;line-height:.86;letter-spacing:-.02em;margin:6px 0}
+  .t3 .store{font-family:var(--grot);font-weight:600;font-size:20px}
+  .t3 .sub{font-family:var(--grot);font-size:13px;opacity:.78;margin-top:8px}
+  .stamp{position:absolute;right:26px;bottom:26px;width:118px;height:118px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-9deg);color:var(--accent);font-family:var(--disp);font-style:italic;font-size:19px;line-height:1.05}
+
+  /* 4 · EVENT — listing/ticket */
+  .t4{display:flex;flex-direction:column}
+  .t4 .ph{height:46%}
+  .t4 .logo{top:22px;left:22px;color:#fff}
+  .t4 .body4{padding:24px 26px;flex:1;display:flex;flex-direction:column}
+  .t4 .kick{color:var(--accent);margin-bottom:8px}
+  .t4 h2{font-family:var(--disp);font-weight:600;font-size:34px;line-height:.98;margin:0 0 14px}
+  .t4 .meta{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+  .t4 .row{display:flex;justify-content:space-between;font-family:var(--grot);font-size:13px;border-top:1px dotted var(--line);padding-top:8px}
+  .t4 .row b{font-weight:600}
+
+  /* 5 · SEASONAL — arched photo + serif */
+  .t5{padding:30px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background:var(--cream)}
+  .t5 .logo{position:static;margin-bottom:14px}
+  .t5 .star{font-family:var(--disp);font-size:26px;color:var(--accent);line-height:1}
+  .t5 .kick{color:var(--brand);margin:8px 0 6px}
+  .t5 h2{font-family:var(--disp);font-weight:600;font-size:34px;line-height:.98;margin:0 0 6px;color:var(--brand)}
+  .t5 p{font-size:13px;color:var(--muted);margin:0 0 16px;max-width:78%;font-family:var(--grot)}
+  .t5 .ph{width:74%;height:42%;border-radius:50% 50% 6px 6px}
+
+  /* 6 · COMMUNITY — quiet full bleed */
+  .t6 .ph{position:absolute;inset:0}
+  .t6:before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(36,31,26,.55),transparent 50%)}
+  .t6 .logo{top:24px;left:24px;color:#fff}
+  .t6 .line6{position:absolute;left:26px;right:40px;bottom:28px;z-index:3;color:#fff}
+  .t6 .kick{color:#fff;opacity:.85;margin-bottom:8px}
+  .t6 h2{font-family:var(--disp);font-weight:500;font-style:italic;font-size:38px;line-height:1.02;margin:0}
+
+  /* 7 · NEW — photo + rotated sticker + corner card */
+  .t7 .ph{position:absolute;inset:0}
+  .t7 .logo{top:24px;left:24px;color:#fff}
+  .t7 .sticker{position:absolute;top:26px;right:26px;z-index:4;background:var(--accent);color:var(--cream);font-family:var(--disp);font-style:italic;font-size:20px;padding:14px 18px;border-radius:50%;width:104px;height:104px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.02;transform:rotate(7deg)}
+  .t7 .card7{position:absolute;left:0;bottom:0;background:var(--cream);padding:18px 24px 20px;z-index:4;max-width:74%}
+  .t7 .kick{color:var(--accent);margin-bottom:5px}
+  .t7 h2{font-family:var(--disp);font-weight:600;font-size:28px;line-height:1;margin:0 0 5px}
+  .t7 p{margin:0;font-size:12.5px;color:var(--muted);font-family:var(--grot)}
+
+  /* 8 · CONVENIENCE — typographic directory (no icons) */
+  .t8{background:var(--cream);padding:30px 30px 26px;display:flex;flex-direction:column}
+  .t8 .logo{position:static;margin-bottom:16px;color:var(--brand)}
+  .t8 .kick{color:var(--accent);margin-bottom:6px}
+  .t8 h2{font-family:var(--disp);font-weight:600;font-size:36px;line-height:.96;margin:0 0 18px;color:var(--ink);max-width:88%}
+  .t8 .dir{margin-top:auto}
+  .t8 .ln{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding:11px 0;font-family:var(--grot)}
+  .t8 .ln:last-child{border-bottom:1px solid var(--line)}
+  .t8 .ln .nme{font-weight:600;font-size:16px}
+  .t8 .ln .no{font-family:var(--disp);font-size:13px;color:var(--accent)}
+
+  footer{margin-top:40px;border-top:2px solid var(--ink);padding-top:16px;text-align:center;color:var(--muted);font-size:12.5px;font-family:var(--grot)}
+
+  @media(max-width:720px){.grid{grid-template-columns:1fr}h1{font-size:32px}}
+  @media print{body{background:#fff}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="ey">RAM precincts · Instagram</div>
+    <h1>The post template set</h1>
+    <p class="lede">One considered layout per content pillar — editorial, warm, local. Reskinned per centre by swapping the wordmark and two brand colours. Format: 1080×1080 feed (Stories variant 1080×1920).</p>
+    <div class="skin">
+      <span>This demo skin:</span>
+      <span class="chip"><span class="sw" style="background:var(--brand)"></span>Brand</span>
+      <span class="chip"><span class="sw" style="background:var(--accent)"></span>Accent</span>
+      <span>+ the precinct wordmark. Change those three and all eight match that centre. Photos are placeholders.</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1 SPOTLIGHT -->
+    <div class="card">
+      <div class="cap"><span class="nm">Retailer spotlight</span><span class="pl">Pillar 1</span></div>
+      <div class="post t1">
+        <div class="left">
+          <span class="logo"></span>
+          <div class="kick">In store</div>
+          <h2>Meet&nbsp;[Store Name]</h2>
+          <p>Your go-to for [what they do], right here at [Precinct].</p>
+          <span class="cta">Pop in this week →</span>
+        </div>
+        <div class="ph"></div>
+      </div>
+      <div class="edit"><b>Edit:</b> store name · one-line description · photo · CTA</div>
+    </div>
+
+    <!-- 2 FOOD -->
+    <div class="card">
+      <div class="cap"><span class="nm">Food &amp; dining</span><span class="pl">Pillar 2</span></div>
+      <div class="post t2">
+        <div class="ph clay"></div>
+        <span class="logo"></span>
+        <div class="card2">
+          <div class="kick">Coffee run sorted</div>
+          <h2>[Cafe Name]</h2>
+          <p>[The craving line — best flat white in the neighbourhood.]</p>
+        </div>
+      </div>
+      <div class="edit"><b>Edit:</b> venue · craving line · food photo</div>
+    </div>
+
+    <!-- 3 OFFER -->
+    <div class="card">
+      <div class="cap"><span class="nm">Offer &amp; deal</span><span class="pl">Pillar 3</span></div>
+      <div class="post t3">
+        <span class="logo"></span>
+        <div class="kick">On now</div>
+        <div class="big">25%<br>off</div>
+        <div class="store">at [Store Name]</div>
+        <div class="sub">Ends [date]. While stocks last.</div>
+        <div class="stamp">this<br>week</div>
+      </div>
+      <div class="edit"><b>Edit:</b> offer figure · store · end date · stamp text</div>
+    </div>
+
+    <!-- 4 EVENT -->
+    <div class="card">
+      <div class="cap"><span class="nm">What's on / event</span><span class="pl">Pillar 4</span></div>
+      <div class="post t4">
+        <div class="ph sky"></div>
+        <span class="logo"></span>
+        <div class="body4">
+          <div class="kick">What's on</div>
+          <h2>[Event Name]</h2>
+          <div class="meta">
+            <div class="row"><span>When</span><b>[Dates &amp; times]</b></div>
+            <div class="row"><span>Where</span><b>[Precinct], centre court</b></div>
+            <div class="row"><span>Cost</span><b>Free &amp; family-friendly</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="edit"><b>Edit:</b> event name · when / where / cost · photo</div>
+    </div>
+
+    <!-- 5 SEASONAL -->
+    <div class="card">
+      <div class="cap"><span class="nm">Seasonal moment</span><span class="pl">Pillar 5</span></div>
+      <div class="post t5">
+        <span class="logo"></span>
+        <div class="star">✲</div>
+        <div class="kick">Sorted in one stop</div>
+        <h2>[Occasion]<br>at [Precinct]</h2>
+        <p>[Gifts, flowers, a long lunch — find it all here.]</p>
+        <div class="ph rose"></div>
+      </div>
+      <div class="edit"><b>Edit:</b> occasion · headline · supporting line · seasonal photo</div>
+    </div>
+
+    <!-- 6 COMMUNITY -->
+    <div class="card">
+      <div class="cap"><span class="nm">Community &amp; lifestyle</span><span class="pl">Pillar 6</span></div>
+      <div class="post t6">
+        <div class="ph sage"></div>
+        <span class="logo"></span>
+        <div class="line6">
+          <div class="kick">Your local</div>
+          <h2>Your weekend<br>starts here.</h2>
+        </div>
+      </div>
+      <div class="edit"><b>Edit:</b> short italic line · lifestyle photo (no hard CTA)</div>
+    </div>
+
+    <!-- 7 NEW -->
+    <div class="card">
+      <div class="cap"><span class="nm">New &amp; noteworthy</span><span class="pl">Pillar 7</span></div>
+      <div class="post t7">
+        <div class="ph clay"></div>
+        <span class="logo"></span>
+        <div class="sticker">now<br>open</div>
+        <div class="card7">
+          <div class="kick">Just landed</div>
+          <h2>[Store Name]</h2>
+          <p>[One line on what they bring to the centre.]</p>
+        </div>
+      </div>
+      <div class="edit"><b>Edit:</b> sticker (Now open / New) · store · line · photo</div>
+    </div>
+
+    <!-- 8 CONVENIENCE -->
+    <div class="card">
+      <div class="cap"><span class="nm">Convenience &amp; services</span><span class="pl">Pillar 8</span></div>
+      <div class="post t8">
+        <span class="logo"></span>
+        <div class="kick">All in one stop</div>
+        <h2>Everything you need, close to home.</h2>
+        <div class="dir">
+          <div class="ln"><span class="nme">[Supermarket]</span><span class="no">01</span></div>
+          <div class="ln"><span class="nme">Chemist &amp; health</span><span class="no">02</span></div>
+          <div class="ln"><span class="nme">Post &amp; banking</span><span class="no">03</span></div>
+          <div class="ln"><span class="nme">Cafes &amp; food</span><span class="no">04</span></div>
+        </div>
+      </div>
+      <div class="edit"><b>Edit:</b> headline · directory list (swap to real anchors)</div>
+    </div>
+
+  </div>
+
+  <footer>RAM precincts · Instagram template set · reskin per centre in Canva · pairs with the <b>ram-precinct-post</b> skill</footer>
+</div>
+</body>
+</html>

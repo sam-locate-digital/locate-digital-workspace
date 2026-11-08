@@ -25,7 +25,12 @@ Onboarded: 2026-05-09
 - Output lives in `reports/YYYY-MM/`
 
 ## Voice & tone
-- TBD (osteopathy clinic — likely warm, professional, patient-trust focused)
+- Straight-talking clinician: short sentences, "you", root cause over symptoms, hedged outcomes, specific Melbourne references, soft CTAs. AHPRA advertising rules apply (no testimonials, no guaranteed outcomes).
+- Full guide: `.claude/skills/mosic-carousel/references/brand-voice.md`
+
+## Social
+- Instagram @melbosteo. Carousels and single-image posts via the `mosic-carousel` skill (Higgsfield-rendered, text-led with anatomy highlights). Each post is saved in its own dated folder: `Social Media Post/YYYY-MM-DD-<slug>/`.
+- Weekly post runs as a Cowork scheduled task in "scheduled mode": topics come from `content/social-topics.md` (Sam adds them), output is a draft for Sam to review. Nothing is published automatically.
 
 ## Landing pages
 - Reference template: `mosic-template.html` in the `landing-page` skill's folder (`~/.claude/skills/landing-page/`)

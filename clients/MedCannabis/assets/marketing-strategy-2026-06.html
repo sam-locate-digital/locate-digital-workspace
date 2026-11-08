@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-month marketing strategy | June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --g-dark: #1a3a2e;
+    --g-mid: #2d5a4a;
+    --g-light: #eaf0eb;
+    --gold: #b8913a;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5c6b62;
+    --border: #cfd8d0;
+    --red: #c0392b;
+    --blue: #2980b9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.7; }
+
+  .cover { background: var(--g-dark); color: var(--white); padding: 80px 60px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(to left, rgba(184,145,58,0.08), transparent); }
+  .cover-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .cover h1 { font-family: 'Cormorant Garamond', serif; font-size: 50px; font-weight: 600; line-height: 1.15; margin-bottom: 20px; max-width: 640px; }
+  .cover-sub { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 520px; margin-bottom: 48px; }
+  .cover-meta { display: flex; gap: 48px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; }
+  .cover-meta-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .cover-meta-val { font-size: 15px; color: var(--white); }
+  .locate-badge { position: absolute; bottom: 60px; right: 60px; text-align: right; }
+  .locate-badge span { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .locate-badge strong { font-size: 14px; color: rgba(255,255,255,0.65); }
+
+  .page { max-width: 960px; margin: 0 auto; padding: 64px 40px; }
+  .section { margin-bottom: 72px; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--g-dark); margin-bottom: 8px; line-height: 1.2; }
+  h3 { font-size: 16px; font-weight: 600; color: var(--g-dark); margin-bottom: 12px; }
+  .section-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-divider { width: 48px; height: 3px; background: var(--gold); margin: 16px 0 32px; }
+  p { margin-bottom: 14px; }
+
+  /* Channel overview */
+  .channel-overview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
+  .channel-tile { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+  .channel-tile.active { border-color: var(--gold); border-width: 2px; }
+  .channel-tile .icon { font-size: 28px; margin-bottom: 8px; }
+  .channel-tile .name { font-size: 13px; font-weight: 600; color: var(--g-dark); margin-bottom: 4px; }
+  .channel-tile .status { font-size: 11px; color: var(--muted); }
+  .channel-tile.active .status { color: var(--gold); }
+  .channel-tile.blocked { opacity: 0.5; }
+  .channel-tile.blocked .status { color: var(--red); }
+
+  /* Channel sections */
+  .channel-section { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 32px; margin-bottom: 24px; }
+  .channel-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .channel-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--g-dark); }
+  .channel-priority { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px; padding: 4px 10px; }
+  .priority-critical { background: #e8f5e9; color: #2e7d32; }
+  .priority-high { background: #fff8e1; color: #e65100; }
+  .priority-medium { background: #e3f2fd; color: #1565c0; }
+  .channel-content { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .channel-block label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+  .channel-block ul { padding-left: 0; list-style: none; }
+  .channel-block ul li { font-size: 14px; padding: 4px 0; border-bottom: 1px solid var(--border); padding-left: 16px; position: relative; }
+  .channel-block ul li::before { content: '→'; position: absolute; left: 0; color: var(--g-mid); }
+  .channel-block ul li:last-child { border-bottom: none; }
+
+  /* Constraint box */
+  .constraint-box { background: var(--g-dark); color: var(--white); border-radius: 10px; padding: 40px; margin-bottom: 48px; }
+  .constraint-box h3 { color: var(--gold); margin-bottom: 16px; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+  .constraint-box h2 { color: var(--white); font-size: 28px; margin-bottom: 20px; }
+  .constraint-box p { color: rgba(255,255,255,0.75); }
+  .constraint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+  .constraint-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 16px 20px; }
+  .constraint-item .cl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .constraint-item p { color: rgba(255,255,255,0.7); font-size: 14px; margin: 0; }
+
+  /* Content plan */
+  .content-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .content-table th { background: var(--g-dark); color: var(--white); padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 0.04em; }
+  .content-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .content-table tr:nth-child(even) td { background: var(--g-light); }
+  .content-pillar { display: inline-block; font-size: 11px; font-weight: 600; border-radius: 4px; padding: 2px 8px; }
+  .pillar-pain { background: #fce4ec; color: #c62828; }
+  .pillar-mental { background: #e8eaf6; color: #283593; }
+  .pillar-neuro { background: #e8f5e9; color: #1b5e20; }
+  .pillar-palliat { background: #fff3e0; color: #e65100; }
+  .pillar-education { background: #f3e5f5; color: #6a1b9a; }
+
+  /* 90-day plan */
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .plan-phase { padding: 28px; }
+  .plan-phase:first-child { background: var(--g-dark); color: var(--white); border-radius: 10px 0 0 10px; }
+  .plan-phase:nth-child(2) { background: var(--g-mid); color: var(--white); }
+  .plan-phase:last-child { background: var(--g-light); border-radius: 0 10px 10px 0; }
+  .plan-phase .phase-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.6; }
+  .plan-phase h3 { font-size: 16px; margin-bottom: 16px; color: inherit; }
+  .plan-phase:last-child h3 { color: var(--g-dark); }
+  .plan-phase ul { list-style: none; padding: 0; }
+  .plan-phase ul li { font-size: 13px; padding: 6px 0; border-top: 1px solid; }
+  .plan-phase:first-child ul li { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+  .plan-phase:nth-child(2) ul li { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+  .plan-phase:last-child ul li { border-color: var(--border); color: var(--muted); }
+
+  /* KPI table */
+  .kpi-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .kpi-table th { background: var(--g-dark); color: var(--white); padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 0.04em; }
+  .kpi-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .kpi-table tr:nth-child(even) td { background: var(--g-light); }
+
+  /* Social grid */
+  .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .social-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .social-card h3 { font-size: 14px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  .social-card ul { list-style: none; padding: 0; }
+  .social-card ul li { font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+  .social-card ul li:last-child { border-bottom: none; }
+
+  .doc-footer { background: var(--g-dark); color: rgba(255,255,255,0.4); font-size: 12px; padding: 24px 40px; text-align: center; margin-top: 80px; }
+
+  @media (max-width: 700px) {
+    .channel-overview { grid-template-columns: 1fr 1fr; }
+    .channel-content { grid-template-columns: 1fr; }
+    .constraint-grid { grid-template-columns: 1fr; }
+    .plan-grid { grid-template-columns: 1fr; }
+    .plan-phase:first-child { border-radius: 10px 10px 0 0; }
+    .plan-phase:last-child { border-radius: 0 0 10px 10px; }
+    .social-grid { grid-template-columns: 1fr; }
+    .cover { padding: 48px 28px; }
+    .cover h1 { font-size: 34px; }
+    .page { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-tag">Marketing strategy</div>
+  <h1>12-month marketing strategy</h1>
+  <div class="cover-sub">Channel strategy, content plan, 90-day action plan, and performance benchmarks for a new Melbourne medicinal cannabis clinic launching in 2026.</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="cover-meta-label">Prepared for</div><div class="cover-meta-val">[Client name TBC]</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Date</div><div class="cover-meta-val">June 2026</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Horizon</div><div class="cover-meta-val">12 months, base case</div></div>
+  </div>
+  <div class="locate-badge"><span>Prepared by</span><strong>Locate Digital</strong></div>
+</div>
+
+<div class="page">
+
+<!-- The constraint reframed -->
+<div class="section">
+  <div class="constraint-box">
+    <h3>The constraint</h3>
+    <h2>No paid ads. That's actually good news.</h2>
+    <p>Section 42DL of the Therapeutic Goods Act prohibits advertising Schedule 4 and Schedule 8 medicines directly to the general public. Google Ads and Meta both block cannabis advertising independently of the TGA. This clinic cannot run paid search or paid social campaigns for its core services.</p>
+    <p>Most clinics treat this as a problem. It isn't. It means every competitor faces the same restriction, and it levels the playing field between a new clinic and a 200,000-patient national telehealth giant. The only way to grow is organic — and nobody owns organic locally.</p>
+    <div class="constraint-grid">
+      <div class="constraint-item">
+        <div class="cl">What competitors can't do</div>
+        <p>National telehealth players can't walk into local GP practices. They can't build individual referral relationships. They can't capture "near me" searches with genuine local authority. Their scale is a ceiling, not just a floor.</p>
+      </div>
+      <div class="constraint-item">
+        <div class="cl">What this clinic can do that they can't</div>
+        <p>Build a GP referral network from a physical base. Own local search through GMB and suburb-specific SEO. Create clinical content that ranks for Melbourne-specific queries. Be the most trusted name in a 5 km radius.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Channel overview -->
+  <div class="channel-overview">
+    <div class="channel-tile active">
+      <div class="icon">🔍</div>
+      <div class="name">SEO + content</div>
+      <div class="status">Priority channel</div>
+    </div>
+    <div class="channel-tile active">
+      <div class="icon">📍</div>
+      <div class="name">Google Business Profile</div>
+      <div class="status">Priority channel</div>
+    </div>
+    <div class="channel-tile active">
+      <div class="icon">🩺</div>
+      <div class="name">GP referral</div>
+      <div class="status">Priority channel</div>
+    </div>
+    <div class="channel-tile active">
+      <div class="icon">📧</div>
+      <div class="name">Email marketing</div>
+      <div class="status">Retention channel</div>
+    </div>
+    <div class="channel-tile active">
+      <div class="icon">📱</div>
+      <div class="name">Organic social</div>
+      <div class="status">Brand awareness</div>
+    </div>
+    <div class="channel-tile blocked">
+      <div class="icon">📢</div>
+      <div class="name">Google Ads</div>
+      <div class="status">Blocked — TGA + policy</div>
+    </div>
+    <div class="channel-tile blocked">
+      <div class="icon">🎯</div>
+      <div class="name">Meta Ads</div>
+      <div class="status">Blocked — policy</div>
+    </div>
+    <div class="channel-tile">
+      <div class="icon">📺</div>
+      <div class="name">Programmatic DSP</div>
+      <div class="status">Possible — year 2+</div>
+    </div>
+  </div>
+</div>
+
+<!-- Channel deep dives -->
+<div class="section">
+  <div class="section-tag">Channel strategy</div>
+  <h2>How each channel works</h2>
+  <div class="section-divider"></div>
+
+  <!-- GMB -->
+  <div class="channel-section">
+    <div class="channel-header">
+      <div class="channel-name">Google Business Profile</div>
+      <span class="channel-priority priority-critical">Critical — months 1–3</span>
+    </div>
+    <p style="margin-bottom:20px;font-size:14px;">The single fastest path to local patients. "Medicinal cannabis clinic near me" and suburb-level searches surface the Google Maps pack first. A fully optimised GMB profile with genuine reviews is worth more in months 1–6 than any other channel.</p>
+    <div class="channel-content">
+      <div class="channel-block">
+        <label>Setup actions (month 1)</label>
+        <ul>
+          <li>Claim and verify the GBP listing</li>
+          <li>Complete every field: hours, services, photos, description, Q&amp;A</li>
+          <li>Add the clinic as a "health and medical" category — specifically choose "alternative medicine practitioner" or "pharmacy"</li>
+          <li>Upload at least 10 professional photos (interior, exterior, consultation room, dispensary)</li>
+          <li>Add all services with descriptions</li>
+          <li>Write a 750-character business description that includes "Melbourne", your suburb, and key conditions — without sounding like keyword stuffing</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Ongoing (monthly)</label>
+        <ul>
+          <li>Post 2–4 times per month (GMB posts are educational, never promotional)</li>
+          <li>Respond to every review within 48 hours</li>
+          <li>Request a review from every patient at their follow-up appointment (send SMS with direct Google review link)</li>
+          <li>Update holiday hours as relevant</li>
+          <li>Monitor and answer Q&amp;A — pre-empt common patient questions</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Review strategy</label>
+        <ul>
+          <li>Target: 25 reviews by month 6, 50 by month 12</li>
+          <li>Send a review request SMS 24–48 hours after every appointment</li>
+          <li>Never incentivise reviews — it violates Google's policy</li>
+          <li>Respond to every review, positive and negative, personally</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>What to avoid on GBP</label>
+        <ul>
+          <li>Product promotion (violates TGA advertising code)</li>
+          <li>Before/after patient testimonials referencing clinical outcomes</li>
+          <li>Discount or offer posts for prescription products</li>
+          <li>Any content that could be read as promoting cannabis use generally</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO -->
+  <div class="channel-section">
+    <div class="channel-header">
+      <div class="channel-name">SEO and content marketing</div>
+      <span class="channel-priority priority-critical">Critical — start month 1, compound over 12+ months</span>
+    </div>
+    <p style="margin-bottom:20px;font-size:14px;">SEO takes time but builds a permanent asset. Every page that ranks is a source of patients at zero marginal cost. The strategy here is local first, then condition-specific, then educational.</p>
+    <div class="channel-content">
+      <div class="channel-block">
+        <label>Technical foundations (month 1–2)</label>
+        <ul>
+          <li>Website live with proper meta tags, page speeds, and structured data (LocalBusiness schema)</li>
+          <li>Google Search Console and GA4 set up from day one</li>
+          <li>Location pages: Melbourne + up to 3 nearby suburbs</li>
+          <li>Services pages: one per main service (consultation, dispensary, telehealth)</li>
+          <li>Condition pages: one per condition pillar (chronic pain, anxiety/PTSD, neurological, palliative)</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Priority keywords (months 1–6)</label>
+        <ul>
+          <li>"medicinal cannabis clinic melbourne" — local authority</li>
+          <li>"cannabis dispensary melbourne [suburb]" — near-me intent</li>
+          <li>"medicinal cannabis for chronic pain melbourne" — condition + local</li>
+          <li>"independent cannabis clinic" — differentiation keyword</li>
+          <li>"how to get medical cannabis prescription australia" — educational funnel</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Blog content cadence</label>
+        <ul>
+          <li>Publish one blog post per fortnight minimum</li>
+          <li>All posts: educational, no promotional claims, 800–1200 words</li>
+          <li>Every post includes: "Medicinal cannabis is a prescription medicine. Speak to a doctor to find out if it's right for you."</li>
+          <li>Topics drawn from the content plan below</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Link building</label>
+        <ul>
+          <li>Get listed on healthdirect.gov.au and findmcprescriber.au</li>
+          <li>Submit to local Melbourne health directories</li>
+          <li>Guest articles in local GP newsletters or allied health publications</li>
+          <li>Partner with local patient advocacy groups for condition-specific conditions (e.g. chronic pain foundations)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="channel-section">
+    <div class="channel-header">
+      <div class="channel-name">Email marketing</div>
+      <span class="channel-priority priority-high">High — ongoing retention from month 2</span>
+    </div>
+    <p style="margin-bottom:20px;font-size:14px;">Email is the retention channel. You already have the patient's trust — email keeps them engaged, informed, and connected to the clinic between appointments. It also reactivates patients who've gone quiet.</p>
+    <div class="channel-content">
+      <div class="channel-block">
+        <label>Campaigns to build</label>
+        <ul>
+          <li>Welcome sequence: 4 emails over 3 weeks for every new patient (what to expect, how to use their product, follow-up booking reminder, review request)</li>
+          <li>Monthly patient newsletter: one useful clinical update per month, soft booking CTA</li>
+          <li>Reactivation series: 3 emails for patients inactive 3+ months</li>
+          <li>Follow-up: 48-hour post-appointment check-in + review request</li>
+        </ul>
+      </div>
+      <div class="channel-block">
+        <label>Compliance rules for patient email</label>
+        <ul>
+          <li>Only send to opted-in patients — consent at booking</li>
+          <li>Educational content only — no product promotions</li>
+          <li>Always include an unsubscribe link</li>
+          <li>Never make therapeutic claims ("this product will help your pain")</li>
+          <li>Never share patient list data with third parties</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social -->
+  <div class="channel-section">
+    <div class="channel-header">
+      <div class="channel-name">Organic social — Instagram and Facebook</div>
+      <span class="channel-priority priority-medium">Medium — brand building, patient education</span>
+    </div>
+    <p style="margin-bottom:20px;font-size:14px;">Social builds ambient trust. People who follow the clinic before they become patients are more likely to book when the time comes. It's not a direct acquisition channel — think of it as a long-term credibility investment.</p>
+    <div class="social-grid">
+      <div class="social-card">
+        <h3>What to post (safe content)</h3>
+        <ul>
+          <li>Condition education: "What is neuropathic pain?" type posts</li>
+          <li>Clinic and team introduction posts</li>
+          <li>Process explainers: "How to access medicinal cannabis in Australia"</li>
+          <li>General wellness: sleep hygiene, stress management tips (no cannabis mention required)</li>
+          <li>Patient pathway infographics (what happens at your first appointment)</li>
+          <li>Destigmatisation posts: "Medicinal cannabis is a prescription medicine — here's what that means"</li>
+        </ul>
+      </div>
+      <div class="social-card">
+        <h3>What to avoid</h3>
+        <ul>
+          <li>Images of cannabis products or the plant</li>
+          <li>Any claims about treating or curing conditions</li>
+          <li>Patient testimonials referencing outcomes</li>
+          <li>Any pricing or promotional posts</li>
+          <li>Content that glorifies or normalises recreational cannabis</li>
+          <li>Boosting posts that mention cannabis (Meta will restrict)</li>
+          <li>Posting before checking Meta's current Community Standards on regulated goods</li>
+        </ul>
+      </div>
+      <div class="social-card">
+        <h3>Instagram strategy</h3>
+        <ul>
+          <li>Post 3–4 times per week in months 1–6</li>
+          <li>Mix: carousels (education), single images (clinic), Reels (short explainers)</li>
+          <li>Hashtags: health-adjacent, not cannabis-specific (#chronicpain, #sleepdisorder, #melbournehealth)</li>
+          <li>Stories daily if possible — behind the scenes, team, FAQs</li>
+          <li>Bio: "Melbourne's independent medicinal cannabis clinic + dispensary. Prescriptions by AHPRA-registered doctors."</li>
+        </ul>
+      </div>
+      <div class="social-card">
+        <h3>Facebook strategy</h3>
+        <ul>
+          <li>Post 2–3 times per week — share blog content + original posts</li>
+          <li>Facebook Groups: join relevant Melbourne health groups — participate educationally, never promote</li>
+          <li>Create a Facebook Page (not a Group) for the clinic</li>
+          <li>Link GMB reviews to Facebook page for credibility</li>
+          <li>Do not run Facebook Ads — policy blocks cannabis-adjacent content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Content plan -->
+<div class="section">
+  <div class="section-tag">Content plan</div>
+  <h2>12-month editorial calendar</h2>
+  <div class="section-divider"></div>
+  <p style="margin-bottom:24px;">Every content piece is educational, not promotional. Condition-specific content serves two audiences simultaneously: potential patients searching for information, and GPs looking for resources to share with their patients.</p>
+  <table class="content-table">
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Blog post</th>
+        <th>Condition pillar</th>
+        <th>GMB post topic</th>
+        <th>Social theme</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Month 1</td>
+        <td>How to access medicinal cannabis in Australia: the complete guide</td>
+        <td><span class="content-pillar pillar-education">Education</span></td>
+        <td>Clinic launch + what we do</td>
+        <td>Who we are + clinic introduction</td>
+      </tr>
+      <tr>
+        <td>Month 2</td>
+        <td>Medicinal cannabis and chronic pain: what the evidence says</td>
+        <td><span class="content-pillar pillar-pain">Chronic pain</span></td>
+        <td>Understanding your prescription</td>
+        <td>Chronic pain awareness</td>
+      </tr>
+      <tr>
+        <td>Month 3</td>
+        <td>CBD vs THC: what's the difference and which is right for you?</td>
+        <td><span class="content-pillar pillar-education">Education</span></td>
+        <td>What to bring to your first appointment</td>
+        <td>Patient pathway explainer</td>
+      </tr>
+      <tr>
+        <td>Month 4</td>
+        <td>Medicinal cannabis for anxiety and PTSD: what patients need to know</td>
+        <td><span class="content-pillar pillar-mental">Mental health</span></td>
+        <td>Sleep and medicinal cannabis</td>
+        <td>Mental health awareness content</td>
+      </tr>
+      <tr>
+        <td>Month 5</td>
+        <td>Why independent prescribing matters in medicinal cannabis</td>
+        <td><span class="content-pillar pillar-education">Education</span></td>
+        <td>How our dispensary works</td>
+        <td>What "brand agnostic" means for patients</td>
+      </tr>
+      <tr>
+        <td>Month 6</td>
+        <td>Medicinal cannabis and sleep disorders: evidence and practice</td>
+        <td><span class="content-pillar pillar-mental">Mental health</span></td>
+        <td>6-month patient milestones</td>
+        <td>Sleep health tips (general)</td>
+      </tr>
+      <tr>
+        <td>Month 7</td>
+        <td>Cannabis and epilepsy in Australia: what patients and families should know</td>
+        <td><span class="content-pillar pillar-neuro">Neurological</span></td>
+        <td>Neurological conditions we treat</td>
+        <td>Neurological conditions awareness</td>
+      </tr>
+      <tr>
+        <td>Month 8</td>
+        <td>Palliative care and medicinal cannabis: a patient and carer guide</td>
+        <td><span class="content-pillar pillar-palliat">Palliative</span></td>
+        <td>Telehealth appointments: how they work</td>
+        <td>Palliative care awareness</td>
+      </tr>
+      <tr>
+        <td>Month 9</td>
+        <td>What to expect from your first 3 months of medicinal cannabis treatment</td>
+        <td><span class="content-pillar pillar-education">Education</span></td>
+        <td>Spring: reviewing your treatment plan</td>
+        <td>Patient journey — from first consult to ongoing care</td>
+      </tr>
+      <tr>
+        <td>Month 10</td>
+        <td>Medicinal cannabis and fibromyalgia: emerging research</td>
+        <td><span class="content-pillar pillar-pain">Chronic pain</span></td>
+        <td>What questions to ask your doctor</td>
+        <td>Fibromyalgia and chronic pain awareness</td>
+      </tr>
+      <tr>
+        <td>Month 11</td>
+        <td>Medicinal cannabis for cancer patients: a guide for patients and families</td>
+        <td><span class="content-pillar pillar-palliat">Palliative</span></td>
+        <td>Giving back: how patient reviews help others find care</td>
+        <td>Oncology patient support content</td>
+      </tr>
+      <tr>
+        <td>Month 12</td>
+        <td>Medicinal cannabis in Australia: what's changed and where the evidence stands</td>
+        <td><span class="content-pillar pillar-education">Education</span></td>
+        <td>Year one at [CLINIC NAME]</td>
+        <td>Milestone celebration + thank you</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;font-size:12px;color:var(--muted);">All content must include: "Medicinal cannabis is a prescription medicine. Speak to a doctor to find out if it's right for your circumstances." No product names, no dosage guidance, no claims about specific outcomes.</p>
+</div>
+
+<!-- 90-day plan -->
+<div class="section">
+  <div class="section-tag">Action plan</div>
+  <h2>The first 90 days in detail</h2>
+  <div class="section-divider"></div>
+  <div class="plan-grid">
+    <div class="plan-phase">
+      <div class="phase-label">Month 1</div>
+      <h3>Launch and foundations</h3>
+      <ul>
+        <li>Claim and fully optimise GBP listing</li>
+        <li>Website live with location, services, and 4 condition pages</li>
+        <li>GA4 and Search Console installed</li>
+        <li>Instagram and Facebook pages created</li>
+        <li>Email platform set up (welcome sequence ready)</li>
+        <li>GP outreach list built (50+ targets)</li>
+        <li>First outreach letters sent</li>
+        <li>Publish first two blog posts</li>
+        <li>First GBP posts published</li>
+      </ul>
+    </div>
+    <div class="plan-phase">
+      <div class="phase-label">Month 2</div>
+      <h3>Referral and content activation</h3>
+      <ul>
+        <li>Follow up GP outreach letters by phone</li>
+        <li>First lunch-and-learn hosted</li>
+        <li>GP info sheets distributed in-person to 15+ practices</li>
+        <li>Review request process live (SMS post-appointment)</li>
+        <li>10+ GMB reviews targeted</li>
+        <li>2 blog posts published</li>
+        <li>Weekly social posting cadence established</li>
+        <li>Welcome email sequence tested and live</li>
+        <li>First monthly GP clinical update email sent</li>
+      </ul>
+    </div>
+    <div class="plan-phase">
+      <div class="phase-label">Month 3</div>
+      <h3>Consolidate and review</h3>
+      <ul>
+        <li>Audit what's working: which referrers are sending patients?</li>
+        <li>GMB: 20+ reviews target — review request message optimised</li>
+        <li>SEO: check Search Console for first impressions data</li>
+        <li>First monthly report to client: patient numbers, source breakdown, review count</li>
+        <li>Identify top 5 GP referrers — book personal check-in visits</li>
+        <li>2 blog posts published</li>
+        <li>Social: review which post types are getting engagement</li>
+        <li>Plan months 4–6 content calendar in detail</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs -->
+<div class="section">
+  <div class="section-tag">Success metrics</div>
+  <h2>What to track and when</h2>
+  <div class="section-divider"></div>
+  <table class="kpi-table">
+    <thead>
+      <tr><th>Metric</th><th>Month 3 target</th><th>Month 6 target</th><th>Month 12 target</th><th>Source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Active patients</td><td>40</td><td>80</td><td>185</td><td>Practice management system</td></tr>
+      <tr><td>Monthly new patients</td><td>15</td><td>25</td><td>45</td><td>Intake forms</td></tr>
+      <tr><td>Google reviews</td><td>12</td><td>25</td><td>60</td><td>GBP dashboard</td></tr>
+      <tr><td>GMB profile views/month</td><td>200</td><td>600</td><td>1,500</td><td>GBP Insights</td></tr>
+      <tr><td>Website organic sessions/month</td><td>150</td><td>500</td><td>2,000</td><td>GA4</td></tr>
+      <tr><td>Active GP referrers</td><td>3</td><td>8</td><td>20</td><td>Patient intake "how did you hear"</td></tr>
+      <tr><td>Referral-source patients/month</td><td>5</td><td>15</td><td>30</td><td>Intake forms</td></tr>
+      <tr><td>Email subscribers</td><td>35</td><td>80</td><td>200</td><td>Email platform</td></tr>
+      <tr><td>Instagram followers</td><td>150</td><td>400</td><td>1,000</td><td>Instagram Insights</td></tr>
+      <tr><td>Blog posts published</td><td>6</td><td>12</td><td>24</td><td>Website CMS</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:16px;font-size:13px;color:var(--muted);">Track "how did you hear about us?" at every intake without exception — it's the only way to know which channels are actually driving patients. The data from months 1–3 will reshape months 4–6 strategy.</p>
+</div>
+
+</div>
+
+<div class="doc-footer">
+  Prepared by Locate Digital &nbsp;|&nbsp; June 2026 &nbsp;|&nbsp; Confidential — for client use only &nbsp;|&nbsp; All content recommendations subject to TGA advertising code compliance review before publication.
+</div>
+
+</body>
+</html>

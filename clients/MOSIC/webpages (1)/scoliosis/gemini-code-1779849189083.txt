@@ -1,0 +1,60 @@
+You are an expert front-end web developer. I need you to generate the clean, semantic HTML and CSS (or components if requested) for a new landing page for an existing client: Melbourne Osteopathy Sports Injury Centre (MOSIC).
+
+The new page is for their "AlignSpine Scoliosis Centre" service.
+
+### 1. BRANDING & DESIGN SYSTEM CONSTRAINTS
+To ensure the new page perfectly integrates with the existing website (https://www.melbourneosteopathycentre.com.au/), strictly adhere to their established branding, typography, and design tokens:
+- Colors: Use the signature MOSIC deep navy blue (#0f2d4a or equivalent from their site) as the primary brand color, complemented by their specific teal/emerald green accent color and clean white/light-grey backgrounds for section block contrast.
+- Typography: Use the exact font stacks, font scaling, line heights, and letter spacing used across the main MOSIC website headers and body text.
+- UI Components: Match the site's existing navbar, footer layout, button styles (including hover states and border-radius), and container padding. 
+- Layout Style: Clean, professional, modern, with ample whitespace and clear structural division between sections.
+
+### 2. HERO IMAGE & VISUAL ASSETS
+- Design an elegant Hero Section layout that accommodates a prominent 3-column banner layout.
+- Use placeholder image tags `<img>` or CSS grid containers where I can insert the provided 3-panel marketing image (Panel 1: "Comprehensive Scoliosis Assessment" [Blue banner], Panel 2: "Personalised Rehab for Spinal Health" [Teal banner], Panel 3: "Scoliosis & Chronic Back Pain" [Blue banner]). Ensure this layout is beautifully responsive (stacking elegantly on mobile).
+
+### 3. SEO & METADATA
+Include the following metadata in the head of the document:
+- Title: Scoliosis Treatment Melbourne | AlignSpine Scoliosis Centre | MOSIC
+- Meta Description: Looking for scoliosis treatment in Melbourne? Learn how MOSIC’s AlignSpine Scoliosis Centre helps manage scoliosis and chronic pain with personalised care.
+- Target URL/Slug: /scoliosis-treatment-melbourne
+
+### 4. PAGE CONTENT & STRUCTURE
+Organize the provided copy into an engaging, highly scannable layout using modern UI patterns (e.g., icon-based bullet lists, alternating colored sections, clear grid blocks for the step-by-step process):
+
+[INSERT HERO BANNER HERE]
+
+Header Section:
+- H1: AlignSpine Scoliosis Centre – Melbourne
+- Subtitle/Intro: Welcome to AlignSpine Scoliosis Centre, part of Melbourne Osteopathy Sports Injury Centre (MOSIC). We provide individualised care for people living with scoliosis, with a focus on improving movement, reducing discomfort, and supporting long-term spinal health. Whether you’ve recently been diagnosed or have been managing scoliosis for years, our goal is to help you better understand your body and feel more confident in how you move.
+
+Section 1: Who We Help (Use a clean 2-column card layout)
+- Column A: Adults living with scoliosis (Bullet points: persistent back or neck pain | stiffness or reduced mobility | fatigue from ongoing discomfort)
+- Column B: Adolescents with scoliosis (We also assist younger patients and families navigating scoliosis during growth years.)
+
+Section 2: Educational Content (What Is Scoliosis? & How It Affects Daily Life)
+- Detail the condition causes (growth changes, genetic factors, neuromuscular conditions, long-term movement patterns).
+- Highlight daily impact points using clear icons or typography features (movement/flexibility, exercise capacity, sitting tolerance/desk work, sleep quality, overall energy levels, confidence/wellbeing).
+
+Section 3: Your Experience at AlignSpine (Format as a numbered step-by-step 1–4 timeline or grid)
+1. Initial Consultation: Understand history, discuss symptoms/goals, assess daily life impact.
+2. Comprehensive Assessment: Spinal assessment (including Adam’s Forward Bend Test), movement/mobility testing, postural evaluation, referral for imaging (e.g. X-ray) if appropriate.
+3. Personalised Treatment Plan: Osteopathic manual therapy, targeted exercise rehabilitation, posture and movement education, strategies to support daily activity.
+4. Ongoing Support: Track progress, adjust your plan, build long-term strength and confidence.
+
+Section 4: Our Approach & Treatment Focus
+- Highlight the core pillars: Understanding your movement, Reducing strain and discomfort, Building strength and resilience, Supporting long-term management.
+- Specifically detail "Osteopathic Treatment for Scoliosis" (gentle manual therapy, joint and soft tissue techniques, mobility work, exercise prescription).
+
+Section 5: Call to Action (When Should You Seek Help?)
+- Create a high-converting CTA section highlighting red flags: ongoing back/neck pain, stiffness, discomfort sitting/standing, posture changes, recurring flare-ups.
+- Include a prominent, brand-aligned "Book an Appointment" CTA button.
+
+Section 6: Meet Your AlignSpine Team (Profile/Bio Section)
+- Feature the leading practitioners with placeholders for professional headshots:
+  * Dr David Sokoloff
+  * Dr Shane Buntman
+- Text: With extensive experience in musculoskeletal care, our team is committed to delivering personalised, evidence-informed treatment.
+
+### 5. DELIVERABLES
+Please output the production-ready code. Ensure the CSS is either neatly scoped in a `<style>` tag or modularly structured so it can be easily added to the existing MOSIC website stylesheet without breaking current global styles. Maintain accessibility (semantic HTML elements, proper heading hierarchies H1->H2->H3, and high contrast text).

@@ -1,0 +1,103 @@
+Hyrox injury campaign: negative keywords (campaign level, phrase match unless noted)
+Pulled from noise in Google AU autocomplete, October 2026
+
+# Gear and merch (largest source of wasted clicks)
+knee pads
+knee sleeves
+knee brace
+knee guard
+knee protector
+calf sleeves
+wrist straps
+wrist wraps
+wristband
+wrist band
+sweatbands
+ankle socks
+ankle strap
+ankle tag
+ankle chip
+ankle bracelet
+ankle monitor
+ankle tracker
+shoes
+slides
+recovery boots
+massage gun
+massagegun
+shoulder bag
+bra
+crew neck
+necklace
+puma
+myprotein
+protein
+shake
+drink
+bar
+kit
+pack
+package
+
+# Event logistics and policy
+refund
+cancellation
+injury policy
+partner injured
+recovery zone
+recovery area
+recovery lounge
+recovery station
+wristband colours
+
+# Training and workout content (not injury)
+workout
+shoulder press
+shoulder taps
+hip thrust
+hip drive
+calf raises
+mobility app
+mobility routine
+mobility drills
+mobility exercises
+warm up
+active recovery
+recovery meal
+recovery plan
+recovery time
+
+# Informational / research
+reddit
+rate
+risk
+vs crossfit
+pain cave
+physiology
+world record
+average
+rules
+
+# Celebrity / unrelated
+ksi
+calfreezy
+dylan scott
+brain injury
+
+# Non-AU locations seen in suggestions
+perth
+singapore
+sunshine coast
+lyon
+rhein neckar
+
+# Non-English noise (exact match is fine)
+painot
+painonpudotus
+hipertermia
+hipotermia
+hipertrofia
+afstand
+länge
+massage avant
+pistolet
