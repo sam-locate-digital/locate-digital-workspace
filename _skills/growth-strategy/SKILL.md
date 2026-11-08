@@ -182,14 +182,14 @@ Prioritize growth experiments using ICE:
 
 | Channel | Time to Results | CAC Range | Best For |
 |---------|----------------|-----------|----------|
-| SEO/Content | 3-6 months | $50-200 | Sustained inbound, trust |
-| Paid Search | Immediate | $20-200 | High-intent buyers |
-| Social Ads | 1-2 weeks | $10-100 | Awareness, retargeting |
-| Email | 1-2 weeks | $1-10 | Nurture, retention |
-| Partnerships | 1-3 months | $10-50 | Co-marketing, trust transfer |
-| Community | 3-6 months | $5-20 | Loyalty, word-of-mouth |
-| Product-led | 1-3 months | $0-10 | Viral, bottoms-up |
-| Sales | Immediate | $200-2000 | Enterprise, high ACV |
+| SEO/Content | 3-6 months | USD 50-200 | Sustained inbound, trust |
+| Paid Search | Immediate | USD 20-200 | High-intent buyers |
+| Social Ads | 1-2 weeks | USD 10-100 | Awareness, retargeting |
+| Email | 1-2 weeks | USD 1-10 | Nurture, retention |
+| Partnerships | 1-3 months | USD 10-50 | Co-marketing, trust transfer |
+| Community | 3-6 months | USD 5-20 | Loyalty, word-of-mouth |
+| Product-led | 1-3 months | USD 0-10 | Viral, bottoms-up |
+| Sales | Immediate | USD 200-2000 | Enterprise, high ACV |
 
 **Rule of thumb:** Master 1-2 channels before adding more. Most startups spread too thin.
 

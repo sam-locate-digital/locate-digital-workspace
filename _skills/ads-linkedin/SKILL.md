@@ -54,9 +54,9 @@ Campaigns are now called Ad Sets. This skill uses the new terminology.
 
 ### Bidding & Budget (15% weight)
 - Bid strategy: Start with Manual CPC. Maximum Delivery is the most expensive option. (L16)
-- Daily budget ≥$50 for Sponsored Content (L17)
+- Daily budget ≥USD 50 for Sponsored Content (L17)
 - CTR ≥0.44% for Sponsored Content (L21)
-- CPC within benchmark: $5-7 average, senior $6.40+ (L22)
+- CPC within benchmark: USD 5-7 average, senior USD 6.40+ (L22)
 - Lead-to-opportunity rate tracked, not just CPL (L23)
 - Attribution: 30-day click / 7-day view configured (L24)
 - Demographics report reviewed monthly (L25)
@@ -67,7 +67,7 @@ Thought Leader Ads use employee/executive personal posts as sponsored content.
 Non-employee members eligible since March 2025. 2-5x higher engagement than
 standard Sponsored Content.
 
-- CPC typically $2.29-$4.14 vs $13.23 for standard Sponsored Content
+- CPC typically USD 2.29-4.14 vs USD 13.23 for standard Sponsored Content
 - CTR typically 2-3x higher than corporate-branded ads
 - 2-5x higher engagement (includes non-employee member TLAs since March 2025)
 - Best for: B2B thought leadership, brand awareness, engagement
@@ -106,8 +106,8 @@ For B2B Enterprise accounts:
 |---------|-------|
 | Minimum audience size | 500 (for ads to run) |
 | Lead Gen Form CVR benchmark | 13% |
-| TLA CPC range | $2.29-$4.14 |
-| Standard SC CPC | $13.23 average |
+| TLA CPC range | USD 2.29-4.14 |
+| Standard SC CPC | USD 13.23 average |
 | Hierarchy rename | Oct 2025 (Campaign Group → Campaign → Ad) |
 | Predictive Audiences | Replaced Lookalikes Feb 2024 |
 
@@ -116,7 +116,7 @@ For B2B Enterprise accounts:
 | Metric | Pass | Warning | Fail |
 |--------|------|---------|------|
 | CTR (Sponsored Content) | ≥0.44% | 0.30-0.44% | <0.30% |
-| CPC (average) | ≤$7.00 | $7-10 | >$10.00 |
+| CPC (average) | ≤USD 7.00 | USD 7-10 | >USD 10.00 |
 | Lead Gen CVR | ≥10% | 5-10% | <5% |
 | Message frequency | ≤1/30 days | 1/15-30 days | >1/15 days |
 | TLA budget share | ≥30% | 15-30% | <15% |

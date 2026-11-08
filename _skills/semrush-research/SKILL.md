@@ -72,7 +72,7 @@ curl -s "https://api.semrush.com/?type=domain_ranks&key=${SEMRUSH_API_KEY}&expor
 # Parse with awk
 curl -s "..." | awk -F';' 'NR==2 {
   printf "Domain: %s\nSemRush Rank: %s\nOrganic Keywords: %s\nOrganic Traffic: %s\nOrganic Traffic Cost: $%s\nPaid Keywords: %s\nPaid Traffic: %s\nPaid Traffic Cost: $%s\n",
-  $1,$2,$3,$4,$5,$6,$7,$8
+  $(1),$(2),$(3),$(4),$(5),$(6),$(7),$(8)
 }'
 ```
 
@@ -130,7 +130,7 @@ curl -s "https://api.semrush.com/?type=phrase_related&key=${SEMRUSH_API_KEY}&phr
 ### Parsing Multiple Rows
 
 ```bash
-curl -s "..." | awk -F';' 'NR>1 { printf "%-40s Vol: %-8s CPC: $%-6s Comp: %s\n", $1, $2, $3, $4 }'
+curl -s "..." | awk -F';' 'NR>1 { printf "%-40s Vol: %-8s CPC: $%-6s Comp: %s\n", $(1), $(2), $(3), $(4) }'
 ```
 
 ---

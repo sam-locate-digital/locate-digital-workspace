@@ -70,7 +70,7 @@ Small firms often have almost no web presence. If research finds little, say so 
 *Marketing retainer:*
 - Can they fund a result? The management fee plus ad spend they pay directly. Use the floor and the "higher of the flat fee or 15–20% of ad spend" rule from `02-pricing.md`, and the revenue proxies there (staff count, locations, already advertising).
 - Is the decision-maker on the call or easy to reach?
-- Will they accept the 3-month minimum and the $1,500 setup fee?
+- Will they accept the 3-month minimum and the AUD 1,500 setup fee?
 - Is there a clear outcome to measure (enquiries, booked meetings, funded loans)?
 
 *AI training:*
@@ -79,7 +79,7 @@ Small firms often have almost no web presence. If research finds little, say so 
 - How are staff using AI now (free tools, aggregator tools, nothing), and is there a trigger such as an audit, a near-miss or an aggregator push?
 - Timing: when could a half-day workshop realistically happen?
 
-*Red flags for either* (two or more means a polite exit): asks for free work beyond a short audit, wants to "test with $200", is vague the moment budget comes up, wants lots of unrelated small jobs, or needs results Locate can't honestly promise.
+*Red flags for either* (two or more means a polite exit): asks for free work beyond a short audit, wants to "test with 200 bucks", is vague the moment budget comes up, wants lots of unrelated small jobs, or needs results Locate can't honestly promise.
 
 **The polite exit.** Write the line Sam uses if they don't qualify. Make it honest, specific and useful, and leave the door open: "Honestly, at your current ad budget I don't think a retainer would pay for itself yet. The thing I'd do first is [one specific, free fix]. Come back to me when [condition], and I'll happily take another look."
 

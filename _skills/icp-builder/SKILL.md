@@ -31,7 +31,7 @@ SITUATIONAL TRIGGERS (events creating buy urgency)
   - [e.g., "Current contract ending", "New VP hired"]
 
 QUALIFYING CRITERIA
-  Must-Have: [e.g., "Marketing team of 3+", "Spends $10K+/mo on ads"]
+  Must-Have: [e.g., "Marketing team of 3+", "Spends USD 10K+/mo on ads"]
   Nice-to-Have: [e.g., "Active on social media"]
   Disqualifying: [e.g., "Pre-revenue", "Fewer than 10 employees"]
 ```

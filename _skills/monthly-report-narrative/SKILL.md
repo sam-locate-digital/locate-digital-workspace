@@ -76,7 +76,7 @@ Rules:
 - No filler openers: never start with "This month saw…" or "It was a busy month"
 
 Example pattern (adapt to the actual data):
-> "Sessions were down 12% in April — standard post-school-holiday softness, in line with the same period last year. New patients held steady at 47 despite the lower traffic, which suggests the booking page conversion rate improved. Google Ads cost per lead came in at $34, back within target after the March spike. One priority: the campaign for [service] hit zero conversions last week — see recommendations."
+> "Sessions were down 12% in April — standard post-school-holiday softness, in line with the same period last year. New patients held steady at 47 despite the lower traffic, which suggests the booking page conversion rate improved. Google Ads cost per lead came in at 34 dollars, back within target after the March spike. One priority: the campaign for [service] hit zero conversions last week — see recommendations."
 
 ---
 
@@ -131,7 +131,7 @@ Format:
 | Flag | Metric | This month | Prior month | Change | Likely cause |
 |---|---|---|---|---|---|
 | 🔴 | Conversions — Search campaign | 0 | 14 | –100% | Conversion tag fired incorrectly — confirm in GA4 |
-| 🟡 | CPA — Brand campaign | $62 | $48 | +29% | Competitor activity on brand terms — check auction insights |
+| 🟡 | CPA — Brand campaign | AUD 62 | AUD 48 | +29% | Competitor activity on brand terms — check auction insights |
 | 🟢 | New patients | 52 | 41 | +27% | April new-patient landing page went live 5 Apr |
 ```
 
@@ -172,9 +172,9 @@ A single clean table covering all key metrics. This goes at the end of the narra
 |---|---:|---:|---:|---|
 | Sessions | 1,085 | 1,240 | –12.5% | 🟡 |
 | New patients | 52 | 41 | +26.8% | 🟢 |
-| Google Ads spend | $1,840 | $1,800 | +2.2% | 🟢 |
-| Google Ads CPA | $34 | $42 | –19% | 🟢 |
-| Meta CPL | $28 | — | — | New |
+| Google Ads spend | AUD 1,840 | AUD 1,800 | +2.2% | 🟢 |
+| Google Ads CPA | AUD 34 | AUD 42 | –19% | 🟢 |
+| Meta CPL | AUD 28 | — | — | New |
 ...
 ```
 

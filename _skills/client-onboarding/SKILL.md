@@ -235,7 +235,7 @@ Not in scope (to prevent scope creep):
 ## Goals
 [1–2 sentences with a specific target where possible.
 Example: "Grow new patient volume from ~48/month to 70+/month within 6 months via Google Ads
-optimisation and SEO improvements. Secondary: reduce cost per new patient below $60."]
+optimisation and SEO improvements. Secondary: reduce cost per new patient below 60 dollars."]
 
 ## Notes
 - API keys and credentials in `.env` (gitignored)

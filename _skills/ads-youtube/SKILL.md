@@ -118,9 +118,9 @@ tested_with: claude-code v2.x
 | Metric | Benchmark | Notes |
 |--------|-----------|-------|
 | View Rate (skippable) | ≥15% | Higher = better hook |
-| CPV (skippable) | $0.01-0.10 | Varies by targeting |
+| CPV (skippable) | USD 0.01-0.10 | Varies by targeting |
 | VTR (bumper) | 90%+ | Non-skippable, should be near 100% |
-| CPM (non-skip) | $6-15 | Varies by market |
+| CPM (non-skip) | USD 6-15 | Varies by market |
 | CTR (Demand Gen) | ≥0.5% | Image+video combined |
 | Brand Lift | Measurable | Requires Google Brand Lift Study |
 

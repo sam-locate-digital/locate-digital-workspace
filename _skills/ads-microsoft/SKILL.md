@@ -127,7 +127,7 @@ Ad copy optimization for this audience:
 | Metric | Pass | Warning | Fail |
 |--------|------|---------|------|
 | CTR (Search) | ≥2.83% | 1.5-2.83% | <1.5% |
-| CPC (Search) | ≤$1.55 | $1.55-2.50 | >$2.50 |
+| CPC (Search) | ≤USD 1.55 | USD 1.55-2.50 | >USD 2.50 |
 | CPC vs Google | 20-40% lower | 10-20% lower | Same or higher |
 | CVR vs Google | Within 20% | 20-50% lower | >50% lower |
 | Impression share (brand) | ≥80% | 60-80% | <60% |

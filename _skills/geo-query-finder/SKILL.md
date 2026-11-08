@@ -145,8 +145,8 @@ Output a summary table:
 ## Rate Limiting
 
 - Run queries sequentially with 1-2 second delays to avoid rate limits
-- Each query costs ~$0.01 via OpenAI API
-- Default: 15-20 queries per run (~$0.15-0.20 per run)
+- Each query costs ~USD 0.01 via OpenAI API
+- Default: 15-20 queries per run (~USD 0.15-0.20 per run)
 
 ## Notes
 

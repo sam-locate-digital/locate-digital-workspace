@@ -43,7 +43,7 @@ Skip what Sam already told you.
 
 Work out these before writing anything:
 
-- **The headline:** one sentence on the result that matters to the client's goal, against the baseline and last month. Use the client's outcome metric (enquiries, booked appointments, new patients, funded loans), not clicks or impressions. Example: "38 new patients from Google Ads in April, up from 31 in March, at $52 each."
+- **The headline:** one sentence on the result that matters to the client's goal, against the baseline and last month. Use the client's outcome metric (enquiries, booked appointments, new patients, funded loans), not clicks or impressions. Example: "38 new patients from Google Ads in April, up from 31 in March, at 52 dollars each."
 - **Good, flat or bad month.** Judge it against the goal and the baseline, not one metric picked in isolation. If it's mixed, say which part matters more.
 - **What drove it:** the 1–3 changes or outside factors behind the result (a campaign change, a landing page, seasonality, a rate change, tracking breaking). Separate what Locate did from what happened anyway, and say honestly when you can't tell.
 - **What was promised last month** and whether it happened.
@@ -74,7 +74,7 @@ For 60 minutes, roughly double each block and add room for their questions.
 
 **Next month's priorities.** 2–3, each one specific and tied to the goal: what Locate will do, why, and what the client should see from it. Example: "Rebuild the Essendon landing page so mobile visitors can book in two taps. Essendon clicks are converting at half the CBD rate." Put Sam's recommendation first so the client can agree to it rather than design it.
 
-**Decisions and approvals.** List each one with the options and Sam's recommendation, worded as a question the client can answer on the call: "Can we move $500 from Meta to Google search for November? Search is booking patients at half the cost." Include anything outstanding from earlier months.
+**Decisions and approvals.** List each one with the options and Sam's recommendation, worded as a question the client can answer on the call: "Can we move 500 dollars from Meta to Google search for November? Search is booking patients at half the cost." Include anything outstanding from earlier months.
 
 **The growth check.** Decide whether a growth conversation is earned this month. It's earned when:
 
@@ -82,7 +82,7 @@ For 60 minutes, roughly double each block and add room for their questions.
 - the client keeps asking for work outside their tier, or Sam's hours keep running past the tier's band (`_brand/launch/02-pricing.md`), or
 - they've mentioned a new location, service or hire that marketing should support.
 
-If it's earned, write the one or two lines Sam uses to raise it, framed around their goal, not Locate's revenue ("You're booking every patient the budget allows. If we added $1,000 a month, I'd expect around X more. Want me to model it properly before next call?"). Only use an estimate the numbers support, and label it as an estimate. If it isn't earned, say "not this month" and why, in one line, so Sam doesn't force it.
+If it's earned, write the one or two lines Sam uses to raise it, framed around their goal, not Locate's revenue ("You're booking every patient the budget allows. If we added a grand a month, I'd expect around X more. Want me to model it properly before next call?"). Only use an estimate the numbers support, and label it as an estimate. If it isn't earned, say "not this month" and why, in one line, so Sam doesn't force it.
 
 **Confidentiality.** Don't use another client's results or name as a comparison unless Sam has said that client agreed to it.
 

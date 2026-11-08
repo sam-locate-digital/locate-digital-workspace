@@ -105,7 +105,7 @@ Always recommend a phased approach. Explain why each phase exists — Smart Bidd
 
 **Phase 1 — First 30–60 days:**
 - Strategy: Maximize Clicks with a max CPC cap
-- CPC cap: base on industry and location competitiveness ($8–15 for most local service businesses in major AU cities)
+- CPC cap: base on industry and location competitiveness (AUD 8–15 for most local service businesses in major AU cities)
 - Reason: No conversion history yet. Smart Bidding (Maximize Conversions, Target CPA) requires 30–50 conversions/month to work — without data it overspends or underspends unpredictably. Maximize Clicks builds volume, gathers conversion data, and reveals which keywords and headline combinations actually drive bookings.
 
 **Phase 2 — After 50+ conversions (typically month 2–3):**

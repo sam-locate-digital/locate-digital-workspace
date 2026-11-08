@@ -51,11 +51,11 @@ Full detail lives in [`_ops/service-delivery-sop.md`](G:/My%20Drive/Claude%20Cod
 
 ## Package → what to deliver
 
-**Starter ($1,800/mo)** — one channel (Google *or* Meta), basic targeting, GA4 tracking, monthly optimisation, monthly report + 1 call. SEO/email/blog are add-ons.
+**Starter (AUD 1,800/mo)** — one channel (Google *or* Meta), basic targeting, GA4 tracking, monthly optimisation, monthly report + 1 call. SEO/email/blog are add-ons.
 
-**Growth ($3,500/mo)** — both channels, advanced targeting + segmentation, ad creative, A/B testing, GA4 + GTM tracking, on-page SEO up to 5 pages, 1 blog/month, monthly report + strategy call.
+**Growth (AUD 3,500/mo)** — both channels, advanced targeting + segmentation, ad creative, A/B testing, GA4 + GTM tracking, on-page SEO up to 5 pages, 1 blog/month, monthly report + strategy call.
 
-**Scale ($6,500/mo+)** — multi-platform (+1 channel), retargeting, full creative + A/B, CRO, dedicated landing pages, server-side tracking, on-page SEO up to 10 pages, 2 blogs/month + link building, fortnightly calls + priority.
+**Scale (AUD 6,500/mo+)** — multi-platform (+1 channel), retargeting, full creative + A/B, CRO, dedicated landing pages, server-side tracking, on-page SEO up to 10 pages, 2 blogs/month + link building, fortnightly calls + priority.
 
 ## Planning a client's month
 

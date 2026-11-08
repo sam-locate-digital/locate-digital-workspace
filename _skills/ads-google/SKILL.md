@@ -92,7 +92,7 @@ deduplication patterns, and filter scope best practices. Key rules:
 - Only analyze ENABLED campaigns and ad groups (exclude paused/removed)
 - Filter to keywords with impressions > 0 for theme coherence checks (G03)
 - Apply legacy BMM heuristic: BROAD + Manual CPC = legacy BMM, not intentional broad (G17)
-- Only flag wasted spend on terms with >$10 spend AND 0 conversions (G16), and
+- Only flag wasted spend on terms with >USD 10 spend AND 0 conversions (G16), and
   first rule out conversion lag (check the Conversion Tracking lag analysis) and
   conversion actions changed during the window. Zero conversions can be a
   tracking gap rather than waste
@@ -243,7 +243,7 @@ If Demand Gen campaigns exist, evaluate:
 | Quality Score (avg) | ≥7 | 5-6 | <5 |
 | CTR (Search) | ≥6.66% | 3-6.66% | <3% |
 | CVR (Search) | ≥7.52% | 3-7.52% | <3% |
-| CPC (Search) | ≤$5.26 | $5.26-8.00 | >$8.00 |
+| CPC (Search) | ≤USD 5.26 | USD 5.26-8.00 | >USD 8.00 |
 | Wasted Spend | <10% | 10-20% | >20% |
 | Ad Strength | Good+ | Average | Poor |
 | Invalid Clicks | <5% | 5-10% | >10% |

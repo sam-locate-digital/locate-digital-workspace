@@ -28,13 +28,13 @@ Establish: product/service, target market (B2B/B2C/SMB/enterprise), current pric
 ## Step 3: Pricing Psychology
 
 ### 1. Price Anchoring
-Show highest tier first, compare to alternatives ("vs. hiring at $80K/year"), compare to outcome value ("Generates $10K savings. Costs $99/month").
+Show highest tier first, compare to alternatives ("vs. hiring at USD 80K/year"), compare to outcome value ("Generates USD 10K savings. Costs USD 99/month").
 
 ### 2. Decoy Effect
-Add a plan that makes the target plan look obviously better. Example: Basic $9 (5 users), Plus $25 (10 users, DECOY), Pro $29 (25 users, TARGET).
+Add a plan that makes the target plan look obviously better. Example: Basic USD 9 (5 users), Plus USD 25 (10 users, DECOY), Pro USD 29 (25 users, TARGET).
 
 ### 3. Charm Pricing
-$99 feels cheaper than $100. Use .99 for consumer/SMB, round numbers for enterprise/premium.
+A price of 99 feels cheaper than 100. Use .99 for consumer/SMB, round numbers for enterprise/premium.
 
 ### 4. Center-Stage Effect
 People choose the middle of 3 options. Make your target plan the middle tier and highlight it.
@@ -79,7 +79,7 @@ TIER 3 (ENTERPRISE): Capture high WTP. SSO, audit logs, SLAs, dedicated support.
 ```
 +------------------+---------------------+------------------+
 |    STARTER       |    PROFESSIONAL     |    ENTERPRISE    |
-|    $19/mo        |    $49/mo           |    Contact Sales |
+|    USD 19/mo     |    USD 49/mo        |    Contact Sales |
 |                  |   * MOST POPULAR *  |                  |
 |  [Start Free]    |  [Start Free Trial] |  [Talk to Sales] |
 |  Feature list    |  Everything in      |  Everything in   |
@@ -114,7 +114,7 @@ Map competitors: entry price, mid tier, enterprise, model type. Identify gaps an
 
 ## Step 7: Pricing A/B Tests
 
-**Test 1: Price Point** -- Raise Pro from $49 to $59. Measure revenue per visitor.
+**Test 1: Price Point** -- Raise Pro from USD 49 to USD 59. Measure revenue per visitor.
 **Test 2: Annual Default** -- Default to annual toggle. Measure 90-day LTV.
 **Test 3: Tier Count** -- 4 tiers to 3. Measure conversion rate.
 **Test 4: Feature Gating** -- Move feature from Enterprise to Pro. Measure plan distribution + revenue.

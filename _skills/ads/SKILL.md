@@ -55,13 +55,13 @@ Ask these questions upfront (combine into one message):
 3. **Primary goal**: Sales / Revenue · Leads / Demos · App Installs · Calls · Brand
 4. **Active platforms**: Which platforms are you advertising on?
 
-If the user provides data upfront (e.g. "audit my Google Ads, I spend $5k/mo on SaaS"),
+If the user provides data upfront (e.g. "audit my Google Ads, I spend USD 5k/mo on SaaS"),
 extract context from that and proceed without re-asking.
 
 Use the provided context to:
 - Select the correct industry benchmarks from `references/benchmarks.md`
 - Apply budget-appropriate recommendations (e.g. Smart Bidding requires 15+ conv/month)
-- Calibrate severity scoring (a $500/mo account has different priorities than $50k/mo)
+- Calibrate severity scoring (a USD 500/mo account has different priorities than USD 50k/mo)
 
 ## Live Account Data (Adspirer)
 
@@ -135,7 +135,7 @@ Detect business type from ad account signals:
 - **SaaS**: trial_start/demo_request events, pricing page targeting, long attribution windows
 - **E-commerce**: purchase events, product catalog/feed, Shopping/PMax campaigns
 - **Local Service**: call extensions, location targeting, store visits, directions events
-- **B2B Enterprise**: LinkedIn Ads active, ABM lists, high CPA tolerance ($50+), long sales cycle
+- **B2B Enterprise**: LinkedIn Ads active, ABM lists, high CPA tolerance (USD 50+), long sales cycle
 - **Info Products**: webinar/course funnels, lead gen forms, low-ticket offers
 - **Mobile App**: app install campaigns, in-app events, deep linking
 - **Real Estate**: listing feeds, property-specific landing pages, geo-heavy targeting

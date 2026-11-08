@@ -201,7 +201,7 @@ Track results. If a generation fails, retry once with a simplified prompt.
 Before generating, show:
 - Number of styles selected x 2 sizes = total images
 - Estimated cost based on banana pricing tiers
-- If >$0.50, ask for confirmation
+- If >USD 0.50, ask for confirmation
 
 ## Platform Recommendations
 

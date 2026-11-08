@@ -213,7 +213,7 @@ Sam's reach has been drifting offshore. Every script must signal AU, with severa
 
 **Captions and on-screen text**
 - AU spelling only: optimise, favour, organisation, behaviour, colour, analyse
-- AU dollar framing: "$50K", or "$50K AUD" if ambiguous
+- AU dollar framing: write fifty grand as a dollar sign followed by "50K", and add "AUD" after it if ambiguous
 
 **Hashtags (3–5, AU-tilted)**
 - Always 1–2 of: `#smallbusinessaustralia` `#ausbusiness` `#aussiebusiness` `#smallbizau` `#australianbusiness`

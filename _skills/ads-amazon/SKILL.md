@@ -8,7 +8,7 @@ tested_with: claude-code v2.x
 
 # Amazon Ads Deep Analysis
 
-Amazon owns ~80% of US retail media (~$56B in 2025). This sub-skill audits
+Amazon owns ~80% of US retail media (~USD 56B in 2025). This sub-skill audits
 the three Sponsored ad types plus basic DSP visibility for sellers and
 vendors. Detailed Amazon DSP audit (programmatic / Twitch / Fire TV / Freevee
 / Prime Video) is queued for Wave 3 in `ads-retail-media`.
@@ -64,7 +64,7 @@ vendors. Detailed Amazon DSP audit (programmatic / Twitch / Fire TV / Freevee
   (prevents Sponsored Display contextual targeting from showing your ad
   next to incompatible products)
 - **Search Term Report harvested last 7 days** — any high-spend, zero-
-  conversion terms above $10 / 30 days should be negatives
+  conversion terms above USD 10 / 30 days should be negatives
 - **Brand defense**: branded search terms are isolated in a separate
   campaign with exact-match brand keywords and competitor-name negatives
 - **Top-of-search visibility** — branded search auction CPC vs default; flag

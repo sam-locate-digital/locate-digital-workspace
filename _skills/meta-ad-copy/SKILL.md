@@ -117,17 +117,17 @@ Always recommend a phased approach. Meta's algorithm needs time and data to exit
 
 **Phase 1 — First 30–60 days:**
 - Strategy: Lowest cost (no bid cap), CBO at campaign level
-- Budget starting point: $30–50/day for a local service business in a major AU city
+- Budget starting point: AUD 30–50/day for a local service business in a major AU city
 - Reason: The learning phase requires approximately 50 optimisation events per ad set per week. Setting a cost cap or ROAS target before accumulating that data restricts delivery and extends the learning phase. CBO (Campaign Budget Optimisation) lets Meta shift budget toward whichever ad set performs best in real time, rather than distributing budget equally across underperformers.
 
 **Phase 2 — After learning phase (week 3–6):**
 - Strategy: Cost Per Result Goal set 10–20% above the observed CPL
-- Expected CPL benchmarks: $15–40 for Lead Gen (instant form), $40–80 for Traffic to landing page
+- Expected CPL benchmarks: AUD 15–40 for Lead Gen (instant form), AUD 40–80 for Traffic to landing page
 - Reason: Once CPL data is consistent, a Cost Per Result Goal guides Meta's bidding without enforcing a hard ceiling. The 10–20% buffer above observed CPL gives the algorithm room to find conversions — setting it too tight slows delivery. These are benchmarks; actual CPL depends on audience quality, creative, and landing page.
 
 **Phase 3 — Mature campaigns (month 3+):**
 - Strategy: Cost cap at target CPL for cold; separate retargeting budget
-- Retargeting budget: $10–15/day (small audiences convert at 2–4× cold rate)
+- Retargeting budget: AUD 10–15/day (small audiences convert at 2–4× cold rate)
 - Reason: Cost cap enforces the maximum acceptable CPL strictly once performance has stabilised. Split budget at this point: majority to cold prospecting (acquisition), dedicated smaller budget to warm/retargeting. Retargeting is small but high-converting at local scale — underfunding it wastes the warm audiences built over the first two months.
 
 ---

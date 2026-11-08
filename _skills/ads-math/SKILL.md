@@ -160,7 +160,7 @@ Output:
 ### Incrementality & Advanced Measurement
 
 For advanced accounts evaluating cross-channel contribution:
-- **Meta Incremental Attribution** (launched April 2025): AI-powered holdout testing measuring real causal impact. Evaluate if budget exceeds $5K/month.
+- **Meta Incremental Attribution** (launched April 2025): AI-powered holdout testing measuring real causal impact. Evaluate if budget exceeds USD 5K/month.
 - **Google Meridian** (2025): Open-source Marketing Mix Model for incrementality measurement across channels.
 - These tools complement PPC math calculations by measuring what would NOT have happened without the ad spend.
 

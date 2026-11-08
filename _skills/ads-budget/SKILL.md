@@ -24,7 +24,7 @@ tested_with: claude-code v2.x
 6. Read `ads/references/scoring-system.md` for health score algorithm
 7. **Validate**: confirm spend data covers ≥14 days before evaluating kill/scale decisions
 8. Evaluate budget allocation, bidding strategy, and scaling readiness
-9. **Validate**: verify kill list candidates have sufficient data (≥20 clicks or ≥$100 spend) before recommending pause
+9. **Validate**: verify kill list candidates have sufficient data (≥20 clicks or ≥USD 100 spend) before recommending pause
 10. Generate recommendations with kill list and scale list
 
 ## Budget Allocation Framework
@@ -53,11 +53,11 @@ tested_with: claude-code v2.x
 
 | Platform | Minimum Daily | Learning Phase Budget |
 |----------|--------------|----------------------|
-| Google Search | $20/day | Sufficient for 15+ conv/month |
-| Google PMax | $50/day | Sufficient for algorithm optimization |
-| Meta | $20/day per ad set | ≥5x target CPA per ad set |
-| LinkedIn | $50/day Sponsored Content | 15+ conversions/month |
-| TikTok | $50/day campaign, $20/day ad group | ≥50x target CPA per ad group |
+| Google Search | USD 20/day | Sufficient for 15+ conv/month |
+| Google PMax | USD 50/day | Sufficient for algorithm optimization |
+| Meta | USD 20/day per ad set | ≥5x target CPA per ad set |
+| LinkedIn | USD 50/day Sponsored Content | 15+ conversions/month |
+| TikTok | USD 50/day campaign, USD 20/day ad group | ≥50x target CPA per ad group |
 | Microsoft | No strict minimum | Sufficient for stable delivery |
 
 ## Bidding Strategy Evaluation
@@ -142,9 +142,9 @@ Start
 
 ### 20% Rule
 Never increase budget by more than 20% at a time:
-- Week 1: $100/day → $120/day
-- Week 2: $120/day → $144/day
-- Week 3: $144/day → $173/day
+- Week 1: USD 100/day → USD 120/day
+- Week 2: USD 120/day → USD 144/day
+- Week 3: USD 144/day → USD 173/day
 - Monitor 3-5 days after each increase for performance stability
 
 ### Scaling Methods
@@ -165,7 +165,7 @@ Never increase budget by more than 20% at a time:
 | Scenario | Data Required | Action |
 |----------|---------------|--------|
 | CPA >3x target | ≥7 days data, ≥20 clicks | Recommend pause |
-| No conversions | ≥$100 spend or ≥50 clicks | Diagnose tracking and conversion lag first, then recommend pause |
+| No conversions | ≥USD 100 spend or ≥50 clicks | Diagnose tracking and conversion lag first, then recommend pause |
 | CTR <50% of benchmark | ≥1,000 impressions | Kill creative, test new |
 | ROAS <50% of target | ≥14 days data | Recommend 50% budget cut or pause |
 

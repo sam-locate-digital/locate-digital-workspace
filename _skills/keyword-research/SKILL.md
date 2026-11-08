@@ -226,7 +226,7 @@ Present results in this structure:
 
 - **Batch API calls** to conserve API credits. Query related keywords in groups.
 - **Always check trends.** A keyword with declining volume may not be worth targeting.
-- **CPC indicates money intent.** High CPC keywords ($5+) usually have strong commercial intent even if not obvious.
+- **CPC indicates money intent.** High CPC keywords (USD 5+) usually have strong commercial intent even if not obvious.
 - **Low KD is not always easy.** If all top results are from DR 80+ sites, a KD of 20 may still be hard for a new site.
 - **Local vs. national.** For local businesses, append city/state to seed keywords.
 - **Seasonal keywords.** Note if trends show seasonality; plan content 2-3 months before peak.

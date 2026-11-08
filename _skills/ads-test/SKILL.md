@@ -101,7 +101,7 @@ Inputs needed:
 - Automatic audience splitting ensures no overlap
 - Supported test types: A/B (creative, audience, placement), Holdout, Brand Survey
 - Meta's Incremental Attribution (April 2025) provides AI-powered holdout testing for measuring real causal impact
-- Budget: split evenly across variants; minimum $100/day per variant recommended
+- Budget: split evenly across variants; minimum USD 100/day per variant recommended
 - Duration: 7-14 days typical; Meta auto-determines winner at 95% confidence
 
 ### Google Experiments
@@ -116,7 +116,7 @@ Inputs needed:
 - Built into Campaign Manager for Sponsored Content
 - Duplicate ad set with single variable change
 - Target: same audience segment with automatic rotation
-- Minimum budget: $50/day per variant
+- Minimum budget: USD 50/day per variant
 - Key metrics: CTR (>0.44% benchmark), CPL, Lead Form CVR (13% benchmark)
 - Duration: 14-21 days (LinkedIn's smaller daily volumes require longer tests)
 
@@ -125,7 +125,7 @@ Inputs needed:
 - Test types: targeting, bidding, creative
 - Auto-splits audience to avoid contamination
 - Minimum 7 days, recommended 14 days
-- Budget: minimum $20/day per ad group
+- Budget: minimum USD 20/day per ad group
 - Creative tests: isolate hook (first 2-3 seconds) as the primary variable
 - TikTok's enhanced split testing supports modular test variables (targeting, creative, budget, placement) via Smart+ since 2025
 
