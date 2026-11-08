@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — AI Adoption for Finance &amp; Broking Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+  .deck{max-width:1000px;margin:0 auto;padding:30px 20px 60px}
+
+  .hint{text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:20px}
+  .hint b{color:var(--primary)}
+
+  .slide{background:#fff;border:1px solid var(--line);border-radius:18px;padding:48px 52px;margin-bottom:22px;min-height:520px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .slide .num{position:absolute;top:22px;right:26px;font-family:var(--head);font-weight:700;font-size:12px;color:var(--line)}
+  .brandrow{display:flex;align-items:center;gap:10px;margin-bottom:30px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--primary)}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--primary)}
+  .kicker{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-family:var(--head);font-weight:800;font-size:46px;line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+  h2{font-family:var(--head);font-weight:800;font-size:32px;line-height:1.12;letter-spacing:-.02em;margin:0 0 18px}
+  .slide p.big{font-size:19px;color:var(--muted);max-width:680px;margin:0 0 14px}
+  .slide p.big b{color:var(--ink)}
+  .center{justify-content:center}
+  .fill{flex:1}
+
+  .cover{background:linear-gradient(150deg,#06203a 0%,#0a3a6b 55%,#007ae8 120%);color:#fff;border:none}
+  .cover .logo-mark{color:#fff}
+  .cover .logo-dot{background:var(--secondary)}
+  .cover h1{font-size:48px}
+  .cover .sub{font-size:20px;color:#cfe6ff;max-width:640px;margin:0 0 30px}
+  .cover .forwho{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:9px 18px;font-family:var(--head);font-weight:600;font-size:14px}
+  .cover .num{color:rgba(255,255,255,.3)}
+
+  ul{margin:0;padding:0;list-style:none}
+  li{position:relative;padding-left:28px;margin:13px 0;font-size:16.5px}
+  li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--secondary)}
+  li b{font-family:var(--head)}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 4px}
+  .stat{background:var(--row-alt);border-radius:14px;padding:24px 22px}
+  .stat .n{font-family:var(--head);font-weight:800;font-size:38px;letter-spacing:-.02em;color:var(--primary);line-height:1}
+  .stat .l{color:var(--muted);font-size:14px;margin-top:8px}
+
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+  .step{display:flex;gap:16px;background:var(--row-alt);border-radius:14px;padding:20px 22px}
+  .step .s{font-family:var(--head);font-weight:800;font-size:24px;color:var(--secondary);line-height:1}
+  .step h3{font-family:var(--head);font-weight:700;font-size:17px;margin:0 0 5px}
+  .step p{margin:0;font-size:14px;color:var(--muted)}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+  .tier{border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-align:center}
+  .tier.rec{border:2px solid var(--primary);box-shadow:0 12px 32px rgba(0,122,232,.14)}
+  .tier .t{font-family:var(--head);font-weight:800;font-size:18px}
+  .tier .p{font-family:var(--head);font-weight:800;font-size:28px;margin:6px 0 4px}
+  .tier .p span{font-size:14px;color:var(--muted);font-weight:600}
+  .tier .d{font-size:13px;color:var(--muted)}
+  .tier .flag{display:inline-block;background:var(--primary);color:#fff;font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+
+  .quote{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em;max-width:760px;margin:0 0 20px}
+  .quote span{color:var(--primary)}
+  .cite{color:var(--muted);font-size:15px}
+
+  .cta-slide{background:linear-gradient(150deg,#06203a,#0a3a6b);color:#fff;border:none}
+  .cta-slide .logo-mark{color:#fff}.cta-slide .logo-dot{background:var(--secondary)}
+  .cta-slide h2{font-size:40px}
+  .cta-slide .big{color:#cfe6ff}
+  .cta-box{display:inline-flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:22px 26px;margin-top:14px}
+  .cta-box b{font-family:var(--head);font-size:20px}
+  .cta-slide .num{color:rgba(255,255,255,.3)}
+
+  .note{background:var(--row-alt);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;font-size:14px;color:var(--muted);margin-top:auto}
+  .note b{color:var(--ink)}
+  .ph{color:var(--accent);font-weight:600}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px}
+
+  @media(max-width:760px){
+    .deck{padding:18px 12px}
+    .slide{padding:34px 26px;min-height:auto}
+    h1,.cover h1{font-size:32px}h2{font-size:24px}
+    .stat-row,.steps,.tiers{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff}
+    .hint,footer{display:none}
+    .slide{box-shadow:none;page-break-after:always;page-break-inside:avoid;border-radius:0;border:none;min-height:96vh;margin:0}
+    .cover,.cta-slide{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .logo-dot,.stat,.step,.tier.rec,.flag,.note{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <p class="hint">Sales-call deck for mortgage brokers &amp; finance professionals · replace <b class="ph">[bracketed]</b> bits before sending · print to PDF for a leave-behind (Ctrl/Cmd+P)</p>
+
+  <!-- 1 · COVER -->
+  <section class="slide cover center">
+    <span class="num">01</span>
+    <div class="brandrow"><span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span></div>
+    <h1>Your team is already using AI.<br>Just not safely.</h1>
+    <p class="sub">Practical AI training for mortgage brokers and finance professionals, built around NCCP and Best Interest Duty &mdash; not generic ChatGPT 101.</p>
+    <span class="forwho">Prepared for <b>[Brokerage / practice name]</b> · [date]</span>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="slide">
+    <span class="num">02</span>
+    <p class="kicker">The problem</p>
+    <h2>Three jobs are eating the one you're actually good at.</h2>
+    <p class="big">You didn't get into broking or advice to be a document checker, a content creator, and a data-entry clerk. But that's most of the week now.</p>
+    <ul>
+      <li><b>Checking documents by eye, file after file.</b> Payslips, bank statements, ID, serviceability inputs &mdash; manually cross-checked on every single application, the same repetitive checks a tool could flag in seconds.</li>
+      <li><b>Marketing that keeps getting bumped.</b> Social posts, EDMs to your referral network, follow-up content &mdash; the first thing dropped when the pipeline gets busy, so it never happens consistently.</li>
+      <li><b>Admin that swallows 15&ndash;20 hours a week.</b> Around 70% of brokers spend 3+ hours a day on processing and file work, and compliance is the second-biggest driver of it, behind only loan reviews.</li>
+    </ul>
+  </section>
+
+  <!-- 3 · THE REAL RISK -->
+  <section class="slide">
+    <span class="num">03</span>
+    <p class="kicker">The real risk</p>
+    <h2>Staff are already using AI. Is anyone checking how?</h2>
+    <p class="big">Adoption has outrun governance across the finance sector &mdash; and under the NCCP Act, that gap is your risk, not the software vendor's.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">74%</div><div class="l">of financial advice practices now use AI, up from 45% a year ago</div></div>
+      <div class="stat"><div class="n">39%</div><div class="l">have a policy governing how it's actually used</div></div>
+      <div class="stat"><div class="n">55%</div><div class="l">of mortgage brokers use AI daily or regularly already</div></div>
+    </div>
+    <div class="note"><b>The point:</b> Best Interest Duty and responsible lending obligations can't be outsourced to a tool. A staff member checking documents or drafting a recommendation with an unsupervised AI tool leaves the licence holder carrying the risk &mdash; not the AI vendor. Governed properly, the same task is a time-saver instead of an exposure.</div>
+  </section>
+
+  <!-- 4 · WHO WE ARE -->
+  <section class="slide">
+    <span class="num">04</span>
+    <p class="kicker">Who we are</p>
+    <h2>We train finance and broking teams to use AI without the compliance headache.</h2>
+    <ul>
+      <li><b>Practical, not theoretical.</b> Hands-on training targeted at the three things eating your week &mdash; document checking, marketing content, and admin &mdash; using tools you already have open (ChatGPT, Copilot, aggregator AI assistants like MyNoteWriter).</li>
+      <li><b>Built around your obligations.</b> NCCP, Best Interest Duty, and ASIC expectations shape every session, not bolted on afterward.</li>
+      <li><b>Run by the person doing the work.</b> You deal directly with Locate Digital, not an account manager reading a script.</li>
+    </ul>
+  </section>
+
+  <!-- 5 · THE OFFER -->
+  <section class="slide center">
+    <span class="num">05</span>
+    <p class="kicker">The offer</p>
+    <h2>Hand the repetitive parts of the job to AI, safely.</h2>
+    <p class="big">Three pain points, one session: document checking, marketing, and admin &mdash; each mapped to a specific AI workflow your team can run themselves, inside a governed policy.</p>
+    <ul>
+      <li><b>Document checking, faster.</b> Train staff to use AI to pull figures from payslips and bank statements and flag mismatches before a human signs off &mdash; the manual cross-check stays, the manual data-entry doesn't.</li>
+      <li><b>Marketing that actually goes out.</b> A repeatable AI-assisted workflow for social posts, referral-partner EDMs, and follow-up content, so it survives a busy pipeline instead of being the first thing dropped.</li>
+      <li><b>Admin and application processing</b> built into the same session &mdash; plus a written AI use policy mapped to NCCP and Best Interest Duty, and check-ins at 30, 60 and 90 days.</li>
+    </ul>
+  </section>
+
+  <!-- 6 · HOW IT WORKS -->
+  <section class="slide">
+    <span class="num">06</span>
+    <p class="kicker">How it works</p>
+    <h2>Four steps from unmanaged AI use to a defensible policy.</h2>
+    <div class="steps">
+      <div class="step"><div class="s">1</div><div><h3>Audit</h3><p>We map how AI is already being used across the practice and flag anything that creates NCCP or Best Interest Duty exposure.</p></div></div>
+      <div class="step"><div class="s">2</div><div><h3>Workshop</h3><p>Practical, tool-specific training on the three pain points &mdash; document checking, marketing content, and application/admin processing &mdash; plus what must never be delegated to AI.</p></div></div>
+      <div class="step"><div class="s">3</div><div><h3>Policy &amp; playbooks</h3><p>A written AI use policy and workflow templates specific to your practice, ready to show an aggregator or ASIC on request.</p></div></div>
+      <div class="step"><div class="s">4</div><div><h3>Check-in &amp; adjust</h3><p>30/60/90-day reviews to confirm the policy and actual day-to-day behaviour still match.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 7 · WHAT YOU GET -->
+  <section class="slide">
+    <span class="num">07</span>
+    <p class="kicker">What you get</p>
+    <h2>Done-for-you, end to end.</h2>
+    <ul>
+      <li><b>A half-day workshop</b> for your team, on-site or online, built around document checking, marketing, and admin &mdash; the tasks actually eating the week.</li>
+      <li><b>Document-checking workflows</b> &mdash; a repeatable process for extracting and cross-checking payslips, bank statements, and application data, with a clear human sign-off step.</li>
+      <li><b>Marketing templates and prompts</b> for social posts, referral-partner EDMs, and follow-up content, so marketing survives a busy month.</li>
+      <li><b>A written, NCCP-aware AI use policy document</b> plus admin/application processing checklists, specific to your practice.</li>
+      <li><b>A 90-day check-in cadence</b> and one point of contact who understands the compliance context, not a generalist AI trainer.</li>
+    </ul>
+  </section>
+
+  <!-- 8 · PRICING -->
+  <section class="slide">
+    <span class="num">08</span>
+    <p class="kicker">Investment</p>
+    <h2>Fixed price per practice, not per seat.</h2>
+    <div class="tiers">
+      <div class="tier"><div class="t">Solo / small team</div><div class="p">$997</div><div class="d">1&ndash;4 staff. Workshop + written AI use policy.</div></div>
+      <div class="tier rec"><span class="flag">Recommended</span><div class="t">Practice</div><div class="p">$2,200</div><div class="d">5&ndash;15 staff. Workshop + policy + 90-day check-ins.</div></div>
+      <div class="tier"><div class="t">Multi-site / larger brokerage</div><div class="p">From $4,500</div><div class="d">15+ staff. Custom scope, multiple sessions.</div></div>
+    </div>
+    <div class="note"><b>Most of this is tax-deductible twice over.</b> The Small Business Technology Investment Boost gives eligible businesses a 20% bonus deduction on top of the normal deduction for AI-adoption spend. <b>Recommended for [Brokerage name]: Practice.</b></div>
+  </section>
+
+  <!-- 9 · CASE STUDY -->
+  <section class="slide center">
+    <span class="num">09</span>
+    <p class="kicker">Proof</p>
+    <p class="quote">We helped <span>[Broker / practice name]</span> cut document-checking and admin time by <span>[X]%</span> and put a compliant, NCCP-aware AI policy in place inside <span>[N] weeks</span>.</p>
+    <p class="cite">&mdash; [Name], [Practice]. Full case study available on request.</p>
+    <div class="note"><b>Swap in real numbers</b> once the first finance/broking client is complete, or use a screenshot of the delivered policy document here.</div>
+  </section>
+
+  <!-- 10 · WHY US -->
+  <section class="slide">
+    <span class="num">10</span>
+    <p class="kicker">Why Locate</p>
+    <h2>What makes us different.</h2>
+    <ul>
+      <li><b>Finance-sector specific, not a generic AI trainer.</b> Every session is built around what a broker or adviser can and can't hand to AI.</li>
+      <li><b>Compliance-first by design.</b> NCCP and Best Interest Duty shape the training from the start, not an afterthought slide.</li>
+      <li><b>Practical tool literacy.</b> Your team leaves knowing how to use what's already on their desktop, not AI theory.</li>
+      <li><b>No lock-in.</b> Pay once for the workshop and policy. Ongoing check-ins are optional, not a subscription trap.</li>
+    </ul>
+  </section>
+
+  <!-- 11 · CTA -->
+  <section class="slide cta-slide center">
+    <span class="num">11</span>
+    <div class="brandrow"><span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span></div>
+    <h2>Let's close the gap before ASIC does.</h2>
+    <p class="big">Start with a short audit of how your team is already using AI, or go straight to the workshop and policy build. Either way, you'll have something documented within weeks, not months.</p>
+    <div class="cta-box">
+      <b>Sam · Locate Digital</b>
+      <span>sam@locatedigital.io</span>
+      <span>[phone] · locatedigital.io</span>
+      <span>Book a call: [calendly link]</span>
+    </div>
+  </section>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io · Prices in AUD, ex GST</footer>
+
+</div>
+</body>
+</html>

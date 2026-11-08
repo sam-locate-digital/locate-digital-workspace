@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We locate the clients already looking for you | Locate Digital</title>
+<meta name="description" content="Digital marketing for Australian service businesses. One free 30-minute call shows you where you're invisible and what to fix first.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ============ META PIXEL — replace YOUR_PIXEL_ID before going live ============
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+================================================================================ -->
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#007ae8; --teal:#75dfee; --orange:#ff5900; --orange-dark:#d94c00;
+  --bg:#04101f; --bg2:#071a33; --panel:#0a2140; --panel-line:rgba(117,223,238,0.13);
+  --txt:#eaf4fb; --dim:#8fa7bd; --faint:#5c768e;
+  --h:'Plus Jakarta Sans',system-ui,sans-serif;
+  --b:'Poppins',system-ui,sans-serif;
+  --m:'IBM Plex Mono',ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--b);font-size:16px;color:var(--txt);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--teal);color:var(--bg)}
+svg{display:block}
+
+/* film grain */
+body::after{
+  content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* scroll progress */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--teal),var(--orange));z-index:100}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:80;height:62px;padding:0 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(4,16,31,0.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--panel-line);
+}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-text{font-family:var(--h);font-weight:800;font-size:1.02rem;letter-spacing:-.02em;color:#fff}
+.logo-text b{color:var(--teal);font-weight:800}
+.nav-call{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--orange);color:#fff;font-size:.84rem;font-weight:600;
+  padding:9px 20px;border-radius:6px;transition:background .2s;
+}
+.nav-call:hover{background:var(--orange-dark)}
+.nav-call svg{width:14px;height:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:60px 22px 90px}
+#radar{position:absolute;inset:0;width:100%;height:100%}
+.hero::before{ /* vignette so text stays readable over the radar */
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 45%, rgba(4,16,31,0.25) 0%, rgba(4,16,31,0.78) 62%, var(--bg) 100%);
+}
+.hero-inner{position:relative;z-index:2;max-width:720px}
+.tag{
+  font-family:var(--m);font-size:.68rem;letter-spacing:.22em;color:var(--teal);
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;text-transform:uppercase;
+}
+.tag::before,.tag::after{content:"";width:34px;height:1px;background:rgba(117,223,238,0.4)}
+.hero h1{
+  font-family:var(--h);font-weight:800;letter-spacing:-.03em;line-height:1.07;
+  font-size:clamp(2.3rem,6.5vw,4rem);margin-bottom:22px;
+}
+.scan{position:relative;white-space:nowrap;color:var(--teal)}
+.scan::after{
+  content:"";position:absolute;left:0;right:0;bottom:.04em;height:.1em;border-radius:2px;
+  background:linear-gradient(90deg,var(--orange),var(--teal));transform:scaleX(0);transform-origin:left;
+  animation:scan 1.1s cubic-bezier(.2,.7,.2,1) .9s forwards;
+}
+@keyframes scan{to{transform:scaleX(1)}}
+.hero-sub{color:var(--dim);font-size:1.04rem;max-width:540px;margin:0 auto 36px}
+.call-btn{
+  position:relative;display:inline-flex;align-items:center;gap:11px;
+  background:var(--orange);color:#fff;font-family:var(--h);font-weight:700;font-size:1.15rem;
+  padding:18px 40px;border-radius:10px;box-shadow:0 10px 38px rgba(255,89,0,.4);
+  transition:background .2s,transform .15s;
+}
+.call-btn:hover{background:var(--orange-dark);transform:translateY(-2px)}
+.call-btn svg{width:19px;height:19px}
+.pulse{position:relative}
+.pulse::before,.pulse::after{
+  content:"";position:absolute;inset:-3px;border-radius:13px;border:1.5px solid var(--orange);
+  animation:pulse 2.4s ease-out infinite;pointer-events:none;
+}
+.pulse::after{animation-delay:1.2s}
+@keyframes pulse{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.22)}}
+.status{
+  margin-top:20px;display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--m);font-size:.72rem;color:var(--dim);
+  border:1px solid var(--panel-line);border-radius:20px;padding:6px 16px;background:rgba(7,26,51,.6);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.hero-alt{margin-top:22px;font-size:.85rem;color:var(--dim)}
+.hero-alt a{color:var(--teal);border-bottom:1px solid rgba(117,223,238,.4)}
+
+/* entrance */
+.up{opacity:0;transform:translateY(18px);filter:blur(4px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+.u1{animation-delay:.05s}.u2{animation-delay:.18s}.u3{animation-delay:.32s}.u4{animation-delay:.46s}.u5{animation-delay:.6s}
+@keyframes up{to{opacity:1;transform:none;filter:none}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);overflow:hidden;padding:15px 0;background:var(--bg2)}
+.marquee-track{display:flex;width:max-content;animation:slide 30s linear infinite}
+.marquee span{font-family:var(--m);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);padding:0 26px;white-space:nowrap}
+.marquee span::after{content:"//";color:var(--orange);margin-left:52px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+.section{max-width:880px;margin:0 auto;padding:88px 22px}
+.label{font-family:var(--m);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.section h2{font-family:var(--h);font-weight:800;letter-spacing:-.02em;line-height:1.2;font-size:clamp(1.6rem,3.8vw,2.4rem);margin-bottom:14px}
+.section-sub{color:var(--dim);max-width:560px;margin-bottom:42px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--panel-line);border:1px solid var(--panel-line);border-radius:14px;overflow:hidden}
+.stat{background:var(--bg2);padding:30px 26px}
+.stat-num{font-family:var(--h);font-weight:800;font-size:2.6rem;letter-spacing:-.03em;color:#fff;line-height:1}
+.stat-num em{font-style:normal;color:var(--teal);font-size:1.3rem;vertical-align:super}
+.stat-cap{font-family:var(--m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:10px}
+
+/* intel cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{
+  position:relative;background:var(--bg2);border:1px solid var(--panel-line);border-radius:14px;
+  padding:30px 28px;overflow:hidden;transition:border-color .25s,transform .25s;
+}
+.card:hover{border-color:rgba(117,223,238,.45);transform:translateY(-3px)}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--orange),transparent 70%);
+}
+.card-id{font-family:var(--m);font-size:.66rem;letter-spacing:.2em;color:var(--faint);margin-bottom:16px}
+.card h3{font-family:var(--h);font-size:1.08rem;font-weight:700;margin-bottom:9px;color:#fff}
+.card p{font-size:.87rem;color:var(--dim)}
+
+/* flight path */
+.path{position:relative;padding-left:36px}
+.path::before{
+  content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:repeating-linear-gradient(to bottom,var(--panel-line) 0 6px,transparent 6px 12px);
+}
+.leg{position:relative;padding:0 0 38px}
+.leg:last-child{padding-bottom:0}
+.leg::before{
+  content:"";position:absolute;left:-32px;top:7px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--teal);box-shadow:0 0 0 4px rgba(117,223,238,.12);
+}
+.leg-k{font-family:var(--m);font-size:.66rem;letter-spacing:.2em;color:var(--teal);text-transform:uppercase}
+.leg h3{font-family:var(--h);font-size:1.05rem;font-weight:700;margin:5px 0 5px;color:#fff}
+.leg p{font-size:.88rem;color:var(--dim);max-width:540px}
+
+/* callback */
+.panel{background:var(--bg2);border:1px solid var(--panel-line);border-radius:16px;padding:36px 32px}
+.panel h3{font-family:var(--h);font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.panel-sub{font-size:.86rem;color:var(--dim);margin-bottom:24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field label{display:block;font-family:var(--m);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.field input,.field select{
+  width:100%;font-family:var(--b);font-size:.92rem;color:var(--txt);
+  background:var(--bg);border:1px solid var(--panel-line);border-radius:8px;
+  padding:12px 14px;outline:none;transition:border-color .15s;
+}
+.field input:focus,.field select:focus{border-color:var(--teal)}
+.field input::placeholder{color:var(--faint)}
+.form-btn{
+  width:100%;border:0;cursor:pointer;background:var(--blue);color:#fff;
+  font-family:var(--h);font-size:.95rem;font-weight:700;padding:15px;border-radius:8px;transition:background .2s;
+}
+.form-btn:hover{background:#0066c4}
+.form-msg{margin-top:12px;font-size:.82rem;color:var(--teal);display:none}
+
+/* faq */
+.faq details{border:1px solid var(--panel-line);border-radius:11px;padding:0 22px;margin-bottom:10px;background:var(--bg2)}
+.faq details[open]{border-color:rgba(117,223,238,.4)}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--h);font-size:.95rem;font-weight:700;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--teal);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{font-size:.88rem;color:var(--dim);padding:0 0 20px;max-width:640px}
+
+/* final */
+.final{position:relative;text-align:center;padding:100px 22px 110px;overflow:hidden}
+.final::before,.final::after{
+  content:"";position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+  border:1px solid rgba(117,223,238,.12);border-radius:50%;pointer-events:none;
+  width:520px;height:520px;animation:ring 6s ease-out infinite;
+}
+.final::after{width:820px;height:820px;animation-delay:1.5s}
+@keyframes ring{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}35%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.05)}}
+.final h2{position:relative;z-index:1;font-family:var(--h);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.8rem,4.6vw,2.8rem);margin-bottom:12px}
+.final p{position:relative;z-index:1;color:var(--dim);margin-bottom:34px}
+.final .pulse{z-index:1}
+
+footer{text-align:center;padding:26px 22px 116px;border-top:1px solid var(--panel-line);font-family:var(--m);font-size:.7rem;letter-spacing:.08em;color:var(--faint)}
+footer a{color:var(--teal)}
+
+/* sticky mobile call bar */
+.callbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;
+  background:var(--orange);color:#fff;display:none;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--h);font-size:1rem;font-weight:700;padding:17px;
+  box-shadow:0 -4px 24px rgba(0,0,0,.4);
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.callbar.show{transform:none}
+.callbar svg{width:17px;height:17px}
+
+@media (max-width:680px){
+  .callbar{display:flex}
+  .grid2{grid-template-columns:1fr}
+  .nav-call span{display:none}
+  .nav-call{padding:9px 13px}
+  .section{padding:64px 20px}
+  .hero{min-height:88vh}
+}
+@media (prefers-reduced-motion:reduce){
+  .up,.scan::after{animation:none;opacity:1;transform:none;filter:none}
+  .scan::after{transform:scaleX(1)}
+  .marquee-track,.pulse::before,.pulse::after,.final::before,.final::after,.dot{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .callbar{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ⚠️ PLACEHOLDERS TO REPLACE BEFORE LAUNCH:
+     1. All tel:+61400000000 links + visible "0400 000 000" → real number
+     2. Meta Pixel ID in <head> (uncomment the snippet) -->
+
+<div id="progress"></div>
+
+<nav class="nav">
+  <span class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" height="30" width="26" viewBox="213.33 196.89 72.58 109.41">
+      <path d="M285.3,205.3L263.8,248l-7.4-11.2c-1.9-2.8-5-4.5-8.4-4.5c-3.8,0-7.3,2.1-9,5.6l-9.8,19.4l-9.5-14.4c-1.8-2.7-1-6.3,1.6-8l55.7-37C281.8,194.6,287.9,200,285.3,205.3z" fill="#007ae8"/>
+      <path d="M268.7,273.7L221,305.4c-0.9,0.6-1.8,0.9-2.7,0.9c-3.4,0-6.2-3.6-4.4-7.2l18.5-36.8l11.1-22c0.9-1.8,2.7-2.7,4.4-2.7c1.6,0,3.1,0.7,4.1,2.2l9,13.6l9,13.6C271.6,269.1,271,272.2,268.7,273.7z" fill="#75DFEE"/>
+    </svg>
+    <span class="logo-text">Locate Digital<b>.</b></span>
+  </span>
+  <a class="nav-call call-track" href="tel:+61400000000">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Call now</span>
+  </a>
+</nav>
+
+<header class="hero">
+  <canvas id="radar" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="tag up u1">Signal acquired &middot; service businesses, Australia</div>
+    <h1 class="up u2">Your next client is searching <span class="scan">right now</span>.</h1>
+    <p class="hero-sub up u3">The question is whether they find you, or the business up the road. One 30-minute call shows you exactly where you're invisible online, and what to fix first.</p>
+    <div class="up u4">
+      <span class="pulse">
+        <a class="call-btn call-track" href="tel:+61400000000">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 0400 000 000
+        </a>
+      </span>
+      <div style="margin-top:24px">
+        <span class="status"><span class="dot"></span><span id="clock">Melbourne &middot; --:--</span> &middot; free 30-min chat</span>
+      </div>
+    </div>
+    <p class="hero-alt up u5">Can't talk right now? <a href="#callback">Request a callback instead</a></p>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq">
+    <span>Healthcare clinics</span><span>Accountants</span><span>Lawyers</span><span>Physios &amp; osteos</span><span>Dentists</span><span>Financial advisers</span><span>Trades</span><span>Fitness studios</span><span>Beauty salons</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="label reveal">The short version</div>
+  <h2 class="reveal">Numbers first. Talk after.</h2>
+  <div class="stats reveal">
+    <div class="stat"><div class="stat-num"><span class="count" data-to="11">0</span><em>yrs</em></div><div class="stat-cap">Running marketing in-house</div></div>
+    <div class="stat"><div class="stat-num"><span class="count" data-to="1">0</span></div><div class="stat-cap">Person on your account. No juniors</div></div>
+    <div class="stat"><div class="stat-num"><span class="count" data-to="30">0</span><em>min</em></div><div class="stat-cap">To a straight answer</div></div>
+    <div class="stat"><div class="stat-num">$<span class="count" data-to="0">0</span></div><div class="stat-cap">Cost of the first call</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="label reveal">Why call us first</div>
+  <h2 class="reveal">We've been on your side of the table</h2>
+  <p class="section-sub reveal">Most agencies have never worked inside a business. We have, and it changes how we work.</p>
+  <div class="cards">
+    <div class="card reveal">
+      <div class="card-id">FILE 01 // EXPERIENCE</div>
+      <h3>We've sat in your chair</h3>
+      <p>Eleven years in-house before starting Locate Digital. Running campaigns, managing agencies, and being the one accountable when the numbers didn't stack up.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-id">FILE 02 // ACCESS</div>
+      <h3>No middlemen</h3>
+      <p>No junior account managers learning on your budget. No upselling services you don't need. You work directly with the person doing the work.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-id">FILE 03 // REPORTING</div>
+      <h3>Honest reporting</h3>
+      <p>What's running, what it costs, what it returns. If something isn't working, we tell you before you have to ask.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="label reveal">How it starts</div>
+  <h2 class="reveal">One call. Here's the flight path.</h2>
+  <div class="path" style="margin-top:42px">
+    <div class="leg reveal">
+      <div class="leg-k">Leg 01</div>
+      <h3>You call, we listen</h3>
+      <p>30 minutes on what you're currently doing, what's working, and where the gaps are. No slides, no script.</p>
+    </div>
+    <div class="leg reveal">
+      <div class="leg-k">Leg 02</div>
+      <h3>You get a straight answer</h3>
+      <p>We tell you honestly whether we can help. If we can't, we'll say so and point you in the right direction.</p>
+    </div>
+    <div class="leg reveal">
+      <div class="leg-k">Leg 03</div>
+      <h3>If it fits, you get a plan</h3>
+      <p>A clear priority order and budget across Google Ads, Meta, SEO and email. Each piece tied to results you can measure.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="callback">
+  <div class="label reveal">Prefer we call you?</div>
+  <h2 class="reveal">Request a callback</h2>
+  <div class="panel reveal" style="margin-top:28px">
+    <h3>Leave your details, we'll ring you back</h3>
+    <p class="panel-sub">Usually same business day. Your details go to Sam directly, not a sales team.</p>
+    <form id="cbForm">
+      <div class="grid2">
+        <div class="field"><label for="cbName">Your name</label><input type="text" id="cbName" required autocomplete="name"></div>
+        <div class="field"><label for="cbPhone">Phone number</label><input type="tel" id="cbPhone" required autocomplete="tel"></div>
+        <div class="field"><label for="cbBiz">Type of business</label><input type="text" id="cbBiz" placeholder="e.g. physio clinic"></div>
+        <div class="field"><label for="cbTime">Best time to call</label>
+          <select id="cbTime"><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Any time</option></select>
+        </div>
+      </div>
+      <button class="form-btn" type="submit">Request my callback</button>
+      <p class="form-msg" id="cbMsg">Opening your email app to send the request. Hit send and we'll be in touch.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section faq">
+  <div class="label reveal">Common questions</div>
+  <h2 class="reveal">Before you call</h2>
+  <div class="reveal" style="margin-top:28px">
+    <details>
+      <summary>What does the call cost?</summary>
+      <p>Nothing. It's a 30-minute conversation, and it's usually enough to figure out whether we can help. No pitch, no pressure.</p>
+    </details>
+    <details>
+      <summary>I've been burned by agencies before. Why is this different?</summary>
+      <p>Most of our clients come to us after wasting money on marketing that didn't work. The difference here: you deal with one person, with 11 years of in-house experience, who tells you upfront what's working and what isn't.</p>
+    </details>
+    <details>
+      <summary>Do I have to commit to anything on the call?</summary>
+      <p>No. The call is a look at where your marketing is at. If we can help, we'll tell you what we'd recommend and you decide from there.</p>
+    </details>
+    <details>
+      <summary>What do you actually run?</summary>
+      <p>Google Ads, Meta ads, SEO, email, and the strategy tying it together. We focus on the channels that generate real leads for service businesses, each one measured properly.</p>
+    </details>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Ready to be found?</h2>
+  <p>The sooner we look at what you've got, the sooner we can fix it.</p>
+  <span class="pulse">
+    <a class="call-btn call-track" href="tel:+61400000000">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call 0400 000 000
+    </a>
+  </span>
+</section>
+
+<footer>
+  LOCATE DIGITAL // <a href="https://www.locatedigital.io">locatedigital.io</a> // <a href="mailto:sam@locatedigital.io">sam@locatedigital.io</a>
+</footer>
+
+<a class="callbar call-track" id="callbar" href="tel:+61400000000">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Call now &mdash; free 30-min chat
+</a>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- radar canvas ---- */
+  var cv = document.getElementById('radar'), ctx = cv.getContext('2d');
+  var W, H, CX, CY, R, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var blips = [];
+  function size(){
+    var r = cv.parentElement.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    CX = W / 2; CY = H * 0.46; R = Math.min(W, H) * 0.62;
+    blips = [];
+    for (var i = 0; i < 14; i++){
+      blips.push({ a: Math.random() * Math.PI * 2, r: R * (0.18 + Math.random() * 0.78), glow: 0 });
+    }
+  }
+  function rings(){
+    ctx.strokeStyle = 'rgba(117,223,238,0.10)';
+    ctx.lineWidth = 1;
+    for (var i = 1; i <= 4; i++){
+      ctx.beginPath(); ctx.arc(CX, CY, R * i / 4, 0, Math.PI * 2); ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.moveTo(CX - R, CY); ctx.lineTo(CX + R, CY);
+    ctx.moveTo(CX, CY - R); ctx.lineTo(CX, CY + R);
+    ctx.strokeStyle = 'rgba(117,223,238,0.06)'; ctx.stroke();
+  }
+  var sweep = 0;
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    rings();
+    /* sweep wedge */
+    if (ctx.createConicGradient){
+      var g = ctx.createConicGradient(sweep, CX, CY);
+      g.addColorStop(0, 'rgba(117,223,238,0.22)');
+      g.addColorStop(0.12, 'rgba(117,223,238,0)');
+      g.addColorStop(1, 'rgba(117,223,238,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.moveTo(CX, CY); ctx.arc(CX, CY, R, 0, Math.PI * 2); ctx.fill();
+    }
+    /* sweep leading edge */
+    ctx.beginPath();
+    ctx.moveTo(CX, CY);
+    ctx.lineTo(CX + Math.cos(sweep) * R, CY + Math.sin(sweep) * R);
+    ctx.strokeStyle = 'rgba(117,223,238,0.5)'; ctx.lineWidth = 1.5; ctx.stroke();
+    /* blips light up as the sweep passes */
+    blips.forEach(function(b){
+      var d = (sweep - b.a) % (Math.PI * 2); if (d < 0) d += Math.PI * 2;
+      if (d < 0.05) b.glow = 1;
+      b.glow *= 0.985;
+      if (b.glow > 0.02){
+        var x = CX + Math.cos(b.a) * b.r, y = CY + Math.sin(b.a) * b.r;
+        ctx.beginPath(); ctx.arc(x, y, 2.5 + b.glow * 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(117,223,238,' + (b.glow * 0.9) + ')'; ctx.fill();
+        ctx.beginPath(); ctx.arc(x, y, 7 + b.glow * 9, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(117,223,238,' + (b.glow * 0.32) + ')'; ctx.lineWidth = 1; ctx.stroke();
+      }
+    });
+    sweep += 0.012;
+    if (running) requestAnimationFrame(frame);
+  }
+  size();
+  window.addEventListener('resize', size);
+  /* run the radar only while the hero is on screen and the tab is visible —
+     saves battery in Meta's in-app browser */
+  var running = false, heroVisible = true;
+  function setRunning(){
+    var want = !reduced && heroVisible && !document.hidden;
+    if (want && !running){ running = true; requestAnimationFrame(frame); }
+    if (!want){ running = false; }
+  }
+  if (reduced){
+    rings();
+  } else {
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        heroVisible = es[0].isIntersecting; setRunning();
+      }, { threshold: 0.02 }).observe(cv.parentElement);
+    }
+    document.addEventListener('visibilitychange', setRunning);
+    setRunning();
+  }
+
+  /* ---- scroll progress ---- */
+  var prog = document.getElementById('progress');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+
+  /* ---- marquee: duplicate content for seamless loop ---- */
+  var mq = document.getElementById('mq');
+  mq.innerHTML += mq.innerHTML;
+
+  /* ---- Melbourne clock ---- */
+  function clock(){
+    try {
+      var t = new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Melbourne', hour: 'numeric', minute: '2-digit' }).format(new Date());
+      document.getElementById('clock').textContent = 'Melbourne · ' + t.toLowerCase();
+    } catch(e){}
+  }
+  clock(); setInterval(clock, 30000);
+
+  /* ---- scroll reveals + stat count-ups ---- */
+  if ('IntersectionObserver' in window && !reduced){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('.count').forEach(function(c){
+          if (c.dataset.done) return;
+          c.dataset.done = 1;
+          var to = +c.dataset.to, t0 = performance.now();
+          (function tick(t){
+            var p = Math.min((t - t0) / 1100, 1);
+            c.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(tick);
+          })(t0);
+        });
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.count').forEach(function(c){ c.textContent = c.dataset.to; });
+  }
+
+  /* ---- sticky mobile call bar ---- */
+  var bar = document.getElementById('callbar');
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      bar.classList.toggle('show', !es[0].isIntersecting);
+    }, { threshold: 0.1 }).observe(document.querySelector('.hero'));
+  } else { bar.classList.add('show'); }
+
+  /* ---- pixel events (no-op until pixel installed) ---- */
+  document.querySelectorAll('.call-track').forEach(function(el){
+    el.addEventListener('click', function(){
+      if (typeof fbq === 'function') fbq('track', 'Contact');
+    });
+  });
+
+  /* ---- callback form → prefilled email ---- */
+  document.getElementById('cbForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if (typeof fbq === 'function') fbq('track', 'Lead');
+    var v = function(id){ return encodeURIComponent(document.getElementById(id).value); };
+    var body = 'Callback request from the ads landing page (v2)%0D%0A%0D%0A' +
+      'Name: ' + v('cbName') + '%0D%0APhone: ' + v('cbPhone') +
+      '%0D%0ABusiness: ' + (v('cbBiz') || 'not given') + '%0D%0ABest time: ' + v('cbTime');
+    window.location.href = 'mailto:sam@locatedigital.io?subject=' +
+      encodeURIComponent('Callback request — ' + document.getElementById('cbName').value) + '&body=' + body;
+    document.getElementById('cbMsg').style.display = 'block';
+  });
+})();
+</script>
+
+</body>
+</html>

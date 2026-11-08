@@ -1,0 +1,114 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Locate Digital//AI training launch//EN
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE:Australia/Melbourne
+BEGIN:VEVENT
+UID:ai-launch-0-20261112T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20261112T090000
+DTEND;TZID=Australia/Melbourne:20261112T120000
+SUMMARY:Dry run: Training 101 full session
+DESCRIPTION:Time every chapter. Friendly broker or colleague.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-1-20261113@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Target: 3 pilot hosts booked
+DESCRIPTION:Fill in the Pilot hosts cards on the launch plan.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-2-20261119T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20261119T090000
+DTEND;TZID=Australia/Melbourne:20261119T120000
+SUMMARY:Pilot 1: Training 101 workshop
+DESCRIPTION:[Pilot 1 brokerage]. Pre-session assessment sent Mon 16 Nov. Feedback form before they leave.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-3-20261125T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20261125T090000
+DTEND;TZID=Australia/Melbourne:20261125T120000
+SUMMARY:Pilot 2: Training 101 workshop
+DESCRIPTION:[Pilot 2 brokerage].
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-4-20261203T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20261203T090000
+DTEND;TZID=Australia/Melbourne:20261203T120000
+SUMMARY:Pilot 3: Training 101 workshop
+DESCRIPTION:[Pilot 3 brokerage].
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-5-20261204@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Lock agenda + submit MFAA and FBAA CPD requests
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-6-20261209T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20261209T090000
+DTEND;TZID=Australia/Melbourne:20261209T130000
+SUMMARY:Pilot review and pricing decision
+DESCRIPTION:All feedback forms and before/after scores. Confirm pricing tiers.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-7-20261218@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Target: landing page live, February bookings open
+DESCRIPTION:/ai-training with VSL and testimonials. Ads built\, not live.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-8-20270111@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270112
+SUMMARY:FULL LAUNCH: AI training for brokers
+DESCRIPTION:Ads on\, announce on LinkedIn and email\, outreach 10 brokerages a day.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-9-20270129@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20270129
+DTEND;VALUE=DATE:20270130
+SUMMARY:Early bird closes
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-10-20270201@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:First paid workshops week
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-11-20270217T100000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20270217T100000
+DTEND;TZID=Australia/Melbourne:20270217T103000
+SUMMARY:Pilot 1: 90-day check-in
+DESCRIPTION:Hours saved against baseline. Update the case study.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-12-20270224T090000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20270224T090000
+DTEND;TZID=Australia/Melbourne:20270224T120000
+SUMMARY:Month-one review
+DESCRIPTION:Bookings\, cost per booking\, feedback scores. Adjust ads and offer.
+END:VEVENT
+BEGIN:VEVENT
+UID:ai-launch-13-20270303T100000@locatedigital.io
+DTSTAMP:20261102T055206Z
+DTSTART;TZID=Australia/Melbourne:20270303T100000
+DTEND;TZID=Australia/Melbourne:20270303T103000
+SUMMARY:Pilot 3: 90-day check-in
+END:VEVENT
+END:VCALENDAR

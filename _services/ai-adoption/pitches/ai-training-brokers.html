@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI training for brokers</title>
+<meta name="description" content="Practical AI training for mortgage brokers and finance professionals, built around NCCP and Best Interest Duty — document checking, marketing and admin workflows, plus a written AI use policy.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+:root{
+  --primary:#007ae8;
+  --primary-deep:#0056b8;
+  --secondary:#75dfee;
+  --accent:#ff5900;
+  --accent-deep:#e34f00;
+  --ink:#0d0d0d;
+  --graphite:#1c1e22;
+  --muted:#63666b;
+  --line:#e6e6e6;
+  --bg:#ffffff;
+  --bg-soft:#fbfcff;
+  --row-alt:#f4f8fd;
+  --good:#1e8a4c;
+  --heading:'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --body:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+  --shadow-sm:0 1px 1px rgba(13,13,13,.04), 0 2px 5px rgba(13,13,13,.05), 0 8px 20px -6px rgba(13,13,13,.08);
+  --shadow-md:0 2px 6px rgba(13,13,13,.05), 0 16px 36px -10px rgba(13,13,13,.14);
+  --shadow-lg:0 30px 70px -22px rgba(0,40,90,.22);
+  --maxw:1180px;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--heading);line-height:1.14;letter-spacing:-.02em;font-weight:800;text-wrap:balance}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:2.5px solid var(--primary);outline-offset:3px;border-radius:4px}
+
+.eyebrow{font-family:var(--heading);font-weight:700;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px;flex:none}
+
+/* buttons — accent reserved for the one repeated action: book an audit */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--heading);font-weight:700;font-size:.98rem;padding:15px 26px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,background .18s,color .18s,border-color .18s,box-shadow .18s;min-height:44px}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 28px rgba(255,89,0,.24)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 14px 34px rgba(255,89,0,.32)}
+.btn-ghost-l{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost-l:hover{border-color:var(--primary);color:var(--primary-deep);transform:translateY(-2px)}
+.nav-cta{padding:10px 20px;font-size:.88rem;min-height:38px}
+
+/* ===== NAV ===== */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
+header.nav.scrolled{box-shadow:0 8px 24px -14px rgba(13,13,13,.16)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand img{height:24px;width:auto}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--primary);transition:width .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--bg-soft);overflow:hidden;padding:60px 0 88px}
+.hero .blob{position:absolute;width:640px;height:640px;top:-260px;right:-200px;border-radius:50%;background:radial-gradient(circle,rgba(0,122,232,.34),transparent 70%);opacity:.65;pointer-events:none;filter:blur(6px)}
+.hero-inner{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.4rem);letter-spacing:-.03em;color:var(--ink)}
+.hero .lead{font-size:1.1rem;color:var(--muted);max-width:50ch;margin:20px 0 30px;line-height:1.6}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-trust{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-trust .t{display:flex;align-items:center;gap:9px;font-size:.86rem;color:var(--muted)}
+.hero-trust svg{color:var(--primary);flex:none}
+
+/* device frame hero visual */
+.device-frame{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;transition:transform .25s ease}
+.device-chrome{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line)}
+.device-chrome .dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.device-chrome .lbl{margin-left:8px;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.device-screen{position:relative;aspect-ratio:16/10;background:var(--ink);overflow:hidden}
+.device-screen video{width:100%;height:100%;object-fit:cover;display:block}
+.policy-panel{padding:18px 20px 20px;background:#fff}
+.pitem{display:flex;gap:11px;align-items:flex-start;padding:8px 0}
+.pitem .ck{width:18px;height:18px;border-radius:6px;background:rgba(0,122,232,.1);border:1px solid rgba(0,122,232,.3);flex:none;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pitem .ck svg{width:11px;height:11px;color:var(--primary)}
+.pitem span{font-size:.85rem;color:var(--muted);line-height:1.5}
+.pitem b{color:var(--ink);font-weight:600;font-family:var(--heading)}
+
+/* ===== TOOLS STRIP ===== */
+.tools{padding:38px 0;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .head{text-align:center;font-size:.86rem;color:var(--muted);margin-bottom:20px}
+.chip-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.chip{font-family:var(--mono);font-size:.82rem;color:var(--ink);background:var(--row-alt);border:1px solid var(--line);padding:9px 18px;border-radius:999px;transition:border-color .2s,background .2s}
+.chip:hover{border-color:var(--primary);background:#fff}
+
+/* ===== GENERIC SECTION ===== */
+section.pg{padding:92px 0}
+section.pg.alt{background:var(--bg-soft)}
+.pg .lede{font-size:1.06rem;color:var(--muted);max-width:640px;margin-bottom:40px;line-height:1.65}
+.pg h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:22ch}
+
+ul.plain{list-style:none}
+ul.plain li{position:relative;padding-left:30px;margin:16px 0;font-size:1.02rem;line-height:1.6;max-width:66ch}
+ul.plain li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--primary)}
+ul.plain li b{font-family:var(--heading);font-weight:700}
+
+/* split feature row with real photography */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split.rev .copy{order:2}
+.split.rev .art{order:1}
+.split .art{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);position:relative;aspect-ratio:4/3}
+.split .art img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.split .art:hover img{transform:scale(1.04)}
+.split .art::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(13,13,13,.06)}
+@media(max-width:900px){.split,.split.rev .copy,.split.rev .art{grid-template-columns:1fr;order:0}.split{gap:28px}.hero-grid{grid-template-columns:1fr}}
+
+/* stats */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:8px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.stat .n{font-family:var(--heading);font-weight:800;font-size:2.4rem;letter-spacing:-.02em;color:var(--primary);line-height:1;font-variant-numeric:tabular-nums}
+.stat .l{color:var(--muted);font-size:.9rem;margin-top:10px;line-height:1.5}
+.risk-note{background:var(--row-alt);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px;margin-top:24px;font-size:.94rem;color:var(--muted);max-width:760px;line-height:1.65}
+.risk-note b{color:var(--ink)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+.step{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-color .2s}
+.step:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(0,122,232,.3)}
+.step .s{font-family:var(--heading);font-weight:800;font-size:1.6rem;color:var(--secondary);-webkit-text-stroke:1px var(--primary);line-height:1;flex:none}
+.step h3{font-family:var(--heading);font-weight:700;font-size:1.05rem;margin:0 0 6px}
+.step p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.55}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.tier{border:1px solid var(--line);border-radius:16px;padding:26px 22px;text-align:center;background:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
+.tier:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(0,122,232,.35)}
+.tier.rec{border:2px solid var(--primary);box-shadow:0 14px 34px rgba(0,122,232,.14)}
+.tier .flag{display:inline-block;background:var(--primary);color:#fff;font-family:var(--heading);font-weight:700;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:12px}
+.tier .t{font-family:var(--heading);font-weight:800;font-size:1.05rem}
+.tier .p{font-family:var(--heading);font-weight:800;font-size:1.8rem;margin:8px 0 4px}
+.tier .p span{font-size:.8rem;color:var(--muted);font-weight:600}
+.tier .d{font-size:.85rem;color:var(--muted);line-height:1.5}
+.tax-note{background:var(--row-alt);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:22px;font-size:.9rem;color:var(--muted);max-width:760px;line-height:1.6}
+.tax-note b{color:var(--ink)}
+
+/* why-us icon cards */
+.icon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.icon-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.icon-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.icon-card .ic{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(0,122,232,.12),rgba(117,223,238,.2));display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.icon-card .ic svg{width:20px;height:20px;color:var(--primary-deep)}
+.icon-card h3{font-size:1.02rem;margin-bottom:6px}
+.icon-card p{font-size:.88rem;color:var(--muted);line-height:1.55}
+@media(max-width:700px){.icon-grid{grid-template-columns:1fr}}
+
+/* ===== FAQ ===== */
+.faq .head{max-width:580px;margin:0 auto 48px;text-align:center}
+.faq .head p{color:var(--muted);margin-top:10px}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);overflow:hidden;transition:border-color .2s}
+.faq-item[open]{border-color:rgba(0,122,232,.3)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--heading);font-weight:600;font-size:1rem;color:var(--ink)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{flex:none;width:20px;height:20px;position:relative}
+.faq-item summary .plus::before,.faq-item summary .plus::after{content:"";position:absolute;background:var(--primary);border-radius:2px;transition:transform .2s}
+.faq-item summary .plus::before{width:14px;height:2px;top:9px;left:3px}
+.faq-item summary .plus::after{width:2px;height:14px;top:3px;left:9px}
+.faq-item[open] summary .plus::after{transform:rotate(90deg);opacity:0}
+.faq-item .a{padding:0 24px 22px;color:var(--muted);font-size:.93rem;max-width:64ch;line-height:1.65}
+
+/* ===== CLOSING ===== */
+.closing{padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.closing .blob{position:absolute;width:520px;height:520px;bottom:-280px;left:50%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(117,223,238,.3),transparent 70%);pointer-events:none}
+.closing .wrap{position:relative}
+.closing h2{font-size:clamp(1.7rem,3.2vw,2.3rem);max-width:22ch;margin:0 auto 16px}
+.closing p{color:var(--muted);max-width:50ch;margin:0 auto 30px;font-size:1.03rem}
+
+/* ===== FOOTER ===== */
+footer.site{background:var(--bg-soft);color:var(--muted);padding:56px 0 30px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.foot-brand img{height:26px;width:auto}
+.foot-grid > div:first-child p{margin-top:14px;max-width:320px;font-size:.92rem}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.foot-col h4{font-family:var(--heading);color:var(--ink);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.foot-col a{display:block;font-size:.9rem;padding:6px 0}
+.foot-col a:hover{color:var(--primary)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.84rem}
+@media(max-width:700px){.foot-grid,.foot-cols{grid-template-columns:1fr}}
+
+/* ===== responsive ===== */
+@media(max-width:900px){
+  .stat-row,.steps,.tiers{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .pg,.faq,.closing{padding:60px 0}
+  .hero{padding:44px 0 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Locate Digital home"><img src="assets/logo-on-light.png" alt="Locate Digital"></a>
+    <nav class="nav-links">
+      <a href="#problem">The problem</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#book" class="btn btn-primary nav-cta">Book a free AI audit</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <span class="blob"></span>
+  <div class="hero-inner wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal">AI training &amp; compliance · for mortgage brokers and finance professionals</span>
+        <h1 class="reveal">Your team is already using AI. Just not safely.</h1>
+        <p class="lead reveal">Practical AI training for mortgage brokers and finance professionals, built around NCCP and Best Interest Duty — not a generic ChatGPT crash course.</p>
+        <div class="hero-actions reveal">
+          <a href="#book" class="btn btn-primary">Book a free AI audit <span class="arr">&rarr;</span></a>
+          <a href="#how" class="btn btn-ghost-l">See how it works</a>
+        </div>
+        <div class="hero-trust reveal">
+          <span class="t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>No lock-in after 90 days</span>
+          <span class="t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Built around NCCP &amp; Best Interest Duty</span>
+          <span class="t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Australia-wide</span>
+        </div>
+      </div>
+
+      <div class="device-frame reveal" id="deviceFrame">
+        <div class="device-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lbl">ai-use-policy — live preview</span></div>
+        <div class="device-screen">
+          <video autoplay muted loop playsinline aria-hidden="true">
+            <source src="assets/hero-motion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="policy-panel">
+          <div class="pitem"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Document checking</b> — AI may extract and cross-check figures; human sign-off required.</span></div>
+          <div class="pitem"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Client recommendations</b> — Best Interest Duty reasoning stays with the adviser.</span></div>
+          <div class="pitem"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Review cadence</b> — checked at 30, 60 and 90 days against actual use.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS STRIP ============ -->
+<section class="tools">
+  <div class="wrap">
+    <p class="head">Trained on the tools already open on your desktop — no new software to learn</p>
+    <div class="chip-row">
+      <span class="chip">ChatGPT</span>
+      <span class="chip">Microsoft Copilot</span>
+      <span class="chip">MyNoteWriter</span>
+      <span class="chip">Your aggregator's AI assistant</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="pg" id="problem">
+  <div class="wrap split">
+    <div class="copy">
+      <span class="eyebrow reveal">The problem</span>
+      <h2 class="reveal">Three jobs are eating the one you're actually good at</h2>
+      <p class="lede reveal">You didn't get into broking or advice to be a document checker, a content creator and a data-entry clerk. Most weeks, that's exactly where the time goes.</p>
+      <ul class="plain">
+        <li class="reveal"><b>Checking documents by eye, file after file.</b> Payslips, bank statements, ID, serviceability inputs — manually cross-checked on every application, the same repetitive checks a tool could flag in seconds.</li>
+        <li class="reveal"><b>Marketing that keeps getting bumped.</b> Social posts, EDMs, follow-up content — the first thing dropped when the pipeline gets busy.</li>
+        <li class="reveal"><b>Admin that swallows 15 to 20 hours a week.</b> About 70% of brokers spend three-plus hours a day on processing and file work.</li>
+      </ul>
+    </div>
+    <div class="art reveal"><img src="assets/photo-document-review.png" alt="Broker reviewing loan documents and a laptop at a desk"></div>
+  </div>
+</section>
+
+<!-- ============ RISK ============ -->
+<section class="pg alt">
+  <div class="wrap">
+    <span class="eyebrow reveal">The real risk</span>
+    <h2 class="reveal">Staff are already using AI. Is anyone checking how?</h2>
+    <p class="lede reveal">Adoption has outrun governance across the finance sector — and under the NCCP Act, that gap sits with you, not the software vendor.</p>
+    <div class="stat-row">
+      <div class="stat reveal"><div class="n" data-target="74" data-suffix="%">74%</div><div class="l">of financial advice practices now use AI, up from 45% a year ago</div></div>
+      <div class="stat reveal"><div class="n" data-target="39" data-suffix="%">39%</div><div class="l">have a policy governing how it's actually used</div></div>
+      <div class="stat reveal"><div class="n" data-target="55" data-suffix="%">55%</div><div class="l">of mortgage brokers use AI daily or regularly already</div></div>
+    </div>
+    <div class="risk-note reveal"><b>The point:</b> Best Interest Duty and responsible lending obligations can't be outsourced to a tool. A staff member checking documents or drafting a recommendation with an ungoverned AI tool leaves the licence holder carrying the risk, not the AI vendor. Set up properly, the same task becomes a time-saver instead of an exposure.</div>
+  </div>
+</section>
+
+<!-- ============ WHO WE ARE ============ -->
+<section class="pg">
+  <div class="wrap split rev">
+    <div class="copy">
+      <span class="eyebrow reveal">Who we are</span>
+      <h2 class="reveal">We train finance and broking teams to use AI without the compliance headache</h2>
+      <ul class="plain">
+        <li class="reveal"><b>Practical, not theoretical.</b> Hands-on training targeted at the three things eating your week — document checking, marketing content and admin.</li>
+        <li class="reveal"><b>Built around your obligations.</b> NCCP, Best Interest Duty and ASIC expectations shape every session, not bolted on afterward.</li>
+        <li class="reveal"><b>Run by the person doing the work.</b> You deal directly with Sam at Locate Digital, not an account manager reading a script.</li>
+      </ul>
+    </div>
+    <div class="art reveal"><img src="assets/photo-workshop.png" alt="Small finance team collaborating around a laptop in a meeting room"></div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="pg alt" id="how">
+  <div class="wrap">
+    <span class="eyebrow reveal">How it works</span>
+    <h2 class="reveal">Four steps from unmanaged AI use to a defensible policy</h2>
+    <p class="lede reveal">Three pain points, one engagement: document checking, marketing and admin, each mapped to a workflow your team can run themselves — inside a governed policy.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="s">1</div><div><h3>Audit</h3><p>We map how AI is already being used across the practice and flag anything that creates NCCP or Best Interest Duty exposure.</p></div></div>
+      <div class="step reveal"><div class="s">2</div><div><h3>Workshop</h3><p>A half-day, hands-on session on document checking, marketing content and admin processing — plus what must never be delegated to AI.</p></div></div>
+      <div class="step reveal"><div class="s">3</div><div><h3>Policy &amp; playbooks</h3><p>A written AI use policy and workflow templates specific to your practice, ready to show an aggregator or ASIC on request.</p></div></div>
+      <div class="step reveal"><div class="s">4</div><div><h3>Check-in &amp; adjust</h3><p>Reviews at 30, 60 and 90 days to confirm the policy and actual day-to-day behaviour still match.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET ============ -->
+<section class="pg" id="get">
+  <div class="wrap split">
+    <div class="copy">
+      <span class="eyebrow reveal">What you get</span>
+      <h2 class="reveal">Done for you, end to end</h2>
+      <ul class="plain">
+        <li class="reveal"><b>A half-day workshop</b> for your team, on-site or online.</li>
+        <li class="reveal"><b>Document-checking workflows</b> — a repeatable process with a clear human sign-off step.</li>
+        <li class="reveal"><b>Marketing templates and prompts</b> so marketing survives a busy month.</li>
+        <li class="reveal"><b>A written, NCCP-aware AI use policy</b> plus admin checklists, specific to your practice.</li>
+        <li class="reveal"><b>A 90-day check-in cadence</b> with one point of contact who understands the compliance context.</li>
+      </ul>
+    </div>
+    <div class="art reveal"><img src="assets/photo-followup.png" alt="Drafting a client follow-up message on laptop and phone"></div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pg alt" id="pricing">
+  <div class="wrap">
+    <span class="eyebrow reveal">Investment</span>
+    <h2 class="reveal">Fixed price per practice, not per seat</h2>
+    <div class="tiers">
+      <div class="tier reveal"><div class="t">Solo / small team</div><div class="p">$997</div><div class="d">1–4 staff. Workshop + written AI use policy.</div></div>
+      <div class="tier rec reveal"><span class="flag">Recommended</span><div class="t">Practice</div><div class="p">$2,200</div><div class="d">5–15 staff. Workshop + policy + 90-day check-ins.</div></div>
+      <div class="tier reveal"><div class="t">Multi-site / larger brokerage</div><div class="p">From $4,500</div><div class="d">15+ staff. Custom scope, multiple sessions.</div></div>
+    </div>
+    <div class="tax-note reveal"><b>Most of this is tax-deductible twice over.</b> The Small Business Technology Investment Boost gives eligible businesses a 20% bonus deduction on top of the normal deduction for AI-adoption spend.</div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="pg">
+  <div class="wrap">
+    <span class="eyebrow reveal">Why Locate</span>
+    <h2 class="reveal">What makes us different</h2>
+    <div class="icon-grid">
+      <div class="icon-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3>Finance-sector specific</h3>
+        <p>Not a generic AI trainer. Every session is built around what a broker or adviser can and can't hand to AI.</p>
+      </div>
+      <div class="icon-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></div>
+        <h3>Compliance-first by design</h3>
+        <p>NCCP and Best Interest Duty shape the training from the start, not an afterthought slide.</p>
+      </div>
+      <div class="icon-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m14.7 6.3 3 3L8 19H5v-3L14.7 6.3ZM13 4l3 3"/></svg></div>
+        <h3>Practical tool literacy</h3>
+        <p>Your team leaves knowing how to use what's already on their desktop, not AI theory.</p>
+      </div>
+      <div class="icon-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 10V7a5 5 0 0 0-9.9-1M5 10h14l-1 11H6L5 10Z"/></svg></div>
+        <h3>No lock-in</h3>
+        <p>Pay once for the workshop and policy. Ongoing check-ins are optional, not a subscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pg alt faq" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow reveal" style="justify-content:center">Frequently asked questions</span>
+      <h2 class="reveal">Everything you need to know before we run it</h2>
+      <p class="reveal">Still deciding? Book a free audit and we'll walk it through on your actual practice.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal" open>
+        <summary>How is this different from a generic AI course?<span class="plus"></span></summary>
+        <div class="a">Generic AI training teaches prompting. This is built around what a broker or adviser can and can't hand to AI under NCCP and Best Interest Duty — every exercise runs on the actual document-checking, marketing and admin tasks eating your week.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Is any client data used during the training?<span class="plus"></span></summary>
+        <div class="a">No client files are required for the workshop itself — we work from de-identified or sample documents. Your AI use policy is built around your practice's real workflow, but the training doesn't require handing over live client data.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How long does it take?<span class="plus"></span></summary>
+        <div class="a">A half-day workshop, plus a written policy delivered within a week or two after. Check-ins run at 30, 60 and 90 days on the Practice tier.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Do we need to sign a long contract?<span class="plus"></span></summary>
+        <div class="a">No lock-in. Pay once for the workshop and policy — the 90-day check-ins are optional, not a subscription.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Will it replace our BDM or compliance manager?<span class="plus"></span></summary>
+        <div class="a">No — it clears the repetitive admin around those roles so there's more time for judgment calls, not less. Nothing here removes the human sign-off Best Interest Duty requires.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="closing" id="book">
+  <span class="blob"></span>
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center">Book a free AI audit</span>
+    <h2 class="reveal">Let's close the gap before ASIC does</h2>
+    <p class="reveal">Start with a short audit of how your team is already using AI, or go straight to the workshop and policy build. Either way, you'll have something documented within weeks, not months.</p>
+    <a href="mailto:sam@locatedigital.io" class="btn btn-primary reveal">Book a free AI audit <span class="arr">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-on-light.png" alt="Locate Digital"></div>
+        <p>We don't just market — we locate growth. AI training and compliance for mortgage brokers and finance professionals.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="#problem">The problem</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Get in touch</h4>
+          <a href="#book">Book an audit</a>
+          <a href="mailto:sam@locatedigital.io">sam@locatedigital.io</a>
+          <a href="https://locatedigital.io">locatedigital.io</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Locate Digital. All rights reserved.</span>
+      <span>Melbourne, Australia · Prices in AUD, ex GST</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* nav shadow on scroll */
+  var nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, {passive:true});
+
+  /* device-frame tilt on pointer devices */
+  var frame = document.getElementById('deviceFrame');
+  if(frame && !reduce && window.matchMedia('(pointer:fine)').matches){
+    frame.addEventListener('mousemove', function(e){
+      var r = frame.getBoundingClientRect();
+      var x = (e.clientX - r.left)/r.width - 0.5;
+      var y = (e.clientY - r.top)/r.height - 0.5;
+      frame.style.transform = 'perspective(1000px) rotateY('+(x*3.5)+'deg) rotateX('+(-y*3.5)+'deg)';
+    });
+    frame.addEventListener('mouseleave', function(){ frame.style.transform = ''; });
+  }
+
+  /* animated stat counters */
+  var stats = document.querySelectorAll('.stat .n[data-target]');
+  if(stats.length && !reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseInt(el.dataset.target, 10);
+        var suffix = el.dataset.suffix || '';
+        var start = performance.now();
+        var dur = 900;
+        function tick(now){
+          var p = Math.min((now-start)/dur, 1);
+          var eased = 1 - Math.pow(1-p, 3);
+          el.textContent = Math.round(eased*target) + suffix;
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    }, {threshold:.6});
+    stats.forEach(function(el){ io.observe(el); });
+  }
+
+  if(window.gsap && window.ScrollTrigger && !reduce){
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.reveal').forEach(function(el){
+      gsap.from(el,{opacity:0,y:12,duration:.35,ease:'power1.out',scrollTrigger:{trigger:el,start:'top 92%',toggleActions:'play none none reverse'}});
+    });
+    gsap.from('.device-frame .pitem',{opacity:0,y:8,duration:.3,stagger:.12,delay:.4,ease:'power1.out'});
+  }
+})();
+</script>
+
+</body>
+</html>

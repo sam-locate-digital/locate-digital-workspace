@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Research — AI Adoption — September 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #eef0f3; }
+
+.page { max-width: 980px; margin: 40px auto 80px; padding: 0 16px; }
+.card { background: #fff; border-radius: 10px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); margin-bottom: 24px; overflow: hidden; }
+.card-body { padding: 36px 44px; }
+
+.cover { background: linear-gradient(135deg, #0f2440 0%, #1a3a5c 60%, #1e4a7a 100%); color: #fff; padding: 56px 44px 48px; border-radius: 10px; margin-bottom: 24px; }
+.cover .agency { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; margin-bottom: 36px; }
+.cover h1 { font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1.15; }
+.cover h1 span { font-weight: 300; opacity: 0.7; display: block; font-size: 22px; margin-top: 6px; }
+.cover .meta { margin-top: 28px; display: flex; gap: 32px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
+.cover .meta-item { font-size: 13px; opacity: 0.55; }
+.cover .meta-item strong { display: block; color: #fff; opacity: 1; font-size: 14px; margin-bottom: 2px; }
+
+.section-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8a9ab0; font-weight: 700; margin-bottom: 6px; }
+h2 { font-size: 21px; font-weight: 700; color: #0f2440; letter-spacing: -0.3px; margin-bottom: 14px; }
+h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; color: #7a8ca0; margin: 22px 0 8px; }
+h3:first-child { margin-top: 0; }
+h4 { font-size: 14px; font-weight: 700; color: #0f2440; margin: 12px 0 5px; }
+p { margin-bottom: 10px; color: #333; font-size: 14px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0 0 10px 18px; }
+li { margin-bottom: 6px; color: #333; font-size: 14px; }
+strong { color: #111; }
+hr { border: none; border-top: 1px solid #edf0f4; margin: 24px 0; }
+a { color: #0f7adc; text-decoration: none; }
+
+.exec-summary { background: #f4f7fb; border-left: 4px solid #0f2440; border-radius: 0 8px 8px 0; padding: 22px 26px; margin-bottom: 20px; }
+.exec-summary p { font-size: 15px; color: #0f2440; line-height: 1.65; margin-bottom: 10px; }
+.exec-summary p:last-child { margin-bottom: 0; }
+
+.alert { border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+.alert-orange { background: #fff8f0; border-left: 4px solid #e07b00; }
+.alert-orange strong { color: #9a4c00; }
+.alert-green { background: #f0fbf4; border-left: 4px solid #22a860; }
+.alert-green strong { color: #186640; }
+.alert-blue { background: #f0f6ff; border-left: 4px solid #0f7adc; }
+.alert-blue strong { color: #0a4d8f; }
+
+.stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 18px 0; }
+.stat-box { flex: 1; min-width: 150px; background: #f4f7fb; border-radius: 8px; padding: 16px 18px; }
+.stat-box .num { font-size: 24px; font-weight: 800; color: #0f2440; letter-spacing: -0.5px; }
+.stat-box .label { font-size: 12px; color: #7a8ca0; margin-top: 2px; line-height: 1.4; }
+.stat-box.highlight { background: #0f2440; }
+.stat-box.highlight .num { color: #fff; }
+.stat-box.highlight .label { color: rgba(255,255,255,0.55); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 14px 0; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 14px 0; }
+
+.data-block { background: #f8f9fb; border-radius: 8px; padding: 16px 18px; }
+.data-block h4 { margin-top: 0; font-size: 12px; color: #8a9ab0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.data-block.gap { border-left: 3px solid #22a860; }
+.data-block.gap h4 { color: #186640; }
+
+.persona-card { background: #f8f9fb; border-radius: 8px; padding: 18px 20px; border-top: 3px solid #0f2440; }
+.persona-card h4 { font-size: 15px; margin-top: 0; }
+.persona-card .tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: #e8edf5; color: #3a5a80; padding: 3px 8px; border-radius: 20px; margin-bottom: 8px; }
+.persona-card p { font-size: 13px; }
+.persona-card .field { margin-top: 8px; }
+.persona-card .field strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: #8a9ab0; margin-bottom: 2px; }
+
+table.data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0 16px; }
+table.data-table th { background: #0f2440; color: #fff; padding: 9px 13px; text-align: left; font-size: 12px; font-weight: 600; }
+table.data-table td { padding: 9px 13px; border-bottom: 1px solid #edf0f4; }
+table.data-table tr:last-child td { border-bottom: none; }
+table.data-table tr:nth-child(even) td { background: #fafbfc; }
+
+.trend-item { display: flex; gap: 14px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #edf0f4; }
+.trend-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.trend-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #0f2440; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+.trend-body p { font-size: 14px; }
+.trend-implication { margin-top: 6px; font-size: 13px; color: #0a4d8f; background: #f0f6ff; padding: 8px 12px; border-radius: 6px; }
+.trend-implication strong { color: #0a4d8f; }
+
+.opp-list { counter-reset: opp; }
+.opp-item { counter-increment: opp; position: relative; padding: 14px 18px 14px 50px; background: #f8f9fb; border-radius: 8px; margin-bottom: 10px; }
+.opp-item::before { content: counter(opp); position: absolute; left: 16px; top: 14px; width: 22px; height: 22px; border-radius: 50%; background: #22a860; color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.opp-item p { font-size: 14px; margin: 0; }
+
+.tick { color: #22a860; font-weight: 700; }
+.cross { color: #cc3333; font-weight: 700; }
+
+.footer-note { text-align: center; font-size: 12px; color: #8a9ab0; padding: 20px 0; }
+@media (max-width: 640px) {
+  .card-body { padding: 24px 20px; }
+  .two-col, .three-col { grid-template-columns: 1fr; }
+  .cover { padding: 40px 24px 32px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div class="agency">Locate Digital</div>
+    <h1>Market research<span>AI Adoption — a new Locate Digital service</span></h1>
+    <div class="meta">
+      <div class="meta-item"><strong>Subject</strong>AI training/upskilling for Australian businesses</div>
+      <div class="meta-item"><strong>Geography</strong>Australia-wide</div>
+      <div class="meta-item"><strong>Purpose</strong>Shape positioning &amp; pricing for launch</div>
+      <div class="meta-item"><strong>Date</strong>September 2026</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 1</div>
+      <h2>Executive snapshot</h2>
+      <div class="stat-row">
+        <div class="stat-box highlight"><div class="num">69%</div><div class="label">of AU employees use AI regularly at work (up from 40% in Jul 2024)</div></div>
+        <div class="stat-box"><div class="num">22%</div><div class="label">have received any formal AI training</div></div>
+        <div class="stat-box"><div class="num">67%</div><div class="label">of SMEs cite lack of expertise, not cost, as the barrier</div></div>
+        <div class="stat-box"><div class="num">72%</div><div class="label">of SMEs have no AI training plan at all</div></div>
+      </div>
+      <div class="exec-summary">
+        <p><strong>The opportunity:</strong> demand for AI tools has outrun training everywhere, and it's an expertise gap, not a budget gap. No provider found in this research targets a 5&ndash;20 staff local service business with a structured, affordable, ongoing program &mdash; the gap sits between $200&ndash;500 generic self-serve courses and $5,000+ enterprise workshops that need an in-house L&amp;D contact to organise.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 2</div>
+      <h2>Industry size &amp; growth</h2>
+      <table class="data-table">
+        <tr><th>Metric</th><th>Figure</th><th>Source</th><th>Year</th></tr>
+        <tr><td>Australia corporate training market</td><td>USD 3.5B &rarr; USD 5.4B by 2028</td><td>Ken Research / ResearchAndMarkets</td><td>2023 baseline</td></tr>
+        <tr><td>Australia corporate training market (longer-range)</td><td>USD 15.2B by 2034, 6.66% CAGR</td><td>IMARC Group</td><td>2026</td></tr>
+        <tr><td>Global AI-powered corporate training</td><td>USD 6.27B (2025) &rarr; USD 18.19B (2031)</td><td>Mordor Intelligence</td><td>2026</td></tr>
+        <tr><td>Microsoft AI Skills Initiative</td><td>1 million people upskilled across ANZ</td><td>Microsoft</td><td>by end 2026</td></tr>
+      </table>
+      <p>These are broader corporate-training figures, not an AI-training-specific market size &mdash; no source sized the AI-training-for-business sub-segment in Australia directly. Treat the dollars as the ceiling the niche sits inside. AI is now cited as a primary driver of overall training growth, and is growing roughly 2.5x faster than the market it sits inside.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 3</div>
+      <h2>Trends shaping the industry</h2>
+
+      <div class="trend-item">
+        <div class="trend-num">1</div>
+        <div class="trend-body">
+          <p><strong>Tool adoption has decisively outrun training.</strong> Regular AI use at work grew from 40% (Jul 2024) to 69% (Jan 2026); only 22% of employees have had any formal training.</p>
+          <div class="trend-implication"><strong>What this means:</strong> lead with "your team is already doing this without a plan," not "should you adopt AI."</div>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">2</div>
+        <div class="trend-body">
+          <p><strong>Tool adoption &ne; workflow-integrated adoption.</strong> 38% of SMEs use AI tools; only 15&ndash;20% have workflow-integrated systems.</p>
+          <div class="trend-implication"><strong>What this means:</strong> a one-off workshop won't close this gap &mdash; the offer needs a staged or ongoing structure.</div>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">3</div>
+        <div class="trend-body">
+          <p><strong>A sharp generational trust divide.</strong> 31% of 18&ndash;34 year olds trust AI to inform decisions, versus 4% of those over 55.</p>
+          <div class="trend-implication"><strong>What this means:</strong> content needs a confidence-building track for older staff/owners, separate from the tool-mechanics track.</div>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">4</div>
+        <div class="trend-body">
+          <p><strong>Government funding skews away from Locate's typical client.</strong> The AI Adopt Program's $50k&ndash;250k grants require international/interstate trade exposure &mdash; most local service businesses won't qualify.</p>
+          <div class="trend-implication"><strong>What this means:</strong> don't lead with "grant-funded." The broader 20% Technology Investment Boost deduction is the honest, usable talking point instead.</div>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">5</div>
+        <div class="trend-body">
+          <p><strong>Regulation is turning "we already use AI" into a compliance question.</strong> From 10 Dec 2026, Privacy Act changes require businesses to explain AI-influenced decisions to staff and customers.</p>
+          <div class="trend-implication"><strong>What this means:</strong> a short governance module gives the offer a risk-management hook against buyers who don't respond to a pure productivity pitch.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 4</div>
+      <h2>Regulatory &amp; structural factors</h2>
+      <p>No standalone AI Act exists in Australia as of this research; government relies on existing law plus the National AI Centre's voluntary AI6 guidance (Oct 2025).</p>
+      <ul>
+        <li><strong>Privacy Act &mdash; automated decision-making disclosure</strong> from 10 December 2026: businesses must be able to explain AI-influenced decisions affecting employees or customers.</li>
+        <li><strong>Workplace guidance pending</strong>: SafeWork NSW expected to release AI-in-the-workplace guidance; WHS risk assessments should be reviewed where AI is in use.</li>
+        <li><strong>Accountability stays with the business</strong>, not the AI vendor, if a third-party tool produces a discriminatory or unfair outcome.</li>
+      </ul>
+      <div class="alert alert-blue"><strong>Note:</strong> this is a live regulatory area &mdash; a July 2026 announcement flagged plans to legislate "Australian Standards for AI." Re-check before quoting any of this in pitch material more than a few months old.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 5</div>
+      <h2>Target audience &amp; customer segments</h2>
+      <p>Sector adoption figures vary by survey methodology &mdash; two independent sources are shown rather than reconciled into one number:</p>
+      <table class="data-table">
+        <tr><th>Sector</th><th>Adoption (NAB/MYOB)</th><th>Adoption (FlowWorks)</th></tr>
+        <tr><td>Property services</td><td>~70%</td><td>&mdash;</td></tr>
+        <tr><td>Finance &amp; insurance</td><td>64%</td><td>&mdash;</td></tr>
+        <tr><td>Business/professional services</td><td>61%</td><td>~45%</td></tr>
+        <tr><td>Retail &amp; hospitality</td><td>&mdash;</td><td>~25%</td></tr>
+        <tr><td>Healthcare</td><td>&mdash;</td><td>~22%</td></tr>
+        <tr><td>Trades &amp; construction</td><td>&mdash;</td><td>~18%</td></tr>
+        <tr><td>Transport</td><td>21%</td><td>&mdash;</td></tr>
+      </table>
+      <p>By business size: large enterprise (200+) 80%+, mid-market (50&ndash;199) ~60%, small (5&ndash;19) ~38%, micro (1&ndash;4) ~33%.</p>
+
+      <div class="three-col">
+        <div class="persona-card">
+          <div class="tag">Segment A</div>
+          <h4>Using it, untrained</h4>
+          <p>Staff already using ChatGPT/Copilot/Claude ad hoc, zero formal training. Matches Locate's existing client base almost exactly.</p>
+          <div class="field"><strong>Trigger</strong>Risk of inconsistent output, wasted upside &mdash; not FOMO.</div>
+          <div class="field"><strong>Objection</strong>"We're already using it" &mdash; answer with the workflow-integration gap.</div>
+        </div>
+        <div class="persona-card">
+          <div class="tag">Segment B</div>
+          <h4>Haven't started</h4>
+          <p>33&ndash;38% of small/micro businesses with no AI use, concentrated in trades, construction, healthcare.</p>
+          <div class="field"><strong>Trigger</strong>Peer FOMO &mdash; AI-using SMEs grow 2.8x faster (MYOB).</div>
+          <div class="field"><strong>Objection</strong>"We don't have the data for this" &mdash; a stated myth worth addressing directly.</div>
+        </div>
+        <div class="persona-card">
+          <div class="tag">Segment C</div>
+          <h4>Compliance-anxious leadership</h4>
+          <p>65% of non-adopters cite trust/control concerns, not cost, as the barrier.</p>
+          <div class="field"><strong>Trigger</strong>Dec 2026 Privacy Act change, liability exposure.</div>
+          <div class="field"><strong>Objection</strong>Fear of losing control &mdash; meet with a "human stays in the loop" design.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 6</div>
+      <h2>Demand signals &amp; seasonality</h2>
+      <ul>
+        <li>Regular AI use at work grew 40% &rarr; 69% over 18 months (Jul 2024&ndash;Jan 2026) &mdash; a sustained curve, not a spike.</li>
+        <li>AI as the primary way Australians look things up online roughly doubled year-over-year (5% &rarr; 12%); one source cites Claude usage growing 64x in 18 months &mdash; general-population signals that corroborate the same adoption curve.</li>
+      </ul>
+      <div class="alert alert-orange"><strong>Gap:</strong> no AI-training-specific seasonality data was found. Standard training-industry patterns (Jan&ndash;Feb planning, June EOFY spend) are a reasonable planning assumption but are inferred, not sourced &mdash; confirm closer to launch before using in client-facing material.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 7</div>
+      <h2>Pricing landscape</h2>
+      <table class="data-table">
+        <tr><th>Tier</th><th>Price</th><th>Example</th></tr>
+        <tr><td>Generic self-serve course</td><td>~$200</td><td>Udemy-style generic courses</td></tr>
+        <tr><td>"Affordable" SME-targeted program</td><td>from $497</td><td>SME-focused providers</td></tr>
+        <tr><td>Short private workshop (90 min)</td><td>from $840/group</td><td>Xelleron</td></tr>
+        <tr><td>One-day workshop</td><td>from $795+GST</td><td>PM-Partners</td></tr>
+        <tr><td>Team workshop (custom)</td><td>$5,000&ndash;$50,000/session</td><td>Industry benchmark</td></tr>
+        <tr><td>Comprehensive 6&ndash;12mo program</td><td>$1,200&ndash;$3,500/employee</td><td>Industry benchmark</td></tr>
+        <tr><td>Executive program</td><td>$15,000&ndash;$100,000/session</td><td>Industry benchmark</td></tr>
+        <tr><td>Independent AI consultant</td><td>$150&ndash;$450/hr</td><td>Range across sources</td></tr>
+      </table>
+      <p><strong>Cost offsets worth mentioning:</strong> Small Business Technology Investment Boost &mdash; 20% bonus tax deduction up to $100k spend, broadly available. AI Adopt Program grants ($50k&ndash;250k) exist but require trade exposure &mdash; not a fit for most local service businesses.</p>
+      <div class="alert alert-green"><strong>Whitespace:</strong> almost every option above is either quote-only enterprise (needs an L&amp;D contact and budget process most 5&ndash;50 staff businesses don't have) or a generic $200&ndash;500 course with no Australian small-business context or follow-up. A fixed-price package around $1,000&ndash;$3,000 per business (not per seat) sits in open space.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 8</div>
+      <h2>Competitor scan <span style="font-weight:400;color:#8a9ab0;font-size:14px;">(light pass &mdash; run competitor-research for a full teardown if any of these become a live rival)</span></h2>
+      <table class="data-table">
+        <tr><th>Provider</th><th>Positioning</th><th>Price signal</th></tr>
+        <tr><td>Nexacu</td><td>Broad corporate trainer &mdash; ChatGPT, AI for leaders, AI governance</td><td>Quote-only</td></tr>
+        <tr><td>PM-Partners</td><td>PM heritage, branching into AI workshops</td><td>From $795+GST/day</td></tr>
+        <tr><td>Elevate Corporate Training</td><td>Confidence-building framing for ChatGPT/Claude/Copilot</td><td>Not published</td></tr>
+        <tr><td>The AI Training Company</td><td>Practical workshops, "measurable business results"</td><td>Not published</td></tr>
+        <tr><td>Xelleron</td><td>Short-format Copilot sessions</td><td>From $840/group (90 min)</td></tr>
+        <tr><td>RTOs (e.g. ACBI)</td><td>Nationally recognised AI diploma</td><td>Formal enrolment pricing</td></tr>
+        <tr><td>AI Adopt Centres (govt)</td><td>Free readiness assessment &amp; training</td><td>Free, trade-exposed SMEs only</td></tr>
+      </table>
+      <div class="data-block gap"><h4>Gap confirmed</h4><p>No provider found targets a 5&ndash;20 staff local service business specifically, at a fixed sub-$3,000 price, with an ongoing structure. This matches a direct research finding: "a specific gap in practical, supported, Australian-focused AI training for small business owners who need to implement immediately."</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="section-label">Section 9</div>
+      <h2>Strategic implications</h2>
+      <div class="opp-list">
+        <div class="opp-item"><p><strong>Lead with "already using it, unsupervised,"</strong> not "should you adopt AI." Locate's client base is past the adoption question &mdash; the pitch is risk and untapped upside.</p></div>
+        <div class="opp-item"><p><strong>Design the offer as staged/ongoing</strong>, not a single workshop &mdash; a 30/60/90-day check-in cadence matches how the tool-use &rarr; workflow-integration gap actually closes.</p></div>
+        <div class="opp-item"><p><strong>Price inside the whitespace</strong>: roughly $1,000&ndash;$3,000 flat per business (not per seat) for teams of 5&ndash;20, undercutting every quote-only competitor without competing on the enterprise tier.</p></div>
+        <div class="opp-item"><p><strong>Prioritise trades/construction and healthcare</strong> as beachhead sectors &mdash; lowest confirmed adoption (18&ndash;22%), clear use cases, and no competitor found targeting them.</p></div>
+        <div class="opp-item"><p><strong>Add a governance/compliance module as a differentiator</strong>, not the headline &mdash; useful specifically against the trust/control objection, not the productivity pitch.</p></div>
+        <div class="opp-item"><p><strong>Mention the Technology Investment Boost, not the AI Adopt Program grant</strong>, in sales material &mdash; the Boost is broadly available; the grant mostly isn't for this segment.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>Next step</h3>
+      <p>Run <code>competitor-research</code> on Nexacu, Elevate Corporate Training, and Xelleron once the offer and pricing are closer to final &mdash; the three closest in positioning &mdash; to pressure-test messaging and confirm none has moved into the small-service-business segment since this research.</p>
+    </div>
+  </div>
+
+  <div class="footer-note">Locate Digital &middot; Market research &middot; September 2026</div>
+
+</div>
+</body>
+</html>
