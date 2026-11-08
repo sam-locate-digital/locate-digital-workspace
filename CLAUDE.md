@@ -25,6 +25,8 @@ Root folder for Locate Digital agency work. This file is the main instruction se
 - New client → create `clients/<name>/CLAUDE.md` first so future sessions have context.
 - Never run npm inside Google Drive (it fails with EBADF): build site copies on the local disk.
 - Git remotes: `origin` is this workspace (locate-digital-workspace), `site` is the public website (`_brand/site`, published with the `site-deploy` subtree branch), `demos` is the prospect demos (`/publish-demo`). Commit and push only when Sam asks.
+- Sam often runs several sessions at once. When committing, stage only the files this session changed, by name. Never `git add -A`, `git add .` or `git commit -a` across the workspace, which sweeps in other sessions' half-done work. If another session's changes are in the way, leave them and say so.
+- Use a worktree only when two sessions will both change and commit files at the same time in the same area (two demo sites, a cleanup or reorganisation) or for a risky change that may be thrown away. Worktrees don't contain git-ignored files (`.env`, raw footage, exports, client site clones), so video edits, `/launch-site` and publishing stay in the main folder. Merge the branch and remove the worktree when the session ends.
 
 ## Memory
 

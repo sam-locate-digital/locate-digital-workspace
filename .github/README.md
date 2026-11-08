@@ -41,7 +41,7 @@ The processes are in `_ops/website-launch.md` and the `/publish-demo` and `/laun
 | `MaxiFinancial` | Mortgage broker |
 | `RAM` | Social media for the retail precincts in RAM's listed REIT |
 | `MedCannabis` | Onboarding; business name to be confirmed |
-| `GlossHairStudio` | Early stage, content only |
+| `GlossHairStudio` | Test client with made-up data (a salon), for trying out skills |
 | `SnapperOnline` | Demo client with made-up data, for practice and testing |
 
 ## Skills
