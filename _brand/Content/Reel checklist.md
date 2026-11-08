@@ -41,10 +41,12 @@ Numbers to show: $200,000+ this year
 Call to action: "The prompt is in the comments"
 Pause cut: 0.1 s (or leave as the 0.25 s default)
 Anything to skip or keep: e.g. "use the second take of the hook"
-Client sign-off for figures on screen: yes / no
+Figures on screen: yes (your own numbers are always fine to show)
+Client sign-off (only for testimonials, case studies, client names or documents): yes / no / not needed
 ```
 
 - [ ] Then just say: **"Edit the reel in Raw Footage/<folder>."**
+- [ ] Or, easier: if the reel is in this week's `plan.md`, upload the clips and screenshots (any names) to its folder in `_DROP FILES HERE/` from the Google Drive app. The nightly build (10pm) moves them into `Raw Footage/` and edits the reel once your last file has been there 2 hours. Changes go in a `changes.md` in the reel's `Raw Footage/` folder (see `autopilot/README.md`).
 
 ## 5. Reviewing
 

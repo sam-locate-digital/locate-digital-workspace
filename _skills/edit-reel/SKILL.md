@@ -14,7 +14,7 @@ Turns a folder of raw clips into a finished reel that follows Sam's approved sty
 - **Never touch originals.** `Raw Footage/` is read-only. Exports never overwrite: bump `_v1` → `_v2`.
 - **Verify with tools, then say what you couldn't check.** You can't hear audio. Measure it, then tell Sam to listen before posting.
 - **Spend nothing without saying so.** Higgsfield credits: quote with `get_cost` first and state the total. Never reuse other creators' footage, music or graphics from `References/`; those reels are for style only.
-- **Real client figures on screen need written sign-off.** If `notes.md` doesn't confirm it, remind Sam once.
+- **Sign-off is only for testimonials and case studies.** Sam's own figures and results are fine on screen (captions, proof card), with no sign-off and no reminder. A client testimonial, a case study, or a client's name or documents on screen needs written sign-off. If `notes.md` doesn't confirm it, remind Sam once.
 
 ## Steps
 
@@ -63,7 +63,7 @@ Skip it for routine reels, since the style is locked. Make one when the format i
 Set `REPLACE` (house style: digits, Australian spelling, confirmed words), `BRANDS` (spoken product names, which become logo tiles instead of captions) and `EMPH` in `captions.py` (the house `keyword` captions set these words in Newsreader italic with the blue brush; take them from the script's **bold** words, about one every 5–8 s), then run it into `remotion/src/data.json`. Check the cue list for missing first words, split numbers ("3 / months") and one-word flashes.
 
 ### 8. Graphics timeline
-Edit `remotion/src/Reel.jsx` (the worked example is the $200,000 automation reel):
+Edit `remotion/src/Reel.jsx` (the worked example is the 200,000-dollar automation reel):
 - `LAYOUT`: alternate full-frame wide (100%) and punch (118%) with split-screen stretches, so something changes every 2–4 s.
 - `SHOTS`: Sam's screenshots in `public/shots/`, timed to when each result is mentioned.
 - `STEPS`: one card per step, timed to its key word. Brand chips use `AppTile`. No section titles.

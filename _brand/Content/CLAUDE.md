@@ -8,9 +8,11 @@ This folder (formerly `AI Video Editor`, combined with `social-media` on 2026-11
 
 ## Folders
 
+- `_DROP FILES HERE/`: the **only folder Sam uploads to**. It holds one folder per post that needs his footage or photos, named `NN Ddd d Mmm - Topic - WHAT` (e.g. `03 Tue 10 Nov - Where AI goes first - FILM + 1 SCREENSHOT`), each with a READ ME listing the shots and the script. The nightly build moves the files to the post's home folder (`Raw Footage/...` or `Weeks/.../photos/`) and moves the empty folder to `_done/`.
 - `profile.md`: @locatingsam bio, pinned posts, highlights and intro reel plan (`locate-content`)
 - `insights-log.md`: what earns follows, winning Trial Reels hooks (`locate-content` reads it every week)
 - `Weeks/`: one folder per week, named by the Monday (`YYYY-MM-DD/`), holding `plan.md` plus that week's carousel slides and images. Images are git-ignored.
+- `autopilot/`: the scheduled content jobs (Sunday 6pm plan, nightly 10pm build) that run Claude Code from Windows Task Scheduler. The Status table at the top of each `Weeks/<Monday>/plan.md` drives them. See `autopilot/README.md`.
 - `Research/`: `swipe-file.md` (studied reels), `reference-accounts.md`, `competitors.md`, `trend-log.md` and `hooks-flat.txt` (the hook library)
 - `Scripts/`: reel scripts from the `reels-script` skill, named `YYYY-MM-DD_topic.md`. Force-align captions to these.
 - `Raw Footage/`: source clips, one folder per reel (`YYYY-MM-DD_topic/`) holding the clips, any screenshots and a `notes.md` (script, brands, numbers, call to action, pause cut, client sign-off). Read `notes.md` first. Never edit or delete originals.
@@ -93,4 +95,4 @@ Brush SVG (viewBox `0 0 200 28`, preserveAspectRatio none, width 108% of the wor
 
 ## Never
 
-Tracked uppercase captions. Inter, Poppins or Montserrat (social reels use TikTok Sans). Emoji, exclamation marks or hype words. Rainbow or colour-per-word captions. More than one orange element. Flashy transitions. Stock cash or handshake shots. Voice faster than 1.1×. Logo intros. 01/02 numbering. Real client names, figures or documents on screen without written sign-off.
+Tracked uppercase captions. Inter, Poppins or Montserrat (social reels use TikTok Sans). Emoji, exclamation marks or hype words. Rainbow or colour-per-word captions. More than one orange element. Flashy transitions. Stock cash or handshake shots. Voice faster than 1.1×. Logo intros. 01/02 numbering. Client testimonials, case studies, client names or client documents on screen without written sign-off. (Sam's own figures and results, like $200,000, are fine: show them in the captions and on the proof card.)
