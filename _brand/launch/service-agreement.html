@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Service Agreement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:14.5px;line-height:1.62}
+  .sheet{max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:6px;padding:50px 56px 60px;margin-top:18px;margin-bottom:40px}
+
+  .warn{max-width:820px;margin:18px auto 0;background:#fff4ef;border:1px solid #ffd2bd;border-left:4px solid var(--accent);border-radius:8px;padding:14px 20px;font-size:13px;color:#8a3a16}
+  .warn b{font-family:var(--head)}
+  .ph{color:var(--accent);font-weight:600}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:26px;flex-wrap:wrap;gap:12px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:20px;color:var(--primary)}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--primary)}
+  .topbar .doc{font-family:var(--head);font-weight:600;font-size:12px;color:var(--muted);text-align:right}
+
+  h1{font-family:var(--head);font-weight:800;font-size:25px;letter-spacing:-.01em;margin:0 0 4px}
+  .intro{color:var(--muted);font-size:13.5px;margin:0 0 22px}
+
+  .parties{background:var(--row-alt);border-radius:12px;padding:18px 22px;margin-bottom:26px;font-size:13.5px}
+  .parties div{margin:4px 0}
+  .parties b{font-family:var(--head)}
+
+  h2{font-family:var(--head);font-weight:800;font-size:15px;margin:26px 0 8px;counter-increment:clause;display:flex;gap:10px}
+  h2:before{content:counter(clause) ".";color:var(--primary)}
+  body{counter-reset:clause}
+  h3{font-family:var(--head);font-weight:700;font-size:13.5px;margin:14px 0 4px;color:var(--ink)}
+  p{margin:0 0 10px}
+  ol.sub{margin:4px 0 10px;padding-left:22px}
+  ol.sub li{margin:6px 0}
+  ul{margin:4px 0 10px;padding-left:0;list-style:none}
+  ul li{position:relative;padding-left:20px;margin:5px 0}
+  ul li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--secondary)}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:8px 0}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+  th{background:var(--row-alt);font-family:var(--head);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+
+  .sign{margin-top:34px;border-top:2px solid var(--ink);padding-top:24px}
+  .sign h2{margin-top:0}.sign h2:before{content:""}
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:18px}
+  .sigline{height:44px;border-bottom:1.4px solid var(--ink);margin-bottom:6px}
+  .sigbox b{font-family:var(--head);font-size:13.5px}
+  .sigbox .f{display:block;font-size:12px;color:var(--muted);margin-top:8px}
+
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+
+  @media(max-width:720px){.sheet{padding:34px 26px}.sign-grid{grid-template-columns:1fr}}
+  @media print{body{background:#fff}.warn{display:none}.sheet{border:none;margin:0;border-radius:0}h2,.sign{page-break-inside:avoid}.logo-dot{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<div class="warn"><b>⚠ Draft template — not legal advice.</b> This is a starting point written in plain English. Have an Australian lawyer (or a service like Sprintlaw / LawPath) review and tailor it before you use it with a client. Fill every <b class="ph">[bracket]</b>.</div>
+
+<div class="sheet">
+
+  <div class="topbar">
+    <span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span>
+    <span class="doc">Digital Marketing Services Agreement<br>v1.0 · [date]</span>
+  </div>
+
+  <h1>Digital marketing services agreement</h1>
+  <p class="intro">This agreement sets out the terms on which Locate Digital provides marketing services to the Client. It applies from the start date below and continues until ended under clause 9.</p>
+
+  <div class="parties">
+    <div><b>Provider:</b> [Sam Surname] trading as Locate Digital, ABN [ABN], of [address] ("we", "us", "Locate Digital").</div>
+    <div><b>Client:</b> [Clinic legal name], ABN [ABN], of [address] ("you", "the Client").</div>
+    <div><b>Start date:</b> [date] &nbsp;·&nbsp; <b>Plan:</b> [Growth] &nbsp;·&nbsp; <b>Minimum term:</b> 3 months</div>
+  </div>
+
+  <h2>Services</h2>
+  <p>We will provide the services for your selected plan, as set out in the proposal dated [date] and summarised in Schedule A. This typically includes paid advertising management (Google and/or Meta), conversion tracking setup, ad creative and copy, and monthly reporting.</p>
+  <p>We will perform the services with reasonable care and skill, in line with industry practice. Any work outside the agreed scope is treated as a separate engagement and quoted before we start it.</p>
+
+  <h2>Our fees</h2>
+  <ol class="sub">
+    <li><b>Setup fee:</b> a one-off [$1,500] + GST, payable before the build begins.</li>
+    <li><b>Monthly retainer:</b> [$3,500] + GST per month for the selected plan, billed monthly in advance.</li>
+    <li><b>Spend-based minimum:</b> where your ad spend is high, the monthly fee is the greater of the retainer or 15–20% of monthly ad spend, as agreed.</li>
+    <li><b>Annual review:</b> we may adjust fees on 30 days' written notice, no more than once per 12 months.</li>
+  </ol>
+
+  <h2>Advertising spend</h2>
+  <p>Your advertising budget (paid to Google, Meta or other platforms) is <b>separate from our fees</b> and is your responsibility. Where practical, you pay the platforms directly using your own payment method. We manage the budget you set; we are not liable for platform charges, billing errors, or account suspensions caused by the platforms.</p>
+
+  <h2>Payment terms</h2>
+  <ul>
+    <li>Retainers are billed monthly in advance, by direct debit, due on the [1st] of each month.</li>
+    <li>Invoices not paid within [7] days may result in services being paused until paid. We will give you notice first.</li>
+    <li>All fees are in AUD and exclusive of GST unless stated.</li>
+  </ul>
+
+  <h2>Term, minimum commitment &amp; termination</h2>
+  <ol class="sub">
+    <li><b>Minimum term:</b> 3 months from the start date. Paid media needs runway to work.</li>
+    <li><b>After the minimum term</b> the agreement continues month to month.</li>
+    <li><b>Ending it:</b> either party may end this agreement after the minimum term by giving [30] days' written notice.</li>
+    <li><b>Early exit:</b> if you end the agreement during the minimum term other than for our material breach, the remaining minimum-term retainers become payable.</li>
+    <li><b>Either party</b> may end the agreement immediately if the other commits a serious breach and doesn't fix it within 14 days of written notice.</li>
+  </ol>
+
+  <h2>Your responsibilities</h2>
+  <ul>
+    <li>Give us timely access to the accounts, assets and information we need (see the welcome pack).</li>
+    <li>Review and approve creative and campaigns promptly so launches aren't delayed.</li>
+    <li>Make sure your website, booking system and claims comply with the law (including AHPRA advertising rules for health services).</li>
+    <li>Keep your ad-account payment method current and funded.</li>
+  </ul>
+
+  <h2>Results, no guarantee</h2>
+  <p>We will work to the goals in the proposal and optimise toward them. However, advertising results depend on factors outside our control (your market, budget, website, pricing, seasonality, platform changes). <b>We do not guarantee specific numbers of patients, leads, revenue or rankings.</b> Any figures discussed are good-faith estimates, not promises.</p>
+
+  <h2>AHPRA &amp; advertising compliance</h2>
+  <p>Health services advertising in Australia is regulated (including the AHPRA advertising guidelines, which restrict testimonials about clinical care and misleading claims). We will build ads with these rules in mind, but you are responsible for ensuring your services, claims and patient communications comply. You agree to flag anything that may breach these rules.</p>
+
+  <h2>Intellectual property</h2>
+  <ol class="sub">
+    <li>On full payment, you own the final ad creative and copy we produce specifically for you.</li>
+    <li>We keep ownership of our own tools, templates, processes and know-how.</li>
+    <li>We may reference our work for you and de-identified results in our portfolio and marketing, unless you ask us in writing not to.</li>
+  </ol>
+
+  <h2>Confidentiality &amp; data</h2>
+  <p>Each party will keep the other's confidential information private and use it only for this engagement. We will handle personal data in line with our Privacy Policy and the Australian Privacy Principles. You confirm you have the right to share any data and account access you give us.</p>
+
+  <h2>Liability</h2>
+  <p>Nothing in this agreement excludes rights you have under the Australian Consumer Law. Subject to that, our total liability for any claim is limited to the fees you paid us in the [3] months before the claim. We are not liable for indirect or consequential loss, lost profits, or loss caused by platforms, third parties, or your own systems.</p>
+
+  <h2>General</h2>
+  <ul>
+    <li><b>Independent contractor:</b> we are an independent contractor, not your employee or partner.</li>
+    <li><b>Subcontracting:</b> we may use subcontractors but remain responsible for the work.</li>
+    <li><b>Governing law:</b> the laws of Victoria, Australia.</li>
+    <li><b>Whole agreement:</b> this agreement and the proposal are the entire agreement and replace any earlier discussions.</li>
+  </ul>
+
+  <h2>Schedule A — scope &amp; plan</h2>
+  <table>
+    <tr><th>Item</th><th>Detail</th></tr>
+    <tr><td>Plan</td><td>[Growth]</td></tr>
+    <tr><td>Channels</td><td>[Google Ads + Meta Ads]</td></tr>
+    <tr><td>Included</td><td>[Campaign management, GA4/GTM tracking, ad creative, monthly report + call, on-page SEO for 5 pages, 1 monthly blog]</td></tr>
+    <tr><td>Setup fee</td><td>[$1,500] + GST</td></tr>
+    <tr><td>Monthly retainer</td><td>[$3,500] + GST</td></tr>
+    <tr><td>Recommended ad budget</td><td>[$X,000] / month (paid by Client)</td></tr>
+  </table>
+
+  <div class="sign">
+    <h2>Signatures</h2>
+    <p>By signing, both parties agree to the terms above.</p>
+    <div class="sign-grid">
+      <div class="sigbox"><div class="sigline"></div><b>For the Client</b><span class="f">Name:<br>Position:<br>Date:</span></div>
+      <div class="sigbox"><div class="sigline"></div><b>For Locate Digital</b><span class="f">Name: Sam [Surname]<br>Position: Director<br>Date:</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Locate Digital · locatedigital.io · sam@locatedigital.io · ABN [ABN]</footer>
+
+</body>
+</html>

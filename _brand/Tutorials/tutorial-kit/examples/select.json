@@ -1,0 +1,10 @@
+{
+  "max_gap": {"face": 0.3, "screen": 0.6},
+  "select": [
+    {"clip": "face_IMG_1923", "in": 0.0, "out": 4.75, "section": "hook"},
+    {"clip": "face_IMG_1935", "in": 0.8, "out": 3.3, "section": "intro"},
+    {"clip": "screen_01_settings-prompt", "in": 0.8, "out": 37.8, "section": "s1",
+     "cut": [[17.1, 22.2]], "fast": [[25.0, 30.8, 4]]},
+    {"clip": "face_IMG_1923", "in": 4.8, "out": 6.2, "section": "recap"}
+  ]
+}

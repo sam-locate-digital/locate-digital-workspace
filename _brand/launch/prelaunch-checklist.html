@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Pre-launch Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd; --green:#16a34a;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 70px}
+
+  header.hero{background:linear-gradient(150deg,#06203a,#0a3a6b 60%,#007ae8 130%);color:#fff;border-radius:0 0 20px 20px;padding:34px 36px 30px;margin-bottom:24px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:19px;color:#fff;margin-bottom:18px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  header h1{font-family:var(--head);font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+  header p{color:#cfe6ff;font-size:14.5px;margin:0;max-width:620px}
+
+  .bar-wrap{margin-top:22px;background:rgba(255,255,255,.14);border-radius:999px;height:12px;overflow:hidden}
+  .bar{height:100%;width:0;background:linear-gradient(90deg,var(--secondary),#fff);border-radius:999px;transition:width .35s ease}
+  .bar-meta{display:flex;justify-content:space-between;margin-top:9px;font-size:12.5px;color:#cfe6ff;font-family:var(--head);font-weight:600}
+  .bar-meta b{color:#fff}
+
+  .gate{background:#fff;border:2px solid var(--accent);border-radius:16px;padding:22px 26px;margin-bottom:26px;box-shadow:0 10px 30px rgba(255,89,0,.1)}
+  .gate h2{font-family:var(--head);font-weight:800;font-size:18px;margin:0 0 4px;color:var(--accent)}
+  .gate .gsub{color:var(--muted);font-size:13px;margin:0 0 14px}
+
+  .phase{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:16px;overflow:hidden}
+  .phase-head{display:flex;align-items:center;gap:14px;padding:16px 22px;cursor:pointer;user-select:none}
+  .phase-head:hover{background:var(--row-alt)}
+  .pid{font-family:var(--head);font-weight:800;font-size:13px;color:#fff;background:var(--primary);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .phase-head h2{font-family:var(--head);font-weight:700;font-size:17px;margin:0;flex:1}
+  .pcount{font-family:var(--head);font-weight:600;font-size:12.5px;color:var(--muted);background:var(--row-alt);border-radius:999px;padding:4px 12px;white-space:nowrap}
+  .pcount.done{color:#fff;background:var(--green)}
+  .chev{color:var(--muted);transition:transform .2s;font-size:13px}
+  .phase.collapsed .chev{transform:rotate(-90deg)}
+  .phase.collapsed .items{display:none}
+  .items{padding:6px 22px 16px}
+
+  .grp{font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+  label.item{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);cursor:pointer;font-size:14.5px}
+  label.item:last-child{border-bottom:none}
+  input[type=checkbox]{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--primary);border-radius:6px;flex-shrink:0;margin-top:1px;cursor:pointer;position:relative;transition:.15s}
+  input[type=checkbox]:checked{background:var(--primary)}
+  input[type=checkbox]:checked:after{content:"✓";position:absolute;color:#fff;font-size:13px;font-weight:700;left:3px;top:-1px}
+  .item .txt b{font-family:var(--head)}
+  .item .note{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+  input:checked ~ .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+  .tag{display:inline-block;font-family:var(--head);font-weight:700;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:middle}
+  .tag.done{background:#dcfce7;color:#15803d}
+  .tag.part{background:#fef3c7;color:#92400e}
+  .tag.dec{background:#ffe1d3;color:#9a3412}
+
+  .controls{display:flex;gap:10px;justify-content:flex-end;margin:0 0 16px;flex-wrap:wrap}
+  .controls button{font-family:var(--head);font-weight:600;font-size:12.5px;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:7px 14px;cursor:pointer}
+  .controls button:hover{border-color:var(--primary);color:var(--primary)}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:24px}
+  footer b{color:var(--primary)}
+
+  @media(max-width:640px){header.hero{padding:26px 22px}.items{padding:6px 16px 14px}}
+  @media print{
+    body{background:#fff}.controls,.chev{display:none}
+    .phase.collapsed .items{display:block}
+    header.hero,.pid,.gate{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .phase,.gate{page-break-inside:avoid;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span>
+    <h1>Pre-launch checklist</h1>
+    <p>Everything to get the agency legitimate and signing clients before you resign in September. Tick as you go — your progress saves in this browser.</p>
+    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+    <div class="bar-meta"><span id="pct">0% complete</span><span><b id="dcount">0</b> of <b id="tcount">0</b> done</span></div>
+  </header>
+
+  <div class="controls">
+    <button onclick="setAll(true)">Tick all</button>
+    <button onclick="setAll(false)">Clear all</button>
+    <button onclick="window.print()">Print / PDF</button>
+  </div>
+
+  <!-- GATE -->
+  <div class="gate">
+    <h2>⛔ The resignation gate</h2>
+    <p class="gsub">Don't hand in your notice until ALL five are true. Your salary is a runway — use it to sell with zero pressure.</p>
+    <label class="item"><input type="checkbox" data-k="g1"><span class="txt"><b>2 paying clients signed</b> (or 1 signed + 2 in active proposal).<span class="note">Proof the model works with real money.</span></span></label>
+    <label class="item"><input type="checkbox" data-k="g2"><span class="txt"><b>~$5k/mo recurring banked</b> before you lose the salary.</span></label>
+    <label class="item"><input type="checkbox" data-k="g3"><span class="txt"><b>3–6 months living expenses saved</b> in a separate buffer.</span></label>
+    <label class="item"><input type="checkbox" data-k="g4"><span class="txt"><b>Business legally trading</b> — ABN, bank account, insured, contract ready.</span></label>
+    <label class="item"><input type="checkbox" data-k="g5"><span class="txt"><b>Delivery proven once</b> — ran a client end to end without scrambling.</span></label>
+  </div>
+
+  <div id="phases"></div>
+
+  <footer>Locate Digital · pre-launch checklist · pairs with <b>06-prelaunch-checklist.md</b> · target: $100k/mo</footer>
+</div>
+
+<script>
+const DATA = [
+  { id:"A", title:"Legal & money foundations", note:"Start now — these have lead times.", groups:[
+    { g:"Business structure & registration", items:[
+      ["a1","<b>Decide: sole trader vs Pty Ltd</b>","Start sole trader unless you want liability cover / fast hiring.","dec"],
+      ["a2","<b>Get an ABN</b> — free at abr.gov.au",""],
+      ["a3","<b>Register business name \"Locate Digital\"</b> with ASIC","~$44/1yr. Check availability first."],
+      ["a4","<b>GST registration</b>","Register early to claim GST back + look established."],
+    ]},
+    { g:"Banking & accounting", items:[
+      ["a5","<b>Open a business bank account</b>","Never mix personal and business money."],
+      ["a6","<b>Set up Xero</b> (or MYOB)",""],
+      ["a7","<b>Engage an accountant / bookkeeper</b>","Even a one-off setup call. Ask about BAS + PAYG."],
+      ["a8","<b>Stripe</b> for card payments + invoicing",""],
+      ["a9","<b>Direct debit for retainers</b> (GoCardless / Stripe)","So you're not chasing invoices."],
+      ["a10","<b>Invoice template</b> with ABN + GST line",""],
+    ]},
+    { g:"Insurance", items:[
+      ["a11","<b>Professional Indemnity insurance</b>","Bigger clients will ask. ~$50–100/mo."],
+      ["a12","<b>Public Liability</b> (usually bundled with PI)",""],
+    ]},
+    { g:"Contracts & policy", items:[
+      ["a13","<b>Client service agreement</b> — legally reviewed","Draft built: service-agreement.html. Get it reviewed."],
+      ["a14","<b>Privacy Policy + Terms</b> on the site","Draft built: privacy-terms.html."],
+    ]},
+  ]},
+  { id:"B", title:"Brand & online presence", note:"Most of this is done.", groups:[
+    { g:"", items:[
+      ["b1","<b>Logo + brand assets</b>","In _brand/.","done"],
+      ["b2","<b>Domain + professional email</b>","locatedigital.io, sam@.","done"],
+      ["b3","<b>Website live</b>","Webflow build unpublished ~4mo. Publish or ship one-pager.","part"],
+      ["b4","<b>Landing pages finished + deployed</b>","Real phone + Pixel ID still placeholders.","part"],
+      ["b5","<b>Email signature</b> with USP + booking link",""],
+      ["b6","<b>LinkedIn rebuilt</b> around the USP","Highest-trust B2B channel."],
+      ["b7","<b>Instagram business profile</b>",""],
+      ["b8","<b>Google Business Profile for Locate</b>","Practise what you sell."],
+      ["b9","<b>Headshot + founder bio</b>",""],
+    ]},
+  ]},
+  { id:"C", title:"Sales & acquisition materials", note:"The kit that converts outreach.", groups:[
+    { g:"", items:[
+      ["c1","<b>Positioning / USP</b>","01-positioning.md.","done"],
+      ["c2","<b>Pricing & rate card</b>","02-pricing.md + rate-card.html.","done"],
+      ["c3","<b>Outreach scripts + follow-ups</b>","03-outreach.md.","done"],
+      ["c4","<b>Teardown process guide</b>","teardown-guide.html.","done"],
+      ["c5","<b>Pitch deck</b>","Built: pitch-deck.html.","done"],
+      ["c6","<b>Proposal template</b>","Built: proposal-template.html.","done"],
+      ["c7","<b>One-page capability sheet</b>","Built: capability-sheet.html.","done"],
+      ["c8","<b>Calendly / Cal.com booking link</b>","Wire into LPs, signature, LinkedIn."],
+      ["c9","<b>Loom set up + tested</b>","Your core outreach weapon. Get paid plan."],
+      ["c10","<b>Case study finalised (MOSIC)</b>","Add real before/after numbers + quote.","part"],
+      ["c11","<b>Testimonial request process</b>",""],
+    ]},
+  ]},
+  { id:"D", title:"Tools & software stack", note:"Buy as clients land — not all now.", groups:[
+    { g:"Now (pre-launch essentials)", items:[
+      ["d1","<b>Claude Code + skills</b>","Delivery engine, already built.","done"],
+      ["d2","<b>Google Workspace</b> (paid plan)",""],
+      ["d3","<b>GA4 + GTM on your own site</b>","Proof you eat your own cooking."],
+      ["d4","<b>Meta Business + Google Ads MCC</b>","Agency-level accounts."],
+      ["d5","<b>Loom</b> (paid)",""],
+      ["d6","<b>Calendly</b>",""],
+      ["d7","<b>Password manager</b> (1Password / Bitwarden)","You'll hold client account access."],
+      ["d8","<b>Canva Pro</b>",""],
+    ]},
+    { g:"Soon (as clients sign)", items:[
+      ["d9","<b>CRM</b> — sheet → HubSpot free / Go High Level",""],
+      ["d10","<b>Project mgmt</b> — ClickUp or Notion","Before first hire."],
+      ["d11","<b>Looker Studio dashboards</b>",""],
+      ["d12","<b>Automation</b> — Zapier/Make → n8n ~month 4–5",""],
+      ["d13","<b>Slack</b> — from first hire",""],
+    ]},
+  ]},
+  { id:"E", title:"Delivery systems & SOPs", note:"Mostly built.", groups:[
+    { g:"", items:[
+      ["e1","<b>Service delivery SOP</b>","_ops/service-delivery-sop.md.","done"],
+      ["e2","<b>Client onboarding flow</b>","_skills/client-onboarding/.","done"],
+      ["e3","<b>Tracking setup process</b>","_skills/tracking-setup/.","done"],
+      ["e4","<b>Monthly reporting</b>","_ops/tools/monthly-report + narrative.","done"],
+      ["e5","<b>Ad copy + content engines</b>","Google/Meta/reels/social/SEO skills.","done"],
+      ["e6","<b>Client welcome pack</b>","Built: welcome-pack.html.","done"],
+      ["e7","<b>Per-client onboarding checklist</b>","Access, pixels, baseline, brief signed off."],
+      ["e8","<b>Reporting cadence locked</b>","Same day each month. Put it in the contract."],
+      ["e9","<b>Results / metrics tracker</b>","Weekly new-patient numbers per client."],
+    ]},
+  ]},
+  { id:"F", title:"Proof & credibility", note:"Turns you into the specialist.", groups:[
+    { g:"", items:[
+      ["f1","<b>First case study (MOSIC)</b> with hard numbers","","part"],
+      ["f2","<b>2–3 testimonials</b>","Trade discounted rate for these."],
+      ["f3","<b>Before/after account screenshots</b>","Blur sensitive data."],
+      ["f4","<b>Anonymised audit sample</b>","Shows competence on calls."],
+      ["f5","<b>Niche authority content</b>","A few LinkedIn posts / reels on physio marketing."],
+      ["f6","<b>Google reviews for Locate</b>",""],
+    ]},
+  ]},
+  { id:"G", title:"Personal & financial runway", note:"Protects you through the transition.", groups:[
+    { g:"", items:[
+      ["g_1","<b>Calculate your number</b>","Minimum monthly personal expenses = MRR to beat."],
+      ["g_2","<b>Savings buffer</b> — 3–6 months expenses",""],
+      ["g_3","<b>Check your employment contract</b>","Non-compete / moonlighting clauses. Do this week one.","dec"],
+      ["g_4","<b>Resignation plan</b>","Notice period, handover, don't burn bridges."],
+      ["g_5","<b>Tax set-aside habit</b>","Park ~25–30% of every payment."],
+      ["g_6","<b>Time-block the side hustle</b>","Protect teardowns-sent-per-week now."],
+    ]},
+  ]},
+];
+
+const TAGS={done:"Done",part:"Half-done",dec:"Decision"};
+const root=document.getElementById("phases");
+let store={};
+try{store=JSON.parse(localStorage.getItem("ld_prelaunch")||"{}")}catch(e){store={}}
+
+DATA.forEach(ph=>{
+  const sec=document.createElement("div");sec.className="phase";
+  let inner=`<div class="phase-head"><span class="pid">${ph.id}</span><h2>${ph.title}</h2><span class="pcount" data-pc="${ph.id}"></span><span class="chev">▼</span></div><div class="items">`;
+  ph.groups.forEach(grp=>{
+    if(grp.g)inner+=`<div class="grp">${grp.g}</div>`;
+    grp.items.forEach(it=>{
+      const[k,txt,note,tag]=it;
+      const t=tag?`<span class="tag ${tag}">${TAGS[tag]}</span>`:"";
+      inner+=`<label class="item"><input type="checkbox" data-k="${k}"><span class="txt">${txt}${t}${note?`<span class="note">${note}</span>`:""}</span></label>`;
+    });
+  });
+  inner+="</div>";sec.innerHTML=inner;root.appendChild(sec);
+  sec.querySelector(".phase-head").addEventListener("click",()=>sec.classList.toggle("collapsed"));
+});
+
+const boxes=[...document.querySelectorAll('input[type=checkbox]')];
+boxes.forEach(b=>{
+  if(store[b.dataset.k])b.checked=true;
+  b.addEventListener("change",()=>{store[b.dataset.k]=b.checked;save();render()});
+});
+function save(){localStorage.setItem("ld_prelaunch",JSON.stringify(store))}
+function setAll(v){boxes.forEach(b=>{b.checked=v;store[b.dataset.k]=v});save();render()}
+
+function render(){
+  const total=boxes.length,done=boxes.filter(b=>b.checked).length;
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById("bar").style.width=pct+"%";
+  document.getElementById("pct").textContent=pct+"% complete";
+  document.getElementById("dcount").textContent=done;
+  document.getElementById("tcount").textContent=total;
+  DATA.forEach(ph=>{
+    const el=document.querySelector(`[data-pc="${ph.id}"]`);
+    const ks=ph.groups.flatMap(g=>g.items.map(i=>i[0]));
+    const d=ks.filter(k=>store[k]).length;
+    el.textContent=`${d}/${ks.length}`;
+    el.classList.toggle("done",d===ks.length&&ks.length>0);
+  });
+}
+render();
+</script>
+</body>
+</html>

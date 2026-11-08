@@ -1,0 +1,206 @@
+{
+ "fps": 30,
+ "total": 25.2667,
+ "length": 28.267,
+ "title": "Summarise every enquiry automatically",
+ "kicker": "AI Launchpad · Lesson 1",
+ "segments": [
+  {
+   "s": 0.0,
+   "e": 4.2333,
+   "kind": "face"
+  },
+  {
+   "s": 4.2333,
+   "e": 6.2,
+   "kind": "face"
+  },
+  {
+   "s": 6.2,
+   "e": 24.6333,
+   "kind": "screen",
+   "box": [
+    128,
+    0,
+    2304,
+    1440
+   ]
+  },
+  {
+   "s": 24.6333,
+   "e": 25.2667,
+   "kind": "face"
+  }
+ ],
+ "shots": [
+  {
+   "s": 0.0,
+   "e": 4.233,
+   "mode": "wide"
+  },
+  {
+   "s": 4.233,
+   "e": 6.2,
+   "mode": "wide"
+  },
+  {
+   "s": 24.633,
+   "e": 25.267,
+   "mode": "wide"
+  }
+ ],
+ "cam": [
+  {
+   "seg": 2,
+   "keys": [
+    {
+     "t": 6.2,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "t": 11.45,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "t": 12.25,
+     "z": 1.78,
+     "x": 0.34,
+     "y": 0.24
+    },
+    {
+     "t": 16.6,
+     "z": 1.78,
+     "x": 0.34,
+     "y": 0.24
+    },
+    {
+     "t": 17.3,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "t": 20.6,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "t": 21.4,
+     "z": 1.7,
+     "x": 0.74,
+     "y": 0.68
+    },
+    {
+     "t": 23.6,
+     "z": 1.7,
+     "x": 0.74,
+     "y": 0.68
+    },
+    {
+     "t": 24.3,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "t": 24.6333,
+     "z": 1,
+     "x": 0.5,
+     "y": 0.5
+    }
+   ]
+  }
+ ],
+ "labels": [
+  {
+   "s": 7.313,
+   "e": 10.313,
+   "text": "Enquiry Desk",
+   "sub": "Settings, top right",
+   "logo": ""
+  },
+  {
+   "s": 17.567,
+   "e": 20.067,
+   "text": "Claude",
+   "sub": "Writes the summary",
+   "logo": "claude"
+  }
+ ],
+ "chapters": [
+  {
+   "s": 6.2,
+   "e": 8.6,
+   "n": 1,
+   "title": "Write the summary prompt",
+   "em": "prompt",
+   "count": 1
+  }
+ ],
+ "intro": {
+  "s": 4.233,
+  "e": 6.183,
+  "title": "Summarise every enquiry automatically",
+  "kicker": "AI Launchpad · Lesson 1",
+  "sub": "A two-hour set-up",
+  "em": "automatically"
+ },
+ "cards": [],
+ "splits": [
+  {
+   "s": 0.813,
+   "e": 4.233,
+   "side": "right",
+   "panel": {
+    "kind": "stat",
+    "value": 200000,
+    "prefix": "$",
+    "label": "extra revenue from one automation"
+   }
+  }
+ ],
+ "end": {
+  "title": "Try it on this week's enquiries",
+  "button": "Post your prompt in the community",
+  "url": "locatedigital.io",
+  "dur": 3,
+  "s": 25.2667,
+  "e": 28.267
+ },
+ "sections": [
+  {
+   "name": "hook",
+   "s": 0.0,
+   "e": 4.2333
+  },
+  {
+   "name": "intro",
+   "s": 4.2333,
+   "e": 6.2
+  },
+  {
+   "name": "s1",
+   "s": 6.2,
+   "e": 24.6333
+  },
+  {
+   "name": "recap",
+   "s": 24.6333,
+   "e": 25.2667
+  }
+ ],
+ "music": "bookends",
+ "face": {
+  "punch": 1.14,
+  "fx": 0.5,
+  "fy": 0.4
+ },
+ "screen": {
+  "inset": 0.9
+ }
+}

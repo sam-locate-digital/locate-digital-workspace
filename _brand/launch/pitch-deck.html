@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+  .deck{max-width:1000px;margin:0 auto;padding:30px 20px 60px}
+
+  .hint{text-align:center;color:var(--muted);font-size:12.5px;margin-bottom:20px}
+  .hint b{color:var(--primary)}
+
+  .slide{background:#fff;border:1px solid var(--line);border-radius:18px;padding:48px 52px;margin-bottom:22px;min-height:520px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .slide .num{position:absolute;top:22px;right:26px;font-family:var(--head);font-weight:700;font-size:12px;color:var(--line)}
+  .brandrow{display:flex;align-items:center;gap:10px;margin-bottom:30px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--primary)}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--primary)}
+  .kicker{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-family:var(--head);font-weight:800;font-size:46px;line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+  h2{font-family:var(--head);font-weight:800;font-size:32px;line-height:1.12;letter-spacing:-.02em;margin:0 0 18px}
+  .slide p.big{font-size:19px;color:var(--muted);max-width:680px;margin:0 0 14px}
+  .slide p.big b{color:var(--ink)}
+  .center{justify-content:center}
+  .fill{flex:1}
+
+  /* cover */
+  .cover{background:linear-gradient(150deg,#06203a 0%,#0a3a6b 55%,#007ae8 120%);color:#fff;border:none}
+  .cover .logo-mark{color:#fff}
+  .cover .logo-dot{background:var(--secondary)}
+  .cover h1{font-size:52px}
+  .cover .sub{font-size:20px;color:#cfe6ff;max-width:640px;margin:0 0 30px}
+  .cover .forwho{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:9px 18px;font-family:var(--head);font-weight:600;font-size:14px}
+  .cover .num{color:rgba(255,255,255,.3)}
+
+  ul{margin:0;padding:0;list-style:none}
+  li{position:relative;padding-left:28px;margin:13px 0;font-size:16.5px}
+  li:before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--secondary)}
+  li b{font-family:var(--head)}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 4px}
+  .stat{background:var(--row-alt);border-radius:14px;padding:24px 22px}
+  .stat .n{font-family:var(--head);font-weight:800;font-size:40px;letter-spacing:-.02em;color:var(--primary);line-height:1}
+  .stat .l{color:var(--muted);font-size:14px;margin-top:8px}
+
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+  .step{display:flex;gap:16px;background:var(--row-alt);border-radius:14px;padding:20px 22px}
+  .step .s{font-family:var(--head);font-weight:800;font-size:24px;color:var(--secondary);line-height:1}
+  .step h3{font-family:var(--head);font-weight:700;font-size:17px;margin:0 0 5px}
+  .step p{margin:0;font-size:14px;color:var(--muted)}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+  .tier{border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-align:center}
+  .tier.rec{border:2px solid var(--primary);box-shadow:0 12px 32px rgba(0,122,232,.14)}
+  .tier .t{font-family:var(--head);font-weight:800;font-size:18px}
+  .tier .p{font-family:var(--head);font-weight:800;font-size:30px;margin:6px 0 4px}
+  .tier .p span{font-size:14px;color:var(--muted);font-weight:600}
+  .tier .d{font-size:13px;color:var(--muted)}
+  .tier .flag{display:inline-block;background:var(--primary);color:#fff;font-family:var(--head);font-weight:700;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+
+  .quote{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.3;letter-spacing:-.01em;max-width:760px;margin:0 0 20px}
+  .quote span{color:var(--primary)}
+  .cite{color:var(--muted);font-size:15px}
+
+  .cta-slide{background:linear-gradient(150deg,#06203a,#0a3a6b);color:#fff;border:none}
+  .cta-slide .logo-mark{color:#fff}.cta-slide .logo-dot{background:var(--secondary)}
+  .cta-slide h2{font-size:40px}
+  .cta-slide .big{color:#cfe6ff}
+  .cta-box{display:inline-flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:22px 26px;margin-top:14px}
+  .cta-box b{font-family:var(--head);font-size:20px}
+  .cta-slide .num{color:rgba(255,255,255,.3)}
+
+  .note{background:var(--row-alt);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;font-size:14px;color:var(--muted);margin-top:auto}
+  .note b{color:var(--ink)}
+  .ph{color:var(--accent);font-weight:600}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px}
+
+  @media(max-width:760px){
+    .deck{padding:18px 12px}
+    .slide{padding:34px 26px;min-height:auto}
+    h1,.cover h1{font-size:34px}h2{font-size:26px}
+    .stat-row,.steps,.tiers{grid-template-columns:1fr}
+  }
+  @media print{
+    body{background:#fff}
+    .hint,footer{display:none}
+    .slide{box-shadow:none;page-break-after:always;page-break-inside:avoid;border-radius:0;border:none;min-height:96vh;margin:0}
+    .cover,.cta-slide{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .logo-dot,.stat,.step,.tier.rec,.flag,.note{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <p class="hint">Sales-call deck · replace <b class="ph">[bracketed]</b> bits before sending · print to PDF for a leave-behind (Ctrl/Cmd+P)</p>
+
+  <!-- 1 · COVER -->
+  <section class="slide cover center">
+    <span class="num">01</span>
+    <div class="brandrow"><span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span></div>
+    <h1>More new patients,<br>booked on autopilot.</h1>
+    <p class="sub">Google and Meta ads for Melbourne physio and osteo clinics. No wasted spend. No lock-in.</p>
+    <span class="forwho">Prepared for <b>[Clinic name]</b> · [date]</span>
+  </section>
+
+  <!-- 2 · PROBLEM -->
+  <section class="slide">
+    <span class="num">02</span>
+    <p class="kicker">The problem</p>
+    <h2>Most clinics leave new patients on the table.</h2>
+    <p class="big">You're great at treating patients. Filling the diary is a different job, and it's the one eating your evenings.</p>
+    <ul>
+      <li><b>Word of mouth has a ceiling.</b> It's unpredictable and you can't turn it up when you have a quiet week.</li>
+      <li><b>The ads you've tried leak money.</b> Wrong suburbs, wrong clicks, no tracking, so you can't tell what works.</li>
+      <li><b>Empty appointment slots don't come back.</b> Every gap in the diary is revenue you never recover.</li>
+    </ul>
+  </section>
+
+  <!-- 3 · COST OF DOING NOTHING -->
+  <section class="slide">
+    <span class="num">03</span>
+    <p class="kicker">What that costs you</p>
+    <h2>One new patient is worth more than you think.</h2>
+    <p class="big">A physio or osteo patient is worth <b>$400–$1,500+</b> across a treatment plan. Now multiply the gaps.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">5</div><div class="l">empty slots a week</div></div>
+      <div class="stat"><div class="n">~$600</div><div class="l">average patient value</div></div>
+      <div class="stat"><div class="n">$156k</div><div class="l">missed revenue a year</div></div>
+    </div>
+    <div class="note"><b>The point:</b> you don't need a huge ad budget to win. You need the right patients booking, and a way to prove it's working.</div>
+  </section>
+
+  <!-- 4 · WHO WE ARE -->
+  <section class="slide">
+    <span class="num">04</span>
+    <p class="kicker">Who we are</p>
+    <h2>We only do one thing: fill physio and osteo diaries.</h2>
+    <p class="big">Locate Digital is a paid-ads agency built for Melbourne allied health. <b>Not a generalist agency that takes anyone.</b></p>
+    <ul>
+      <li><b>One niche.</b> Physio and osteo clinics, Melbourne metro. We know your patients, your suburbs, your seasonality.</li>
+      <li><b>One core lever.</b> Google and Meta ads, the fastest and most measurable way to book new patients.</li>
+      <li><b>Run by the person doing the work.</b> You deal with me, not an account manager reading a script.</li>
+    </ul>
+  </section>
+
+  <!-- 5 · THE OFFER -->
+  <section class="slide center">
+    <span class="num">05</span>
+    <p class="kicker">The offer</p>
+    <h2>20–40 new patients a month, without the guesswork.</h2>
+    <p class="big">We help Melbourne physio and osteo clinics book <b>20–40 new patients a month</b> with Google and Meta ads, without wasting spend on no-shows or being locked into long contracts.</p>
+    <ul>
+      <li><b>No wasted spend</b> — tight local targeting and proper tracking, so every dollar is accountable.</li>
+      <li><b>No lock-in</b> — 3-month minimum, then month to month. We keep you on results, not contracts.</li>
+      <li><b>Real numbers</b> — new patients booked and cost per patient, not impressions and reach.</li>
+    </ul>
+  </section>
+
+  <!-- 6 · HOW IT WORKS -->
+  <section class="slide">
+    <span class="num">06</span>
+    <p class="kicker">How it works</p>
+    <h2>Four steps from quiet diary to booked out.</h2>
+    <div class="steps">
+      <div class="step"><div class="s">1</div><div><h3>Audit &amp; setup</h3><p>We audit your accounts, fix tracking, and build conversion measurement so we know exactly what a booking costs.</p></div></div>
+      <div class="step"><div class="s">2</div><div><h3>Build</h3><p>Campaigns, targeting and ad creative built around your services and catchment. Live within the first month.</p></div></div>
+      <div class="step"><div class="s">3</div><div><h3>Launch &amp; optimise</h3><p>Ads go live, we monitor daily and cut what wastes money, double down on what books patients.</p></div></div>
+      <div class="step"><div class="s">4</div><div><h3>Report &amp; grow</h3><p>A monthly report and call in plain English: patients booked, cost per patient, what's next.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 7 · WHAT YOU GET -->
+  <section class="slide">
+    <span class="num">07</span>
+    <p class="kicker">What you get</p>
+    <h2>Done-for-you, end to end.</h2>
+    <ul>
+      <li><b>Full campaign management</b> across Google and Meta — strategy, build, daily optimisation.</li>
+      <li><b>Ad creative and copy</b> written for your services and your patients.</li>
+      <li><b>Conversion tracking</b> (GA4 + GTM) so every booking is measured, not guessed.</li>
+      <li><b>A monthly report and strategy call</b> you can actually understand.</li>
+      <li><b>One point of contact</b> who knows your account and answers their phone.</li>
+    </ul>
+  </section>
+
+  <!-- 8 · PRICING -->
+  <section class="slide">
+    <span class="num">08</span>
+    <p class="kicker">Investment</p>
+    <h2>Simple plans. Anchored where most clinics belong.</h2>
+    <div class="tiers">
+      <div class="tier"><div class="t">Starter</div><div class="p">$1,800<span>/mo</span></div><div class="d">One channel, single location. 10–20 new patients/mo.</div></div>
+      <div class="tier rec"><span class="flag">Recommended</span><div class="t">Growth</div><div class="p">$3,500<span>/mo</span></div><div class="d">Google + Meta, full tracking. 20–40 new patients/mo.</div></div>
+      <div class="tier"><div class="t">Scale</div><div class="p">$6,500<span>/mo+</span></div><div class="d">Multi-platform, CRO, landing pages. 40+ new patients/mo.</div></div>
+    </div>
+    <div class="note"><b>$1,500 one-off setup.</b> Ad spend is separate, paid directly to Google/Meta. 3-month minimum, then month to month. <b>Recommended for [Clinic name]: Growth.</b></div>
+  </section>
+
+  <!-- 9 · CASE STUDY -->
+  <section class="slide center">
+    <span class="num">09</span>
+    <p class="kicker">Proof</p>
+    <p class="quote">We took <span>[MOSIC / client]</span> from <span>[X]</span> to <span>[Y] new patients a month</span> at <span>[$Z] per booking</span> in [N] weeks.</p>
+    <p class="cite">— [Owner name], [Clinic]. Full case study available on request.</p>
+    <div class="note"><b>Swap in your real numbers</b> once MOSIC results are finalised, or use a screenshot of the account dashboard here.</div>
+  </section>
+
+  <!-- 10 · WHY US -->
+  <section class="slide">
+    <span class="num">10</span>
+    <p class="kicker">Why Locate</p>
+    <h2>What makes us different.</h2>
+    <ul>
+      <li><b>Specialists, not generalists.</b> Everything we know is pointed at physio and osteo growth.</li>
+      <li><b>We run the ads ourselves.</b> Most agencies outsource or set and forget. We don't.</li>
+      <li><b>No lock-in.</b> If we're not booking you patients, you can walk. That keeps us honest.</li>
+      <li><b>Plain-English reporting.</b> You'll always know what you spent and what it booked.</li>
+    </ul>
+  </section>
+
+  <!-- 11 · CTA -->
+  <section class="slide cta-slide center">
+    <span class="num">11</span>
+    <div class="brandrow"><span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span></div>
+    <h2>Let's fill your diary.</h2>
+    <p class="big">Start with a paid audit of your current setup, or go straight to a 3-month Growth build. Either way, you'll see the numbers from week one.</p>
+    <div class="cta-box">
+      <b>Sam · Locate Digital</b>
+      <span>sam@locatedigital.io</span>
+      <span>[phone] · locatedigital.io</span>
+      <span>Book a call: [calendly link]</span>
+    </div>
+  </section>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io · Prices in AUD, ex GST</footer>
+
+</div>
+</body>
+</html>

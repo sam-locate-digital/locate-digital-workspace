@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<section data-screen-label="Newsletter" style="background: #fff; padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 40px); font-family: var(--font-body);">
+  <div ref="{{ cardRef }}" style="position: relative; overflow: clip; isolation: isolate; max-width: 1180px; margin: 0 auto; border-radius: 24px; border: 1px solid #e3ebf6; background: radial-gradient(60% 90% at 100% 0%, #e8f0fb 0%, rgba(232,240,251,0) 70%), #fbfcff; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(28px, 4vw, 56px); align-items: center;">
+    <dc-import name="Ambient" mode="caustic" style="position: absolute; z-index: -1; right: -10%; bottom: -40%; width: 50%; height: 120%; opacity: .35; pointer-events: none;" hint-size="50%,100%"></dc-import>
+
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 12px; color: #0058c4;">{{ eyebrow }}</div>
+      <h2 style="margin: 14px 0 0; font-family: var(--font-display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; font-size: clamp(28px, 3.4vw, 44px); color: #0d0d0d; text-wrap: balance;">{{ titleA }} <span style="color: #0058c4;">{{ titleB }}</span></h2>
+      <p style="margin: 16px 0 0; max-width: 520px; font-size: 16.5px; line-height: 1.6; color: #2b2e33; text-wrap: pretty;">{{ lead }}</p>
+      <ul style="margin: 22px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+        <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
+          <li style="display: flex; gap: 12px; align-items: baseline; font-size: 15px; color: #2b2e33;">
+            <span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #007ae8; transform: translateY(-2px);"></span>
+            <span>{{ p }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+
+    <div style="border-radius: 18px; background: rgba(255,255,255,.94); border: 1px solid #e6e6e6; box-shadow: var(--shadow-md); padding: clamp(20px, 3.5vw, 32px);">
+      <sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" novalidate="" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: var(--font-mono); font-size: 12px; color: #3d4045;">Free · {{ cadence }}</div>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
+            <span>First name</span>
+            <input type="text" name="name" autocomplete="given-name" value="{{ name }}" onChange="{{ setName }}" style="height: 50px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #e6e6e6; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #0d0d0d; outline: none; transition: border-color 160ms ease, background 160ms ease;" style-focus="border-color: #007ae8; background: #fff;">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13.5px;">
+            <span>Work email</span>
+            <input type="email" name="email" autocomplete="email" value="{{ email }}" onChange="{{ setEmail }}" aria-invalid="{{ invalid }}" style="height: 50px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ border }}; background: #fbfcff; font-family: var(--font-body); font-weight: 400; font-size: 16px; color: #0d0d0d; outline: none; transition: border-color 160ms ease, background 160ms ease;" style-focus="border-color: #007ae8; background: #fff;">
+            <span style="font-family: var(--font-body); font-weight: 400; font-size: 12.5px; color: #b42318;">{{ err }}</span>
+          </label>
+          <span onClick="{{ submit }}" style="display: flex; transition: transform 120ms ease-out;" style-active="transform: scale(.98);">
+            <x-import component-from-global-scope="LocateDigitalDesignSystem_08c31d.Button" variant="primary" size="lg" type="button" style="width: 100%;" hint-size="100%,56px">{{ btn }}</x-import>
+          </span>
+          <p style="margin: 2px 0 0; font-size: 12.5px; line-height: 1.5; color: #5a5e66;">Unsubscribe in one click, any time. We never share your details. <a href="/privacy">Privacy policy</a></p>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="min-height: 300px; display: flex; flex-direction: column; justify-content: center; gap: 12px;">
+          <img src="/assets/pin-blue.png" alt="" aria-hidden="true" width="24" height="36" style="width: 24px; height: auto;">
+          <h3 style="margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3vw, 36px); line-height: 1.1;">{{ thanks }}</h3>
+          <p style="margin: 0; font-size: 15.5px; color: #2b2e33;">Check your inbox for a confirmation email. The next issue will land {{ cadenceShort }}.</p>
+          <a href="/ai#assessment" style="margin-top: 6px; font-weight: 600; font-size: 15px;">While you wait, take the AI Readiness Assessment →</a>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: &quot;560px&quot;}, &quot;eyebrow&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Free newsletter&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;titleA&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Stay ahead of AI,&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;titleB&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;without the noise.&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+class Component extends DCLogic {
+  cardRef = React.createRef();
+  state = { name: '', email: '', tried: false, sent: false, sending: false };
+  renderVals() {
+    const P = this.props, S = this.state, ok = /\S+@\S+\.\S+/.test(S.email);
+    const err = S.tried && !ok ? 'Please add a valid email.' : '';
+    const swap = () => { const el = this.cardRef.current; if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) el.animate([{ opacity: .4, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' }); };
+    return {
+      cardRef: this.cardRef, open: !S.sent, sent: S.sent,
+      eyebrow: P.eyebrow ?? 'Free newsletter',
+      titleA: P.titleA ?? 'Stay ahead of AI,', titleB: P.titleB ?? 'without the noise.',
+      lead: P.lead ?? 'A short email with the AI news that matters to financial services firms, and practical tips your team can use the same week. Written in plain English, no technical background needed.',
+      points: ['New AI tools and updates, and whether they are worth your time', 'One practical tip or prompt to try on real work', 'What is changing around AI, privacy and compliance in Australia'],
+      cadence: 'one email a fortnight', cadenceShort: 'within a fortnight',
+      name: S.name, setName: (e) => this.setState({ name: e.target.value }),
+      email: S.email, setEmail: (e) => this.setState({ email: e.target.value }),
+      err, invalid: err ? 'true' : 'false', border: err ? '#b42318' : '#e6e6e6',
+      btn: S.sending ? 'Subscribing…' : 'Subscribe →',
+      submit: (e) => { e && e.preventDefault && e.preventDefault(); if (S.sending) return; if (!ok) { this.setState({ tried: true }); return; }
+        this.setState({ sending: true });
+        // DEMO ONLY: nothing is sent yet. Swap this for the newsletter provider's signup call before going live.
+        setTimeout(() => this.setState({ sending: false, sent: true }, () => setTimeout(swap, 0)), 600); },
+      thanks: 'You are on the list' + (S.name.trim() ? ', ' + S.name.trim().split(' ')[0] : '') + '.'
+    };
+  }
+}
+</script>
+</body>
+</html>

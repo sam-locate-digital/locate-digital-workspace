@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Rate Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+  .sheet{max-width:1080px;margin:0 auto;padding:34px 28px 56px}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .logo-mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--primary)}
+  .logo-dot{width:14px;height:14px;border-radius:50%;background:var(--primary)}
+  .topbar .tag{font-family:var(--head);font-weight:600;font-size:13px;color:var(--muted)}
+  h1{font-family:var(--head);font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0 0 4px}
+  .lede{color:var(--muted);font-size:15px;margin:0 0 24px;max-width:760px}
+  .lede b{color:var(--ink)}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .card.rec{border:2px solid var(--primary);box-shadow:0 14px 40px rgba(0,122,232,.16);transform:translateY(-6px)}
+  .rec-flag{background:var(--primary);color:#fff;text-align:center;font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:7px}
+  .card-head{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+  .card.rec .card-head{background:linear-gradient(135deg,#eaf4ff,#f3fbff)}
+  .tier{font-family:var(--head);font-weight:800;font-size:20px;margin:0}
+  .price{font-family:var(--head);font-weight:800;font-size:34px;letter-spacing:-.02em;margin:8px 0 0}
+  .price span{font-size:15px;font-weight:600;color:var(--muted)}
+  .for{color:var(--muted);font-size:13px;margin:10px 0 0;min-height:34px}
+  .card-body{padding:18px 22px 24px;flex:1}
+  .lbl{font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  ul{margin:0 0 16px;padding:0;list-style:none}
+  li{position:relative;padding-left:22px;margin:6px 0;font-size:14px}
+  li:before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--secondary)}
+  li.dim{color:var(--muted)}
+  li.dim:before{background:var(--line)}
+  .outcome{background:var(--row-alt);border-radius:10px;padding:10px 14px;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:16px}
+  .outcome span{color:var(--primary)}
+
+  .addons{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+  .addons h2,.terms h2{font-family:var(--head);font-weight:800;font-size:18px;margin:0 0 14px}
+  .addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}
+  .addon{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:8px 0;font-size:14px}
+  .addon b{font-family:var(--head);color:var(--primary);white-space:nowrap}
+
+  .terms{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+  .terms ul{margin:0}
+  .terms li{padding-left:22px}
+  .terms li:before{top:8px}
+  .terms li b{color:var(--ink);font-family:var(--head)}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:26px}
+
+  @media(max-width:820px){.cards{grid-template-columns:1fr}.card.rec{transform:none}.addon-grid{grid-template-columns:1fr}}
+  @media print{
+    body{background:#fff}
+    .card,.addons,.terms{box-shadow:none;page-break-inside:avoid}
+    .card.rec{transform:none}
+    .rec-flag,.logo-dot{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="topbar">
+    <div class="logo-mark"><span class="logo-dot"></span>Locate Digital.</div>
+    <div class="tag">Digital marketing that grows service businesses</div>
+  </div>
+
+  <h1>Rate card</h1>
+  <p class="lede">Plans built to bring you more customers. We lead with paid media, the fastest, most measurable way to drive enquiries and sales, and add SEO, email and content where it makes sense. <b>Ad spend is separate and paid directly to Google/Meta.</b></p>
+
+  <div class="cards">
+
+    <!-- Starter -->
+    <div class="card">
+      <div class="card-head">
+        <p class="tier">Starter</p>
+        <p class="price">$1,800<span> /mo</span></p>
+        <p class="for">New or small businesses, 0–2 years in, little to no marketing in place.</p>
+      </div>
+      <div class="card-body">
+        <div class="outcome">Goal: <span>a steady flow of new leads</span></div>
+        <p class="lbl">Paid media (core)</p>
+        <ul>
+          <li>One channel — Google <em>or</em> Meta</li>
+          <li>Audience &amp; location targeting</li>
+          <li>Conversion tracking (GA4)</li>
+          <li>Monthly optimisation</li>
+          <li>Monthly report + 1 call</li>
+        </ul>
+        <p class="lbl">Add-ons available</p>
+        <ul>
+          <li class="dim">SEO, email &amp; content as add-ons</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Growth (recommended) -->
+    <div class="card rec">
+      <div class="rec-flag">Recommended</div>
+      <div class="card-head">
+        <p class="tier">Growth</p>
+        <p class="price">$3,500<span> /mo</span></p>
+        <p class="for">Established businesses with steady revenue, ready to scale leads and sales.</p>
+      </div>
+      <div class="card-body">
+        <div class="outcome">Goal: <span>predictable, scalable lead growth</span></div>
+        <p class="lbl">Paid media (core)</p>
+        <ul>
+          <li>Both channels — Google <b>+</b> Meta</li>
+          <li>Advanced targeting &amp; audience segmentation</li>
+          <li>Search + Display / social campaigns</li>
+          <li>Ad creative &amp; copy</li>
+          <li>A/B testing</li>
+          <li>Full conversion tracking (GA4 + GTM)</li>
+          <li>Monthly report + strategy call</li>
+        </ul>
+        <p class="lbl">Included extras</p>
+        <ul>
+          <li>On-page SEO for up to 5 pages</li>
+          <li>1 monthly blog, written &amp; posted</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scale -->
+    <div class="card">
+      <div class="card-head">
+        <p class="tier">Scale</p>
+        <p class="price">$6,500<span> /mo +</span></p>
+        <p class="for">Well-established businesses investing seriously in growth and wanting full management.</p>
+      </div>
+      <div class="card-body">
+        <div class="outcome">Goal: <span>maximum reach &amp; return across channels</span></div>
+        <p class="lbl">Paid media (core)</p>
+        <ul>
+          <li>Multi-platform — Google, Meta, +1 (e.g. LinkedIn / YouTube)</li>
+          <li>Advanced targeting, retargeting &amp; segmentation</li>
+          <li>Full creative production + A/B testing</li>
+          <li>Conversion-rate optimisation (CRO)</li>
+          <li>Dedicated landing pages</li>
+          <li>Server-side / full tracking setup</li>
+          <li>Fortnightly calls + priority support</li>
+        </ul>
+        <p class="lbl">Included extras</p>
+        <ul>
+          <li>On-page SEO for up to 10 pages</li>
+          <li>2 monthly blogs + link building</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Add-ons -->
+  <div class="addons">
+    <h2>Add-ons &amp; one-off projects</h2>
+    <div class="addon-grid">
+      <div class="addon"><span>Paid ad + tracking audit <em>(credited back if you sign)</em></span><b>$750</b></div>
+      <div class="addon"><span>Landing page build</span><b>$1,800–3,500</b></div>
+      <div class="addon"><span>Website build <em>(up to 30 pages, copy, booking and tracking included)</em></span><b>$4,500–7,000</b></div>
+      <div class="addon"><span>Website care plan <em>(hosting, updates, small edits)</em></span><b>$149/mo</b></div>
+      <div class="addon"><span>GA4 + GTM / conversion tracking setup</span><b>$1,500–2,500</b></div>
+      <div class="addon"><span>Email marketing (campaigns + automation)</span><b>from $600/mo</b></div>
+      <div class="addon"><span>SEO &amp; content package (added to any tier)</span><b>from $900/mo</b></div>
+      <div class="addon"><span>Digital strategy consulting</span><b>$200/hr</b></div>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="terms">
+    <h2>How it works</h2>
+    <ul>
+      <li><b>One-off setup fee — $1,500.</b> Covers account audit, conversion tracking, and the full campaign build in month one.</li>
+      <li><b>Ad spend is separate</b> and paid by you directly to Google/Meta. Our fee is management only.</li>
+      <li><b>Management fee is the higher of</b> the plan price or 15–20% of monthly ad spend.</li>
+      <li><b>3-month minimum,</b> then month to month. No long lock-in — we keep you on results.</li>
+      <li><b>You see real numbers</b> — leads, cost per lead and return on spend, not vanity metrics.</li>
+    </ul>
+  </div>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io · Prices in AUD, ex GST</footer>
+
+</div>
+</body>
+</html>

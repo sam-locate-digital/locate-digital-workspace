@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — 12-Month Roadmap to $100k/mo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+  header.hero{background:linear-gradient(135deg,var(--primary),#0560b8);color:#fff;padding:52px 0 44px}
+  .logo-mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;font-size:20px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  header.hero h1{font-family:var(--head);font-weight:800;font-size:36px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.02em}
+  header.hero p{margin:0;opacity:.92;max-width:660px;font-size:17px}
+
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px}
+  .phase{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .phase b{font-family:var(--head);font-size:13px;color:var(--primary);display:block}
+  .phase span{font-size:12.5px;color:var(--muted)}
+
+  section{margin:34px auto;max-width:1000px}
+  h2{font-family:var(--head);font-weight:800;font-size:24px;margin:0 0 4px}
+  .lead{color:var(--muted);margin:0 0 18px}
+
+  .month{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:14px;overflow:hidden}
+  .month-head{display:flex;align-items:center;gap:14px;padding:16px 22px;background:var(--row-alt);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .mnum{font-family:var(--head);font-weight:800;font-size:14px;color:#fff;background:var(--primary);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .mtitle{font-family:var(--head);font-weight:700;font-size:17px}
+  .mrev{margin-left:auto;font-family:var(--head);font-weight:700;font-size:14px;color:var(--accent);background:#fff4ee;border:1px solid #ffd9c2;padding:4px 12px;border-radius:999px}
+  .mclients{font-family:var(--head);font-weight:600;font-size:12.5px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:4px 11px;border-radius:999px}
+  .month-body{padding:18px 22px;display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+  .month-body h4{font-family:var(--head);font-size:11px;letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px;color:var(--accent)}
+  .month-body h4.auto{color:var(--primary)}
+  ul{margin:0;padding-left:18px}
+  li{margin:5px 0}
+  .auto-block{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+
+  .stack{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14px}
+  .stack th,.stack td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  .stack th{font-family:var(--head);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--row-alt)}
+  .stack tr:last-child td{border-bottom:none}
+  .stack td b{font-family:var(--head);color:var(--primary)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;font-family:var(--head)}
+  .now{background:#eafaf1;color:#1f8a4c}
+  .soon{background:#fff4ee;color:#c2510a}
+  .later{background:#eef3fb;color:#3567b0}
+
+  .callout{border-radius:12px;padding:16px 20px;margin:14px 0;font-size:14.5px}
+  .callout.key{background:#eafaf1;border:1px solid #bce8cd}
+  .callout.note{background:#fff7ed;border:1px solid #ffd9b3}
+  .callout b{font-family:var(--head)}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;padding:24px 0 50px}
+  @media(max-width:760px){.phases{grid-template-columns:1fr 1fr}.month-body{grid-template-columns:1fr}header.hero h1{font-size:28px}}
+  @media print{body{background:#fff}.month,.stack{box-shadow:none;page-break-inside:avoid}header.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-mark"><span class="logo-dot"></span>Locate Digital.</div>
+    <h1>12-month roadmap to $100k/mo</h1>
+    <p>Month by month, what to do, who to hire, and what to automate. Built for a solo start in Melbourne physio/osteo, scaling to a team. Honest timeline: hitting $100k by month 12 is the stretch goal — months 15–18 is the realistic one. Either way, this is the path.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="phases">
+    <div class="phase"><b>Phase 1 · M1–3</b><span>Foundation + first 3 clients</span></div>
+    <div class="phase"><b>Phase 2 · M4–6</b><span>Systemise + first hire</span></div>
+    <div class="phase"><b>Phase 3 · M7–9</b><span>Build the pod</span></div>
+    <div class="phase"><b>Phase 4 · M10–12</b><span>Lead-gen machine + scale</span></div>
+  </div>
+
+  <!-- ===================== CALENDAR ===================== -->
+  <section>
+    <h2>The month-by-month calendar</h2>
+    <p class="lead">Revenue = recurring management fees only (ad spend is the client's). Targets are direction, not gospel — protect the daily outreach habit and the numbers follow.</p>
+
+    <!-- M1 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">1</span><span class="mtitle">Build the foundation</span><span class="mclients">1 client</span><span class="mrev">~$2–4k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Publish the one-page site + Calendly</li>
+            <li>Rewrite LinkedIn + Instagram bios to the USP</li>
+            <li>List first 50 clinics in the tracker</li>
+            <li>Record + send 5 teardown videos a day</li>
+            <li>Message every warm contact in allied health</li>
+            <li>Turn MOSIC into your first case study</li>
+            <li>Set up Xero + a business bank account</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>Calendly</b> → booking</li>
+            <li><b>Loom</b> → teardowns</li>
+            <li><b>Apollo.io</b> → prospect data + email</li>
+            <li><b>Claude Code skills</b> → ad copy, SEO, tracking</li>
+            <li><b>Google Sheet tracker</b> (already built)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">2</span><span class="mtitle">Outreach volume</span><span class="mclients">3 clients</span><span class="mrev">~$8–10k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Reach 100 prospects, hold the daily rhythm</li>
+            <li>Run the full follow-up sequence on everyone</li>
+            <li>First 1–2 clients at a discount for a case study</li>
+            <li>Onboard properly: setup fee, tracking, build</li>
+            <li>Book client calls back-to-back, two days a week</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>CRM (Pipedrive or HubSpot free)</b> → pipeline</li>
+            <li><b>Zapier</b>: Calendly booking → CRM deal + Slack ping</li>
+            <li><b>Claude</b> client-onboarding skill on every signup</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">3</span><span class="mtitle">Deliver + prove</span><span class="mclients">3–4 clients</span><span class="mrev">~$12–15k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Deliver hard, track new-patient numbers weekly</li>
+            <li>Get first written testimonial + case study</li>
+            <li>Ask every happy client for one referral</li>
+            <li>Sign client 3–4 at full rate</li>
+            <li>Document your delivery as repeatable SOPs (done)</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>Looker Studio</b> → live client dashboards</li>
+            <li><b>Claude</b> monthly-report-narrative on a schedule</li>
+            <li><b>Zapier</b>: new client → auto-create Drive folder + Slack channel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">4</span><span class="mtitle">Systemise + raise prices</span><span class="mclients">5–6 clients</span><span class="mrev">~$18–22k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Lift new-client pricing (proof now justifies it)</li>
+            <li>Lock delivery into a repeatable weekly cadence</li>
+            <li>Move CRM + reporting fully onto automation</li>
+            <li>Start your own paid ads to the niche</li>
+            <li>Write the hiring brief for a media buyer / AM</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li>Consider <b>n8n</b> (self-host) as Zapier costs climb</li>
+            <li><b>n8n</b>: Google Ads + GA4 → monthly data pull → Claude report</li>
+            <li><b>ClickUp / Notion</b> → delivery board per client</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">5</span><span class="mtitle">First hire</span><span class="mclients">7–8 clients</span><span class="mrev">~$25–30k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Hire a media buyer / account manager (contractor first)</li>
+            <li>Hand over delivery using your SOPs</li>
+            <li>Shift your time to sales + strategy + QC</li>
+            <li>Keep outreach running — don't stop selling</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>Slack</b> → team comms + client channels</li>
+            <li><b>Loom</b> → record SOP walkthroughs for the hire</li>
+            <li>Shared <b>Claude Code</b> skills = instant onboarding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M6 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">6</span><span class="mtitle">Lead-gen machine</span><span class="mclients">9–10 clients</span><span class="mrev">~$30–35k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Scale your own ads + content (eat your own cooking)</li>
+            <li>Build referral + partnership channels (suppliers, consultants)</li>
+            <li>Publish 2–3 case studies as a wall of proof</li>
+            <li>Niche fully owned — you're the obvious choice</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>n8n + Claude</b> → inbound lead scoring + auto-reply</li>
+            <li><b>Instantly/Apollo</b> sequences run continuously</li>
+            <li><b>Reels-script / social-post skills</b> → daily content</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M7 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">7</span><span class="mtitle">Pod foundations</span><span class="mclients">12 clients</span><span class="mrev">~$40k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Formalise pod 1: AM + buyer + creative (you still QC)</li>
+            <li>Define capacity: one pod ≈ $30–40k of retainers</li>
+            <li>Tighten margins — delivery under 40% of revenue</li>
+            <li>Move borderline clients up a tier</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>Go High Level</b> (evaluate) → all-in-one CRM + reporting</li>
+            <li><b>Automated client reporting</b> end to end</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M8 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">8</span><span class="mtitle">Second hire</span><span class="mclients">14–15 clients</span><span class="mrev">~$45–50k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Add a creative/content specialist or second buyer</li>
+            <li>Get fully out of day-to-day delivery</li>
+            <li>Introduce add-on revenue (SEO, email, landing pages)</li>
+            <li>Review churn — retention is now the game</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>n8n</b> → onboarding fully automated (form → folder → accounts checklist)</li>
+            <li><b>Claude</b> → QA pass on all client deliverables</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M9 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">9</span><span class="mtitle">Premium + scale clients</span><span class="mclients">16–18 clients</span><span class="mrev">~$55–60k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Push more clients to Scale tier ($6.5k+)</li>
+            <li>Expand niche: chiro, podiatry, then dental</li>
+            <li>Fill pod 1, plan pod 2</li>
+            <li>Systemise quarterly client reviews</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>Looker Studio</b> templates per vertical</li>
+            <li><b>n8n + Claude</b> → anomaly alerts on client accounts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M10 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">10</span><span class="mtitle">Second pod</span><span class="mclients">20 clients</span><span class="mrev">~$65–75k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Stand up pod 2 (AM + buyer + creative)</li>
+            <li>Promote your strongest AM to pod lead</li>
+            <li>You = sales, strategy, vision only</li>
+            <li>Tighten hiring + training playbook</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li>Self-serve <b>onboarding portal</b> (n8n + forms)</li>
+            <li><b>Internal Claude agent</b> for SOP Q&amp;A</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M11 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">11</span><span class="mtitle">Add a salesperson</span><span class="mclients">23–25 clients</span><span class="mrev">~$80–90k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Hire a salesperson so growth isn't bottlenecked on you</li>
+            <li>Hand over the teardown → close process (documented)</li>
+            <li>Double down on the channels that convert best</li>
+            <li>Lock annual contracts to smooth cash flow</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li><b>CRM automations</b> → lead routing + follow-up</li>
+            <li><b>Claude</b> → auto-draft proposals from a discovery call</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- M12 -->
+    <div class="month">
+      <div class="month-head"><span class="mnum">12</span><span class="mtitle">The $100k push</span><span class="mclients">~25 retainers + add-ons</span><span class="mrev">~$100k/mo</span></div>
+      <div class="month-body">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Two pods running, sales engine humming</li>
+            <li>Blend: retainers + Scale clients + add-ons + projects</li>
+            <li>Profit target: 25–35% net after paying yourself a wage</li>
+            <li>Plan pod 3 + the next vertical for year 2</li>
+          </ul>
+        </div>
+        <div class="auto-block">
+          <h4 class="auto">Set up / automate</h4>
+          <ul>
+            <li>Everything routine automated — you touch only strategy</li>
+            <li>Quarterly automation audit: kill what's not used</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== STACK ===================== -->
+  <section>
+    <h2>The software + automation stack</h2>
+    <p class="lead">Buy in this order. Don't pay for tools before you have the clients to justify them. <span class="pill now">now</span> = month 1–2, <span class="pill soon">soon</span> = month 3–5, <span class="pill later">later</span> = month 6+.</p>
+    <table class="stack">
+      <thead><tr><th>Job</th><th>Tool</th><th>When</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Delivery (ads, SEO, reports, content, tracking)</td><td><b>Claude Code + your skills</b></td><td><span class="pill now">now</span></td><td>Already built. Your biggest lever — does the work of staff before you hire.</td></tr>
+        <tr><td>Booking calls</td><td><b>Calendly</b></td><td><span class="pill now">now</span></td><td>Free tier fine. Removes back-and-forth.</td></tr>
+        <tr><td>Teardown videos</td><td><b>Loom</b></td><td><span class="pill now">now</span></td><td>Your core outreach hook. Also for SOP recordings later.</td></tr>
+        <tr><td>Prospecting + cold email</td><td><b>Apollo.io</b> or <b>Instantly</b></td><td><span class="pill now">now</span></td><td>Data + sending in one. Apollo doubles as your lead database.</td></tr>
+        <tr><td>CRM / pipeline</td><td><b>Pipedrive</b> or <b>HubSpot free</b></td><td><span class="pill soon">soon</span></td><td>Once you've more than ~5 deals in flight. HubSpot free is genuinely good.</td></tr>
+        <tr><td>Accounting</td><td><b>Xero</b></td><td><span class="pill now">now</span></td><td>AU standard. Invoicing + GST from day one.</td></tr>
+        <tr><td>Automation glue (start)</td><td><b>Zapier</b> or <b>Make</b></td><td><span class="pill soon">soon</span></td><td>Fast to set up. Make is cheaper per task. Use for booking→CRM→Slack.</td></tr>
+        <tr><td>Automation glue (scale)</td><td><b>n8n</b> (self-hosted)</td><td><span class="pill later">later</span></td><td>Cheaper at volume, no per-task fees, strong AI/Claude nodes. Switch once Zapier bills sting (~month 4–5).</td></tr>
+        <tr><td>Client dashboards</td><td><b>Looker Studio</b></td><td><span class="pill soon">soon</span></td><td>Free, connects to Google Ads + GA4. Pair with the Claude report skill for the narrative.</td></tr>
+        <tr><td>Project / delivery mgmt</td><td><b>ClickUp</b> or <b>Notion</b></td><td><span class="pill soon">soon</span></td><td>One board per client. Essential before the first hire.</td></tr>
+        <tr><td>Team comms</td><td><b>Slack</b></td><td><span class="pill later">later</span></td><td>From first hire. Client channels keep comms out of your inbox.</td></tr>
+        <tr><td>All-in-one (optional)</td><td><b>Go High Level</b></td><td><span class="pill later">later</span></td><td>Agency CRM + reporting + white-label. Evaluate ~month 7 — can replace several tools above.</td></tr>
+        <tr><td>Ad creative images</td><td><b>banana-claude / nanobanana</b></td><td><span class="pill soon">soon</span></td><td>You already have the ads-generate + photoshoot skills. AI creative at scale.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== KEY AUTOMATIONS ===================== -->
+  <section>
+    <h2>The automations that actually move the needle</h2>
+    <p class="lead">Not automation for its own sake. These five remove the most hours.</p>
+    <div class="callout key"><b>1. Booking → onboarding.</b> Calendly booking fires Zapier/n8n → creates the CRM deal, pings Slack, and on signup spins up the Drive folder + runs the Claude client-onboarding skill. Saves ~1 hr per client.</div>
+    <div class="callout key"><b>2. Monthly reporting.</b> n8n pulls Google Ads + GA4 data on a schedule → Looker Studio dashboard + Claude monthly-report-narrative writes the insights. Turns a half-day per client into minutes.</div>
+    <div class="callout key"><b>3. Content engine.</b> Your reels-script, social-post, blog and GMB skills run on a content calendar → near-zero-cost daily presence for both Locate and clients.</div>
+    <div class="callout key"><b>4. Inbound triage.</b> n8n + Claude scores inbound leads and drafts the first reply, so nothing sits cold while you're in calls.</div>
+    <div class="callout key"><b>5. Account anomaly alerts.</b> A scheduled check on client ad accounts flags spend spikes or conversion drops before the client notices. Retention gold.</div>
+    <div class="callout note"><b>My honest pick on Zapier vs n8n:</b> start on <b>Zapier or Make</b> in months 2–3 — speed matters more than cost when you've got 3 clients. Switch to <b>n8n</b> around month 4–5 once you're running real volume: it's self-hosted (or cheap cloud), has no per-task pricing, and its AI nodes plug straight into Claude. Don't start on n8n — the setup overhead isn't worth it until you've proven the workflows.</div>
+  </section>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io · 12-month roadmap</footer>
+
+</div>
+</body>
+</html>

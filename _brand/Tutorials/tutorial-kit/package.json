@@ -1,0 +1,19 @@
+{
+  "name": "locate-tutorial-kit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Locate long-form tutorial kit: 16:9 face and screen edit, chapter cards, zooms, labels, split frames",
+  "scripts": {
+    "render": "node render.mjs",
+    "studio": "remotion studio src/index.jsx"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/google-fonts": "4.0.537",
+    "@remotion/renderer": "4.0.537",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.537"
+  }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Client Welcome Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+  .sheet{max-width:840px;margin:0 auto;padding:0 0 60px}
+  .hint{text-align:center;color:var(--muted);font-size:12.5px;padding:16px 20px 0}.hint b{color:var(--primary)}.ph{color:var(--accent);font-weight:600}
+
+  .hero{background:linear-gradient(150deg,#06203a,#0a3a6b 60%,#007ae8 130%);color:#fff;padding:44px 48px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:19px;color:#fff;margin-bottom:24px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  .hero .lbl{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary);margin:0 0 8px}
+  .hero h1{font-family:var(--head);font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 10px}
+  .hero p{color:#cfe6ff;font-size:15px;margin:0;max-width:600px}
+
+  .body{padding:10px 48px}
+  section{margin:32px 0}
+  h2{font-family:var(--head);font-weight:800;font-size:21px;letter-spacing:-.01em;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  h2:before{content:"";width:8px;height:22px;background:var(--primary);border-radius:3px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 16px;padding-left:18px}
+  p{margin:0 0 12px}
+
+  ul{margin:0 0 12px;padding:0;list-style:none}
+  li{position:relative;padding-left:24px;margin:9px 0}
+  li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--secondary)}
+  li b{font-family:var(--head)}
+
+  .steps{display:grid;gap:12px}
+  .step{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+  .step .w{font-family:var(--head);font-weight:800;font-size:13px;color:var(--accent);min-width:84px;padding-top:3px}
+  .step .t{font-family:var(--head);font-weight:700;font-size:16px;margin:0 0 4px}
+  .step p{margin:0;color:var(--muted);font-size:14px}
+
+  .checklist{background:var(--row-alt);border-radius:16px;padding:22px 26px}
+  .checklist h2{margin-bottom:14px}
+  .check{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .check:last-child{border-bottom:none}
+  .box{width:18px;height:18px;border:2px solid var(--primary);border-radius:5px;flex-shrink:0;margin-top:2px}
+  .check b{font-family:var(--head)}
+  .check span{color:var(--muted);font-size:13px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .infocard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+  .infocard h3{font-family:var(--head);font-weight:700;font-size:15px;margin:0 0 8px;color:var(--primary)}
+  .infocard p{margin:0;font-size:14px;color:var(--muted)}
+  .infocard p b{color:var(--ink)}
+
+  .callout{background:#eaf4ff;border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:16px 20px}
+  .callout p{margin:0;font-size:14.5px}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:30px;padding:0 20px}
+
+  @media(max-width:720px){.hero,.body{padding-left:24px;padding-right:24px}.grid2{grid-template-columns:1fr}.step{flex-direction:column;gap:6px}}
+  @media print{body{background:#fff}.hint{display:none}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}section,.step,.infocard{page-break-inside:avoid}.logo-dot,.checklist,.callout,.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+
+<p class="hint">Client welcome pack · sent on signup · replace <b class="ph">[brackets]</b> with the client's details · delete this line first</p>
+
+<div class="sheet">
+
+  <div class="hero">
+    <span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span>
+    <p class="lbl">Welcome aboard</p>
+    <h1>Welcome to Locate Digital, [Clinic name].</h1>
+    <p>Great to have you on board. Here's exactly what happens next, what we need from you, and how we'll work together to fill your diary.</p>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <h2>What happens first</h2>
+      <p class="sub">Your first 30 days, step by step.</p>
+      <div class="steps">
+        <div class="step"><div class="w">Day 1–2</div><div><p class="t">Kickoff &amp; access</p><p>We send this pack, the invoice, and the access requests. You grant us access to your ad accounts (we'll walk you through it).</p></div></div>
+        <div class="step"><div class="w">Day 3–7</div><div><p class="t">Audit &amp; tracking</p><p>We audit everything, set up conversion tracking (GA4 + GTM), and capture your baseline numbers so we can prove the lift later.</p></div></div>
+        <div class="step"><div class="w">Day 7–14</div><div><p class="t">Build</p><p>We build your campaigns, targeting and ad creative. You get a quick sign-off on the creative before anything goes live.</p></div></div>
+        <div class="step"><div class="w">Day 14–21</div><div><p class="t">Launch</p><p>Ads go live. We monitor daily, cut waste and tune toward bookings.</p></div></div>
+        <div class="step"><div class="w">Day 30</div><div><p class="t">First report &amp; call</p><p>Your first monthly report and strategy call: what we spent, what it booked, what's next.</p></div></div>
+      </div>
+    </section>
+
+    <section class="checklist">
+      <h2>What we need from you</h2>
+      <p class="sub" style="padding-left:0">Quick wins now save weeks later. The faster these land, the faster you're live.</p>
+      <div class="check"><span class="box"></span><div><b>Ad account access</b> — Google Ads &amp; Meta Business (we send the exact requests; you just approve).</div></div>
+      <div class="check"><span class="box"></span><div><b>Website access</b> — so we can add tracking and, if needed, landing pages. <span>(admin login or your web person's contact)</span></div></div>
+      <div class="check"><span class="box"></span><div><b>Google Business Profile access</b> — for local visibility and call tracking.</div></div>
+      <div class="check"><span class="box"></span><div><b>Your services &amp; pricing</b> — what you want to push, what's most profitable, any you don't want promoted.</div></div>
+      <div class="check"><span class="box"></span><div><b>Catchment suburbs</b> — where your patients actually come from.</div></div>
+      <div class="check"><span class="box"></span><div><b>Logo &amp; any brand assets</b> — for ad creative.</div></div>
+      <div class="check"><span class="box"></span><div><b>Your booking process</b> — phone, online booking link, or both. We point every ad at the easiest way to book.</div></div>
+      <div class="check"><span class="box"></span><div><b>Setup invoice paid</b> — so we can start the build.</div></div>
+    </section>
+
+    <section>
+      <h2>How we'll work together</h2>
+      <div class="grid2">
+        <div class="infocard"><h3>Your contact</h3><p><b>Sam</b> — your single point of contact. No call centre, no account manager relay. <br>sam@locatedigital.io · [phone]</p></div>
+        <div class="infocard"><h3>Response time</h3><p>Email replied to <b>within 1 business day.</b> Urgent (ad outage, billing): call or text and I'll jump on it.</p></div>
+        <div class="infocard"><h3>Reporting</h3><p>A <b>monthly report + strategy call</b>, same time each month. Plain English: patients booked, cost per patient, next moves.</p></div>
+        <div class="infocard"><h3>Billing</h3><p>Retainer billed monthly in advance by <b>direct debit</b>. Ad spend is paid by you directly to Google/Meta, separate from our fee.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What we'll measure</h2>
+      <ul>
+        <li><b>New patients booked</b> — the only number that really matters.</li>
+        <li><b>Cost per booking</b> — what each new patient costs in ad spend.</li>
+        <li><b>Spend vs return</b> — every dollar tracked, no vanity metrics.</li>
+      </ul>
+      <div class="callout"><p>Give the campaigns the first <b>4–6 weeks</b> to gather data and settle. Paid media needs a little runway before it hits full stride — that's why we run a 3-month minimum.</p></div>
+    </section>
+
+    <section>
+      <h2>A couple of house rules</h2>
+      <ul>
+        <li><b>Sign off creative quickly</b> — the faster you approve, the faster we launch.</li>
+        <li><b>Tell us when something changes</b> — a new service, a price change, a fully booked week. It all affects the ads.</li>
+        <li><b>Send us the wins</b> — when a patient says "I found you on Google", let us know. It sharpens everything.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io · ABN [ABN]</footer>
+
+</div>
+</body>
+</html>

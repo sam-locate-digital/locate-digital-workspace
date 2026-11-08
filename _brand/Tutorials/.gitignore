@@ -1,0 +1,19 @@
+# Keep video media out of git. These files stay on Google Drive, which already backs them up.
+# Scripts, configs, notes and the kit's code are still tracked.
+Raw Footage/
+Exports/
+*.mp4
+*.mov
+*.m4v
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.srt
+*.vtt
+node_modules/
+out/
+tutorial-kit/public/base.mp4
+tutorial-kit/public/shots/*
+!tutorial-kit/public/shots/.gitkeep

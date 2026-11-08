@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI session call flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #007AE8; --cyan: #75DFEE; --orange: #FF5900; --ink: #0D0D0D; --muted: #63666B;
+    --line: #E6E6E6; --soft: #FBFCFF; --alt: #F4F8FD; --green: #1E8E5A; --red: #C0392B; --amber: #B7791F;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink); font: 16px/1.5 "Public Sans", system-ui, sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 80px; }
+  h1, h2, h3 { font-family: "Newsreader", Georgia, serif; font-weight: 600; margin: 0; }
+  h1 { font-size: 34px; line-height: 1.15; }
+  h2 { font-size: 24px; margin: 48px 0 6px; }
+  .sub { color: var(--muted); margin: 6px 0 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 18px 0 0; font-size: 14px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+
+  .flow { display: flex; flex-direction: column; align-items: center; margin-top: 22px; }
+  .node { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; width: min(640px, 100%); box-shadow: 0 1px 2px rgba(13,13,13,.04); }
+  .node .tag { font-family: "Newsreader", serif; font-size: 14px; color: var(--muted); }
+  .node h3 { font-size: 19px; margin: 2px 0 6px; }
+  .say { border-left: 4px solid var(--blue); background: var(--alt); padding: 10px 12px; border-radius: 0 10px 10px 0; font-weight: 600; margin: 8px 0; }
+  .note { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
+  .node ul, .node ol { margin: 6px 0 0; padding-left: 20px; }
+  .node li { margin: 3px 0; }
+
+  .start { border: 2px solid var(--ink); }
+  .decision { border: 2px solid var(--blue); text-align: center; border-radius: 999px; padding: 12px 22px; width: auto; max-width: 640px; font-weight: 700; }
+  .goal { border: 2px solid var(--orange); }
+  .goal h3 { color: var(--orange); }
+  .end-good { border-left: 6px solid var(--green); }
+  .end-wait { border-left: 6px solid var(--amber); }
+  .end-stop { border-left: 6px solid var(--red); }
+
+  .arrow { width: 2px; height: 26px; background: #B9C4D3; position: relative; }
+  .arrow::after { content: ""; position: absolute; left: -5px; bottom: -2px; border: 6px solid transparent; border-top-color: #B9C4D3; }
+  .arrow.label { height: auto; background: none; width: auto; }
+
+  .branches { display: grid; gap: 14px; width: 100%; margin-top: 4px; }
+  .b2 { grid-template-columns: repeat(2, 1fr); }
+  .b3 { grid-template-columns: repeat(3, 1fr); }
+  .b4 { grid-template-columns: repeat(4, 1fr); }
+  .branch { display: flex; flex-direction: column; align-items: stretch; }
+  .branch > .lbl { align-self: center; font-size: 13px; font-weight: 700; color: var(--blue); background: #EAF4FE; border-radius: 999px; padding: 3px 10px; margin-bottom: 8px; text-align: center; }
+  .branch .node { width: 100%; height: 100%; }
+  .goto { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none; }
+  .goto:hover { text-decoration: underline; }
+
+  .cta { display: inline-block; background: var(--orange); color: #fff; font-weight: 700; border-radius: 999px; padding: 2px 10px; font-size: 13px; }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+  details summary { cursor: pointer; font-weight: 700; list-style: none; }
+  details summary::before { content: "+ "; color: var(--blue); }
+  details[open] summary::before { content: "– "; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 14px; }
+
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+  .tl { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: 12px; padding: 12px; }
+  .tl b { font-family: "Newsreader", serif; font-size: 18px; display: block; }
+  .tl.last { border-top-color: var(--orange); }
+
+  .crm { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .crm span { background: var(--alt); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-size: 14px; }
+
+  .toolbar { position: sticky; top: 0; z-index: 5; background: rgba(251,252,255,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .toolbar .wrap { padding: 10px 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .toolbar a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 5px 12px; }
+  .toolbar a:hover { border-color: var(--blue); color: var(--blue); }
+
+  @media (max-width: 860px) {
+    .b3, .b4, .timeline { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .b2, .b3, .b4, .timeline, .grid2 { grid-template-columns: 1fr; }
+    h1 { font-size: 28px; }
+  }
+  @media print {
+    .toolbar { display: none; }
+    details { break-inside: avoid; }
+    details:not([open]) > *:not(summary) { display: block; }
+    .node, .tl { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="toolbar"><div class="wrap">
+  <a href="#call">1. The call</a>
+  <a href="#book">2. Book it</a>
+  <a href="#objections">3. Objections</a>
+  <a href="#noanswer">4. No answer</a>
+  <a href="#session">5. The hour</a>
+  <a href="#testimonial">6. Testimonial</a>
+</div></nav>
+
+<div class="wrap">
+  <h1>Free AI session call flow</h1>
+  <p class="sub">One free hour, on a call or in person, for an honest testimonial. Follow the arrows. Read the blue boxes out loud.</p>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--alt);border-left:4px solid var(--blue)"></i> Say this</span>
+    <span><i class="sw" style="border:2px solid var(--blue);border-radius:999px"></i> Their answer decides the path</span>
+    <span><i class="sw" style="border:2px solid var(--orange)"></i> The goal: book the hour</span>
+    <span><i class="sw" style="background:var(--green)"></i> Good result</span>
+    <span><i class="sw" style="background:var(--amber)"></i> Follow up later</span>
+    <span><i class="sw" style="background:var(--red)"></i> Move on</span>
+  </div>
+
+  <!-- 1. THE CALL -->
+  <h2 id="call">1. The call</h2>
+  <div class="flow">
+    <div class="node start">
+      <div class="tag">Before you dial (30 seconds)</div>
+      <h3>Open their CSV row</h3>
+      <ul>
+        <li>Name, firm, suburb, team size</li>
+        <li>Pick the one task you'll mention (file notes, document chasing, client emails)</li>
+      </ul>
+    </div>
+    <div class="arrow"></div>
+    <div class="node decision">Who picks up?</div>
+    <div class="arrow"></div>
+
+    <div class="branches b3">
+      <div class="branch">
+        <div class="lbl">The owner / principal</div>
+        <div class="node">
+          <h3>Go to the opener</h3>
+          <p class="note">Straight down the page.</p>
+          <a class="goto" href="#opener">Opener ↓</a>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">Reception / office manager</div>
+        <div class="node">
+          <div class="say">"Hi, it's Sam from Locate Digital. Is [principal] around?"</div>
+          <p class="note">If they ask what it's about:</p>
+          <div class="say">"I'm running free one-hour AI sessions for a handful of Melbourne brokerages, a few shortcuts for file notes and admin. Who'd be right for that?"</div>
+          <p class="note">Keen? "You'd get the most out of it. Could you put it to [principal] for me?"</p>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">Voicemail</div>
+        <div class="node end-wait">
+          <h3>Leave the voicemail, then text</h3>
+          <a class="goto" href="#noanswer">No answer path ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow"></div>
+    <div class="node end-wait">
+      <div class="tag">If the owner isn't in</div>
+      <div class="say">"When's best to catch them, and is it this number or their mobile?"</div>
+      <p class="note">Write the name and time in the CSV. Call back exactly then.</p>
+    </div>
+
+    <div class="arrow"></div>
+    <div class="node" id="opener">
+      <div class="tag">The opener (about 20 seconds)</div>
+      <div class="say">"Hi [name], it's Sam from Locate Digital. Have I caught you at an okay time for 30 seconds?"</div>
+      <p class="note">Pause. "What's it about?" counts as a yes.</p>
+      <div class="say">"I'll be straight with you. I help brokerages use AI properly, and I'm building up testimonials from Melbourne brokers. So I'm offering a handful of firms a free one-hour session. I come in, or we do it on a call. I ask a few questions about how your team works and show you three or four simple tricks for file notes, client emails and document chasing you can use that afternoon. No pitch. The only thing I ask is an honest testimonial if you found it useful. Would that be useful for [Business]?"</div>
+      <p class="note"><b>Then stop talking.</b> Let the silence do the work.</p>
+    </div>
+    <div class="arrow"></div>
+    <div class="node decision">What do they say?</div>
+    <div class="arrow"></div>
+
+    <div class="branches b4">
+      <div class="branch">
+        <div class="lbl">"Yeah, sounds good"</div>
+        <div class="node end-good">
+          <h3>Book it now</h3>
+          <a class="goto" href="#book">Book it ↓</a>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">"What kind of tricks?"</div>
+        <div class="node">
+          <h3>Ask 2 or 3 questions</h3>
+          <ol>
+            <li>"Is anyone using ChatGPT or Copilot yet?"</li>
+            <li>"What eats the most time in a week?"</li>
+            <li>"How long does a file note take after a meeting?"</li>
+            <li>"Any office rules on what goes into AI?"</li>
+          </ol>
+          <a class="goto" href="#maths">Then the maths ↓</a>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">A worry or pushback</div>
+        <div class="node end-wait">
+          <h3>Answer it</h3>
+          <p class="note">"What's the catch?", "We use ChatGPT", privacy, "too busy", "send info", "is it a pitch?"</p>
+          <a class="goto" href="#objections">Objections ↓</a>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">"Not interested"</div>
+        <div class="node end-stop">
+          <div class="say">"No worries. Is it that AI isn't on your radar yet, or you've already got it sorted?"</div>
+          <p class="note">Sorted: "If you ever want a second set of eyes on your AI policy, give me a call." Log "Not now".</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow"></div>
+    <div class="node" id="maths">
+      <div class="tag">Do the maths out loud</div>
+      <div class="say">"So if each broker spends [45 minutes] a day on notes and emails, and we cut half of that, that's two or three hours a week each. With [team size] brokers, that's [hours] a week back. Worth an hour to see?"</div>
+      <p class="note">Then give one example that matches their pain:</p>
+      <details><summary>File notes</summary><div class="say">"After a meeting you can turn rough notes into a clean file note in about a minute, in your own format. You still check it, but you're not writing from scratch."</div></details>
+      <details><summary>Document chasing</summary><div class="say">"Give it your fact-find checklist and it drafts the 'here's what we still need' email to the client, in your tone."</div></details>
+      <details><summary>Client emails</summary><div class="say">"Explaining a rate change or a lender policy to a nervous first home buyer in plain English. Two minutes instead of fifteen."</div></details>
+    </div>
+    <div class="arrow"></div>
+    <div class="node goal"><h3>Go to: book it</h3><a class="goto" href="#book">Book it ↓</a></div>
+  </div>
+
+  <!-- 2. BOOK IT -->
+  <h2 id="book">2. Book it <span class="cta">the goal</span></h2>
+  <div class="flow">
+    <div class="node goal">
+      <div class="tag">Step 1</div>
+      <div class="say">"Let's lock it in. Would you rather I come to you, or do it on a call?"</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Step 2: always two options, never "when suits?"</div>
+      <div class="say">"Are you better Tuesday morning or Thursday afternoon?"</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Step 3</div>
+      <div class="say">"Who else should be there? It works best with whoever does the most admin, plus any keen brokers."</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Step 4</div>
+      <div class="say">"What's the best email for the invite? I'll send it now."</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Step 5: makes them far more likely to show up</div>
+      <div class="say">"Before then, think of one task that drives you nuts each week. I'll make sure we fix that one."</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node end-good">
+      <h3>Log it in the CSV</h3>
+      <div class="crm"><span>Called? Y</span><span>Outcome: Session booked</span><span>Follow-up: date, time + their pain task in their words</span></div>
+    </div>
+  </div>
+
+  <!-- 3. OBJECTIONS -->
+  <h2 id="objections">3. Objections</h2>
+  <p class="sub">Agree, reframe, ask a question. Then go back to <a href="#book">book it</a>. Tap to open.</p>
+  <div class="grid2" style="margin-top:12px">
+    <details open><summary>"What's the catch?"</summary>
+      <div class="say">"Fair question. There isn't one beyond the testimonial. I'm new to doing this with brokers, and the hardest thing to get when you're starting is proof. So I'd rather give a few firms something useful and earn the review. If it's not useful, you don't owe me anything, not even the review."</div>
+    </details>
+    <details open><summary>"We already use ChatGPT"</summary>
+      <div class="say">"Good, then you'll get even more out of it. Most teams use it like a search engine. The jump is setting it up with your own templates and tone, so the output's usable straight away. How are you using it now?"</div>
+    </details>
+    <details><summary>"We're too busy"</summary>
+      <div class="say">"That's exactly why it's an hour. If it doesn't save you more than an hour in the first week, I've wasted your time. I can do before 9 or after 4."</div>
+    </details>
+    <details><summary>"I'm worried about client privacy"</summary>
+      <div class="say">"You should be, and that's one of the most useful things we cover. A lot of brokers paste client details into free tools without knowing where the data goes. I'll show you which tasks are fine, what to keep out, and how business versions handle data differently."</div>
+      <p class="note">Stay general. You're pointing out risks, not giving compliance advice.</p>
+    </details>
+    <details><summary>"Send me some info"</summary>
+      <div class="say">"Happy to. Honestly, the info is the session itself. It's an hour and it's free. Tuesday or Thursday? If neither works, I'll email and you pick a time."</div>
+    </details>
+    <details><summary>"Is this a sales pitch for something bigger?"</summary>
+      <div class="say">"I do run a paid workshop and AI policy for brokerages, so I won't pretend it doesn't exist. But I won't bring it up in the session. If you ask at the end, I'll tell you. If not, you've got free tricks and I've got a testimonial."</div>
+    </details>
+  </div>
+
+  <!-- 4. NO ANSWER -->
+  <h2 id="noanswer">4. No answer</h2>
+  <div class="flow">
+    <div class="node">
+      <div class="tag">Voicemail (under 20 seconds, once only)</div>
+      <div class="say">"Hi [name], it's Sam from Locate Digital. I'm doing free one-hour AI sessions for a handful of Melbourne brokerages this month, a few shortcuts for file notes and client emails, no pitch. I'd love to offer one to [Business]. I'll send you a text. My number's [mobile]. Cheers."</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Text straight after</div>
+      <p style="margin:6px 0 0">Hi [name], Sam from Locate Digital. Just left you a voicemail. I'm running free 1-hour AI sessions for a few Melbourne brokerages: file notes, client emails, doc chasing. In person or on a call. Only ask is an honest testimonial if it helps. Keen? Sam</p>
+    </div>
+    <div class="arrow"></div>
+    <div class="node end-wait">
+      <div class="tag">Follow-up cadence</div>
+      <div class="crm"><span>1. Call + voicemail</span><span>2. Text</span><span>3. Call (2 days later)</span><span>4. Email</span><span>5. Final call (1 week later)</span></div>
+      <p class="note">Still nothing? Mark "Not now" and move on.</p>
+    </div>
+  </div>
+
+  <!-- 5. THE HOUR -->
+  <h2 id="session">5. Running the hour</h2>
+  <p class="sub">Say first: "Two rules today. We only use made-up or de-identified client details, and anything AI writes, a human checks before it goes anywhere."</p>
+  <div class="timeline">
+    <div class="tl"><b>0 to 10 min</b>Questions: tools, a normal day, the task they named, office rules on AI. Write their answers word for word.</div>
+    <div class="tl"><b>10 to 45 min</b>Three or four tricks on their real kind of task. Let them type, not you.</div>
+    <div class="tl"><b>45 to 55 min</b>Privacy quick-check: fine tasks, what to keep out of free tools, why a business account matters.</div>
+    <div class="tl last"><b>55 to 60 min</b>The testimonial ask. Leave on time.</div>
+  </div>
+  <details style="margin-top:12px"><summary>The five tricks to pick from</summary>
+    <ol>
+      <li><b>Rough notes to file note</b> in their format. Always check before saving.</li>
+      <li><b>Missing-documents email</b> from the checklist, in their tone.</li>
+      <li><b>Plain-English explainer</b> of a rate change or lender policy for a client.</li>
+      <li><b>Saved instructions</b> for their tone, sign-off and templates, so it's right first time.</li>
+      <li><b>Marketing in five minutes:</b> a de-identified settlement story into a Google Business post.</li>
+    </ol>
+  </details>
+
+  <!-- 6. TESTIMONIAL -->
+  <h2 id="testimonial">6. The testimonial ask</h2>
+  <div class="flow">
+    <div class="node">
+      <div class="say">"Before I head off, was that useful?"</div>
+      <p class="note">Wait. Let them say it in their own words.</p>
+    </div>
+    <div class="arrow"></div>
+    <div class="node decision">Did they find it useful?</div>
+    <div class="arrow"></div>
+    <div class="branches b2">
+      <div class="branch">
+        <div class="lbl">Yes</div>
+        <div class="node end-good">
+          <div class="say">"Would you mind giving me a short testimonial? Can I ask three quick questions and write it up? I'll send it to you to approve first."</div>
+          <ol>
+            <li>"Before today, how were you using AI, if at all?"</li>
+            <li>"What's the one thing you'll use straight away?"</li>
+            <li>"Would you recommend this to another broker, and why?"</li>
+          </ol>
+          <div class="say">"Could I use your name, firm and a photo? Up for a 30-second phone video? Totally fine if not."</div>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">Not really</div>
+        <div class="node end-wait">
+          <div class="say">"Thanks for being honest. What would have made it more useful?"</div>
+          <p class="note">No testimonial. Write the answer down and use it to improve the next session.</p>
+        </div>
+      </div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <div class="tag">Within 24 hours</div>
+      <p style="margin:6px 0 0">Email the written-up testimonial and ask them to reply "approved". Use their words only, add no numbers they didn't say, and don't hide that the session was free.</p>
+    </div>
+    <div class="arrow"></div>
+    <div class="node decision">Do they ask about the paid workshop?</div>
+    <div class="arrow"></div>
+    <div class="branches b2">
+      <div class="branch">
+        <div class="lbl">Yes</div>
+        <div class="node end-good">
+          <div class="say">"The full version is a half-day workshop for the whole team, plus a written AI use policy and check-ins at 30, 60 and 90 days. Happy to send details."</div>
+          <p class="note">Then stop. No pressure.</p>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="lbl">No</div>
+        <div class="node">
+          <h3>Don't raise it</h3>
+          <p class="note">Two days later, text a thank-you with one extra tip, and ask: "Do you know another broker who'd get value out of this?"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

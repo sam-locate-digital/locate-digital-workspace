@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+  .sheet{max-width:860px;margin:0 auto;padding:0 0 60px}
+
+  .hint{max-width:860px;margin:18px auto 14px;text-align:center;color:var(--muted);font-size:12.5px;padding:0 20px}
+  .hint b{color:var(--primary)}.ph{color:var(--accent);font-weight:600}
+
+  .hero{background:linear-gradient(150deg,#06203a 0%,#0a3a6b 60%,#007ae8 130%);color:#fff;padding:46px 50px 40px;border-radius:0 0 4px 4px}
+  .logo-mark{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:800;font-size:19px;color:#fff;margin-bottom:26px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  .hero .lbl{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary);margin:0 0 8px}
+  .hero h1{font-family:var(--head);font-weight:800;font-size:34px;letter-spacing:-.02em;margin:0 0 8px}
+  .hero .meta{color:#cfe6ff;font-size:14.5px;margin:0}
+  .hero .meta b{color:#fff}
+
+  .body{padding:8px 50px}
+  section{margin:34px 0}
+  h2{font-family:var(--head);font-weight:800;font-size:21px;letter-spacing:-.01em;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+  h2:before{content:"";width:8px;height:22px;background:var(--primary);border-radius:3px;display:inline-block}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 16px;padding-left:18px}
+  p{margin:0 0 12px}
+
+  ul{margin:0 0 12px;padding:0;list-style:none}
+  li{position:relative;padding-left:24px;margin:9px 0}
+  li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--secondary)}
+  li b{font-family:var(--head)}
+
+  .callout{background:var(--row-alt);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0}
+  .callout p{margin:0;font-size:14.5px}
+
+  .goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0}
+  .goal{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .goal .n{font-family:var(--head);font-weight:800;font-size:30px;color:var(--primary);line-height:1}
+  .goal .l{color:var(--muted);font-size:13px;margin-top:7px}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line)}
+  th{background:var(--row-alt);font-family:var(--head);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  td.amt{text-align:right;font-family:var(--head);font-weight:700;white-space:nowrap}
+  tr.total td{background:#eaf4ff;font-family:var(--head);font-weight:800;font-size:16px}
+
+  .timeline{display:grid;gap:10px}
+  .tl{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+  .tl .w{font-family:var(--head);font-weight:800;font-size:13px;color:var(--accent);min-width:78px;padding-top:2px}
+  .tl div p{margin:0}
+  .tl .t{font-family:var(--head);font-weight:700;font-size:15px}
+
+  .steps-ol{counter-reset:s;list-style:none;padding:0;margin:0}
+  .steps-ol li{counter-increment:s;padding-left:42px;margin:12px 0}
+  .steps-ol li:before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;font-family:var(--head);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+  .sign{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 30px}
+  .sign h2{margin-bottom:14px}
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:8px}
+  .sigbox{border-top:1.5px solid var(--ink);padding-top:8px;font-size:13px;color:var(--muted)}
+  .sigline{height:46px}
+  .accept-note{font-size:13px;color:var(--muted);margin-top:18px}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:30px;padding:0 20px}
+
+  @media(max-width:720px){.hero,.body{padding-left:24px;padding-right:24px}.goal-grid,.sign-grid{grid-template-columns:1fr}}
+  @media print{
+    body{background:#fff}.hint{display:none}
+    .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0}
+    section,.sign,.tl,table{page-break-inside:avoid}
+    .logo-dot,.goal .n,tr.total td,.steps-ol li:before,.callout{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<p class="hint">Proposal template · fill every <b class="ph">[bracket]</b> after the call · print to PDF or paste into PandaDoc / Better Proposals for e-sign · delete this line before sending</p>
+
+<div class="sheet">
+
+  <div class="hero">
+    <span class="logo-mark"><span class="logo-dot"></span>Locate Digital.</span>
+    <p class="lbl">Growth proposal</p>
+    <h1>New-patient growth for [Clinic name]</h1>
+    <p class="meta">Prepared for <b>[Owner name]</b> · [date] · Valid for 14 days</p>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <h2>The situation</h2>
+      <p class="sub">What we found and what you told us on the call.</p>
+      <p>[Clinic name] is [a busy / growing / established] [physio / osteo] clinic in [suburb], with [N] practitioners. Right now new patients come mostly from [word of mouth / Google / referrals], and [the diary has gaps / you can't scale it on demand / your current ads aren't tracked].</p>
+      <p>From the audit, the biggest things costing you new patient bookings are:</p>
+      <ul>
+        <li><b>[Issue 1]</b> — [e.g. ads showing outside your catchment, paying for clicks that never book].</li>
+        <li><b>[Issue 2]</b> — [e.g. no conversion tracking, so spend can't be tied to bookings].</li>
+        <li><b>[Issue 3]</b> — [e.g. no Meta presence, missing local demand].</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The goal</h2>
+      <p class="sub">What success looks like in the first 90 days.</p>
+      <div class="goal-grid">
+        <div class="goal"><div class="n">[20–40]</div><div class="l">new patients / month</div></div>
+        <div class="goal"><div class="n">[$X]</div><div class="l">target cost per booking</div></div>
+        <div class="goal"><div class="n">90 days</div><div class="l">to prove the model</div></div>
+      </div>
+      <div class="callout"><p>We measure success in <b>new patients booked and cost per patient</b> — not clicks, impressions or reach.</p></div>
+    </section>
+
+    <section>
+      <h2>What we'll do</h2>
+      <p class="sub">Recommended plan: <b>[Growth]</b>.</p>
+      <ul>
+        <li><b>Full campaign management</b> across [Google + Meta] — strategy, build and daily optimisation.</li>
+        <li><b>Conversion tracking</b> set up properly (GA4 + GTM) so every booking is measured.</li>
+        <li><b>Ad creative and copy</b> written for your services and catchment.</li>
+        <li><b>Monthly report + strategy call</b> in plain English.</li>
+        <li><b>[Add-ons: on-page SEO for 5 pages, 1 monthly blog]</b> as included in the tier.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How it rolls out</h2>
+      <div class="timeline">
+        <div class="tl"><div class="w">Week 1–2</div><div><p class="t">Audit &amp; setup</p><p>Account access, full audit, conversion tracking live, baseline numbers captured.</p></div></div>
+        <div class="tl"><div class="w">Week 2–4</div><div><p class="t">Build &amp; launch</p><p>Campaigns, targeting and creative built and switched on.</p></div></div>
+        <div class="tl"><div class="w">Month 2</div><div><p class="t">Optimise</p><p>Daily management — cut waste, scale what books patients. First monthly report + call.</p></div></div>
+        <div class="tl"><div class="w">Month 3+</div><div><p class="t">Grow</p><p>Scale spend on what's working, expand channels, review tier fit.</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Investment</h2>
+      <p class="sub">All AUD, ex GST. Ad spend is separate and paid by you directly to Google/Meta.</p>
+      <table>
+        <tr><th>Item</th><th style="text-align:right">Amount</th></tr>
+        <tr><td>One-off setup (audit, tracking, full campaign build)</td><td class="amt">$1,500</td></tr>
+        <tr><td>[Growth] management retainer</td><td class="amt">$3,500 / mo</td></tr>
+        <tr><td>[Optional add-on, e.g. landing page build]</td><td class="amt">[$X]</td></tr>
+        <tr class="total"><td>Month one total</td><td class="amt">[$5,000]</td></tr>
+      </table>
+      <div class="callout"><p><b>Recommended ad budget:</b> [$X,000]/mo to hit the goal above. Management fee is the higher of the retainer or 15–20% of ad spend. 3-month minimum, then month to month.</p></div>
+    </section>
+
+    <section>
+      <h2>Next steps</h2>
+      <ol class="steps-ol">
+        <li><b>Approve this proposal</b> — sign below or reply to confirm.</li>
+        <li><b>Setup invoice + onboarding</b> — we send the agreement and the welcome pack, you grant account access.</li>
+        <li><b>We build</b> — tracking and campaigns live within [2–4 weeks].</li>
+      </ol>
+    </section>
+
+    <div class="sign">
+      <h2>Acceptance</h2>
+      <p>By signing, [Clinic name] engages Locate Digital on the [Growth] plan under the attached service agreement (3-month minimum).</p>
+      <div class="sign-grid">
+        <div><div class="sigline"></div><div class="sigbox">Signed for [Clinic name]<br>Name / position / date</div></div>
+        <div><div class="sigline"></div><div class="sigbox">Sam — Locate Digital<br>Date</div></div>
+      </div>
+      <p class="accept-note">Questions before you sign? Call [phone] or email sam@locatedigital.io. This proposal is valid for 14 days from the date above.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>Locate Digital · locatedigital.io · sam@locatedigital.io · ABN [ABN] · Prices in AUD, ex GST</footer>
+
+</body>
+</html>

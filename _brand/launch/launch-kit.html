@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Launch Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#007ae8; --secondary:#75dfee; --accent:#ff5900;
+    --ink:#0d0d0d; --muted:#63666b; --line:#e6e6e6;
+    --bg:#ffffff; --bg-soft:#fbfcff; --row-alt:#f4f8fd;
+    --head:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+  header.hero{background:linear-gradient(135deg,var(--primary),#0560b8);color:#fff;padding:56px 0 48px}
+  header.hero .wrap{display:flex;flex-direction:column;gap:14px}
+  .logo-mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;font-size:20px;letter-spacing:-.01em}
+  .logo-dot{width:14px;height:14px;border-radius:50%;background:var(--secondary)}
+  header.hero h1{font-family:var(--head);font-weight:800;font-size:40px;line-height:1.1;margin:8px 0 0;letter-spacing:-.02em}
+  header.hero p.sub{font-size:18px;opacity:.92;margin:0;max-width:640px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500}
+
+  nav.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:-28px auto 40px;max-width:852px;box-shadow:0 8px 30px rgba(0,40,90,.06);position:relative;z-index:2}
+  nav.toc h4{font-family:var(--head);font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
+  nav.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 18px}
+  nav.toc a{color:var(--primary);text-decoration:none;font-weight:500;font-size:14px}
+  nav.toc a:hover{text-decoration:underline}
+
+  section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 38px;margin:0 auto 26px;max-width:900px}
+  section h2{font-family:var(--head);font-weight:800;font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+  section .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  section h3{font-family:var(--head);font-weight:700;font-size:18px;margin:26px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol.list{margin:0 0 12px;padding-left:22px}
+  li{margin:4px 0}
+  .muted{color:var(--muted)}
+
+  .usp{background:linear-gradient(135deg,#eaf4ff,#f3fbff);border:1px solid #cfe6ff;border-left:5px solid var(--primary);border-radius:12px;padding:20px 24px;font-family:var(--head);font-weight:700;font-size:20px;line-height:1.4}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--head);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--row-alt)}
+  tbody tr:nth-child(even){background:var(--bg-soft)}
+  td strong{color:var(--primary)}
+
+  .callout{border-radius:12px;padding:16px 20px;margin:16px 0;font-size:14.5px}
+  .callout.note{background:#fff7ed;border:1px solid #ffd9b3}
+  .callout.key{background:#eafaf1;border:1px solid #bce8cd}
+  .callout b{font-family:var(--head)}
+
+  .script{background:var(--row-alt);border:1px solid var(--line);border-left:4px solid var(--secondary);border-radius:10px;padding:16px 20px;margin:12px 0;font-size:14.5px}
+  .script .label{font-family:var(--head);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}header.hero h1{font-size:30px}section{padding:26px 22px}}
+
+  .check{list-style:none;padding-left:0}
+  .check li{position:relative;padding-left:28px;margin:6px 0}
+  .check li:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border:2px solid var(--primary);border-radius:4px}
+
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 0 50px}
+  @media print{
+    body{background:#fff}
+    section,nav.toc{box-shadow:none;border-color:#ddd;page-break-inside:avoid}
+    header.hero{background:var(--primary)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-mark"><span class="logo-dot"></span>Locate Digital.</div>
+    <h1>Launch Kit</h1>
+    <p class="sub">Everything to take Locate Digital from zero to your first clients — and the path to $100k/mo. Internal playbook.</p>
+    <div class="badges">
+      <span class="badge">Niche: Melbourne physio &amp; osteo</span>
+      <span class="badge">Goal: $100k/mo</span>
+      <span class="badge">90-day target: 3 clients</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#positioning">1. Positioning &amp; USP</a></li>
+      <li><a href="#pricing">2. Pricing</a></li>
+      <li><a href="#outreach">3. Outreach</a></li>
+      <li><a href="#website">4. Website copy</a></li>
+      <li><a href="#plan">5. 90-day plan</a></li>
+      <li><a href="#casestudy">6. MOSIC case study</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 1 -->
+<section id="positioning">
+  <span class="kicker">01 — Positioning</span>
+  <h2>Positioning &amp; USP</h2>
+  <p class="muted">Launch niche: <b>physiotherapy &amp; osteopathy clinics, Melbourne.</b> Expansion path: broader allied health → dental, once 5–6 case studies are banked.</p>
+
+  <h3>The one-sentence USP</h3>
+  <div class="usp">We help Melbourne physio and osteo clinics book 20–40 new patients a month with Google and Meta ads, without wasting spend on no-shows or being locked into long contracts.</div>
+  <p class="muted" style="margin-top:10px">Use this everywhere: site, LinkedIn, email signature, outreach, calls.</p>
+
+  <div class="grid2">
+    <div>
+      <h3>Who you're for</h3>
+      <ul>
+        <li>Physio or osteo clinic, 1–3 practitioners, Melbourne metro</li>
+        <li>Doing $400k–$2M/yr</li>
+        <li>Owner is the practitioner — time-poor, not a marketer</li>
+        <li>Running ads badly, or relying only on word of mouth</li>
+        <li>Wants more new patients, doesn't want to learn ads</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Who to say no to</h3>
+      <ul>
+        <li>Pre-revenue startups with no budget</li>
+        <li>Clients wanting to "test" $300/mo of ad spend</li>
+        <li>Anyone expecting a free brand build</li>
+        <li>Practitioners who won't commit 3 months</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout key"><b>The promise behind it:</b> you can defend this because you actually run ads well — most agencies can't. Lead with outcomes in their language (new patients, chair utilisation, ROAS). Never lead with deliverables.</div>
+</section>
+
+<!-- 2 -->
+<section id="pricing">
+  <span class="kicker">02 — Pricing</span>
+  <h2>Pricing</h2>
+  <p class="muted">All AUD, ex GST, monthly. Management fee only — client ad spend is separate and paid by them directly to the platform.</p>
+
+  <table>
+    <thead><tr><th>Tier</th><th>Price/mo</th><th>For</th><th>Includes</th><th>Hrs/mo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Starter</strong></td><td>$1,800</td><td>Solo, 1 location</td><td>1 channel, monthly report, 1 call/mo</td><td>~10</td></tr>
+      <tr><td><strong>Growth</strong></td><td>$3,500</td><td>Most clinics, 2–3 practitioners</td><td>Meta + Google, GA4/GTM, report + call, creative refresh</td><td>~20</td></tr>
+      <tr><td><strong>Scale</strong></td><td>$6,500+</td><td>Multi-location / higher spend</td><td>Full-funnel, CRO, landing pages, fortnightly calls, priority</td><td>~35</td></tr>
+    </tbody>
+  </table>
+  <p><b>Anchor every pitch on Growth.</b> Charge the higher of the flat retainer or <b>15–20% of monthly ad spend.</b></p>
+
+  <h3>One-off / project work</h3>
+  <ul>
+    <li>Paid ad + tracking audit: <b>$750</b> (tripwire — credit back if they sign)</li>
+    <li>Landing page build: <b>$1,800–3,500</b></li>
+    <li>GA4 + GTM / conversion tracking setup: <b>$1,500–2,500</b></li>
+    <li>One-off campaign build: <b>$2,000–3,000</b></li>
+  </ul>
+
+  <h3>Setup fee</h3>
+  <p><b>$1,500 one-off onboarding</b> on any new retainer. Covers audit, pixel/conversion setup, account build, and the heavy first-month lift. Non-negotiable.</p>
+
+  <div class="callout note"><b>Rules:</b> 3-month minimum on retainers · ad spend is separate, say it on every call · Starter gets 1 call/mo, hold the line · raise prices as proof stacks · target effective rate $150–250/hr.</div>
+</section>
+
+<!-- 3 -->
+<section id="outreach">
+  <span class="kicker">03 — Outreach</span>
+  <h2>Outreach</h2>
+  <p>The early game is <b>volume + personalisation + a free audit hook.</b> Goal: 10 personalised approaches a day until you have 3 clients.</p>
+
+  <h3>The hook</h3>
+  <p>A free <b>"3-minute ad teardown"</b> — a short Loom where you screen-record their ads/site/Google listing and point out 2–3 things costing them new patients. Do the work first, then send it. Proves competence instead of claiming it.</p>
+
+  <h3>Channels, in order</h3>
+  <ol class="list">
+    <li>Warm intros — anyone you know in or near allied health</li>
+    <li>DM / email + free teardown</li>
+    <li>Follow-up sequence — most replies land on follow-up 2 and 3</li>
+  </ol>
+
+  <h3>Scripts</h3>
+  <div class="script"><div class="label">Warm message</div>Hey [name], quick one — I've just started Locate Digital, helping Melbourne physio and osteo clinics get more new patients through Google and Meta ads. Not pitching you, but do you know any clinic owners who'd want a free 3-min review of their ads? Happy to just hand it over.</div>
+
+  <div class="script"><div class="label">Cold email — subject: Found 3 things costing [Clinic] new patients</div>Hi [name],<br><br>I had a look at [Clinic]'s ads and Google listing this morning and recorded a quick 3-minute video — spotted a few things likely costing you new patient bookings (one's an easy fix).<br><br>No pitch, no catch. Here's the video: [Loom link]<br><br>I run Locate Digital — we help Melbourne physio and osteo clinics book more new patients through Google and Meta. If any of it's useful, happy to chat. If not, keep the video.<br><br>Cheers, Sam — Locate Digital</div>
+
+  <div class="script"><div class="label">Instagram DM</div>Hi [name] — I help Melbourne physio/osteo clinics get more new patients through ads. Recorded a free 3-min teardown of [Clinic]'s current ads, spotted a couple of quick wins. Want me to send it over? No pitch.</div>
+
+  <div class="script"><div class="label">Follow-up 1 (day 3)</div>Hi [name], did the teardown video come through ok? Happy to walk you through the fixes on a quick call if useful.</div>
+  <div class="script"><div class="label">Follow-up 2 (day 7)</div>Hey [name] — last one from me. The biggest thing I saw was [specific issue]. Even if we never work together, worth fixing. Want me to send the how-to?</div>
+  <div class="script"><div class="label">Follow-up 3 (day 14)</div>Hi [name], I'll leave it here. If new patient numbers ever become a focus, I'm one message away. All the best with the clinic.</div>
+
+  <h3>On the call</h3>
+  <ol class="list">
+    <li>Ask their goals + current new-patient numbers before pitching</li>
+    <li>Walk through what you found in the teardown</li>
+    <li>Recommend Growth; frame price against a patient's lifetime value ($400–1,500+)</li>
+    <li>Close on the $750 audit or a 3-month Growth retainer + $1,500 setup</li>
+  </ol>
+
+  <div class="callout key"><b>Daily rhythm until 3 clients:</b> 10 new prospects added · 3–5 teardown videos sent · all due follow-ups sent · tracking sheet updated. First 1–2 clients get a discounted rate in exchange for a case study + testimonial — trade price for proof, never work free.</div>
+</section>
+
+<!-- 4 -->
+<section id="website">
+  <span class="kicker">04 — Website</span>
+  <h2>One-page website copy</h2>
+  <p class="muted">Single landing page. One action, repeated: book a free teardown call.</p>
+
+  <h3>Hero</h3>
+  <p><b>More new patients for your physio or osteo clinic. Without the guesswork.</b><br>We run Google and Meta ads for Melbourne physio and osteo clinics, so you book 20–40 new patients a month while you stay focused on treating them.<br><span class="muted">[Book a free 3-min ad teardown →]</span></p>
+
+  <h3>The problem</h3>
+  <p>You're great at treating patients. Marketing is a different job. Most clinics either rely on word of mouth (steady, but caps growth) or hand ads to a generalist who burns budget on clicks from outside the catchment. Either way, you've got capacity you're not filling.</p>
+
+  <h3>What we do</h3>
+  <ul>
+    <li><b>Google Ads</b> — catch people already searching for a physio or osteo near them</li>
+    <li><b>Meta Ads</b> — reach locals who need you but haven't searched yet</li>
+    <li><b>Proper tracking</b> — GA4 and conversion tracking so every dollar is accountable</li>
+    <li><b>Plain-English reporting</b> — new patients booked, cost per patient, what's next</li>
+  </ul>
+
+  <h3>Why clinics choose us</h3>
+  <ul>
+    <li>We specialise in allied health — not learning your industry on your budget</li>
+    <li>No lock-in — month to month after the first 90 days</li>
+    <li>You see real new-patient figures, not vanity metrics</li>
+    <li>Local focus — we target your actual catchment</li>
+  </ul>
+
+  <h3>How it works</h3>
+  <ol class="list">
+    <li><b>Free teardown</b> — we review your ads and listing, show what's costing you patients</li>
+    <li><b>Build</b> — we set up tracking and campaigns in the first month</li>
+    <li><b>Grow</b> — we run, optimise, and report on new patients booked</li>
+  </ol>
+
+  <div class="callout note"><b>Final CTA:</b> "Got empty slots in the diary? Let's fill them." Book a free 3-minute ad teardown — no pitch, no obligation. <br><span class="muted">Build notes: one page, mobile-first, single repeated CTA (Calendly), add testimonial block once MOSIC case study is ready, AU English, real clinic imagery.</span></div>
+</section>
+
+<!-- 5 -->
+<section id="plan">
+  <span class="kicker">05 — Execution</span>
+  <h2>90-day launch plan</h2>
+  <p class="muted">Goal: 3 paying clients and ~$8–10k/mo recurring by day 90.</p>
+
+  <h3>Weeks 1–2 — Foundation</h3>
+  <ul class="check">
+    <li>Finalise USP sentence</li>
+    <li>Build one-page site + Calendly link</li>
+    <li>Rewrite LinkedIn + Instagram bios around the USP</li>
+    <li>Set up business email, CRM/sheet, invoicing</li>
+    <li>Turn MOSIC work into your first case study</li>
+    <li>Build the prospect tracking sheet</li>
+  </ul>
+
+  <h3>Weeks 2–4 — First outreach wave</h3>
+  <ul class="check">
+    <li>List first 50 Melbourne physio/osteo clinics</li>
+    <li>Message everyone warm you already know</li>
+    <li>Record + send 3–5 teardown videos a day</li>
+    <li>Run the follow-up sequence on every prospect</li>
+    <li>Target: first booked call by week 3, first client by week 4</li>
+  </ul>
+
+  <h3>Weeks 4–8 — Land first clients</h3>
+  <ul class="check">
+    <li>Reach 100 prospects</li>
+    <li>Hold the daily rhythm</li>
+    <li>Offer first 1–2 clients a discounted rate for a case study</li>
+    <li>Onboard properly: setup fee, tracking, campaign build</li>
+    <li>Target: 2 clients signed</li>
+  </ul>
+
+  <h3>Weeks 8–12 — Prove and tighten</h3>
+  <ul class="check">
+    <li>Deliver results, track new-patient numbers weekly</li>
+    <li>Get first testimonial + case study written up</li>
+    <li>Sign client 3 at full rate</li>
+    <li>Ask every happy client for one referral</li>
+    <li>Start running your own small campaign to the niche</li>
+  </ul>
+
+  <div class="callout key"><b>The one metric that matters now:</b> teardown videos sent per week. Calls, clients, and revenue are all a function of outreach volume — protect this number above all else.</div>
+</section>
+
+<!-- 6 -->
+<section id="casestudy">
+  <span class="kicker">06 — Proof</span>
+  <h2>MOSIC case study</h2>
+  <div class="callout note"><b>Draft.</b> Baseline figures are real (April 2026). The <b>results</b> are placeholders — pull actual post-engagement numbers from Cliniko + Google Ads before showing a prospect. Do not invent outcomes.</div>
+
+  <table>
+    <tbody>
+      <tr><th>Client</th><td>MOSIC Osteopathy</td></tr>
+      <tr><th>Locations</th><td>Melbourne CBD (Bourke St), Essendon, Telehealth</td></tr>
+      <tr><th>Practitioners</th><td>8 osteopaths</td></tr>
+      <tr><th>Patient base</th><td>~12,000</td></tr>
+      <tr><th>Baseline</th><td>~870 appts/mo · ~48 new patients/mo (April 2026)</td></tr>
+      <tr><th>Channels</th><td>Google Ads + SEO</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What we did</h3>
+  <ul>
+    <li>Rebuilt Google Ads around high-intent local searches across both catchments, cutting out-of-area waste</li>
+    <li>Set up conversion tracking tying clicks through to actual Cliniko bookings</li>
+    <li>Built service-specific landing pages (scoliosis, golf osteo) to match intent</li>
+    <li>Monthly consolidated reporting (Ads + SEO + bookings)</li>
+  </ul>
+
+  <h3>Results <span class="muted" style="font-weight:400">— fill from real data</span></h3>
+  <ul>
+    <li>New patients/mo: <b>48 → [X]</b> (<b>[+Y%]</b>)</li>
+    <li>Cost per new patient: <b>$[X]</b></li>
+    <li>Return on ad spend: <b>[X]</b> · Period: <b>[start–end]</b></li>
+  </ul>
+
+  <div class="callout note"><b>Before client-ready:</b> pull real numbers · get written testimonial + name permission (or anonymise to "an 8-practitioner Melbourne osteo clinic") · add one before/after chart.</div>
+</section>
+
+<footer>
+  Locate Digital · locatedigital.io · sam@locatedigital.io · Internal launch playbook
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locate Digital — Launch Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#007ae8;--secondary:#75dfee;--accent:#ff5900;--ink:#0d0d0d;--muted:#63666b;--line:#e6e6e6;--bg-soft:#fbfcff;--row-alt:#f4f8fd;--head:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Poppins",system-ui,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg-soft);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  header.hero{background:linear-gradient(135deg,var(--primary),#0560b8);color:#fff;padding:54px 0 46px}
+  .logo-mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:800;font-size:20px}
+  .logo-dot{width:13px;height:13px;border-radius:50%;background:var(--secondary)}
+  header.hero h1{font-family:var(--head);font-weight:800;font-size:38px;margin:10px 0 6px;letter-spacing:-.02em}
+  header.hero p{margin:0;opacity:.92;max-width:640px;font-size:17px}
+  section{margin:34px auto;max-width:960px}
+  h2{font-family:var(--head);font-weight:800;font-size:22px;margin:0 0 4px}
+  .lead{color:var(--muted);margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  a.card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;text-decoration:none;color:inherit;transition:.15s}
+  a.card:hover{border-color:var(--primary);box-shadow:0 10px 30px rgba(0,122,232,.12);transform:translateY(-2px)}
+  a.card .n{font-family:var(--head);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+  a.card h3{font-family:var(--head);font-weight:700;font-size:18px;margin:6px 0 4px;color:var(--primary)}
+  a.card p{margin:0;font-size:14px;color:var(--muted)}
+  .usp{background:linear-gradient(135deg,#eaf4ff,#f3fbff);border:1px solid #cfe6ff;border-left:5px solid var(--primary);border-radius:12px;padding:18px 22px;font-family:var(--head);font-weight:700;font-size:18px;line-height:1.4;margin-bottom:8px}
+  footer{text-align:center;color:var(--muted);font-size:12.5px;padding:24px 0 50px}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}header.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="logo-mark"><span class="logo-dot"></span>Locate Digital.</div>
+  <h1>Launch hub</h1>
+  <p>Everything to take Locate Digital from zero to $100k/mo. Niche: Melbourne physio &amp; osteo. Click through to each piece.</p>
+</div></header>
+
+<div class="wrap">
+  <section>
+    <div class="usp">We help Melbourne physio and osteo clinics book 20–40 new patients a month with Google and Meta ads, without wasting spend on no-shows or being locked into long contracts.</div>
+  </section>
+
+  <section>
+    <h2>Strategy &amp; sales</h2>
+    <p class="lead">The plan, the offer, and how to sell it.</p>
+    <div class="grid">
+      <a class="card" href="launch-kit.html"><span class="n">Playbook</span><h3>Launch kit →</h3><p>Positioning, pricing, outreach, website copy, 90-day plan and the MOSIC case study — all in one.</p></a>
+      <a class="card" href="roadmap-12-month.html"><span class="n">Roadmap</span><h3>12-month roadmap →</h3><p>Month-by-month to $100k/mo, with hires, revenue targets and the automation stack.</p></a>
+      <a class="card" href="teardown-guide.html"><span class="n">Outreach</span><h3>Teardown guide →</h3><p>Your core hook — what it is, the 3-minute script, and the send messages.</p></a>
+      <a class="card" href="case-study-mosic.html" onclick="this.href='case-study-mosic.html'"><span class="n">Proof</span><h3>MOSIC case study →</h3><p>First case study (draft — real baseline, results to be filled). Also inside the launch kit.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <p class="lead">Two cards — niche for targeted pitches, generic as the default.</p>
+    <div class="grid">
+      <a class="card" href="rate-card.html"><span class="n">Rate card</span><h3>Physio / osteo →</h3><p>Niche-worded for Melbourne allied health pitches.</p></a>
+      <a class="card" href="rate-card-generic.html"><span class="n">Rate card</span><h3>Generic →</h3><p>Broad service-business version — your default.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Delivery</h2>
+    <p class="lead">How the work gets done, consistently.</p>
+    <div class="grid">
+      <a class="card" href="../../_ops/service-delivery-sop.html"><span class="n">SOP</span><h3>Service delivery SOP →</h3><p>Every rate-card line mapped to steps, a standard, and the skill to run.</p></a>
+      <a class="card" href="../../clients/MOSIC/tracking/tracking-plan.html"><span class="n">Live deliverable</span><h3>MOSIC tracking plan →</h3><p>Example output from the tracking-setup skill — GA4 + GTM + Cliniko.</p></a>
+    </div>
+  </section>
+
+  <footer>Locate Digital · locatedigital.io · sam@locatedigital.io</footer>
+</div>
+</body>
+</html>

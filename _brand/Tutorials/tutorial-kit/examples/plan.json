@@ -1,0 +1,14 @@
+{
+  "title": "Summarise every enquiry automatically",
+  "kicker": "AI Launchpad · Lesson 1",
+  "intro": {"at": "section:intro", "dur": 1.95, "em": "automatically", "sub": "A two-hour set-up"},
+  "chapters": [{"section": "s1", "title": "Write the summary prompt", "em": "prompt", "dur": 2.4}],
+  "splits": [{"at": "over@0", "e": "end:hook", "side": "right",
+              "panel": {"kind": "stat", "value": 200000, "prefix": "$", "label": "extra revenue from one automation"}}],
+  "labels": [{"at": "settings@6", "dur": 3, "text": "Enquiry Desk", "sub": "Settings, top right"},
+             {"at": "save@16", "dur": 2.5, "text": "Claude", "sub": "Writes the summary", "logo": "claude"}],
+  "zooms": [{"s": 11.45, "e": 17.3, "x": 0.34, "y": 0.24, "z": 1.78},
+            {"s": 20.6, "e": 24.3, "x": 0.74, "y": 0.68, "z": 1.7}],
+  "end": {"title": "Try it on this week's enquiries", "button": "Post your prompt in the community", "url": "locatedigital.io", "dur": 3},
+  "replace": {"summarize": "summarise", "summarized": "summarised", "inquiry": "enquiry"}
+}
