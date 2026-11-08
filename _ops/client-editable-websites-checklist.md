@@ -12,8 +12,8 @@ Last updated 8 November 2026.
 
 ## 1. Finish the product (before the first pitch)
 
-- [ ] Clean up the test site: remove the "9999" test edits and other test content (Claire's rename, Testing Sam, Test Suzu, "[TESTING]"), pick the colour scheme you want to show, then **Publish**. Don't press Discard before publishing: it would delete the six new pages.
-- [ ] Commit the workspace files from the build session (`_ops/website-launch.md`, `_skills/launch-site/`, CLAUDE.md, `.gitignore` and the rest), so `/launch-site` and the guide are safe in git.
+- [x] Clean up the test site: test edits and test content removed, Terracotta chosen, published (8 Nov 2026).
+- [x] Commit the workspace files from the build session (8 Nov 2026, commits 12888ea and 80d5fea; not pushed).
 - [ ] Run the client experience once yourself with a second email address: invite it as a collaborator, edit a page, add a section, check the preview, publish. Check the draft and live branches show "Switch back to main to edit".
 - [ ] Try editing in Pages CMS on a phone (brokers will).
 - [ ] Add GA4 tracking with enquiry and phone-tap events, so you can prove results.
