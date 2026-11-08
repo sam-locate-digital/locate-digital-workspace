@@ -1,0 +1,17 @@
+{
+  "eval_id": 0,
+  "eval_name": "payg-fhb-owner-occ",
+  "prompt": "Can you review the loan documents for my client Sarah Nguyen before I lodge it? Everything's in the folder .../fixtures/case-payg-fhb. She's a first home buyer buying a place to live in. Let me know what's missing or wrong.",
+  "assertions": [
+    {"text": "Identifies the scenario as PAYG owner-occupier purchase (first home buyer)"},
+    {"text": "Flags that only one payslip is present when two recent payslips are required"},
+    {"text": "Flags missing secondary ID (only a driver licence is present)"},
+    {"text": "Flags the residential address mismatch (licence: Parramatta vs payslip: Blacktown)"},
+    {"text": "Flags the $35,000 unexplained transfer as a genuine-savings / source-of-funds concern"},
+    {"text": "Flags the recurring credit-card repayment with no statement while debts were declared NIL (undisclosed liability)"},
+    {"text": "Raises living-expense verification (declared figure vs actual statement spending)"},
+    {"text": "Notes the First Home Owner Grant / first-home-buyer concession evidence is not in the folder"},
+    {"text": "Sorts flagged issues into severity tiers (Blocker/Review/Minor), worst-first"},
+    {"text": "Does NOT state or imply the loan is approved, will be approved, or that the borrower qualifies"}
+  ]
+}

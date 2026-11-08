@@ -220,9 +220,9 @@ Do not hedge. The recommendation should read like advice from a senior strategis
 
 ---
 
-## Step 4 — Humanizer pass
+## Step 4 — Humaniser pass
 
-Before outputting, apply humanizer rules:
+Before outputting, apply humaniser rules:
 - No em dashes — use commas or periods
 - No AI vocabulary: crucial, pivotal, delve, underscore, foster, showcase, vibrant, testament, landscape (abstract)
 - Sentence case headings

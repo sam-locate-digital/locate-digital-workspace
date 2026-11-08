@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "No em dashes",
+      "passed": true,
+      "evidence": "em dashes found: 0"
+    },
+    {
+      "text": "No exclamation marks",
+      "passed": true,
+      "evidence": "count: 0"
+    },
+    {
+      "text": "No emojis",
+      "passed": true,
+      "evidence": "emojis: []"
+    },
+    {
+      "text": "Caption body 40-120 words",
+      "passed": false,
+      "evidence": "~232 words (parser allows 20 slack for labels)"
+    },
+    {
+      "text": "Instagram hashtags 3-5 (per caption)",
+      "passed": false,
+      "evidence": "10 unique hashtags: ['#AIforbusiness', '#australianbrokers', '#bestinterestsduty', '#brokercompliance', '#brokerlife', '#financebroker', '#locatedigital', '#mortgagebroker', '#mortgagebrokers', '#smallbusinessaustralia']"
+    },
+    {
+      "text": "No banned words",
+      "passed": true,
+      "evidence": "found: []"
+    },
+    {
+      "text": "Australian spelling",
+      "passed": true,
+      "evidence": "US spellings: []"
+    },
+    {
+      "text": "No invented numbers in caption",
+      "passed": false,
+      "evidence": "numbers in caption: ['1', '2', '3']; allowed: []"
+    },
+    {
+      "text": "No family references",
+      "passed": true,
+      "evidence": "found: []"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 3,
+    "total": 9,
+    "pass_rate": 0.67
+  }
+}

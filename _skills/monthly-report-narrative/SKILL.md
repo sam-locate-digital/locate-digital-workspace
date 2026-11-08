@@ -1,6 +1,6 @@
 ---
 name: monthly-report-narrative
-description: Write the narrative, insights, anomaly flags, and recommendations for a client's monthly performance report. Reads the generated report.md or accepts pasted data tables. Produces client-facing commentary per active channel plus a prioritised action list. Humanizer pass mandatory. Use when writing the monthly report, adding commentary to data tables, or reviewing a client's month.
+description: Write the narrative, insights, anomaly flags, and recommendations for a client's monthly performance report. Reads the generated report.md or accepts pasted data tables. Produces client-facing commentary per active channel plus a prioritised action list. Humaniser pass mandatory. Use when writing the monthly report, adding commentary to data tables, or reviewing a client's month.
 ---
 
 # Monthly report narrative
@@ -182,9 +182,9 @@ Include every metric with a prior-month comparison. Mark new channels with "New"
 
 ---
 
-## Step 5 — Humanizer pass
+## Step 5 — Humaniser pass
 
-Before outputting anything, apply humanizer rules:
+Before outputting anything, apply humaniser rules:
 - No em dashes — use commas or periods
 - No AI vocabulary: crucial, pivotal, delve, underscore, foster, showcase, vibrant, testament, landscape (abstract)
 - Sentence case throughout

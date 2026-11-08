@@ -1,6 +1,6 @@
 ---
 name: ram-precinct-post
-description: Create Instagram posts for RAM's retail precincts (ASX:REP shopping centres). Use when asked to write a precinct post, RAM social content, shopping centre Instagram post, retailer spotlight, or to batch a month of precinct content. Outputs caption + hashtags + visual direction + Canva template to use, per precinct and content pillar. Local community voice, Australian English, humanizer always on.
+description: Create Instagram posts for RAM's retail precincts (ASX:REP shopping centres). Use when asked to write a precinct post, RAM social content, shopping centre Instagram post, retailer spotlight, or to batch a month of precinct content. Outputs caption + hashtags + visual direction + Canva template to use, per precinct and content pillar. Local community voice, Australian English, humaniser always on.
 ---
 
 # RAM precinct post — Instagram content
@@ -13,7 +13,7 @@ Create Instagram posts for the **7 retail precincts** under RAM's REIT (ASX: REP
 
 1. `clients/RAM/CLAUDE.md` — engagement, voice rules, the 7 precincts.
 2. `clients/RAM/precincts/<precinct>.md` — the specific precinct brief: name, suburb, anchor tenant, retailers, handle, brand colours, local events, parking, hours. **If this file doesn't exist yet, ask Sam to fill the `_TEMPLATE.md` for that precinct first.**
-3. Run the `humanizer` skill on every caption before delivery.
+3. Run the `humaniser` skill on every caption before delivery.
 
 Never write a precinct post without its brief. Local specifics (real retailer names, real suburb, real events) are what make these work.
 
@@ -68,7 +68,7 @@ For each post, output **all four** of these:
 - **Each precinct sounds local**, like the centre down the road, not a national chain or a REIT.
 - **Australian English** always (centre not center, mum not mom, car park not parking lot).
 - **Plain and warm.** No corporate-speak ("activation", "asset", "precinct" rarely — call it "the centre" or its name).
-- **Humanizer always on** — no AI tells (no "nestled", "vibrant", "elevate your shopping experience", forced rule-of-three, em-dash overuse).
+- **Humaniser always on** — no AI tells (no "nestled", "vibrant", "elevate your shopping experience", forced rule-of-three, em-dash overuse).
 - **Never investor/financial content** — REP unit price, distributions, the fund = RAM's corporate channel, not this. Keep it shopper-facing.
 - **No claims you can't back** — don't invent offers, store names, or events. Use the brief, or flag a gap.
 - **Respect retailer relationships** — spotlight tone is celebratory; check the brief for any sensitivities.
@@ -102,4 +102,4 @@ CANVA:
 Template: [name] · Skin: [precinct] · Edit: [fields]
 ```
 
-Run humanizer, then deliver.
+Run humaniser, then deliver.

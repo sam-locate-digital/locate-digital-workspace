@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report call: MOSIC April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #007AE8; --ink: #0D0D0D; --muted: #63666B; --line: #E6E6E6;
+    --soft: #FBFCFF; --row: #F4F8FD; --accent: #FF5900;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink);
+    font: 16px/1.55 "Public Sans", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: 30px; margin: 4px 0 6px; }
+  h2 { font-size: 21px; margin: 0 0 10px; color: var(--ink); }
+  .label { font-family: "Newsreader", Georgia, serif; color: var(--muted); font-size: 15px; }
+  .meta { color: var(--muted); font-size: 15px; margin: 0; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; margin-top: 14px; }
+  .goal { border-left: 4px solid var(--blue); }
+  .goal p { margin: 0 0 6px; font-size: 17px; }
+  ul, ol { margin: 0; padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--row); }
+  td.t { white-space: nowrap; color: var(--blue); font-weight: 600; width: 90px; }
+  .q { font-weight: 600; }
+  .probe { color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .listen { font-size: 14px; margin-top: 4px; color: var(--ink); }
+  .listen b { color: var(--blue); font-weight: 600; }
+  .say { background: var(--row); border-radius: 8px; padding: 10px 12px; margin: 8px 0;
+    font-style: italic; }
+  .careful { border-left: 4px solid var(--accent); }
+  .muted { color: var(--muted); font-size: 14px; }
+  a { color: var(--blue); text-underline-offset: 2px; }
+  .sources li { font-size: 15px; }
+  .sources .pub { font-weight: 600; }
+  @media print {
+    body { background: #fff; font-size: 12.5px; }
+    main { padding: 0; max-width: none; }
+    section { break-inside: avoid; padding: 10px 12px; margin-top: 8px; }
+  }
+  .num { display: block; overflow-x: auto; }
+  .num td { text-align: right; } .num td:first-child { text-align: left; }
+  .num th { text-align: right; font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 8px; }
+  .num th:first-child { text-align: left; }
+  .check li { list-style: none; margin-left: -20px; }
+  .g { color: #1a7f37; font-weight: 600; } .a { color: #9a6700; font-weight: 600; } .r { color: #cf222e; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <div class="label">Report call</div>
+  <h1>MOSIC: April 2026 results</h1>
+  <p class="meta">Thursday 30 April 2026 · time TBC · 30 minutes, video · clinic owner and practice manager (names not yet in CLAUDE.md)</p>
+
+  <section class="goal">
+    <h2>Headline</h2>
+    <p>"We brought in 48 new patients in April, level with 47 in March and right on your usual run of about 48 a month. The bigger move was in the diary: 871 appointments held, up from 727, with fewer cancellations and no-shows."</p>
+    <p class="muted">Month: <span class="a">flat</span> on new patients, which is the number marketing is here to move, and <span class="g">good</span> on appointments held. New patients matters more, so call it a flat month with a strong diary.</p>
+  </section>
+
+  <section>
+    <h2>Key numbers</h2>
+    <table class="num">
+      <tr><th>Metric</th><th>April</th><th>March</th><th>Baseline</th><th>Goal</th></tr>
+      <tr><td>New patients</td><td>48</td><td>47</td><td>~48</td><td>not set</td></tr>
+      <tr><td>Appointments held</td><td>871</td><td>727</td><td>~870</td><td>not set</td></tr>
+      <tr><td>Cancellations</td><td>83</td><td>96</td><td>n/a</td><td>not set</td></tr>
+      <tr><td>No-shows</td><td>12</td><td>18</td><td>n/a</td><td>not set</td></tr>
+      <tr><td>Website sessions</td><td>2,821</td><td>3,093</td><td>n/a</td><td>not set</td></tr>
+      <tr><td>Bookings tracked to Google Ads</td><td>2</td><td>2</td><td>n/a</td><td>not set</td></tr>
+    </table>
+    <p class="muted">Source: <code>clients/MOSIC/reports/2026-04/report.md</code> (Cliniko and GA4). Baseline is the April 2026 figure in <code>clients/MOSIC/CLAUDE.md</code>, so this month <i>is</i> the baseline and the comparison is circular. "Bookings tracked to Google Ads" is the GA4 <code>appointment_bookings</code> event on Paid Search sessions, from <code>reports/2026-03-04/data.json</code>, not the April report.</p>
+    <p class="muted"><b>Missing data:</b> no goal or tier recorded for MOSIC; Google Ads spend, clicks and cost per new patient; Google Ads phone calls; new patients by source (Cliniko has no source split); Cliniqapps email results; HotDoc bookings. No <code>narrative.md</code> for April: running <code>monthly-report-narrative</code> first would give a better call.</p>
+  </section>
+
+  <section>
+    <h2>Last month's promises</h2>
+    <p class="muted">No previous call brief or notes in <code>_ops/meetings/</code>, so there's no record of what was agreed. These are the items the Jan + Feb and Mar + Apr decks list as delivered.</p>
+    <ul>
+      <li>Ongoing blog posting: <b>done</b>. Five posts uploaded across March and April (stress, marathon training, busy lifestyles, cardio vs strength, charity runs).</li>
+      <li>Website team and service updates: <b>done</b>. Rachel Limanou added, Mo's profile updated, running injury page updated, team order changed.</li>
+      <li>Google Ads optimisation: <b>done</b>, ads revised. Results can't yet be shown in bookings (see below).</li>
+      <li>Q2 marketing calendar: <b>done</b>, provided.</li>
+      <li>Moomba, LinkedIn profile and internal database promotion: <b>partly</b>. Looked into and drafted; confirm with them whether they want any of it to go ahead.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Run sheet</h2>
+    <table>
+      <tr><td class="t">0–2</td><td><b>Open.</b> "How's the clinic going? Anything on your mind before I start?" Let them raise anything first, especially Google Ads value.</td></tr>
+      <tr><td class="t">2–5</td><td><b>Headline.</b> Say it as written above, then stop and let them respond.</td></tr>
+      <tr><td class="t">5–13</td><td><b>What worked, what didn't.</b> Diary up and cancellations down; blog posts pulling organic visits; traffic down; Google Ads bookings not showing up in the data. Be clear about what we can and can't attribute.</td></tr>
+      <tr><td class="t">13–21</td><td><b>Next month.</b> Tracking first, then the TAC and scoliosis pages, then broken pages and blogs. Give the recommendation, then ask for agreement.</td></tr>
+      <tr><td class="t">21–26</td><td><b>Decisions.</b> Tracking access, Cliniqapps and HotDoc data, day-to-day contact, the two new pages.</td></tr>
+      <tr><td class="t">26–30</td><td><b>Close.</b> Read back what was agreed and lock in the next call date. No growth conversation this month.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>What worked, what didn't</h2>
+    <p><b>Worked</b></p>
+    <ul>
+      <li><b>A fuller diary.</b> 871 appointments held, up 19.8% on March and well clear of the January (608) and February (651) dip. Cancellations fell from 96 to 83 and no-shows from 18 to 12. Be honest about the cause: some of this is the usual recovery after summer, and we can't say how much came from marketing versus existing patients rebooking.</li>
+      <li><b>Blog content is bringing people in.</b> Organic search was the biggest channel at 1,593 sessions. Two blog posts sit in the top five landing pages: the posterior chain post (298) and the back pain while washing dishes post (188).</li>
+      <li><b>New patients held steady</b> at 48 despite fewer website visitors.</li>
+    </ul>
+    <p><b>Didn't</b></p>
+    <ul>
+      <li><b>Website traffic dipped.</b> Sessions down 8.8% (2,821 vs 3,093) and engaged sessions down 12.5%. April is a shorter month with Easter in it, but don't put it all on that; say we'll watch whether it holds in May.</li>
+      <li><b>We can't yet show what Google Ads delivers.</b> GA4 tracked only 2 bookings to Paid Search in April, while 103 of the 106 tracked bookings show as Direct. That points to missing tracking, not to ads doing nothing, but right now nobody can see the link between ad spend and new patients. This is Locate's to fix.</li>
+      <li><b>New patients didn't grow.</b> 48 is the clinic's normal level. Nothing this month moved it up.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Next month</h2>
+    <ol>
+      <li><b>Set up proper booking tracking.</b> Install Google Tag Manager, track Cliniko bookings, phone taps and enquiry forms, and tag the Google Ads campaigns. Why: today the ads can't be judged on new patients. What they'll see: from the May report, bookings split by source, with Google Ads shown on its own.</li>
+      <li><b>Build the TAC and scoliosis pages.</b> Both are on the plan for May and June. Why: they target patients searching for specific funded or condition-based care, which brings new patients rather than repeat visits. What they'll see: pages live, then early organic and paid visits in the following report.</li>
+      <li><b>Fix broken pages and keep the blog going.</b> Audit the 404 errors and keep posting. Why: the blog is already the strongest source of new visitors, and broken pages waste them. What they'll see: the 404 list cleared and organic sessions back above March's level.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Decisions needed</h2>
+    <ol>
+      <li><div class="q">Can we install Google Tag Manager on the website this month, and can you give us admin access to GA4 and Google Ads to connect it?</div><div class="probe">Recommend: yes. It's the only way to show which new patients come from Google Ads.</div></li>
+      <li><div class="q">Can you share your average new-patient value from Cliniko, so we can tell Google Ads what a booking is worth?</div><div class="probe">Recommend: yes. Without a value Google optimises for clicks, not patients. If they can't, Sam proposes a starting figure after the call.</div></li>
+      <li><div class="q">Can you give us read-only logins to Cliniqapps and HotDoc?</div><div class="probe">Recommend: yes. Neither has an API, so email results and HotDoc bookings are missing from every report until we can pull them ourselves.</div></li>
+      <li><div class="q">Is the practice manager the right person for day-to-day approvals?</div><div class="probe">Recommend: yes, with the owner signing off budget changes. Record the name in <code>CLAUDE.md</code> afterwards.</div></li>
+      <li><div class="q">Are you happy for us to go ahead with the TAC page and the scoliosis page in May?</div><div class="probe">Recommend: yes. Ask who at the clinic will check the clinical wording before it goes live.</div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Growth</h2>
+    <p class="muted">Not this month. New patients are flat at the baseline, there's no agreed goal to measure against, we can't yet tie Google Ads spend to patients, and the client is feeling neutral. Earn it with two months of tracked results first.</p>
+  </section>
+
+  <section class="careful">
+    <h2>Handle carefully</h2>
+    <ul>
+      <li><b>"Is Google Ads actually working?"</b> This is the hardest question and the honest answer is that we can't show it yet. If it comes up: <i>"Honestly, I can't prove it either way yet, and that's on us to fix. The bookings aren't being tagged back to the ads, so they show up as direct visits. Tracking is the first job in May, and from the next report you'll see Google Ads patients on their own line."</i></li>
+      <li><b>Don't call April the best month of the year.</b> The Mar + Apr deck says 871 is the highest month in the trailing 12 months, but July 2025 (894) and October 2025 (875) were higher. Say "back to last year's levels" instead.</li>
+      <li><b>Appointments by location don't add up.</b> Bourke St 698 plus Essendon 185 is 883, not 871 held. If asked: <i>"The location split counts slightly differently in Cliniko. I'll check it and send you the reconciled figure."</i></li>
+      <li><b>Practitioner numbers.</b> The report ranks practitioners by appointments. Don't use it to comment on individuals in front of the practice manager unless the owner raises it.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>After the call</h2>
+    <ul>
+      <li>Same-day recap email of what was agreed: the three May priorities and each decision.</li>
+      <li>Log decisions in <code>clients/MOSIC/memory/</code> and fill the key contact name in <code>CLAUDE.md</code>.</li>
+      <li>Confirm the next call date.</li>
+      <li>Save notes beside this brief as <code>2026-04-30-mosic-report-2026-04-notes.md</code>.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

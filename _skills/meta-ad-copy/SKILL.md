@@ -1,6 +1,6 @@
 ---
 name: meta-ad-copy
-description: Write a complete Meta (Facebook/Instagram) ads setup for service business clients. Use when asked to write Facebook ads, Instagram ads, Meta ad copy, paid social copy, or ad creative copy for a client. Outputs a full campaign setup: target audiences with reasoning, ad variants (primary text, headline, description, CTA, visual direction) for cold and retargeting, phased bidding strategy, and campaign/ad settings — all with reasoning. Always runs humanizer before delivery.
+description: Write a complete Meta (Facebook/Instagram) ads setup for service business clients. Use when asked to write Facebook ads, Instagram ads, Meta ad copy, paid social copy, or ad creative copy for a client. Outputs a full campaign setup: target audiences with reasoning, ad variants (primary text, headline, description, CTA, visual direction) for cold and retargeting, phased bidding strategy, and campaign/ad settings — all with reasoning. Always runs humaniser before delivery.
 ---
 
 # Meta ad copy — complete campaign setup for service businesses
@@ -193,9 +193,9 @@ Reason: Ad fatigue is faster at local scale than national. Keep 2–3 creative v
 - Medical outcome guarantees for health clients — use "may help", "commonly used to treat", "many patients find"
 - Showing retargeting copy to cold audiences
 
-## Humanizer pass (always last)
+## Humaniser pass (always last)
 
-Run humanizer on all variants. Focus on:
+Run humaniser on all variants. Focus on:
 - Removing AI vocabulary (crucial, seamless, exceptional, pivotal, dedicated)
 - Making primary text sound like a real marketer or business owner wrote it
 - Varying sentence length in longer primary text blocks

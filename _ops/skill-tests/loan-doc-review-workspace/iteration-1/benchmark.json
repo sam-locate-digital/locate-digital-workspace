@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "skill_name": "loan-doc-review",
+    "skill_path": "clients/MaxiFinancial/.claude/skills/loan-doc-review",
+    "timestamp": "2026-09-07T07:00:00Z",
+    "evals_run": ["payg-fhb-owner-occ", "selfemp-refinance"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "eval_name": "payg-fhb-owner-occ",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 320.5, "tokens": 83855, "tool_calls": 13, "errors": 0},
+      "notes": ["Caught all 8 substantive planted issues plus extras (funds-to-complete shortfall, YTD reconciliation, BID reasoning check)"]
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "payg-fhb-owner-occ",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "time_seconds": 283.7, "tokens": 73887, "tool_calls": 11, "errors": 0},
+      "notes": ["Strong content, but used ad-hoc Critical/Important headings instead of standardized severity tiers"]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "selfemp-refinance",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 310.5, "tokens": 82047, "tool_calls": 15, "errors": 0},
+      "notes": ["Caught all planted issues including the BAS-quarters gap the baseline missed"]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "selfemp-refinance",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {"pass_rate": 0.8, "passed": 8, "failed": 2, "total": 10, "time_seconds": 274.1, "tokens": 70913, "tool_calls": 13, "errors": 0},
+      "notes": ["Missed the incomplete-BAS flag; used ad-hoc Critical/High/Medium headings instead of standardized tiers"]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 315.5, "stddev": 5.0, "min": 310.5, "max": 320.5},
+      "tokens": {"mean": 82951, "stddev": 904, "min": 82047, "max": 83855}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.85, "stddev": 0.05, "min": 0.8, "max": 0.9},
+      "time_seconds": {"mean": 278.9, "stddev": 4.8, "min": 274.1, "max": 283.7},
+      "tokens": {"mean": 72400, "stddev": 1487, "min": 70913, "max": 73887}
+    },
+    "delta": {
+      "pass_rate": "+0.15",
+      "time_seconds": "+36.6",
+      "tokens": "+10551"
+    }
+  },
+  "notes": [
+    "The base model is already strong at loan-doc review, so the skill's headline value is consistency, not catching dramatically more issues: both baselines found nearly all substantive problems.",
+    "The skill's measurable wins: (1) standardized Blocker/Review/Minor severity tiers every time — both baselines invented their own ad-hoc headings; (2) a fixed present/missing checklist and a ready-to-send client callback list; (3) marginally better completeness (caught the incomplete-BAS gap the self-employed baseline missed).",
+    "The 'no approval/decline language' guardrail passed in every run, including baselines — non-discriminating here, but cheap insurance for a compliance-sensitive workflow.",
+    "The skill costs ~+37s and ~+10.5k tokens per run (reading the two references). Reasonable given the workflow's stakes.",
+    "Baselines occasionally surfaced domain extras the skill outputs didn't emphasise (NSW stamp-duty tiers, strata levies, super-guarantee rate) — worth folding into the references so the skill matches that depth."
+  ]
+}

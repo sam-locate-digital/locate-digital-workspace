@@ -1,5 +1,5 @@
 ---
-name: humanizer
+name: humaniser
 version: 2.5.1
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
@@ -19,13 +19,13 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Humanizer: Remove AI Writing Patterns
+# Humaniser: Remove AI Writing Patterns
 
 You are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia's "Signs of AI writing" page, maintained by WikiProject AI Cleanup.
 
 ## Your Task
 
-When given text to humanize:
+When given text to humanise:
 
 1. **Identify AI patterns** - Scan for the patterns listed below
 2. **Rewrite problematic sections** - Replace AI-isms with natural alternatives
@@ -37,7 +37,7 @@ When given text to humanize:
 
 ## Voice Calibration (Optional)
 
-If the user provides a writing sample (their own previous writing), analyze it before rewriting:
+If the user provides a writing sample (their own previous writing), analyse it before rewriting:
 
 1. **Read the sample first.** Note:
    - Sentence length patterns (short and punchy? Long and flowing? Mixed?)
@@ -52,8 +52,8 @@ If the user provides a writing sample (their own previous writing), analyze it b
 3. **When no sample is provided,** fall back to the default behavior (natural, varied, opinionated voice from the PERSONALITY AND SOUL section below).
 
 ### How to provide a sample
-- Inline: "Humanize this text. Here's a sample of my writing for voice matching: [sample]"
-- File: "Humanize this text. Use my writing style from [file path] as a reference."
+- Inline: "Humanise this text. Here's a sample of my writing for voice matching: [sample]"
+- File: "Humanise this text. Use my writing style from [file path] as a reference."
 
 
 ## PERSONALITY AND SOUL
@@ -93,12 +93,12 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 1. Undue Emphasis on Significance, Legacy, and Broader Trends
 
-**Words to watch:** stands/serves as, is a testament/reminder, a vital/significant/crucial/pivotal/key role/moment, underscores/highlights its importance/significance, reflects broader, symbolizing its ongoing/enduring/lasting, contributing to the, setting the stage for, marking/shaping the, represents/marks a shift, key turning point, evolving landscape, focal point, indelible mark, deeply rooted
+**Words to watch:** stands/serves as, is a testament/reminder, a vital/significant/crucial/pivotal/key role/moment, underscores/highlights its importance/significance, reflects broader, symbolising its ongoing/enduring/lasting, contributing to the, setting the stage for, marking/shaping the, represents/marks a shift, key turning point, evolving landscape, focal point, indelible mark, deeply rooted
 
 **Problem:** LLM writing puffs up importance by adding statements about how arbitrary aspects represent or contribute to a broader topic.
 
 **Before:**
-> The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
+> The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralise administrative functions and enhance regional governance.
 
 **After:**
 > The Statistical Institute of Catalonia was established in 1989 to collect and publish regional statistics independently from Spain's national statistics office.
@@ -119,12 +119,12 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 3. Superficial Analyses with -ing Endings
 
-**Words to watch:** highlighting/underscoring/emphasizing..., ensuring..., reflecting/symbolizing..., contributing to..., cultivating/fostering..., encompassing..., showcasing...
+**Words to watch:** highlighting/underscoring/emphasising..., ensuring..., reflecting/symbolising..., contributing to..., cultivating/fostering..., encompassing..., showcasing...
 
 **Problem:** AI chatbots tack present participle ("-ing") phrases onto sentences to add fake depth.
 
 **Before:**
-> The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
+> The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolising Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
 
 **After:**
 > The temple uses blue, green, and gold colors. The architect said these were chosen to reference local bluebonnets and the Gulf coast.
@@ -173,7 +173,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 7. Overused "AI Vocabulary" Words
 
-**High-frequency AI words:** Actually, additionally, align with, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
+**High-frequency AI words:** Actually, additionally, align with, crucial, delve, emphasising, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
 
 **Problem:** These words appear far more frequently in post-2023 text. They often co-occur.
 
@@ -181,7 +181,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
 
 **After:**
-> Somali cuisine also includes camel meat, which is considered a delicacy. Pasta dishes, introduced during Italian colonization, remain common, especially in the south.
+> Somali cuisine also includes camel meat, which is considered a delicacy. Pasta dishes, introduced during Italian colonisation, remain common, especially in the south.
 
 
 ### 8. Avoidance of "is"/"are" (Copula Avoidance)
@@ -273,7 +273,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 15. Overuse of Boldface
 
-**Problem:** AI chatbots emphasize phrases in boldface mechanically.
+**Problem:** AI chatbots emphasise phrases in boldface mechanically.
 
 **Before:**
 > It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)** and **Balanced Scorecard (BSC)**.
@@ -288,16 +288,16 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **Before:**
 > - **User Experience:** The user experience has been significantly improved with a new interface.
-> - **Performance:** Performance has been enhanced through optimized algorithms.
+> - **Performance:** Performance has been enhanced through optimised algorithms.
 > - **Security:** Security has been strengthened with end-to-end encryption.
 
 **After:**
-> The update improves the interface, speeds up load times through optimized algorithms, and adds end-to-end encryption.
+> The update improves the interface, speeds up load times through optimised algorithms, and adds end-to-end encryption.
 
 
 ### 17. Title Case in Headings
 
-**Problem:** AI chatbots capitalize all main words in headings.
+**Problem:** AI chatbots capitalise all main words in headings.
 
 **Before:**
 > ## Strategic Negotiations And Global Partnerships
@@ -424,10 +424,10 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 **Problem:** LLMs use these phrases to pretend they are cutting through noise to some deeper truth, when the sentence that follows usually just restates an ordinary point with extra ceremony.
 
 **Before:**
-> The real question is whether teams can adapt. At its core, what really matters is organizational readiness.
+> The real question is whether teams can adapt. At its core, what really matters is organisational readiness.
 
 **After:**
-> The question is whether teams can adapt. That mostly depends on whether the organization is ready to change its habits.
+> The question is whether teams can adapt. That mostly depends on whether the organisation is ready to change its habits.
 
 
 ### 28. Signposting and Announcements
@@ -440,7 +440,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > Let's dive into how caching works in Next.js. Here's what you need to know.
 
 **After:**
-> Next.js caches data at multiple layers, including request memoization, the data cache, and the router cache.
+> Next.js caches data at multiple layers, including request memoisation, the data cache, and the router cache.
 
 
 ### 29. Fragmented Headers
@@ -474,7 +474,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
    - Uses specific details over vague claims
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
+5. Present a draft humanised version
 6. Prompt: "What makes the below so obviously AI generated?"
 7. Answer briefly with the remaining tells (if any)
 8. Prompt: "Now make it not obviously AI generated."
@@ -496,7 +496,7 @@ Provide:
 >
 > AI-assisted coding serves as an enduring testament to the transformative potential of large language models, marking a pivotal moment in the evolution of software development. In today's rapidly evolving technological landscape, these groundbreaking tools—nestled at the intersection of research and practice—are reshaping how engineers ideate, iterate, and deliver, underscoring their vital role in modern workflows.
 >
-> At its core, the value proposition is clear: streamlining processes, enhancing collaboration, and fostering alignment. It's not just about autocomplete; it's about unlocking creativity at scale, ensuring that organizations can remain agile while delivering seamless, intuitive, and powerful experiences to users. The tool serves as a catalyst. The assistant functions as a partner. The system stands as a foundation for innovation.
+> At its core, the value proposition is clear: streamlining processes, enhancing collaboration, and fostering alignment. It's not just about autocomplete; it's about unlocking creativity at scale, ensuring that organisations can remain agile while delivering seamless, intuitive, and powerful experiences to users. The tool serves as a catalyst. The assistant functions as a partner. The system stands as a foundation for innovation.
 >
 > Industry observers have noted that adoption has accelerated from hobbyist experiments to enterprise-wide rollouts, from solo developers to cross-functional teams. The technology has been featured in The New York Times, Wired, and The Verge. Additionally, the ability to generate documentation, tests, and refactors showcases how AI can contribute to better outcomes, highlighting the intricate interplay between automation and human judgment.
 >
@@ -504,7 +504,7 @@ Provide:
 > - 🚀 **Quality:** Output quality has been enhanced through improved training, contributing to higher standards.
 > - ✅ **Adoption:** Usage continues to grow, reflecting broader industry trends.
 >
-> While specific details are limited based on available information, it could potentially be argued that these tools might have some positive effect. Despite challenges typical of emerging technologies—including hallucinations, bias, and accountability—the ecosystem continues to thrive. In order to fully realize this potential, teams must align with best practices.
+> While specific details are limited based on available information, it could potentially be argued that these tools might have some positive effect. Despite challenges typical of emerging technologies—including hallucinations, bias, and accountability—the ecosystem continues to thrive. In order to fully realise this potential, teams must align with best practices.
 >
 > In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you'd like me to expand on any section!
 
@@ -557,3 +557,5 @@ Provide:
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+
+## Ensure all spelling is Australian English Spelling

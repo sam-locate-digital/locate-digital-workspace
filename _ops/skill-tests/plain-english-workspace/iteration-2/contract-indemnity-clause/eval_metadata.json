@@ -1,0 +1,12 @@
+{
+  "eval_name": "contract-indemnity-clause",
+  "prompt": "a new client sent through their contract and theres this clause, what does it actually mean in plain english? is it bad?\n\n\"14.2 The Supplier shall indemnify and hold harmless the Client, its officers, employees and agents from and against any and all losses, liabilities, damages, costs (including legal costs on a solicitor-client basis) and expenses arising out of or in connection with the Services, howsoever caused, including by negligence, save to the extent caused by the Client's wilful misconduct. The Supplier's liability under this clause is uncapped and survives termination of this Agreement.\"",
+  "assertions": [
+    "The response opens with a one- or two-sentence plain answer to what the clause means and whether it's risky",
+    "The response explains 'indemnify and hold harmless' as Sam agreeing to cover the client's losses and costs, in everyday words",
+    "The response points out that 'including by negligence' and 'howsoever caused' mean Sam would pay even when the client is partly at fault, with the only exception being the client's wilful misconduct",
+    "The response explains that 'uncapped' means there is no upper limit and 'survives termination' means it still applies after the contract ends",
+    "The response includes an everyday analogy for the clause",
+    "The response gives Sam practical next steps, such as asking for a liability cap or mutual indemnity, or getting a lawyer to look at it, and says it isn't legal advice"
+  ]
+}

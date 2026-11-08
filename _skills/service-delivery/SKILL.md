@@ -35,7 +35,7 @@ Full detail lives in [`_ops/service-delivery-sop.md`](G:/My%20Drive/Claude%20Cod
 | Meta / Instagram Ads | `meta-ad-copy` | 5 |
 | Extra platform (YouTube/LinkedIn) | ⚠ `.claude/ads-youtube` / `ads-linkedin` | 6 |
 | Audience targeting + segmentation | within ad-copy skills | 7 |
-| Ad creative + copy | `google-ads-copy` / `meta-ad-copy` + `humanizer` | 8 |
+| Ad creative + copy | `google-ads-copy` / `meta-ad-copy` + `humaniser` | 8 |
 | A/B testing | ⚠ `.claude/ads-test` | 9 |
 | CRO | `landing-page` (audit mode) | 10 |
 | Landing pages | `landing-page` | 11 |

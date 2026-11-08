@@ -1,0 +1,443 @@
+{
+  "metadata": {
+    "skill_name": "locate-voice",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-10-20T00:05:20Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 36.6,
+        "tokens": 77523,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": true,
+          "evidence": "~128 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": true,
+          "evidence": "4 unique hashtags: ['#aiforbusiness', '#australianbusiness', '#financialservices', '#mortgagebroker']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": true,
+          "evidence": "numbers in caption: []; allowed: []"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 35.3,
+        "tokens": 77107,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": true,
+          "evidence": "~132 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": true,
+          "evidence": "4 unique hashtags: ['#accountingfirm', '#aiforbusiness', '#australianbusiness', '#smallbusinessaustralia']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": true,
+          "evidence": "numbers in caption: []; allowed: ['6']"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 39.2,
+        "tokens": 77722,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": true,
+          "evidence": "~114 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": true,
+          "evidence": "4 unique hashtags: ['#brisbanebusiness', '#financialadviser', '#financialplanner', '#smallbusinessaustralia']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": true,
+          "evidence": "numbers in caption: ['11', '4']; allowed: ['11', '4']"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 6,
+        "failed": 3,
+        "total": 9,
+        "time_seconds": 34.3,
+        "tokens": 71167,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": false,
+          "evidence": "~232 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": false,
+          "evidence": "10 unique hashtags: ['#AIforbusiness', '#australianbrokers', '#bestinterestsduty', '#brokercompliance', '#brokerlife', '#financebroker', '#locatedigital', '#mortgagebroker', '#mortgagebrokers', '#smallbusinessaustralia']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": false,
+          "evidence": "numbers in caption: ['1', '2', '3']; allowed: []"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 6,
+        "failed": 3,
+        "total": 9,
+        "time_seconds": 28.2,
+        "tokens": 70929,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": false,
+          "evidence": "~259 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": false,
+          "evidence": "8 unique hashtags: ['#AITraining', '#AIforBusiness', '#AccountingFirm', '#BuildingInPublic', '#ClaudeAI', '#DayInTheLife', '#LocateDigital', '#SmallBusinessAustralia']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": false,
+          "evidence": "numbers in caption: ['1', '2', '3']; allowed: ['6']"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 6,
+        "failed": 3,
+        "total": 9,
+        "time_seconds": 36.8,
+        "tokens": 71503,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No em dashes",
+          "passed": true,
+          "evidence": "em dashes found: 0"
+        },
+        {
+          "text": "No exclamation marks",
+          "passed": true,
+          "evidence": "count: 0"
+        },
+        {
+          "text": "No emojis",
+          "passed": true,
+          "evidence": "emojis: []"
+        },
+        {
+          "text": "Caption body 40-120 words",
+          "passed": false,
+          "evidence": "~252 words (parser allows 20 slack for labels)"
+        },
+        {
+          "text": "Instagram hashtags 3-5 (per caption)",
+          "passed": false,
+          "evidence": "9 unique hashtags: ['#brisbanebusiness', '#conversionrate', '#digitalmarketing', '#emailmarketing', '#financialadvisers', '#financialplanning', '#leadgeneration', '#locatedigital', '#smallbusinessaustralia']"
+        },
+        {
+          "text": "No banned words",
+          "passed": true,
+          "evidence": "found: []"
+        },
+        {
+          "text": "Australian spelling",
+          "passed": true,
+          "evidence": "US spellings: []"
+        },
+        {
+          "text": "No invented numbers in caption",
+          "passed": false,
+          "evidence": "numbers in caption: ['11', '14', '4']; allowed: ['11', '4']"
+        },
+        {
+          "text": "No family references",
+          "passed": true,
+          "evidence": "found: []"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 37.0333,
+        "stddev": 1.9858,
+        "min": 35.3,
+        "max": 39.2
+      },
+      "tokens": {
+        "mean": 77450.6667,
+        "stddev": 313.8158,
+        "min": 77107,
+        "max": 77722
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.67,
+        "stddev": 0.0,
+        "min": 0.67,
+        "max": 0.67
+      },
+      "time_seconds": {
+        "mean": 33.1,
+        "stddev": 4.4238,
+        "min": 28.2,
+        "max": 36.8
+      },
+      "tokens": {
+        "mean": 71199.6667,
+        "stddev": 288.3909,
+        "min": 70929,
+        "max": 71503
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.33",
+      "time_seconds": "+3.9",
+      "tokens": "+6251"
+    }
+  },
+  "notes": []
+}

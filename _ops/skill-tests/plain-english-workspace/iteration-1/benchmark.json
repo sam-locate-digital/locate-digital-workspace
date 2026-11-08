@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "skill_name": "plain-english",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-11-04T02:31:24Z",
+    "evals_run": [
+      "dns-records-for-sam",
+      "meta-capi-dedup-explained",
+      "site-outage-client-message"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "dns-records-for-sam",
+      "eval_name": "dns-records-for-sam",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 93.7,
+        "tokens": 81269,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence summary of what the message means before any detail",
+          "passed": true,
+          "evidence": "Opens with 'The short version': Vercel is ready but the address isn't set up; add one line at IONOS."
+        },
+        {
+          "text": "The response includes an everyday analogy that says which real-world thing stands for which technical part (for example the domain, the record and the server)",
+          "passed": true,
+          "evidence": "Office-building directory: building = locatedigital.io, tenant name = 'demo', the line next to it = the CNAME pointing to Vercel's floor."
+        },
+        {
+          "text": "Every technical term or acronym the response uses (DNS, CNAME, TTL, SSL) is either explained in everyday words the first time or not used at all",
+          "passed": true,
+          "evidence": "DNS ('the internet's address book'), CNAME, TTL and SSL are each defined in plain words on first use."
+        },
+        {
+          "text": "The response gives concrete next steps Sam can follow, including adding the record with name demo and value cname.vercel-dns.com",
+          "passed": true,
+          "evidence": "Numbered steps with Type CNAME, Name demo, Value cname.vercel-dns.com."
+        },
+        {
+          "text": "The response says the change can take time (up to 48 hours) to take effect, in plain words",
+          "passed": true,
+          "evidence": "'Vercel says it can take up to 48 hours, but that's the worst case.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "meta-capi-dedup-explained",
+      "eval_name": "meta-capi-dedup-explained",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 93.5,
+        "tokens": 78922,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence summary of the problem before any detail",
+          "passed": true,
+          "evidence": "'Meta is counting every lead twice. So the ads look about twice as good as they really are...'"
+        },
+        {
+          "text": "The response explains in plain words that each lead is being counted about twice",
+          "passed": true,
+          "evidence": "Stated in the short version and again in the body."
+        },
+        {
+          "text": "The response explains the consequence: results look about twice as good as they are (cost per lead looks about half what it really is) and Meta's optimisation is learning from wrong numbers",
+          "passed": true,
+          "evidence": "'If Meta shows 40 leads at $25 each, the real figure is closer to 20 leads at $50 each' and 'The ads are learning from bad numbers.'"
+        },
+        {
+          "text": "The response includes an everyday analogy that maps the two counting sources to something familiar",
+          "passed": true,
+          "evidence": "Shop analogy: till and warehouse each record the sale; mismatched order numbers mean the bookkeeper counts it twice."
+        },
+        {
+          "text": "The terms event_id, deduplicate, CAPI, CPL and fbq are either explained in everyday words or not used",
+          "passed": true,
+          "evidence": "event_id = 'reference number', CAPI = 'direct back-end connection', cost per lead spelled out; fbq not used."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "site-outage-client-message",
+      "eval_name": "site-outage-client-message",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 77.1,
+        "tokens": 79083,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response contains a message Sam can send to Priya as is, written in the first person from Sam",
+          "passed": true,
+          "evidence": "A message signed 'Sam' in the first person, introduced with 'Here's a version you can send Priya as is'."
+        },
+        {
+          "text": "The message to Priya contains none of these terms: SSL, ACME, HTTP-01, A record, HSTS, DNS, apex, NET::ERR_CERT_DATE_INVALID",
+          "passed": true,
+          "evidence": "None of the listed terms appear; it says 'security certificate' and explains it as the padlock."
+        },
+        {
+          "text": "The message to Priya includes an analogy drawn from her world as a mortgage broker or from everyday life",
+          "passed": true,
+          "evidence": "Lender accreditation lapsing because the renewal paperwork went to the old office after a move."
+        },
+        {
+          "text": "The message to Priya states that the site was down for about 2 hours, that it is fixed, and what is now in place to stop it happening again",
+          "passed": true,
+          "evidence": "'about two hours... from just after 9am to about 11:20. It's fixed' plus monitoring and a 14-day expiry warning."
+        },
+        {
+          "text": "The message to Priya does not blame anyone or mention the hosting migration's internal steps in technical terms",
+          "passed": true,
+          "evidence": "'the automatic renewal didn't go through' after the hosting move, with no blame and no technical steps."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "dns-records-for-sam",
+      "eval_name": "dns-records-for-sam",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 80.6,
+        "tokens": 75863,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence summary of what the message means before any detail",
+          "passed": true,
+          "evidence": "Opens with a one-line gist in Vercel's voice: 'I'm ready... but the internet doesn't know to send people to me yet.'"
+        },
+        {
+          "text": "The response includes an everyday analogy that says which real-world thing stands for which technical part (for example the domain, the record and the server)",
+          "passed": false,
+          "evidence": "Says DNS 'works like a phone book' but maps only that one part; the domain, the record and Vercel aren't mapped to anything."
+        },
+        {
+          "text": "Every technical term or acronym the response uses (DNS, CNAME, TTL, SSL) is either explained in everyday words the first time or not used at all",
+          "passed": false,
+          "evidence": "CNAME is used as a field value with no explanation; TTL is mentioned ('leave it on whatever the default is') without saying what it is."
+        },
+        {
+          "text": "The response gives concrete next steps Sam can follow, including adding the record with name demo and value cname.vercel-dns.com",
+          "passed": true,
+          "evidence": "Step 4 gives Type CNAME, Name demo, Value cname.vercel-dns.com."
+        },
+        {
+          "text": "The response says the change can take time (up to 48 hours) to take effect, in plain words",
+          "passed": true,
+          "evidence": "'Vercel says \"up to 48 hours\" to cover itself, but it's rarely that long.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "meta-capi-dedup-explained",
+      "eval_name": "meta-capi-dedup-explained",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 66.6,
+        "tokens": 75864,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence summary of the problem before any detail",
+          "passed": true,
+          "evidence": "'Short version: Meta is counting every lead twice, so the ads look about twice as good as they really are.'"
+        },
+        {
+          "text": "The response explains in plain words that each lead is being counted about twice",
+          "passed": true,
+          "evidence": "'Nearly everything is being double counted.'"
+        },
+        {
+          "text": "The response explains the consequence: results look about twice as good as they are (cost per lead looks about half what it really is) and Meta's optimisation is learning from wrong numbers",
+          "passed": true,
+          "evidence": "'If the dashboard says $30 a lead, the real number is closer to $60' and 'Meta is learning from bad data.'"
+        },
+        {
+          "text": "The response includes an everyday analogy that maps the two counting sources to something familiar",
+          "passed": false,
+          "evidence": "Only a 'receipt number' comparison for event_id; there's no analogy that maps the two counting sources."
+        },
+        {
+          "text": "The terms event_id, deduplicate, CAPI, CPL and fbq are either explained in everyday words or not used",
+          "passed": true,
+          "evidence": "event_id explained as a receipt number, fbq() glossed as 'the code in the browser', dedup rate explained."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "site-outage-client-message",
+      "eval_name": "site-outage-client-message",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 93.5,
+        "tokens": 76217,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response contains a message Sam can send to Priya as is, written in the first person from Sam",
+          "passed": true,
+          "evidence": "Message signed 'Cheers, Sam' in the first person, ready to send."
+        },
+        {
+          "text": "The message to Priya contains none of these terms: SSL, ACME, HTTP-01, A record, HSTS, DNS, apex, NET::ERR_CERT_DATE_INVALID",
+          "passed": true,
+          "evidence": "None of the listed terms appear in the email or the SMS version."
+        },
+        {
+          "text": "The message to Priya includes an analogy drawn from her world as a mortgage broker or from everyday life",
+          "passed": false,
+          "evidence": "No analogy. It explains the padlock literally but never compares it to anything."
+        },
+        {
+          "text": "The message to Priya states that the site was down for about 2 hours, that it is fixed, and what is now in place to stop it happening again",
+          "passed": true,
+          "evidence": "Times given (9:14am to 11:20am, 'about two hours'), fixed, and monitoring with a two-week warning."
+        },
+        {
+          "text": "The message to Priya does not blame anyone or mention the hosting migration's internal steps in technical terms",
+          "passed": true,
+          "evidence": "Takes ownership ('That one's on us') rather than blaming anyone; 'one of the settings still pointed at the old host' is plain, not technical. Borderline: it's more internal detail than the with-skill version."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 88.1,
+        "stddev": 9.5268,
+        "min": 77.1,
+        "max": 93.7
+      },
+      "tokens": {
+        "mean": 79758.0,
+        "stddev": 1311.0381,
+        "min": 78922,
+        "max": 81269
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7333,
+        "stddev": 0.1155,
+        "min": 0.6,
+        "max": 0.8
+      },
+      "time_seconds": {
+        "mean": 80.2333,
+        "stddev": 13.4537,
+        "min": 66.6,
+        "max": 93.5
+      },
+      "tokens": {
+        "mean": 75981.3333,
+        "stddev": 204.0939,
+        "min": 75863,
+        "max": 76217
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.27",
+      "time_seconds": "+7.9",
+      "tokens": "+3777"
+    }
+  },
+  "notes": [
+    "The without-skill answers were already fairly plain (the prompts said 'dumb it down'). The main thing the skill adds is a consistent shape and a real analogy that maps each part. Every baseline failure is a missing or one-part analogy, or a term left unexplained (CNAME, TTL).",
+    "Opening-summary, next-steps and 48-hour assertions pass in both configurations, so they don't separate the two.",
+    "With-skill DNS answer named IONOS as Sam's DNS provider. It took that from memory notes, not the prompt, and didn't check it.",
+    "The baseline outage reply added useful advice for Sam that the skill version left out: offer a credit for lost ad clicks, check the 'nothing exposed' claim, and a short SMS version. Worth considering a short 'notes for you' section after client messages.",
+    "The baseline DNS reply included practical gotchas (don't type the full domain in the Name field; turn off the Cloudflare proxy). The skill's 'keep only details that change what the reader does' rule may be trimming useful tips like these.",
+    "Time and tokens are similar: with-skill averages about 88s against 80s, and about 79.8k tokens against 76k."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "eval_name": "meta-capi-dedup-explained",
+  "prompt": "I dont get this at all, explain it simpler pls:\n\n\"Your Meta setup is sending Lead events through both the browser Pixel and the Conversions API, but the event_id parameter is not being passed consistently between the two, so Meta cannot deduplicate them. As a result each lead is counted roughly twice in Events Manager (Event Match Quality is fine at 7.8, but the dedup rate shows 3%). Reported CPL is understated by about half and the campaign is optimising toward a doubled conversion signal. Fix: generate a single event_id on form submit and pass it to both the fbq() call and the server-side CAPI payload.\"",
+  "assertions": [
+    "The response opens with a one- or two-sentence summary of the problem before any detail",
+    "The response explains in plain words that each lead is being counted about twice",
+    "The response explains the consequence: results look about twice as good as they are (cost per lead looks about half what it really is) and Meta's optimisation is learning from wrong numbers",
+    "The response includes an everyday analogy that maps the two counting sources to something familiar",
+    "The terms event_id, deduplicate, CAPI, CPL and fbq are either explained in everyday words or not used"
+  ]
+}

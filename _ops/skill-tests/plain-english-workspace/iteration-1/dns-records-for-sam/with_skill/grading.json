@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The response opens with a one- or two-sentence summary of what the message means before any detail",
+      "passed": true,
+      "evidence": "Opens with 'The short version': Vercel is ready but the address isn't set up; add one line at IONOS."
+    },
+    {
+      "text": "The response includes an everyday analogy that says which real-world thing stands for which technical part (for example the domain, the record and the server)",
+      "passed": true,
+      "evidence": "Office-building directory: building = locatedigital.io, tenant name = 'demo', the line next to it = the CNAME pointing to Vercel's floor."
+    },
+    {
+      "text": "Every technical term or acronym the response uses (DNS, CNAME, TTL, SSL) is either explained in everyday words the first time or not used at all",
+      "passed": true,
+      "evidence": "DNS ('the internet's address book'), CNAME, TTL and SSL are each defined in plain words on first use."
+    },
+    {
+      "text": "The response gives concrete next steps Sam can follow, including adding the record with name demo and value cname.vercel-dns.com",
+      "passed": true,
+      "evidence": "Numbered steps with Type CNAME, Name demo, Value cname.vercel-dns.com."
+    },
+    {
+      "text": "The response says the change can take time (up to 48 hours) to take effect, in plain words",
+      "passed": true,
+      "evidence": "'Vercel says it can take up to 48 hours, but that's the worst case.'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

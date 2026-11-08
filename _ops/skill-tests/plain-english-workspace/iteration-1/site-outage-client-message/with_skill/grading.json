@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The response contains a message Sam can send to Priya as is, written in the first person from Sam",
+      "passed": true,
+      "evidence": "A message signed 'Sam' in the first person, introduced with 'Here's a version you can send Priya as is'."
+    },
+    {
+      "text": "The message to Priya contains none of these terms: SSL, ACME, HTTP-01, A record, HSTS, DNS, apex, NET::ERR_CERT_DATE_INVALID",
+      "passed": true,
+      "evidence": "None of the listed terms appear; it says 'security certificate' and explains it as the padlock."
+    },
+    {
+      "text": "The message to Priya includes an analogy drawn from her world as a mortgage broker or from everyday life",
+      "passed": true,
+      "evidence": "Lender accreditation lapsing because the renewal paperwork went to the old office after a move."
+    },
+    {
+      "text": "The message to Priya states that the site was down for about 2 hours, that it is fixed, and what is now in place to stop it happening again",
+      "passed": true,
+      "evidence": "'about two hours... from just after 9am to about 11:20. It's fixed' plus monitoring and a 14-day expiry warning."
+    },
+    {
+      "text": "The message to Priya does not blame anyone or mention the hosting migration's internal steps in technical terms",
+      "passed": true,
+      "evidence": "'the automatic renewal didn't go through' after the hosting move, with no blame and no technical steps."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

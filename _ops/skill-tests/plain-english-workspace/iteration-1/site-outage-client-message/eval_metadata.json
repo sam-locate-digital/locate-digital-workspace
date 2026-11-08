@@ -1,0 +1,11 @@
+{
+  "eval_name": "site-outage-client-message",
+  "prompt": "one of my clients, Priya (mortgage broker), noticed her website was down for about 2 hours yesterday and wants to know what happened. heres what my dev notes say, how do i explain this to her without sounding like a robot:\n\n\"Root cause: the SSL cert on the apex domain expired at 09:14 AEST because auto-renewal failed \u2014 the ACME HTTP-01 challenge could not complete after the A record was changed during the hosting migration, so the old host was still answering the challenge. Browsers threw NET::ERR_CERT_DATE_INVALID and HSTS prevented users clicking through. Fixed at 11:20 by re-pointing DNS and manually reissuing the cert. Added uptime monitoring with cert-expiry alerts at 14 days.\"",
+  "assertions": [
+    "The response contains a message Sam can send to Priya as is, written in the first person from Sam",
+    "The message to Priya contains none of these terms: SSL, ACME, HTTP-01, A record, HSTS, DNS, apex, NET::ERR_CERT_DATE_INVALID",
+    "The message to Priya includes an analogy drawn from her world as a mortgage broker or from everyday life",
+    "The message to Priya states that the site was down for about 2 hours, that it is fixed, and what is now in place to stop it happening again",
+    "The message to Priya does not blame anyone or mention the hosting migration's internal steps in technical terms"
+  ]
+}

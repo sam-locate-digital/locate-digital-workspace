@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The response contains a message Sam can send to Priya as is, written in the first person from Sam",
+      "passed": true,
+      "evidence": "Message signed 'Cheers, Sam' in the first person, ready to send."
+    },
+    {
+      "text": "The message to Priya contains none of these terms: SSL, ACME, HTTP-01, A record, HSTS, DNS, apex, NET::ERR_CERT_DATE_INVALID",
+      "passed": true,
+      "evidence": "None of the listed terms appear in the email or the SMS version."
+    },
+    {
+      "text": "The message to Priya includes an analogy drawn from her world as a mortgage broker or from everyday life",
+      "passed": false,
+      "evidence": "No analogy. It explains the padlock literally but never compares it to anything."
+    },
+    {
+      "text": "The message to Priya states that the site was down for about 2 hours, that it is fixed, and what is now in place to stop it happening again",
+      "passed": true,
+      "evidence": "Times given (9:14am to 11:20am, 'about two hours'), fixed, and monitoring with a two-week warning."
+    },
+    {
+      "text": "The message to Priya does not blame anyone or mention the hosting migration's internal steps in technical terms",
+      "passed": true,
+      "evidence": "Takes ownership ('That one's on us') rather than blaming anyone; 'one of the settings still pointed at the old host' is plain, not technical. Borderline: it's more internal detail than the with-skill version."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  }
+}

@@ -1,6 +1,6 @@
 ---
 name: google-ads-copy
-description: Write Google Ads RSA copy for service business clients. Use when asked to write Google ad copy, search ad headlines, RSA copy, Google Ads text, PPC copy, or responsive search ad copy for a client. Outputs a complete Google Ads setup: keywords with match types and reasoning, 15 RSA headlines, 4 descriptions, pinning recommendations, phased bidding strategy, and campaign/ad settings — all with reasoning. Always includes humanizer pass.
+description: Write Google Ads RSA copy for service business clients. Use when asked to write Google ad copy, search ad headlines, RSA copy, Google Ads text, PPC copy, or responsive search ad copy for a client. Outputs a complete Google Ads setup: keywords with match types and reasoning, 15 RSA headlines, 4 descriptions, pinning recommendations, phased bidding strategy, and campaign/ad settings — all with reasoning. Always includes humaniser pass.
 ---
 
 # Google Ads copy — RSAs for service businesses
@@ -186,6 +186,6 @@ Reason: Homepage has competing CTAs and too many exits. A focused page matching 
 - Keyword stuffing in descriptions
 - Recommending Broad match to a client without conversion history
 
-## Humanizer pass
+## Humaniser pass
 
-Run humanizer on the 4 descriptions. Headlines are too short for deep humanizer logic but scan them for AI vocabulary (exceptional, premier, crucial, dedicated) and forced formality that sounds unlike a real ad. Deliver the cleaned set as final output.
+Run humaniser on the 4 descriptions. Headlines are too short for deep humaniser logic but scan them for AI vocabulary (exceptional, premier, crucial, dedicated) and forced formality that sounds unlike a real ad. Deliver the cleaned set as final output.

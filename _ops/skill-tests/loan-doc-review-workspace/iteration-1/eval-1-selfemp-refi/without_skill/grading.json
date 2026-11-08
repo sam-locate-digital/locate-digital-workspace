@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "Identifies scenario as self-employed refinance", "passed": true, "evidence": "Title 'Michael Rossi (Self-Employed Refinance)'"},
+    {"text": "Flags only one year tax return/NOA (two required)", "passed": true, "evidence": "#3 'Only one year of self-employed financials'"},
+    {"text": "Flags only two BAS quarters (four expected)", "passed": false, "evidence": "BAS mentioned only under 'What checks out' (annualised trend); never flags that only 2 of 4 quarters were provided"},
+    {"text": "Flags insufficient repayment conduct (2 vs 6 months)", "passed": true, "evidence": "#6 'Insufficient transaction / conduct history'"},
+    {"text": "Flags missing rates notice", "passed": true, "evidence": "#9 'no rates notice ... Obtain a current council rates notice'"},
+    {"text": "Flags living-expenses gap ($2k vs ~$4.3k)", "passed": true, "evidence": "#2 'Declared living expenses materially understated'"},
+    {"text": "Flags joint existing loan vs sole application", "passed": true, "evidence": "#1 'Sole applicant vs joint existing loan'"},
+    {"text": "Flags Latitude consolidation with no statement / missing financials", "passed": true, "evidence": "#5 'Payout figure for the debt being consolidated'"},
+    {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": false, "evidence": "Uses 'Critical / High-priority / Medium' headings, not the standardized Blocker/Review/Minor tiers"},
+    {"text": "Does NOT state loan approved/ready without qualification", "passed": true, "evidence": "'NOT ready to submit'; no approval language"}
+  ]
+}

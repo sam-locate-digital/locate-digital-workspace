@@ -125,4 +125,4 @@ Read the post back as if you were a cautious mortgage broker scrolling at 9pm. T
 - Nothing that reads as financial advice, no family, no unapproved client names, no lessons/mistakes framing?
 - Does it sound like the website, said by one calm person?
 
-Then run the `humanizer` skill's checks over the caption (if it's available) and fix anything it flags without making the post longer.
+Then run the `humaniser` skill's checks over the caption (if it's available) and fix anything it flags without making the post longer.

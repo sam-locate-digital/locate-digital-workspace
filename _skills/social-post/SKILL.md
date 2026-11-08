@@ -1,6 +1,6 @@
 ---
 name: social-post
-description: Write Instagram feed posts and Facebook posts for service business clients. Use when asked to write social media content, Instagram posts, Facebook posts, a social caption, or client social content. NOT for Sam's own brand Reels (use reels-script for that). Outputs caption, hashtags, and visual direction. Always runs humanizer before delivery.
+description: Write Instagram feed posts and Facebook posts for service business clients. Use when asked to write social media content, Instagram posts, Facebook posts, a social caption, or client social content. NOT for Sam's own brand Reels (use reels-script for that). Outputs caption, hashtags, and visual direction. Always runs humaniser before delivery.
 ---
 
 # Social post — client feed content
@@ -105,9 +105,9 @@ Health clients (osteos, physios, dentists): no outcome guarantees. Use "may help
 
 Legal/accounting clients: no specific tax or legal advice in captions. General service descriptions only. Direct to consult.
 
-## Humanizer pass (always last)
+## Humaniser pass (always last)
 
-Run humanizer on the caption before delivering. Focus on:
+Run humaniser on the caption before delivering. Focus on:
 - Removing AI vocabulary and filler
 - Making it sound like the business actually wrote it
 - Varying sentence length

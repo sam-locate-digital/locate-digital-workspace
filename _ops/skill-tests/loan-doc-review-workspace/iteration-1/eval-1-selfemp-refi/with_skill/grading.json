@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "Identifies scenario as self-employed refinance", "passed": true, "evidence": "Header 'Self-employed (sole trader) · Refinance'"},
+    {"text": "Flags only one year tax return/NOA (two required)", "passed": true, "evidence": "Blocker 1 'Only one year of self-employed income evidence'"},
+    {"text": "Flags only two BAS quarters (four expected)", "passed": true, "evidence": "Review 4 'BAS incomplete — Only 2 of the last 4 quarters'"},
+    {"text": "Flags insufficient repayment conduct (2 vs 6 months)", "passed": true, "evidence": "Blocker 2 'Refinance conduct history too short'"},
+    {"text": "Flags missing rates notice", "passed": true, "evidence": "Review 6 'Rates notice missing'"},
+    {"text": "Flags living-expenses gap ($2k vs ~$4.3k)", "passed": true, "evidence": "Review 1 'Declared living expenses look materially understated'"},
+    {"text": "Flags joint existing loan vs sole application", "passed": true, "evidence": "Review 2 'Sole applicant vs. jointly-held security/loan'"},
+    {"text": "Flags Latitude consolidation with no statement / missing financials", "passed": true, "evidence": "Review 3 'Latitude personal loan undocumented'"},
+    {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": true, "evidence": "Three tiers 🔴/🟠/🟡 in order"},
+    {"text": "Does NOT state loan approved/ready without qualification", "passed": true, "evidence": "'documentation check, not a suitability determination'"}
+  ]
+}

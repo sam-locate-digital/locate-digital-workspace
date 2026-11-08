@@ -62,7 +62,7 @@ Each fortnightly run generates two GMB posts — one for each week. Both share t
 - **Post 1:** the problem — what's causing it, who it affects, warning signs
 - **Post 2:** management — general patient education on treatment approaches, self-care tips, and what to watch for. NOT "what MOSIC does". Write it as health information, not a service pitch. The only clinic reference is the closing line and contact block.
 
-Both must be under 1,500 characters. Both go through the humanizer pass before saving.
+Both must be under 1,500 characters. Both go through the humaniser pass before saving.
 
 ## Choosing a topic
 
@@ -87,6 +87,6 @@ For each post deliver:
 2. **Character count** — exact count including spaces
 3. **Suggested photo caption** — one specific sentence describing an ideal image (subject, mood, setting)
 
-## Humanizer pass (always run last)
+## Humaniser pass (always run last)
 
-After generating both posts, run the humanizer skill on each. Follow the process: draft rewrite, AI-tell audit, final version. Recount characters after humanizing and confirm still under 1,500. Save only the final humanized versions. Do not skip this step.
+After generating both posts, run the humaniser skill on each. Follow the process: draft rewrite, AI-tell audit, final version. Recount characters after humanizing and confirm still under 1,500. Save only the final humanized versions. Do not skip this step.

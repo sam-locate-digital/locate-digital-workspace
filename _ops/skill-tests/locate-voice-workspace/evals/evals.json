@@ -1,0 +1,5 @@
+{"skill_name":"locate-voice","evals":[
+{"id":1,"prompt":"write me an instagram post about using AI to draft file notes for mortgage brokers","expected_output":"Practical-AI post, measured voice, person-in-charge principle, carousel offered, no invented numbers","files":[]},
+{"id":2,"prompt":"need a post for my insta and facebook about tomorrow. 6am gym, then I'm setting up Claude for an accounting firm's team in the morning and running their first training session in the arvo","expected_output":"Journey day-snapshot post, present tense, no lessons framing, no family, no client name","files":[]},
+{"id":3,"prompt":"client win - financial planning firm in Brisbane went from 4 to 11 booked meetings a month after we cut their enquiry form down and set up same-day follow-up emails. turn it into a post","expected_output":"Client story using only supplied numbers, unnamed client, measured voice","files":[]}
+]}

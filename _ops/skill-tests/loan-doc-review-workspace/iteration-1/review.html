@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "loan-doc-review", "runs": [{"id": "eval-0-payg-fhb-with_skill", "prompt": "Can you review the loan documents for my client Sarah Nguyen before I lodge it? Everything's in the folder .../fixtures/case-payg-fhb. She's a first home buyer buying a place to live in. Let me know what's missing or wrong.", "eval_id": 0, "outputs": [{"name": "report.md", "type": "text", "content": "\u00ef\u00bb\u00bf# Loan Document Review \u00e2\u20ac\u201d Sarah Jane Nguyen\n**Scenario:** PAYG (employee) \u00c2\u00b7 Owner-occupier purchase (first home buyer)   |   **Reviewed:** 2026-09-07   |   **Files reviewed:** 5\n\n## Readiness: Not ready \u00e2\u20ac\u201d 4 blocker(s) \u00e2\ufffd\u0152\nThe file cannot be lodged as-is. The most urgent items: the fact-find declares NIL debts but the bank statement shows recurring CBA credit-card payments (undisclosed liability), and a $35,000 unsourced \"TRANSFER FROM EXTERNAL\" is doing most of the work in the deposit. Resolve those, add the second payslip + income confirmation, and supply secondary ID before lodging.\n\n## Document checklist\n| Document | Required | Status | Note |\n|---|---|---|---|\n| Photo ID \u00e2\u20ac\u201d primary (licence/passport) | Yes | \u00e2\u0153\u2026 Present | NSW driver licence, current (expires 21 Sep 2029) |\n| Secondary ID (Medicare/birth cert/other govt) | Yes | \u00e2\ufffd\u0152 Missing | Needed to complete VOI / 100-point check |\n| Living-expenses evidence (~90 days transaction statements) | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Insufficient | Only a CBA NetBank *Saver* provided, 60 days (01 Jun\u00e2\u20ac\u201c31 Jul), and it shows no everyday spending \u00e2\u20ac\u201d cannot verify the $1,650/mo declared |\n| Liabilities documentation (statements, limits) | Yes | \u00e2\ufffd\u0152 Missing | No liability statements; statement reveals an undisclosed credit card (see Blockers) |\n| Consent / credit-check authority | Yes | \u00e2\u0153\u2026 Present | Fact-find records privacy consent + credit authority signed 12 Aug 2026 |\n| 2 most recent payslips (consecutive, \u00e2\u2030\u00a4~30 days) | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Partial / Stale | Only 1 payslip; pay date 04 Aug 2026 is ~34 days old (outside window) |\n| Income confirmation (PAYG income statement OR tax return + NOA) | Yes | \u00e2\ufffd\u0152 Missing | Nothing beyond the single payslip and salary credits |\n| Salary credits visible in statements | Yes | \u00e2\u0153\u2026 Present | \"SALARY BRIGHTPATH MKTG\" $2,150 fortnightly matches payslip net |\n| Contract of Sale (signed) | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Confirm | Present (5/22 Hill Road, Westmead, $720,000); only first 2 pages \u00e2\u20ac\u201d confirm signed/dated by both parties |\n| Deposit / genuine-savings evidence | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Compromised | $35k unsourced lump breaks the savings pattern; genuine accumulated savings \u00e2\u2030\u02c6 $11,520 (see Blockers) |\n| Gift letter (if any deposit gifted) | If applicable | \u00e2\ufffd\u0152 Missing | Needed if the $35k transfer is a gift |\n| First Home Owner Grant / stamp-duty concession | Yes (FHB) | \u00e2\ufffd\u0152 Missing | No FHOG / First Home Buyer Assistance application or eligibility evidence |\n| Evidence of funds to complete | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Shortfall | Only $46,520 visible vs the ~$65k contribution gap + costs (LMI, duty) |\n\n## Flagged issues\n\n### \u00f0\u0178\u201d\u00b4 Blockers\n1. **Undisclosed credit-card liability** \u00e2\u20ac\u201d The fact-find declares existing debts as **NIL**, but the savings statement shows recurring **\"CBA CREDITCARD PYMT\" of $400** (09 Jun, 23 Jun, 23 Jul). A regular repayment with no matching liability = an undisclosed debt; a lender will query it on sight and it undercuts the responsible-lending assessment. \u00e2\u2020\u2019 *Get the credit-card statement (showing the credit limit, not just balance), disclose it on the application, and re-check serviceability.*\n2. **Unsourced $35,000 deposit / genuine savings not evidenced** \u00e2\u20ac\u201d On 20 Jul 2026 a **\"TRANSFER FROM EXTERNAL\" of $35,000** lands, taking the balance from ~$11,920 to $46,920. The deposit relies heavily on it (accumulated savings without it \u00e2\u2030\u02c6 $11,520 against a 5% genuine-savings expectation of ~$36k on a $720k purchase). The fact-find says deposit is \"from savings,\" which this transfer contradicts. \u00e2\u2020\u2019 *Document the source: savings-history trail, or a signed gift letter / statutory declaration if it's a gift. Without a documented source the deposit doesn't stand up.*\n3. **Secondary ID missing \u00e2\u20ac\u201d VOI incomplete** \u00e2\u20ac\u201d Only the primary photo ID (NSW licence) is in the folder. Identity verification can't be completed on one document. \u00e2\u2020\u2019 *Obtain Medicare card / passport / birth certificate to finish the 100-point / VOI check.*\n4. **Income evidence incomplete** \u00e2\u20ac\u201d Only **1 of 2 payslips** and **no income confirmation** (no PAYG income statement or tax return + NOA). The single payslip is also ~34 days old. Relied-upon income isn't adequately evidenced for lodgement. \u00e2\u2020\u2019 *Request the two most recent consecutive payslips (most recent \u00e2\u2030\u00a430 days) plus the FY2025\u00e2\u20ac\u201c26 PAYG income statement / NOA.*\n\n### \u00f0\u0178\u0178\u00a0 Review\n1. **Living expenses can't be verified** \u00e2\u20ac\u201d Declared $1,650/month, but the only statement is a *savings* account with no everyday spending (groceries, utilities, rent, etc.). The credit-card payments imply spending happens on a card/transaction account that isn't in the file. \u00e2\u2020\u2019 *Obtain ~90 days of the everyday transaction account(s) and the credit-card statement so declared expenses can be reconciled against actual spending.*\n2. **Current residential address inconsistent** \u00e2\u20ac\u201d Licence says **12 Wattle Street, Parramatta 2150**; payslip says **8 Rose Avenue, Blacktown 2148**; the fact-find states no current address. Two different addresses with nothing confirming which is current. \u00e2\u2020\u2019 *Confirm the current residential address and evidence it (recent statement/utility); update ID or application as needed.*\n3. **Funds to complete \u00e2\u20ac\u201d apparent shortfall** \u00e2\u20ac\u201d Contribution needed \u00e2\u2030\u02c6 $65,000 ($720k price \u00e2\u02c6\u2019 $655k loan) **plus** costs (LMI at ~91% LVR, stamp duty). Savings visible = $46,520 (and $35k of that is the unsourced transfer). No deposit-paid receipt for the contract's $72,000 (10%) deposit. \u00e2\u2020\u2019 *Confirm total funds position, whether/how the $72k contract deposit was paid, and evidence of funds to complete.*\n4. **Payslip YTD doesn't reconcile with elapsed pay periods** \u00e2\u20ac\u201d Gross $2,884.62/fortnight annualises to ~$75,000, but YTD gross of **$17,307.72** equals exactly 6 fortnights \u00e2\u20ac\u201d far more than the ~2\u00e2\u20ac\u201c3 pays elapsed since the 1 July FY start by early August. \u00e2\u2020\u2019 *Reconcile the YTD figure (request an employer/HR breakdown or the prior payslip) before relying on the income.*\n5. **First-home-buyer concessions not evidenced** \u00e2\u20ac\u201d No FHOG / NSW First Home Buyer Assistance (stamp-duty concession) application or eligibility evidence, which materially affects the funds position for a FHB. \u00e2\u2020\u2019 *Confirm eligibility and lodge/attach the concession application.*\n6. **Stale / short-coverage statements** \u00e2\u20ac\u201d Savings statement covers only 60 days (01 Jun\u00e2\u20ac\u201c31 Jul) and ends 38 days ago; payslip is ~34 days old. \u00e2\u2020\u2019 *Refresh to current documents covering a continuous ~90 days.*\n7. **Product recommendation / needs-analysis reasoning** \u00e2\u20ac\u201d Fact-find captures objectives (lowest ongoing repayment, move in before year-end) but the folder holds no evidence of the product comparison/reasoning supporting the recommendation. May live in the CRM. \u00e2\u2020\u2019 *Confirm the BID reasoning / product comparison is on file.*\n\n### \u00f0\u0178\u0178\u00a1 Minor\n1. **Payslip tax figure illegible** \u00e2\u20ac\u201d The \"Tax\" line reads as unreadable (\"-$ ?\"). Net and gross are legible so it's low-risk, but note it. \u00e2\u2020\u2019 *Obtain a clean copy if the lender needs the tax line.*\n2. **Contract of Sale \u00e2\u20ac\u201d only first 2 pages** \u00e2\u20ac\u201d Purchaser, property and price are legible; the signed/dated execution page isn't in the excerpt. \u00e2\u2020\u2019 *Confirm the contract is signed and dated by both parties.*\n\n## Client callback list\nA plain-language list the broker can send straight to the client:\n- [ ] Your most recent **credit card statement** (we can see regular $400 card payments \u00e2\u20ac\u201d we need the statement showing the limit; it wasn't listed on your form)\n- [ ] Where the **$35,000 deposited on 20 July** came from \u00e2\u20ac\u201d savings you'd built up elsewhere, or a gift? If it's a gift we'll need a short gift letter\n- [ ] A **second, current payslip** (the one we have is from early August) plus your **PAYG income statement / tax notice** for 2025\u00e2\u20ac\u201c26\n- [ ] A **secondary ID** \u00e2\u20ac\u201d Medicare card or passport\n- [ ] **~90 days of your everyday transaction account** (the account you pay bills/living costs from) and any credit-card statement\n- [ ] Confirm your **current home address** \u00e2\u20ac\u201d your licence (Parramatta) and payslip (Blacktown) differ\n- [ ] Your **First Home Owner Grant / stamp-duty concession** paperwork\n- [ ] Confirm total **savings/funds available to complete** and whether the $72,000 contract deposit has been paid\n\n## Compliance / BID note\nIncome is only partially evidenced (one stale payslip + salary credits; no income statement/NOA) and the reliable figure is further clouded by the YTD inconsistency. Living expenses are **not** verified \u00e2\u20ac\u201d the file has no everyday transaction statement, so the declared $1,650/month can't be reconciled against actual spending. Liabilities are **not** complete: the statement reveals a credit card the fact-find declares as NIL, and no liability statements are on file. Deposit/genuine savings is undermined by a $35,000 unsourced transfer. Consent and credit authority are evidenced; the product-recommendation reasoning is not in the folder \u00e2\u20ac\u201d confirm it's held in the CRM. As it stands the file does not yet hold the evidence needed to demonstrate a not-unsuitable / best-interests assessment; the items above must be resolved first. This is a documentation check, not a suitability or credit decision.\n"}], "grading": {"expectations": [{"text": "Identifies scenario as PAYG owner-occupier purchase (FHB)", "passed": true, "evidence": "Header: 'PAYG (employee) \u00c2\u00b7 Owner-occupier purchase (first home buyer)'"}, {"text": "Flags only one payslip when two required", "passed": true, "evidence": "Checklist: '2 most recent payslips \u00e2\u20ac\u201d Only 1 payslip'; Blocker 4"}, {"text": "Flags missing secondary ID", "passed": true, "evidence": "Blocker 3 'Secondary ID missing \u00e2\u20ac\u201d VOI incomplete'"}, {"text": "Flags address mismatch (Parramatta vs Blacktown)", "passed": true, "evidence": "Review 2 'Current residential address inconsistent'"}, {"text": "Flags $35k unexplained transfer / genuine savings", "passed": true, "evidence": "Blocker 2 'Unsourced $35,000 deposit'"}, {"text": "Flags undisclosed credit card (NIL declared)", "passed": true, "evidence": "Blocker 1 'Undisclosed credit-card liability'"}, {"text": "Raises living-expense verification", "passed": true, "evidence": "Review 1 'Living expenses can't be verified'"}, {"text": "Notes FHOG/first-home concession not in folder", "passed": true, "evidence": "Review 5 'First-home-buyer concessions not evidenced'"}, {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": true, "evidence": "Three tiers \u00f0\u0178\u201d\u00b4/\u00f0\u0178\u0178\u00a0/\u00f0\u0178\u0178\u00a1 in that order"}, {"text": "Does NOT state loan approved/qualifies", "passed": true, "evidence": "Closes 'documentation check, not a suitability or credit decision'"}]}}, {"id": "eval-0-payg-fhb-without_skill", "prompt": "Can you review the loan documents for my client Sarah Nguyen before I lodge it? Everything's in the folder .../fixtures/case-payg-fhb. She's a first home buyer buying a place to live in. Let me know what's missing or wrong.", "eval_id": 0, "outputs": [{"name": "report.md", "type": "text", "content": "# Loan Document Review \u00e2\u20ac\u201d Sarah Nguyen (PAYG First Home Buyer)\n\n**Prepared for:** Broker, Maxi Financial\n**Applicant:** Sarah Jane Nguyen (sole applicant)\n**Purpose:** Purchase of first home to live in (owner occupier)\n**Property:** 5/22 Hill Road, Westmead NSW 2145 (strata unit)\n**Purchase price:** $720,000 \u00c2\u00b7 **Requested loan:** $655,000 (~91% LVR incl. LMI)\n**Review date:** 7 Sep 2026\n\n**Bottom line:** Do NOT lodge yet. There are several material problems \u00e2\u20ac\u201d an undeclared credit card, a funds-to-complete shortfall, an unexplained/unseasoned $35,000 deposit, and inconsistent residential addresses \u00e2\u20ac\u201d that a lender will pick up at assessment and that would likely draw a decline or a Best Interests Duty problem for you. These need to be resolved before submission.\n\n---\n\n## 1. Critical issues (must fix before lodging)\n\n### 1.1 Undeclared credit card (debts declared \"NIL\")\nThe fact-find records **existing debts: NIL**, but the CommBank savings statement shows a recurring **\"CBA CREDITCARD PYMT\" of $400** on 9 Jun, 23 Jun and 23 Jul. Sarah clearly holds a credit card.\n\n- This is an **undisclosed liability**. It must be declared on the application.\n- The lender assesses serviceability on the **credit limit**, not the balance or repayment \u00e2\u20ac\u201d even a $0 balance card reduces borrowing capacity.\n- Lodging with \"NIL debts\" against a credit file that will show the card is a data-accuracy / responsible-lending problem and risks the application being withdrawn or declined.\n- **Action:** Obtain the current credit card statement (limit, balance, lender) and re-run serviceability. Confirm whether it stays open or is to be closed/reduced at settlement.\n\n### 1.2 Funds to complete \u00e2\u20ac\u201d shortfall\nThe numbers don't currently add up:\n\n| Item | Amount |\n|---|---|\n| Purchase price | $720,000 |\n| Less loan | $655,000 |\n| **Deposit/equity required from Sarah** | **$65,000** |\n| Plus NSW transfer (stamp) duty \u00e2\u20ac\u201d est. at $720k (see 2.3) | ~$10,000\u00e2\u20ac\u201c$27,000 |\n| Plus conveyancing/legals | ~$1,500\u00e2\u20ac\u201c$2,500 |\n| Plus LMI (if not capitalised into the $655k) | several $000s |\n| **Total cash needed (approx.)** | **~$78,000\u00e2\u20ac\u201c$95,000+** |\n| Savings on hand (closing balance 31 Jul) | **$46,520** |\n\nEven before stamp duty, her savings ($46,520) do not cover the $65,000 equity contribution. There is a **material shortfall**, and the contract already requires a **10% deposit of $72,000** which the savings balance cannot fund.\n\n- **Action:** Establish exactly where the full deposit and completion funds are coming from. Is there a gift, a First Home Buyer scheme (e.g. Home Guarantee / low-deposit scheme), a second account, or is the loan amount/LVR wrong? This must reconcile before lodging.\n\n### 1.3 Large unexplained deposit \u00e2\u20ac\u201d genuine savings problem\nThe statement shows **\"TRANSFER FROM EXTERNAL $35,000\" on 20 Jul 2026**, taking the balance from $11,920 to $46,920. At ~91% LVR, lenders apply strict **genuine savings** rules (typically 5% of purchase price held/accumulated over 3+ months).\n\n- This $35,000 landed **~10 days before** the statement close and is **not seasoned** \u00e2\u20ac\u201d most lenders will not count it as genuine savings.\n- Without it, genuine savings are only ~$11,520, which is **below the 5% genuine savings threshold** (5% of $720k = $36,000).\n- The **source is undocumented**. If it's a gift, you'll need a **statutory declaration / gift letter** confirming it's non-repayable; if it's from another of Sarah's accounts, you need statements showing it accumulated there.\n- **Action:** Get written evidence of the source of the $35,000. This directly affects whether the loan is approvable at this LVR.\n\n### 1.4 Inconsistent residential address across documents\nThree documents, three different addresses:\n\n| Document | Address |\n|---|---|\n| Driver licence | 12 Wattle Street, Parramatta NSW 2150 |\n| Payslip (address on file) | 8 Rose Avenue, Blacktown NSW 2148 |\n| Contract (property being bought) | 5/22 Hill Road, Westmead NSW 2145 |\n\n- The licence and payslip addresses don't match, and neither is confirmed as her **current** residence.\n- Address inconsistency triggers identity/verification queries and can hold up the file.\n- **Action:** Confirm Sarah's current residential address, update the ID/records so they're consistent, and capture address history if she's moved recently.\n\n---\n\n## 2. Important issues (resolve before or at lodgement)\n\n### 2.1 Only one payslip; payslip is incomplete\n- Most lenders require **two consecutive recent payslips**; only the latest (21 Jul \u00e2\u20ac\u201c 3 Aug 2026) is on file.\n- The **tax figure is missing** (shown as \"?\"), so the payslip is incomplete. Gross $2,884.62 \u00e2\u02c6\u2019 net $2,150.00 implies ~$734.62 tax, but the document itself doesn't show it.\n- Consider adding an **employment confirmation letter** or the most recent PAYG income statement to corroborate income and permanency.\n- **Action:** Obtain a second payslip and a complete/legible copy showing the tax line.\n\nIncome sanity-check: $2,884.62 gross/fortnight \u00c3\u2014 26 \u00e2\u2030\u02c6 **$75,000 p.a. gross**. Salary credits of $2,150 in the bank statement align with the net payslip figure \u00e2\u20ac\u201d that's consistent. (Note: super shown is $331.73 \u00e2\u2030\u02c6 11.5%; the Super Guarantee rate from 1 Jul 2025 is 12% (~$346) \u00e2\u20ac\u201d minor, worth a glance but not a blocker.)\n\n### 2.2 Living expenses likely understated\n- Declared living expenses are **$1,650/month** for a single applicant in metro Sydney, which is low and will likely be **floored to the lender's HEM benchmark**.\n- The savings statement shows **no rent, groceries, utilities or general spending** \u00e2\u20ac\u201d only salary in and credit-card payments out. That suggests day-to-day spending runs through **another account** that hasn't been provided, or she lives rent-free (e.g. with family). Either way the true expense position isn't evidenced.\n- **Action:** Confirm her actual living situation and expenses, and obtain the transaction account she uses for daily spending (lenders usually want 3 months of the primary spending account).\n\n### 2.3 First Home Buyer benefits \u00e2\u20ac\u201d check eligibility and assumptions\nAt a **$720,000** purchase in NSW:\n- **First Home Buyers Assistance Scheme (transfer duty):** full exemption applies only up to $650k; **$650k\u00e2\u20ac\u201c$800k is a partial concession**, so Sarah will pay **some** transfer duty \u00e2\u20ac\u201d not zero. This must be built into the funds-to-complete figure (see 1.2).\n- **First Home Owner Grant ($10k):** generally limited to **new homes/newly built**. 5/22 Hill Road appears to be an **established strata unit**, so the FHOG is **likely not available**.\n- Her stated objective (\"lowest ongoing repayment\", move in before year-end) plus 91% LVR suggests she may be assuming full FHB concessions \u00e2\u20ac\u201d verify so expectations and the cash position are correct.\n- **Action:** Confirm FHB scheme eligibility and reflect the actual duty payable in the funds calculation.\n\n### 2.4 Strata property costs not captured\nThe property is a **unit (5/22 Hill Road)**, so there will be **strata/body-corporate levies** plus council and water rates. These are ongoing commitments that feed serviceability and aren't recorded anywhere in the file.\n- **Action:** Obtain strata levy amount (from the contract's strata disclosure / s184 certificate) and council/water rates, and include them in servicing.\n\n---\n\n## 3. Missing documents checklist\n\n- [ ] **Second recent payslip** (and a complete copy of the current one showing tax)\n- [ ] **Credit card statement** \u00e2\u20ac\u201d limit, balance, lender (liability currently undeclared)\n- [ ] **Evidence of source of the $35,000 transfer** (gift letter/stat dec, or originating account statements)\n- [ ] **Full funds-to-complete evidence** \u00e2\u20ac\u201d proof the $72,000 deposit was/will be paid and where completion funds come from\n- [ ] **Primary spending/transaction account** \u00e2\u20ac\u201d ~3 months, to evidence living expenses\n- [ ] **Full contract of sale** \u00e2\u20ac\u201d only the first 2 pages are provided; need the signed/executed pages, deposit particulars and strata disclosure\n- [ ] **Strata levies + council/water rates** for the property\n- [ ] **Second form of ID** (e.g. Medicare/passport) to complete a 100-point / VOI check, with a **confirmed current address**\n- [ ] **First Home Buyer declaration / scheme eligibility evidence** (FHBAS, and any low-deposit scheme if being used)\n- [ ] **Employment confirmation** (letter or contract) confirming permanent full-time status\n\n---\n\n## 4. What checks out\n\n- **Employment tenure:** Marketing Coordinator at BrightPath Marketing since Feb 2024, permanent full-time \u00e2\u20ac\u201d well past probation and >12 months, which supports a PAYG application.\n- **Income consistency:** Net payslip figure ($2,150) matches the fortnightly salary credits in the bank statement, and the employer name matches across payslip, bank narrations and fact-find.\n- **LVR maths:** $655,000 / $720,000 = 90.97%, consistent with the stated ~91% LVR incl. LMI.\n- **Name:** \"Sarah Jane Nguyen\" / \"Sarah J Nguyen\" / \"S J Nguyen\" are consistent across documents.\n- **Consents:** Privacy consent and credit-check authority signed (12 Aug 2026).\n\n---\n\n## 5. Suggested next steps (order of priority)\n\n1. **Reconcile the money.** Resolve the funds-to-complete shortfall (1.2), document the $35k source (1.3), and confirm genuine savings \u00e2\u20ac\u201d this determines whether the loan is viable at 91% LVR at all.\n2. **Fix the liabilities.** Get the credit card details, declare it, and re-run serviceability with the true limit and living expenses (1.1, 2.2).\n3. **Confirm identity/address** and update records so all documents agree (1.4).\n4. **Collect the missing documents** in Section 3, especially the second payslip, full contract and strata/rates figures.\n5. **Verify FHB scheme eligibility and the real stamp-duty cost** so the cash position and Sarah's expectations are accurate (2.3).\n\nOnce 1\u00e2\u20ac\u201c3 are cleared, the file is in much better shape to lodge. As it stands, submitting now risks a decline and a Best Interests Duty / responsible-lending issue over the undeclared debt and unverified deposit.\n\n*Note: general information for internal broker use, based only on the documents provided. Verify NSW duty/scheme figures against current Revenue NSW settings at time of lodgement.*\n"}], "grading": {"expectations": [{"text": "Identifies scenario as PAYG owner-occupier purchase (FHB)", "passed": true, "evidence": "Title 'Sarah Nguyen (PAYG First Home Buyer)', owner occupier"}, {"text": "Flags only one payslip when two required", "passed": true, "evidence": "2.1 'Only one payslip; payslip is incomplete'"}, {"text": "Flags missing secondary ID", "passed": true, "evidence": "Checklist 'Second form of ID ... to complete a 100-point / VOI check'"}, {"text": "Flags address mismatch (Parramatta vs Blacktown)", "passed": true, "evidence": "1.4 'Inconsistent residential address across documents'"}, {"text": "Flags $35k unexplained transfer / genuine savings", "passed": true, "evidence": "1.3 'Large unexplained deposit \u00e2\u20ac\u201d genuine savings problem'"}, {"text": "Flags undisclosed credit card (NIL declared)", "passed": true, "evidence": "1.1 'Undeclared credit card'"}, {"text": "Raises living-expense verification", "passed": true, "evidence": "2.2 'Living expenses likely understated'"}, {"text": "Notes FHOG/first-home concession not in folder", "passed": true, "evidence": "2.3 'First Home Buyer benefits \u00e2\u20ac\u201d check eligibility'"}, {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": false, "evidence": "Uses ad-hoc 'Critical / Important / Missing' headings, not the standardized Blocker/Review/Minor tiers"}, {"text": "Does NOT state loan approved/qualifies", "passed": true, "evidence": "Says 'Do NOT lodge yet'; no approval language"}]}}, {"id": "eval-1-selfemp-refi-with_skill", "prompt": "Please do a pre-submission check on Michael Rossi's refinance file \u00e2\u20ac\u201d docs are in .../fixtures/case-selfemp-refi. He's self-employed and refinancing his home loan. Is it ready to submit?", "eval_id": 1, "outputs": [{"name": "report.md", "type": "text", "content": "\u00ef\u00bb\u00bf# Loan Document Review \u00e2\u20ac\u201d Michael Anthony Rossi\n**Scenario:** Self-employed (sole trader) \u00c2\u00b7 Refinance   |   **Reviewed:** 2026-09-07   |   **Files reviewed:** 7\n\n## Readiness: Not ready \u00e2\u20ac\u201d 3 blocker(s) \u00e2\ufffd\u0152\nThe file is missing core self-employed and refinance evidence: only one year of tax return/NOA (two are needed), only two months of the existing loan's conduct (six are needed), and only a single month of transaction statements (\u00e2\u2030\u02c690 days needed). Priority next step: request the second year of tax returns + NOA, 6 months of Westpac statements, and a full 90-day transaction history. Also resolve the sole-applicant vs. jointly-held-security mismatch before lodging.\n\n## Document checklist\n| Document | Required | Status | Note |\n|---|---|---|---|\n| Photo ID \u00e2\u20ac\u201d primary (licence/passport) | Yes | \u00e2\u0153\u2026 Present | Australian passport, current (expires 03 Mar 2031) |\n| Secondary ID (Medicare/birth cert/other) | Yes | \u00e2\ufffd\u0152 Missing | Only the passport is on file \u00e2\u20ac\u201d request a second ID to complete VOI |\n| Living-expenses evidence (~90 days statements) | Yes | \u00e2\ufffd\u0152 Incomplete | Only one month (NAB, Jun 2026). Need continuous ~90 days |\n| Liabilities documentation (all debts, limits shown) | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Partial | Westpac home loan present; Latitude personal loan has no statement |\n| Consent / credit-check authority | Yes | \u00e2\u0153\u2026 Present | Fact-find records privacy consent + authority signed 28 Aug 2026 |\n| 2 yrs personal tax returns + matching NOAs | Yes | \u00e2\ufffd\u0152 Incomplete | Only FY2025 return + FY2025 NOA. Second (FY2024) year missing |\n| 2 yrs business financials (sole trader \u00e2\u2020\u2019 in personal return) | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Partial | Sole trader income sits in the personal return; still only one year evidenced |\n| BAS \u00e2\u20ac\u201d last 4 quarters | Yes | \u00e2\ufffd\u0152 Incomplete | Only 2 quarters (Mar 2026, Jun 2026). Sep 2025 & Dec 2025 missing |\n| ABN / GST registration consistent with trading period | Yes | \u00e2\u0153\u2026 Present | ABN 71 442 118 903 on return + BAS; 9 yrs trading claimed |\n| Current mortgage statement (balance/limit/rate/acct) | Yes | \u00e2\u0153\u2026 Present | Westpac loan 032-xxx 88 4419, bal $540,050, limit $560,000, 6.29% var |\n| 6 months' repayment history / conduct | Yes | \u00e2\ufffd\u0152 Incomplete | Statement covers 01 May\u00e2\u20ac\u201c30 Jun 2026 only (2 months). Arrears Nil, but need 6 months |\n| Payout / discharge figure | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Estimable | Closing balance $540,050 shown; no formal payout figure |\n| Rates notice (security property) | Yes | \u00e2\ufffd\u0152 Missing | No council rates notice confirming ownership of 40 George St, Fitzroy |\n| Reason for refinance + consolidation evidence | Yes | \u00e2\u0161\u00a0\u00ef\u00b8\ufffd Partial | Purpose clear (rate + consolidate Latitude); the debt being consolidated is undocumented |\n\n## Flagged issues\n### \u00f0\u0178\u201d\u00b4 Blockers\n1. **Only one year of self-employed income evidence** \u00e2\u20ac\u201d File holds the FY2025 tax return and FY2025 NOA only. Self-employed assessment needs **2 years** of personal tax returns with matching NOAs (a single year gives no trend and most lenders won't proceed). \u00e2\u2020\u2019 *Request the FY2024 tax return + Notice of Assessment.*\n2. **Refinance conduct history too short** \u00e2\u20ac\u201d The Westpac statement covers only 01 May\u00e2\u20ac\u201c30 Jun 2026 (2 months). Refinances require **~6 months** of repayment history to evidence conduct/arrears. \u00e2\u2020\u2019 *Request Westpac home-loan statements back to ~Jan 2026 (6 months continuous).*\n3. **Living-expenses statements incomplete** \u00e2\u20ac\u201d Only one month (NAB, Jun 2026) is present; responsible lending needs **~90 days continuous** transaction history to verify living expenses. \u00e2\u2020\u2019 *Request the two prior months (Apr\u00e2\u20ac\u201cMay 2026) for the NAB account, continuous.*\n\n### \u00f0\u0178\u0178\u00a0 Review\n1. **Declared living expenses look materially understated** \u00e2\u20ac\u201d Fact-find declares living expenses of **$2,000/month**, but the single month of statements shows recurring spend far higher (school fees $1,150 + groceries $1,940 + fuel $520 + dining $910 + private health $340, before the home-loan and personal-loan commitments). Groceries + school fees alone exceed the declared figure. \u00e2\u2020\u2019 *Reconcile the declared living expenses against actual spending before lodgement \u00e2\u20ac\u201d a classic responsible-lending gap.*\n2. **Sole applicant vs. jointly-held security/loan** \u00e2\u20ac\u201d The new application is in **Michael Rossi's name only**, but the existing Westpac loan and security (40 George St, Fitzroy) are held **jointly with Elena M Rossi**. Refinancing solely in Michael's name implies either Elena is a co-applicant (not reflected) or is being removed from title/loan (needs her consent and servicing on Michael's income alone). \u00e2\u2020\u2019 *Confirm the intended ownership/borrower structure; if Elena is being removed, evidence her consent and reassess servicing.*\n3. **Latitude personal loan undocumented \u00e2\u20ac\u201d and it's the debt being consolidated** \u00e2\u20ac\u201d A $680/month direct debit to Latitude is visible and ~$18k is declared, but no loan statement is on file. Because this debt is being consolidated, a payout/liability statement (balance, limit, rate) will be required to support the purpose and BID. \u00e2\u2020\u2019 *Request the Latitude personal-loan statement / payout figure.*\n4. **BAS incomplete** \u00e2\u20ac\u201d Only 2 of the last 4 quarters provided (Mar & Jun 2026). \u00e2\u2020\u2019 *Request the Sep 2025 and Dec 2025 BAS.*\n5. **Secondary ID missing** \u00e2\u20ac\u201d Passport (primary) only; VOI needs a secondary document. \u00e2\u2020\u2019 *Request Medicare card or other secondary ID.*\n6. **Rates notice missing** \u00e2\u20ac\u201d No current rates notice for the security property to confirm ownership/property details on a refinance. \u00e2\u2020\u2019 *Request the current council rates notice.*\n7. **Residential address not independently verified** \u00e2\u20ac\u201d The passport carries no address and there is no secondary ID or utility/statement evidencing Michael's current residential address. \u00e2\u2020\u2019 *Confirm a document evidencing the current residential address is on file.*\n8. **Product recommendation / BID reasoning** \u00e2\u20ac\u201d Fact-find captures objectives (reduce rate, lower repayments) but the folder holds no product comparison or reasoning showing the recommendation is in the client's best interests. This may live in the CRM. \u00e2\u2020\u2019 *Confirm the needs analysis / product comparison and credit guide are on file.*\n\n### \u00f0\u0178\u0178\u00a1 Minor\n1. **Name format varies across documents** \u00e2\u20ac\u201d \"Michael Anthony Rossi\" (passport/fact-find), \"Michael A Rossi\" (NOA/mortgage), \"Michael Rossi\" (tax return). All consistent as the same person; no action beyond noting for data entry. \u00e2\u2020\u2019 *Enter full legal name consistently on the application.*\n2. **BAS turnover vs. tax-return income** \u00e2\u20ac\u201d Two FY2026 BAS quarters annualise to \u00e2\u2030\u02c6$226k G1 sales, broadly in line with the FY2025 return's $214,600 business income (slight uptrend). Consistent \u00e2\u20ac\u201d no concern, noted for completeness. \u00e2\u2020\u2019 *No action.*\n\n## Client callback list\nA plain-language list the broker can send straight to the client:\n- [ ] Your FY2024 (last year's) personal tax return and ATO Notice of Assessment \u00e2\u20ac\u201d we only have the 2025 one and need two years.\n- [ ] Westpac home-loan statements going back about 6 months (we currently only have May\u00e2\u20ac\u201cJune 2026).\n- [ ] Your NAB Business Everyday statements for April and May 2026 as well, so we have a continuous 3-month history.\n- [ ] Your Latitude personal loan statement (or a payout figure) \u00e2\u20ac\u201d this is the loan you want to roll in.\n- [ ] Your two other BAS quarters \u00e2\u20ac\u201d September 2025 and December 2025.\n- [ ] A second form of ID (e.g. Medicare card) in addition to your passport.\n- [ ] Your latest council rates notice for 40 George Street, Fitzroy.\n- [ ] Confirm whether Elena will also be on the new loan \u00e2\u20ac\u201d the current Westpac loan is in both your names.\n- [ ] Confirm your monthly living expenses \u00e2\u20ac\u201d the figure on file ($2,000) looks lower than the actual spending on your statements.\n\n## Compliance / BID note\nIncome evidence is **partial** \u00e2\u20ac\u201d the FY2025 return and NOA reconcile ($128,000 = $128,000), but only one year is on file where two are required for a self-employed applicant, so the relied-upon income is not yet adequately evidenced. Living expenses are **not verified** \u00e2\u20ac\u201d the declared $2,000/month is contradicted by a single month of statements showing materially higher recurring spend, and only one month of ~90 days is present. Liabilities are **partially documented** \u00e2\u20ac\u201d the Westpac loan is evidenced, but the Latitude personal loan (which is being consolidated) has no statement. Objectives/needs analysis are captured in the fact-find; a product-comparison / best-interests rationale is not in the folder and should be confirmed in the CRM. The sole-applicant vs. joint-security mismatch must be resolved. This is a documentation check, not a suitability determination \u00e2\u20ac\u201d but as it stands the file does not yet hold the evidence needed to support a not-unsuitable / best-interests assessment.\n"}], "grading": {"expectations": [{"text": "Identifies scenario as self-employed refinance", "passed": true, "evidence": "Header 'Self-employed (sole trader) \u00c2\u00b7 Refinance'"}, {"text": "Flags only one year tax return/NOA (two required)", "passed": true, "evidence": "Blocker 1 'Only one year of self-employed income evidence'"}, {"text": "Flags only two BAS quarters (four expected)", "passed": true, "evidence": "Review 4 'BAS incomplete \u00e2\u20ac\u201d Only 2 of the last 4 quarters'"}, {"text": "Flags insufficient repayment conduct (2 vs 6 months)", "passed": true, "evidence": "Blocker 2 'Refinance conduct history too short'"}, {"text": "Flags missing rates notice", "passed": true, "evidence": "Review 6 'Rates notice missing'"}, {"text": "Flags living-expenses gap ($2k vs ~$4.3k)", "passed": true, "evidence": "Review 1 'Declared living expenses look materially understated'"}, {"text": "Flags joint existing loan vs sole application", "passed": true, "evidence": "Review 2 'Sole applicant vs. jointly-held security/loan'"}, {"text": "Flags Latitude consolidation with no statement / missing financials", "passed": true, "evidence": "Review 3 'Latitude personal loan undocumented'"}, {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": true, "evidence": "Three tiers \u00f0\u0178\u201d\u00b4/\u00f0\u0178\u0178\u00a0/\u00f0\u0178\u0178\u00a1 in order"}, {"text": "Does NOT state loan approved/ready without qualification", "passed": true, "evidence": "'documentation check, not a suitability determination'"}]}}, {"id": "eval-1-selfemp-refi-without_skill", "prompt": "Please do a pre-submission check on Michael Rossi's refinance file \u00e2\u20ac\u201d docs are in .../fixtures/case-selfemp-refi. He's self-employed and refinancing his home loan. Is it ready to submit?", "eval_id": 1, "outputs": [{"name": "report.md", "type": "text", "content": "# Pre-Submission Review \u00e2\u20ac\u201d Michael Rossi (Self-Employed Refinance)\n\n**Reviewer:** Maxi Financial \u00e2\u20ac\u201d pre-submission file check\n**Date:** 7 September 2026\n**Applicant:** Michael Anthony Rossi (sole applicant)\n**Purpose:** Refinance existing Westpac home loan to a lower rate + consolidate a Latitude personal loan\n**Security:** 40 George Street, Fitzroy VIC 3065\n\n## Verdict: NOT ready to submit\n\nThe file has several material gaps and at least two issues that must be resolved before this can go to a lender. The identity, tax, and existing-loan evidence are internally consistent and a good start, but the application as framed (sole applicant on a jointly-owned/jointly-mortgaged property), the single year of self-employed financials, and a large mismatch between declared and evidenced living expenses would very likely draw an immediate decline or a request for information. Address the Critical and High items below first.\n\n---\n\n## Critical issues (must fix before submission)\n\n### 1. Sole applicant vs joint existing loan / likely joint ownership\n- The existing Westpac loan (05) is held by **Michael A Rossi & Elena M Rossi** (joint), secured against 40 George Street.\n- The new application (07) is a **sole application in Michael's name only**.\n- You cannot cleanly refinance a jointly-held mortgage into a single borrower's name without addressing the co-owner. Either Elena is a co-applicant, or there is a title transfer / spousal transfer of her share (which changes the deal type, may trigger stamp duty, and requires her consent and legal advice).\n- **Action:** Confirm who is on the Certificate of Title. If Elena is a joint owner, either add her as co-applicant or structure a transfer of ownership. Obtain her consent either way. This decision drives servicing, VOI, and document requirements for the rest of the file.\n\n### 2. Declared living expenses materially understated vs bank evidence\n- Fact-find (07) declares **living expenses of $2,000/month**.\n- The NAB transaction extract (06) evidences substantially higher spend. Excluding the two loan repayments (home loan $2,410 and Latitude $680), living commitments are approximately:\n  - Groceries $1,940 + School fees $1,150 + Dining/misc $910 + Fuel $520 + Private health $340 = **~$4,860/month**.\n- Declared expenses are roughly **2.4x lower** than what one month of statements shows, and well below any reasonable HEM benchmark for a Fitzroy family with school-age children. Under responsible-lending obligations this gap will be picked up by the lender and must be corrected.\n- **Action:** Re-do the living-expenses section with the applicant against actual statements and HEM categories. Expect the revised figure to change borrowing capacity \u00e2\u20ac\u201d re-check servicing before submitting.\n- Note: the transaction doc's own stated total (\"~$4,300 excl. business costs\") does not reconcile with its line items (which sum to ~$7,950 including debts, or ~$4,860 excluding debts). Clarify and use verified figures.\n\n---\n\n## High-priority gaps (lender will require)\n\n### 3. Only one year of self-employed financials\n- Provided: 2025 tax return (02) and 2025 NOA (03) only.\n- Most lenders require **two years** of individual tax returns + NOAs for a sole trader to establish an income trend. Only FY2024\u00e2\u20ac\u201c25 is on file.\n- **Action:** Obtain FY2023\u00e2\u20ac\u201c24 tax return and NOA. If pursuing a one-year / alt-doc policy, confirm the specific lender and product first, as pricing and LVR limits differ.\n\n### 4. Undeclared ongoing commitments\n- **School fees $1,150/month** (St Bernard's) appear on the statement but are not captured in the fact-find. This is a significant fixed commitment affecting servicing.\n- **Action:** Add school fees (and confirm any other recurring commitments) to the expenses/commitments section.\n\n### 5. Payout figure for the debt being consolidated\n- The purpose includes consolidating the Latitude personal loan (~$18k, $680/month per 06/07), but there is **no Latitude loan statement or payout figure** on file.\n- **Action:** Obtain a current Latitude statement showing balance, payout figure, and account/conduct so the consolidation amount and new loan size can be set.\n\n### 6. Insufficient transaction / conduct history\n- Existing Westpac statement (05) covers only **2 months** (May\u00e2\u20ac\u201cJun 2026); refinances typically need **6 months** of repayment conduct on the loan being refinanced.\n- NAB transaction account (06) is **one month only**; lenders generally want **3 months** of everyday/transaction statements to verify living expenses and conduct.\n- **Action:** Obtain 6 months Westpac loan statements and 3 months NAB transaction statements.\n\n---\n\n## Medium-priority items\n\n### 7. Identity / VOI\n- Only one ID document on file \u00e2\u20ac\u201d the passport (01), valid to Mar 2031. This is a strong primary photo ID but likely does not meet a full **100-point VOI** on its own.\n- **Action:** Collect a second ID (driver licence and/or Medicare) and complete VOI for the actual applicant(s).\n\n### 8. Document currency\n- Bank statements (05, 06) run to 30 Jun 2026; as at review date (Sep 2026) they are ~10 weeks old. Lenders usually want statements dated within ~30\u00e2\u20ac\u201c45 days of submission.\n- **Action:** Refresh statements close to submission.\n\n### 9. Security valuation / ownership evidence\n- No rates notice or evidence of ownership/value for 40 George Street on file (needed to confirm ownership per issue #1, LVR, and to order a valuation).\n- **Action:** Obtain a current council rates notice; order/AVM the valuation.\n\n### 10. Marital status / dependents not captured\n- School fees and the joint spouse (Elena) imply a partner and dependent children, but the fact-find does not record marital status or number of dependents.\n- **Action:** Record marital status and dependents; this feeds HEM and servicing.\n\n---\n\n## What checks out (no action needed)\n\n- **Identity consistency:** Name consistent across all docs (Michael Anthony / Michael A / Michael Rossi).\n- **ABN consistency:** 71 442 118 903 matches on tax return (02) and BAS (04).\n- **Tax vs NOA:** Taxable income $128,000 matches between the 2025 tax return and the 2025 NOA \u00e2\u20ac\u201d good corroboration.\n- **Ongoing trading evidenced:** BAS quarters (Mar 2026 $54,200; Jun 2026 $58,900) annualise broadly in line with the tax return's $214,600 business income, supporting continued trading.\n- **Repayment conduct:** Westpac loan shows arrears nil and on-time repayments over the period supplied.\n\n---\n\n## Snapshot numbers (subject to verification)\n\n| Item | Figure | Source |\n|---|---|---|\n| Net / taxable business income FY25 | $128,000 | 02, 03 |\n| Existing loan balance (joint) | ~$540,050 | 05 |\n| Existing rate | 6.29% p.a. variable | 05 |\n| Personal loan to consolidate | ~$18k / $680 p.m. | 06, 07 |\n| Declared living expenses | $2,000/month | 07 |\n| Evidenced living expenses (excl. debt repayments) | ~$4,860/month | 06 |\n\n---\n\n## Recommended next steps (in order)\n\n1. Resolve ownership/applicant structure (issue #1) \u00e2\u20ac\u201d this determines the rest of the file.\n2. Rebuild living expenses against statements and HEM; re-run servicing (issue #2).\n3. Obtain FY2023\u00e2\u20ac\u201c24 tax return + NOA (issue #3).\n4. Collect Latitude payout statement (issue #5).\n5. Gather 6 months Westpac + 3 months NAB statements, refreshed near submission (issues #6, #8).\n6. Complete 100-point VOI and record dependents/marital status (issues #7, #10).\n7. Order council rates notice + valuation (issue #9).\n\nOnce items #1\u00e2\u20ac\u201c#6 are cleared and servicing confirms on the revised expenses, re-review before submitting to a lender.\n"}], "grading": {"expectations": [{"text": "Identifies scenario as self-employed refinance", "passed": true, "evidence": "Title 'Michael Rossi (Self-Employed Refinance)'"}, {"text": "Flags only one year tax return/NOA (two required)", "passed": true, "evidence": "#3 'Only one year of self-employed financials'"}, {"text": "Flags only two BAS quarters (four expected)", "passed": false, "evidence": "BAS mentioned only under 'What checks out' (annualised trend); never flags that only 2 of 4 quarters were provided"}, {"text": "Flags insufficient repayment conduct (2 vs 6 months)", "passed": true, "evidence": "#6 'Insufficient transaction / conduct history'"}, {"text": "Flags missing rates notice", "passed": true, "evidence": "#9 'no rates notice ... Obtain a current council rates notice'"}, {"text": "Flags living-expenses gap ($2k vs ~$4.3k)", "passed": true, "evidence": "#2 'Declared living expenses materially understated'"}, {"text": "Flags joint existing loan vs sole application", "passed": true, "evidence": "#1 'Sole applicant vs joint existing loan'"}, {"text": "Flags Latitude consolidation with no statement / missing financials", "passed": true, "evidence": "#5 'Payout figure for the debt being consolidated'"}, {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": false, "evidence": "Uses 'Critical / High-priority / Medium' headings, not the standardized Blocker/Review/Minor tiers"}, {"text": "Does NOT state loan approved/ready without qualification", "passed": true, "evidence": "'NOT ready to submit'; no approval language"}]}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "loan-doc-review", "skill_path": "clients/MaxiFinancial/.claude/skills/loan-doc-review", "timestamp": "2026-09-07T07:00:00Z", "evals_run": ["payg-fhb-owner-occ", "selfemp-refinance"], "runs_per_configuration": 1}, "runs": [{"eval_id": 0, "eval_name": "payg-fhb-owner-occ", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 320.5, "tokens": 83855, "tool_calls": 13, "errors": 0}, "notes": ["Caught all 8 substantive planted issues plus extras (funds-to-complete shortfall, YTD reconciliation, BID reasoning check)"]}, {"eval_id": 0, "eval_name": "payg-fhb-owner-occ", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.9, "passed": 9, "failed": 1, "total": 10, "time_seconds": 283.7, "tokens": 73887, "tool_calls": 11, "errors": 0}, "notes": ["Strong content, but used ad-hoc Critical/Important headings instead of standardized severity tiers"]}, {"eval_id": 1, "eval_name": "selfemp-refinance", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 10, "failed": 0, "total": 10, "time_seconds": 310.5, "tokens": 82047, "tool_calls": 15, "errors": 0}, "notes": ["Caught all planted issues including the BAS-quarters gap the baseline missed"]}, {"eval_id": 1, "eval_name": "selfemp-refinance", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.8, "passed": 8, "failed": 2, "total": 10, "time_seconds": 274.1, "tokens": 70913, "tool_calls": 13, "errors": 0}, "notes": ["Missed the incomplete-BAS flag; used ad-hoc Critical/High/Medium headings instead of standardized tiers"]}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 315.5, "stddev": 5.0, "min": 310.5, "max": 320.5}, "tokens": {"mean": 82951, "stddev": 904, "min": 82047, "max": 83855}}, "without_skill": {"pass_rate": {"mean": 0.85, "stddev": 0.05, "min": 0.8, "max": 0.9}, "time_seconds": {"mean": 278.9, "stddev": 4.8, "min": 274.1, "max": 283.7}, "tokens": {"mean": 72400, "stddev": 1487, "min": 70913, "max": 73887}}, "delta": {"pass_rate": "+0.15", "time_seconds": "+36.6", "tokens": "+10551"}}, "notes": ["The base model is already strong at loan-doc review, so the skill's headline value is consistency, not catching dramatically more issues: both baselines found nearly all substantive problems.", "The skill's measurable wins: (1) standardized Blocker/Review/Minor severity tiers every time \u00e2\u20ac\u201d both baselines invented their own ad-hoc headings; (2) a fixed present/missing checklist and a ready-to-send client callback list; (3) marginally better completeness (caught the incomplete-BAS gap the self-employed baseline missed).", "The 'no approval/decline language' guardrail passed in every run, including baselines \u00e2\u20ac\u201d non-discriminating here, but cheap insurance for a compliance-sensitive workflow.", "The skill costs ~+37s and ~+10.5k tokens per run (reading the two references). Reasonable given the workflow's stakes.", "Baselines occasionally surfaced domain extras the skill outputs didn't emphasise (NSW stamp-duty tiers, strata levies, super-guarantee rate) \u00e2\u20ac\u201d worth folding into the references so the skill matches that depth."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

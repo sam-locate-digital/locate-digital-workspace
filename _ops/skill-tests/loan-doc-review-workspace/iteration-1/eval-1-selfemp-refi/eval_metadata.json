@@ -1,0 +1,17 @@
+{
+  "eval_id": 1,
+  "eval_name": "selfemp-refinance",
+  "prompt": "Please do a pre-submission check on Michael Rossi's refinance file — docs are in .../fixtures/case-selfemp-refi. He's self-employed and refinancing his home loan. Is it ready to submit?",
+  "assertions": [
+    {"text": "Identifies the scenario as self-employed refinance"},
+    {"text": "Flags that only one year of tax return / NOA is present when two years are required"},
+    {"text": "Flags that only two BAS quarters are present when four are expected"},
+    {"text": "Flags insufficient repayment conduct (only two months vs six months for a refinance)"},
+    {"text": "Flags that a current rates notice for the security property is missing"},
+    {"text": "Flags the living-expenses gap (declared ~$2,000/mo vs ~$4,300/mo visible in statements)"},
+    {"text": "Flags that the existing loan is joint (Michael & Elena Rossi) but the application is sole (co-borrower/consent issue)"},
+    {"text": "Flags the Latitude personal loan being consolidated with no supporting statement, or missing self-employed business financials"},
+    {"text": "Sorts flagged issues into severity tiers (Blocker/Review/Minor), worst-first"},
+    {"text": "Does NOT state or imply the loan is approved, will be approved, or is ready without qualification"}
+  ]
+}

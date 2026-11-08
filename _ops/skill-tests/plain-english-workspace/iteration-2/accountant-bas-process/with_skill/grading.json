@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The response lays out the process as numbered steps in the order they happen",
+      "passed": true,
+      "evidence": "Six numbered steps under 'Here's the order it happens in'."
+    },
+    {
+      "text": "The steps say who does each one (Sam, the accountant, or the tax office) and give the timing in the email: register within 21 days, a quarterly BAS, and Q2 due 28 February",
+      "passed": true,
+      "evidence": "Each step has a who/when tag, e.g. 'Register for GST (the accountant or you, within 21 days)', 'Report every quarter', 'due 28 February'."
+    },
+    {
+      "text": "GST, BAS, ABN and PAYG instalments are each explained in everyday words, and 1A, 1B, 'accruals basis', 'input tax credits' and 'EDR' are either explained in everyday words or not used",
+      "passed": false,
+      "evidence": "GST, BAS, PAYG, 1A/1B, accruals and EDR are all explained, but ABN is used ('show your ABN') without a definition. Strict fail; Sam probably knows ABN already, see notes."
+    },
+    {
+      "text": "The response tells Sam to put the ABN and GST amount on invoices and to keep receipts for purchases over $82.50, in plain words",
+      "passed": true,
+      "evidence": "Step 3: invoices say 'Tax invoice', show the ABN and the GST amount. Step 4: keep receipts over $82.50."
+    },
+    {
+      "text": "The response includes one everyday analogy for the overall GST arrangement",
+      "passed": true,
+      "evidence": "The tax office's jar: 10% goes in on each invoice, GST on costs comes out, and the BAS counts the jar."
+    },
+    {
+      "text": "The response flags that backdating the registration date is a decision Sam needs to make or discuss with the accountant",
+      "passed": true,
+      "evidence": "Step 1 'Decide your start date (you, now)', with the backdating cost spelled out."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  }
+}

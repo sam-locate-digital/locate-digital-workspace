@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The response opens with a one- or two-sentence summary of the problem before any detail",
+      "passed": true,
+      "evidence": "'Short version: Meta is counting every lead twice, so the ads look about twice as good as they really are.'"
+    },
+    {
+      "text": "The response explains in plain words that each lead is being counted about twice",
+      "passed": true,
+      "evidence": "'Nearly everything is being double counted.'"
+    },
+    {
+      "text": "The response explains the consequence: results look about twice as good as they are (cost per lead looks about half what it really is) and Meta's optimisation is learning from wrong numbers",
+      "passed": true,
+      "evidence": "'If the dashboard says $30 a lead, the real number is closer to $60' and 'Meta is learning from bad data.'"
+    },
+    {
+      "text": "The response includes an everyday analogy that maps the two counting sources to something familiar",
+      "passed": false,
+      "evidence": "Only a 'receipt number' comparison for event_id; there's no analogy that maps the two counting sources."
+    },
+    {
+      "text": "The terms event_id, deduplicate, CAPI, CPL and fbq are either explained in everyday words or not used",
+      "passed": true,
+      "evidence": "event_id explained as a receipt number, fbq() glossed as 'the code in the browser', dedup rate explained."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  }
+}

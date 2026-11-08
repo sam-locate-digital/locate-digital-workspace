@@ -89,7 +89,7 @@ Format:
 **[Question?]**
 [Answer — plain prose, 60–100 words. No AI vocabulary. Australian English.]
 
-All FAQ answers must pass the same humanizer rules as the post body.
+All FAQ answers must pass the same humaniser rules as the post body.
 
 ### 4. Unsplash image block (mandatory — add after FAQ)
 
@@ -148,6 +148,6 @@ Accept the topic from the user or the fortnightly content coordinator. If no top
 3. FAQ section
 4. Unsplash image block
 
-## Humanizer pass (always run last)
+## Humaniser pass (always run last)
 
-After generating the post, run the humanizer skill on the full blog body and FAQ. Follow the humanizer process exactly: draft rewrite, AI-tell audit, final version. Save only the final humanized version. Do not skip this step — every MOSIC blog post must pass through humanizer before it is considered done.
+After generating the post, run the humaniser skill on the full blog body and FAQ. Follow the humaniser process exactly: draft rewrite, AI-tell audit, final version. Save only the final humanized version. Do not skip this step — every MOSIC blog post must pass through humaniser before it is considered done.

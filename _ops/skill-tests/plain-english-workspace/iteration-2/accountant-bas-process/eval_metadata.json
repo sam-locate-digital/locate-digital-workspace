@@ -1,0 +1,12 @@
+{
+  "eval_name": "accountant-bas-process",
+  "prompt": "my accountant sent me this and honestly i have no clue what im meant to do or in what order. can you break it down:\n\n\"Hi Sam, now that turnover has exceeded the $75k threshold you will need to register for GST within 21 days. Once registered, you'll lodge a quarterly BAS reporting GST collected (1A) and GST credits (1B) on an accruals basis, and you may be required to pay PAYG instalments based on your instalment income. Please ensure all invoices issued from your effective date of registration are valid tax invoices showing your ABN and GST component, and that you retain tax invoices for any acquisitions over $82.50 to substantiate input tax credits. Q2 BAS will be due 28 Feb if lodged through us as a registered agent. Let me know if you'd like us to backdate the EDR.\"",
+  "assertions": [
+    "The response lays out the process as numbered steps in the order they happen",
+    "The steps say who does each one (Sam, the accountant, or the tax office) and give the timing in the email: register within 21 days, a quarterly BAS, and Q2 due 28 February",
+    "GST, BAS, ABN and PAYG instalments are each explained in everyday words, and 1A, 1B, 'accruals basis', 'input tax credits' and 'EDR' are either explained in everyday words or not used",
+    "The response tells Sam to put the ABN and GST amount on invoices and to keep receipts for purchases over $82.50, in plain words",
+    "The response includes one everyday analogy for the overall GST arrangement",
+    "The response flags that backdating the registration date is a decision Sam needs to make or discuss with the accountant"
+  ]
+}

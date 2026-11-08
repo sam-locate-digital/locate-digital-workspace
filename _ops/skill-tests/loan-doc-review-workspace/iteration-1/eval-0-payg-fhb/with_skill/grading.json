@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "Identifies scenario as PAYG owner-occupier purchase (FHB)", "passed": true, "evidence": "Header: 'PAYG (employee) · Owner-occupier purchase (first home buyer)'"},
+    {"text": "Flags only one payslip when two required", "passed": true, "evidence": "Checklist: '2 most recent payslips — Only 1 payslip'; Blocker 4"},
+    {"text": "Flags missing secondary ID", "passed": true, "evidence": "Blocker 3 'Secondary ID missing — VOI incomplete'"},
+    {"text": "Flags address mismatch (Parramatta vs Blacktown)", "passed": true, "evidence": "Review 2 'Current residential address inconsistent'"},
+    {"text": "Flags $35k unexplained transfer / genuine savings", "passed": true, "evidence": "Blocker 2 'Unsourced $35,000 deposit'"},
+    {"text": "Flags undisclosed credit card (NIL declared)", "passed": true, "evidence": "Blocker 1 'Undisclosed credit-card liability'"},
+    {"text": "Raises living-expense verification", "passed": true, "evidence": "Review 1 'Living expenses can't be verified'"},
+    {"text": "Notes FHOG/first-home concession not in folder", "passed": true, "evidence": "Review 5 'First-home-buyer concessions not evidenced'"},
+    {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": true, "evidence": "Three tiers 🔴/🟠/🟡 in that order"},
+    {"text": "Does NOT state loan approved/qualifies", "passed": true, "evidence": "Closes 'documentation check, not a suitability or credit decision'"}
+  ]
+}

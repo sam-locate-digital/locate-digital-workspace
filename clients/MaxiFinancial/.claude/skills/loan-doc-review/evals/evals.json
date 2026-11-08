@@ -4,14 +4,14 @@
     {
       "id": 0,
       "name": "payg-fhb-owner-occ",
-      "prompt": "Can you review the loan documents for my client Sarah Nguyen before I lodge it? Everything's in the folder clients/MaxiFinancial/.claude/skills/loan-doc-review-workspace/fixtures/case-payg-fhb. She's a first home buyer buying a place to live in. Let me know what's missing or wrong.",
+      "prompt": "Can you review the loan documents for my client Sarah Nguyen before I lodge it? Everything's in the folder _ops/skill-tests/loan-doc-review-workspace/fixtures/case-payg-fhb. She's a first home buyer buying a place to live in. Let me know what's missing or wrong.",
       "expected_output": "Scenario identified as PAYG owner-occupier purchase (first home buyer). Checklist + flagged issues, worst-first. Should catch: only 1 payslip (need 2); no secondary ID; address mismatch licence vs payslip; $35k unexplained deposit / genuine-savings gap; recurring credit-card repayment with no statement and debts declared NIL (undisclosed liability); living expenses possibly understated vs statements; FHOG application not present; savings statement stale (ends 31 Jul). No approval/decline language.",
       "files": ["fixtures/case-payg-fhb/"]
     },
     {
       "id": 1,
       "name": "selfemp-refinance",
-      "prompt": "Please do a pre-submission check on Michael Rossi's refinance file — docs are in clients/MaxiFinancial/.claude/skills/loan-doc-review-workspace/fixtures/case-selfemp-refi. He's self-employed and refinancing his home loan. Is it ready to submit?",
+      "prompt": "Please do a pre-submission check on Michael Rossi's refinance file — docs are in _ops/skill-tests/loan-doc-review-workspace/fixtures/case-selfemp-refi. He's self-employed and refinancing his home loan. Is it ready to submit?",
       "expected_output": "Scenario identified as self-employed refinance. Should catch: only 1 year tax return + NOA (need 2 years); business financials missing; only 2 BAS quarters (need 4); only 2 months repayment conduct (need 6); rates notice missing; secondary ID missing; living expenses declared $2,000/mo vs ~$4,300/mo in statements (compliance gap); joint existing loan (Michael & Elena Rossi) but sole applicant — co-borrower/consent issue; Latitude personal loan being consolidated with no loan statement. No approval/decline language.",
       "files": ["fixtures/case-selfemp-refi/"]
     }

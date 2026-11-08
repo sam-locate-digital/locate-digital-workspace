@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "The response opens with a one- or two-sentence summary of what the message means before any detail",
+      "passed": true,
+      "evidence": "Opens with a one-line gist in Vercel's voice: 'I'm ready... but the internet doesn't know to send people to me yet.'"
+    },
+    {
+      "text": "The response includes an everyday analogy that says which real-world thing stands for which technical part (for example the domain, the record and the server)",
+      "passed": false,
+      "evidence": "Says DNS 'works like a phone book' but maps only that one part; the domain, the record and Vercel aren't mapped to anything."
+    },
+    {
+      "text": "Every technical term or acronym the response uses (DNS, CNAME, TTL, SSL) is either explained in everyday words the first time or not used at all",
+      "passed": false,
+      "evidence": "CNAME is used as a field value with no explanation; TTL is mentioned ('leave it on whatever the default is') without saying what it is."
+    },
+    {
+      "text": "The response gives concrete next steps Sam can follow, including adding the record with name demo and value cname.vercel-dns.com",
+      "passed": true,
+      "evidence": "Step 4 gives Type CNAME, Name demo, Value cname.vercel-dns.com."
+    },
+    {
+      "text": "The response says the change can take time (up to 48 hours) to take effect, in plain words",
+      "passed": true,
+      "evidence": "'Vercel says \"up to 48 hours\" to cover itself, but it's rarely that long.'"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  }
+}

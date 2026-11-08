@@ -1,0 +1,17 @@
+[SCANNED PDF — COMMONWEALTH BANK, NetBank Saver statement]
+
+Account holder: S J NGUYEN
+Account: NetBank Saver  062-xxx  1102 4485
+Statement period: 01 Jun 2026 – 31 Jul 2026
+
+Date        Description                          Debit      Credit     Balance
+02 Jun 2026 Opening balance                                            4,120.00
+06 Jun 2026 SALARY BRIGHTPATH MKTG                          2,150.00   6,270.00
+09 Jun 2026 CBA CREDITCARD PYMT                   400.00               5,870.00
+20 Jun 2026 SALARY BRIGHTPATH MKTG                          2,150.00   8,020.00
+23 Jun 2026 CBA CREDITCARD PYMT                   400.00               7,620.00
+04 Jul 2026 SALARY BRIGHTPATH MKTG                          2,150.00   9,770.00
+18 Jul 2026 SALARY BRIGHTPATH MKTG                          2,150.00  11,920.00
+20 Jul 2026 TRANSFER FROM EXTERNAL                        35,000.00   46,920.00
+23 Jul 2026 CBA CREDITCARD PYMT                   400.00              46,520.00
+31 Jul 2026 Closing balance                                           46,520.00

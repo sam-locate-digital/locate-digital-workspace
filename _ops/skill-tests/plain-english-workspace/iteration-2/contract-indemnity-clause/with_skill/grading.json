@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The response opens with a one- or two-sentence plain answer to what the clause means and whether it's risky",
+      "passed": true,
+      "evidence": "'Yes, as written it's bad for you. You'd be agreeing to pay for any loss...'"
+    },
+    {
+      "text": "The response explains 'indemnify and hold harmless' as Sam agreeing to cover the client's losses and costs, in everyday words",
+      "passed": true,
+      "evidence": "'means you agree to cover their costs if something goes wrong, and you won't come after them for it.'"
+    },
+    {
+      "text": "The response points out that 'including by negligence' and 'howsoever caused' mean Sam would pay even when the client is partly at fault, with the only exception being the client's wilful misconduct",
+      "passed": true,
+      "evidence": "'it doesn't matter who caused the problem... could even include theirs'; the wilful misconduct exception is explained, with careless approval as the example."
+    },
+    {
+      "text": "The response explains that 'uncapped' means there is no upper limit and 'survives termination' means it still applies after the contract ends",
+      "passed": true,
+      "evidence": "'Uncapped means there's no upper limit'; 'Survives termination means it keeps going after the contract ends.'"
+    },
+    {
+      "text": "The response includes an everyday analogy for the clause",
+      "passed": true,
+      "evidence": "Plumber who agrees to pay for any water damage in the house, whoever caused it, forever."
+    },
+    {
+      "text": "The response gives Sam practical next steps, such as asking for a liability cap or mutual indemnity, or getting a lawyer to look at it, and says it isn't legal advice",
+      "passed": true,
+      "evidence": "Six changes (cap, own-fault only, proportionate, no indirect loss, mutual, legal costs), plus check with the broker and a lawyer; 'not legal advice'."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

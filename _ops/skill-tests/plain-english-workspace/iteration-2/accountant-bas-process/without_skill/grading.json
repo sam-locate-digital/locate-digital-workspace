@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "The response lays out the process as numbered steps in the order they happen",
+      "passed": true,
+      "evidence": "'What to do, in order' with 8 numbered steps."
+    },
+    {
+      "text": "The steps say who does each one (Sam, the accountant, or the tax office) and give the timing in the email: register within 21 days, a quarterly BAS, and Q2 due 28 February",
+      "passed": true,
+      "evidence": "'within 21 days (urgent)', a quarterly BAS, 'due 28 February 2027'; the accountant lodges it."
+    },
+    {
+      "text": "GST, BAS, ABN and PAYG instalments are each explained in everyday words, and 1A, 1B, 'accruals basis', 'input tax credits' and 'EDR' are either explained in everyday words or not used",
+      "passed": false,
+      "evidence": "ABN not defined. Accruals, input tax credits and registered agent are glossed in a glossary at the end, not where they first appear."
+    },
+    {
+      "text": "The response tells Sam to put the ABN and GST amount on invoices and to keep receipts for purchases over $82.50, in plain words",
+      "passed": true,
+      "evidence": "Step 4 lists the invoice requirements including ABN and GST; step 5 covers receipts over $82.50."
+    },
+    {
+      "text": "The response includes one everyday analogy for the overall GST arrangement",
+      "passed": false,
+      "evidence": "No analogy."
+    },
+    {
+      "text": "The response flags that backdating the registration date is a decision Sam needs to make or discuss with the accountant",
+      "passed": true,
+      "evidence": "Step 2: 'Answer the backdating question before they register you.'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

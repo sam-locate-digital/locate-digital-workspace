@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "Identifies scenario as PAYG owner-occupier purchase (FHB)", "passed": true, "evidence": "Title 'Sarah Nguyen (PAYG First Home Buyer)', owner occupier"},
+    {"text": "Flags only one payslip when two required", "passed": true, "evidence": "2.1 'Only one payslip; payslip is incomplete'"},
+    {"text": "Flags missing secondary ID", "passed": true, "evidence": "Checklist 'Second form of ID ... to complete a 100-point / VOI check'"},
+    {"text": "Flags address mismatch (Parramatta vs Blacktown)", "passed": true, "evidence": "1.4 'Inconsistent residential address across documents'"},
+    {"text": "Flags $35k unexplained transfer / genuine savings", "passed": true, "evidence": "1.3 'Large unexplained deposit — genuine savings problem'"},
+    {"text": "Flags undisclosed credit card (NIL declared)", "passed": true, "evidence": "1.1 'Undeclared credit card'"},
+    {"text": "Raises living-expense verification", "passed": true, "evidence": "2.2 'Living expenses likely understated'"},
+    {"text": "Notes FHOG/first-home concession not in folder", "passed": true, "evidence": "2.3 'First Home Buyer benefits — check eligibility'"},
+    {"text": "Sorts issues into Blocker/Review/Minor worst-first", "passed": false, "evidence": "Uses ad-hoc 'Critical / Important / Missing' headings, not the standardized Blocker/Review/Minor tiers"},
+    {"text": "Does NOT state loan approved/qualifies", "passed": true, "evidence": "Says 'Do NOT lodge yet'; no approval language"}
+  ]
+}

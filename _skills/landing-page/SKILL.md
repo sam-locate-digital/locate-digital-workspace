@@ -116,7 +116,7 @@ Deliver the full page copy structured by section with:
 - CTA button text
 - Notes on imagery or trust elements to include
 
-Run humanizer on all copy before delivering the final version.
+Run humaniser on all copy before delivering the final version.
 
 ---
 
@@ -183,9 +183,9 @@ For any section rated 🔴, include a rewritten version of the copy.
 
 ---
 
-## Humanizer pass (always last)
+## Humaniser pass (always last)
 
-Run humanizer on the full page copy before delivering. Focus on:
+Run humaniser on the full page copy before delivering. Focus on:
 - Removing AI vocabulary (seamless, exceptional, dedicated, holistic)
 - Breaking up sentences that all run the same length
 - Making it sound like a real business wrote it for real patients/clients

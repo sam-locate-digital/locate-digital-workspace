@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "skill_name": "plain-english",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-11-04T02:37:52Z",
+    "evals_run": [
+      "accountant-bas-process",
+      "contract-indemnity-clause"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "accountant-bas-process",
+      "eval_name": "accountant-bas-process",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 80.8,
+        "tokens": 81243,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response lays out the process as numbered steps in the order they happen",
+          "passed": true,
+          "evidence": "Six numbered steps under 'Here's the order it happens in'."
+        },
+        {
+          "text": "The steps say who does each one (Sam, the accountant, or the tax office) and give the timing in the email: register within 21 days, a quarterly BAS, and Q2 due 28 February",
+          "passed": true,
+          "evidence": "Each step has a who/when tag, e.g. 'Register for GST (the accountant or you, within 21 days)', 'Report every quarter', 'due 28 February'."
+        },
+        {
+          "text": "GST, BAS, ABN and PAYG instalments are each explained in everyday words, and 1A, 1B, 'accruals basis', 'input tax credits' and 'EDR' are either explained in everyday words or not used",
+          "passed": false,
+          "evidence": "GST, BAS, PAYG, 1A/1B, accruals and EDR are all explained, but ABN is used ('show your ABN') without a definition. Strict fail; Sam probably knows ABN already, see notes."
+        },
+        {
+          "text": "The response tells Sam to put the ABN and GST amount on invoices and to keep receipts for purchases over $82.50, in plain words",
+          "passed": true,
+          "evidence": "Step 3: invoices say 'Tax invoice', show the ABN and the GST amount. Step 4: keep receipts over $82.50."
+        },
+        {
+          "text": "The response includes one everyday analogy for the overall GST arrangement",
+          "passed": true,
+          "evidence": "The tax office's jar: 10% goes in on each invoice, GST on costs comes out, and the BAS counts the jar."
+        },
+        {
+          "text": "The response flags that backdating the registration date is a decision Sam needs to make or discuss with the accountant",
+          "passed": true,
+          "evidence": "Step 1 'Decide your start date (you, now)', with the backdating cost spelled out."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "contract-indemnity-clause",
+      "eval_name": "contract-indemnity-clause",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 68.3,
+        "tokens": 80500,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence plain answer to what the clause means and whether it's risky",
+          "passed": true,
+          "evidence": "'Yes, as written it's bad for you. You'd be agreeing to pay for any loss...'"
+        },
+        {
+          "text": "The response explains 'indemnify and hold harmless' as Sam agreeing to cover the client's losses and costs, in everyday words",
+          "passed": true,
+          "evidence": "'means you agree to cover their costs if something goes wrong, and you won't come after them for it.'"
+        },
+        {
+          "text": "The response points out that 'including by negligence' and 'howsoever caused' mean Sam would pay even when the client is partly at fault, with the only exception being the client's wilful misconduct",
+          "passed": true,
+          "evidence": "'it doesn't matter who caused the problem... could even include theirs'; the wilful misconduct exception is explained, with careless approval as the example."
+        },
+        {
+          "text": "The response explains that 'uncapped' means there is no upper limit and 'survives termination' means it still applies after the contract ends",
+          "passed": true,
+          "evidence": "'Uncapped means there's no upper limit'; 'Survives termination means it keeps going after the contract ends.'"
+        },
+        {
+          "text": "The response includes an everyday analogy for the clause",
+          "passed": true,
+          "evidence": "Plumber who agrees to pay for any water damage in the house, whoever caused it, forever."
+        },
+        {
+          "text": "The response gives Sam practical next steps, such as asking for a liability cap or mutual indemnity, or getting a lawyer to look at it, and says it isn't legal advice",
+          "passed": true,
+          "evidence": "Six changes (cap, own-fault only, proportionate, no indirect loss, mutual, legal costs), plus check with the broker and a lawyer; 'not legal advice'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "accountant-bas-process",
+      "eval_name": "accountant-bas-process",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 74.5,
+        "tokens": 77587,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response lays out the process as numbered steps in the order they happen",
+          "passed": true,
+          "evidence": "'What to do, in order' with 8 numbered steps."
+        },
+        {
+          "text": "The steps say who does each one (Sam, the accountant, or the tax office) and give the timing in the email: register within 21 days, a quarterly BAS, and Q2 due 28 February",
+          "passed": true,
+          "evidence": "'within 21 days (urgent)', a quarterly BAS, 'due 28 February 2027'; the accountant lodges it."
+        },
+        {
+          "text": "GST, BAS, ABN and PAYG instalments are each explained in everyday words, and 1A, 1B, 'accruals basis', 'input tax credits' and 'EDR' are either explained in everyday words or not used",
+          "passed": false,
+          "evidence": "ABN not defined. Accruals, input tax credits and registered agent are glossed in a glossary at the end, not where they first appear."
+        },
+        {
+          "text": "The response tells Sam to put the ABN and GST amount on invoices and to keep receipts for purchases over $82.50, in plain words",
+          "passed": true,
+          "evidence": "Step 4 lists the invoice requirements including ABN and GST; step 5 covers receipts over $82.50."
+        },
+        {
+          "text": "The response includes one everyday analogy for the overall GST arrangement",
+          "passed": false,
+          "evidence": "No analogy."
+        },
+        {
+          "text": "The response flags that backdating the registration date is a decision Sam needs to make or discuss with the accountant",
+          "passed": true,
+          "evidence": "Step 2: 'Answer the backdating question before they register you.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "contract-indemnity-clause",
+      "eval_name": "contract-indemnity-clause",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 61.6,
+        "tokens": 77588,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The response opens with a one- or two-sentence plain answer to what the clause means and whether it's risky",
+          "passed": true,
+          "evidence": "'Short answer: yes, it's bad.'"
+        },
+        {
+          "text": "The response explains 'indemnify and hold harmless' as Sam agreeing to cover the client's losses and costs, in everyday words",
+          "passed": true,
+          "evidence": "'you have to cover their losses, and you can't come after them for anything related.'"
+        },
+        {
+          "text": "The response points out that 'including by negligence' and 'howsoever caused' mean Sam would pay even when the client is partly at fault, with the only exception being the client's wilful misconduct",
+          "passed": true,
+          "evidence": "'this most likely includes their negligence as well as yours'; the wilful misconduct exception is explained."
+        },
+        {
+          "text": "The response explains that 'uncapped' means there is no upper limit and 'survives termination' means it still applies after the contract ends",
+          "passed": true,
+          "evidence": "'uncapped: no maximum'; 'survives termination: it still applies after the contract ends'."
+        },
+        {
+          "text": "The response includes an everyday analogy for the clause",
+          "passed": false,
+          "evidence": "No analogy; it gives realistic agency scenarios instead."
+        },
+        {
+          "text": "The response gives Sam practical next steps, such as asking for a liability cap or mutual indemnity, or getting a lawyer to look at it, and says it isn't legal advice",
+          "passed": true,
+          "evidence": "Six changes, a replacement clause, an email to the client, the broker check and 'this isn't legal advice'."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.915,
+        "stddev": 0.1202,
+        "min": 0.83,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 74.55,
+        "stddev": 8.8388,
+        "min": 68.3,
+        "max": 80.8
+      },
+      "tokens": {
+        "mean": 80871.5,
+        "stddev": 525.3803,
+        "min": 80500,
+        "max": 81243
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.75,
+        "stddev": 0.1131,
+        "min": 0.67,
+        "max": 0.83
+      },
+      "time_seconds": {
+        "mean": 68.05,
+        "stddev": 9.1217,
+        "min": 61.6,
+        "max": 74.5
+      },
+      "tokens": {
+        "mean": 77587.5,
+        "stddev": 0.7071,
+        "min": 77587,
+        "max": 77588
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.17",
+      "time_seconds": "+6.5",
+      "tokens": "+3284"
+    }
+  },
+  "notes": [
+    "Same pattern as iteration 1. Both versions break the material down well, but only the skill version gives an analogy, and that is the main difference here.",
+    "The ABN assertion is probably too strict: Sam has an ABN and knows what it is. It failed both configurations equally. The skill now says acronyms the reader uses every day don't need defining.",
+    "The with-skill answers are noticeably shorter: 700 words against 827 for the BAS email, and 686 against 1086 for the contract. Neither lost anything the assertions check for.",
+    "The baseline contract answer included a ready-to-paste replacement clause and an email to the client. Those are useful extras the skill version didn't offer.",
+    "The with-skill contract run flagged the 'shorter than the original' rule as a poor fit for a short, dense clause. The skill now says dense jargon can need more words than the original."
+  ]
+}
